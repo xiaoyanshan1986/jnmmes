@@ -37,3 +37,16 @@ D:\组件程序\trunk\src\ServiceCenter.Modules\ERP\ServiceCenter.MES.Service.Co
 D:\组件程序\trunk\src\ServiceCenter.Modules\ERP\ServiceCenter.MES.Service.Contract.ERP\obj\Debug\ServiceCenter.MES.Service.Contract.ERP.csprojResolveAssemblyReference.cache
 D:\组件程序\trunk\src\ServiceCenter.Modules\ERP\ServiceCenter.MES.Service.Contract.ERP\obj\Debug\ServiceCenter.MES.Service.Contract.ERP.dll
 D:\组件程序\trunk\src\ServiceCenter.Modules\ERP\ServiceCenter.MES.Service.Contract.ERP\obj\Debug\ServiceCenter.MES.Service.Contract.ERP.pdb
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\ERP\ServiceCenter.MES.Service.Contract.ERP\bin\Debug\ServiceCenter.MES.Service.Contract.ERP.dll
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\ERP\ServiceCenter.MES.Service.Contract.ERP\bin\Debug\ServiceCenter.MES.Service.Contract.ERP.pdb
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\ERP\ServiceCenter.MES.Service.Contract.ERP\bin\Debug\ServiceCenter.Common.dll
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\ERP\ServiceCenter.MES.Service.Contract.ERP\bin\Debug\ServiceCenter.MES.Model.ERP.dll
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\ERP\ServiceCenter.MES.Service.Contract.ERP\bin\Debug\ServiceCenter.MES.Model.PPM.dll
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\ERP\ServiceCenter.MES.Service.Contract.ERP\bin\Debug\log4net.dll
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\ERP\ServiceCenter.MES.Service.Contract.ERP\bin\Debug\ServiceCenter.MES.Model.PPM.pdb
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\ERP\ServiceCenter.MES.Service.Contract.ERP\bin\Debug\ServiceCenter.MES.Model.ERP.pdb
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\ERP\ServiceCenter.MES.Service.Contract.ERP\bin\Debug\ServiceCenter.Common.pdb
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\ERP\ServiceCenter.MES.Service.Contract.ERP\bin\Debug\log4net.xml
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\ERP\ServiceCenter.MES.Service.Contract.ERP\obj\Debug\ServiceCenter.MES.Service.Contract.ERP.csprojResolveAssemblyReference.cache
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\ERP\ServiceCenter.MES.Service.Contract.ERP\obj\Debug\ServiceCenter.MES.Service.Contract.ERP.dll
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\ERP\ServiceCenter.MES.Service.Contract.ERP\obj\Debug\ServiceCenter.MES.Service.Contract.ERP.pdb

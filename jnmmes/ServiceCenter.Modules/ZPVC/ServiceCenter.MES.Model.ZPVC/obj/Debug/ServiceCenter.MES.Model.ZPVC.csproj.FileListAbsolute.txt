@@ -23,3 +23,12 @@ D:\组件程序\trunk\src\ServiceCenter.Modules\ZPVC\ServiceCenter.MES.Model.ZPV
 D:\组件程序\trunk\src\ServiceCenter.Modules\ZPVC\ServiceCenter.MES.Model.ZPVC\obj\Debug\ServiceCenter.MES.Model.ZPVC.dll
 D:\组件程序\trunk\src\ServiceCenter.Modules\ZPVC\ServiceCenter.MES.Model.ZPVC\obj\Debug\ServiceCenter.MES.Model.ZPVC.pdb
 D:\组件程序\trunk\src\ServiceCenter.Modules\ZPVC\ServiceCenter.MES.Model.ZPVC\obj\Debug\ServiceCenter.MES.Model.ZPVC.csprojResolveAssemblyReference.cache
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\ZPVC\ServiceCenter.MES.Model.ZPVC\bin\Debug\ServiceCenter.MES.Model.ZPVC.dll
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\ZPVC\ServiceCenter.MES.Model.ZPVC\bin\Debug\ServiceCenter.MES.Model.ZPVC.pdb
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\ZPVC\ServiceCenter.MES.Model.ZPVC\bin\Debug\ServiceCenter.Common.dll
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\ZPVC\ServiceCenter.MES.Model.ZPVC\bin\Debug\log4net.dll
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\ZPVC\ServiceCenter.MES.Model.ZPVC\bin\Debug\ServiceCenter.Common.pdb
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\ZPVC\ServiceCenter.MES.Model.ZPVC\bin\Debug\log4net.xml
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\ZPVC\ServiceCenter.MES.Model.ZPVC\obj\Debug\ServiceCenter.MES.Model.ZPVC.csprojResolveAssemblyReference.cache
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\ZPVC\ServiceCenter.MES.Model.ZPVC\obj\Debug\ServiceCenter.MES.Model.ZPVC.dll
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\ZPVC\ServiceCenter.MES.Model.ZPVC\obj\Debug\ServiceCenter.MES.Model.ZPVC.pdb

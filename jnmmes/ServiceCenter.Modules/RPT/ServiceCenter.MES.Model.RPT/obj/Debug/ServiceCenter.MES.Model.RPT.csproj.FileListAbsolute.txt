@@ -46,3 +46,11 @@ D:\组件程序\trunk\src\ServiceCenter.Modules\RPT\ServiceCenter.MES.Model.RPT\
 D:\组件程序\trunk\src\ServiceCenter.Modules\RPT\ServiceCenter.MES.Model.RPT\bin\Debug\log4net.xml
 D:\组件程序\trunk\src\ServiceCenter.Modules\RPT\ServiceCenter.MES.Model.RPT\obj\Debug\ServiceCenter.MES.Model.RPT.dll
 D:\组件程序\trunk\src\ServiceCenter.Modules\RPT\ServiceCenter.MES.Model.RPT\obj\Debug\ServiceCenter.MES.Model.RPT.pdb
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\RPT\ServiceCenter.MES.Model.RPT\bin\Debug\ServiceCenter.MES.Model.RPT.dll
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\RPT\ServiceCenter.MES.Model.RPT\bin\Debug\ServiceCenter.MES.Model.RPT.pdb
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\RPT\ServiceCenter.MES.Model.RPT\bin\Debug\ServiceCenter.Common.dll
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\RPT\ServiceCenter.MES.Model.RPT\bin\Debug\log4net.dll
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\RPT\ServiceCenter.MES.Model.RPT\bin\Debug\ServiceCenter.Common.pdb
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\RPT\ServiceCenter.MES.Model.RPT\bin\Debug\log4net.xml
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\RPT\ServiceCenter.MES.Model.RPT\obj\Debug\ServiceCenter.MES.Model.RPT.dll
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\RPT\ServiceCenter.MES.Model.RPT\obj\Debug\ServiceCenter.MES.Model.RPT.pdb

@@ -26,3 +26,8 @@ D:\组件程序\trunk\src\ServiceCenter.Host\ServiceCenter.Host\bin\ServiceCente
 D:\组件程序\trunk\src\ServiceCenter.Modules\Common\ServiceCenter.MES.Service.COMMON\obj\Debug\ServiceCenter.MES.Service.COMMON.csprojResolveAssemblyReference.cache
 D:\组件程序\trunk\src\ServiceCenter.Modules\Common\ServiceCenter.MES.Service.COMMON\obj\Debug\ServiceCenter.MES.Service.COMMON.dll
 D:\组件程序\trunk\src\ServiceCenter.Modules\Common\ServiceCenter.MES.Service.COMMON\obj\Debug\ServiceCenter.MES.Service.COMMON.pdb
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Host\ServiceCenter.Host\bin\ServiceCenter.MES.Service.COMMON.dll
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Host\ServiceCenter.Host\bin\ServiceCenter.MES.Service.COMMON.pdb
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\Common\ServiceCenter.MES.Service.COMMON\obj\Debug\ServiceCenter.MES.Service.COMMON.csprojResolveAssemblyReference.cache
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\Common\ServiceCenter.MES.Service.COMMON\obj\Debug\ServiceCenter.MES.Service.COMMON.dll
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\Common\ServiceCenter.MES.Service.COMMON\obj\Debug\ServiceCenter.MES.Service.COMMON.pdb

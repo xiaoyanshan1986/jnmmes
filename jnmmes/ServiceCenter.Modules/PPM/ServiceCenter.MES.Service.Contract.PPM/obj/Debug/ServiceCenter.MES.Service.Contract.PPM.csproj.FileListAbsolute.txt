@@ -30,3 +30,14 @@ D:\组件程序\trunk\src\ServiceCenter.Modules\PPM\ServiceCenter.MES.Service.Co
 D:\组件程序\trunk\src\ServiceCenter.Modules\PPM\ServiceCenter.MES.Service.Contract.PPM\obj\Debug\ServiceCenter.MES.Service.Contract.PPM.dll
 D:\组件程序\trunk\src\ServiceCenter.Modules\PPM\ServiceCenter.MES.Service.Contract.PPM\obj\Debug\ServiceCenter.MES.Service.Contract.PPM.pdb
 D:\组件程序\trunk\src\ServiceCenter.Modules\PPM\ServiceCenter.MES.Service.Contract.PPM\obj\Debug\ServiceCenter.MES.Service.Contract.PPM.csprojResolveAssemblyReference.cache
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\PPM\ServiceCenter.MES.Service.Contract.PPM\bin\Debug\ServiceCenter.MES.Service.Contract.PPM.dll
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\PPM\ServiceCenter.MES.Service.Contract.PPM\bin\Debug\ServiceCenter.MES.Service.Contract.PPM.pdb
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\PPM\ServiceCenter.MES.Service.Contract.PPM\bin\Debug\ServiceCenter.Common.dll
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\PPM\ServiceCenter.MES.Service.Contract.PPM\bin\Debug\ServiceCenter.MES.Model.PPM.dll
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\PPM\ServiceCenter.MES.Service.Contract.PPM\bin\Debug\log4net.dll
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\PPM\ServiceCenter.MES.Service.Contract.PPM\bin\Debug\ServiceCenter.MES.Model.PPM.pdb
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\PPM\ServiceCenter.MES.Service.Contract.PPM\bin\Debug\ServiceCenter.Common.pdb
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\PPM\ServiceCenter.MES.Service.Contract.PPM\bin\Debug\log4net.xml
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\PPM\ServiceCenter.MES.Service.Contract.PPM\obj\Debug\ServiceCenter.MES.Service.Contract.PPM.csprojResolveAssemblyReference.cache
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\PPM\ServiceCenter.MES.Service.Contract.PPM\obj\Debug\ServiceCenter.MES.Service.Contract.PPM.dll
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\PPM\ServiceCenter.MES.Service.Contract.PPM\obj\Debug\ServiceCenter.MES.Service.Contract.PPM.pdb

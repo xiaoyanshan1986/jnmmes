@@ -49,3 +49,12 @@ D:\组件程序\trunk\src\ServiceCenter.Modules\BASE\ServiceCenter.MES.Model.Bas
 D:\组件程序\trunk\src\ServiceCenter.Modules\BASE\ServiceCenter.MES.Model.Base\bin\Debug\log4net.xml
 D:\组件程序\trunk\src\ServiceCenter.Modules\BASE\ServiceCenter.MES.Model.Base\obj\Debug\ServiceCenter.MES.Model.BaseData.dll
 D:\组件程序\trunk\src\ServiceCenter.Modules\BASE\ServiceCenter.MES.Model.Base\obj\Debug\ServiceCenter.MES.Model.BaseData.pdb
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\BASE\ServiceCenter.MES.Model.Base\bin\Debug\ServiceCenter.MES.Model.BaseData.dll
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\BASE\ServiceCenter.MES.Model.Base\bin\Debug\ServiceCenter.MES.Model.BaseData.pdb
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\BASE\ServiceCenter.MES.Model.Base\bin\Debug\ServiceCenter.Common.dll
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\BASE\ServiceCenter.MES.Model.Base\bin\Debug\log4net.dll
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\BASE\ServiceCenter.MES.Model.Base\bin\Debug\ServiceCenter.Common.pdb
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\BASE\ServiceCenter.MES.Model.Base\bin\Debug\log4net.xml
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\BASE\ServiceCenter.MES.Model.Base\obj\Debug\ServiceCenter.MES.Model.BaseData.csprojResolveAssemblyReference.cache
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\BASE\ServiceCenter.MES.Model.Base\obj\Debug\ServiceCenter.MES.Model.BaseData.dll
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\BASE\ServiceCenter.MES.Model.Base\obj\Debug\ServiceCenter.MES.Model.BaseData.pdb

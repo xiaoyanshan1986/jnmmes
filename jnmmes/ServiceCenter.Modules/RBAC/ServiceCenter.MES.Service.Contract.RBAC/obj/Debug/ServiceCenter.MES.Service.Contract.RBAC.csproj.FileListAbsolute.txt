@@ -53,3 +53,14 @@ D:\组件程序\trunk\src\ServiceCenter.Modules\RBAC\ServiceCenter.MES.Service.C
 D:\组件程序\trunk\src\ServiceCenter.Modules\RBAC\ServiceCenter.MES.Service.Contract.RBAC\obj\Debug\ServiceCenter.MES.Service.Contract.RBAC.csprojResolveAssemblyReference.cache
 D:\组件程序\trunk\src\ServiceCenter.Modules\RBAC\ServiceCenter.MES.Service.Contract.RBAC\obj\Debug\ServiceCenter.MES.Service.Contract.RBAC.dll
 D:\组件程序\trunk\src\ServiceCenter.Modules\RBAC\ServiceCenter.MES.Service.Contract.RBAC\obj\Debug\ServiceCenter.MES.Service.Contract.RBAC.pdb
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\RBAC\ServiceCenter.MES.Service.Contract.RBAC\bin\Debug\ServiceCenter.MES.Service.Contract.RBAC.dll
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\RBAC\ServiceCenter.MES.Service.Contract.RBAC\bin\Debug\ServiceCenter.MES.Service.Contract.RBAC.pdb
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\RBAC\ServiceCenter.MES.Service.Contract.RBAC\bin\Debug\ServiceCenter.Common.dll
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\RBAC\ServiceCenter.MES.Service.Contract.RBAC\bin\Debug\ServiceCenter.MES.Model.RBAC.dll
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\RBAC\ServiceCenter.MES.Service.Contract.RBAC\bin\Debug\log4net.dll
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\RBAC\ServiceCenter.MES.Service.Contract.RBAC\bin\Debug\ServiceCenter.MES.Model.RBAC.pdb
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\RBAC\ServiceCenter.MES.Service.Contract.RBAC\bin\Debug\ServiceCenter.Common.pdb
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\RBAC\ServiceCenter.MES.Service.Contract.RBAC\bin\Debug\log4net.xml
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\RBAC\ServiceCenter.MES.Service.Contract.RBAC\obj\Debug\ServiceCenter.MES.Service.Contract.RBAC.csprojResolveAssemblyReference.cache
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\RBAC\ServiceCenter.MES.Service.Contract.RBAC\obj\Debug\ServiceCenter.MES.Service.Contract.RBAC.dll
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\RBAC\ServiceCenter.MES.Service.Contract.RBAC\obj\Debug\ServiceCenter.MES.Service.Contract.RBAC.pdb

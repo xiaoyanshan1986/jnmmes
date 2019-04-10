@@ -63,3 +63,16 @@ D:\组件程序\trunk\src\ServiceCenter.Modules\SPC\ServiceCenter.MES.Service.Cl
 D:\组件程序\trunk\src\ServiceCenter.Modules\SPC\ServiceCenter.MES.Service.Client.SPC\obj\Debug\ServiceCenter.MES.Service.Client.SPC.dll
 D:\组件程序\trunk\src\ServiceCenter.Modules\SPC\ServiceCenter.MES.Service.Client.SPC\obj\Debug\ServiceCenter.MES.Service.Client.SPC.pdb
 D:\组件程序\trunk\src\ServiceCenter.Modules\SPC\ServiceCenter.MES.Service.Client.SPC\obj\Debug\ServiceCenter.MES.Service.Client.SPC.csprojResolveAssemblyReference.cache
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\SPC\ServiceCenter.MES.Service.Client.SPC\bin\Debug\ServiceCenter.MES.Service.Client.SPC.dll
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\SPC\ServiceCenter.MES.Service.Client.SPC\bin\Debug\ServiceCenter.MES.Service.Client.SPC.pdb
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\SPC\ServiceCenter.MES.Service.Client.SPC\bin\Debug\ServiceCenter.Common.dll
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\SPC\ServiceCenter.MES.Service.Client.SPC\bin\Debug\ServiceCenter.MES.Model.SPC.dll
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\SPC\ServiceCenter.MES.Service.Client.SPC\bin\Debug\ServiceCenter.MES.Service.Contract.SPC.dll
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\SPC\ServiceCenter.MES.Service.Client.SPC\bin\Debug\log4net.dll
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\SPC\ServiceCenter.MES.Service.Client.SPC\bin\Debug\ServiceCenter.MES.Model.SPC.pdb
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\SPC\ServiceCenter.MES.Service.Client.SPC\bin\Debug\ServiceCenter.MES.Service.Contract.SPC.pdb
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\SPC\ServiceCenter.MES.Service.Client.SPC\bin\Debug\ServiceCenter.Common.pdb
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\SPC\ServiceCenter.MES.Service.Client.SPC\bin\Debug\log4net.xml
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\SPC\ServiceCenter.MES.Service.Client.SPC\obj\Debug\ServiceCenter.MES.Service.Client.SPC.csprojResolveAssemblyReference.cache
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\SPC\ServiceCenter.MES.Service.Client.SPC\obj\Debug\ServiceCenter.MES.Service.Client.SPC.dll
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\SPC\ServiceCenter.MES.Service.Client.SPC\obj\Debug\ServiceCenter.MES.Service.Client.SPC.pdb

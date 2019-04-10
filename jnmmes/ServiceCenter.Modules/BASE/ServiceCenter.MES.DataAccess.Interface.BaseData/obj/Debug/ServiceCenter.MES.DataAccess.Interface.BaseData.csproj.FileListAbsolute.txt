@@ -64,3 +64,14 @@ D:\组件程序\trunk\src\ServiceCenter.Modules\BASE\ServiceCenter.MES.DataAcces
 D:\组件程序\trunk\src\ServiceCenter.Modules\BASE\ServiceCenter.MES.DataAccess.Interface.BaseData\obj\Debug\ServiceCenter.MES.DataAccess.Interface.BaseData.csprojResolveAssemblyReference.cache
 D:\组件程序\trunk\src\ServiceCenter.Modules\BASE\ServiceCenter.MES.DataAccess.Interface.BaseData\obj\Debug\ServiceCenter.MES.DataAccess.Interface.BaseData.dll
 D:\组件程序\trunk\src\ServiceCenter.Modules\BASE\ServiceCenter.MES.DataAccess.Interface.BaseData\obj\Debug\ServiceCenter.MES.DataAccess.Interface.BaseData.pdb
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\BASE\ServiceCenter.MES.DataAccess.Interface.BaseData\bin\Debug\ServiceCenter.MES.DataAccess.Interface.BaseData.dll
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\BASE\ServiceCenter.MES.DataAccess.Interface.BaseData\bin\Debug\ServiceCenter.MES.DataAccess.Interface.BaseData.pdb
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\BASE\ServiceCenter.MES.DataAccess.Interface.BaseData\bin\Debug\ServiceCenter.Common.dll
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\BASE\ServiceCenter.MES.DataAccess.Interface.BaseData\bin\Debug\ServiceCenter.MES.Model.BaseData.dll
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\BASE\ServiceCenter.MES.DataAccess.Interface.BaseData\bin\Debug\log4net.dll
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\BASE\ServiceCenter.MES.DataAccess.Interface.BaseData\bin\Debug\ServiceCenter.MES.Model.BaseData.pdb
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\BASE\ServiceCenter.MES.DataAccess.Interface.BaseData\bin\Debug\ServiceCenter.Common.pdb
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\BASE\ServiceCenter.MES.DataAccess.Interface.BaseData\bin\Debug\log4net.xml
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\BASE\ServiceCenter.MES.DataAccess.Interface.BaseData\obj\Debug\ServiceCenter.MES.DataAccess.Interface.BaseData.csprojResolveAssemblyReference.cache
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\BASE\ServiceCenter.MES.DataAccess.Interface.BaseData\obj\Debug\ServiceCenter.MES.DataAccess.Interface.BaseData.dll
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\BASE\ServiceCenter.MES.DataAccess.Interface.BaseData\obj\Debug\ServiceCenter.MES.DataAccess.Interface.BaseData.pdb

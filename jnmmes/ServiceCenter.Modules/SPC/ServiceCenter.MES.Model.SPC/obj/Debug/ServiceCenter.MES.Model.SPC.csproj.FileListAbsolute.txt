@@ -59,3 +59,14 @@ D:\组件程序\trunk\src\ServiceCenter.Modules\SPC\ServiceCenter.MES.Model.SPC\
 D:\组件程序\trunk\src\ServiceCenter.Modules\SPC\ServiceCenter.MES.Model.SPC\obj\Debug\ServiceCenter.MES.Model.SPC.dll
 D:\组件程序\trunk\src\ServiceCenter.Modules\SPC\ServiceCenter.MES.Model.SPC\obj\Debug\ServiceCenter.MES.Model.SPC.pdb
 D:\组件程序\trunk\src\ServiceCenter.Modules\SPC\ServiceCenter.MES.Model.SPC\obj\Debug\ServiceCenter.MES.Model.SPC.csprojResolveAssemblyReference.cache
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\SPC\ServiceCenter.MES.Model.SPC\bin\Debug\ServiceCenter.MES.Model.SPC.dll
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\SPC\ServiceCenter.MES.Model.SPC\bin\Debug\ServiceCenter.MES.Model.SPC.pdb
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\SPC\ServiceCenter.MES.Model.SPC\bin\Debug\ServiceCenter.Common.dll
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\SPC\ServiceCenter.MES.Model.SPC\bin\Debug\log4net.dll
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\SPC\ServiceCenter.MES.Model.SPC\bin\Debug\ServiceCenter.Common.pdb
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\SPC\ServiceCenter.MES.Model.SPC\bin\Debug\log4net.xml
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\SPC\ServiceCenter.MES.Model.SPC\obj\Debug\ServiceCenter.MES.Model.SPC.csprojResolveAssemblyReference.cache
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\SPC\ServiceCenter.MES.Model.SPC\obj\Debug\ServiceCenter.MES.Model.SPC.Resources.StringResource.resources
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\SPC\ServiceCenter.MES.Model.SPC\obj\Debug\ServiceCenter.MES.Model.SPC.csproj.GenerateResource.Cache
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\SPC\ServiceCenter.MES.Model.SPC\obj\Debug\ServiceCenter.MES.Model.SPC.dll
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\SPC\ServiceCenter.MES.Model.SPC\obj\Debug\ServiceCenter.MES.Model.SPC.pdb

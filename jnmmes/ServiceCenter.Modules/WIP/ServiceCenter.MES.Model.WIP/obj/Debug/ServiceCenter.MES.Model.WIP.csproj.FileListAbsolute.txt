@@ -81,3 +81,13 @@ D:\组件程序\trunk\src\ServiceCenter.Modules\WIP\ServiceCenter.MES.Model.WIP\
 D:\组件程序\trunk\src\ServiceCenter.Modules\WIP\ServiceCenter.MES.Model.WIP\obj\Debug\ServiceCenter.MES.Model.WIP.csproj.GenerateResource.Cache
 D:\组件程序\trunk\src\ServiceCenter.Modules\WIP\ServiceCenter.MES.Model.WIP\obj\Debug\ServiceCenter.MES.Model.WIP.dll
 D:\组件程序\trunk\src\ServiceCenter.Modules\WIP\ServiceCenter.MES.Model.WIP\obj\Debug\ServiceCenter.MES.Model.WIP.pdb
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\WIP\ServiceCenter.MES.Model.WIP\bin\Debug\ServiceCenter.MES.Model.WIP.dll
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\WIP\ServiceCenter.MES.Model.WIP\bin\Debug\ServiceCenter.MES.Model.WIP.pdb
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\WIP\ServiceCenter.MES.Model.WIP\bin\Debug\ServiceCenter.Common.dll
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\WIP\ServiceCenter.MES.Model.WIP\bin\Debug\log4net.dll
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\WIP\ServiceCenter.MES.Model.WIP\bin\Debug\ServiceCenter.Common.pdb
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\WIP\ServiceCenter.MES.Model.WIP\bin\Debug\log4net.xml
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\WIP\ServiceCenter.MES.Model.WIP\obj\Debug\ServiceCenter.MES.Model.WIP.Resources.StringResource.resources
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\WIP\ServiceCenter.MES.Model.WIP\obj\Debug\ServiceCenter.MES.Model.WIP.csproj.GenerateResource.Cache
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\WIP\ServiceCenter.MES.Model.WIP\obj\Debug\ServiceCenter.MES.Model.WIP.dll
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\WIP\ServiceCenter.MES.Model.WIP\obj\Debug\ServiceCenter.MES.Model.WIP.pdb

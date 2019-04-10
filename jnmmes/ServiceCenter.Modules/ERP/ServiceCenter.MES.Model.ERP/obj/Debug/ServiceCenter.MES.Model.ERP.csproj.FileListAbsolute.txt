@@ -60,3 +60,13 @@ D:\组件程序\trunk\src\ServiceCenter.Modules\ERP\ServiceCenter.MES.Model.ERP\
 D:\组件程序\trunk\src\ServiceCenter.Modules\ERP\ServiceCenter.MES.Model.ERP\obj\Debug\ServiceCenter.MES.Model.ERP.csproj.GenerateResource.Cache
 D:\组件程序\trunk\src\ServiceCenter.Modules\ERP\ServiceCenter.MES.Model.ERP\obj\Debug\ServiceCenter.MES.Model.ERP.dll
 D:\组件程序\trunk\src\ServiceCenter.Modules\ERP\ServiceCenter.MES.Model.ERP\obj\Debug\ServiceCenter.MES.Model.ERP.pdb
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\ERP\ServiceCenter.MES.Model.ERP\bin\Debug\ServiceCenter.MES.Model.ERP.dll
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\ERP\ServiceCenter.MES.Model.ERP\bin\Debug\ServiceCenter.MES.Model.ERP.pdb
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\ERP\ServiceCenter.MES.Model.ERP\bin\Debug\ServiceCenter.Common.dll
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\ERP\ServiceCenter.MES.Model.ERP\bin\Debug\log4net.dll
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\ERP\ServiceCenter.MES.Model.ERP\bin\Debug\ServiceCenter.Common.pdb
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\ERP\ServiceCenter.MES.Model.ERP\bin\Debug\log4net.xml
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\ERP\ServiceCenter.MES.Model.ERP\obj\Debug\ServiceCenter.MES.Model.ERP.Resources.StringResource.resources
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\ERP\ServiceCenter.MES.Model.ERP\obj\Debug\ServiceCenter.MES.Model.ERP.csproj.GenerateResource.Cache
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\ERP\ServiceCenter.MES.Model.ERP\obj\Debug\ServiceCenter.MES.Model.ERP.dll
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\ERP\ServiceCenter.MES.Model.ERP\obj\Debug\ServiceCenter.MES.Model.ERP.pdb

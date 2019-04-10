@@ -63,3 +63,16 @@ D:\组件程序\trunk\src\ServiceCenter.Modules\FMM\ServiceCenter.MES.Service.Co
 D:\组件程序\trunk\src\ServiceCenter.Modules\FMM\ServiceCenter.MES.Service.Contract.FMM\obj\Debug\ServiceCenter.MES.Service.Contract.FMM.csprojResolveAssemblyReference.cache
 D:\组件程序\trunk\src\ServiceCenter.Modules\FMM\ServiceCenter.MES.Service.Contract.FMM\obj\Debug\ServiceCenter.MES.Service.Contract.FMM.dll
 D:\组件程序\trunk\src\ServiceCenter.Modules\FMM\ServiceCenter.MES.Service.Contract.FMM\obj\Debug\ServiceCenter.MES.Service.Contract.FMM.pdb
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\FMM\ServiceCenter.MES.Service.Contract.FMM\bin\Debug\ServiceCenter.MES.Service.Contract.FMM.dll
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\FMM\ServiceCenter.MES.Service.Contract.FMM\bin\Debug\ServiceCenter.MES.Service.Contract.FMM.pdb
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\FMM\ServiceCenter.MES.Service.Contract.FMM\bin\Debug\ServiceCenter.Common.dll
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\FMM\ServiceCenter.MES.Service.Contract.FMM\bin\Debug\ServiceCenter.MES.Model.FMM.dll
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\FMM\ServiceCenter.MES.Service.Contract.FMM\bin\Debug\ServiceCenter.MES.Model.ZPVM.dll
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\FMM\ServiceCenter.MES.Service.Contract.FMM\bin\Debug\log4net.dll
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\FMM\ServiceCenter.MES.Service.Contract.FMM\bin\Debug\ServiceCenter.MES.Model.FMM.pdb
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\FMM\ServiceCenter.MES.Service.Contract.FMM\bin\Debug\ServiceCenter.Common.pdb
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\FMM\ServiceCenter.MES.Service.Contract.FMM\bin\Debug\ServiceCenter.MES.Model.ZPVM.pdb
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\FMM\ServiceCenter.MES.Service.Contract.FMM\bin\Debug\log4net.xml
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\FMM\ServiceCenter.MES.Service.Contract.FMM\obj\Debug\ServiceCenter.MES.Service.Contract.FMM.csprojResolveAssemblyReference.cache
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\FMM\ServiceCenter.MES.Service.Contract.FMM\obj\Debug\ServiceCenter.MES.Service.Contract.FMM.dll
+E:\晋能项目资料\jn-mmes\jnmmes\ServiceCenter.Modules\FMM\ServiceCenter.MES.Service.Contract.FMM\obj\Debug\ServiceCenter.MES.Service.Contract.FMM.pdb
