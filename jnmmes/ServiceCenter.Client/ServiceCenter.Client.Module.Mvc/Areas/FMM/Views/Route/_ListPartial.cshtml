@@ -1,0 +1,126 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.FMM.Models.RouteViewModel
+@using ServiceCenter.Client.Mvc.Areas.FMM.Models;
+@using ServiceCenter.Client.Mvc.Resources;
+@using FMMResources = ServiceCenter.Client.Mvc.Resources.FMM;
+@using FMMModel = ServiceCenter.MES.Model.FMM;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@{
+    PagingConfig cfg = ViewBag.PagingConfig;
+}
+<div id="_list">
+    <table class="table table-striped table-hover table-bordered table-condensed">
+        <thead>
+            <tr class="active">
+                <td nowrap align="center">@StringResource.ItemNo</td>
+                <td nowrap align="center">@Html.DisplayNameFor(m => m.Name)</td>
+                <td nowrap align="center">@Html.DisplayNameFor(m => m.RouteType)</td>
+                <td nowrap align="center">@Html.DisplayNameFor(m => m.Status)</td>
+                <td nowrap align="center">@Html.DisplayNameFor(m => m.Description)</td>
+                <td nowrap align="center">@StringResource.Detail</td>
+                <td nowrap align="center">@StringResource.Copy</td>
+                <td nowrap align="center">@StringResource.Modify</td>
+                <td nowrap align="center">@StringResource.Delete</td>
+            </tr>
+        </thead>
+        @if (ViewBag.List != null)
+        {
+            <tbody>
+                @for (int i = 0; i < ViewBag.List.Length; i++)
+                {
+                    FMMModel.Route obj = ViewBag.List[i];
+                    <tr>
+                        <td>@(cfg.PageSize * cfg.PageNo + i + 1)</td>
+                        <td>
+                            @Html.ActionLink(linkText: obj.Key
+                                            , actionName: "Index"
+                                            , controllerName: "RouteStep"
+                                            , routeValues: new { @RouteName = obj.Key }
+                                            , htmlAttributes: new { @target = "_self" })
+                        </td>
+                        <td nowrap align="center">
+                            @obj.RouteType.GetDisplayName()
+                        </td>
+                        <td nowrap align="center">
+                            @obj.Status.GetDisplayName()
+                        </td>
+                        <td>
+                            @obj.Description
+                        </td>
+                        <td nowrap align="center">
+                            @Ajax.ActionLink(StringResource.Detail, actionName: null
+                                            , routeValues: null
+                                            , ajaxOptions: new AjaxOptions()
+                                            {
+                                                HttpMethod = "Post",
+                                                UpdateTargetId = "detailInfo",
+                                                OnSuccess = "showInfoModal",
+                                                Url = Url.Action("Detail", new { @Key = obj.Key })
+                                            })
+                        </td>
+
+                        <td nowrap align="center">
+                            @Ajax.ActionLink(StringResource.Copy, actionName: null
+                                            , routeValues: null
+                                            , ajaxOptions: new AjaxOptions()
+                                            {
+                                                HttpMethod = "Post",
+                                                UpdateTargetId = "copyFormContent",
+                                                OnSuccess = "showCopyModal",
+                                                Url = Url.Action("Copy", new { @Key = obj.Key })
+                                            })
+                        </td>
+
+                        <td nowrap align="center">
+                            @Ajax.ActionLink(StringResource.Modify, actionName: null
+                                            , routeValues: null
+                                            , ajaxOptions: new AjaxOptions()
+                                            {
+                                                HttpMethod = "Post",
+                                                UpdateTargetId = "modifyFormContent",
+                                                OnSuccess = "showModifyModal",
+                                                Url = Url.Action("Modify", new { @Key = obj.Key })
+                                            })
+                        </td>
+                        <td nowrap align="center">
+                            @Ajax.ActionLink(StringResource.Delete, actionName: null
+                                            , routeValues: null
+                                            , ajaxOptions: new AjaxOptions()
+                                            {
+                                                HttpMethod = "Post",
+                                                Confirm = string.Format(FMMResources.StringResource.Route_ConfirmDelete, obj.Key),
+                                                Url = Url.Action("Delete", new { @Key = obj.Key }),
+                                                OnSuccess = "completeDelete"
+                                            })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        }
+    </table>
+    <div style="margin-top:-18px">
+        @if (cfg != null)
+        {
+            using (Ajax.BeginForm("PagingQuery", "Route"
+                            , new
+                            {
+                                @Where = cfg.Where,
+                                @OrderBy = cfg.OrderBy,
+                                @CurrentPageNo = cfg.PageNo,
+                                @CurrentPageSize = cfg.PageSize
+                            }
+                            , new AjaxOptions()
+                            {
+                                HttpMethod = "Post",
+                                UpdateTargetId = "_list"
+                            }
+                            , new { @class = "form-horizontal", resource = "form", id = "frmPagingQuery" }))
+            {
+                @Html.AntiForgeryToken()
+                <div>@Html.Partial("_PaginationPartial")</div>
+            }
+        }
+    </div>
+</div>
+
+

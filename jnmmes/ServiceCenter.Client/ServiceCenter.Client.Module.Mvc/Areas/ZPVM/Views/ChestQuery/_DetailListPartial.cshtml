@@ -1,0 +1,132 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.ZPVM.Models.ChestDetailQueryViewModel
+@using ServiceCenter.Client.Mvc.Areas.ZPVM.Models;
+@using ServiceCenter.Client.Mvc.Resources;
+@using ZPVMResources = ServiceCenter.Client.Mvc.Resources.ZPVM;
+@using ServiceCenter.MES.Model.ZPVM;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@using WIPRsources = ServiceCenter.Client.Mvc.Resources.WIP;
+@using ServiceCenter.MES.Model.WIP;
+@using ServiceCenter.MES.Model.BaseData;
+@using System.Data;
+@{
+    PagingConfig cfg = ViewBag.PagingConfig;
+    MethodReturnResult<DataSet> ds = new MethodReturnResult<DataSet>();
+    DataTable dtList = ViewBag.ListData;
+    ds = ViewBag.dtList;
+}
+<div id="_list">
+    <table class="table table-hover table-bordered table-condensed table-responsive table-striped">
+        <thead>
+            <tr class="active">
+                <td nowrap>组件号</td>
+                <td nowrap>入库日期</td>
+                <td nowrap>托盘号</td>
+                <td nowrap>柜号</td>
+                <td nowrap>组件型号</td>
+                <td nowrap>VOC (V）</td>
+                <td nowrap>ISC（A）</td>
+                <td nowrap>Vmpp (V）</td>
+                <td nowrap>Impp（A）</td>
+                <td nowrap>Pmpp（W）</td>
+                <td nowrap>FF（%)</td>
+                <td nowrap>SurfTemp</td>
+                <td nowrap>电流分档</td>
+                <td nowrap>标称功率</td>
+                <td nowrap>电池片厂家</td>
+                <td nowrap>栅线数量</td>
+                <td nowrap>电池片档位</td>
+                <td nowrap>背板厂家+规格</td>
+                <td nowrap>EVA厂家+型号</td>
+                <td nowrap>玻璃厂家型号</td>
+                <td nowrap>镀膜与否</td>
+                <td nowrap>接线盒厂家+型号+承载电压</td>
+                <td nowrap>线缆长度</td>
+                <td nowrap>接线端子型号</td>
+                <td nowrap>铝框厂家+型号+颜色+有无加强筋</td>
+                <td nowrap>涂锡带厂家</td>
+                <td nowrap>硅胶厂家+型号</td>
+                <td nowrap>灌封胶厂家+型号</td>
+                <td nowrap>认证类型</td>
+                <td nowrap>包装方式</td>
+                <td nowrap>组件类型+耐压</td>
+                <td nowrap>电池片数</td>
+                <td nowrap>电池片类型</td>
+                <td nowrap>电池片工艺</td>
+                <td nowrap>单位号</td>
+            </tr>
+        </thead>
+        @if (dtList != null)
+        {
+            <tbody>
+                @for (int i = 0; i < dtList.Rows.Count; i++)
+                {
+                    System.Data.DataRow obj = dtList.Rows[i];
+
+                    <tr>                        
+                        <td nowrap>@obj["组件号"]</td>
+                        <td nowrap>@obj["入库日期"]</td>
+                        <td nowrap>@obj["托盘号"]</td>
+                        <td nowrap>@obj["柜号"]</td>
+                        <td nowrap>@obj["组件型号"]</td>
+                        <td nowrap>@obj["VOC (V）"]</td>
+                        <td nowrap>@obj["ISC（A）"]</td>
+                        <td nowrap>@obj["Vmpp (V）"]</td>
+                        <td nowrap>@obj["Impp（A）"]</td>
+                        <td nowrap>@obj["Pmpp（W）"]</td>
+                        <td nowrap>@obj["FF（%)"]</td>
+                        <td nowrap>@obj["SurfTemp"]</td>
+                        <td nowrap>@obj["电流分档"]</td>
+                        <td nowrap>@obj["标称功率"]</td>
+                        <td nowrap>@obj["电池片厂家"]</td>
+                        <td nowrap>@obj["栅线数量"]</td>
+                        <td nowrap>@obj["电池片档位"]</td>
+                        <td nowrap>@obj["背板厂家+规格"]</td>
+                        <td nowrap>@obj["EVA厂家+型号"]</td>
+                        <td nowrap>@obj["玻璃厂家型号"]</td>
+                        <td nowrap>@obj["镀膜与否"]</td>
+                        <td nowrap>@obj["接线盒厂家+型号+承载电压"]</td>
+                        <td nowrap>@obj["线缆长度"]</td>
+                        <td nowrap>@obj["接线端子型号"]</td>
+                        <td nowrap>@obj["铝框厂家+型号+颜色+有无加强筋"]</td>
+                        <td nowrap>@obj["涂锡带厂家"]</td>
+                        <td nowrap>@obj["硅胶厂家+型号"]</td>
+                        <td nowrap>@obj["灌封胶厂家+型号"]</td>
+                        <td nowrap>@obj["认证类型"]</td>
+                        <td nowrap>@obj["包装方式"]</td>
+                        <td nowrap>@obj["组件类型+耐压"]</td>
+                        <td nowrap>@obj["电池片数"]</td>
+                        <td nowrap>@obj["电池片类型"]</td>
+                        <td nowrap>@obj["电池片工艺"]</td>
+                        <td nowrap>@obj["单位号"]</td>
+
+                    </tr>
+                }
+            </tbody>
+        }
+    </table>
+    <div style="margin-top:-18px">
+        @if (cfg != null)
+        {
+            using (Ajax.BeginForm("DetailQuery", "ChestQuery"
+                            , null
+                            , new AjaxOptions()
+                            {
+                                HttpMethod = "Post",
+                                UpdateTargetId = "_list"
+                            }
+                            , new { @class = "form-horizontal", resource = "form", id = "frmPagingQuery" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.HiddenFor(m => m.PackageNo)
+                @Html.HiddenFor(m => m.ChestNo)
+                @Html.HiddenFor(m => m.LotNumber)
+                @Html.HiddenFor(m => m.OrderNumber)
+                @Html.HiddenFor(m => m.PageSize)
+                <div>@Html.Partial("_PaginationPartial")</div>
+             }
+        }
+    </div>
+</div>
+
+

@@ -1,0 +1,150 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.ZPVM.Models.IVTestDataForPackageQueryViewModel
+@using ServiceCenter.Client.Mvc.Areas.ZPVM.Models;
+@using ServiceCenter.Client.Mvc.Resources;
+@using ZPVMResources = ServiceCenter.Client.Mvc.Resources.ZPVM;
+@using ServiceCenter.MES.Model.ZPVM;
+@using ServiceCenter.MES.Model.WIP;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@using System.Data;
+@{
+    PagingConfig cfg = ViewBag.PagingConfig;
+    MethodReturnResult<DataSet> ds = new MethodReturnResult<DataSet>();
+    DataTable dtList = ViewBag.ListData;
+    ds = ViewBag.dtList;
+}
+@if (dtList != null)
+{
+    <div id="_list" style="overflow:auto">
+        <table class="table table-hover table-bordered table-condensed table-responsive table-striped">
+            <thead>
+                <tr class="active">
+                    <td nowrap>Number</td>
+                    <td nowrap>Pallet No.</td>
+                    <td nowrap>ITEM_NO</td>
+                    <td nowrap>S/N</td>
+                    <td nowrap>Order_Number</td>
+                    <td nowrap>Material_Code</td>
+                    <td nowrap>Grade</td>
+                    <td nowrap>Color</td>
+                    <td nowrap>Pmp [W]</td>
+                    <td nowrap>Isc [A]</td>
+                    <td nowrap>Imp [A]</td>
+                    <td nowrap>Voc [V]</td>
+                    <td nowrap>Vmp [V]</td>
+                    <td nowrap>FF</td>
+                    <td nowrap>CTM</td>
+                    <td nowrap>Cell_Effi</td>
+                    <td nowrap>TYPE</td>
+                    <td nowrap>PS_Item_NO</td>
+                    <td nowrap>Pnom (W)</td>
+                    <td nowrap>Current(A)</td>
+                    <td nowrap>AMBIENTTEMP</td>
+                    <td nowrap>TEST_TIME</td>
+                    <td nowrap>RS</td>
+                    <td nowrap>RSH</td>
+                    <td nowrap>CHEST_NO</td>
+                </tr>
+
+                <tr class="active">
+                    <td nowrap>@StringResource.ItemNo</td>
+                    <td nowrap>包装号</td>
+                    <td nowrap>项目号</td>
+                    <td nowrap>批次号</td>
+                    <td nowrap>工单号</td>
+                    <td nowrap>物料编码</td>
+                    <td nowrap>等级</td>
+                    <td nowrap>花色</td>
+                    <td nowrap>功率</td>
+                    <td nowrap>短路电流</td>
+                    <td nowrap>最大电流</td>
+                    <td nowrap>开路电压</td>
+                    <td nowrap>最大电压</td>
+                    <td nowrap>填充因子</td>
+                    <td nowrap>CTM</td>
+                    <td nowrap>电池片效率</td>
+                    <td nowrap>型号</td>
+                    <td nowrap>分档项目号</td>
+                    <td nowrap>功率档</td>
+                    <td nowrap>子分档代码</td>
+                    <td nowrap>测试温度</td>
+                    <td nowrap>测试时间</td>
+                    <td nowrap>串联电阻</td>
+                    <td nowrap>并联电阻</td>
+                    <td nowrap>柜号</td>
+                </tr>
+            </thead>
+            <tbody>
+                @if (dtList != null)
+                {
+                    for (int i = 0; i < dtList.Rows.Count; i++)
+                    {
+                        System.Data.DataRow obj = dtList.Rows[i];
+
+                        <tr>
+                            <td nowrap>@obj["RowNumber"] </td>
+                            <td nowrap>@obj["PACKAGE_NO"] </td>
+                            <td nowrap>@obj["ITEM_NO"]</td>
+                            <td nowrap>@obj["OBJECT_NUMBER"]</td>
+                            <td nowrap>@obj["ORDER_NUMBER"]</td>
+                            <td nowrap>@obj["MATERIAL_CODE"]</td>
+                            <td nowrap>@obj["GRADE"]</td>
+                            <td nowrap>@obj["COLOR"]</td>
+                            <td nowrap>@obj["COEF_PMAX"]</td>
+                            <td nowrap>@obj["COEF_ISC"]</td>
+                            <td nowrap>@obj["COEF_IMAX"]</td>
+                            <td nowrap>@obj["COEF_VOC"]</td>
+                            <td nowrap>@obj["COEF_VMAX"]</td>
+                            <td nowrap>@obj["COEF_FF"]</td>
+                            <td nowrap>@obj["DEC_CTM"]</td>
+                            <td nowrap>@obj["CellEfficiency"]</td>
+                            <td nowrap>@obj["PS_CODE"]</td>
+                            <td nowrap>@obj["PS_ITEM_NO"]</td>
+                            <td nowrap>@obj["PM_NAME"]</td>
+                            <td nowrap>@obj["PS_SUBCODE"]</td>
+                            <td nowrap>@obj["AMBIENTTEMP"]</td>
+                            <td nowrap>@obj["TEST_TIME"]</td>
+                            <td nowrap>@obj["RS"]</td>
+                            <td nowrap>@obj["RSH"]</td>
+                            <td nowrap>@obj["CHEST_NO"]</td>
+                        </tr>
+
+                    }
+
+                }
+            </tbody>
+
+        </table>
+        <div style="margin-top:-18px">
+            @if (cfg != null)
+            {
+                using (Ajax.BeginForm("Query", "IVTestDataQueryForPackage"
+                                , null
+                                , new AjaxOptions()
+                                {
+                                    HttpMethod = "Post",
+                                    UpdateTargetId = "_list"
+                                }
+                                , new { @class = "form-horizontal", resource = "form", id = "frmPagingQuery" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.HiddenFor(m => m.LotNumber)
+                    @Html.HiddenFor(m => m.PackageNo)
+                    @Html.HiddenFor(m => m.PageSize)
+                    <div>@Html.Partial("_PaginationPartial")</div>
+                }
+            }
+
+        </div>
+    </div>
+
+}
+else
+{
+
+}
+<p>@ViewBag.Message</p>
+
+
+
+

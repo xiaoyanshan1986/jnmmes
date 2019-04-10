@@ -1,0 +1,77 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.LSM.Models.MaterialSplitQueryViewModel
+@using ServiceCenter.MES.Model.LSM;
+@using ServiceCenter.Model;
+@using ServiceCenter.Common;
+@using ServiceCenter.Client.Mvc.Areas.LSM.Models;
+@using LSMRsources = ServiceCenter.Client.Mvc.Resources.LSM;
+@using ServiceCenter.Client.Mvc.Resources;
+
+@{
+    ViewBag.Title = "物料拆批";
+}
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm("Query", "MaterialSplit", FormMethod.Post
+            , new { @class = "form-horizontal", resource = "form", id = "frmQuery" }))
+{
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <input type="submit" value="@StringResource.Next" class="btn btn-primary" />
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-body">
+                @Html.AntiForgeryToken()
+                <div class="form-group">
+                    <div class="col-md-1">
+                        @Html.LabelFor(m => m.MaterialLotNumber, new { @class = "control-label" })
+                    </div>
+                    <div class="col-md-2">
+                        @Html.TextBoxFor(m => m.MaterialLotNumber, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.MaterialLotNumber)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-1">
+                        @Html.LabelFor(m => m.OrderNumber, new { @class = "control-label" })
+                    </div>
+                    <div class="col-md-2">
+                        @Html.DropDownListFor(m => m.OrderNumber, new List<SelectListItem>(), new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.OrderNumber)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-1">
+                        @Html.LabelFor(m => m.count, new { @class = "control-label" })
+                    </div>
+                    <div class="col-md-2">
+                        @Html.TextBoxFor(m => m.count, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.count)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+@section Scripts {
+    <script type="text/javascript" language="javascript">
+        $(function () {
+            $("#MaterialLotNumber").change(function () {
+                $("#OrderNumber").get(0).options.length = 0; //清空
+                var url = "@Url.Action("GetOrderNumber", "MaterialSplit", new { area = "LSM" })";
+                var MaterialLotNumber = $("#MaterialLotNumber").val();
+                var reqdata = { MaterialLotNumber: MaterialLotNumber };
+
+                $.getJSON(url, reqdata, function (data) {
+                    $.each(data, function (i, item) {
+                        $("<option></option>").val(item).text(item).appendTo($("#OrderNumber"));
+                    });
+                });
+            });
+
+        });
+    </script>
+}
+
+

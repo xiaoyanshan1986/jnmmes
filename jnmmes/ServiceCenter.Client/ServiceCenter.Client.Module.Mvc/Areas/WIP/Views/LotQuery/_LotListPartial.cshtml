@@ -1,0 +1,43 @@
+﻿
+
+<div id="_list">
+    <table class="table table-hover table-bordered table-condensed table-responsive table-striped">
+        <thead>
+            <tr class="active">
+                <td nowrap>序号</td>
+                <td nowrap>批次号</td>
+                <td nowrap>工单号</td>
+                <td nowrap>物料编码</td>
+                <td nowrap>等级</td>
+                <td nowrap>颜色</td>
+                <td nowrap>效率档</td>
+                <td nowrap>分档代码</td>
+                <td nowrap>分档项目号</td>
+                <td nowrap>分档名称</td>
+                <td nowrap>子分档代码</td>
+            </tr>
+        </thead>
+        @if (ViewBag.List != null)
+        {
+            System.Data.DataTable dt = ViewBag.List;
+            <tbody>
+                @for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    <tr>
+                        <td nowrap>@(i+1)</td>
+                        <td nowrap>@dt.Rows[0]["LOT_NUMBER"]</td>
+                        <td nowrap>@dt.Rows[0]["ORDER_NUMBER"]</td>
+                        <td nowrap>@dt.Rows[0]["MATERIAL_CODE"]</td>
+                        <td nowrap>@dt.Rows[0]["GRADE"]</td>
+                        <td nowrap>@dt.Rows[0]["COLOR"]</td>
+                        <td nowrap>@dt.Rows[0]["ATTR_1"]</td>
+                        <td nowrap>@dt.Rows[0]["PS_CODE"]</td>
+                        <td nowrap>@dt.Rows[0]["PS_ITEM_NO"]</td>
+                        <td nowrap>@dt.Rows[0]["PM_NAME"]</td>
+                        <td nowrap>@dt.Rows[0]["PS_SUBCODE"]</td>
+                    </tr>
+                }
+            </tbody>
+        }
+    </table>
+</div>

@@ -1,0 +1,164 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.EDC.Models.DataAcquisitionDataViewModel
+@using ServiceCenter.MES.Model.EDC;
+@using ServiceCenter.Model;
+@using ServiceCenter.Client.Mvc.Resources;
+@using System.Data;
+@{
+    IList<DataAcquisitionField> lstField = ViewBag.DataAcquisitionFieldList;
+    IList<DataAcquisitionData> lstData = ViewBag.DataAcquisitionDataList;
+}
+@if (lstData != null)
+{
+    @Html.HiddenFor(m => m.ItemCode)
+
+    @* 工序 *@
+    @Html.HiddenFor(m => m.ViewRouteOperationName, new { @class = "form-control" })
+
+    @* 采集时间 *@
+    <div class="form-group">
+        @Html.LabelFor(m => m.EDCTime, new { @class = "col-md-3 control-label" })
+        <div class="col-md-9">
+            @Html.TextBoxFor(m => m.EDCTime, new { @class = "form-control", @readonly = "readonly" })
+            @Html.ValidationMessageFor(m => m.EDCTime)
+        </div>
+    </div>
+
+    @* 线别 *@
+    <div class="form-group">
+        @Html.LabelFor(m => m.ViewLineCode, new { @class = "col-md-3 control-label" })
+        <div class="col-md-9">
+            @Html.DropDownListFor(m => m.ViewLineCode, @Model.GetLineList(), new { @class = "form-control", @readonly = "readonly" })
+            @Html.ValidationMessageFor(m => m.EDCTime)
+        </div>
+    </div>
+
+    @* 设备 *@
+    <div class="form-group">
+        @Html.LabelFor(m => m.ViewEquipmentCode, new { @class = "col-md-3 control-label" })
+        <div class="col-md-9">
+            @Html.TextBoxFor(m => m.ViewEquipmentCode, new { @class = "form-control", @readonly = "readonly" })
+        </div>
+    </div>
+
+    foreach (DataAcquisitionField field in lstField)
+    {
+        //取得字段对应值
+        var lnqVal = from dataValue in lstData
+                     where dataValue.Key.ItemCode == field.Key.ItemCode
+                        && dataValue.Key.FieldCode == field.Key.FieldCode
+                     select dataValue;
+
+        DataAcquisitionData val = lnqVal.SingleOrDefault();
+
+        <div class="form-group">
+            @Html.Label(field.FieldName, new { @class = "col-md-3 control-label", @title = field.Key.FieldCode })
+            <div class="col-md-9">
+                @if (@field.DataType == EnumDataType.Boolean)
+                {
+                    bool bChecked = false;
+
+                    if (val != null)
+                    {
+                        bool.TryParse(val.DataValue, out bChecked);
+                    }
+
+                    @Html.CheckBox(field.Key.FieldCode, new { @class = "form-control", @readonly = "readonly" })
+                }
+                else
+                {
+                    @Html.TextBox(field.Key.FieldCode, val != null ? val.DataValue : string.Empty, "", new { @class = "form-control", @readonly = "readonly" })
+                }
+            </div>
+        </div>
+
+        @Html.HiddenFor(m => m.Auditor)
+        @Html.HiddenFor(m => m.AuditTime)
+        @Html.HiddenFor(m => m.Creator)
+        @Html.HiddenFor(m => m.CreateTime)
+    }
+
+
+    @*foreach (DataAcquisitionField field in lstField)
+        {
+            var lnqVal = from item in lstVal
+                         where item.Key.CategoryName == attr.Key.CategoryName
+                                 && item.Key.AttributeName == attr.Key.AttributeName
+                                 && item.Key.ItemOrder == itemOrder
+                         select item;
+            BaseAttributeValue val = lnqVal.SingleOrDefault();
+
+            <div class="form-group">
+                @Html.Label(attr.Key.AttributeName, new { @class = "col-md-3 control-label", @title = attr.Description })
+                <div class="col-md-9">
+                    @if (@attr.DataType == EnumDataType.Boolean)
+                    {
+                        bool bChecked=false;
+                        if(val!=null)
+                        {
+                            bool.TryParse(val.Value, out bChecked);
+                        }
+                        @Html.CheckBox(attr.Key.AttributeName,bChecked, new { @class = "form-control" })
+                    }
+                    else
+                    {
+                        @Html.TextBox(attr.Key.AttributeName, val!=null?val.Value:string.Empty, new { @class = "form-control" })
+                    }
+                </div>
+            </div>
+        }*@
+}
+
+@*@using ServiceCenter.MES.Model.BaseData;
+@using ServiceCenter.Model;
+@using ServiceCenter.Client.Mvc.Resources;
+@{
+    IList<BaseAttribute> lst = ViewBag.BaseAttributeList;
+    IList<BaseAttributeValue> lstVal = ViewBag.List;
+    int itemOrder=ViewBag.ItemOrder;
+}
+@if (lst != null)
+{
+    BaseAttributeValue firstVal = null;
+    <div class="form-group">
+        @Html.Label(StringResource.ItemNo, new { @class = "col-md-4 control-label" })
+        <div class="col-md-8">
+            <p class="form-control-static">@itemOrder</p>
+        </div>
+    </div>
+    foreach (BaseAttribute attr in lst)
+    {
+        var lnqVal = from item in lstVal
+                     where item.Key.CategoryName == attr.Key.CategoryName
+                             && item.Key.AttributeName == attr.Key.AttributeName
+                             && item.Key.ItemOrder == itemOrder
+                     select item;
+        BaseAttributeValue val = lnqVal.SingleOrDefault();
+        if(firstVal==null)
+        {
+            firstVal = val;
+        }
+        <div class="form-group">
+            @Html.Label(attr.Key.AttributeName, new { @class = "col-md-4 control-label", @title=attr.Description })
+            <div class="col-md-8">
+                <p class="form-control-static">@(val!=null?val.Value:string.Empty)</p>
+            </div>
+        </div>
+    }
+    
+    if(firstVal!=null)
+    {
+        <div class="form-group">
+            @Html.Label(StringResource.Editor, new { @class = "col-md-4 control-label" })
+            <div class="col-md-8">
+                <p class="form-control-static">@firstVal.Editor</p>
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.Label(StringResource.EditTime, new { @class = "col-md-4 control-label" })
+            <div class="col-md-8">
+                <p class="form-control-static">@firstVal.EditTime</p>
+            </div>
+        </div>
+    }
+    
+}*@

@@ -1,0 +1,81 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.PPM.Models.WorkOrderViewModel
+@using ServiceCenter.Common;
+
+@Html.ValidationSummary(true)
+<div class="form-group">
+    @Html.LabelFor(m => m.OrderNumber, new { @class = "col-md-1 control-label" })
+    <div class="col-md-3">
+        <p class="form-control-static">@Model.OrderNumber</p>
+    </div>
+    @Html.LabelFor(m => m.MaterialCode, new { @class = "col-md-1 control-label" })
+    <div class="col-md-3">
+        <p class="form-control-static">@Model.MaterialCode</p>
+    </div>
+    @Html.LabelFor(m => m.OrderState, new { @class = "col-md-1 control-label" })
+    <div class="col-md-3">
+        <p class="form-control-static">@Model.OrderState</p>
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.OrderType, new { @class = "col-md-1 control-label" })
+    <div class="col-md-3">
+        <p class="form-control-static">@Model.OrderType</p>
+    </div>
+
+    @Html.LabelFor(m => m.LocationName, new { @class = "col-md-1 control-label" })
+    <div class="col-md-3">
+        <p class="form-control-static">@Model.LocationName</p>
+    </div>
+    @Html.LabelFor(m => m.OrderQuantity, new { @class = "col-md-1 control-label" })
+    <div class="col-md-3">
+        <p class="form-control-static">@Model.OrderQuantity</p>
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.Priority, new { @class = "col-md-1 control-label" })
+    <div class="col-md-3">
+        <p class="form-control-static">@Model.Priority.GetDisplayName()</p>
+    </div>
+    @Html.LabelFor(m => m.RevenueType, new { @class = "col-md-1 control-label" })
+    <div class="col-md-3">
+        <p class="form-control-static">@Model.RevenueType</p>
+    </div>
+    @Html.LabelFor(m => m.CloseType, new { @class = "col-md-1 control-label" })
+    <div class="col-md-3">
+        <p class="form-control-static">@Model.CloseType.GetDisplayName()</p>
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.StartTime, new { @class = "col-md-1 control-label" })
+    <div class="col-md-3">
+        <p class="form-control-static">@Model.StartTime.ToString("yyyy-MM-dd")</p>
+    </div>
+    @Html.LabelFor(m => m.FinishTime, new { @class = "col-md-1 control-label" })
+    <div class="col-md-3">
+        <p class="form-control-static">@Model.FinishTime.ToString("yyyy-MM-dd")</p>
+    </div>
+    @Html.LabelFor(m => m.Editor, new { @class = "col-md-1 control-label" })
+    <div class="col-md-3">
+        <p class="form-control-static">@Model.Editor</p>
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.EditTime, new { @class = "col-md-1 control-label" })
+    <div class="col-md-3">
+        <p class="form-control-static">@Model.EditTime</p>
+    </div>
+    @Html.LabelFor(m => m.Creator, new { @class = "col-md-1 control-label" })
+    <div class="col-md-3">
+        <p class="form-control-static">@Model.Creator</p>
+    </div>
+    @Html.LabelFor(m => m.CreateTime, new { @class = "col-md-1 control-label" })
+    <div class="col-md-3">
+        <p class="form-control-static">@Model.CreateTime</p>
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.Description, new { @class = "col-sm-1 control-label" })
+    <div class="col-sm-11">
+        <p class="form-control-static">@Model.Description</p>
+    </div>
+</div>

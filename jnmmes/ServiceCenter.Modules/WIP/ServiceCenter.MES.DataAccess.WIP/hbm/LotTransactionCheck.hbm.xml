@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   namespace="ServiceCenter.MES.Model.WIP" 
+                   assembly="ServiceCenter.MES.Model.WIP">
+  <class name="LotTransactionCheck" table="WIP_TRANSACTION_CHECK">
+    <id name="Key" column="TRANSACTION_KEY">
+      <generator class="assigned" />
+    </id>
+    <property name="Barcode1" column="BARCODE1"/>
+    <property name="Barcode2" column="BARCODE2"/>
+    <property name="Barcode3" column="BARCODE3"/>
+    <property name="Barcode4" column="BARCODE4"/>
+    <property name="Barcode5" column="BARCODE5"/>
+    <property name="Grade" column="GRADE"/>
+    <property name="Color" column="COLOR"/>
+    <property name="Editor" column="EDITOR"/>
+    <property name="EditTime" column="EDIT_TIME"/>
+  </class>
+</hibernate-mapping>

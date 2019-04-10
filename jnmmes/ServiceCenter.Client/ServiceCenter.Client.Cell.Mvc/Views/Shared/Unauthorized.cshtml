@@ -1,0 +1,17 @@
+﻿@using ServiceCenter.Client.Mvc.Resources;
+@using ServiceCenter.Model;
+@{
+    ViewBag.Title = StringResource.Unauthorized_PageTitle;
+    MethodReturnResult result=ViewBag.AuthenticateResult;
+}
+<p></p>
+<div class="panel panel-danger">
+    <div class="panel-heading">
+        <h1 class="panel-title">@ViewBag.Title</h1>
+    </div>
+    <div class="panel-body">
+       @StringResource.Unauthorized_Code： @result.Code<br />
+       @StringResource.Unauthorized_Message： @result.Message<br />
+       @StringResource.Unauthorized_Detail： @result.Detail<br />
+    </div>
+</div>

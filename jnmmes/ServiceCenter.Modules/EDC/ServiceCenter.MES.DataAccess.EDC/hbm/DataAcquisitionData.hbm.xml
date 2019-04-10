@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   namespace="ServiceCenter.MES.Model.EDC"
+                   assembly="ServiceCenter.MES.Model.EDC">
+  <class name="DataAcquisitionData" table="EDC_DataAcquisition_Data">
+    <composite-id  name="Key" class="DataAcquisitionDataKey">
+      <key-property name="EDCTime" column="EDCTime" type="timestamp"/>
+      <key-property name="ItemCode" column="ItemCode"/>
+      <key-property name="FieldCode" column="FieldCode"/>
+      <key-property name="LocationName" column="LOCATION_NAME"/>
+      <key-property name="LineCode" column="LINE_CODE"/>
+      <key-property name="EquipmentCode" column="EQUIPMENT_CODE"/>      
+    </composite-id>    
+    <property name="DataValue" column="DataValue"/>
+    <property name="DataState" column="DataState"/>
+    <property name="Creator" column="CREATOR"/>
+    <property name="CreateTime" column="CREATE_TIME" type="timestamp"/>
+    <property name="Auditor" column="Auditor"/>
+    <property name="AuditTime" column="AuditTime" type="timestamp"/>
+    <property name="Editor" column="EDITOR"/>
+    <property name="EditTime" column="EDIT_TIME" type="timestamp"/>
+  </class>
+</hibernate-mapping>

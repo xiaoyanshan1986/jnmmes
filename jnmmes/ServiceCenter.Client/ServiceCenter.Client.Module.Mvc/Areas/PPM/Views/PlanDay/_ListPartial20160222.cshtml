@@ -1,0 +1,72 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.PPM.Models.PlanDayViewModel
+@using ServiceCenter.Client.Mvc.Areas.PPM.Models;
+@using ServiceCenter.Client.Mvc.Resources;
+@using PPM = ServiceCenter.Client.Mvc.Resources.PPM;
+@using ServiceCenter.MES.Model.PPM;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@{
+    PlanMonth PlanMonth = ViewBag.PlanMonth;
+    string sStartDate = string.Format("{0}-{1}-01",PlanMonth.Key.Year,PlanMonth.Key.Month);
+    DateTime startDate = DateTime.Parse(sStartDate);
+    DateTime endDate = startDate.AddMonths(1).AddDays(-1);
+    
+
+    IList<PlanDay> lstPlanDay = new List<PlanDay>();
+    if (ViewBag.PlanDayList != null)
+    {
+        lstPlanDay = ViewBag.PlanDayList;
+    }
+   
+}
+<p></p>
+@Html.ValidationSummary(true)
+<table class="table table-hover table-bordered table-condensed">
+    <thead>
+        <tr class="active">
+            <td>@Html.DisplayNameFor(m => m.SeqNo)</td>
+            <td>计划日期</td>
+            <td>开始时间</td>
+            <td>结束时间</td>
+            <td>@Html.DisplayNameFor(m => m.PlanQty)</td>
+        </tr>
+    </thead>
+    <tbody>
+    @{
+        var  itemNo = 1;
+        for (DateTime d = startDate; d <= endDate; d=d.AddDays(1) )
+        {
+  
+                string day=d.ToString("yyyy-MM-dd");
+                string startTime = string.Format("{0}", day);
+                string endTime = string.Format("{0}", d.AddDays(1).ToString("yyyy-MM-dd"));
+
+                <tr>
+                    <td>
+                        @itemNo
+                        @Html.Hidden("SeqNo", itemNo)
+                    </td>
+                    <td>
+                        @day
+                        @Html.Hidden("Day",day)
+                    </td>
+                    <td>
+                        @startTime
+                        @Html.Hidden("StartTime", startTime)
+                    </td>
+                    <td>
+                        @endTime
+                        @Html.Hidden("EndTime", endTime)
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(m => m.PlanQty, new { @class = "form-control input-sm" })
+                        @Html.ValidationMessageFor(m => m.PlanQty)
+                    </td>
+                </tr>
+                itemNo = itemNo + 1;
+        }
+    }
+    </tbody>
+</table>
+
+

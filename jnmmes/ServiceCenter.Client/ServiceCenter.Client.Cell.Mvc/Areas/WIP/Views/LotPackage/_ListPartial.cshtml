@@ -1,0 +1,88 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.WIP.Models.LotViewModel
+@using ServiceCenter.Client.Mvc.Areas.WIP.Models;
+@using ServiceCenter.Client.Mvc.Resources;
+@using WIPRsources = ServiceCenter.Client.Mvc.Resources.WIP;
+@using ServiceCenter.MES.Model.WIP;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@using ServiceCenter.MES.Model.BaseData;
+@{
+    PagingConfig cfg = ViewBag.PagingConfig;
+    IList<PackageDetail> lstPackageDetail = ViewBag.PackageDetailList;
+    IList<BaseAttribute> lstAttribute = ViewBag.AttributeList;
+}
+<div id="_list">
+    <table class="table table-hover table-bordered table-condensed">
+        <thead>
+            <tr class="active">
+                <td>@StringResource.ItemNo</td>
+                <td>@WIPRsources.StringResource.PackageNo</td>
+                <td>@Html.DisplayNameFor(m => m.LotNumber)</td>
+                <td>@Html.DisplayNameFor(m => m.OrderNumber)</td>
+                <td>@Html.DisplayNameFor(m => m.MaterialCode)</td>
+                @if (lstAttribute != null)
+                {
+                    for (int k = 0; k < lstAttribute.Count; k++)
+                    {
+                        <td>
+                            @lstAttribute[k].Description
+                        </td>
+                    }
+                }
+                <td>@StringResource.Delete</td>
+            </tr>
+        </thead>
+        @if (lstPackageDetail != null)
+        {
+            <tbody>
+                @for (int i = 0; i < lstPackageDetail.Count; i++)
+                {
+                    PackageDetail obj = lstPackageDetail[i];
+                    <tr>
+                        <td>@obj.ItemNo</td>
+                        <td>
+                            @obj.Key.PackageNo
+                        </td>
+                        <td>
+                            @obj.Key.ObjectNumber
+                        </td>
+                        <td>
+                            @obj.OrderNumber
+                        </td>
+                        <td>
+                            @obj.MaterialCode
+                        </td>
+                        @if (lstAttribute != null)
+                        {
+                            IList<LotAttribute> lstAttributeValue = Model.GetLotAttributes(obj.Key.ObjectNumber);
+                            for (int k = 0; k < lstAttribute.Count; k++)
+                            {
+                                string attributeName= lstAttribute[k].Key.AttributeName;
+                                var lnq = from item in lstAttributeValue
+                                          where item.Key.AttributeName == attributeName
+                                          select item.AttributeValue;
+                                <td>
+                                    @lnq.FirstOrDefault()
+                                </td>
+                            }
+                        }
+                        <td>
+                            @Ajax.ActionLink(StringResource.Delete, actionName: null
+                                            , routeValues: null
+                                            , ajaxOptions: new AjaxOptions()
+                                            {
+                                                HttpMethod = "Post",
+                                                Confirm = string.Format(WIPRsources.StringResource.PackageDetail_ConfirmDelete, obj.Key),
+                                                Url = Url.Action("Delete", new { @PackageNo = obj.Key.PackageNo, @ItemNo = obj.ItemNo, @LotNumber = obj.Key.ObjectNumber }),
+                                                OnSuccess = "completeDelete",
+                                                OnBegin = "beginDelete"
+                                            }, htmlAttributes: new { @class = "btn btn-warning btn-sm btn-delete" })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        }
+    </table>
+</div>
+
+

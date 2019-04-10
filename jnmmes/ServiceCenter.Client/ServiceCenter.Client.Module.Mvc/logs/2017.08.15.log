@@ -1,0 +1,28 @@
+2017-08-15 10:00:04,972 - INFO  - START>Application
+2017-08-15 11:46:01,667 - INFO  - START>Application
+2017-08-15 11:57:35,365 - INFO  - START>Application
+2017-08-15 12:03:49,363 - INFO  - START>Application
+2017-08-15 12:07:38,440 - INFO  - START>Application
+2017-08-15 12:37:46,961 - INFO  - START>Application
+2017-08-15 12:43:25,967 - INFO  - START>Application
+2017-08-15 13:26:20,430 - INFO  - START>Application
+2017-08-15 14:27:26,985 - INFO  - START>Application
+2017-08-15 16:35:35,146 - INFO  - START>Application
+2017-08-15 16:46:44,633 - INFO  - START>Application
+2017-08-15 16:51:04,249 - ERROR - End Send Xml File:Error在位置 0 处没有任何行。
+2017-08-15 16:52:22,224 - ERROR - End Send Xml File:Error在位置 0 处没有任何行。
+2017-08-15 16:54:10,649 - ERROR - End Send Xml File:Error在位置 0 处没有任何行。
+2017-08-15 16:54:29,368 - ERROR - End Send Xml File:Error在位置 0 处没有任何行。
+2017-08-15 16:56:44,150 - ERROR - End Send Xml File:Error在位置 0 处没有任何行。
+2017-08-15 16:58:12,853 - ERROR - End Send Xml File:Error在位置 0 处没有任何行。
+2017-08-15 17:00:51,020 - INFO  - START>Application
+2017-08-15 17:04:16,623 - ERROR - End Send Xml File:Error未将对象引用设置到对象的实例。
+2017-08-15 17:04:55,586 - ERROR - End Send Xml File:Error未将对象引用设置到对象的实例。
+2017-08-15 17:05:57,862 - ERROR - End Send Xml File:Error未将对象引用设置到对象的实例。
+2017-08-15 17:06:50,300 - ERROR - End Send Xml File:Error未将对象引用设置到对象的实例。
+2017-08-15 17:09:39,856 - ERROR - End Send Xml File:Error请求通道在等待 00:00:59.9980004 以后答复时超时。增加传递给请求调用的超时值，或者增加绑定上的 SendTimeout 值。分配给此操作的时间可能已经是更长超时的一部分。
+2017-08-15 17:13:20,390 - INFO  - START>Application
+2017-08-15 17:14:46,171 - ERROR - Begin Send Xml File
+2017-08-15 17:14:47,226 - ERROR - End Send Xml File
+2017-08-15 19:28:30,384 - INFO  - START>Application
+2017-08-15 19:30:39,103 - INFO  - START>Application

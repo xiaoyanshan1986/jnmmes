@@ -1,0 +1,149 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.FMM.Models.MaterialViewModel
+@using ServiceCenter.Client.Mvc.Areas.FMM.Models;
+@using ServiceCenter.Client.Mvc.Resources;
+@using FMM = ServiceCenter.Client.Mvc.Resources.FMM;
+@using ServiceCenter.MES.Model.FMM;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@{
+    PagingConfig cfg = ViewBag.PagingConfig;
+}
+<div id="_list">
+    <table class="table table-hover table-bordered table-condensed">
+        <thead>
+            <tr class="active">
+                <td>@StringResource.ItemNo</td>
+                <td>@Html.DisplayNameFor(m => m.Code)</td>
+                <td>@Html.DisplayNameFor(m => m.Name)</td>
+                <td>@Html.DisplayNameFor(m => m.Type)</td>
+                <td>@Html.DisplayNameFor(m => m.Class)</td>
+                <td>@Html.DisplayNameFor(m => m.Spec)</td>
+                <td>@Html.DisplayNameFor(m => m.IsRaw)</td>
+                <td>@Html.DisplayNameFor(m => m.IsProduct)</td>
+                <td>@Html.DisplayNameFor(m => m.MainProductQtyPerLot)</td>
+                <td>@Html.DisplayNameFor(m => m.MainRawQtyPerLot)</td>
+                <td>@Html.DisplayNameFor(m => m.Status)</td>
+                <td>BOM</td>
+                <td>@StringResource.Detail</td>
+                <td>@StringResource.Modify</td>
+                <td>@StringResource.Delete</td>
+            </tr>
+        </thead>
+        @if (ViewBag.List != null)
+        {
+            <tbody>
+                @for (int i = 0; i < ViewBag.List.Length; i++)
+                {
+                    Material obj = ViewBag.List[i];
+                    <tr>
+                        <td>@(cfg.PageSize * cfg.PageNo+i+1)</td>
+                        <td>
+                            @Html.ActionLink(linkText: obj.Key
+                                            , actionName: "Index"
+                                            , controllerName: "MaterialAttribute"
+                                            , routeValues: new { @MaterialCode = obj.Key }
+                                            , htmlAttributes: new { @target = "_self" })
+                        </td>
+                        <td>
+                            @obj.Name
+                        </td>
+                        <td>
+                            @obj.Type
+                        </td>
+                        <td>
+                            @obj.Class
+                        </td>
+                        <td>
+                            @obj.Spec
+                        </td>
+                        <td>
+                            @(obj.IsRaw ? StringResource.Yes : StringResource.No)
+                        </td>
+                        <td>
+                            @(obj.IsProduct ? StringResource.Yes : StringResource.No)
+                        </td>
+                        <td>
+                            @obj.MainProductQtyPerLot
+                        </td>
+                        <td>
+                            @obj.MainRawQtyPerLot
+                        </td>
+                        <td>@obj.Status.GetDisplayName()</td>
+                        @if (obj.IsProduct)
+                        {
+                            <td>
+                                @Html.ActionLink(linkText: "BOM"
+                                                , actionName: "Index"
+                                                , controllerName: "MaterialBOM"
+                                                , routeValues: new { @MaterialCode = obj.Key }
+                                                , htmlAttributes: new { @target = "_self" })
+                            </td>
+                        }
+                        else
+                        {
+                            <td></td>
+                        }
+                        <td>
+                            @Ajax.ActionLink(StringResource.Detail, actionName: null
+                                            , routeValues: null
+                                            , ajaxOptions:new AjaxOptions() 
+                                            { 
+                                                HttpMethod = "Post", 
+                                                UpdateTargetId = "detailInfo",
+                                                OnSuccess = "showInfoModal",
+                                                Url = Url.Action("Detail", new { @Key = obj.Key })
+                                            })
+                        </td>
+                        <td>
+                            @Ajax.ActionLink(StringResource.Modify, actionName: null
+                                            ,routeValues:null
+                                            ,ajaxOptions:new AjaxOptions()
+                                            {
+                                                HttpMethod = "Post",
+                                                UpdateTargetId = "modifyFormContent",
+                                                OnSuccess = "showModifyModal",
+                                                Url = Url.Action("Modify", new { @Key = obj.Key })
+                                            })
+                        </td>
+                        <td>
+                            @Ajax.ActionLink(StringResource.Delete, actionName: null
+                                            , routeValues: null
+                                            , ajaxOptions:new AjaxOptions()
+                                            {
+                                                HttpMethod = "Post",
+                                                Confirm = string.Format(FMM.StringResource.Material_ConfirmDelete, obj.Key),
+                                                Url = Url.Action("Delete", new { @Key = obj.Key }),
+                                                OnSuccess = "completeDelete"
+                                            })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        }
+    </table>
+    <div style="margin-top:-18px">
+        @if (cfg != null)
+        {
+            using (Ajax.BeginForm("PagingQuery", "Material"
+                            , new
+                            {
+                                @Where = cfg.Where,
+                                @OrderBy = cfg.OrderBy,
+                                @CurrentPageNo = cfg.PageNo,
+                                @CurrentPageSize = cfg.PageSize
+                            }
+                            , new AjaxOptions()
+                            {
+                                HttpMethod = "Post",
+                                UpdateTargetId = "_list"
+                            }
+                            , new { @class = "form-horizontal", resource = "form", id = "frmPagingQuery" }))
+            {
+                @Html.AntiForgeryToken()
+                <div>@Html.Partial("_PaginationPartial")</div>
+            }
+        }
+    </div>
+</div>
+
+

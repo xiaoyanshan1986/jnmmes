@@ -1,0 +1,426 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="User_Add" xml:space="preserve">
+    <value>新增</value>
+  </data>
+  <data name="User_AddUserTitle" xml:space="preserve">
+    <value>新增用户</value>
+  </data>
+  <data name="User_ConfirmDeleteUser" xml:space="preserve">
+    <value>确定删除用户 {0} ？</value>
+  </data>
+  <data name="User_Delete" xml:space="preserve">
+    <value>删除</value>
+  </data>
+  <data name="User_Delete_Success" xml:space="preserve">
+    <value>删除用户 {0} 成功。</value>
+  </data>
+  <data name="User_Detail" xml:space="preserve">
+    <value>明细</value>
+  </data>
+  <data name="User_ItemNo" xml:space="preserve">
+    <value>序号</value>
+  </data>
+  <data name="User_Modify" xml:space="preserve">
+    <value>修改</value>
+  </data>
+  <data name="User_ModifyUserTitle" xml:space="preserve">
+    <value>修改用户</value>
+  </data>
+  <data name="User_Query" xml:space="preserve">
+    <value>查询</value>
+  </data>
+  <data name="User_Reset" xml:space="preserve">
+    <value>重置</value>
+  </data>
+  <data name="User_Save" xml:space="preserve">
+    <value>保存</value>
+  </data>
+  <data name="User_SaveModify_Success" xml:space="preserve">
+    <value>修改用户 {0} 成功。</value>
+  </data>
+  <data name="User_SaveUser_Success" xml:space="preserve">
+    <value>新增用户 {0} 成功。</value>
+  </data>
+  <data name="User_UserDetailTitle" xml:space="preserve">
+    <value>用户明细</value>
+  </data>
+  <data name="User_UserManagePageTitle" xml:space="preserve">
+    <value>用户管理</value>
+  </data>
+  <data name="User_UserQueryViewModel_LoginName" xml:space="preserve">
+    <value>登录名</value>
+  </data>
+  <data name="User_UserQueryViewModel_UserName" xml:space="preserve">
+    <value>用户名</value>
+  </data>
+  <data name="User_UserViewModel_CreateTime" xml:space="preserve">
+    <value>创建时间</value>
+  </data>
+  <data name="User_UserViewModel_Creator" xml:space="preserve">
+    <value>创建人</value>
+  </data>
+  <data name="User_UserViewModel_Description" xml:space="preserve">
+    <value>描述</value>
+  </data>
+  <data name="User_UserViewModel_DescriptionValidateStringLength" xml:space="preserve">
+    <value>{0} 不能超过 {1} 个字符。</value>
+  </data>
+  <data name="User_UserViewModel_Editor" xml:space="preserve">
+    <value>编辑人</value>
+  </data>
+  <data name="User_UserViewModel_EditTime" xml:space="preserve">
+    <value>编辑时间</value>
+  </data>
+  <data name="User_UserViewModel_Email" xml:space="preserve">
+    <value>电子邮件</value>
+  </data>
+  <data name="User_UserViewModel_EmalValidateFormat" xml:space="preserve">
+    <value>{0} 格式不正确。</value>
+  </data>
+  <data name="User_UserViewModel_IsActive" xml:space="preserve">
+    <value>激活</value>
+  </data>
+  <data name="User_UserViewModel_IsApproved" xml:space="preserve">
+    <value>审核</value>
+  </data>
+  <data name="User_UserViewModel_IsLocked" xml:space="preserve">
+    <value>锁定</value>
+  </data>
+  <data name="User_UserViewModel_LastLoginIP" xml:space="preserve">
+    <value>最后登陆IP</value>
+  </data>
+  <data name="User_UserViewModel_LastLoginTime" xml:space="preserve">
+    <value>最后登陆时间</value>
+  </data>
+  <data name="User_UserViewModel_LoginName" xml:space="preserve">
+    <value>登录名</value>
+  </data>
+  <data name="User_UserViewModel_LoginNameValidateStringLength" xml:space="preserve">
+    <value>{0} 必须至少包含 {2} 个字符，不能超过 {1} 个字符。</value>
+  </data>
+  <data name="User_UserViewModel_MobilePhone" xml:space="preserve">
+    <value>移动电话</value>
+  </data>
+  <data name="User_UserViewModel_MobilePhoneValidateFormat" xml:space="preserve">
+    <value>{0} 格式不正确。</value>
+  </data>
+  <data name="User_UserViewModel_OfficePhone" xml:space="preserve">
+    <value>办公电话</value>
+  </data>
+  <data name="User_UserViewModel_OfficePhoneValidateFormat" xml:space="preserve">
+    <value>{0} 格式不正确。</value>
+  </data>
+  <data name="User_UserViewModel_Password" xml:space="preserve">
+    <value>密码</value>
+  </data>
+  <data name="User_UserViewModel_PasswordValidateStringLength" xml:space="preserve">
+    <value>{0} 必须至少包含 {2} 个字符，不能超过 {1} 个字符。</value>
+  </data>
+  <data name="User_UserViewModel_UserName" xml:space="preserve">
+    <value>用户名</value>
+  </data>
+  <data name="User_UserViewModel_UserNameValidateStringLength" xml:space="preserve">
+    <value>{0} 必须至少包含 {2} 个字符，不能超过 {1} 个字符。</value>
+  </data>
+  <data name="Role_Add" xml:space="preserve">
+    <value>新增</value>
+  </data>
+  <data name="Role_AddRoleTitle" xml:space="preserve">
+    <value>新增角色</value>
+  </data>
+  <data name="Role_ConfirmDeleteRole" xml:space="preserve">
+    <value>确定删除角色 {0} ？</value>
+  </data>
+  <data name="Role_Delete" xml:space="preserve">
+    <value>删除</value>
+  </data>
+  <data name="Role_Delete_Success" xml:space="preserve">
+    <value>删除角色 {0} 成功。</value>
+  </data>
+  <data name="Role_Detail" xml:space="preserve">
+    <value>明细</value>
+  </data>
+  <data name="Role_ItemNo" xml:space="preserve">
+    <value>序号</value>
+  </data>
+  <data name="Role_Modify" xml:space="preserve">
+    <value>修改</value>
+  </data>
+  <data name="Role_ModifyRoleTitle" xml:space="preserve">
+    <value>修改角色</value>
+  </data>
+  <data name="Role_Query" xml:space="preserve">
+    <value>查询</value>
+  </data>
+  <data name="Role_Reset" xml:space="preserve">
+    <value>重置</value>
+  </data>
+  <data name="Role_RoleDetailTitle" xml:space="preserve">
+    <value>角色明细</value>
+  </data>
+  <data name="Role_RoleManagePageTitle" xml:space="preserve">
+    <value>角色管理</value>
+  </data>
+  <data name="Role_RoleQueryViewModel_RoleName" xml:space="preserve">
+    <value>角色名</value>
+  </data>
+  <data name="Role_RoleViewModel_CreateTime" xml:space="preserve">
+    <value>创建时间</value>
+  </data>
+  <data name="Role_RoleViewModel_Creator" xml:space="preserve">
+    <value>创建人</value>
+  </data>
+  <data name="Role_RoleViewModel_Description" xml:space="preserve">
+    <value>描述</value>
+  </data>
+  <data name="Role_RoleViewModel_DescriptionValidateStringLength" xml:space="preserve">
+    <value>{0} 不能超过 {1} 个字符。</value>
+  </data>
+  <data name="Role_RoleViewModel_Editor" xml:space="preserve">
+    <value>编辑人</value>
+  </data>
+  <data name="Role_RoleViewModel_EditTime" xml:space="preserve">
+    <value>编辑时间</value>
+  </data>
+  <data name="Role_RoleViewModel_RoleName" xml:space="preserve">
+    <value>角色名</value>
+  </data>
+  <data name="Role_RoleViewModel_RoleNameValidateStringLength" xml:space="preserve">
+    <value>{0} 必须至少包含 {2} 个字符，不能超过 {1} 个字符。</value>
+  </data>
+  <data name="Role_Save" xml:space="preserve">
+    <value>保存</value>
+  </data>
+  <data name="Role_SaveModify_Success" xml:space="preserve">
+    <value>修改角色 {0} 成功。</value>
+  </data>
+  <data name="Role_SaveRole_Success" xml:space="preserve">
+    <value>保存角色 {0} 成功。</value>
+  </data>
+  <data name="Resource_AddResourceTitle" xml:space="preserve">
+    <value>新增资源</value>
+  </data>
+  <data name="Resource_Delete_ParamterError" xml:space="preserve">
+    <value>1000：参数错误。</value>
+    <comment>1000</comment>
+  </data>
+  <data name="Resource_Detail_ParamterError" xml:space="preserve">
+    <value>1001：参数错误。</value>
+    <comment>1001</comment>
+  </data>
+  <data name="Resource_ModifyResourceTitle" xml:space="preserve">
+    <value>修改资源</value>
+  </data>
+  <data name="Resource_Modify_ParamterError" xml:space="preserve">
+    <value>1002：参数错误。</value>
+    <comment>1002</comment>
+  </data>
+  <data name="Resource_Query" xml:space="preserve">
+    <value>查询</value>
+  </data>
+  <data name="Resource_Reset" xml:space="preserve">
+    <value>重置</value>
+  </data>
+  <data name="Resource_ResourceDetailTitle" xml:space="preserve">
+    <value>资源明细</value>
+  </data>
+  <data name="Resource_ResourceManagePageTitle" xml:space="preserve">
+    <value>资源管理</value>
+  </data>
+  <data name="Resource_ResourceQueryViewModel_ResourceCode" xml:space="preserve">
+    <value>代码</value>
+  </data>
+  <data name="Resource_ResourceQueryViewModel_ResourceName" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="Resource_ResourceQueryViewModel_ResourceType" xml:space="preserve">
+    <value>类型</value>
+  </data>
+  <data name="Resource_ResourceViewModel_CreateTime" xml:space="preserve">
+    <value>创建时间</value>
+  </data>
+  <data name="Resource_ResourceViewModel_Creator" xml:space="preserve">
+    <value>创建人</value>
+  </data>
+  <data name="Resource_ResourceViewModel_Description" xml:space="preserve">
+    <value>描述</value>
+  </data>
+  <data name="Resource_ResourceViewModel_DescriptionValidateStringLength" xml:space="preserve">
+    <value>{0} 不能超过 {1} 个字符。</value>
+  </data>
+  <data name="Resource_ResourceViewModel_Editor" xml:space="preserve">
+    <value>编辑人</value>
+  </data>
+  <data name="Resource_ResourceViewModel_EditTime" xml:space="preserve">
+    <value>编辑时间</value>
+  </data>
+  <data name="Resource_ResourceViewModel_ResourceCode" xml:space="preserve">
+    <value>代码</value>
+  </data>
+  <data name="Resource_ResourceViewModel_ResourceCodeValidateStringLength" xml:space="preserve">
+    <value>{0} 必须至少包含 {2} 个字符，不能超过 {1} 个字符。</value>
+  </data>
+  <data name="Resource_ResourceViewModel_ResourceData" xml:space="preserve">
+    <value>数据</value>
+  </data>
+  <data name="Resource_ResourceViewModel_ResourceDataValidateStringLength" xml:space="preserve">
+    <value>{0} 必须至少包含 {2} 个字符，不能超过 {1} 个字符。</value>
+  </data>
+  <data name="Resource_ResourceViewModel_ResourceName" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="Resource_ResourceViewModel_ResourceNameValidateStringLength" xml:space="preserve">
+    <value>{0} 必须至少包含 {2} 个字符，不能超过 {1} 个字符。</value>
+  </data>
+  <data name="Resource_ResourceViewModel_ResourceType" xml:space="preserve">
+    <value>类型</value>
+  </data>
+  <data name="Resource_Save" xml:space="preserve">
+    <value>保存</value>
+  </data>
+  <data name="Resource_SaveModify_Success" xml:space="preserve">
+    <value>修改资源 {0}-{1} 成功。</value>
+  </data>
+  <data name="Resource_SaveResource_Success" xml:space="preserve">
+    <value>保存资源 {0}-{1} 成功。</value>
+  </data>
+  <data name="Resource_Add" xml:space="preserve">
+    <value>新增</value>
+  </data>
+  <data name="Resource_ConfirmDeleteResource" xml:space="preserve">
+    <value>确认删除资源 {0}-{1} ?</value>
+  </data>
+  <data name="Resource_Delete" xml:space="preserve">
+    <value>删除</value>
+  </data>
+  <data name="Resource_Delete_Success" xml:space="preserve">
+    <value>删除资源 {0}-{1} 成功。</value>
+  </data>
+  <data name="Resource_Detail" xml:space="preserve">
+    <value>明细</value>
+  </data>
+  <data name="Resource_ItemNo" xml:space="preserve">
+    <value>序号</value>
+  </data>
+  <data name="Resource_Modify" xml:space="preserve">
+    <value>修改</value>
+  </data>
+</root>

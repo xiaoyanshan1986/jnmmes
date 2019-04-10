@@ -1,0 +1,135 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.WIP.Models.LotMateSeModel
+@using ServiceCenter.MES.Model.WIP;
+@using ServiceCenter.Model;
+@using ServiceCenter.Common;
+@using ServiceCenter.Client.Mvc.Areas.WIP.Models;
+@using WIPRsources = ServiceCenter.Client.Mvc.Resources.WIP;
+@using ServiceCenter.Client.Mvc.Resources;
+@{
+     ViewBag.Title = WIPRsources.StringResource.LotMateSemodules_ManagePageTitle;
+}
+<h2>@ViewBag.Title</h2>
+@using (Ajax.BeginForm("Save", "LotMateSEModules", null
+                    , new AjaxOptions()
+                    {
+                        HttpMethod = "Post",
+                        OnSuccess = "completeSave",
+                        OnBegin = "beginSave"
+                    }
+                    , new { @class = "form-horizontal", resource = "form", id = "frmMateSEModules" }))
+{
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <input type="button" value="@WIPRsources.StringResource.Mate" class="btn btn-primary" id="btnSave" />
+    </div>
+    <div class="panel-body">
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        <div class="form-group">
+            @*批次号*@
+            <div class="col-md-1">
+                @Html.LabelFor(m => m.LotNumber, new { @class = "control-label" })
+            </div>
+            <div class="col-md-3">
+                @Html.TextBoxFor(m => m.LotNumber, new { @class = "form-control", @style = "height:50px;font-size:20px;text-transform:uppercase;ime-mode:disabled" })
+                @Html.ValidationMessageFor(m => m.LotNumber)
+            </div>
+
+            @*优化器序列号*@
+            <div class="col-md-1">
+                @Html.LabelFor(m => m.SEModulesNo, new { @class = "control-label" })
+            </div>
+            <div class="col-md-3">
+                @Html.TextBoxFor(m => m.SEModulesNo, new { @class = "form-control", @style = "height:50px;font-size:20px;text-transform:uppercase;ime-mode:disabled" })
+                @Html.ValidationMessageFor(m => m.SEModulesNo)
+            </div>
+        </div>
+
+        <div class="alert fade in hide" resource="alert" id="statusMessage" style="margin: 0px;" >
+            <button type="button" class="close" onclick="hideStatusMessage()">
+                <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+            </button>
+            <p></p>
+        </div>
+    </div>
+
+</div>
+}
+
+@section Scripts {
+    <script type="text/javascript" language="javascript">
+        $(function () {
+            $("#LotNumber:first").focus();
+            $("#btnSave").click(function () {
+                hideStatusMessage();
+                $("#frmMateSEModules").submit();
+            });
+        });
+
+            var texts = $("#frmMateSEModules").find(":text:visible:enabled,:checkbox:visible:enabled,select:visible:enabled")
+                                      .not("[readonly]");
+            texts.focus(function () {
+                    $(this).select();
+                })
+                .keypress(function (args) {
+                    if (args.ctrlKey == false && args.keyCode == 13) {
+                        var index = texts.index(this)+1;
+                        if (index < texts.length) {
+                            texts.eq(index).focus();
+                            
+                        }
+                        else {
+                            if ($('#btnSave').attr("disabled") != "disabled")
+                            {
+                                $("#btnSave").click();
+                            }
+                        }
+                    }
+                });
+          
+        //隐藏状态消息
+        function hideStatusMessage() {
+            $("#statusMessage").addClass("hide");
+        }
+        function beginSave() {
+            $("#btnSave").attr("disabled", "disabled");
+            $("#LotNumber").attr("readonly", "readonly");
+            $("#SEModulesNo").attr("readonly", "readonly");
+            hideStatusMessage();
+        }
+
+        function completeSave(result, status, xhr) {
+            $("#btnSave").removeAttr("disabled");
+            $("#LotNumber").removeAttr("readonly");
+            $("#SEModulesNo").removeAttr("readonly");
+
+            if (xhr.status == 200 && typeof (result) == "object") {
+                    showErrorInfo(result);
+                    if (result.Code <= 0) {
+                        $("#LotNumber:first").select();
+                        $("#LotNumber").val("");
+                        $("#SEModulesNo").val("");
+                }
+            }
+            else {
+                var rst = { Code: xhr.statusCode, Message: status + ":" + response };
+                showErrorInfo(rst);
+            }
+        }
+        function showErrorInfo(result) {
+            $("#statusMessage").find("p").html(result.Message);
+            $("#statusMessage").removeClass("hide");
+            if (result.Code > 0 || result.Code==-1) {
+                $("#statusMessage").removeClass("alert-success");
+                $("#statusMessage").addClass("alert-danger");
+            }
+            else {
+                $("#statusMessage").removeClass("alert-danger");
+                $("#statusMessage").addClass("alert-success");
+            }
+        }
+
+
+    </script>
+
+}

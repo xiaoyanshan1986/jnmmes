@@ -1,0 +1,223 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.ERP.Models.WOReportDetailQueryViewModel
+@using ServiceCenter.Model;
+@using ServiceCenter.Common;
+@using ServiceCenter.Client.Mvc.Areas.ERP.Models;
+@using ERP = ServiceCenter.Client.Mvc.Resources.ERP;
+@using ServiceCenter.Client.Mvc.Resources;
+
+@{
+    ViewBag.Title = ERP.StringResource.ERPWOReportDetail_ManagePageTitle;
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        @Html.ActionLink(linkText: StringResource.Print
+                        , actionName: "Print"
+                        , controllerName: null
+                        , routeValues: new { BillCode = @Model.BillCode }
+                        , htmlAttributes: new { @class = "btn btn-default", @target = "blank" })
+
+
+        @Ajax.ActionLink(StringResource.Query, actionName: null
+                        , routeValues: null
+                        , ajaxOptions: new AjaxOptions()
+                        {
+                            HttpMethod = "Post",
+                            UpdateTargetId = "list",
+                            Url = Url.Action("sIndex", new { BillCode = @Model.BillCode }),
+
+                        }
+                        , htmlAttributes: new { @class = "btn btn-default hidden", @id = "btnQuery" }
+            )
+        @if (string.IsNullOrEmpty(Model.WRCode))
+        {
+            @Ajax.ActionLink(ERP.StringResource.StockInApply, actionName: null
+                                        , routeValues: null
+                                        , ajaxOptions: new AjaxOptions()
+                                        {
+                                            HttpMethod = "Post",
+                                            OnComplete = "completeCreateXml",
+                                            UpdateTargetId = "list",
+                                            Url = Url.Action("sCreateXML", new { BillCode = @Model.BillCode, ScrapType = @Model.ScrapType }),
+
+                                        }
+                                        , htmlAttributes: new { @class = "btn btn-default" })
+        }
+        @if (!string.IsNullOrEmpty(Model.WRCode) && string.IsNullOrEmpty(Model.INCode))
+        {
+            @Ajax.ActionLink(ERP.StringResource.AntiState, actionName: null
+                                        , routeValues: null
+                                        , ajaxOptions: new AjaxOptions()
+                                        {
+                                            HttpMethod = "Post",
+                                            OnComplete = "completeCreateXml",
+                                            UpdateTargetId = "list",
+                                            Url = Url.Action("sAntiState", new { BillCode = @Model.BillCode, WRCode = @Model.WRCode }),
+
+                                        }
+                                        , htmlAttributes: new { @class = "btn btn-default", @onclick = "return confirm('你确定要撤销吗？')" })
+        }
+    </div>
+
+    <div id="headlist">
+        <div class="form-group">
+            @Html.LabelFor(m => m.BillCode, new { @class = "col-md-1 control-label" })
+            <div class="col-md-3">
+                @Html.TextBoxFor(m => m.BillCode, new { @class = "form-control", @id = "txtBillCode", @readonly = "readonly" })
+                @Html.ValidationMessageFor(m => m.BillCode)
+            </div>
+            @Html.LabelFor(m => m.BillDate, new { @class = "col-md-1 control-label" })
+            <div class="col-md-3">
+                @Html.TextBoxFor(m => m.BillDate, "{0:yyyy-MM-dd}", new { @class = "form-control", @readonly = "readonly" })
+                @Html.ValidationMessageFor(m => m.BillDate)
+            </div>
+            @Html.LabelFor(m => m.MixType, new { @class = "col-md-1 control-label" })
+            <div class="col-md-3">
+                @Html.DropDownListFor(m => m.MixType, @Model.GetMixtype(), new { @class = "form-control", @disabled = "disabled" })
+                @Html.ValidationMessageFor(m => m.MixType)
+            </div>
+
+        </div>
+        <div class="form-group">
+            @*@Html.LabelFor(m => m.ScrapType, new { @class = "col-md-1 control-label" })
+            <div class="col-md-3">
+                @Html.DropDownListFor(m => m.ScrapType, @Model.GetScraptype(), new { @class = "form-control", @disabled = "disabled" })
+                @Html.ValidationMessageFor(m => m.ScrapType)
+            </div>*@
+            @Html.LabelFor(m => m.BillMakedDate, new { @class = "col-md-1 control-label" })
+            <div class="col-md-3">
+                @Html.TextBoxFor(m => m.BillMakedDate, "{0:yyyy-MM-dd}", new { @class = "form-control", @readonly = "readonly" })
+                @Html.ValidationMessageFor(m => m.BillMakedDate)
+            </div>
+            @Html.LabelFor(m => m.OrderNumber, new { @class = "col-md-1 control-label" })
+            <div class="col-md-3">
+                @Html.TextBoxFor(m => m.OrderNumber, new { @class = "form-control", @readonly = "readonly" })
+                @Html.ValidationMessageFor(m => m.OrderNumber)
+            </div>
+
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.MaterialCode, new { @class = "col-md-1 control-label" })
+            <div class="col-md-3">
+                @Html.TextBoxFor(m => m.MaterialCode, new { @class = "form-control", @readonly = "readonly" })
+                @Html.ValidationMessageFor(m => m.MaterialCode)
+            </div>
+            @Html.LabelFor(m => m.Note, new { @class = "col-md-1 control-label" })
+            <div class="col-md-7">
+                @Html.TextBoxFor(m => m.Note, new { @class = "form-control", @readonly = "readonly" })
+                @Html.ValidationMessageFor(m => m.Note)
+            </div>
+
+        </div>
+    </div>
+    <div class="row"></div>
+
+    <div class="panel-body">
+        @using (Ajax.BeginForm("sSave", "ERPWOReportDetail", null
+            , new AjaxOptions()
+            {
+                HttpMethod = "Post",
+                OnSuccess = "completeSave",
+                OnBegin = "beginSave"
+            }
+            , new { @class = "form-horizontal", resource = "form", }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.HiddenFor(m => m.BillCode)
+            @Html.HiddenFor(m => m.MixType)
+            @Html.HiddenFor(m => m.ScrapType)
+            <div class="row">
+                @if (Model.ScrapType.ToString() == "False")
+                {
+                    <div class="col-md-1">
+                        <label class="control-label">批次号</label>
+                    </div>
+                }
+                else
+                {
+                    <div class="col-md-1">
+                        @Html.LabelFor(m => m.ObjectNumber, new { @class = "control-label" })
+                    </div>
+                }
+
+                <div class="col-md-2">
+                    @Html.TextBoxFor(m => m.ObjectNumber, new { @class = "form-control" })
+                </div>
+                <div class="col-md-9">
+                    @if (string.IsNullOrEmpty(Model.WRCode))
+                    {
+                        <input type="submit" value="@StringResource.Add" class="btn btn-default" />
+                    }
+                </div>
+            </div>
+        }
+    </div>
+
+    <div class="alert fade in hide" resource="alert" id="statusMessage" style="margin:0px">
+        <button type="button" class="close" onclick="hideStatusMessage()">
+            <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+        </button>
+        <p></p>
+    </div>
+
+    <div id="list">
+        @Html.Partial("_sListPartial", new WOReportDetailViewModel() { BillCode = Model.BillCode })
+    </div>
+
+</div>
+
+@section Scripts {
+    <script type="text/javascript" language="javascript">
+
+        $(function () {
+
+            $('#ObjectNumber').keypress(function () {
+                $('#btnSave').click();
+            });
+        })
+        function refreshList() {
+            $('#btnQuery').click();
+        }
+
+        function hideStatusMessage() {
+            $("#statusMessage").addClass("hide");
+        }
+
+        function beginSave() {
+            $("#btnSave").attr("disabled", "disabled");
+            hideStatusMessage();
+        }
+
+        function completeSave(result) {
+            $("#btnSave").removeAttr("disabled");
+            ShowMessage(result);
+            $("#ObjectNumber").focus().select();
+        }
+
+        function completeDelete(result) {
+            ShowMessage(result)
+        }
+
+        function completeCreateXml(result) {
+            var json = JSON.parse(result.responseText);
+            ShowMessage(json)
+        }
+
+        function ShowMessage(result) {
+            $("#statusMessage").find("p").html(result.Message);
+            $("#statusMessage").removeClass("hide");
+            if (result.Code > 0) {
+                $("#statusMessage").removeClass("alert-success");
+                $("#statusMessage").addClass("alert-danger");
+            }
+            else {
+                $("#statusMessage").removeClass("alert-danger");
+                $("#statusMessage").addClass("alert-success");
+            }
+            refreshList();
+        }
+    </script>
+}
+

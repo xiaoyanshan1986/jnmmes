@@ -1,0 +1,11 @@
+﻿@using ServiceCenter.Client.Mvc.Resources;
+@using RPTResources = ServiceCenter.Client.Mvc.Resources.RPT;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@using System.Data;
+@{
+    string key = ViewBag.Key;
+}
+<div style="text-align:center">
+    <img src="@Url.Action("ShowChartImage", "Test", new { @Key = key })" />
+</div>

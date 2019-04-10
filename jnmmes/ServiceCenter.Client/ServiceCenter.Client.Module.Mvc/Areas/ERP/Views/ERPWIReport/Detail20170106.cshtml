@@ -1,0 +1,182 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.ERP.Models.WOReportDetailQueryViewModel
+@using ServiceCenter.Model;
+@using ServiceCenter.Common;
+@using ServiceCenter.Client.Mvc.Areas.ERP.Models;
+@using ERP = ServiceCenter.Client.Mvc.Resources.ERP;
+@using ServiceCenter.Client.Mvc.Resources;
+
+@{
+    ViewBag.Title = ERP.StringResource.ERPWIReport_ManagePageTitle;
+    var StoreList = (IEnumerable<SelectListItem>)ViewBag.Store;
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        @Ajax.ActionLink(StringResource.Print
+                         , "Print"
+                         , null
+                         , new AjaxOptions()
+                         {
+                             HttpMethod = "Post"
+                         }
+                          , new { @class = "btn btn-default hidden", @id = "btnPrint" })
+        @Ajax.ActionLink(StringResource.Query, actionName: null
+                                        , routeValues: null
+                                        , ajaxOptions: new AjaxOptions()
+                                        {
+                                            HttpMethod = "Post",
+                                            UpdateTargetId = "list",
+                                            Url = Url.Action("Detail", new { BillCode = @Model.BillCode }),
+
+                                        }
+                                        , htmlAttributes: new { @class = "btn btn-default hidden", @id = "btnQuery" })
+        @if (string.IsNullOrEmpty(Model.INCode))
+        {
+            <a href="javascript:StockIn()" class="btn btn-primary" id="StockInbtn">@ERP.StringResource.StockIn</a>
+            @*@Ajax.ActionLink(ERP.StringResource.CreateXML, actionName: null
+                , routeValues: null
+                , ajaxOptions: new AjaxOptions()
+                {
+                    HttpMethod = "Post",
+                    OnComplete = "completeCreateXml",
+                    UpdateTargetId = "list",
+                    Url = Url.Action("CreateXML", new { BillCode = @Model.BillCode, Store = s }),
+
+                }
+                , htmlAttributes: new { @class = "btn btn-default" })*@
+        }
+        else
+        {
+            @*@Ajax.ActionLink(ERP.StringResource.AntiState, actionName: null
+                , routeValues: null
+                , ajaxOptions: new AjaxOptions()
+                {
+                    HttpMethod = "Post",
+                    OnComplete = "completeCreateXml",
+                    UpdateTargetId = "list",
+                    Url = Url.Action("AntiState", new { BillCode = @Model.BillCode, INCode = @Model.INCode }),
+
+                }
+                , htmlAttributes: new { @class = "btn btn-default", @onclick = "return confirm('你确定要撤销吗？')" })*@
+            <a href="javascript:AntiState()" class="btn btn-primary">@ERP.StringResource.AntiState</a>
+        }
+    </div>
+    <div class="panel-body">
+
+        <div id="headlist">
+            <div class="form-group">
+                @* 入库日期 *@
+                @Html.LabelFor(m => m.BillDate, new { @class = "col-md-1 control-label" })
+                <div class="col-md-3">
+                    @Html.TextBoxFor(m => m.BillDate, "{0:yyyy-MM-dd}", new { @class = "form-control", @readonly = "readonly" })
+                    @Html.ValidationMessageFor(m => m.BillDate)
+                </div>
+
+                @* 入库单号 *@
+                @Html.LabelFor(m => m.BillCode, new { @class = "col-md-1 control-label" })
+                <div class="col-md-3">
+                    @Html.TextBoxFor(m => m.BillCode, new { @class = "form-control", @id = "txtBillCode", @readonly = "readonly" })
+                    @Html.ValidationMessageFor(m => m.BillCode)
+                </div>
+
+                @* 制单日期 *@
+                @Html.LabelFor(m => m.BillMakedDate, new { @class = "col-md-1 control-label" })
+                <div class="col-md-3">
+                    @Html.TextBoxFor(m => m.BillMakedDate, "{0:yyyy-MM-dd}", new { @class = "form-control", @readonly = "readonly" })
+                    @Html.ValidationMessageFor(m => m.BillMakedDate)
+                </div>
+            </div>
+            <div class="form-group">
+               
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Store, new { @class = "col-md-1 control-label" })
+                <div class="col-md-3">
+                    @Html.DropDownListFor(m => m.Store, StoreList, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.Store)
+                </div>
+                @Html.LabelFor(m => m.Note, new { @class = "col-md-1 control-label" })
+                <div class="col-md-7">
+                    @Html.TextAreaFor(m => m.Note, new { @class = "form-control", @readonly = "readonly" })
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="alert fade in hide" resource="alert" id="statusMessage" style="margin:0px">
+        <button type="button" class="close" onclick="hideStatusMessage()">
+            <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+        </button>
+        <p></p>
+    </div>
+
+    <div id="list">
+        @Html.Partial("_DetailListPartial", new WOReportDetailViewModel() { BillCode = Model.BillCode })
+    </div>
+
+</div>
+
+@section Scripts {
+    <script type="text/javascript" language="javascript">
+
+        $(function () {
+
+            $('#ObjectNumber').keypress(function () {
+                $('#btnSave').click();
+            });
+        })
+        function refreshList() {
+            $('#btnQuery').click();
+        }
+
+        function hideStatusMessage() {
+            $("#statusMessage").addClass("hide");
+        }
+
+        //入库操作
+        function StockIn() {
+            $("#StockInbtn").attr("disabled", "disabled");
+            $("#statusMessage").find("p").html("开始入库操作，请稍等...");
+            var Store = $('#Store').val()
+            $.ajax({
+                type: "post",
+                url: "@Url.Action("StockInReceive", "ERPWIReport")",
+                data: { BillCode: '@Model.BillCode', Store: Store,ScrapType:'@Model.ScrapType'},
+                dataType: "json",
+                success: function (result) { completeCreateXml(result) }
+            });
+        }
+
+        function AntiState() {
+            $.ajax({
+                type: "post",
+                url: "@Url.Action("AntiState", "ERPWIReport")",
+                data: { BillCode: '@Model.BillCode', INCode: '@Model.INCode' },
+                dataType: "json",
+                success: function (result) { completeCreateXml(result) }
+            });
+        }
+
+        function completeCreateXml(result) {
+            //var json = JSON.parse(result.responseText);
+            //ShowMessage(json)
+            ShowMessage(result)
+        }
+
+        function ShowMessage(result) {
+            $("#statusMessage").find("p").html(result.Message);
+            $("#statusMessage").removeClass("hide");
+            if (result.Code > 0) {
+                $("#statusMessage").removeClass("alert-success");
+                $("#statusMessage").addClass("alert-danger");
+            }
+            else {
+                $("#statusMessage").removeClass("alert-danger");
+                $("#statusMessage").addClass("alert-success");
+            }
+            refreshList();
+        }
+    </script>
+}
+

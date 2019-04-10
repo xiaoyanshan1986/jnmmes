@@ -1,0 +1,48 @@
+﻿@model ServiceCenter.Client.Mvc.Models.MenuViewModel
+@using ServiceCenter.MES.Model.RBAC;
+@using ServiceCenter.Client.Mvc.Models;
+
+@if (Request.IsAuthenticated)
+{
+    IList<Resource> lstMenu = Model.GetMenuResource(User.Identity.Name);
+    IList<Resource> lstMenuItem = Model.GetMenuItemResource(User.Identity.Name);
+
+    <ul class="nav navbar-nav">
+        @foreach (Resource menu in lstMenu.OrderBy(m=>m.Key.Code))
+        {
+            var lnq = from item in lstMenuItem
+                      where item.Key.Code.StartsWith(menu.Key.Code)
+                      orderby item.Key.Code
+                      select item;
+            if (lnq.Count() == 0)
+            {
+                <li><a href="@menu.Data">@menu.Name</a></li>
+            }
+            else
+            {
+                string menuItemCode = string.Empty;
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">@menu.Name<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        @foreach (Resource menuItem in lnq)
+                        {
+                            if (!string.IsNullOrEmpty(menuItemCode) && !menuItem.Key.Code.StartsWith(menuItemCode))
+                            {
+                                <li class="divider"></li>
+                                menuItemCode = string.Empty;
+                            }
+
+                            <li><a href="@menuItem.Data">@menuItem.Name</a></li>
+
+                            int lastIndex = menuItem.Key.Code.LastIndexOf('/');
+                            if (lastIndex > 0 && string.IsNullOrEmpty(menuItemCode))
+                            {
+                                menuItemCode = menuItem.Key.Code.Substring(0, lastIndex);
+                            }
+                        }
+                    </ul>
+                </li>
+            }
+        }
+    </ul>
+}

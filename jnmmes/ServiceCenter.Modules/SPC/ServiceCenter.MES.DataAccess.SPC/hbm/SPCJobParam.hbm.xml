@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   namespace="ServiceCenter.MES.Model.SPC"
+                   assembly="ServiceCenter.MES.Model.SPC">
+  <class name="SPCJobParam" table="SPC_JOB_PARAM">
+    <composite-id  name="Key" class="SPCJobParamKey">
+      <key-property name="JobId" column="JOB_ID"/>
+      <key-property name="ParamName" column="PARAM_NAME"/>
+      <key-property name="ParamType" column="PARAM_TYPE"/>
+    </composite-id >
+    <property name="UpperBoundary" column="UPPER_BOUNDARY"/>
+    <property name="UpperSpecification" column="UPPER_SPEC"/>
+    <property name="UpperControl" column="UPPER_CONTROL"/>
+    <property name="Target" column="TARGET"/>
+    <property name="LowerControl" column="LOWER_CONTROL"/>
+    <property name="LowerSpecification" column="LOWER_SPEC"/>
+    <property name="LowerBoundary" column="LOWER_BOUNDARY"/>
+    <property name="LineUpper" column="LINE_UPPER"/>
+    <property name="LineLower" column="LINE_LOWER"/>
+    <property name="LineYinterval" column="LINE_YINTERVAL"/>
+    <property name="Creator" column="CREATOR"/>
+    <property name="CreateTime" column="CREATE_TIME"/>
+    <property name="Editor" column="EDITOR"/>
+    <property name="EditTime" column="EDIT_TIME"/>
+  </class>
+</hibernate-mapping>

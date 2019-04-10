@@ -1,0 +1,29 @@
+2016-06-28 11:05:04,292 - ERROR - START>Application
+2016-06-28 11:26:05,545 - ERROR - START>Application
+2016-06-28 11:47:30,337 - ERROR - START>Application
+2016-06-28 14:17:16,713 - ERROR - START>Application
+2016-06-28 15:14:16,332 - ERROR - START>Application
+2016-06-28 15:27:38,558 - ERROR - START>Application
+2016-06-28 16:12:38,967 - ERROR - START>Application
+2016-06-28 16:22:52,032 - ERROR - START>Application
+2016-06-28 16:27:23,383 - ERROR - START>Application
+2016-06-28 16:43:48,671 - ERROR - START>Application
+2016-06-28 16:54:50,699 - ERROR - START>Application
+2016-06-28 17:00:18,695 - ERROR - START>Application
+2016-06-28 17:06:23,457 - ERROR - START>Application
+2016-06-28 17:22:32,881 - ERROR - START>Application
+2016-06-28 17:33:30,996 - ERROR - START>Application
+2016-06-28 17:45:20,835 - ERROR - START>Application
+2016-06-28 17:47:29,003 - ERROR - TrackInLot>
+System.FormatException: 输入字符串的格式不正确。
+   在 System.Number.ParseDouble(String value, NumberStyles options, NumberFormatInfo numfmt)
+   在 System.Convert.ToDouble(String value)
+   在 ServiceCenter.MES.Service.WIP.WipEngineerService.TrackInLot(TrackInParameter p, ISession session, Boolean executedWithTransaction) 位置 e:\Workspace\Jinergy\JNMMES\trunk\src\ServiceCenter.Modules\WIP\ServiceCenter.MES.Service.WIP\WipEngineerServiceForTrack.cs:行号 226
+   在 ServiceCenter.MES.Service.WIP.WipEngineerService.TrackInLot(TrackInParameter p) 位置 e:\Workspace\Jinergy\JNMMES\trunk\src\ServiceCenter.Modules\WIP\ServiceCenter.MES.Service.WIP\WipEngineerServiceForTrack.cs:行号 47
+2016-06-28 17:47:55,689 - ERROR - TrackInLot>
+System.FormatException: 输入字符串的格式不正确。
+   在 System.Number.ParseDouble(String value, NumberStyles options, NumberFormatInfo numfmt)
+   在 System.Convert.ToDouble(String value)
+   在 ServiceCenter.MES.Service.WIP.WipEngineerService.TrackInLot(TrackInParameter p, ISession session, Boolean executedWithTransaction) 位置 e:\Workspace\Jinergy\JNMMES\trunk\src\ServiceCenter.Modules\WIP\ServiceCenter.MES.Service.WIP\WipEngineerServiceForTrack.cs:行号 226
+   在 ServiceCenter.MES.Service.WIP.WipEngineerService.TrackInLot(TrackInParameter p) 位置 e:\Workspace\Jinergy\JNMMES\trunk\src\ServiceCenter.Modules\WIP\ServiceCenter.MES.Service.WIP\WipEngineerServiceForTrack.cs:行号 47
+2016-06-28 17:50:08,383 - ERROR - START>Application

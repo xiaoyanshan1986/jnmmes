@@ -1,0 +1,143 @@
+2016-07-04 08:39:54,467 - ERROR - START>Application
+2016-07-04 08:49:11,872 - ERROR - START>Application
+2016-07-04 09:43:27,276 - ERROR - START>Application
+2016-07-04 10:01:15,017 - ERROR - START>Application
+2016-07-04 12:03:36,820 - ERROR - START>Application
+2016-07-04 12:06:35,496 - ERROR - START>Application
+2016-07-04 12:12:54,267 - ERROR - 在将 varchar 值 'TrackOut' 转换成数据类型 int 时失败。
+2016-07-04 12:12:54,268 - ERROR - 在将 varchar 值 'TrackOut' 转换成数据类型 int 时失败。
+2016-07-04 12:12:54,345 - ERROR - ExecuteTrackOutBaseFounction>
+NHibernate.Exceptions.GenericADOException: could not execute query
+[ select count(*) as col_0_0_ from FMM_ROUTE_STEP_PARAM routestepp0_ where routestepp0_.ROUTE_NAME='组件生产流程3.0' and routestepp0_.ROUTE_STEP_NAME='上料' and routestepp0_.IS_DELETED=0 and routestepp0_.DC_TYPE='TrackOut' ]
+[SQL: select count(*) as col_0_0_ from FMM_ROUTE_STEP_PARAM routestepp0_ where routestepp0_.ROUTE_NAME='组件生产流程3.0' and routestepp0_.ROUTE_STEP_NAME='上料' and routestepp0_.IS_DELETED=0 and routestepp0_.DC_TYPE='TrackOut'] ---> System.Data.SqlClient.SqlException: 在将 varchar 值 'TrackOut' 转换成数据类型 int 时失败。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   在 System.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   在 System.Data.SqlClient.SqlDataReader.Read()
+   在 NHibernate.Driver.NHybridDataReader.Read() 位置 p:\nhibernate-core\src\NHibernate\Driver\NHybridDataReader.cs:行号 116
+   在 NHibernate.Loader.Loader.DoQuery(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies) 位置 p:\nhibernate-core\src\NHibernate\Loader\Loader.cs:行号 473
+   在 NHibernate.Loader.Loader.DoQueryAndInitializeNonLazyCollections(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies) 位置 p:\nhibernate-core\src\NHibernate\Loader\Loader.cs:行号 251
+   在 NHibernate.Loader.Loader.DoList(ISessionImplementor session, QueryParameters queryParameters) 位置 p:\nhibernate-core\src\NHibernate\Loader\Loader.cs:行号 1564
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 NHibernate.Loader.Loader.DoList(ISessionImplementor session, QueryParameters queryParameters) 位置 p:\nhibernate-core\src\NHibernate\Loader\Loader.cs:行号 1573
+   在 NHibernate.Loader.Loader.ListIgnoreQueryCache(ISessionImplementor session, QueryParameters queryParameters) 位置 p:\nhibernate-core\src\NHibernate\Loader\Loader.cs:行号 1472
+   在 NHibernate.Loader.Loader.List(ISessionImplementor session, QueryParameters queryParameters, ISet`1 querySpaces, IType[] resultTypes) 位置 p:\nhibernate-core\src\NHibernate\Loader\Loader.cs:行号 1467
+   在 NHibernate.Hql.Ast.ANTLR.Loader.QueryLoader.List(ISessionImplementor session, QueryParameters queryParameters) 位置 p:\nhibernate-core\src\NHibernate\Hql\Ast\ANTLR\Loader\QueryLoader.cs:行号 288
+   在 NHibernate.Hql.Ast.ANTLR.QueryTranslatorImpl.List(ISessionImplementor session, QueryParameters queryParameters) 位置 p:\nhibernate-core\src\NHibernate\Hql\Ast\ANTLR\QueryTranslatorImpl.cs:行号 112
+   在 NHibernate.Engine.Query.HQLQueryPlan.PerformList(QueryParameters queryParameters, ISessionImplementor session, IList results) 位置 p:\nhibernate-core\src\NHibernate\Engine\Query\HQLQueryPlan.cs:行号 105
+   在 NHibernate.Impl.SessionImpl.List(String query, QueryParameters queryParameters, IList results) 位置 p:\nhibernate-core\src\NHibernate\Impl\SessionImpl.cs:行号 626
+   在 NHibernate.Impl.SessionImpl.List(String query, QueryParameters parameters) 位置 p:\nhibernate-core\src\NHibernate\Impl\SessionImpl.cs:行号 592
+   在 NHibernate.Impl.QueryImpl.List() 位置 p:\nhibernate-core\src\NHibernate\Impl\QueryImpl.cs:行号 64
+   在 NHibernate.Impl.AbstractQueryImpl.UniqueResult() 位置 p:\nhibernate-core\src\NHibernate\Impl\AbstractQueryImpl.cs:行号 960
+   在 ServiceCenter.Common.DataAccess.NHibernate.ISessionExtensions.GetList[T](ISession session, PagingConfig cfg) 位置 e:\Projects\11JNMMES\trunk\src\ServiceCenter.Common\DataAccess\NHibernate\ISessionExtensions.cs:行号 38
+   在 ServiceCenter.Common.DataAccess.NHibernate.DatabaseDataEngine`2.Get(PagingConfig cfg, ISession session) 位置 e:\Projects\11JNMMES\trunk\src\ServiceCenter.Common\DataAccess\NHibernate\DatabaseDataEngine.cs:行号 206
+   在 ServiceCenter.MES.Service.WIP.WipEngineerService.DeductMaterial(EnumDataCollectionAction workModel, TrackOutParameter p, Equipment equipment, List`1 lstLot, ISession session, String transactionKey) 位置 e:\Workspace\Jinergy\JNMMES\trunk\src\ServiceCenter.Modules\WIP\ServiceCenter.MES.Service.WIP\WipEngineerServiceForTrack.cs:行号 2573
+2016-07-04 12:13:32,325 - ERROR - 在将 varchar 值 'TrackOut' 转换成数据类型 int 时失败。
+2016-07-04 12:13:32,325 - ERROR - 在将 varchar 值 'TrackOut' 转换成数据类型 int 时失败。
+2016-07-04 12:13:56,235 - ERROR - ExecuteTrackOutBaseFounction>
+NHibernate.Exceptions.GenericADOException: could not execute query
+[ select count(*) as col_0_0_ from FMM_ROUTE_STEP_PARAM routestepp0_ where routestepp0_.ROUTE_NAME='组件生产流程3.0' and routestepp0_.ROUTE_STEP_NAME='上料' and routestepp0_.IS_DELETED=0 and routestepp0_.DC_TYPE='TrackOut' ]
+[SQL: select count(*) as col_0_0_ from FMM_ROUTE_STEP_PARAM routestepp0_ where routestepp0_.ROUTE_NAME='组件生产流程3.0' and routestepp0_.ROUTE_STEP_NAME='上料' and routestepp0_.IS_DELETED=0 and routestepp0_.DC_TYPE='TrackOut'] ---> System.Data.SqlClient.SqlException: 在将 varchar 值 'TrackOut' 转换成数据类型 int 时失败。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   在 System.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   在 System.Data.SqlClient.SqlDataReader.Read()
+   在 NHibernate.Driver.NHybridDataReader.Read() 位置 p:\nhibernate-core\src\NHibernate\Driver\NHybridDataReader.cs:行号 116
+   在 NHibernate.Loader.Loader.DoQuery(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies) 位置 p:\nhibernate-core\src\NHibernate\Loader\Loader.cs:行号 473
+   在 NHibernate.Loader.Loader.DoQueryAndInitializeNonLazyCollections(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies) 位置 p:\nhibernate-core\src\NHibernate\Loader\Loader.cs:行号 251
+   在 NHibernate.Loader.Loader.DoList(ISessionImplementor session, QueryParameters queryParameters) 位置 p:\nhibernate-core\src\NHibernate\Loader\Loader.cs:行号 1564
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 NHibernate.Loader.Loader.DoList(ISessionImplementor session, QueryParameters queryParameters) 位置 p:\nhibernate-core\src\NHibernate\Loader\Loader.cs:行号 1573
+   在 NHibernate.Loader.Loader.ListIgnoreQueryCache(ISessionImplementor session, QueryParameters queryParameters) 位置 p:\nhibernate-core\src\NHibernate\Loader\Loader.cs:行号 1472
+   在 NHibernate.Loader.Loader.List(ISessionImplementor session, QueryParameters queryParameters, ISet`1 querySpaces, IType[] resultTypes) 位置 p:\nhibernate-core\src\NHibernate\Loader\Loader.cs:行号 1467
+   在 NHibernate.Hql.Ast.ANTLR.Loader.QueryLoader.List(ISessionImplementor session, QueryParameters queryParameters) 位置 p:\nhibernate-core\src\NHibernate\Hql\Ast\ANTLR\Loader\QueryLoader.cs:行号 288
+   在 NHibernate.Hql.Ast.ANTLR.QueryTranslatorImpl.List(ISessionImplementor session, QueryParameters queryParameters) 位置 p:\nhibernate-core\src\NHibernate\Hql\Ast\ANTLR\QueryTranslatorImpl.cs:行号 112
+   在 NHibernate.Engine.Query.HQLQueryPlan.PerformList(QueryParameters queryParameters, ISessionImplementor session, IList results) 位置 p:\nhibernate-core\src\NHibernate\Engine\Query\HQLQueryPlan.cs:行号 105
+   在 NHibernate.Impl.SessionImpl.List(String query, QueryParameters queryParameters, IList results) 位置 p:\nhibernate-core\src\NHibernate\Impl\SessionImpl.cs:行号 626
+   在 NHibernate.Impl.SessionImpl.List(String query, QueryParameters parameters) 位置 p:\nhibernate-core\src\NHibernate\Impl\SessionImpl.cs:行号 592
+   在 NHibernate.Impl.QueryImpl.List() 位置 p:\nhibernate-core\src\NHibernate\Impl\QueryImpl.cs:行号 64
+   在 NHibernate.Impl.AbstractQueryImpl.UniqueResult() 位置 p:\nhibernate-core\src\NHibernate\Impl\AbstractQueryImpl.cs:行号 960
+   在 ServiceCenter.Common.DataAccess.NHibernate.ISessionExtensions.GetList[T](ISession session, PagingConfig cfg) 位置 e:\Projects\11JNMMES\trunk\src\ServiceCenter.Common\DataAccess\NHibernate\ISessionExtensions.cs:行号 38
+   在 ServiceCenter.Common.DataAccess.NHibernate.DatabaseDataEngine`2.Get(PagingConfig cfg, ISession session) 位置 e:\Projects\11JNMMES\trunk\src\ServiceCenter.Common\DataAccess\NHibernate\DatabaseDataEngine.cs:行号 206
+   在 ServiceCenter.MES.Service.WIP.WipEngineerService.DeductMaterial(EnumDataCollectionAction workModel, TrackOutParameter p, Equipment equipment, List`1 lstLot, ISession session, String transactionKey) 位置 e:\Workspace\Jinergy\JNMMES\trunk\src\ServiceCenter.Modules\WIP\ServiceCenter.MES.Service.WIP\WipEngineerServiceForTrack.cs:行号 2573
+2016-07-04 12:14:09,648 - ERROR - START>Application
+2016-07-04 12:15:03,929 - ERROR - START>Application
+2016-07-04 13:24:03,867 - ERROR - START>Application
+2016-07-04 17:25:52,107 - ERROR - START>Application
+2016-07-04 17:28:34,811 - ERROR - 在将 varchar 值 'TrackOut' 转换成数据类型 int 时失败。
+2016-07-04 17:28:34,812 - ERROR - 在将 varchar 值 'TrackOut' 转换成数据类型 int 时失败。
+2016-07-04 17:39:18,187 - ERROR - START>Application
+2016-07-04 17:40:16,878 - ERROR - Could not execute query: select count(*) as col_0_0_ from FMM_ROUTE_STEP_PARAM routestepp0_ where routestepp0_.ROUTE_NAME='组件生产流程3.0' and routestepp0_.ROUTE_STEP_NAME='上料' and routestepp0_.IS_DELETED=0 and routestepp0_.DC_TYPE=TrackOut
+System.Data.SqlClient.SqlException (0x80131904): 列名 'TrackOut' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 223
+ClientConnectionId:02e7735d-8529-4fe9-be7c-3dc8a839cea2
+Error Number:207,State:1,Class:16
+2016-07-04 17:40:16,948 - ERROR - 列名 'TrackOut' 无效。
+2016-07-04 17:40:16,995 - ERROR - 列名 'TrackOut' 无效。
+2016-07-04 17:40:16,996 - ERROR - 列名 'TrackOut' 无效。
+2016-07-04 17:42:28,896 - ERROR - ExecuteTrackOutBaseFounction>
+NHibernate.Exceptions.GenericADOException: could not execute query
+[ select count(*) as col_0_0_ from FMM_ROUTE_STEP_PARAM routestepp0_ where routestepp0_.ROUTE_NAME='组件生产流程3.0' and routestepp0_.ROUTE_STEP_NAME='上料' and routestepp0_.IS_DELETED=0 and routestepp0_.DC_TYPE=TrackOut ]
+[SQL: select count(*) as col_0_0_ from FMM_ROUTE_STEP_PARAM routestepp0_ where routestepp0_.ROUTE_NAME='组件生产流程3.0' and routestepp0_.ROUTE_STEP_NAME='上料' and routestepp0_.IS_DELETED=0 and routestepp0_.DC_TYPE=TrackOut] ---> System.Data.SqlClient.SqlException: 列名 'TrackOut' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 229
+   在 NHibernate.Loader.Loader.GetResultSet(IDbCommand st, Boolean autoDiscoverTypes, Boolean callable, RowSelection selection, ISessionImplementor session) 位置 p:\nhibernate-core\src\NHibernate\Loader\Loader.cs:行号 1224
+   在 NHibernate.Loader.Loader.DoQuery(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies) 位置 p:\nhibernate-core\src\NHibernate\Loader\Loader.cs:行号 421
+   在 NHibernate.Loader.Loader.DoQueryAndInitializeNonLazyCollections(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies) 位置 p:\nhibernate-core\src\NHibernate\Loader\Loader.cs:行号 251
+   在 NHibernate.Loader.Loader.DoList(ISessionImplementor session, QueryParameters queryParameters) 位置 p:\nhibernate-core\src\NHibernate\Loader\Loader.cs:行号 1564
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 NHibernate.Loader.Loader.DoList(ISessionImplementor session, QueryParameters queryParameters) 位置 p:\nhibernate-core\src\NHibernate\Loader\Loader.cs:行号 1573
+   在 NHibernate.Loader.Loader.ListIgnoreQueryCache(ISessionImplementor session, QueryParameters queryParameters) 位置 p:\nhibernate-core\src\NHibernate\Loader\Loader.cs:行号 1472
+   在 NHibernate.Loader.Loader.List(ISessionImplementor session, QueryParameters queryParameters, ISet`1 querySpaces, IType[] resultTypes) 位置 p:\nhibernate-core\src\NHibernate\Loader\Loader.cs:行号 1467
+   在 NHibernate.Hql.Ast.ANTLR.Loader.QueryLoader.List(ISessionImplementor session, QueryParameters queryParameters) 位置 p:\nhibernate-core\src\NHibernate\Hql\Ast\ANTLR\Loader\QueryLoader.cs:行号 288
+   在 NHibernate.Hql.Ast.ANTLR.QueryTranslatorImpl.List(ISessionImplementor session, QueryParameters queryParameters) 位置 p:\nhibernate-core\src\NHibernate\Hql\Ast\ANTLR\QueryTranslatorImpl.cs:行号 112
+   在 NHibernate.Engine.Query.HQLQueryPlan.PerformList(QueryParameters queryParameters, ISessionImplementor session, IList results) 位置 p:\nhibernate-core\src\NHibernate\Engine\Query\HQLQueryPlan.cs:行号 105
+   在 NHibernate.Impl.SessionImpl.List(String query, QueryParameters queryParameters, IList results) 位置 p:\nhibernate-core\src\NHibernate\Impl\SessionImpl.cs:行号 626
+   在 NHibernate.Impl.SessionImpl.List(String query, QueryParameters parameters) 位置 p:\nhibernate-core\src\NHibernate\Impl\SessionImpl.cs:行号 592
+   在 NHibernate.Impl.QueryImpl.List() 位置 p:\nhibernate-core\src\NHibernate\Impl\QueryImpl.cs:行号 64
+   在 NHibernate.Impl.AbstractQueryImpl.UniqueResult() 位置 p:\nhibernate-core\src\NHibernate\Impl\AbstractQueryImpl.cs:行号 960
+   在 ServiceCenter.Common.DataAccess.NHibernate.ISessionExtensions.GetList[T](ISession session, PagingConfig cfg) 位置 e:\Projects\11JNMMES\trunk\src\ServiceCenter.Common\DataAccess\NHibernate\ISessionExtensions.cs:行号 38
+   在 ServiceCenter.Common.DataAccess.NHibernate.DatabaseDataEngine`2.Get(PagingConfig cfg) 位置 e:\Projects\11JNMMES\trunk\src\ServiceCenter.Common\DataAccess\NHibernate\DatabaseDataEngine.cs:行号 194
+   在 ServiceCenter.MES.Service.WIP.WipEngineerService.DeductMaterial(EnumDataCollectionAction workModel, TrackOutParameter p, Equipment equipment, List`1 lstLot, ISession session, String transactionKey) 位置 e:\Workspace\Jinergy\JNMMES\trunk\src\ServiceCenter.Modules\WIP\ServiceCenter.MES.Service.WIP\WipEngineerServiceForTrack.cs:行号 2573
+2016-07-04 17:56:25,099 - ERROR - START>Application
+2016-07-04 18:04:27,859 - ERROR - START>Application
+2016-07-04 18:05:06,277 - ERROR - START>Application
+2016-07-04 18:09:40,839 - ERROR - START>Application
+2016-07-04 19:54:21,316 - ERROR - START>Application
+2016-07-04 20:00:48,037 - ERROR - START>Application
+2016-07-04 20:25:11,849 - ERROR - START>Application
+2016-07-04 20:42:59,975 - ERROR - START>Application
+2016-07-04 20:54:12,899 - ERROR - START>Application
+2016-07-04 20:57:25,242 - ERROR - START>Application
+2016-07-04 22:45:54,535 - ERROR - START>Application

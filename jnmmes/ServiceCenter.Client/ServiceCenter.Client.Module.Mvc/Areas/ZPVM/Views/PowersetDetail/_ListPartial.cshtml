@@ -1,0 +1,120 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.ZPVM.Models.PowersetDetailViewModel
+@using ServiceCenter.Client.Mvc.Areas.ZPVM.Models;
+@using ServiceCenter.Client.Mvc.Resources;
+@using ZPVM = ServiceCenter.Client.Mvc.Resources.ZPVM;
+@using ServiceCenter.MES.Model.ZPVM;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@{
+    PagingConfig cfg = ViewBag.PagingConfig;
+}
+<div id="_list">
+    <table class="table table-hover table-bordered table-condensed">
+        <thead>
+            <tr class="active">
+                <td>@Html.DisplayNameFor(m => m.Code)</td>
+                <td>@Html.DisplayNameFor(m => m.ItemNo)</td>
+                <td>@Html.DisplayNameFor(m => m.SubCode)</td>
+                <td>@Html.DisplayNameFor(m => m.SubName)</td>
+                <td>@Html.DisplayNameFor(m => m.MinValue)</td>
+                <td>@Html.DisplayNameFor(m => m.MaxValue)</td>
+                <td>@Html.DisplayNameFor(m => m.Picture)</td>
+                <td>@Html.DisplayNameFor(m => m.IsUsed)</td>
+                <td>@StringResource.Detail</td>
+                <td>@StringResource.Modify</td>
+                <td>@StringResource.Delete</td>
+            </tr>
+        </thead>
+        @if (ViewBag.List != null)
+        {
+            <tbody>
+                @for (int i = 0; i < ViewBag.List.Length; i++)
+                {
+                    PowersetDetail obj = ViewBag.List[i];
+                    <tr>
+                        <td>@obj.Key.Code</td>
+                        <td>
+                            @obj.Key.ItemNo
+                        </td>
+                        <td>@obj.Key.SubCode</td>
+                        <td>@obj.SubName</td>
+                        <td>@obj.MinValue</td>
+                        <td>@obj.MaxValue</td>
+                        <td>
+                            <img src="@Url.Action("ShowPicture"
+                                                , "PowersetDetail"
+                                                , new { 
+                                                        @Code = obj.Key.Code
+                                                        , @ItemNo = obj.Key.ItemNo
+                                                        , @SubCode = obj.Key.SubCode
+                                                        , @TimeStamp = DateTime.Now.Ticks
+                                                      })" 
+                                width="30" />
+                        </td>
+                        <td>
+                            @(obj.IsUsed ? StringResource.Yes : StringResource.No)
+                        </td>
+                        <td>
+                            @Ajax.ActionLink(StringResource.Detail, actionName: null
+                                            , routeValues: null
+                                            , ajaxOptions:new AjaxOptions() 
+                                            { 
+                                                HttpMethod = "Post", 
+                                                UpdateTargetId = "detailInfo",
+                                                OnSuccess = "showInfoModal",
+                                                Url = Url.Action("Detail", new { @Code = obj.Key.Code, @ItemNo = obj.Key.ItemNo,@SubCode=obj.Key.SubCode })
+                                            })
+                        </td>
+                        <td>
+                            @Ajax.ActionLink(StringResource.Modify, actionName: null
+                                            ,routeValues:null
+                                            ,ajaxOptions:new AjaxOptions()
+                                            {
+                                                HttpMethod = "Post",
+                                                UpdateTargetId = "modifyFormContent",
+                                                OnSuccess = "showModifyModal",
+                                                Url = Url.Action("Modify", new { @Code = obj.Key.Code, @ItemNo = obj.Key.ItemNo, @SubCode = obj.Key.SubCode })
+                                            })
+                        </td>
+                        <td>
+                            @Ajax.ActionLink(StringResource.Delete, actionName: null
+                                            , routeValues: null
+                                            , ajaxOptions:new AjaxOptions()
+                                            {
+                                                HttpMethod = "Post",
+                                                Confirm = string.Format(ZPVM.StringResource.PowersetDetail_ConfirmDelete, obj.Key),
+                                                Url = Url.Action("Delete", new { @Code = obj.Key.Code, @ItemNo = obj.Key.ItemNo, @SubCode = obj.Key.SubCode }),
+                                                OnSuccess = "completeDelete"
+                                            })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        }
+    </table>
+    <div style="margin-top:-18px">
+        @if (cfg != null)
+        {
+            using (Ajax.BeginForm("PagingQuery", "PowersetDetail"
+                            , new
+                            {
+                                @Where = cfg.Where,
+                                @OrderBy = cfg.OrderBy,
+                                @CurrentPageNo = cfg.PageNo,
+                                @CurrentPageSize = cfg.PageSize
+                            }
+                            , new AjaxOptions()
+                            {
+                                HttpMethod = "Post",
+                                UpdateTargetId = "_list"
+                            }
+                            , new { @class = "form-horizontal", resource = "form", id = "frmPagingQuery" }))
+            {
+                @Html.AntiForgeryToken()
+                <div>@Html.Partial("_PaginationPartial")</div>
+            }
+        }
+    </div>
+</div>
+
+

@@ -1,0 +1,154 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.RPT.Models.LotMaterialListViewModel
+@using ServiceCenter.Model;
+@using ServiceCenter.Common;
+@using ServiceCenter.Client.Mvc.Areas.RPT.Models;
+@using RPTResources = ServiceCenter.Client.Mvc.Resources.RPT;
+@using ServiceCenter.Client.Mvc.Resources;
+
+@{
+    ViewBag.Title = "批次用料数据查询";
+}
+<h2>@ViewBag.Title</h2>
+@using (Html.BeginForm("ExportToExcelMaterialConsume", "LotMaterialList", FormMethod.Post
+            , new { @class = "form-horizontal", resource = "form", id = "frmQuery" }))
+{
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            @Ajax.ActionLink(StringResource.Query
+                   , "QueryMaterialConsume"
+                         , null
+                         , new AjaxOptions()
+                         {
+                             HttpMethod = "Post",
+                             OnBegin = "beginQuery",
+                             UpdateTargetId = "list",
+                             OnComplete = "completeQuery"
+                         }
+                         , new { @class = "btn btn-primary", @id = "btnQuery" })
+            <input type="button"
+                   value="@StringResource.ExportToExcel"
+                   onclick="ExportToExcel()"
+                   class="btn btn-default"
+                   id="btnExportToExcel" />
+        </div>
+        <div class="panel-body">
+            @Html.AntiForgeryToken()
+            <div class="form-group">
+                <div class="col-md-1">
+                    @Html.LabelFor(m => m.StartTime, new { @class = "control-label" })
+                </div>
+                <div class="col-md-2">
+                    @Html.TextBoxFor(m => m.StartTime, "{0:yyyy-MM-dd hh:mm:ss}", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.StartTime)
+                </div>
+                @*结束日期*@
+                <div class="col-md-1">
+                    @Html.LabelFor(m => m.EndTime, new { @class = "control-label" })
+                </div>
+                <div class="col-md-2">
+                    @Html.TextBoxFor(m => m.EndTime, "{0:yyyy-MM-dd hh:mm:ss}", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.EndTime)
+                </div>
+                @*车间*@
+                <div class="col-md-1">
+                    @Html.LabelFor(m => m.LocationName, new { @class = "control-label" })
+                </div>
+                <div class="col-md-2">
+                    @Html.DropDownListFor(m => m.LocationName, @Model.GetLocationNameList(), string.Empty, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                @*线别*@
+                <div class="col-md-1">
+                    @Html.LabelFor(m => m.LineCode, new { @class = "control-label" })
+                </div>
+                <div class="col-md-2">
+                    @Html.DropDownListFor(m => m.LineCode, @Model.GetProductionLineList(), string.Empty, new { @class = "form-control" })
+                </div>
+                @*工单*@
+                <div class="col-md-1">
+                    @Html.LabelFor(m => m.OrderNumber, new { @class = "control-label" })
+                </div>
+                <div class="col-md-3">
+                    @Html.TextBoxFor(m => m.OrderNumber, new { @class = "form-control", @id = "txtOrderNumber" })
+                    @Html.ValidationMessageFor(m => m.OrderNumber)
+                </div>
+                @*<div class="col-md-1">
+                    @Html.LabelFor(m => m.OrderNumber, new { @class = "control-label" })
+                </div>
+                <div class="col-md-3">
+                    @Html.TextBoxFor(m => m.OrderNumber, new { @class = "form-control", @id = "txtOrderNumber" })
+                    @Html.ValidationMessageFor(m => m.OrderNumber)
+                </div>*@
+                </div>
+            </div>
+        </div>
+}
+<div id="list" style="overflow:auto">
+    @Html.Partial("_MaterialConsumeListPartial", new LotMaterialListViewModel())
+</div>
+
+@section Scripts {
+    @*查询*@
+    <script type="text/javascript" language="javascript">
+        $(function () {
+            $("#StartTime,#EndTime").datetimepicker({
+                changeMonth: true,
+                changeYear: true,
+                dateFormat: "yy/mm/dd",
+                timeFormat: 'HH:mm:ss'
+            });
+            changeOrderNumber();
+        });
+        @*function changeOrderNumber() {
+            $("#OrderNumber").get(0).options.length = 0; //清空
+            var url = "@Url.Action("GetOrderNumbers", "ERPWOReport", new { area = "ERP" })";
+            $.getJSON(url, function (data) {
+                $.each(data, function (i, item) {
+                    $("<option></option>").val(item.Value).text(item.Text).appendTo($("#OrderNumber"));
+                });
+                changeMaterialCode();
+            });
+        }*@
+        var getOrderNumberUrl = "@Url.Action("GetOrderNumber", "MaterialReceipt", new { area = "LSM" })";
+        $("#txtOrderNumber").autocomplete({
+            source: function (request, response) {
+                var term = request.term.toUpperCase();
+                var reqdata = { q: term };
+                $.getJSON(getOrderNumberUrl, reqdata, function (data, status, xhr) {
+                    response(data);
+                });
+            },
+            minLength: 1,
+            autoFocus: true,
+            appendTo: "#addContent",
+            change: function () {
+                //清空
+                $("input[name='MaterialLot']").each(function () {
+                    $(this).val("");
+                });
+            }
+        });
+
+        //刷新列表
+        function beginQuery(obj, req) {
+            var data = $("#frmQuery").serialize();
+            req.data += "&" + data;
+            $("#btnQuery").attr("disabled", "disabled");
+            $("#btnExportToExcel").attr("disabled", "disabled");
+        }
+
+        function completeQuery() {
+            $("#btnQuery").removeAttr("disabled");
+            $("#btnExportToExcel").removeAttr("disabled");
+        }
+
+        function success(result) {
+            alert(result.Msg);
+        }
+        function ExportToExcel() {
+            $("#frmQuery").submit();
+        }
+
+    </script>
+}

@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   namespace="ServiceCenter.MES.Model.LSM" 
+                   assembly="ServiceCenter.MES.Model.LSM">
+  <class name="MaterialLoading" table="LSM_MATERIAL_LOADING">
+    <id name="Key" column="LOADING_KEY">
+      <generator class="assigned" />
+    </id>
+    <property name="RouteOperationName" column="ROUTE_OPERATION_NAME"/>
+    <property name="ProductionLineCode" column="LINE_CODE"/>
+    <property name="EquipmentCode" column="EQUIPMENT_CODE"/>
+    <property name="LoadingTime" column="LOADING_TIME"/>
+    <property name="Operator" column="OPERATOR"/>
+    <property name="Description" column="DESCRIPTION"/>
+    <property name="Creator" column="CREATOR"/>
+    <property name="CreateTime" column="CREATE_TIME"/>
+    <property name="Editor" column="EDITOR"/>
+    <property name="EditTime" column="EDIT_TIME"/>
+    <property name="StartLot" column="START_LOT"/>
+    <property name="EndLot" column="END_LOT"/>
+  </class>
+</hibernate-mapping>

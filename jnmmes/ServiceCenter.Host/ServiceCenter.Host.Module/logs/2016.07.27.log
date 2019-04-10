@@ -1,0 +1,150 @@
+2016-07-27 11:29:50,797 - ERROR - START>Application
+2016-07-27 14:27:10,350 - ERROR - START>Application
+2016-07-27 14:43:45,158 - ERROR - START>Application
+2016-07-27 14:55:49,762 - ERROR - START>Application
+2016-07-27 15:40:08,644 - ERROR - START>Application
+2016-07-27 15:41:25,950 - ERROR - START>Application
+2016-07-27 15:43:01,696 - ERROR - START>Application
+2016-07-27 15:43:26,107 - ERROR - START>Application
+2016-07-27 15:59:53,851 - ERROR - START>Application
+2016-07-27 16:00:34,287 - ERROR - START>Application
+2016-07-27 16:02:05,613 - ERROR - START>Application
+2016-07-27 16:02:34,743 - ERROR - START>Application
+2016-07-27 16:18:07,742 - ERROR - START>Application
+2016-07-27 16:20:08,560 - ERROR - START>Application
+2016-07-27 16:20:14,123 - ERROR - START>Application
+2016-07-27 16:20:43,076 - ERROR - START>Application
+2016-07-27 16:29:30,041 - ERROR - START>Application
+2016-07-27 16:31:07,134 - ERROR - START>Application
+2016-07-27 16:35:52,962 - ERROR - START>Application
+2016-07-27 16:44:00,105 - ERROR - START>Application
+2016-07-27 16:57:14,508 - ERROR - START>Application
+2016-07-27 17:05:43,092 - ERROR - START>Application
+2016-07-27 17:27:15,089 - ERROR - START>Application
+2016-07-27 17:30:14,317 - ERROR - START>Application
+2016-07-27 17:36:54,153 - ERROR - DELETE 语句与 REFERENCE 约束"FK_FMM_EQUIPMENT_REASON_CODE_CATEGORY_DETAIL_FMM_EQUIPMENT_REASON_CODE_CATEGORY"冲突。该冲突发生于数据库"JNMES"，表"dbo.FMM_EQUIPMENT_REASON_CODE_CATEGORY_DETAIL", column 'REASON_CODE_CATEGORY_NAME'。
+语句已终止。
+2016-07-27 17:36:54,191 - ERROR - Could not synchronize database state with session
+NHibernate.Exceptions.GenericADOException: could not execute batch command.[SQL: SQL not available] ---> System.Data.SqlClient.SqlException: DELETE 语句与 REFERENCE 约束"FK_FMM_EQUIPMENT_REASON_CODE_CATEGORY_DETAIL_FMM_EQUIPMENT_REASON_CODE_CATEGORY"冲突。该冲突发生于数据库"JNMES"，表"dbo.FMM_EQUIPMENT_REASON_CODE_CATEGORY_DETAIL", column 'REASON_CODE_CATEGORY_NAME'。
+语句已终止。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 System.Data.SqlClient.SqlCommand.ExecuteBatchRPCCommand()
+   在 System.Data.SqlClient.SqlCommandSet.ExecuteNonQuery()
+   在 NHibernate.AdoNet.SqlClientSqlCommandSet.ExecuteNonQuery() 位置 p:\nhibernate-core\src\NHibernate\AdoNet\SqlClientSqlCommandSet.cs:行号 117
+   在 NHibernate.AdoNet.SqlClientBatchingBatcher.DoExecuteBatch(IDbCommand ps) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\SqlClientBatchingBatcher.cs:行号 87
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 NHibernate.AdoNet.SqlClientBatchingBatcher.DoExecuteBatch(IDbCommand ps) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\SqlClientBatchingBatcher.cs:行号 91
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteBatchWithTiming(IDbCommand ps) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 412
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteBatch() 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 397
+   在 NHibernate.Engine.ActionQueue.ExecuteActions(IList list) 位置 p:\nhibernate-core\src\NHibernate\Engine\ActionQueue.cs:行号 129
+   在 NHibernate.Engine.ActionQueue.ExecuteActions() 位置 p:\nhibernate-core\src\NHibernate\Engine\ActionQueue.cs:行号 174
+   在 NHibernate.Event.Default.AbstractFlushingEventListener.PerformExecutions(IEventSource session) 位置 p:\nhibernate-core\src\NHibernate\Event\Default\AbstractFlushingEventListener.cs:行号 241
+2016-07-27 17:37:10,692 - ERROR - START>Application
+2016-07-27 17:37:44,315 - ERROR - DELETE 语句与 REFERENCE 约束"FK_FMM_EQUIPMENT_REASON_CODE_CATEGORY_DETAIL_FMM_EQUIPMENT_REASON_CODE_CATEGORY"冲突。该冲突发生于数据库"JNMES"，表"dbo.FMM_EQUIPMENT_REASON_CODE_CATEGORY_DETAIL", column 'REASON_CODE_CATEGORY_NAME'。
+语句已终止。
+2016-07-27 17:37:44,350 - ERROR - Could not synchronize database state with session
+NHibernate.Exceptions.GenericADOException: could not execute batch command.[SQL: SQL not available] ---> System.Data.SqlClient.SqlException: DELETE 语句与 REFERENCE 约束"FK_FMM_EQUIPMENT_REASON_CODE_CATEGORY_DETAIL_FMM_EQUIPMENT_REASON_CODE_CATEGORY"冲突。该冲突发生于数据库"JNMES"，表"dbo.FMM_EQUIPMENT_REASON_CODE_CATEGORY_DETAIL", column 'REASON_CODE_CATEGORY_NAME'。
+语句已终止。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 System.Data.SqlClient.SqlCommand.ExecuteBatchRPCCommand()
+   在 System.Data.SqlClient.SqlCommandSet.ExecuteNonQuery()
+   在 NHibernate.AdoNet.SqlClientSqlCommandSet.ExecuteNonQuery() 位置 p:\nhibernate-core\src\NHibernate\AdoNet\SqlClientSqlCommandSet.cs:行号 117
+   在 NHibernate.AdoNet.SqlClientBatchingBatcher.DoExecuteBatch(IDbCommand ps) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\SqlClientBatchingBatcher.cs:行号 87
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 NHibernate.AdoNet.SqlClientBatchingBatcher.DoExecuteBatch(IDbCommand ps) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\SqlClientBatchingBatcher.cs:行号 91
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteBatchWithTiming(IDbCommand ps) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 412
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteBatch() 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 397
+   在 NHibernate.Engine.ActionQueue.ExecuteActions(IList list) 位置 p:\nhibernate-core\src\NHibernate\Engine\ActionQueue.cs:行号 129
+   在 NHibernate.Engine.ActionQueue.ExecuteActions() 位置 p:\nhibernate-core\src\NHibernate\Engine\ActionQueue.cs:行号 174
+   在 NHibernate.Event.Default.AbstractFlushingEventListener.PerformExecutions(IEventSource session) 位置 p:\nhibernate-core\src\NHibernate\Event\Default\AbstractFlushingEventListener.cs:行号 241
+2016-07-27 17:38:23,388 - ERROR - DELETE 语句与 REFERENCE 约束"FK_FMM_EQUIPMENT_REASON_CODE_CATEGORY_DETAIL_FMM_EQUIPMENT_REASON_CODE_CATEGORY"冲突。该冲突发生于数据库"JNMES"，表"dbo.FMM_EQUIPMENT_REASON_CODE_CATEGORY_DETAIL", column 'REASON_CODE_CATEGORY_NAME'。
+语句已终止。
+2016-07-27 17:38:23,424 - ERROR - Could not synchronize database state with session
+NHibernate.Exceptions.GenericADOException: could not execute batch command.[SQL: SQL not available] ---> System.Data.SqlClient.SqlException: DELETE 语句与 REFERENCE 约束"FK_FMM_EQUIPMENT_REASON_CODE_CATEGORY_DETAIL_FMM_EQUIPMENT_REASON_CODE_CATEGORY"冲突。该冲突发生于数据库"JNMES"，表"dbo.FMM_EQUIPMENT_REASON_CODE_CATEGORY_DETAIL", column 'REASON_CODE_CATEGORY_NAME'。
+语句已终止。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 System.Data.SqlClient.SqlCommand.ExecuteBatchRPCCommand()
+   在 System.Data.SqlClient.SqlCommandSet.ExecuteNonQuery()
+   在 NHibernate.AdoNet.SqlClientSqlCommandSet.ExecuteNonQuery() 位置 p:\nhibernate-core\src\NHibernate\AdoNet\SqlClientSqlCommandSet.cs:行号 117
+   在 NHibernate.AdoNet.SqlClientBatchingBatcher.DoExecuteBatch(IDbCommand ps) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\SqlClientBatchingBatcher.cs:行号 87
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 NHibernate.AdoNet.SqlClientBatchingBatcher.DoExecuteBatch(IDbCommand ps) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\SqlClientBatchingBatcher.cs:行号 91
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteBatchWithTiming(IDbCommand ps) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 412
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteBatch() 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 397
+   在 NHibernate.Engine.ActionQueue.ExecuteActions(IList list) 位置 p:\nhibernate-core\src\NHibernate\Engine\ActionQueue.cs:行号 129
+   在 NHibernate.Engine.ActionQueue.ExecuteActions() 位置 p:\nhibernate-core\src\NHibernate\Engine\ActionQueue.cs:行号 174
+   在 NHibernate.Event.Default.AbstractFlushingEventListener.PerformExecutions(IEventSource session) 位置 p:\nhibernate-core\src\NHibernate\Event\Default\AbstractFlushingEventListener.cs:行号 241
+2016-07-27 17:38:40,114 - ERROR - DELETE 语句与 REFERENCE 约束"FK_FMM_EQUIPMENT_REASON_CODE_CATEGORY_DETAIL_FMM_EQUIPMENT_REASON_CODE_CATEGORY"冲突。该冲突发生于数据库"JNMES"，表"dbo.FMM_EQUIPMENT_REASON_CODE_CATEGORY_DETAIL", column 'REASON_CODE_CATEGORY_NAME'。
+语句已终止。
+2016-07-27 17:38:40,146 - ERROR - Could not synchronize database state with session
+NHibernate.Exceptions.GenericADOException: could not execute batch command.[SQL: SQL not available] ---> System.Data.SqlClient.SqlException: DELETE 语句与 REFERENCE 约束"FK_FMM_EQUIPMENT_REASON_CODE_CATEGORY_DETAIL_FMM_EQUIPMENT_REASON_CODE_CATEGORY"冲突。该冲突发生于数据库"JNMES"，表"dbo.FMM_EQUIPMENT_REASON_CODE_CATEGORY_DETAIL", column 'REASON_CODE_CATEGORY_NAME'。
+语句已终止。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 System.Data.SqlClient.SqlCommand.ExecuteBatchRPCCommand()
+   在 System.Data.SqlClient.SqlCommandSet.ExecuteNonQuery()
+   在 NHibernate.AdoNet.SqlClientSqlCommandSet.ExecuteNonQuery() 位置 p:\nhibernate-core\src\NHibernate\AdoNet\SqlClientSqlCommandSet.cs:行号 117
+   在 NHibernate.AdoNet.SqlClientBatchingBatcher.DoExecuteBatch(IDbCommand ps) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\SqlClientBatchingBatcher.cs:行号 87
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 NHibernate.AdoNet.SqlClientBatchingBatcher.DoExecuteBatch(IDbCommand ps) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\SqlClientBatchingBatcher.cs:行号 91
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteBatchWithTiming(IDbCommand ps) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 412
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteBatch() 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 397
+   在 NHibernate.Engine.ActionQueue.ExecuteActions(IList list) 位置 p:\nhibernate-core\src\NHibernate\Engine\ActionQueue.cs:行号 129
+   在 NHibernate.Engine.ActionQueue.ExecuteActions() 位置 p:\nhibernate-core\src\NHibernate\Engine\ActionQueue.cs:行号 174
+   在 NHibernate.Event.Default.AbstractFlushingEventListener.PerformExecutions(IEventSource session) 位置 p:\nhibernate-core\src\NHibernate\Event\Default\AbstractFlushingEventListener.cs:行号 241
+2016-07-27 17:47:57,245 - ERROR - DELETE 语句与 REFERENCE 约束"FK_FMM_EQUIPMENT_REASON_CODE_CATEGORY_DETAIL_FMM_EQUIPMENT_REASON_CODE_CATEGORY"冲突。该冲突发生于数据库"JNMES"，表"dbo.FMM_EQUIPMENT_REASON_CODE_CATEGORY_DETAIL", column 'REASON_CODE_CATEGORY_NAME'。
+语句已终止。
+2016-07-27 17:47:57,281 - ERROR - Could not synchronize database state with session
+NHibernate.Exceptions.GenericADOException: could not execute batch command.[SQL: SQL not available] ---> System.Data.SqlClient.SqlException: DELETE 语句与 REFERENCE 约束"FK_FMM_EQUIPMENT_REASON_CODE_CATEGORY_DETAIL_FMM_EQUIPMENT_REASON_CODE_CATEGORY"冲突。该冲突发生于数据库"JNMES"，表"dbo.FMM_EQUIPMENT_REASON_CODE_CATEGORY_DETAIL", column 'REASON_CODE_CATEGORY_NAME'。
+语句已终止。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 System.Data.SqlClient.SqlCommand.ExecuteBatchRPCCommand()
+   在 System.Data.SqlClient.SqlCommandSet.ExecuteNonQuery()
+   在 NHibernate.AdoNet.SqlClientSqlCommandSet.ExecuteNonQuery() 位置 p:\nhibernate-core\src\NHibernate\AdoNet\SqlClientSqlCommandSet.cs:行号 117
+   在 NHibernate.AdoNet.SqlClientBatchingBatcher.DoExecuteBatch(IDbCommand ps) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\SqlClientBatchingBatcher.cs:行号 87
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 NHibernate.AdoNet.SqlClientBatchingBatcher.DoExecuteBatch(IDbCommand ps) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\SqlClientBatchingBatcher.cs:行号 91
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteBatchWithTiming(IDbCommand ps) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 412
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteBatch() 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 397
+   在 NHibernate.Engine.ActionQueue.ExecuteActions(IList list) 位置 p:\nhibernate-core\src\NHibernate\Engine\ActionQueue.cs:行号 129
+   在 NHibernate.Engine.ActionQueue.ExecuteActions() 位置 p:\nhibernate-core\src\NHibernate\Engine\ActionQueue.cs:行号 174
+   在 NHibernate.Event.Default.AbstractFlushingEventListener.PerformExecutions(IEventSource session) 位置 p:\nhibernate-core\src\NHibernate\Event\Default\AbstractFlushingEventListener.cs:行号 241

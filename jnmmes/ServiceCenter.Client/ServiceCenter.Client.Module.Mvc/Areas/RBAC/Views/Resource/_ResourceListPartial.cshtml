@@ -1,0 +1,99 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.RBAC.Models.ResourceViewModel
+@using RBAC = ServiceCenter.MES.Model.RBAC;
+@using ServiceCenter.Client.Mvc.Areas.RBAC.Models;
+@using ServiceCenter.Client.Mvc.Resources.RBAC;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@{
+    PagingConfig cfg = ViewBag.PagingConfig;
+}
+<div class="panel" id="_resourceList">
+    <table class="table table-hover table-bordered table-condensed">
+        <thead>
+            <tr class="active">
+                <td>@StringResource.Resource_ItemNo</td>
+                <td>@Html.DisplayNameFor(m => m.Type)</td>
+                <td>@Html.DisplayNameFor(m => m.Code)</td>
+                <td>@Html.DisplayNameFor(m => m.Name)</td>
+                <td>@Html.DisplayNameFor(m => m.Data)</td>
+                <td>@StringResource.Resource_Detail</td>
+                <td>@StringResource.Resource_Modify</td>
+                <td>@StringResource.Resource_Delete</td>
+            </tr>
+        </thead>
+        @if (ViewBag.ResourceList != null)
+        {
+            <tbody>
+                @for (int i = 0; i < ViewBag.ResourceList.Length; i++)
+                {
+                    RBAC.Resource obj = ViewBag.ResourceList[i];
+                    <tr>
+                        <td>@(cfg.PageSize * cfg.PageNo+i+1)</td>
+                        <td>@obj.Key.Type.GetDisplayName()</td>
+                        <td>@obj.Key.Code</td>
+                        <td>@obj.Name</td>
+                        <td>@obj.Data</td>
+                        <td>
+                            @Ajax.ActionLink(@StringResource.Resource_Detail, actionName: null
+                                            , routeValues: null
+                                            , ajaxOptions:new AjaxOptions() 
+                                            { 
+                                                HttpMethod = "Post", 
+                                                UpdateTargetId = "resourceDetailInfo",
+                                                OnSuccess = "showResourceInfoModal",
+                                                Url = Url.Action("Detail", new { @Type = obj.Key.Type,@Code=obj.Key.Code })
+                                            })
+                        </td>
+                        <td>
+                            @Ajax.ActionLink(@StringResource.Resource_Modify, actionName: null
+                                            ,routeValues:null
+                                            ,ajaxOptions:new AjaxOptions()
+                                            {
+                                                HttpMethod = "Post",
+                                                UpdateTargetId = "modifyResourceFormContent",
+                                                OnSuccess = "showModifyResourceModal",
+                                                Url = Url.Action("Modify", new { @Type = obj.Key.Type, @Code = obj.Key.Code })
+                                            })
+                        </td>
+                        <td>
+                            @Ajax.ActionLink(@StringResource.Resource_Delete, actionName: null
+                                            , routeValues: null
+                                            , ajaxOptions:new AjaxOptions()
+                                            {
+                                                HttpMethod = "Post",
+                                                Confirm = string.Format(@StringResource.Resource_ConfirmDeleteResource, obj.Key.Type.GetDisplayName(), obj.Key.Code),
+                                                Url = Url.Action("Delete", new { @Type = obj.Key.Type, @Code = obj.Key.Code }),
+                                                OnSuccess = "completeDeleteResource"
+                                            })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        }
+    </table>
+    <div>
+        @if (cfg != null)
+        {
+            using (Ajax.BeginForm("PagingQuery", "Resource"
+                            , new
+                            {
+                                @Where = cfg.Where,
+                                @OrderBy = cfg.OrderBy,
+                                @CurrentPageNo = cfg.PageNo,
+                                @CurrentPageSize = cfg.PageSize
+                            }
+                            , new AjaxOptions()
+                            {
+                                HttpMethod = "Post",
+                                UpdateTargetId = "_resourceList"
+                            }
+                            , new { @class = "form-horizontal", resource = "form", id = "frmPagingQuery" }))
+            {
+                @Html.AntiForgeryToken()
+                <div>@Html.Partial("_PaginationPartial")</div>
+            }
+        }
+    </div>
+</div>
+
+

@@ -1,0 +1,133 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.WIP.Models.LotCreateMainViewModel
+@using ServiceCenter.MES.Model.WIP;
+@using ServiceCenter.Model;
+@using ServiceCenter.Common;
+@using ServiceCenter.Client.Mvc.Areas.WIP.Models;
+@using WIPRsources = ServiceCenter.Client.Mvc.Resources.WIP;
+@using ServiceCenter.Client.Mvc.Resources;
+
+@{
+    ViewBag.Title = WIPRsources.StringResource.LotCreate_ManagePageTitle;
+}
+<h2>@ViewBag.Title</h2>
+@using (Html.BeginForm("Detail", "LotCreate", null, FormMethod.Post, new { @class = "form-horizontal", role = "form",id="frmCreate" }))
+{
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <input type="submit" value="@StringResource.Next" class="btn btn-primary" />
+    </div>
+    <div class="panel-body">
+        @Html.AntiForgeryToken()
+        <div class="form-group">
+            @Html.ValidationSummary(true)
+        </div>
+        <div class="form-group">
+            @* 工单号 *@
+            <div class="col-md-2">
+                @Html.LabelFor(m => m.OrderNumber, new { @class = "control-label" })
+            </div>
+            <div class="col-md-4">
+                @Html.TextBoxFor(m => m.OrderNumber, new { @class = "form-control", @id = "txtOrderNumber" })
+                @Html.ValidationMessageFor(m => m.OrderNumber)
+            </div>
+
+            @* 创建批次数量 *@
+            <div class="col-md-2">
+                @Html.LabelFor(m => m.Count, new { @class = "control-label" })
+            </div>
+            <div class="col-md-4">
+                @Html.TextBoxFor(m => m.Count, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Count)
+            </div>
+        </div> 
+        <div class="form-group">    
+            @* 车间代码 *@        
+            <div class="col-md-2">
+                @Html.LabelFor(m => m.LocationName, new { @class = "control-label" })
+            </div>
+            <div class="col-md-4">
+                @Html.DropDownListFor(m => m.LocationName, @Model.GetLocations(), new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.LocationName)
+            </div>
+
+            @* 线别 *@
+            <div class="col-md-2">
+                @Html.LabelFor(m => m.LineCode, new { @class = "control-label" })
+            </div>
+            <div class="col-md-4">
+                @Html.DropDownListFor(m => m.LineCode, new List<SelectListItem>(), new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.LineCode)
+            </div>
+        </div>   
+    </div>
+</div>
+}
+@section Scripts {
+    <script type="text/javascript" language="javascript">
+
+        $(function () {
+            $("#LocationName").change(function () {
+                changeLineCode();
+            });
+
+            changeLineCode();
+                        
+            var getOrderNumberUrl = "@Url.Action("GetOrderNumber", "MaterialReceipt", new { area = "LSM" })";
+
+            $("#txtOrderNumber").autocomplete({
+                source: function (request, response) {
+                    var term = request.term.toUpperCase();
+                    var lineCode = $("#LineCode").val();
+                    
+                    var timestamp = Math.round(new Date().getTime() / 1000);
+                    var reqdata = { q: term, LineCode: lineCode, timestamp: timestamp };
+                    
+                    $.getJSON(getOrderNumberUrl, reqdata, function (data, status, xhr) {
+                        response(data);
+                    });
+                },
+                minLength: 1,
+                autoFocus: true,
+                appendTo: "#addContent",
+                change: function () {                    
+                    var val = $(this).val().toUpperCase();                   
+                    var lineCode = $("#LineCode").val();                    
+                    var valid = false;
+                    var obj = $(this);
+                    var timestamp = Math.round(new Date().getTime() / 1000);
+                    var reqdata = { q: val, LineCode: lineCode, timestamp: timestamp };
+                    
+                    $.getJSON(getOrderNumberUrl, reqdata, function (data, status, xhr) {
+                        $(data).each(function (index, item) {
+                            if (item.value.toUpperCase() == val) {
+                                valid = true;
+                                return false;
+                            }
+                        });
+
+                        //if (valid == false) {
+                        //    setTimeout(function () { $(obj).val(""); $(obj).focus(); }, 0);
+                        //}
+                    });
+                }
+            });
+        });
+
+        function changeLineCode() {
+            $("#LineCode").get(0).options.length = 0; //清空
+            $("#txtOrderNumber").val("");
+            //$("#txtOrderNumber").get(0).options.length = 0; //清空
+            var url = "@Url.Action("GetLocationLines", "LotCreate", new { area = "WIP" })";
+            var locationName = $("#LocationName").val();
+            var timestamp = Math.round(new Date().getTime() / 1000);
+            var reqdata = { LocationName: locationName, timestamp: timestamp };
+
+            $.getJSON(url, reqdata, function (data) {
+                $.each(data, function (i, item) {
+                    $("<option></option>").val(item.Value).text(item.Text).appendTo($("#LineCode"));
+                });
+            });
+        }
+
+    </script>
+}

@@ -1,0 +1,106 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.FMM.Models.RouteEnterpriseDetailViewModel
+@using ServiceCenter.Client.Mvc.Areas.FMM.Models;
+@using ServiceCenter.Client.Mvc.Resources;
+@using FMM = ServiceCenter.Client.Mvc.Resources.FMM;
+@using ServiceCenter.MES.Model.FMM;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@{
+    PagingConfig cfg = ViewBag.PagingConfig;
+}
+<div id="_list">
+    <table class="table table-striped table-bordered table-condensed">
+        <thead>
+            <tr class="active">
+                <td align="center">@Html.DisplayNameFor(m => m.ItemNo)</td>
+                <td align="center">@Html.DisplayNameFor(m => m.RouteName)</td>
+                <td align="center">@StringResource.Type</td>
+                <td align="center">@StringResource.Detail</td>
+                <td align="center">@StringResource.Modify</td>
+                <td align="center">@StringResource.Delete</td>
+            </tr>
+        </thead>
+        @if (ViewBag.List != null)
+        {
+            <tbody>
+                @for (int i = 0; i < ViewBag.List.Length; i++)
+                {
+                    RouteEnterpriseDetail obj = ViewBag.List[i];
+                    <tr>
+                        <td>@obj.ItemNo</td>
+                        <td>
+                            @Html.ActionLink(linkText: obj.Key.RouteName
+                                            , actionName: "Index"
+                                            , controllerName: "RouteStep"
+                                            , routeValues: new { @RouteName = obj.Key.RouteName }
+                                            , htmlAttributes: new { @target = "_blank" })
+                        </td>
+                        <td align="center">
+                            @Model.GetRouteTypeName(@obj.Key.RouteName)
+                        </td>
+                        <td align="center">
+                            @Ajax.ActionLink(StringResource.Detail, actionName: null
+                                            , routeValues: null
+                                            , ajaxOptions: new AjaxOptions()
+                                            {
+                                                HttpMethod = "Post",
+                                                UpdateTargetId = "detailInfo",
+                                                OnSuccess = "showInfoModal",
+                                                Url = Url.Action("Detail", new { @RouteEnterpriseName = obj.Key.RouteEnterpriseName, @RouteName = obj.Key.RouteName })
+                                            })
+                        </td>
+
+                        <td align="center">
+                            @Ajax.ActionLink(StringResource.Modify, actionName: null
+                                            , routeValues: null
+                                            , ajaxOptions: new AjaxOptions()
+                                            {
+                                                HttpMethod = "Post",
+                                                UpdateTargetId = "modifyFormContent",
+                                                OnSuccess = "showModifyModal",
+                                                Url = Url.Action("Modify", new { @RouteEnterpriseName = obj.Key.RouteEnterpriseName, @RouteName = obj.Key.RouteName })
+                                            })
+                        </td>
+
+                        <td align="center">
+                            @Ajax.ActionLink(StringResource.Delete, actionName: null
+                                            , routeValues: null
+                                            , ajaxOptions: new AjaxOptions()
+                                            {
+                                                HttpMethod = "Post",
+                                                Confirm = string.Format(FMM.StringResource.RouteEnterpriseDetail_ConfirmDelete, obj.Key),
+                                                Url = Url.Action("Delete", new { @RouteEnterpriseName = obj.Key.RouteEnterpriseName, @RouteName = obj.Key.RouteName }),
+                                                OnSuccess = "completeDelete"
+                                            })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        }
+    </table>
+    <div style="margin-top:-18px">
+        @if (cfg != null)
+        {
+            using (Ajax.BeginForm("PagingQuery", "RouteEnterpriseDetail"
+                            , new
+                            {
+                                @Where = cfg.Where,
+                                @OrderBy = cfg.OrderBy,
+                                @CurrentPageNo = cfg.PageNo,
+                                @CurrentPageSize = cfg.PageSize
+                            }
+                            , new AjaxOptions()
+                            {
+                                HttpMethod = "Post",
+                                UpdateTargetId = "_list"
+                            }
+                            , new { @class = "form-horizontal", resource = "form", id = "frmPagingQuery" }))
+            {
+                @Html.AntiForgeryToken()
+                <div>@Html.Partial("_PaginationPartial")</div>
+            }
+        }
+    </div>
+</div>
+
+

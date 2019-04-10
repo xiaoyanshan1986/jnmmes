@@ -1,0 +1,385 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.WIP.Models.LotPackageViewModel
+@using ServiceCenter.MES.Model.WIP;
+@using ServiceCenter.Model;
+@using ServiceCenter.Common;
+@using ServiceCenter.Client.Mvc.Areas.WIP.Models;
+@using WIPRsources = ServiceCenter.Client.Mvc.Resources.WIP;
+@using ServiceCenter.Client.Mvc.Resources;
+
+@{
+    ViewBag.Title = WIPRsources.StringResource.LotPackage_ManagePageTitle;
+}
+<h2>@ViewBag.Title</h2>
+@using (Ajax.BeginForm("Save", "LotPackage", null
+                    , new AjaxOptions()
+                    {
+                        HttpMethod = "Post",
+                        OnSuccess = "completeSave",
+                        OnBegin = "beginSave"
+                    }
+                    , new { @class = "form-horizontal", resource = "form", id = "frmPackage", autocomplete = "off" }))
+{
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <input type="submit" value="@WIPRsources.StringResource.Package" class="btn btn-primary" id="btnSave" />
+        @Ajax.ActionLink(@WIPRsources.StringResource.FinishPackage, "Finish", null,
+                         new AjaxOptions()
+                         {
+                             HttpMethod = "Post",
+                             OnBegin="beginFinish",
+                             OnSuccess="completeFinish"
+                         }
+                         , new { @class="btn btn-default",@id="btnFinish" })
+    </div>
+    <div class="panel-body">
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(m=>m.IsFinishPackage)
+        <div class="form-group">
+            <div class="col-md-1">
+                @Html.LabelFor(m => m.LineCode, new { @class = "control-label" })
+            </div>
+            <div class="col-md-2">
+                @Html.DropDownListFor(m => m.LineCode,@Model.GetProductionLineList(), new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.LineCode)
+            </div>
+            <div class="col-md-1">
+                @Html.LabelFor(m => m.RouteOperationName, new { @class = "control-label" })
+            </div>
+            <div class="col-md-2">
+                @Html.DropDownListFor(m => m.RouteOperationName, @Model.GetRouteOperationList(), new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.RouteOperationName)
+            </div>
+            <div class="col-md-1">
+                @Html.LabelFor(m => m.EquipmentCode, new { @class = "control-label" })
+            </div>
+            <div class="col-md-2">
+                @Html.DropDownListFor(m => m.EquipmentCode, new List<SelectListItem>(), new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.EquipmentCode)
+            </div>
+            <div class="col-md-1">
+                @Html.LabelFor(m => m.EquipmentState, new { @class = "control-label" })
+            </div>
+            <div class="col-md-2">
+                @Html.TextBoxFor(m => m.EquipmentState, new { @class = "form-control", @disabled = "disabled" })
+                @Html.ValidationMessageFor(m => m.EquipmentState)
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-1">
+                @Html.LabelFor(m => m.PackageNo, new { @class = "control-label" })
+            </div>
+            <div class="col-md-2">
+                @Html.TextBoxFor(m => m.PackageNo, new { @class = "form-control", style = "text-transform:uppercase;ime-mode:disabled" })
+                @Html.ValidationMessageFor(m => m.PackageNo)
+            </div>
+            <div class="col-md-1">
+                @Html.LabelFor(m => m.CurrentQuantity, new { @class = "control-label" })
+            </div>
+            <div class="col-md-2" >
+                @Html.TextBoxFor(m => m.CurrentQuantity, new { @class = "form-control", @readonly = "readonly" })
+                @Html.ValidationMessageFor(m => m.CurrentQuantity)
+            </div>
+            <div class="col-md-1">
+                @Html.LabelFor(m => m.FullQuantity, new { @class = "control-label" })
+            </div>
+            <div class="col-md-2">
+                @Html.TextBoxFor(m => m.FullQuantity, new { @class = "form-control", @readonly = "readonly" })
+                @Html.ValidationMessageFor(m => m.FullQuantity)
+            </div>
+            <div class="col-md-1">
+                @Html.LabelFor(m => m.IsLastestPackage, new { @class = "control-label" })
+            </div>
+            <div class="col-md-2">
+                @Html.CheckBoxFor(m => m.IsLastestPackage, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.IsLastestPackage)
+            </div>
+        </div>
+        <div class="form-group has-success">
+            <div class="col-md-12">
+                @Html.LabelFor(m => m.LotNumber, new { @class = "control-label" })
+                @Html.TextBoxFor(m => m.LotNumber, new { @class = "form-control", @style = "height:50px;font-size:20px;text-transform:uppercase;ime-mode:disabled" })
+                @Html.ValidationMessageFor(m => m.LotNumber)
+            </div>
+        </div>
+        <div class="alert fade in hide" resource="alert" id="statusMessage" style="margin:0px">
+            <button type="button" class="close" onclick="hideStatusMessage()">
+                <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+            </button>
+            <p></p>
+        </div>
+
+    </div>
+    @Ajax.ActionLink(StringResource.Refresh, "Query",null,
+                    new AjaxOptions()
+                    {
+                        HttpMethod="POST",
+                        UpdateTargetId = "list",
+                        OnBegin="beginRefresh",
+                        OnSuccess="completeRefresh"
+                    }, new { @class = "btn btn-default", @id = "btnRefresh" })
+    <div id="list">
+    </div>
+</div>
+}
+
+@section Scripts {
+    <script type="text/javascript" language="javascript">
+        $(function () {
+            $("#LotNumber:first").focus();
+            
+            $("#btnSave").click(function () {
+                $("#IsFinishPackage").val(false);
+                hideStatusMessage();
+
+                if ($("#LotNumber").val() == "") {
+                    return false;
+                }
+            });
+
+            $("#btnFinish").click(function () {
+                $("#IsFinishPackage").val(true);
+                hideStatusMessage();
+                if ($("#PackageNo").val() == "") {
+                    return false;
+                }
+            });
+
+            $("#LotNumber:first").keypress(function (args) {
+                if (args.keyCode == 13) {
+                    $("#btnSave").click();
+                }
+            });
+
+            $("#PackageNo").keypress(function (args) {
+                if (args.keyCode == 13) {
+                    changePackageNo($(this));
+                }
+            });
+
+            $("body").keypress(function (args) {
+                if (args.ctrlKey == true && args.keyCode == 13) {
+                    $("#btnFinish").click();
+                }
+            });
+
+            var texts = $("#frmPackage").find(":text:visible:enabled,:checkbox:visible:enabled,textarea:visible:enabled,select:visible:enabled");
+            texts.focus(function () {
+                    $(this).select();
+                })
+                .keypress(function (args) {
+                    if (args.ctrlKey == false && args.keyCode == 13) {
+                        var index = texts.index(this)+1;
+                        if (index < texts.length) {
+                            var c = texts.eq(index);
+                            while (c.attr("readonly") == true || c.attr("readonly") == "readonly") {
+                                index = index + 1;
+                                c = texts.eq(index);
+                            }
+                            c.focus();
+                            return false;
+                        }
+                        else {
+                            return true;
+                        }
+                    }
+                });
+
+            $("#LineCode").change(function () {
+                $("#EquipmentCode").get(0).options.length = 0; //清空
+                $("#EquipmentState").val(""); //清空
+                $("#EquipmentState").removeAttr("style");
+                changeEquipmentCode($("#RouteOperationName").val(),$(this).val());
+            });
+
+            $("#RouteOperationName").change(function () {
+                $("#EquipmentCode").get(0).options.length = 0; //清空
+                $("#EquipmentState").val(""); //清空
+                $("#EquipmentState").removeAttr("style");
+                changeEquipmentCode($(this).val(), $("#LineCode").val());
+            });
+
+            $("#EquipmentCode").change(function () {
+                $("#EquipmentState").val(""); //清空
+                $("#EquipmentState").removeAttr("style");
+                changeEquipmentState($(this).val());
+            });
+
+            changeEquipmentCode($("#RouteOperationName").val(), $("#LineCode").val());
+            $("#btnRefresh").click();
+        });
+
+        function changePackageNo(element) {
+            $("#CurrentQuantity").val(0);
+            $("#FullQuantity").val(0);
+            $("#IsLastestPackage").removeAttr("checked");
+
+            var url = "@Url.Action("GetPackageInfo", "LotPackage", new { area = "WIP" })";
+            var reqdata = { PackageNo: $(element).val() };
+
+            $.getJSON(url, reqdata, function (data) {
+                $("#CurrentQuantity").val(0);
+                $("#FullQuantity").val(0);
+                $("#IsLastestPackage").removeAttr("checked");
+
+                $("#CurrentQuantity").val(data.CurrentQuantity);
+                $("#FullQuantity").val(data.FullQuantity);
+                $("#IsLastestPackage").attr("checked", data.IsLastestPackage);
+                $("#btnRefresh").click();
+            });
+        }
+        function changeEquipmentCode(routeOperationName, productionLineCode) {
+
+            $("#EquipmentCode").get(0).options.length = 0; //清空
+
+            if (routeOperationName == null || routeOperationName == "") {
+                return;
+            }
+            if (routeOperationName == null || productionLineCode == "") {
+                return;
+            }
+
+            var url = "@Url.Action("GetEquipments", "LotPackage", new { area = "WIP" })";
+            var reqdata = { RouteOperationName: routeOperationName, ProductionLineCode: productionLineCode };
+
+            $.getJSON(url, reqdata, function (data) {
+
+                $("#EquipmentCode").get(0).options.length = 0; //清空
+                $.each(data, function (i, item) {
+                    $("<option></option>").val(item.Key).text(item.Text).appendTo($("#EquipmentCode"));
+                });
+                changeEquipmentState($("#EquipmentCode").val())
+            });
+        }
+
+        function changeEquipmentState(equipmentCode) {
+            $("#EquipmentState").val(""); //清空
+            $("#EquipmentState").removeAttr("style");
+            if (equipmentCode == null || equipmentCode == "") {
+                return;
+            }
+
+            var url = "@Url.Action("GetEquipmentState", "LotPackage", new { area = "WIP" })";
+            var reqdata = { EquipmentCode: equipmentCode };
+
+            $.getJSON(url, reqdata, function (data) {
+                $("#EquipmentState").val(""); //清空
+                $("#EquipmentState").removeAttr("style");
+                $("#EquipmentState").val(data.StateName); 
+                $("#EquipmentState").attr("style", "color:#FFFFFF;background-color:" + data.StateColor);
+            });
+        }
+
+        //隐藏状态消息
+        function hideStatusMessage() {
+            $("#statusMessage").addClass("hide");
+        }
+
+        function beginSave() {
+            $("input,select").attr("disabled", "disabled");
+            $(".btn").attr("disabled", "disabled");
+            hideStatusMessage();
+        }
+
+        function completeSave(result, status, xhr) {
+            $("input,select").removeAttr("disabled");
+            $(".btn").removeAttr("disabled");
+            if (xhr.status == 200) {
+                showErrorInfo(result);
+                
+                if (result.Code == 0 && result.Data.IsFinishPackage == true){
+                    $("#PackageNo").val("");
+                    changeEquipmentState($("#EquipmentCode").val());
+                }
+                else if (result.Code == 0) {
+                    $("#PackageNo").val(result.Data.PackageNo);
+                }
+                changePackageNo($("#PackageNo"));
+                $("#LotNumber:first").select();
+            }
+            else {
+                var rst = { Code: xhr.statusCode, Message: status + ":" + response };
+                showErrorInfo(rst);
+            }
+        }
+
+        function beginFinish(obj, req) {
+            req.data += "&" + $("#frmPackage").serialize();
+            $("input,select").attr("disabled", "disabled");
+            $(".btn").attr("disabled", "disabled");
+            hideStatusMessage();
+        }
+
+        function completeFinish(result, status, xhr) {
+            $("input,select").removeAttr("disabled");
+            $(".btn").removeAttr("disabled");
+            if (xhr.status == 200) {
+                showErrorInfo(result);
+                if (result.Code == 0 && result.Data.IsFinishPackage==true) {
+                    $("#PackageNo").val("");
+                    changeEquipmentState($("#EquipmentCode").val());
+                    changePackageNo("");
+                    $("#LotNumber:first").select();
+                }
+                else if(result.Code > 0)  {
+                    $("#PackageNo").select();
+                }
+            }
+            else {
+                var rst = { Code: xhr.statusCode, Message: status + ":" + response };
+                showErrorInfo(rst);
+            }
+        }
+
+        function showErrorInfo(result) {
+            $("#statusMessage").find("p").html(result.Message);
+            $("#statusMessage").removeClass("hide");
+            if (result.Code > 0) {
+                $("#statusMessage").removeClass("alert-success");
+                $("#statusMessage").addClass("alert-danger");
+            }
+            else {
+                $("#statusMessage").removeClass("alert-danger");
+                $("#statusMessage").addClass("alert-success");
+            }
+        }
+    </script>
+    @* 刷新包装明细 *@
+    <script type="text/javascript" language="javascript">
+        function beginRefresh(obj,req) {
+            $("#btnRefresh").attr("disabled", "disabled");
+            req.data += "&PackageNo=" + $("#PackageNo").val();
+        }
+
+        function completeRefresh(result, status, xhr) {
+            $("#btnRefresh").removeAttr("disabled");
+        }
+    </script>
+    @* 完成删除 *@
+    <script type="text/javascript" language="javascript">
+
+        function beginDelete(obj,req) {
+            $("input,select").attr("disabled", "disabled");
+            $(".btn").attr("disabled", "disabled");
+        }
+
+        function completeDelete(result, status, xhr) {
+            $("input,select").removeAttr("disabled");
+            $(".btn").removeAttr("disabled");
+            showErrorInfo(result);
+            if (xhr.status == 200) {
+                showErrorInfo(result);
+                if (result.Code == 0) {
+                    changePackageNo($("#PackageNo"));
+                }
+                $("#LotNumber:first").select();
+            }
+            else {
+                var rst = { Code: xhr.statusCode, Message: status + ":" + response };
+                showErrorInfo(rst);
+            }
+        }
+
+    </script>
+
+}

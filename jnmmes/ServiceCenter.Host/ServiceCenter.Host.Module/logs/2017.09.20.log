@@ -1,0 +1,35 @@
+2017-09-20 16:18:13,219 - ERROR - START>Application
+2017-09-20 16:22:17,127 - ERROR - START>Application
+2017-09-20 16:25:15,655 - ERROR - Could not execute query: select resource0_.RESOURCE_TYPE as RESOURCE1_3_, resource0_.RESOURCE_CODE as RESOURCE2_3_, resource0_.RESOURCE_NAME as RESOURCE3_3_, resource0_.RESOURCE_DATA as RESOURCE4_3_, resource0_.DESCRIPTION as DESCRIPT5_3_, resource0_.CREATOR as CREATOR3_, resource0_.CREATE_TIME as CREATE7_3_, resource0_.EDITOR as EDITOR3_, resource0_.EDIT_TIME as EDIT9_3_ from RBAC_RESOURCE resource0_ where resource0_.RESOURCE_TYPE>='10' and resource0_.RESOURCE_TYPE<'20' and resource0_.RESOURCE_DATA='/LSM/MaterialLoading/GetEquipmentCodes' order by resource0_.RESOURCE_TYPE, resource0_.RESOURCE_CODE
+System.Data.SqlClient.SqlException (0x80131904): 在从服务器接收结果时发生传输级错误。 (provider: TCP Provider, error: 0 - 信号灯超时时间已到) ---> System.ComponentModel.Win32Exception (0x80004005): 信号灯超时时间已到
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParserStateObject.ReadSniError(TdsParserStateObject stateObj, UInt32 error)
+   在 System.Data.SqlClient.TdsParserStateObject.ReadSniSyncOverAsync()
+   在 System.Data.SqlClient.TdsParserStateObject.TryReadNetworkPacket()
+   在 System.Data.SqlClient.TdsParserStateObject.TryPrepareBuffer()
+   在 System.Data.SqlClient.TdsParserStateObject.TryReadByte(Byte& value)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 223
+ClientConnectionId:87a57121-680f-4433-b259-013bab8502d5
+Error Number:121,State:0,Class:20
+2017-09-20 16:25:15,709 - ERROR - 在从服务器接收结果时发生传输级错误。 (provider: TCP Provider, error: 0 - 信号灯超时时间已到)
+2017-09-20 16:25:15,709 - ERROR - 信号灯超时时间已到
+2017-09-20 16:25:15,751 - ERROR - 在从服务器接收结果时发生传输级错误。 (provider: TCP Provider, error: 0 - 信号灯超时时间已到)
+2017-09-20 16:25:15,751 - ERROR - 信号灯超时时间已到
+2017-09-20 16:25:15,752 - ERROR - 在从服务器接收结果时发生传输级错误。 (provider: TCP Provider, error: 0 - 信号灯超时时间已到)
+2017-09-20 16:25:15,752 - ERROR - 信号灯超时时间已到
+2017-09-20 17:06:14,390 - ERROR - START>Application
+2017-09-20 17:07:11,068 - ERROR - START>Application
+2017-09-20 17:09:13,569 - ERROR - START>Application
+2017-09-20 17:19:32,361 - ERROR - START>Application

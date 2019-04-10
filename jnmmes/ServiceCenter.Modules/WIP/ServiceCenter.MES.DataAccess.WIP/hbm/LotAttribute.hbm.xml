@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   namespace="ServiceCenter.MES.Model.WIP" 
+                   assembly="ServiceCenter.MES.Model.WIP">
+  <class name="LotAttribute" table="WIP_LOT_ATTR">
+    <composite-id  name="Key" class="LotAttributeKey">
+      <key-property name="LotNumber" column="LOT_NUMBER"/>
+      <key-property name="AttributeName" column="ATTRIBUTE_NAME"/>
+    </composite-id >
+    <property name="AttributeValue" column="ATTRIBUTE_VALUE"/>
+    <property name="Editor" column="EDITOR"/>
+    <property name="EditTime" column="EDIT_TIME"/>
+  </class>
+</hibernate-mapping>

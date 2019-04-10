@@ -1,0 +1,111 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.EMS.Models.EquipmentStateEventViewModel
+
+<div class="form-group">
+    @Html.LabelFor(m => m.EquipmentCode, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => Model.EquipmentCode, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.EquipmentCode)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.EquipmentName, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => Model.EquipmentName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.EquipmentName)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.FromStateName, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.FromStateName, new { @class = "form-control", @readonly = "readonly" })
+        @Html.ValidationMessageFor(m => m.FromStateName)
+        <p></p>
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.ChangeStateName, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.DropDownListFor(m => m.ChangeStateName, new List<SelectListItem>(), new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.ChangeStateName)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.ToStateName, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.ToStateName, new { @class = "form-control", @readonly = "readonly" })
+        @Html.ValidationMessageFor(m => m.ToStateName)
+        <p></p>
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.ReasonCodeCategoryName, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.DropDownListFor(m => m.ReasonCodeCategoryName, @Model.GetEquipmentReasonCodeCategoryName(), new { @class = "form-control", @readonly = "readonly" })
+        @Html.ValidationMessageFor(m => m.ReasonCodeCategoryName)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.ReasonCodeName, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.DropDownListFor(m => Model.ReasonCodeName, new List<SelectListItem>(), new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.ReasonCodeName)
+    </div>
+    @*<div class="col-md-4">
+            @Html.DropDownListFor(m => m.ReasonCodeName, @Model.GetEquipmentReasonCodeName(0), new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.ReasonCodeName)
+        </div>*@
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.Description, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextAreaFor(m => Model.Description, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Description)
+    </div>
+</div>
+
+
+
+
+@*@model ServiceCenter.Client.Mvc.Areas.FMM.Models.EquipmentLayoutDetailEqpInfoViewModel
+@using ServiceCenter.Client.Mvc.Areas.FMM.Models;
+@using ServiceCenter.Client.Mvc.Resources;
+@using FMMResources = ServiceCenter.Client.Mvc.Resources.FMM;
+@using FMMModel = ServiceCenter.MES.Model.FMM;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+<div class="form-group">
+    @Html.LabelFor(m => m.EquipmentCode, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.DisplayFor(m => m.EquipmentCode, new { @class = "form-control" })
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.EquipmentName, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.DisplayFor(m => m.EquipmentName, new { @class = "form-control" })
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.Creator, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.DisplayFor(m => Model.Creator, new { @class = "form-control" })
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.CREATE_TIME, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.DisplayFor(m => Model.CREATE_TIME, new { @class = "form-control" })
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.Description, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.DisplayFor(m => m.Description, new { @class = "form-control", @readonly = "readonly" })
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.EquipmentStateMinutes, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.DisplayFor(m => m.EquipmentStateMinutes, new { @class = "form-control", @readonly = "readonly" })
+    </div>
+</div>*@

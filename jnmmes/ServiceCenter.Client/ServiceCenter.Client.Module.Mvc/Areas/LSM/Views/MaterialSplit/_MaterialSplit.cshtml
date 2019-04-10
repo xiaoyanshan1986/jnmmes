@@ -1,0 +1,248 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.LSM.Models.MaterialSplitViewModel
+@using ServiceCenter.MES.Model.LSM;
+@using ServiceCenter.MES.Model.FMM;
+@using ServiceCenter.Model;
+@using ServiceCenter.Common;
+@using ServiceCenter.Client.Mvc.Areas.LSM.Models;
+@using LSMRsources = ServiceCenter.Client.Mvc.Resources.LSM;
+@using ServiceCenter.Client.Mvc.Resources;
+
+@{
+    ViewBag.Title = "物料拆批";
+    LineStoreMaterialDetail lsmdLot = ViewBag.ParentMaterial;
+    double CurrentQty = ViewBag.CurrentQty == null ? 0 : ViewBag.CurrentQty;
+}
+<h2>@ViewBag.Title</h2>
+@using (Ajax.BeginForm("ExecuteSplitMaterial", "MaterialSplit", null,
+       new AjaxOptions()
+       {
+           HttpMethod = "Post",
+           OnSuccess = "completeSave",
+           OnBegin = "beginSave"
+       }
+                    , new { @class = "form-horizontal", resource = "form", id = "frmChange" }))
+{
+    <div class="panel panel-default">
+
+        <div class="panel-heading">
+            @if (lsmdLot != null)
+            {
+                <input type="submit" value="@StringResource.Save" class="btn btn-primary" id="btnSave" />
+            }
+            @Html.ActionLink(StringResource.Return, "Index", "MaterialSplit", null, new { @class = "btn btn-default", id = "btnReturn" })
+        </div>
+
+        <div class="panel-body">
+            <div id="divMain">
+                <div class="alert fade in hide" resource="alert" id="statusMessage" style="margin:0px">
+                    <button type="button" class="close" onclick="hideStatusMessage()">
+                        <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+                    </button>
+                    <p></p>
+                </div>
+                @if (ViewBag.ParentMaterial != null)
+                {
+                    LineStoreMaterialDetail obj = ViewBag.ParentMaterial;
+                    Material material = @Model.GetMaterial(obj.Key.MaterialCode);
+                    Supplier supplier = @Model.GetSupplier(obj.SupplierCode);
+                    <div class="form-group">
+                        <div class="col-md-1">
+                            @Html.Label("物料批号", new { @class = "control-label" })
+                        </div>
+                        <div class="col-md-2">
+                            <p class="form-control" readonly="readonly">@obj.Key.MaterialLot</p>
+                            @Html.HiddenFor(m => m.ParentMaterialLotNumber)
+                            @Html.HiddenFor(m => m.OrderNumber)
+                            @Html.HiddenFor(m => m.count)
+                        </div>
+                        <div class="col-md-1">
+                            @Html.Label("物料编码", new { @class = "control-label" })
+                        </div>
+                        <div class="col-md-2">
+                            <p class="form-control" readonly="readonly">@obj.Key.MaterialCode</p>
+                        </div>
+                        <div class="col-md-1">
+                            @Html.Label("工单号", new { @class = "control-label" })
+                        </div>
+                        <div class="col-md-2">
+                            <p class="form-control" readonly="readonly">@obj.Key.OrderNumber</p>
+                        </div>
+                        <div class="col-md-1">
+                            @Html.Label("线边仓", new { @class = "control-label" })
+                        </div>
+                        <div class="col-md-2">
+                            <p class="form-control" readonly="readonly">@obj.Key.LineStoreName</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-1">
+                            @Html.Label("物料名称", new { @class = "control-label" })
+                        </div>
+                        <div class="col-md-2">
+                            <p class="form-control" readonly="readonly">@(material == null ? string.Empty : material.Name)</p>
+                        </div>
+                        <div class="col-md-1">
+                            @Html.Label("领料数量", new { @class = "control-label" })
+                        </div>
+                        <div class="col-md-2">
+                            <p class="form-control" readonly="readonly">@obj.ReceiveQty</p>
+                        </div>
+                        <div class="col-md-1">
+                            @Html.Label("当前数量", new { @class = "control-label" })
+                        </div>
+                        <div class="col-md-2">
+                            <p class="form-control" readonly="readonly" id="parentQuantity">@obj.CurrentQty</p>
+                        </div>
+
+
+                    </div>
+                    <div class="form-group">
+
+                        <div class="col-md-1">
+                            @Html.Label("上料数量", new { @class = "control-label" })
+                        </div>
+                        <div class="col-md-2">
+                            <p class="form-control" readonly="readonly">@obj.LoadingQty</p>
+                        </div>
+                        <div class="col-md-1">
+                            @Html.Label("下料数量", new { @class = "control-label" })
+                        </div>
+                        <div class="col-md-2">
+                            <p class="form-control" readonly="readonly" id="parentQuantity">@obj.UnloadingQty</p>
+                        </div>
+                        <div class="col-md-1">
+                            @Html.Label("退料数量", new { @class = "control-label" })
+                        </div>
+                        <div class="col-md-2">
+                            <p class="form-control" readonly="readonly">@obj.ReturnQty</p>
+                        </div>
+                        <div class="col-md-1">
+                            @Html.Label("效率档", new { @class = "control-label" })
+                        </div>
+                        <div class="col-md-2">
+                            <p class="form-control" readonly="readonly">@obj.Attr1</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-1">
+                            @Html.Label("供应商批号", new { @class = "control-label" })
+                        </div>
+                        <div class="col-md-2">
+                            <p class="form-control" readonly="readonly" id="parentQuantity">@obj.SupplierMaterialLot</p>
+                        </div>
+                        <div class="col-md-1">
+                            @Html.Label("供应商", new { @class = "control-label" })
+                        </div>
+                        <div class="col-md-2">
+                            <p class="form-control" readonly="readonly" id="parentQuantity">@obj.SupplierCode</p>
+                        </div>
+                        <div class="col-md-1">
+                            @Html.Label("供应商名称", new { @class = "control-label" })
+                        </div>
+                        <div class="col-md-2">
+                            <p class="form-control" readonly="readonly" id="parentQuantity">@(supplier == null ? string.Empty : supplier.Name)</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-1">
+                            @Html.Label("编辑人", new { @class = "control-label" })
+                        </div>
+                        <div class="col-md-2">
+                            <p class="form-control" readonly="readonly">@obj.Editor</p>
+                        </div>
+                        <div class="col-md-1">
+                            @Html.Label("编辑时间", new { @class = "control-label" })
+                        </div>
+                        <div class="col-md-2">
+                            <p class="form-control" readonly="readonly">@obj.EditTime</p>
+                        </div>
+                        <div class="col-md-1">
+                            @Html.Label("描述", new { @class = "control-label" })
+                        </div>
+                        <div class="col-md-5">
+                            <p class="form-control" readonly="readonly">@obj.Description</p>
+                        </div>
+                    </div>
+
+                    <table class="table table-hover table-bordered table-condensed table-responsive table-striped">
+                        <thead>
+                            <tr class="active">
+                                <td nowrap>序号</td>
+                                <td nowrap>批次号</td>
+                                <td nowrap>数量</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @for (int i = 0; i < Model.count; i++)
+                            {
+                                <tr>
+                                    <td style="width:60px">@(i + 1)</td>
+                                    <td nowrap class="col-md-2">
+                                        @Html.TextBoxFor(m => m.ChildViewModel[i].ChildMaterialLotNumber, new { @class = "form-control" })
+                                    </td>
+                                    <td nowrap>
+                                        @Html.TextBoxFor(m => m.ChildViewModel[i].Quantity, new { @class = "form-control ", Value = @CurrentQty })
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                }else
+        { 
+           <div ><p>批次号不存在！！！</p></div>
+        }
+            </div>
+        </div>
+    </div>
+
+
+}
+
+@section Scripts {
+    <script type="text/javascript" language="javascript">
+
+
+        //隐藏状态消息
+        function hideStatusMessage() {
+            $("#statusMessage").addClass("hide");
+        }
+
+        function beginSave() {
+            $("#btnSave").attr("disabled", "disabled");
+            hideStatusMessage();
+        }
+
+        function completeSave(result) {
+            parentQuantity();
+            showErrorInfo(result);
+            $("#LotNumber:first").select();
+            $("#btnSave").removeAttr("disabled", "disabled");
+
+        }
+
+        function parentQuantity() {
+            var url = "@Url.Action("QueryQuantity", "MaterialSplit", new { area = "LSM" })";
+            var MaterialNumber = $("#ParentMaterialLotNumber").val();
+            var reqdata = { MaterialNumber: MaterialNumber };
+            $.post(url, reqdata, function (data) {
+                $("#parentQuantity").html(data);
+            });
+        }
+
+        function showErrorInfo(result) {
+            $("#statusMessage").find("p").html(result.Message);
+
+            $("#statusMessage").removeClass("hide");
+            if (result.Code > 0) {
+                $("#statusMessage").removeClass("alert-success");
+                $("#statusMessage").addClass("alert-danger");
+
+            }
+            else {
+                $("#statusMessage").removeClass("alert-danger");
+                $("#statusMessage").addClass("alert-success");
+            }
+        }
+    </script>
+
+}

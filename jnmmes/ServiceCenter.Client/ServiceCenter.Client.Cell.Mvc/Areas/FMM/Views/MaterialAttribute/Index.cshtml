@@ -1,0 +1,296 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.FMM.Models.MaterialAttributeQueryViewModel
+@using ServiceCenter.MES.Model.FMM;
+@using ServiceCenter.Model;
+@using ServiceCenter.Common;
+@using ServiceCenter.Client.Mvc.Areas.FMM.Models;
+@using FMM=ServiceCenter.Client.Mvc.Resources.FMM;
+@using ServiceCenter.Client.Mvc.Resources;
+
+@{
+    ViewBag.Title = string.Format(FMM.StringResource.MaterialAttribute_ManagePageTitle, @Model.MaterialCode);
+    PagingConfig cfg = ViewBag.PagingConfig;
+}
+<h2>@ViewBag.Title</h2>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <a href="javascript:showAddModal()" class="btn btn-primary">@StringResource.Add</a>
+    </div>
+    <div class="panel-body">
+    @using (Ajax.BeginForm("Query", "MaterialAttribute", null
+            , new AjaxOptions()
+            {
+                HttpMethod = "Post",
+                OnBegin="beginQuery",
+                UpdateTargetId = "list"
+            }
+            , new { @class = "form-horizontal", resource = "form" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="row">
+            <div class="col-md-1">
+                @Html.LabelFor(m => m.AttributeName, new { @class = "control-label" })
+            </div>
+            <div class="col-md-2">
+                @Html.HiddenFor(m => m.MaterialCode)
+                @Html.TextBoxFor(m => m.AttributeName, new { @class = "form-control" })
+            </div>
+           
+            <div class="col-md-9">
+                <input type="submit" value="@StringResource.Query" class="btn btn-default" />
+            </div>
+        </div>
+    }
+    </div>
+    <div class="alert fade in hide" resource="alert" id="statusMessage" style="margin:0px">
+        <button type="button" class="close" onclick="hideStatusMessage()">
+            <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+        </button>
+        <p></p>
+    </div>
+    <div id="list">
+        @Html.Partial("_ListPartial", new MaterialAttributeViewModel() { MaterialCode = @Model.MaterialCode })
+    </div>
+</div>
+
+@*新增*@
+<div id="add" class="modal fade" tabindex="-1" resource="dialog" aria-labelledby="addHeader" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                <span aria-hidden="true">&times;</span>
+                <span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="addHeader">@FMM.StringResource.MaterialAttribute_AddTitle</h4>
+            </div>
+            <div class="modal-body" id="addContent" style="margin:0px;padding:5px">
+                @using (Ajax.BeginForm("Save", "MaterialAttribute", null
+                        , new AjaxOptions()
+                        {
+                            HttpMethod = "Post",
+                            OnSuccess = "completeSave",
+                            OnBegin = "beginSave"
+                        }
+                        , new { @class = "form-horizontal", resource = "form",id="frmAdd"}))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <input type="submit" class="btn btn-primary" value="@StringResource.Save" id="btnSave" />
+                            <input type="reset" class="btn btn-default" value="@StringResource.Reset" id="btnReset" />
+                        </div>
+                        <div class="panel-body">
+                            <div class="alert fade in hide" resource="alert" id="addStatusMessage">
+                                <button type="button" class="close" onclick="hideAddAlert()">
+                                    <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+                                </button>
+                                <p></p>
+                            </div>
+                            <div>
+                                @Html.Partial("_AddPartial", new MaterialAttributeViewModel() { MaterialCode = @Model.MaterialCode })
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+@*显示明细*@
+<div id="info"
+     class="modal fade"
+     tabindex="-1"
+     resource="dialog"
+     aria-labelledby="infoHeader"
+     aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                <span aria-hidden="true">&times;</span>
+                <span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="infoHeader">@FMM.StringResource.MaterialAttribute_DetailTitle</h4>
+            </div>
+            <div class="modal-body" id="infoContent" style="margin:0px;padding:5px">
+                <form class="form-horizontal" resource="form">
+                    <div class="panel panel-default">
+                        <div class="panel-body" id="detailInfo">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@*修改*@
+<div id="modify"
+     class="modal fade"
+     tabindex="-1"
+     resource="dialog"
+     aria-labelledby="modifyHeader"
+     aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                <span aria-hidden="true">&times;</span>
+                <span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="modifyHeader">@FMM.StringResource.MaterialAttribute_ModifyTitle</h4>
+            </div>
+            <div class="modal-body" id="modifyResourceContent" style="margin:0px;padding:5px">
+                @using (Ajax.BeginForm("SaveModify", "MaterialAttribute", null
+                    , new AjaxOptions()
+                    {
+                        HttpMethod = "Post",
+                        OnSuccess = "completeSaveModify",
+                        OnBegin = "beginSaveModify"
+                    }
+                    , new { @class = "form-horizontal", resource = "form" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <input type="submit" class="btn btn-primary" value="@StringResource.Save" id="btnSaveModify" />
+                        </div>
+                        <div class="panel-body">
+                            <div class="alert fade in hide" resource="alert" id="modifyStatusMessage">
+                                <button type="button" class="close" onclick="hideModifyAlert()">
+                                    <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+                                </button>
+                                <p></p>
+                            </div>
+                            <div id="modifyFormContent">
+                                @Html.Partial("_ModifyPartial", new MaterialAttributeViewModel() { MaterialCode = @Model.MaterialCode })
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+
+
+    <script type="text/javascript" language="javascript">
+        //刷新列表
+        function refreshList() {
+            if ($("#frmPagingQuery").length > 0) {
+                $("#frmPagingQuery").submit();
+            }
+        }
+        //隐藏状态消息
+        function hideStatusMessage() {
+            $("#statusMessage").addClass("hide");
+        }
+    </script>
+    @*查询*@
+    <script type="text/javascript" language="javascript">
+        //刷新列表
+        function beginQuery() {
+            hideStatusMessage();
+        }
+    </script>
+
+    @*新增*@
+    <script type="text/javascript" language="javascript">
+        //保存
+        $(function () {
+            $('#add').on('hide.bs.modal', function (e) {
+                $("#btnReset").click();
+            });
+            $("#add,#modify").on('shown.bs.modal', function (e) {
+                var texts = $(this).find(":text:visible:enabled,:checkbox:visible:enabled,textarea:visible:enabled,select:visible:enabled");
+                texts.eq(0).focus().select();
+            });
+        })
+
+        function showAddModal() {
+            hideAddAlert();
+            hideStatusMessage();
+            $("#btnSave").removeAttr("disabled");
+            $('#add').modal('show');
+        }
+
+        function hideAddAlert() {
+            $("#addStatusMessage").addClass("hide");
+        }
+
+        function beginSave() {
+            $("#btnSave").attr("disabled", "disabled");
+        }
+
+        function completeSave(result) {
+            $("#btnSave").removeAttr("disabled");
+            $("#addStatusMessage").find("p").html(result.Message);
+            $("#addStatusMessage").removeClass("hide");
+            if (result.Code > 0) {
+                $("#addStatusMessage").removeClass("alert-success");
+                $("#addStatusMessage").addClass("alert-danger");
+            }
+            else {
+                $("#addStatusMessage").removeClass("alert-danger");
+                $("#addStatusMessage").addClass("alert-success");
+                refreshList();
+            }
+        }
+    </script>
+    @*显示明细*@
+    <script type="text/javascript" language="javascript">
+        //显示明细
+        function showInfoModal(result) {
+            $('#info').modal('show')
+        }
+    </script>
+    @*修改*@
+    <script type="text/javascript" language="javascript">
+        //修改资源
+        function showModifyModal(result) {
+            hideModifyAlert();
+            hideStatusMessage();
+            $("#btnSaveModify").removeAttr("disabled");
+            $('#modify').modal('show')
+        }
+
+        function hideModifyAlert() {
+            $("#modifyStatusMessage").addClass("hide");
+        }
+
+        function beginSaveModify() {
+            $("#btnSaveModify").attr("disabled", "disabled");
+        }
+
+        function completeSaveModify(result) {
+            $("#btnSaveModify").removeAttr("disabled");
+            $("#modifyStatusMessage").find("p").html(result.Message);
+            $("#modifyStatusMessage").removeClass("hide");
+            if (result.Code > 0) {
+                $("#modifyStatusMessage").removeClass("alert-success");
+                $("#modifyStatusMessage").addClass("alert-danger");
+            }
+            else {
+                $("#modifyStatusMessage").removeClass("alert-danger");
+                $("#modifyStatusMessage").addClass("alert-success");
+                refreshList();
+            }
+        }
+    </script>
+    @*删除*@
+    <script type="text/javascript" language="javascript">
+        //删除资源
+        function completeDelete(result) {
+            $("#statusMessage").find("p").html(result.Message);
+            $("#statusMessage").removeClass("hide");
+            if (result.Code > 0) {
+                $("#statusMessage").removeClass("alert-success");
+                $("#statusMessage").addClass("alert-danger");
+            }
+            else {
+                $("#statusMessage").removeClass("alert-danger");
+                $("#statusMessage").addClass("alert-success");
+                refreshList();
+            }
+        }
+    </script>
+}

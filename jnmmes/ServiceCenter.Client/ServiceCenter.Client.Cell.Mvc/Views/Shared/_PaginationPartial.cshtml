@@ -1,0 +1,52 @@
+﻿@{
+    ServiceCenter.Model.PagingConfig cfg = ViewBag.PagingConfig;
+    int startPageNo = 0;
+    
+    if(cfg.PageNo>4)
+    {
+        startPageNo = cfg.PageNo-5;
+    }
+    if ((cfg.Pages - 5) < cfg.PageNo && (cfg.Pages - 5)>0)
+    {
+        startPageNo = cfg.Pages - 10;
+    }
+
+    if (startPageNo<0)
+    {
+        startPageNo = 0;
+    }
+}
+@if (cfg != null)
+{
+    <div class="btn-group" style="padding:0px;margin:0px">
+        @if (cfg.PageNo == 0 && cfg.Records > 0)
+        {
+            <button type="submit" class="btn btn-default" disabled>&laquo;</button>
+        }
+        else if (cfg.Records > 0)
+        {
+            <button type="submit" class="btn btn-default" name="PageNo" value="0">&laquo;&laquo;</button>
+            <button type="submit" class="btn btn-default" name="PageNo" value="@(cfg.PageNo-1)">&laquo;</button>
+        }
+        @for (int i = startPageNo; i < cfg.Pages && i < 10+startPageNo; i++)
+        {
+            if (cfg.PageNo == i)
+            {
+                <button type="button" class="btn btn-primary" value="@i">@(i+1)</button>
+            }
+            else
+            {
+                <button type="submit" class="btn btn-default" value="@i" name="PageNo">@(i+1)</button>
+            }
+        }
+        @if (cfg.PageNo >= cfg.Pages - 1 && cfg.Records > 0)
+        {
+            <button type="submit" class="btn btn-default" disabled>&raquo;</button>
+        }
+        else if (cfg.Records > 0)
+        {
+            <button type="submit" class="btn btn-default" name="PageNo" value="@(cfg.PageNo+1)">&raquo;</button>
+            <button type="submit" class="btn btn-default" name="PageNo" value="@(cfg.Pages-1)">&raquo;&raquo;</button>
+        }
+    </div>
+}

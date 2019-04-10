@@ -1,0 +1,37 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.FMM.Models.ShiftViewModel
+
+<div class="form-group">
+    @Html.LabelFor(m => m.Name, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Name)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.StartTime, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.StartTime, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.StartTime)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.EndTime, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.EndTime, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.EndTime)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.IsOverDay, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.CheckBoxFor(m => m.IsOverDay, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.IsOverDay)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.Description, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextAreaFor(m => m.Description, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Description)
+    </div>
+</div>

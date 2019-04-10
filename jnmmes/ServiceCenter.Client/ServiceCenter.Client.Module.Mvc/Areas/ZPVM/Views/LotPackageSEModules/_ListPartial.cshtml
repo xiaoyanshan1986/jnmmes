@@ -1,0 +1,94 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.ZPVM.Models.LotPackageSEModulesViewModel
+@using ServiceCenter.Client.Mvc.Areas.ZPVM.Models;
+@using ServiceCenter.Client.Mvc.Resources;
+@using ZPVMResources = ServiceCenter.Client.Mvc.Resources.ZPVM;
+@using ServiceCenter.MES.Model.ZPVM;
+@using ServiceCenter.MES.Model.WIP;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@{
+    PagingConfig cfg = ViewBag.PagingConfig;
+}
+<div id="_list">
+    <table class="table table-hover table-bordered table-condensed table-responsive table-striped">
+        <thead>
+            <tr class="active">
+                <td nowrap>@StringResource.ItemNo</td>
+                <td nowrap>包装号</td>
+                <td nowrap>组件型号</td>
+                <td nowrap>工单号</td>
+                <td nowrap>物料编码</td>
+                <td nowrap>等级</td>
+                <td nowrap>花色</td>
+                <td nowrap>分档名称</td>
+                <td nowrap>子分档代码</td>
+                <td nowrap>包装日期</td>
+            </tr>
+        </thead>
+        @if (ViewBag.List != null)
+        {
+            <tbody>
+                @for (int i = 0; i < ViewBag.List.Length; i++)
+                {
+                    Package obj = ViewBag.List[i];
+                    Lot lot = Model.GetLotData(obj.Key);
+                    IVTestData ivtest = null;
+                    if (lot!=null)
+                    {
+                        ivtest = Model.GetIVTestData(lot.Key);
+                    }
+                   
+                   <tr>
+                        <td nowrap>@(cfg.PageSize * cfg.PageNo+i+1)</td>
+                       <td nowrap>@obj.Key </td>
+                       <td nowrap>@(ivtest != null ? Model.GetProductType(obj.MaterialCode, obj.OrderNumber, ivtest.PowersetCode, ivtest.PowersetItemNo.Value,lot) : string.Empty)</td>
+                        <td nowrap>@obj.OrderNumber</td>
+                        <td nowrap>@obj.MaterialCode</td>
+                        <td nowrap>@(lot!=null ? lot.Grade : string.Empty)</td>
+                        <td nowrap>@(lot != null ? lot.Color : string.Empty)</td>
+                       @if (ivtest == null
+                            || string.IsNullOrEmpty(ivtest.PowersetCode)
+                            || ivtest.PowersetItemNo == null)
+                       {
+                           <td nowrap></td>
+                       }
+                       else
+                       {
+                           <td nowrap>@Model.GetPowersetName(ivtest.Key.LotNumber, ivtest.PowersetCode, ivtest.PowersetItemNo.Value)</td>
+                       }
+                       <td nowrap>
+                           @(ivtest != null ? ivtest.PowersetSubCode : string.Empty)
+                       </td>
+                        <td nowrap>@string.Format("{0:yyyy-MM-dd}",obj.CreateTime)</td>
+                    </tr>
+                }
+            </tbody>
+        }
+    </table>
+
+    <div style="margin-top:-18px">
+        @if (cfg != null)
+        {
+            using (Ajax.BeginForm("PagingQuery", "LotPackageSEModules"
+                            , new
+                            {
+                                @Where = cfg.Where,
+                                @OrderBy = cfg.OrderBy,
+                                @CurrentPageNo = cfg.PageNo,
+                                @CurrentPageSize = cfg.PageSize
+                            }
+                            , new AjaxOptions()
+                            {
+                                HttpMethod = "Post",
+                                UpdateTargetId = "_list"
+                            }
+                            , new { @class = "form-horizontal", resource = "form", id = "frmPagingQuery" }))
+            {
+                @Html.AntiForgeryToken()
+                <div>@Html.Partial("_PaginationPartial")</div>
+            }
+        }
+    </div>
+</div>
+
+

@@ -1,0 +1,63 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.QAM.Models.CheckSettingPointDetailViewModel
+@using ServiceCenter.Common;
+
+@Html.ValidationSummary(true)
+<div class="form-group">
+    @Html.LabelFor(m => m.ParameterName, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        <p class="form-control-static">@Model.ParameterName</p>
+        @Html.HiddenFor(m => m.ParameterName)
+        @Html.HiddenFor(m => m.CheckSettingKey)
+        @Html.HiddenFor(m => m.ItemNo)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.ParameterItemNo, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        <p class="form-control-static">@Model.ParameterItemNo</p>
+        @Html.HiddenFor(m => m.ParameterItemNo)
+        @Html.HiddenFor(m => m.ParameterType)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.ParameterCount, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.ParameterCount, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.ParameterCount)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.DataType, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.DropDownListFor(m => m.DataType, @Model.GetDataTypeList(), new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.DataType)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.DeviceType, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.DropDownListFor(m => m.DeviceType, @Model.GetDeviceTypeList(), new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.DeviceType)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.Mandatory, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.CheckBoxFor(m => m.Mandatory, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Mandatory)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.IsDerived, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.CheckBoxFor(m => m.IsDerived, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.IsDerived)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.DerivedFormula, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.DerivedFormula, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.DerivedFormula)
+    </div>
+</div>

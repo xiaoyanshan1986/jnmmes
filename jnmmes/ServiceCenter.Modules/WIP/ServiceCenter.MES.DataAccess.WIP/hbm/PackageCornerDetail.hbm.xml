@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   namespace="ServiceCenter.MES.Model.WIP" 
+                   assembly="ServiceCenter.MES.Model.WIP">
+  <class name="PackageCornerDetail" table="WIP_PACKAGE_CORNER_DETAIL">
+    <composite-id  name="Key" class="PackageCornerDetailKey">
+      <key-property name="PackageKey" column="PACKAGE_KEY"/>
+      <key-property name="LotNumber" column="LOT_NUMBER"/>
+    </composite-id >
+    <property name="ItemNo" column="ITEM_NO"/>
+    <property name="OrderNumber" column="ORDER_NUMBER"/>
+    <property name="MaterialCode" column="MATERIAL_CODE"/>
+    <property name="Creator" column="CREATOR"/>
+    <property name="CreateTime" column="CREATE_TIME"/>
+    <property name="PackageFlag" column="PACKAGE_FLAG"/>
+    <property name="PackageLine" column="PACKAGE_LINE"/>
+  </class>
+</hibernate-mapping>

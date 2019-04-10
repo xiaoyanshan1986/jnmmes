@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   namespace="ServiceCenter.MES.Model.LSM" 
+                   assembly="ServiceCenter.MES.Model.LSM">
+  <class name="LineStoreMaterialDetail" table="LSM_STORE_MATERIAL_DETAIL">
+    <composite-id  name="Key" class="LineStoreMaterialDetailKey">
+      <key-property name="LineStoreName" column="STORE_NAME"/>
+      <key-property name="OrderNumber" column="ORDER_NUMBER"/>
+      <key-property name="MaterialCode" column="MATERIAL_CODE"/>
+      <key-property name="MaterialLot" column="MATERIAL_LOT"/>
+    </composite-id>
+    <property name="ReceiveQty" column="RECEIVE_QTY"/>
+    <property name="ReturnQty" column="RETURN_QTY"/>
+    <property name="ScrapQty" column="SCRAP_QTY"/>
+    <property name="LoadingQty" column="LOADING_QTY"/>
+    <property name="UnloadingQty" column="UNLOADING_QTY"/>
+    <property name="CurrentQty" column="CURRENT_QTY"/>
+    <property name="Attr1" column="ATTR_1"/>
+    <property name="Attr2" column="ATTR_2"/>
+    <property name="Attr3" column="ATTR_3"/>
+    <property name="Attr4" column="ATTR_4"/>
+    <property name="Attr5" column="ATTR_5"/>
+    <property name="SupplierCode" column="MATERIAL_SUPPLIER"/>
+    <property name="SupplierMaterialLot" column="MATERIAL_SUPPLIER_LOT"/>
+    <property name="Description" column="DESCRIPTION"/>
+    <property name="Creator" column="CREATOR"/>
+    <property name="CreateTime" column="CREATE_TIME"/>
+    <property name="Editor" column="EDITOR"/>
+    <property name="EditTime" column="EDIT_TIME"/>
+  </class>
+</hibernate-mapping>

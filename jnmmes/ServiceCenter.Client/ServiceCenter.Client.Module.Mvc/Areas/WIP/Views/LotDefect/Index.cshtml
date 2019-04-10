@@ -1,0 +1,274 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.WIP.Models.LotDefectViewModel
+@using ServiceCenter.MES.Model.WIP;
+@using ServiceCenter.Model;
+@using ServiceCenter.Common;
+@using ServiceCenter.Client.Mvc.Areas.WIP.Models;
+@using WIPRsources = ServiceCenter.Client.Mvc.Resources.WIP;
+@using ServiceCenter.Client.Mvc.Resources;
+
+@{
+    ViewBag.Title = WIPRsources.StringResource.LotDefect_ManagePageTitle;
+}
+<h2>@ViewBag.Title</h2>
+@using (Ajax.BeginForm("Save", "LotDefect", null
+                    , new AjaxOptions()
+                    {
+                        HttpMethod = "Post",
+                        OnSuccess = "completeSave",
+                        OnBegin = "beginSave"
+                    }
+                    , new { @class = "form-horizontal", resource = "form", id = "frmDefect", autocomplete = "off" }))
+{
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <input type="button" value="@StringResource.Save" class="btn btn-primary" id="btnSave" />
+        </div>
+        <div class="panel-body">
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+            <div class="alert fade in hide" resource="alert" id="statusMessage" style="margin:0px">
+                <button type="button" class="close" onclick="hideStatusMessage()">
+                    <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+                </button>
+                <p></p>
+            </div>
+            <div class="form-group has-success">
+                <div class="col-md-12">
+                    @Html.LabelFor(m => m.LotNumber, new { @class = "control-label" })
+                    @Html.TextBoxFor(m => m.LotNumber, new { @class = "form-control", @style = "height:50px;font-size:20px;text-transform:uppercase;" })
+                    @Html.ValidationMessageFor(m => m.LotNumber)
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-2">
+                    @Html.LabelFor(m => m.Grade, new { @class = "control-label" })
+                </div>
+                <div class="col-md-4">
+                    @Html.DropDownListFor(m => m.Grade, @Model.GetGradeList(), string.Empty, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.Grade)
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-2">
+                    @Html.LabelFor(m => m.ReasonCodeCategoryName, new { @class = "control-label" })
+                </div>
+                <div class="col-md-4">
+                    @Html.DropDownListFor(m => m.ReasonCodeCategoryName, @Model.GetReasonCodeCategoryName(), new { @class = "form-control", @readonly = "readonly" })
+                    @Html.ValidationMessageFor(m => m.ReasonCodeCategoryName)
+                </div>
+                <div class="col-md-2">
+                    @Html.LabelFor(m => m.ReasonCodeName, new { @class = "control-label" })
+                </div>
+                <div class="col-md-4">
+                    @Html.DropDownListFor(m => m.ReasonCodeName, new List<SelectListItem>(), new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.ReasonCodeName)
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-2">
+                    @Html.LabelFor(m => m.DefectQuantity, new { @class = "control-label" })
+                </div>
+                <div class="col-md-4">
+                    @Html.TextBoxFor(m => m.DefectQuantity, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.DefectQuantity)
+                </div>
+                <div class="col-md-2">
+                    @Html.LabelFor(m => m.ReasonDescription, new { @class = "control-label" })
+                </div>
+                <div class="col-md-4">
+                    @Html.TextBoxFor(m => m.ReasonDescription, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.ReasonDescription)
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-2">
+                    @Html.LabelFor(m => m.RouteOperationName, new { @class = "control-label" })
+                </div>
+                <div class="col-md-4">
+                    @Html.DropDownListFor(m => m.RouteOperationName, @Model.GetRouteOperationNameList(), string.Empty, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.RouteOperationName)
+                </div>
+                <div class="col-md-2">
+                    @Html.LabelFor(m => m.ResponsiblePerson, new { @class = "control-label" })
+                </div>
+                <div class="col-md-4">
+                    @Html.TextBoxFor(m => m.ResponsiblePerson, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.ResponsiblePerson)
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-2">
+                    @Html.LabelFor(m => m.Description, new { @class = "control-label" })
+                </div>
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.Description, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.Description)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <table class="table table-bordered table-condensed">
+                    <thead>
+                        <tr class="text-center text-primary">
+             @{
+                  int nMaxOfCols = 12;
+                  int nMaxOfRows = 6;
+                  for (int indexOfCol = 0; indexOfCol <= nMaxOfCols; indexOfCol++)
+                  {
+                      if (indexOfCol == 0)
+                      {
+                          <td class="active"></td>
+                      }
+                      else
+                      {
+                          <td class="active">@(indexOfCol)</td>
+                      }
+                  }
+              }
+                        </tr>
+                    </thead>
+                    <tbody>
+              @{
+                    for (int indexOfRow = 0; indexOfRow < nMaxOfRows; indexOfRow++)
+                    {
+                        <tr>
+                            @for (int indexOfCol = 0; indexOfCol <= nMaxOfCols; indexOfCol++)
+                            {
+                                if (indexOfCol == 0)
+                                {
+                                    <td class="active">@(indexOfRow + 1)</td>
+                                }
+                                else
+                                {
+                                    string strId = indexOfCol.ToString("00") + " :" + (indexOfRow + 1).ToString();
+                                    <td>
+                                        <div class="checkbox">
+                                            <label class="btn-sm btn-default">
+                                                <input type="checkbox" value="@strId"  name="Position" /> @strId
+                                            </label>
+                                        </div>
+                                    </td>
+                                }
+                            }
+                        </tr>
+                    }
+               }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+}
+@section Scripts {
+    <script type="text/javascript" language="javascript">
+        $(function () {
+            $("#LotNumber:first").focus();
+            $("#DefectQuantity,#LotNumber").focus(function () {
+                $(this).select();
+            });
+            $('#ReasonCodeCategoryName').change(function () {
+                changeReasonCodeName($('#ReasonCodeCategoryName').val());
+            });
+            var isChanging = false;
+
+            @*$("#LotNumber").keypress(function (args) {
+                if (args.ctrlKey == false && args.keyCode == 13) {
+                    $(this).change();
+                }
+            }).change(function () {
+
+                if (isChanging == true){
+                    return;
+                }
+                isChanging = true;
+                hideStatusMessage();
+
+                var url = "@Url.Action("GetLotInfo", "LotDefect", new { area = "WIP" })";
+                var lotNumber = $(this).val().toUpperCase();
+                var reqdata = { LotNumber: lotNumber };
+                $.getJSON(url, reqdata, function (result) {
+                    if (result.Code > 0) {
+                        showErrorInfo(result);
+                        $("#LotNumber:first").select();
+                    }
+                    else {
+                        var Grade = result.Data.Grade;
+                        $('#Grade').val(Grade);
+                        $("#DefectQuantity").select();
+                    }
+                    isChanging = false;
+                });
+
+            });*@
+
+
+
+
+
+
+
+
+            changeReasonCodeName($('#ReasonCodeCategoryName').val());
+            $("#btnSave").click(function () {
+                hideStatusMessage();
+                if (isChanging) {
+                    return;
+                }
+                $("#frmDefect").submit();
+            });
+
+            $("#ReasonCodeName").change(function () {
+                $("#DefectQuantity").select();
+            });
+
+            $("body").keypress(function (args) {
+                if (args.ctrlKey == true && args.keyCode == 13) {
+                    $("#btnSave").click();
+                }
+            });
+        });
+
+        function changeReasonCodeName(categoryName) {
+            $("#ReasonCodeName").get(0).options.length = 0; //清空
+            var url = "@Url.Action("GetReasonCode", "LotDefect", new { area = "WIP" })";
+            var reqdata = { CategoryName: categoryName };
+            $.getJSON(url, reqdata, function (data) {
+                $.each(data, function (i, item) {
+                    $("<option></option>").val(item.Value).text(item.Text).appendTo($("#ReasonCodeName"));
+                });
+            });
+        }
+
+        //隐藏状态消息
+        function hideStatusMessage() {
+            $("#statusMessage").addClass("hide");
+        }
+
+
+        function beginSave() {
+            $("#btnSave").attr("disabled", "disabled");
+            hideStatusMessage();
+        }
+
+        function completeSave(result) {
+            $("#btnSave").removeAttr("disabled");
+            showErrorInfo(result);
+            $("#LotNumber:first").select();
+        }
+
+
+        function showErrorInfo(result) {
+            $("#statusMessage").find("p").html(result.Message);
+            $("#statusMessage").removeClass("hide");
+            if (result.Code > 0) {
+                $("#statusMessage").removeClass("alert-success");
+                $("#statusMessage").addClass("alert-danger");
+            }
+            else {
+                $("#statusMessage").removeClass("alert-danger");
+                $("#statusMessage").addClass("alert-success");
+            }
+        }
+</script>
+
+}

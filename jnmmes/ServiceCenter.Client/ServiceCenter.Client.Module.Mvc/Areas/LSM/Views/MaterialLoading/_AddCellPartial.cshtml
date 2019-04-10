@@ -1,0 +1,62 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.LSM.Models.MaterialLoadingViewModel
+@using ServiceCenter.Client.Mvc.Areas.LSM.Models;
+
+<div class="form-group" id="divAddCellMaster">
+    @Html.LabelFor(m => m.LoadingNo, new { @class = "col-md-1 control-label" })
+    <div class="col-md-3">
+        @Html.TextBoxFor(m => m.LoadingNo, new { @class = "form-control", @style = "text-transform:uppercase;ime-mode:inactive", @readonly = "true" })
+        @Html.ValidationMessageFor(m => m.LoadingNo)
+    </div>
+    @Html.LabelFor(m => m.LoadingTime, new { @class = "col-md-1 control-label" })
+    <div class="col-md-3">
+        @Html.TextBoxFor(m => m.LoadingTime, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.LoadingTime)
+    </div>
+    @Html.LabelFor(m => m.RouteOperationName, new { @class = "col-md-1 control-label" })
+    <div class="col-md-3">
+        @Html.DropDownListFor(m => m.RouteOperationName, @Model.GetRouteOperationNameList(), new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.RouteOperationName)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.ProductionLineCode, new { @class = "col-md-1 control-label" })
+    <div class="col-md-3">
+        @Html.DropDownListFor(m => m.ProductionLineCode, @Model.GetProductionLineCodeList(), new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.ProductionLineCode)
+    </div>
+
+    @Html.LabelFor(m => m.EquipmentCode, new { @class = "col-md-1 control-label" })
+    <div class="col-md-3">
+        @Html.DropDownListFor(m => m.EquipmentCode, new List<SelectListItem>(), new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.EquipmentCode)
+    </div>
+
+    @Html.LabelFor(m => m.OrderNumber, new { @class = "col-md-1 control-label" })
+    <div class="col-md-3">
+        @Html.TextBoxFor(m => m.OrderNumber, new { @class = "form-control", @id = "txtCellOrderNumber" })
+        @Html.ValidationMessageFor(m => m.OrderNumber)
+    </div>
+
+</div>
+<div class="form-group">
+      @Html.LabelFor(m => m.StartLot, new { @class = "col-md-1 control-label" })
+    <div class="col-md-3">
+      @Html.TextBoxFor(m => m.StartLot,  new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.StartLot)
+    </div>
+      @Html.LabelFor(m => m.EndLot, new { @class = "col-md-1 control-label" })
+    <div class="col-md-3">
+        @Html.TextBoxFor(m => m.EndLot, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.EndLot)
+    </div>
+      @Html.LabelFor(m => m.Description, new { @class = "col-md-1 control-label" })
+    <div class="col-md-3">
+      @Html.TextBoxFor(m => m.Description, new { @class = "form-control" })
+      @Html.ValidationMessageFor(m => m.Description)
+    </div>
+</div>
+<div class="form-group">
+    <input type="button" class="btn btn-default"
+           value="@ServiceCenter.Client.Mvc.Resources.StringResource.Add"  id="btnAddCellDetailRow" onclick="javascript: addCellDetailRow()" />
+    @Html.Partial("_AddCellDetailPartial", new MaterialLoadingDetailViewModel())
+</div>

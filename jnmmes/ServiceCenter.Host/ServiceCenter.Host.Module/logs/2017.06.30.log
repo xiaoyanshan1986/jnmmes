@@ -1,0 +1,87 @@
+2017-06-30 10:17:45,816 - ERROR - START>Application
+2017-06-30 10:18:22,278 - ERROR - START>Application
+2017-06-30 10:20:26,817 - ERROR - 违反了 PRIMARY KEY 约束“PK_EDC_DATAACQUISITION_DATA”。不能在对象“dbo.EDC_DataAcquisition_Data”中插入重复键。重复键值为 (06 28 2017 11:00AM, 001, testdata, , MASLD-EVA01, 102A-A)。
+违反了 PRIMARY KEY 约束“PK_EDC_DATAACQUISITION_DATA”。不能在对象“dbo.EDC_DataAcquisition_Data”中插入重复键。重复键值为 (06 28 2017 11:00AM, 001, pm, , MASLD-EVA01, 102A-A)。
+违反了 PRIMARY KEY 约束“PK_EDC_DATAACQUISITION_DATA”。不能在对象“dbo.EDC_DataAcquisition_Data”中插入重复键。重复键值为 (06 28 2017 11:00AM, 001, IVdata, , MASLD-EVA01, 102A-A)。
+违反了 PRIMARY KEY 约束“PK_EDC_DATAACQUISITION_DATA”。不能在对象“dbo.EDC_DataAcquisition_Data”中插入重复键。重复键值为 (06 28 2017 11:00AM, 001, pic, , MASLD-EVA01, 102A-A)。
+语句已终止。
+语句已终止。
+语句已终止。
+语句已终止。
+2017-06-30 10:20:26,848 - ERROR - Could not synchronize database state with session
+NHibernate.Exceptions.GenericADOException: could not execute batch command.[SQL: SQL not available] ---> System.Data.SqlClient.SqlException: 违反了 PRIMARY KEY 约束“PK_EDC_DATAACQUISITION_DATA”。不能在对象“dbo.EDC_DataAcquisition_Data”中插入重复键。重复键值为 (06 28 2017 11:00AM, 001, testdata, , MASLD-EVA01, 102A-A)。
+违反了 PRIMARY KEY 约束“PK_EDC_DATAACQUISITION_DATA”。不能在对象“dbo.EDC_DataAcquisition_Data”中插入重复键。重复键值为 (06 28 2017 11:00AM, 001, pm, , MASLD-EVA01, 102A-A)。
+违反了 PRIMARY KEY 约束“PK_EDC_DATAACQUISITION_DATA”。不能在对象“dbo.EDC_DataAcquisition_Data”中插入重复键。重复键值为 (06 28 2017 11:00AM, 001, IVdata, , MASLD-EVA01, 102A-A)。
+违反了 PRIMARY KEY 约束“PK_EDC_DATAACQUISITION_DATA”。不能在对象“dbo.EDC_DataAcquisition_Data”中插入重复键。重复键值为 (06 28 2017 11:00AM, 001, pic, , MASLD-EVA01, 102A-A)。
+语句已终止。
+语句已终止。
+语句已终止。
+语句已终止。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 System.Data.SqlClient.SqlCommand.ExecuteBatchRPCCommand()
+   在 System.Data.SqlClient.SqlCommandSet.ExecuteNonQuery()
+   在 NHibernate.AdoNet.SqlClientSqlCommandSet.ExecuteNonQuery() 位置 p:\nhibernate-core\src\NHibernate\AdoNet\SqlClientSqlCommandSet.cs:行号 117
+   在 NHibernate.AdoNet.SqlClientBatchingBatcher.DoExecuteBatch(IDbCommand ps) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\SqlClientBatchingBatcher.cs:行号 87
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 NHibernate.AdoNet.SqlClientBatchingBatcher.DoExecuteBatch(IDbCommand ps) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\SqlClientBatchingBatcher.cs:行号 91
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteBatchWithTiming(IDbCommand ps) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 412
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteBatch() 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 397
+   在 NHibernate.Engine.ActionQueue.ExecuteActions(IList list) 位置 p:\nhibernate-core\src\NHibernate\Engine\ActionQueue.cs:行号 129
+   在 NHibernate.Engine.ActionQueue.ExecuteActions() 位置 p:\nhibernate-core\src\NHibernate\Engine\ActionQueue.cs:行号 169
+   在 NHibernate.Event.Default.AbstractFlushingEventListener.PerformExecutions(IEventSource session) 位置 p:\nhibernate-core\src\NHibernate\Event\Default\AbstractFlushingEventListener.cs:行号 241
+2017-06-30 14:27:38,448 - ERROR - START>Application
+2017-06-30 16:13:12,327 - ERROR - START>Application
+2017-06-30 16:16:06,003 - ERROR - START>Application
+2017-06-30 16:16:21,295 - ERROR - START>Application
+2017-06-30 16:22:58,651 - ERROR - START>Application
+2017-06-30 17:42:53,058 - ERROR - 在与 SQL Server 建立连接时出现与网络相关的或特定于实例的错误。未找到或无法访问服务器。请验证实例名称是否正确并且 SQL Server 已配置为允许远程连接。 (provider: Named Pipes Provider, error: 40 - 无法打开到 SQL Server 的连接)
+2017-06-30 17:42:53,059 - ERROR - 找不到网络路径。
+2017-06-30 17:42:53,100 - ERROR - 在与 SQL Server 建立连接时出现与网络相关的或特定于实例的错误。未找到或无法访问服务器。请验证实例名称是否正确并且 SQL Server 已配置为允许远程连接。 (provider: Named Pipes Provider, error: 40 - 无法打开到 SQL Server 的连接)
+2017-06-30 17:42:53,100 - ERROR - 找不到网络路径。
+2017-06-30 17:42:53,101 - ERROR - 在与 SQL Server 建立连接时出现与网络相关的或特定于实例的错误。未找到或无法访问服务器。请验证实例名称是否正确并且 SQL Server 已配置为允许远程连接。 (provider: Named Pipes Provider, error: 40 - 无法打开到 SQL Server 的连接)
+2017-06-30 17:42:53,101 - ERROR - 找不到网络路径。
+2017-06-30 17:51:53,693 - ERROR - 违反了 PRIMARY KEY 约束“PK_EDC_DATAACQUISITION_DATA”。不能在对象“dbo.EDC_DataAcquisition_Data”中插入重复键。重复键值为 (06 30 2017  4:00AM, 001, testdata, , MASLD-EVA01, 102A-A)。
+违反了 PRIMARY KEY 约束“PK_EDC_DATAACQUISITION_DATA”。不能在对象“dbo.EDC_DataAcquisition_Data”中插入重复键。重复键值为 (06 30 2017  4:00AM, 001, pm, , MASLD-EVA01, 102A-A)。
+违反了 PRIMARY KEY 约束“PK_EDC_DATAACQUISITION_DATA”。不能在对象“dbo.EDC_DataAcquisition_Data”中插入重复键。重复键值为 (06 30 2017  4:00AM, 001, IVdata, , MASLD-EVA01, 102A-A)。
+违反了 PRIMARY KEY 约束“PK_EDC_DATAACQUISITION_DATA”。不能在对象“dbo.EDC_DataAcquisition_Data”中插入重复键。重复键值为 (06 30 2017  4:00AM, 001, pic, , MASLD-EVA01, 102A-A)。
+语句已终止。
+语句已终止。
+语句已终止。
+语句已终止。
+2017-06-30 17:51:53,730 - ERROR - Could not synchronize database state with session
+NHibernate.Exceptions.GenericADOException: could not execute batch command.[SQL: SQL not available] ---> System.Data.SqlClient.SqlException: 违反了 PRIMARY KEY 约束“PK_EDC_DATAACQUISITION_DATA”。不能在对象“dbo.EDC_DataAcquisition_Data”中插入重复键。重复键值为 (06 30 2017  4:00AM, 001, testdata, , MASLD-EVA01, 102A-A)。
+违反了 PRIMARY KEY 约束“PK_EDC_DATAACQUISITION_DATA”。不能在对象“dbo.EDC_DataAcquisition_Data”中插入重复键。重复键值为 (06 30 2017  4:00AM, 001, pm, , MASLD-EVA01, 102A-A)。
+违反了 PRIMARY KEY 约束“PK_EDC_DATAACQUISITION_DATA”。不能在对象“dbo.EDC_DataAcquisition_Data”中插入重复键。重复键值为 (06 30 2017  4:00AM, 001, IVdata, , MASLD-EVA01, 102A-A)。
+违反了 PRIMARY KEY 约束“PK_EDC_DATAACQUISITION_DATA”。不能在对象“dbo.EDC_DataAcquisition_Data”中插入重复键。重复键值为 (06 30 2017  4:00AM, 001, pic, , MASLD-EVA01, 102A-A)。
+语句已终止。
+语句已终止。
+语句已终止。
+语句已终止。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 System.Data.SqlClient.SqlCommand.ExecuteBatchRPCCommand()
+   在 System.Data.SqlClient.SqlCommandSet.ExecuteNonQuery()
+   在 NHibernate.AdoNet.SqlClientSqlCommandSet.ExecuteNonQuery() 位置 p:\nhibernate-core\src\NHibernate\AdoNet\SqlClientSqlCommandSet.cs:行号 117
+   在 NHibernate.AdoNet.SqlClientBatchingBatcher.DoExecuteBatch(IDbCommand ps) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\SqlClientBatchingBatcher.cs:行号 87
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 NHibernate.AdoNet.SqlClientBatchingBatcher.DoExecuteBatch(IDbCommand ps) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\SqlClientBatchingBatcher.cs:行号 91
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteBatchWithTiming(IDbCommand ps) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 412
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteBatch() 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 397
+   在 NHibernate.Engine.ActionQueue.ExecuteActions(IList list) 位置 p:\nhibernate-core\src\NHibernate\Engine\ActionQueue.cs:行号 129
+   在 NHibernate.Engine.ActionQueue.ExecuteActions() 位置 p:\nhibernate-core\src\NHibernate\Engine\ActionQueue.cs:行号 169
+   在 NHibernate.Event.Default.AbstractFlushingEventListener.PerformExecutions(IEventSource session) 位置 p:\nhibernate-core\src\NHibernate\Event\Default\AbstractFlushingEventListener.cs:行号 241

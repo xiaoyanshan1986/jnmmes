@@ -1,0 +1,120 @@
+﻿
+@model ServiceCenter.Client.Mvc.Areas.LSM.Models.MaterialReceiptExViewModel
+@using ServiceCenter.MES.Model.LSM;
+@using ServiceCenter.Model;
+@using ServiceCenter.Common;
+@using ServiceCenter.Client.Mvc.Areas.LSM.Models;
+@using ERP = ServiceCenter.Client.Mvc.Resources.LSM;
+@using ServiceCenter.Client.Mvc.Resources;
+
+
+@{
+    PagingConfig cfg = ViewBag.PagingConfig;
+}
+<div id="_list">
+    <table class="table table-hover table-bordered table-condensed">
+        <thead>
+            <tr class="active">
+                <td>@StringResource.ItemNo</td>
+                <td>@Html.DisplayNameFor(m => m.ReceiptNo)</td>
+                <td>@Html.DisplayNameFor(m => m.ReceiptDate)</td>
+                <td>@Html.DisplayNameFor(m => m.OrderNumber)</td>
+                <td>@Html.DisplayNameFor(m => m.LineStore)</td>
+                <td>@Html.DisplayNameFor(m => m.Description)</td>
+                <td>@Html.DisplayNameFor(m => m.Editor)</td>
+                <td>@Html.DisplayNameFor(m => m.EditTime)</td>
+                <td>@StringResource.Modify</td>
+                <td>@StringResource.Delete</td>
+            </tr>
+        </thead>
+        @if (ViewBag.List != null)
+        {
+            <tbody>
+                @for (int i = 0; i < ViewBag.List.Length; i++)
+                {
+                    MaterialReceipt obj = ViewBag.List[i];
+                    <tr>
+                        <td>@(cfg.PageSize * cfg.PageNo + i + 1)</td>
+                        <td>
+                            @Html.ActionLink(linkText: obj.Key
+                                         , actionName: "Index"
+                                   , controllerName: "MaterialReceiptExDetail"
+                                   , routeValues: new { @ReceiptNo = obj.Key }
+                                            , htmlAttributes: new { @target = "_self" })
+                        </td>
+                        <td>
+                            @string.Format("{0:yyyy-MM-dd}", obj.ReceiptDate)
+                        </td>
+                        <td>
+                            @obj.OrderNumber
+                        </td>
+                        <td>
+                            @obj.LineStore
+                        </td>
+                        <td>
+                            @obj.Description
+                        </td>
+                        <td>
+                            @obj.Editor
+                        </td>
+                        <td>
+                            @obj.EditTime
+                        </td>
+
+                        <td>
+                            @if (obj.State != EnumReceiptState.Approved)
+                            {
+                                @Ajax.ActionLink(StringResource.Modify, actionName: null
+                                            , routeValues: null
+                                            , ajaxOptions: new AjaxOptions()
+                                            {
+                                                HttpMethod = "Post",
+                                                UpdateTargetId = "modifyFormContent",
+                                                OnSuccess = "showModifyModal",
+                                                Url = Url.Action("Modify", new { @Key = obj.Key })
+                                            })
+                            }
+                        </td>
+                        <td>
+                            @if (obj.State != EnumReceiptState.Approved)
+                            {
+                                @Ajax.ActionLink(StringResource.Delete, actionName: null
+                                            , routeValues: null
+                                            , ajaxOptions: new AjaxOptions()
+                                            {
+                                                HttpMethod = "Post",
+                                                Confirm = string.Format("确定要删除{0}吗？", obj.Key),
+                                                Url = Url.Action("Delete", new { @Key = obj.Key }),
+                                                OnSuccess = "completeDelete"
+                                            })
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        }
+    </table>
+    <div style="margin-top:-18px">
+        @if (cfg != null)
+        {
+            using (Ajax.BeginForm("PagingQuery", "MaterialReceiptEx"
+                            , new
+                            {
+                                @Where = cfg.Where,
+                                @OrderBy = cfg.OrderBy,
+                                @CurrentPageNo = cfg.PageNo,
+                                @CurrentPageSize = cfg.PageSize
+                            }
+                            , new AjaxOptions()
+                            {
+                                HttpMethod = "Post",
+                                UpdateTargetId = "_list"
+                            }
+                            , new { @class = "form-horizontal", resource = "form", id = "frmPagingQuery" }))
+            {
+                @Html.AntiForgeryToken()
+                <div>@Html.Partial("_PaginationPartial")</div>
+            }
+        }
+    </div>
+</div>

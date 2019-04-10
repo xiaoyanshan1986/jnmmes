@@ -1,0 +1,59 @@
+﻿@using ServiceCenter.MES.Model.ZPVM;
+@using ServiceCenter.Client.Mvc.Areas.ZPVM.Models;
+@using ZPVMRsources = ServiceCenter.Client.Mvc.Resources.ZPVM;
+@using ServiceCenter.Client.Mvc.Resources;
+@using System.Data;
+@using ServiceCenter.MES.Model.WIP;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+
+@{
+    ViewBag.Title = "包装历史记录数据";
+    DataTable dtList = new System.Data.DataTable();
+    dtList = ViewBag.List;
+}
+<h2>@ViewBag.Title</h2>
+<div class="panel panel-default">
+    <div id="list" style="overflow:auto">
+        <table class="table table-hover table-bordered table-condensed table-responsive table-striped">
+            <thead>
+                <tr class="active">
+                    <td nowrap>序号</td>
+                    <td nowrap>包装号</td>
+                    <td nowrap>工单号</td>
+                    <td nowrap>物料编码</td>
+                    <td nowrap>包装数量</td>
+                    <td nowrap>批次号</td>
+                    <td nowrap>工艺流程</td>
+                    <td nowrap>动作</td>
+                    <td nowrap>编辑人</td>
+                    <td nowrap>编辑时间</td>
+                </tr>
+            </thead>
+            @if (dtList != null)
+            {
+                <tbody>
+                    @for (int i = 0; i < dtList.Rows.Count; i++)
+                    {
+                        LotTransaction obj = new LotTransaction()
+                        {
+                            Activity = (EnumLotActivity)Convert.ToInt32(dtList.Rows[i]["ACTIVITY"].ToString() == "" ? 9 : dtList.Rows[i]["ACTIVITY"])
+                        };
+                        <tr>
+                            <td nowrap>@(i + 1)</td>
+                            <td nowrap>@dtList.Rows[i]["PACKAGE_NO"].ToString()</td>
+                            <td nowrap>@dtList.Rows[i]["ORDER_NUMBER"].ToString()</td>
+                            <td nowrap>@dtList.Rows[i]["MATERIAL_CODE"].ToString()</td>
+                            <td nowrap>@dtList.Rows[i]["PACKAGE_QTY"].ToString()</td>
+                            <td nowrap>@dtList.Rows[i]["LOT_NUMBER"].ToString()</td>
+                            <td nowrap>@dtList.Rows[i]["ROUTE_NAME"].ToString()</td>
+                            <td nowrap>@obj.Activity.GetDisplayName()</td>
+                            <td nowrap>@dtList.Rows[i]["EDITOR"].ToString()</td>
+                            <td nowrap>@dtList.Rows[i]["EDIT_TIME"].ToString()</td>
+                        </tr>
+                    }
+                </tbody>
+            }
+        </table>
+    </div>
+</div>

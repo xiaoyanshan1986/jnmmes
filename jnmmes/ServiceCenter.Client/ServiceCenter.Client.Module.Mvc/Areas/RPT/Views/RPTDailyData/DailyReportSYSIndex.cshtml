@@ -1,0 +1,134 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.RPT.Models.RPTDailyDataViewModel
+@using ServiceCenter.MES.Model.WIP;
+@using ServiceCenter.Model;
+@using ServiceCenter.Common;
+@using ServiceCenter.Client.Mvc.Areas.WIP.Models;
+@using RPTResources = ServiceCenter.Client.Mvc.Resources.RPT;
+@using ServiceCenter.Client.Mvc.Resources;
+
+@{    
+    ViewBag.Title = RPTResources.StringResource.RPTDailyDataPageTitle;
+    string s = "123";
+}
+<h2>@ViewBag.Title</h2>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        &nbsp;
+    </div>
+    <div class="panel-body">
+        @Html.ValidationSummary(true)
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist">
+            <li class="active"><a href="#base" role="tab" data-toggle="tab" onfocus="this.blur()">基本信息</a></li>
+            <li><a href="#attribute" role="tab" data-toggle="tab" onfocus="this.blur()">批次属性</a></li>
+            <li><a href="#transaction" role="tab" data-toggle="tab" onfocus="this.blur()">加工历史</a></li>
+            <li><a href="#equipment" role="tab" data-toggle="tab" onfocus="this.blur()">批次设备</a></li>
+            <li><a href="#param" role="tab" data-toggle="tab" onfocus="this.blur()">批次参数</a></li>
+            <li><a href="#material" role="tab" data-toggle="tab" onfocus="this.blur()">批次用料</a></li>
+            <li><a href="#defect" role="tab" data-toggle="tab" onfocus="this.blur()">批次不良</a></li>
+            <li><a href="#scrap" role="tab" data-toggle="tab" onfocus="this.blur()">批次报废</a></li>
+            <li><a href="#patch" role="tab" data-toggle="tab" onfocus="this.blur()">批次补料</a></li>
+            <li><a href="#job" role="tab" data-toggle="tab" onfocus="this.blur()">批次定时作业</a></li>
+        </ul>
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div class="tab-pane active" id="base" style="padding-top:10px">
+                <div class="row">
+                    @*开始日期*@
+                    <div class="col-md-1">
+                        @Html.LabelFor(m => m.StartDate, new { @class = "control-label" })
+                    </div>
+                    <div class="col-md-2">
+                        @Html.TextBoxFor(m => m.StartDate, "{0:yyyy-MM-dd}", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.StartDate)
+                    </div>
+                    @*结束日期*@
+                    <div class="col-md-1">
+                        @Html.LabelFor(m => m.EndDate, new { @class = "control-label" })
+                    </div>
+                    <div class="col-md-2">
+                        @Html.TextBoxFor(m => m.EndDate, "{0:yyyy-MM-dd}", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.EndDate)
+                    </div>
+                    @*车间*@
+                    <div class="col-md-1">
+                        @Html.LabelFor(m => m.LocationName, new { @class = "control-label" })
+                    </div>
+                    <div class="col-md-2">
+                        @Html.DropDownListFor(m => m.LocationName, @Model.GetLocations(), string.Empty, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="row">
+                    @*线别*@
+                    <div class="col-md-1">
+                        @Html.LabelFor(m => m.LineCode, new { @class = "control-label" })
+                    </div>
+                    <div class="col-md-2">
+                        @Html.DropDownListFor(m => m.LineCode, @Model.GetProductionLineList(), string.Empty, new { @class = "form-control" })
+                    </div>
+                    @*工单*@
+                    <div class="col-md-1">
+                        @Html.LabelFor(m => m.OrderNumber, new { @class = "control-label" })
+                    </div>
+                    <div class="col-md-2">
+                        @Html.TextBoxFor(m => m.OrderNumber, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.OrderNumber)
+                    </div>                  
+
+                    @*报表代码*@
+                    @Html.HiddenFor(m => m.ReportCode)
+
+                    @*报表名称*@
+                    @Html.HiddenFor(m => m.ReportName)
+                </div>
+            <div class="tab-pane" style="padding-top:10px" id="attribute">
+
+            </div>
+            <div class="tab-pane" style="padding-top:10px" id="transaction">
+
+            </div>
+            <div class="tab-pane" style="padding-top:10px" id="equipment">
+
+            </div>
+            <div class="tab-pane" style="padding-top:10px" id="param">
+
+            </div>
+            <div class="tab-pane" style="padding-top:10px" id="material">
+
+            </div>
+            <div class="tab-pane" style="padding-top:10px" id="defect">
+
+            </div>
+            <div class="tab-pane" style="padding-top:10px" id="scrap">
+
+            </div>
+            <div class="tab-pane" style="padding-top:10px" id="patch">
+
+            </div>
+            <div class="tab-pane" style="padding-top:10px" id="job">
+
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    @*查询*@
+    <script type="text/javascript" language="javascript">
+    $(function () {
+        $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
+            if ($(e.target).attr("href") == "#attribute")
+            {
+                alert(@s);
+                var url = "@Url.Action("DailyReportSYSQuery", "RPTDailyData", new { reportCode = @s })";
+                @*var url = "@Url.Action("GetLotAttribute", "LotQuery", new { LotNumber = @obj.Key})";*@
+                $("#attribute").load(url);
+            }
+            else if ($(e.target).attr("href") == "#transaction")
+            {
+                @*var url = "@Url.Action("GetLotTransaction", "LotQuery", new { LotNumber = @obj.Key })";
+                $("#transaction").load(url);*@
+            }            
+        })
+    })
+    </script>
+}

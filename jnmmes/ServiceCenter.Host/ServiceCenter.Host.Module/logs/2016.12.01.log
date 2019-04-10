@@ -1,0 +1,513 @@
+2016-12-01 16:15:03,925 - ERROR - START>Application
+2016-12-01 16:16:00,603 - ERROR - Could not execute query: select woreportde0_.BILL_CODE as BILL1_141_, woreportde0_.OBJECT_NUMBER as OBJECT2_141_, woreportde0_.ORDER_NUMBER as ORDER3_141_, woreportde0_.EFFI_NAME as EFFI4_141_, woreportde0_.COLOR as COLOR141_, woreportde0_.PS_SUBCODE as PS6_141_, woreportde0_.ITEM_NO as ITEM7_141_, woreportde0_.MATERIAL_CODE as MATERIAL8_141_, woreportde0_.MATERIAL_NAME as MATERIAL9_141_, woreportde0_.GRADE as GRADE141_, woreportde0_.EFFI_CODE as EFFI11_141_, woreportde0_.QUANTITY as QUANTITY141_, woreportde0_.SumCOEF_PMAX as SumCOEF13_141_, woreportde0_.CREATOR as CREATOR141_, woreportde0_.CREATE_TIME as CREATE15_141_, woreportde0_.EDITOR as EDITOR141_, woreportde0_.EDIT_TIME as EDIT17_141_ from ERP_WO_REPORT_DETAIL woreportde0_ where woreportde0_.BILL_CODE='INC161130001' order by woreportde0_.ITEM_NO
+System.Data.SqlClient.SqlException (0x80131904): 列名 'ITEM_NO' 无效。
+列名 'MATERIAL_NAME' 无效。
+列名 'ITEM_NO' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 223
+ClientConnectionId:b0ba8307-c508-4a02-90f8-ab95e6c798d0
+Error Number:207,State:1,Class:16
+2016-12-01 16:16:00,677 - ERROR - 列名 'ITEM_NO' 无效。
+列名 'MATERIAL_NAME' 无效。
+列名 'ITEM_NO' 无效。
+2016-12-01 16:16:00,719 - ERROR - 列名 'ITEM_NO' 无效。
+列名 'MATERIAL_NAME' 无效。
+列名 'ITEM_NO' 无效。
+2016-12-01 16:16:00,720 - ERROR - 列名 'ITEM_NO' 无效。
+列名 'MATERIAL_NAME' 无效。
+列名 'ITEM_NO' 无效。
+2016-12-01 16:17:28,483 - ERROR - Could not execute query: select woreportde0_.BILL_CODE as BILL1_141_, woreportde0_.OBJECT_NUMBER as OBJECT2_141_, woreportde0_.ORDER_NUMBER as ORDER3_141_, woreportde0_.EFFI_NAME as EFFI4_141_, woreportde0_.COLOR as COLOR141_, woreportde0_.PS_SUBCODE as PS6_141_, woreportde0_.ITEM_NO as ITEM7_141_, woreportde0_.MATERIAL_CODE as MATERIAL8_141_, woreportde0_.MATERIAL_NAME as MATERIAL9_141_, woreportde0_.GRADE as GRADE141_, woreportde0_.EFFI_CODE as EFFI11_141_, woreportde0_.QUANTITY as QUANTITY141_, woreportde0_.SumCOEF_PMAX as SumCOEF13_141_, woreportde0_.CREATOR as CREATOR141_, woreportde0_.CREATE_TIME as CREATE15_141_, woreportde0_.EDITOR as EDITOR141_, woreportde0_.EDIT_TIME as EDIT17_141_ from ERP_WO_REPORT_DETAIL woreportde0_ where woreportde0_.BILL_CODE='INC161130001' order by woreportde0_.ITEM_NO
+System.Data.SqlClient.SqlException (0x80131904): 列名 'ITEM_NO' 无效。
+列名 'MATERIAL_NAME' 无效。
+列名 'ITEM_NO' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 223
+ClientConnectionId:b0ba8307-c508-4a02-90f8-ab95e6c798d0
+Error Number:207,State:1,Class:16
+2016-12-01 16:17:28,525 - ERROR - 列名 'ITEM_NO' 无效。
+列名 'MATERIAL_NAME' 无效。
+列名 'ITEM_NO' 无效。
+2016-12-01 16:17:28,568 - ERROR - 列名 'ITEM_NO' 无效。
+列名 'MATERIAL_NAME' 无效。
+列名 'ITEM_NO' 无效。
+2016-12-01 16:17:28,568 - ERROR - 列名 'ITEM_NO' 无效。
+列名 'MATERIAL_NAME' 无效。
+列名 'ITEM_NO' 无效。
+2016-12-01 16:17:47,251 - ERROR - Could not execute query: select TOP (@p0)  woreportde0_.BILL_CODE as BILL1_141_, woreportde0_.OBJECT_NUMBER as OBJECT2_141_, woreportde0_.ORDER_NUMBER as ORDER3_141_, woreportde0_.EFFI_NAME as EFFI4_141_, woreportde0_.COLOR as COLOR141_, woreportde0_.PS_SUBCODE as PS6_141_, woreportde0_.ITEM_NO as ITEM7_141_, woreportde0_.MATERIAL_CODE as MATERIAL8_141_, woreportde0_.MATERIAL_NAME as MATERIAL9_141_, woreportde0_.GRADE as GRADE141_, woreportde0_.EFFI_CODE as EFFI11_141_, woreportde0_.QUANTITY as QUANTITY141_, woreportde0_.SumCOEF_PMAX as SumCOEF13_141_, woreportde0_.CREATOR as CREATOR141_, woreportde0_.CREATE_TIME as CREATE15_141_, woreportde0_.EDITOR as EDITOR141_, woreportde0_.EDIT_TIME as EDIT17_141_ from ERP_WO_REPORT_DETAIL woreportde0_ where woreportde0_.OBJECT_NUMBER='150800080197' order by woreportde0_.BILL_CODE, woreportde0_.OBJECT_NUMBER, woreportde0_.ORDER_NUMBER, woreportde0_.EFFI_NAME, woreportde0_.COLOR, woreportde0_.PS_SUBCODE
+System.Data.SqlClient.SqlException (0x80131904): 列名 'ITEM_NO' 无效。
+列名 'MATERIAL_NAME' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 223
+ClientConnectionId:b0ba8307-c508-4a02-90f8-ab95e6c798d0
+Error Number:207,State:1,Class:16
+2016-12-01 16:17:47,287 - ERROR - 列名 'ITEM_NO' 无效。
+列名 'MATERIAL_NAME' 无效。
+2016-12-01 16:17:47,327 - ERROR - 列名 'ITEM_NO' 无效。
+列名 'MATERIAL_NAME' 无效。
+2016-12-01 16:17:47,327 - ERROR - 列名 'ITEM_NO' 无效。
+列名 'MATERIAL_NAME' 无效。
+2016-12-01 16:17:51,524 - ERROR - 列名 'ITEM_NO' 无效。
+列名 'MATERIAL_NAME' 无效。
+列名 'ITEM_NO' 无效。
+列名 'MATERIAL_NAME' 无效。
+2016-12-01 16:17:51,558 - ERROR - Could not synchronize database state with session
+NHibernate.Exceptions.GenericADOException: could not execute batch command.[SQL: SQL not available] ---> System.Data.SqlClient.SqlException: 列名 'ITEM_NO' 无效。
+列名 'MATERIAL_NAME' 无效。
+列名 'ITEM_NO' 无效。
+列名 'MATERIAL_NAME' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 System.Data.SqlClient.SqlCommand.ExecuteBatchRPCCommand()
+   在 System.Data.SqlClient.SqlCommandSet.ExecuteNonQuery()
+   在 NHibernate.AdoNet.SqlClientSqlCommandSet.ExecuteNonQuery() 位置 p:\nhibernate-core\src\NHibernate\AdoNet\SqlClientSqlCommandSet.cs:行号 117
+   在 NHibernate.AdoNet.SqlClientBatchingBatcher.DoExecuteBatch(IDbCommand ps) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\SqlClientBatchingBatcher.cs:行号 87
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 NHibernate.AdoNet.SqlClientBatchingBatcher.DoExecuteBatch(IDbCommand ps) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\SqlClientBatchingBatcher.cs:行号 91
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteBatchWithTiming(IDbCommand ps) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 412
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteBatch() 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 397
+   在 NHibernate.Engine.ActionQueue.ExecuteActions(IList list) 位置 p:\nhibernate-core\src\NHibernate\Engine\ActionQueue.cs:行号 129
+   在 NHibernate.Engine.ActionQueue.ExecuteActions() 位置 p:\nhibernate-core\src\NHibernate\Engine\ActionQueue.cs:行号 169
+   在 NHibernate.Event.Default.AbstractFlushingEventListener.PerformExecutions(IEventSource session) 位置 p:\nhibernate-core\src\NHibernate\Event\Default\AbstractFlushingEventListener.cs:行号 241
+2016-12-01 16:17:53,969 - ERROR - Could not execute query: select woreportde0_.BILL_CODE as BILL1_141_, woreportde0_.OBJECT_NUMBER as OBJECT2_141_, woreportde0_.ORDER_NUMBER as ORDER3_141_, woreportde0_.EFFI_NAME as EFFI4_141_, woreportde0_.COLOR as COLOR141_, woreportde0_.PS_SUBCODE as PS6_141_, woreportde0_.ITEM_NO as ITEM7_141_, woreportde0_.MATERIAL_CODE as MATERIAL8_141_, woreportde0_.MATERIAL_NAME as MATERIAL9_141_, woreportde0_.GRADE as GRADE141_, woreportde0_.EFFI_CODE as EFFI11_141_, woreportde0_.QUANTITY as QUANTITY141_, woreportde0_.SumCOEF_PMAX as SumCOEF13_141_, woreportde0_.CREATOR as CREATOR141_, woreportde0_.CREATE_TIME as CREATE15_141_, woreportde0_.EDITOR as EDITOR141_, woreportde0_.EDIT_TIME as EDIT17_141_ from ERP_WO_REPORT_DETAIL woreportde0_ where woreportde0_.BILL_CODE='INC161130001' order by woreportde0_.ITEM_NO
+System.Data.SqlClient.SqlException (0x80131904): 列名 'ITEM_NO' 无效。
+列名 'MATERIAL_NAME' 无效。
+列名 'ITEM_NO' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 223
+ClientConnectionId:22eca161-fdb6-4c35-91fe-ef26a7d5475d
+Error Number:207,State:1,Class:16
+2016-12-01 16:17:54,006 - ERROR - 列名 'ITEM_NO' 无效。
+列名 'MATERIAL_NAME' 无效。
+列名 'ITEM_NO' 无效。
+2016-12-01 16:17:54,042 - ERROR - 列名 'ITEM_NO' 无效。
+列名 'MATERIAL_NAME' 无效。
+列名 'ITEM_NO' 无效。
+2016-12-01 16:17:54,042 - ERROR - 列名 'ITEM_NO' 无效。
+列名 'MATERIAL_NAME' 无效。
+列名 'ITEM_NO' 无效。
+2016-12-01 16:18:41,219 - ERROR - Could not execute query: select TOP (@p0)  woreportde0_.BILL_CODE as BILL1_141_, woreportde0_.OBJECT_NUMBER as OBJECT2_141_, woreportde0_.ORDER_NUMBER as ORDER3_141_, woreportde0_.EFFI_NAME as EFFI4_141_, woreportde0_.COLOR as COLOR141_, woreportde0_.PS_SUBCODE as PS6_141_, woreportde0_.ITEM_NO as ITEM7_141_, woreportde0_.MATERIAL_CODE as MATERIAL8_141_, woreportde0_.MATERIAL_NAME as MATERIAL9_141_, woreportde0_.GRADE as GRADE141_, woreportde0_.EFFI_CODE as EFFI11_141_, woreportde0_.QUANTITY as QUANTITY141_, woreportde0_.SumCOEF_PMAX as SumCOEF13_141_, woreportde0_.CREATOR as CREATOR141_, woreportde0_.CREATE_TIME as CREATE15_141_, woreportde0_.EDITOR as EDITOR141_, woreportde0_.EDIT_TIME as EDIT17_141_ from ERP_WO_REPORT_DETAIL woreportde0_ where woreportde0_.OBJECT_NUMBER='150800080197' order by woreportde0_.BILL_CODE, woreportde0_.OBJECT_NUMBER, woreportde0_.ORDER_NUMBER, woreportde0_.EFFI_NAME, woreportde0_.COLOR, woreportde0_.PS_SUBCODE
+System.Data.SqlClient.SqlException (0x80131904): 列名 'ITEM_NO' 无效。
+列名 'MATERIAL_NAME' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 223
+ClientConnectionId:22eca161-fdb6-4c35-91fe-ef26a7d5475d
+Error Number:207,State:1,Class:16
+2016-12-01 16:18:41,257 - ERROR - 列名 'ITEM_NO' 无效。
+列名 'MATERIAL_NAME' 无效。
+2016-12-01 16:18:41,295 - ERROR - 列名 'ITEM_NO' 无效。
+列名 'MATERIAL_NAME' 无效。
+2016-12-01 16:18:41,295 - ERROR - 列名 'ITEM_NO' 无效。
+列名 'MATERIAL_NAME' 无效。
+2016-12-01 16:18:42,974 - ERROR - 列名 'ITEM_NO' 无效。
+列名 'MATERIAL_NAME' 无效。
+列名 'ITEM_NO' 无效。
+列名 'MATERIAL_NAME' 无效。
+2016-12-01 16:18:43,015 - ERROR - Could not synchronize database state with session
+NHibernate.Exceptions.GenericADOException: could not execute batch command.[SQL: SQL not available] ---> System.Data.SqlClient.SqlException: 列名 'ITEM_NO' 无效。
+列名 'MATERIAL_NAME' 无效。
+列名 'ITEM_NO' 无效。
+列名 'MATERIAL_NAME' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 System.Data.SqlClient.SqlCommand.ExecuteBatchRPCCommand()
+   在 System.Data.SqlClient.SqlCommandSet.ExecuteNonQuery()
+   在 NHibernate.AdoNet.SqlClientSqlCommandSet.ExecuteNonQuery() 位置 p:\nhibernate-core\src\NHibernate\AdoNet\SqlClientSqlCommandSet.cs:行号 117
+   在 NHibernate.AdoNet.SqlClientBatchingBatcher.DoExecuteBatch(IDbCommand ps) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\SqlClientBatchingBatcher.cs:行号 87
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 NHibernate.AdoNet.SqlClientBatchingBatcher.DoExecuteBatch(IDbCommand ps) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\SqlClientBatchingBatcher.cs:行号 91
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteBatchWithTiming(IDbCommand ps) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 412
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteBatch() 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 397
+   在 NHibernate.Engine.ActionQueue.ExecuteActions(IList list) 位置 p:\nhibernate-core\src\NHibernate\Engine\ActionQueue.cs:行号 129
+   在 NHibernate.Engine.ActionQueue.ExecuteActions() 位置 p:\nhibernate-core\src\NHibernate\Engine\ActionQueue.cs:行号 169
+   在 NHibernate.Event.Default.AbstractFlushingEventListener.PerformExecutions(IEventSource session) 位置 p:\nhibernate-core\src\NHibernate\Event\Default\AbstractFlushingEventListener.cs:行号 241
+2016-12-01 16:24:12,446 - ERROR - START>Application
+2016-12-01 16:25:56,561 - ERROR - Could not execute query: select woreportde0_.BILL_CODE as BILL1_141_, woreportde0_.OBJECT_NUMBER as OBJECT2_141_, woreportde0_.ORDER_NUMBER as ORDER3_141_, woreportde0_.EFFI_NAME as EFFI4_141_, woreportde0_.COLOR as COLOR141_, woreportde0_.PS_SUBCODE as PS6_141_, woreportde0_.MATERIAL_CODE as MATERIAL7_141_, woreportde0_.MATERIAL_NAME as MATERIAL8_141_, woreportde0_.GRADE as GRADE141_, woreportde0_.EFFI_CODE as EFFI10_141_, woreportde0_.QUANTITY as QUANTITY141_, woreportde0_.SumCOEF_PMAX as SumCOEF12_141_, woreportde0_.CREATOR as CREATOR141_, woreportde0_.CREATE_TIME as CREATE14_141_, woreportde0_.EDITOR as EDITOR141_, woreportde0_.EDIT_TIME as EDIT16_141_ from ERP_WO_REPORT_DETAIL woreportde0_ where woreportde0_.BILL_CODE='INC161130001' order by ItemNo
+System.Data.SqlClient.SqlException (0x80131904): 列名 'MATERIAL_NAME' 无效。
+列名 'ItemNo' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 223
+ClientConnectionId:5974b14b-aa38-459e-b161-bb6989fc9350
+Error Number:207,State:1,Class:16
+2016-12-01 16:25:56,649 - ERROR - 列名 'MATERIAL_NAME' 无效。
+列名 'ItemNo' 无效。
+2016-12-01 16:25:56,699 - ERROR - 列名 'MATERIAL_NAME' 无效。
+列名 'ItemNo' 无效。
+2016-12-01 16:25:56,701 - ERROR - 列名 'MATERIAL_NAME' 无效。
+列名 'ItemNo' 无效。
+2016-12-01 16:29:36,500 - ERROR - Could not execute query: select woreportde0_.BILL_CODE as BILL1_141_, woreportde0_.OBJECT_NUMBER as OBJECT2_141_, woreportde0_.ORDER_NUMBER as ORDER3_141_, woreportde0_.EFFI_NAME as EFFI4_141_, woreportde0_.COLOR as COLOR141_, woreportde0_.PS_SUBCODE as PS6_141_, woreportde0_.MATERIAL_CODE as MATERIAL7_141_, woreportde0_.MATERIAL_NAME as MATERIAL8_141_, woreportde0_.GRADE as GRADE141_, woreportde0_.EFFI_CODE as EFFI10_141_, woreportde0_.QUANTITY as QUANTITY141_, woreportde0_.SumCOEF_PMAX as SumCOEF12_141_, woreportde0_.CREATOR as CREATOR141_, woreportde0_.CREATE_TIME as CREATE14_141_, woreportde0_.EDITOR as EDITOR141_, woreportde0_.EDIT_TIME as EDIT16_141_ from ERP_WO_REPORT_DETAIL woreportde0_ where woreportde0_.BILL_CODE='INC161130001' order by ItemNo
+System.Data.SqlClient.SqlException (0x80131904): 列名 'MATERIAL_NAME' 无效。
+列名 'ItemNo' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 223
+ClientConnectionId:5974b14b-aa38-459e-b161-bb6989fc9350
+Error Number:207,State:1,Class:16
+2016-12-01 16:29:36,540 - ERROR - 列名 'MATERIAL_NAME' 无效。
+列名 'ItemNo' 无效。
+2016-12-01 16:29:36,581 - ERROR - 列名 'MATERIAL_NAME' 无效。
+列名 'ItemNo' 无效。
+2016-12-01 16:29:36,581 - ERROR - 列名 'MATERIAL_NAME' 无效。
+列名 'ItemNo' 无效。
+2016-12-01 16:29:52,841 - ERROR - Could not execute query: select TOP (@p0)  woreportde0_.BILL_CODE as BILL1_141_, woreportde0_.OBJECT_NUMBER as OBJECT2_141_, woreportde0_.ORDER_NUMBER as ORDER3_141_, woreportde0_.EFFI_NAME as EFFI4_141_, woreportde0_.COLOR as COLOR141_, woreportde0_.PS_SUBCODE as PS6_141_, woreportde0_.MATERIAL_CODE as MATERIAL7_141_, woreportde0_.MATERIAL_NAME as MATERIAL8_141_, woreportde0_.GRADE as GRADE141_, woreportde0_.EFFI_CODE as EFFI10_141_, woreportde0_.QUANTITY as QUANTITY141_, woreportde0_.SumCOEF_PMAX as SumCOEF12_141_, woreportde0_.CREATOR as CREATOR141_, woreportde0_.CREATE_TIME as CREATE14_141_, woreportde0_.EDITOR as EDITOR141_, woreportde0_.EDIT_TIME as EDIT16_141_ from ERP_WO_REPORT_DETAIL woreportde0_ where woreportde0_.OBJECT_NUMBER='150800080197' order by woreportde0_.BILL_CODE, woreportde0_.OBJECT_NUMBER, woreportde0_.ORDER_NUMBER, woreportde0_.EFFI_NAME, woreportde0_.COLOR, woreportde0_.PS_SUBCODE
+System.Data.SqlClient.SqlException (0x80131904): 列名 'MATERIAL_NAME' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 223
+ClientConnectionId:5974b14b-aa38-459e-b161-bb6989fc9350
+Error Number:207,State:1,Class:16
+2016-12-01 16:29:52,881 - ERROR - 列名 'MATERIAL_NAME' 无效。
+2016-12-01 16:29:52,918 - ERROR - 列名 'MATERIAL_NAME' 无效。
+2016-12-01 16:29:52,918 - ERROR - 列名 'MATERIAL_NAME' 无效。
+2016-12-01 16:29:56,504 - ERROR - 列名 'MATERIAL_NAME' 无效。
+列名 'MATERIAL_NAME' 无效。
+2016-12-01 16:29:56,538 - ERROR - Could not synchronize database state with session
+NHibernate.Exceptions.GenericADOException: could not execute batch command.[SQL: SQL not available] ---> System.Data.SqlClient.SqlException: 列名 'MATERIAL_NAME' 无效。
+列名 'MATERIAL_NAME' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 System.Data.SqlClient.SqlCommand.ExecuteBatchRPCCommand()
+   在 System.Data.SqlClient.SqlCommandSet.ExecuteNonQuery()
+   在 NHibernate.AdoNet.SqlClientSqlCommandSet.ExecuteNonQuery() 位置 p:\nhibernate-core\src\NHibernate\AdoNet\SqlClientSqlCommandSet.cs:行号 117
+   在 NHibernate.AdoNet.SqlClientBatchingBatcher.DoExecuteBatch(IDbCommand ps) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\SqlClientBatchingBatcher.cs:行号 87
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 NHibernate.AdoNet.SqlClientBatchingBatcher.DoExecuteBatch(IDbCommand ps) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\SqlClientBatchingBatcher.cs:行号 91
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteBatchWithTiming(IDbCommand ps) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 412
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteBatch() 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 397
+   在 NHibernate.Engine.ActionQueue.ExecuteActions(IList list) 位置 p:\nhibernate-core\src\NHibernate\Engine\ActionQueue.cs:行号 129
+   在 NHibernate.Engine.ActionQueue.ExecuteActions() 位置 p:\nhibernate-core\src\NHibernate\Engine\ActionQueue.cs:行号 169
+   在 NHibernate.Event.Default.AbstractFlushingEventListener.PerformExecutions(IEventSource session) 位置 p:\nhibernate-core\src\NHibernate\Event\Default\AbstractFlushingEventListener.cs:行号 241
+2016-12-01 16:29:59,304 - ERROR - Could not execute query: select woreportde0_.BILL_CODE as BILL1_141_, woreportde0_.OBJECT_NUMBER as OBJECT2_141_, woreportde0_.ORDER_NUMBER as ORDER3_141_, woreportde0_.EFFI_NAME as EFFI4_141_, woreportde0_.COLOR as COLOR141_, woreportde0_.PS_SUBCODE as PS6_141_, woreportde0_.MATERIAL_CODE as MATERIAL7_141_, woreportde0_.MATERIAL_NAME as MATERIAL8_141_, woreportde0_.GRADE as GRADE141_, woreportde0_.EFFI_CODE as EFFI10_141_, woreportde0_.QUANTITY as QUANTITY141_, woreportde0_.SumCOEF_PMAX as SumCOEF12_141_, woreportde0_.CREATOR as CREATOR141_, woreportde0_.CREATE_TIME as CREATE14_141_, woreportde0_.EDITOR as EDITOR141_, woreportde0_.EDIT_TIME as EDIT16_141_ from ERP_WO_REPORT_DETAIL woreportde0_ where woreportde0_.BILL_CODE='INC161130001' order by ItemNo
+System.Data.SqlClient.SqlException (0x80131904): 列名 'MATERIAL_NAME' 无效。
+列名 'ItemNo' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 223
+ClientConnectionId:3d9c7bc9-69bf-4df1-8e9a-bda922060f4e
+Error Number:207,State:1,Class:16
+2016-12-01 16:29:59,342 - ERROR - 列名 'MATERIAL_NAME' 无效。
+列名 'ItemNo' 无效。
+2016-12-01 16:29:59,385 - ERROR - 列名 'MATERIAL_NAME' 无效。
+列名 'ItemNo' 无效。
+2016-12-01 16:29:59,385 - ERROR - 列名 'MATERIAL_NAME' 无效。
+列名 'ItemNo' 无效。
+2016-12-01 16:30:27,254 - ERROR - Could not execute query: select TOP (@p0)  woreportde0_.BILL_CODE as BILL1_141_, woreportde0_.OBJECT_NUMBER as OBJECT2_141_, woreportde0_.ORDER_NUMBER as ORDER3_141_, woreportde0_.EFFI_NAME as EFFI4_141_, woreportde0_.COLOR as COLOR141_, woreportde0_.PS_SUBCODE as PS6_141_, woreportde0_.MATERIAL_CODE as MATERIAL7_141_, woreportde0_.MATERIAL_NAME as MATERIAL8_141_, woreportde0_.GRADE as GRADE141_, woreportde0_.EFFI_CODE as EFFI10_141_, woreportde0_.QUANTITY as QUANTITY141_, woreportde0_.SumCOEF_PMAX as SumCOEF12_141_, woreportde0_.CREATOR as CREATOR141_, woreportde0_.CREATE_TIME as CREATE14_141_, woreportde0_.EDITOR as EDITOR141_, woreportde0_.EDIT_TIME as EDIT16_141_ from ERP_WO_REPORT_DETAIL woreportde0_ where woreportde0_.OBJECT_NUMBER='150800080197' order by woreportde0_.BILL_CODE, woreportde0_.OBJECT_NUMBER, woreportde0_.ORDER_NUMBER, woreportde0_.EFFI_NAME, woreportde0_.COLOR, woreportde0_.PS_SUBCODE
+System.Data.SqlClient.SqlException (0x80131904): 列名 'MATERIAL_NAME' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 223
+ClientConnectionId:3d9c7bc9-69bf-4df1-8e9a-bda922060f4e
+Error Number:207,State:1,Class:16
+2016-12-01 16:30:27,291 - ERROR - 列名 'MATERIAL_NAME' 无效。
+2016-12-01 16:30:27,329 - ERROR - 列名 'MATERIAL_NAME' 无效。
+2016-12-01 16:30:27,329 - ERROR - 列名 'MATERIAL_NAME' 无效。
+2016-12-01 16:31:05,456 - ERROR - 列名 'MATERIAL_NAME' 无效。
+列名 'MATERIAL_NAME' 无效。
+2016-12-01 16:31:05,488 - ERROR - Could not synchronize database state with session
+NHibernate.Exceptions.GenericADOException: could not execute batch command.[SQL: SQL not available] ---> System.Data.SqlClient.SqlException: 列名 'MATERIAL_NAME' 无效。
+列名 'MATERIAL_NAME' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 System.Data.SqlClient.SqlCommand.ExecuteBatchRPCCommand()
+   在 System.Data.SqlClient.SqlCommandSet.ExecuteNonQuery()
+   在 NHibernate.AdoNet.SqlClientSqlCommandSet.ExecuteNonQuery() 位置 p:\nhibernate-core\src\NHibernate\AdoNet\SqlClientSqlCommandSet.cs:行号 117
+   在 NHibernate.AdoNet.SqlClientBatchingBatcher.DoExecuteBatch(IDbCommand ps) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\SqlClientBatchingBatcher.cs:行号 87
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 NHibernate.AdoNet.SqlClientBatchingBatcher.DoExecuteBatch(IDbCommand ps) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\SqlClientBatchingBatcher.cs:行号 91
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteBatchWithTiming(IDbCommand ps) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 412
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteBatch() 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 397
+   在 NHibernate.Engine.ActionQueue.ExecuteActions(IList list) 位置 p:\nhibernate-core\src\NHibernate\Engine\ActionQueue.cs:行号 129
+   在 NHibernate.Engine.ActionQueue.ExecuteActions() 位置 p:\nhibernate-core\src\NHibernate\Engine\ActionQueue.cs:行号 169
+   在 NHibernate.Event.Default.AbstractFlushingEventListener.PerformExecutions(IEventSource session) 位置 p:\nhibernate-core\src\NHibernate\Event\Default\AbstractFlushingEventListener.cs:行号 241
+2016-12-01 16:34:29,706 - ERROR - START>Application
+2016-12-01 16:37:24,062 - ERROR - Could not execute query: select woreportde0_.BILL_CODE as BILL1_141_, woreportde0_.OBJECT_NUMBER as OBJECT2_141_, woreportde0_.ORDER_NUMBER as ORDER3_141_, woreportde0_.EFFI_NAME as EFFI4_141_, woreportde0_.COLOR as COLOR141_, woreportde0_.PS_SUBCODE as PS6_141_, woreportde0_.MATERIAL_CODE as MATERIAL7_141_, woreportde0_.GRADE as GRADE141_, woreportde0_.EFFI_CODE as EFFI9_141_, woreportde0_.QUANTITY as QUANTITY141_, woreportde0_.SumCOEF_PMAX as SumCOEF11_141_, woreportde0_.CREATOR as CREATOR141_, woreportde0_.CREATE_TIME as CREATE13_141_, woreportde0_.EDITOR as EDITOR141_, woreportde0_.EDIT_TIME as EDIT15_141_ from ERP_WO_REPORT_DETAIL woreportde0_ where woreportde0_.BILL_CODE='INC161130001' order by ItemNo
+System.Data.SqlClient.SqlException (0x80131904): 列名 'ItemNo' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 223
+ClientConnectionId:8c0674b5-2b78-44ec-a5c2-fcf4a77ebc47
+Error Number:207,State:1,Class:16
+2016-12-01 16:37:24,135 - ERROR - 列名 'ItemNo' 无效。
+2016-12-01 16:37:24,175 - ERROR - 列名 'ItemNo' 无效。
+2016-12-01 16:37:24,176 - ERROR - 列名 'ItemNo' 无效。
+2016-12-01 16:38:01,776 - ERROR - Could not execute query: select woreportde0_.BILL_CODE as BILL1_141_, woreportde0_.OBJECT_NUMBER as OBJECT2_141_, woreportde0_.ORDER_NUMBER as ORDER3_141_, woreportde0_.EFFI_NAME as EFFI4_141_, woreportde0_.COLOR as COLOR141_, woreportde0_.PS_SUBCODE as PS6_141_, woreportde0_.MATERIAL_CODE as MATERIAL7_141_, woreportde0_.GRADE as GRADE141_, woreportde0_.EFFI_CODE as EFFI9_141_, woreportde0_.QUANTITY as QUANTITY141_, woreportde0_.SumCOEF_PMAX as SumCOEF11_141_, woreportde0_.CREATOR as CREATOR141_, woreportde0_.CREATE_TIME as CREATE13_141_, woreportde0_.EDITOR as EDITOR141_, woreportde0_.EDIT_TIME as EDIT15_141_ from ERP_WO_REPORT_DETAIL woreportde0_ where woreportde0_.BILL_CODE='INC161130001' order by ItemNo
+System.Data.SqlClient.SqlException (0x80131904): 列名 'ItemNo' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 223
+ClientConnectionId:8c0674b5-2b78-44ec-a5c2-fcf4a77ebc47
+Error Number:207,State:1,Class:16
+2016-12-01 16:38:01,817 - ERROR - 列名 'ItemNo' 无效。
+2016-12-01 16:38:01,859 - ERROR - 列名 'ItemNo' 无效。
+2016-12-01 16:38:01,859 - ERROR - 列名 'ItemNo' 无效。
+2016-12-01 16:38:39,325 - ERROR - Could not execute query: select woreportde0_.BILL_CODE as BILL1_141_, woreportde0_.OBJECT_NUMBER as OBJECT2_141_, woreportde0_.ORDER_NUMBER as ORDER3_141_, woreportde0_.EFFI_NAME as EFFI4_141_, woreportde0_.COLOR as COLOR141_, woreportde0_.PS_SUBCODE as PS6_141_, woreportde0_.MATERIAL_CODE as MATERIAL7_141_, woreportde0_.GRADE as GRADE141_, woreportde0_.EFFI_CODE as EFFI9_141_, woreportde0_.QUANTITY as QUANTITY141_, woreportde0_.SumCOEF_PMAX as SumCOEF11_141_, woreportde0_.CREATOR as CREATOR141_, woreportde0_.CREATE_TIME as CREATE13_141_, woreportde0_.EDITOR as EDITOR141_, woreportde0_.EDIT_TIME as EDIT15_141_ from ERP_WO_REPORT_DETAIL woreportde0_ where woreportde0_.BILL_CODE='INC161130001' order by ItemNo
+System.Data.SqlClient.SqlException (0x80131904): 列名 'ItemNo' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 223
+ClientConnectionId:8c0674b5-2b78-44ec-a5c2-fcf4a77ebc47
+Error Number:207,State:1,Class:16
+2016-12-01 16:38:39,368 - ERROR - 列名 'ItemNo' 无效。
+2016-12-01 16:38:39,409 - ERROR - 列名 'ItemNo' 无效。
+2016-12-01 16:38:39,409 - ERROR - 列名 'ItemNo' 无效。
+2016-12-01 16:38:51,227 - ERROR - Could not execute query: select woreportde0_.BILL_CODE as BILL1_141_, woreportde0_.OBJECT_NUMBER as OBJECT2_141_, woreportde0_.ORDER_NUMBER as ORDER3_141_, woreportde0_.EFFI_NAME as EFFI4_141_, woreportde0_.COLOR as COLOR141_, woreportde0_.PS_SUBCODE as PS6_141_, woreportde0_.MATERIAL_CODE as MATERIAL7_141_, woreportde0_.GRADE as GRADE141_, woreportde0_.EFFI_CODE as EFFI9_141_, woreportde0_.QUANTITY as QUANTITY141_, woreportde0_.SumCOEF_PMAX as SumCOEF11_141_, woreportde0_.CREATOR as CREATOR141_, woreportde0_.CREATE_TIME as CREATE13_141_, woreportde0_.EDITOR as EDITOR141_, woreportde0_.EDIT_TIME as EDIT15_141_ from ERP_WO_REPORT_DETAIL woreportde0_ where woreportde0_.BILL_CODE='INC161130001' order by ItemNo
+System.Data.SqlClient.SqlException (0x80131904): 列名 'ItemNo' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 223
+ClientConnectionId:8c0674b5-2b78-44ec-a5c2-fcf4a77ebc47
+Error Number:207,State:1,Class:16
+2016-12-01 16:38:51,264 - ERROR - 列名 'ItemNo' 无效。
+2016-12-01 16:38:51,304 - ERROR - 列名 'ItemNo' 无效。
+2016-12-01 16:38:51,304 - ERROR - 列名 'ItemNo' 无效。
+2016-12-01 16:39:11,767 - ERROR - Could not execute query: select woreportde0_.BILL_CODE as BILL1_141_, woreportde0_.OBJECT_NUMBER as OBJECT2_141_, woreportde0_.ORDER_NUMBER as ORDER3_141_, woreportde0_.EFFI_NAME as EFFI4_141_, woreportde0_.COLOR as COLOR141_, woreportde0_.PS_SUBCODE as PS6_141_, woreportde0_.MATERIAL_CODE as MATERIAL7_141_, woreportde0_.GRADE as GRADE141_, woreportde0_.EFFI_CODE as EFFI9_141_, woreportde0_.QUANTITY as QUANTITY141_, woreportde0_.SumCOEF_PMAX as SumCOEF11_141_, woreportde0_.CREATOR as CREATOR141_, woreportde0_.CREATE_TIME as CREATE13_141_, woreportde0_.EDITOR as EDITOR141_, woreportde0_.EDIT_TIME as EDIT15_141_ from ERP_WO_REPORT_DETAIL woreportde0_ where woreportde0_.BILL_CODE='INC161130001' order by ItemNo
+System.Data.SqlClient.SqlException (0x80131904): 列名 'ItemNo' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 223
+ClientConnectionId:8c0674b5-2b78-44ec-a5c2-fcf4a77ebc47
+Error Number:207,State:1,Class:16
+2016-12-01 16:39:11,807 - ERROR - 列名 'ItemNo' 无效。
+2016-12-01 16:39:11,846 - ERROR - 列名 'ItemNo' 无效。
+2016-12-01 16:39:11,846 - ERROR - 列名 'ItemNo' 无效。
+2016-12-01 16:42:15,450 - ERROR - Could not execute query: select woreportde0_.BILL_CODE as BILL1_141_, woreportde0_.OBJECT_NUMBER as OBJECT2_141_, woreportde0_.ORDER_NUMBER as ORDER3_141_, woreportde0_.EFFI_NAME as EFFI4_141_, woreportde0_.COLOR as COLOR141_, woreportde0_.PS_SUBCODE as PS6_141_, woreportde0_.MATERIAL_CODE as MATERIAL7_141_, woreportde0_.GRADE as GRADE141_, woreportde0_.EFFI_CODE as EFFI9_141_, woreportde0_.QUANTITY as QUANTITY141_, woreportde0_.SumCOEF_PMAX as SumCOEF11_141_, woreportde0_.CREATOR as CREATOR141_, woreportde0_.CREATE_TIME as CREATE13_141_, woreportde0_.EDITOR as EDITOR141_, woreportde0_.EDIT_TIME as EDIT15_141_ from ERP_WO_REPORT_DETAIL woreportde0_ where woreportde0_.BILL_CODE='INC161130001' order by ItemNo
+System.Data.SqlClient.SqlException (0x80131904): 列名 'ItemNo' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 223
+ClientConnectionId:8c0674b5-2b78-44ec-a5c2-fcf4a77ebc47
+Error Number:207,State:1,Class:16
+2016-12-01 16:42:15,494 - ERROR - 列名 'ItemNo' 无效。
+2016-12-01 16:42:15,533 - ERROR - 列名 'ItemNo' 无效。
+2016-12-01 16:42:15,533 - ERROR - 列名 'ItemNo' 无效。
+2016-12-01 16:43:13,886 - ERROR - Could not execute query: select woreportde0_.BILL_CODE as BILL1_141_, woreportde0_.OBJECT_NUMBER as OBJECT2_141_, woreportde0_.ORDER_NUMBER as ORDER3_141_, woreportde0_.EFFI_NAME as EFFI4_141_, woreportde0_.COLOR as COLOR141_, woreportde0_.PS_SUBCODE as PS6_141_, woreportde0_.MATERIAL_CODE as MATERIAL7_141_, woreportde0_.GRADE as GRADE141_, woreportde0_.EFFI_CODE as EFFI9_141_, woreportde0_.QUANTITY as QUANTITY141_, woreportde0_.SumCOEF_PMAX as SumCOEF11_141_, woreportde0_.CREATOR as CREATOR141_, woreportde0_.CREATE_TIME as CREATE13_141_, woreportde0_.EDITOR as EDITOR141_, woreportde0_.EDIT_TIME as EDIT15_141_ from ERP_WO_REPORT_DETAIL woreportde0_ where woreportde0_.BILL_CODE='INC161130001' order by ItemNo
+System.Data.SqlClient.SqlException (0x80131904): 列名 'ItemNo' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 223
+ClientConnectionId:8c0674b5-2b78-44ec-a5c2-fcf4a77ebc47
+Error Number:207,State:1,Class:16
+2016-12-01 16:43:13,928 - ERROR - 列名 'ItemNo' 无效。
+2016-12-01 16:43:13,971 - ERROR - 列名 'ItemNo' 无效。
+2016-12-01 16:43:13,972 - ERROR - 列名 'ItemNo' 无效。
+2016-12-01 17:34:36,403 - ERROR - START>Application

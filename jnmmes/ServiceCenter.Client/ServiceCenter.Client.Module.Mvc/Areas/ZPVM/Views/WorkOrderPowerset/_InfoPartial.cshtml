@@ -1,0 +1,151 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.ZPVM.Models.WorkOrderPowersetViewModel
+@using ServiceCenter.Common;
+@using ServiceCenter.Client.Mvc.Resources;
+
+@Html.ValidationSummary(true)
+<div class="form-group">
+    @Html.LabelFor(m => m.OrderNumber, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.OrderNumber</p>
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.MaterialCode, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.MaterialCode</p>
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.Code, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.Code</p>
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.ItemNo, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.ItemNo</p>
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.Name, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.Name</p>
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.PowerName, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.PowerName</p>
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.MinValue, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.MinValue</p>
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.MaxValue, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.MaxValue</p>
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.PowerDifference, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.PowerDifference</p>
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.StandardPower, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.StandardPower</p>
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.StandardIPM, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.StandardIPM</p>
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.StandardIsc, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.StandardIsc</p>
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.StandardVPM, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.StandardVPM</p>
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.StandardVoc, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.StandardVoc</p>
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.StandardFuse, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.StandardFuse</p>
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.SubWay, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.SubWay.GetDisplayName()</p>
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.ArticleNo, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.ArticleNo</p>
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.Description, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.Description</p>
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(m => m.MixColor, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@(Model.MixColor ? StringResource.Yes : StringResource.No)</p>
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(m => m.IsUsed, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@(Model.IsUsed ? StringResource.Yes : StringResource.No)</p>
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.Editor, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.Editor</p>
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.EditTime, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.EditTime</p>
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.Creator, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.Creator</p>
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.CreateTime, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.CreateTime</p>
+    </div>
+</div>

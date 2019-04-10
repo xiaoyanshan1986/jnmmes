@@ -1,0 +1,93 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.FMM.Models.PrintTestViewModel
+@using ServiceCenter.MES.Model.FMM;
+@using ServiceCenter.Model;
+@using ServiceCenter.Common;
+@using ServiceCenter.Client.Mvc.Areas.FMM.Models;
+@using ServiceCenter.Client.Mvc.Resources;
+@using FMM = ServiceCenter.Client.Mvc.Resources.FMM;
+@{
+    ViewBag.Title = "打印测试";
+}
+<h2>@ViewBag.Title</h2>
+@using (Ajax.BeginForm("Print", "PrintLabel", null
+            , new AjaxOptions()
+            {
+                HttpMethod = "Post",
+                OnBegin = "beginPrint",
+                OnSuccess = "completePrint"
+            }
+            , new { @class = "form-horizontal", resource = "form" }))
+{
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <input type="submit" value="@StringResource.Print" class="btn btn-primary" id="btnPrint"/>
+    </div>
+    <div class="alert fade in hide" resource="alert" id="statusMessage" style="margin:0px">
+        <button type="button" class="close" onclick="hideStatusMessage()">
+            <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+        </button>
+        <p></p>
+    </div>
+    <div class="panel-body">
+        <div class="form-group">
+            @Html.LabelFor(m => m.PrinterType, new { @class = "col-md-1 control-label" })
+            <div class="col-md-2">
+                @Html.DropDownListFor(m => m.PrinterType,@Model.GetPrinterTypeList(), new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.PrinterType)
+            </div>
+            @Html.LabelFor(m => m.PrinterName, new { @class = "col-md-1 control-label" })
+            <div class="col-md-6">
+                @Html.DropDownListFor(m => m.PrinterName,@Model.GetPrinterList(), new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.PrinterName)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.PrintContent, new { @class = "col-md-1 control-label" })
+            <div class="col-md-9">
+                @Html.TextAreaFor(m => m.PrintContent,20,50, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.PrintContent)
+            </div>
+        </div>
+    </div>
+</div>
+}
+
+@section Scripts {
+
+
+    <script type="text/javascript" language="javascript">
+        $(function () {
+            $(":text:visible:enabled:first").focus().select();
+            $(":text:visible:enabled:first").focus(function () {
+                $(this).select();
+            });
+        });
+
+        //隐藏状态消息
+        function hideStatusMessage() {
+            $("#statusMessage").addClass("hide");
+        }
+
+        //打印标签
+        function beginPrint() {
+            $("#btnPrint").attr("disabled", "disabled");
+        }
+
+        function completePrint(result) {
+            $("#btnPrint").removeAttr("disabled");
+            $("#statusMessage").find("p").html(result.Message);
+            $("#statusMessage").removeClass("hide");
+            if (result.Code > 0) {
+                $("#statusMessage").removeClass("alert-success");
+                $("#statusMessage").addClass("alert-danger");
+            }
+            else {
+                $("#statusMessage").removeClass("alert-danger");
+                $("#statusMessage").addClass("alert-success");
+            }
+            $(":text:visible:enabled:first").focus().select();
+        }
+    </script>
+
+
+}

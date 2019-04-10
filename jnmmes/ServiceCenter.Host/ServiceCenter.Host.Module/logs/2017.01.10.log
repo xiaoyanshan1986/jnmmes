@@ -1,0 +1,78 @@
+2017-01-10 08:25:22,639 - ERROR - START>Application
+2017-01-10 14:25:03,993 - ERROR - START>Application
+2017-01-10 17:34:23,925 - ERROR - START>Application
+2017-01-10 17:50:00,035 - ERROR - START>Application
+2017-01-10 21:48:03,930 - ERROR - START>Application
+2017-01-10 21:54:03,413 - ERROR - Could not execute query: select count(*) as col_0_0_ from ERP_WO_REPORT woreport0_ where woreport0_.BillType<>1 and OrderState='Create'
+System.Data.SqlClient.SqlException (0x80131904): 列名 'OrderState' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 223
+ClientConnectionId:30858976-375f-42d4-92aa-bc781abb04a6
+Error Number:207,State:1,Class:16
+2017-01-10 21:54:03,581 - ERROR - 列名 'OrderState' 无效。
+2017-01-10 21:54:03,637 - ERROR - 列名 'OrderState' 无效。
+2017-01-10 21:54:03,637 - ERROR - 列名 'OrderState' 无效。
+2017-01-10 21:54:12,236 - ERROR - Could not execute query: select count(*) as col_0_0_ from ERP_WO_REPORT woreport0_ where woreport0_.BillType<>1 and OrderState='Apply'
+System.Data.SqlClient.SqlException (0x80131904): 列名 'OrderState' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 223
+ClientConnectionId:30858976-375f-42d4-92aa-bc781abb04a6
+Error Number:207,State:1,Class:16
+2017-01-10 21:54:12,312 - ERROR - 列名 'OrderState' 无效。
+2017-01-10 21:54:12,385 - ERROR - 列名 'OrderState' 无效。
+2017-01-10 21:54:12,385 - ERROR - 列名 'OrderState' 无效。
+2017-01-10 22:22:20,978 - ERROR - Could not execute query: select count(*) as col_0_0_ from ERP_WO_REPORT woreport0_ where woreport0_.BillType<>1 and woreport0_.BillType=Finish and woreport0_.BILL_STATE=0
+System.Data.SqlClient.SqlException (0x80131904): 列名 'Finish' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 223
+ClientConnectionId:5c99fd2c-6027-4964-9705-095c63885bb5
+Error Number:207,State:1,Class:16
+2017-01-10 22:22:21,054 - ERROR - 列名 'Finish' 无效。
+2017-01-10 22:22:21,130 - ERROR - 列名 'Finish' 无效。
+2017-01-10 22:22:21,130 - ERROR - 列名 'Finish' 无效。
+2017-01-10 22:22:25,981 - ERROR - Could not execute query: select count(*) as col_0_0_ from ERP_WO_REPORT woreport0_ where woreport0_.BillType<>1 and woreport0_.BillType=Wip and woreport0_.BILL_STATE=0
+System.Data.SqlClient.SqlException (0x80131904): 列名 'Wip' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 223
+ClientConnectionId:5c99fd2c-6027-4964-9705-095c63885bb5
+Error Number:207,State:1,Class:16
+2017-01-10 22:22:26,062 - ERROR - 列名 'Wip' 无效。
+2017-01-10 22:22:26,146 - ERROR - 列名 'Wip' 无效。
+2017-01-10 22:22:26,146 - ERROR - 列名 'Wip' 无效。
+2017-01-10 22:45:14,767 - ERROR - START>Application

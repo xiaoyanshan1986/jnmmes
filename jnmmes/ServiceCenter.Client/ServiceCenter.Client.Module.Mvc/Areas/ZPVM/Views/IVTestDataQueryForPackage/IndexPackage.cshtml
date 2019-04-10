@@ -1,0 +1,77 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.ZPVM.Models.IVTestDataForPackageQueryViewModel
+@using ServiceCenter.MES.Model.ZPVM;
+@using ServiceCenter.Model;
+@using ServiceCenter.Common;
+@using ServiceCenter.Client.Mvc.Areas.ZPVM.Models;
+@using ZPVMRsources = ServiceCenter.Client.Mvc.Resources.ZPVM;
+@using ServiceCenter.Client.Mvc.Resources;
+
+@{
+    ViewBag.Title = ZPVMRsources.StringResource.IVTestDataQueryForPackage_ManagePageTitle;
+}
+<h2>@ViewBag.Title</h2>
+@using (Html.BeginForm("ExportToExcelPackage", "IVTestDataQueryForPackage", FormMethod.Post
+            , new { @class = "form-horizontal", resource = "form", id = "frmQuery" }))
+{
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            @Ajax.ActionLink(StringResource.Query
+                         , "QueryPackage"
+                         , null
+                         , new AjaxOptions()
+                         {
+                             HttpMethod = "Post",
+                             OnBegin = "beginQuery",
+                             UpdateTargetId = "list",
+                             OnComplete = "completeQuery"
+                         }
+                         , new { @class = "btn btn-primary", @id = "btnQuery" })
+            <input type="button"
+                   value="@StringResource.ExportToExcel"
+                   onclick="ExportToExcel()"
+                   class="btn btn-default"
+                   id="btnExportToExcel" />
+        </div>
+        <div class="panel-body">
+            @Html.AntiForgeryToken()
+            <div class="form-group">
+                <div class="col-md-1">
+                    @Html.LabelFor(m => m.PackageNo, new { @class = "control-label" })
+                </div>
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.PackageNo, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m=>m.PackageNo)
+                </div>
+            </div>
+        </div>
+    </div>
+}
+<div id="list" style="overflow:auto">
+    @Html.Partial("_ListPartialPackage", new IVTestDataForPackageViewModel())
+</div>
+
+@section Scripts {
+    @*查询*@
+    <script type="text/javascript" language="javascript">
+        //刷新列表
+        function beginQuery(obj, req) {
+            var data = $("#frmQuery").serialize();
+            req.data += "&" + data;
+            $("#btnQuery").attr("disabled", "disabled");
+            $("#btnExportToExcel").attr("disabled", "disabled");
+        }
+
+        function completeQuery() {
+            $("#btnQuery").removeAttr("disabled");
+            $("#btnExportToExcel").removeAttr("disabled");
+        }
+
+        function success(result) {
+            alert(result.Msg);
+        }
+        function ExportToExcel() {
+            $("#frmQuery").submit();
+        }
+
+    </script>
+}

@@ -1,0 +1,148 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.WIP.Models.LotBinQueryViewModel
+
+@using ServiceCenter.MES.Model.WIP;
+@using ServiceCenter.Model;
+@using ServiceCenter.Common;
+@using ServiceCenter.Client.Mvc.Areas.WIP.Models;
+@using WIPRsources = ServiceCenter.Client.Mvc.Resources.WIP;
+@using ServiceCenter.Client.Mvc.Resources;
+
+@{
+    ViewBag.Title = WIPRsources.StringResource.LotBinQuery_ManagePageTitle;
+}
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm("ExportToExcel", "LotBin", FormMethod.Post
+            , new { @class = "form-horizontal", resource = "form", id = "frmQuery" }))
+{
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            @Ajax.ActionLink(StringResource.Query
+                         , "Query"
+                         , null
+                         , new AjaxOptions()
+                         {
+                             HttpMethod = "Post",
+                             OnBegin = "beginQuery",
+                             UpdateTargetId = "list",
+                             OnComplete = "completeQuery"
+                         }
+                         , new { @class = "btn btn-primary", @id = "btnQuery" })
+
+            <input type="button"
+                   value="@StringResource.ExportToExcel"
+                   onclick="ExportToExcel()"
+                   class="btn btn-default"
+                   id="btnExportToExcel" />
+        </div>
+        <div class="panel-body">
+            @Html.AntiForgeryToken()
+            <div class="form-group has-success">
+                <div class="col-md-12">
+                    @Html.CheckBoxFor(m => m.IsAutoRefresh)
+                    @Html.LabelFor(m => m.IsAutoRefresh, new { @class = "control-label" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-1">
+                    @Html.LabelFor(m => m.PackageLine, new { @class = "control-label" })
+                </div>
+                <div class="col-md-2">
+                    @Html.DropDownListFor(m => m.PackageLine, @Model.GetLineCodeList(), string.Empty, new { @class = "form-control", @id = "LineList" })
+                    @Html.ValidationMessageFor(m => m.PackageLine)
+                </div>
+            </div>
+        </div>
+    </div>
+}
+<div id="list" style="overflow:auto">
+    @Html.Partial("_ListPartial", new LotBinQueryViewModel())
+</div>
+<div id="listPack" style="overflow:auto">
+
+</div>
+
+@section Scripts {
+    @*查询*@
+    <script type="text/javascript" language="javascript">
+        //刷新列表
+        function beginQuery(obj, req) {
+            var data = $("#frmQuery").serialize();
+            req.data += "&" + data;
+            $("#btnQuery").attr("disabled", "disabled");
+            $("#btnExportToExcel").attr("disabled", "disabled");
+        }
+
+        function completeQuery() {
+            $("#btnQuery").removeAttr("disabled");
+            $("#btnExportToExcel").removeAttr("disabled");
+            $("#listPack").html("");
+        }
+
+
+        function ExportToExcel() {
+            $("#frmQuery").submit();
+        }
+
+        $(function () {
+            $("#StartTime,#EndTime").datetimepicker({
+                changeMonth: true,
+                changeYear: true,
+                dateFormat: "yy/mm/dd",
+                timeFormat: 'HH:mm:ss'
+            });
+            
+        });
+        $(function(){
+            $("#LineList").change(function(){
+                //$("#listPack").html("");
+            })  
+        })
+
+
+        function beginRefresh(req) {
+            //alert('1');
+            var data = $("#frmQuery").serialize();
+            req.data += "&" + data;
+            $("#btnQuery").attr("disabled", "disabled");
+        }
+        
+        function completeRefresh() {
+            $("#btnQuery").removeAttr("disabled");
+        }
+  
+
+    </script>
+
+
+    <script type="text/javascript">
+        var refresh = function () {
+            
+            if (!$("#IsAutoRefresh").prop("checked"))
+            {
+                return;
+            }
+            //alert("123456");
+            var packageLine = $("#LineList").val();
+            //alert(packageLine);
+            var binNo = $("#BinNo").val();
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Content("~/Wip/LotBin/RefreshBinList")',
+                data: { packageLine: packageLine, binNo: binNo },
+                success: function (data) {
+                    $("#list").html(data);
+                    $("#listPack").html("");
+                },
+                error: function () {
+                    //alert("属性值删除失败!");
+                }
+        });
+
+    }
+
+    setInterval(refresh, 8000);
+</script>
+
+}

@@ -1,0 +1,35 @@
+2017-06-23 09:16:50,563 - ERROR - START>Application
+2017-06-23 09:32:28,081 - ERROR - START>Application
+2017-06-23 16:27:20,260 - ERROR - Could not execute query: select count(*) as col_0_0_ from RBAC_RESOURCE resource0_ where resource0_.RESOURCE_TYPE>='10' and resource0_.RESOURCE_TYPE<'20' and resource0_.RESOURCE_DATA='/EDC/DataAcquisitionData/Query'
+System.Data.SqlClient.SqlException (0x80131904): 在从服务器接收结果时发生传输级错误。 (provider: TCP Provider, error: 0 - 信号灯超时时间已到) ---> System.ComponentModel.Win32Exception (0x80004005): 信号灯超时时间已到
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParserStateObject.ReadSniError(TdsParserStateObject stateObj, UInt32 error)
+   在 System.Data.SqlClient.TdsParserStateObject.ReadSniSyncOverAsync()
+   在 System.Data.SqlClient.TdsParserStateObject.TryReadNetworkPacket()
+   在 System.Data.SqlClient.TdsParserStateObject.TryPrepareBuffer()
+   在 System.Data.SqlClient.TdsParserStateObject.TryReadByte(Byte& value)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 223
+ClientConnectionId:c873a1be-fc42-4c1d-a83a-8139c7822c89
+Error Number:121,State:0,Class:20
+2017-06-23 16:27:20,326 - ERROR - 在从服务器接收结果时发生传输级错误。 (provider: TCP Provider, error: 0 - 信号灯超时时间已到)
+2017-06-23 16:27:20,326 - ERROR - 信号灯超时时间已到
+2017-06-23 16:27:20,370 - ERROR - 在从服务器接收结果时发生传输级错误。 (provider: TCP Provider, error: 0 - 信号灯超时时间已到)
+2017-06-23 16:27:20,370 - ERROR - 信号灯超时时间已到
+2017-06-23 16:27:20,372 - ERROR - 在从服务器接收结果时发生传输级错误。 (provider: TCP Provider, error: 0 - 信号灯超时时间已到)
+2017-06-23 16:27:20,372 - ERROR - 信号灯超时时间已到
+2017-06-23 16:27:23,321 - ERROR - While preparing select count(*) as col_0_0_ from RBAC_RESOURCE resource0_ where resource0_.RESOURCE_TYPE>='10' and resource0_.RESOURCE_TYPE<'20' and resource0_.RESOURCE_DATA='/EDC/DataAcquisitionData/Index' an error occurred
+2017-06-23 16:27:23,321 - ERROR - 超时时间已到。超时时间已到，但是尚未从池中获取连接。出现这种情况可能是因为所有池连接均在使用，并且达到了最大池大小。
+2017-06-23 16:47:54,021 - ERROR - START>Application
+2017-06-23 21:14:50,350 - ERROR - START>Application

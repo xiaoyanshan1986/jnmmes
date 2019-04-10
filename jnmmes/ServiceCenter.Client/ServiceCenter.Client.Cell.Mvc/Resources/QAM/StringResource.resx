@@ -1,0 +1,411 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="CheckCategoryDetailQueryViewModel_CategoryName" xml:space="preserve">
+    <value>参数组</value>
+  </data>
+  <data name="CheckCategoryDetailQueryViewModel_ParameterName" xml:space="preserve">
+    <value>参数</value>
+  </data>
+  <data name="CheckCategoryDetailViewModel_CategoryName" xml:space="preserve">
+    <value>参数组</value>
+  </data>
+  <data name="CheckCategoryDetailViewModel_ItemNo" xml:space="preserve">
+    <value>项目号</value>
+  </data>
+  <data name="CheckCategoryDetailViewModel_ParameterName" xml:space="preserve">
+    <value>参数</value>
+  </data>
+  <data name="CheckCategoryDetail_AddTitle" xml:space="preserve">
+    <value>新增检验参数组</value>
+  </data>
+  <data name="CheckCategoryDetail_ConfirmDelete" xml:space="preserve">
+    <value>确定删除检验参数 ( {0}） ？</value>
+  </data>
+  <data name="CheckCategoryDetail_Delete_Success" xml:space="preserve">
+    <value>删除检验参数  {0}  成功。</value>
+  </data>
+  <data name="CheckCategoryDetail_DetailTitle" xml:space="preserve">
+    <value>检验参数信息</value>
+  </data>
+  <data name="CheckCategoryDetail_ManagePageTitle" xml:space="preserve">
+    <value>检验参数组（{0}）管理</value>
+  </data>
+  <data name="CheckCategoryDetail_ModifyTitle" xml:space="preserve">
+    <value>修改检验参数</value>
+  </data>
+  <data name="CheckCategoryDetail_SaveModify_Success" xml:space="preserve">
+    <value>修改检验参数 {0} 成功。</value>
+  </data>
+  <data name="CheckCategoryDetail_Save_Success" xml:space="preserve">
+    <value>保存检验参数 {0} 成功。</value>
+  </data>
+  <data name="CheckCategoryQueryViewModel_Name" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="CheckCategoryViewModel_Name" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="CheckCategory_AddTitle" xml:space="preserve">
+    <value>新增检验参数组</value>
+  </data>
+  <data name="CheckCategory_ConfirmDelete" xml:space="preserve">
+    <value>确定删除检验参数组 ( {0}） ？</value>
+  </data>
+  <data name="CheckCategory_Delete_Success" xml:space="preserve">
+    <value>删除检验参数组  {0}  成功。</value>
+  </data>
+  <data name="CheckCategory_DetailTitle" xml:space="preserve">
+    <value>检验参数组信息</value>
+  </data>
+  <data name="CheckCategory_ManagePageTitle" xml:space="preserve">
+    <value>检验参数组管理</value>
+  </data>
+  <data name="CheckCategory_ModifyTitle" xml:space="preserve">
+    <value>修改检验参数组</value>
+  </data>
+  <data name="CheckCategory_SaveModify_Success" xml:space="preserve">
+    <value>修改检验参数组 {0} 成功。</value>
+  </data>
+  <data name="CheckCategory_Save_Success" xml:space="preserve">
+    <value>保存检验参数组 {0} 成功。</value>
+  </data>
+  <data name="CheckPlanQueryViewModel_Name" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="CheckPlanViewModel_Mode" xml:space="preserve">
+    <value>策略</value>
+  </data>
+  <data name="CheckPlanViewModel_Name" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="CheckPlanViewModel_Size" xml:space="preserve">
+    <value>大小</value>
+  </data>
+  <data name="CheckPlanViewModel_Type" xml:space="preserve">
+    <value>类型</value>
+  </data>
+  <data name="CheckPlan_AddTitle" xml:space="preserve">
+    <value>新增检验计划</value>
+  </data>
+  <data name="CheckPlan_ConfirmDelete" xml:space="preserve">
+    <value>确定删除检验计划 ( {0}） ？</value>
+  </data>
+  <data name="CheckPlan_Delete_Success" xml:space="preserve">
+    <value>删除检验计划  {0}  成功。</value>
+  </data>
+  <data name="CheckPlan_DetailTitle" xml:space="preserve">
+    <value>检验计划信息</value>
+  </data>
+  <data name="CheckPlan_ManagePageTitle" xml:space="preserve">
+    <value>检验计划管理</value>
+  </data>
+  <data name="CheckPlan_ModifyTitle" xml:space="preserve">
+    <value>修改检验计划</value>
+  </data>
+  <data name="CheckPlan_SaveModify_Success" xml:space="preserve">
+    <value>修改检验计划 {0} 成功。</value>
+  </data>
+  <data name="CheckPlan_Save_Success" xml:space="preserve">
+    <value>保存检验计划 {0} 成功。</value>
+  </data>
+  <data name="CheckSettingPointDetailQueryViewModel_CheckSettingKey" xml:space="preserve">
+    <value>检验设置主键</value>
+  </data>
+  <data name="CheckSettingPointDetailQueryViewModel_GroupName" xml:space="preserve">
+    <value>组名</value>
+  </data>
+  <data name="CheckSettingPointDetailQueryViewModel_ItemNo" xml:space="preserve">
+    <value>项目号</value>
+  </data>
+  <data name="CheckSettingPointDetailQueryViewModel_ParameterName" xml:space="preserve">
+    <value>参数</value>
+  </data>
+  <data name="CheckSettingPointDetailViewModel_DataType" xml:space="preserve">
+    <value>数据类型</value>
+  </data>
+  <data name="CheckSettingPointDetailViewModel_DerivedFormula" xml:space="preserve">
+    <value>计算公式</value>
+  </data>
+  <data name="CheckSettingPointDetailViewModel_DeviceType" xml:space="preserve">
+    <value>设备类型</value>
+  </data>
+  <data name="CheckSettingPointDetailViewModel_IsDerived" xml:space="preserve">
+    <value>计算？</value>
+  </data>
+  <data name="CheckSettingPointDetailViewModel_Mandatory" xml:space="preserve">
+    <value>必填？</value>
+  </data>
+  <data name="CheckSettingPointDetailViewModel_ParameterCount" xml:space="preserve">
+    <value>数量</value>
+  </data>
+  <data name="CheckSettingPointDetailViewModel_ParameterItemNo" xml:space="preserve">
+    <value>参数索引</value>
+  </data>
+  <data name="CheckSettingPointDetailViewModel_ParameterName" xml:space="preserve">
+    <value>参数</value>
+  </data>
+  <data name="CheckSettingPointDetailViewModel_ParameterType" xml:space="preserve">
+    <value>类型</value>
+  </data>
+  <data name="CheckSettingPointDetail_DetailTitle" xml:space="preserve">
+    <value>参数信息</value>
+  </data>
+  <data name="CheckSettingPointDetail_ManagePageTitle" xml:space="preserve">
+    <value>检验设置组（{0}）参数管理</value>
+  </data>
+  <data name="CheckSettingPointDetail_ModifyTitle" xml:space="preserve">
+    <value>修改参数</value>
+  </data>
+  <data name="CheckSettingPointDetail_SaveModify_Success" xml:space="preserve">
+    <value>修改参数 {0} 成功。</value>
+  </data>
+  <data name="CheckSettingPointQueryViewModel_CategoryName" xml:space="preserve">
+    <value>参数组</value>
+  </data>
+  <data name="CheckSettingPointQueryViewModel_CheckPlanName" xml:space="preserve">
+    <value>检验计划</value>
+  </data>
+  <data name="CheckSettingPointQueryViewModel_CheckSettingKey" xml:space="preserve">
+    <value>检验设置主键</value>
+  </data>
+  <data name="CheckSettingPointQueryViewModel_GroupName" xml:space="preserve">
+    <value>组名</value>
+  </data>
+  <data name="CheckSettingPointViewModel_CategoryName" xml:space="preserve">
+    <value>参数组</value>
+  </data>
+  <data name="CheckSettingPointViewModel_CheckPlanName" xml:space="preserve">
+    <value>检验计划</value>
+  </data>
+  <data name="CheckSettingPointViewModel_CheckSettingKey" xml:space="preserve">
+    <value>检验设置主键</value>
+  </data>
+  <data name="CheckSettingPointViewModel_ItemNo" xml:space="preserve">
+    <value>项目号</value>
+  </data>
+  <data name="CheckSettingPoint_AddTitle" xml:space="preserve">
+    <value>新增检验设置点</value>
+  </data>
+  <data name="CheckSettingPoint_ConfirmDelete" xml:space="preserve">
+    <value>确定删除检验设置点 ( {0}） ？</value>
+  </data>
+  <data name="CheckSettingPoint_Delete_Success" xml:space="preserve">
+    <value>删除检验设置点  {0}  成功。</value>
+  </data>
+  <data name="CheckSettingPoint_DetailTitle" xml:space="preserve">
+    <value>检验设置点信息</value>
+  </data>
+  <data name="CheckSettingPoint_ManagePageTitle" xml:space="preserve">
+    <value>检验设置组（{0}）管理</value>
+  </data>
+  <data name="CheckSettingPoint_ModifyTitle" xml:space="preserve">
+    <value>修改检验设置点</value>
+  </data>
+  <data name="CheckSettingPoint_SaveModify_Success" xml:space="preserve">
+    <value>修改检验设置点 {0} 成功。</value>
+  </data>
+  <data name="CheckSettingPoint_Save_Success" xml:space="preserve">
+    <value>保存检验设置点 {0} 成功。</value>
+  </data>
+  <data name="CheckSettingQueryViewModel_ActionName" xml:space="preserve">
+    <value>动作</value>
+  </data>
+  <data name="CheckSettingQueryViewModel_EquipmentCode" xml:space="preserve">
+    <value>设备代码</value>
+  </data>
+  <data name="CheckSettingQueryViewModel_GroupName" xml:space="preserve">
+    <value>组名</value>
+  </data>
+  <data name="CheckSettingQueryViewModel_MaterialCode" xml:space="preserve">
+    <value>物料编码</value>
+  </data>
+  <data name="CheckSettingQueryViewModel_MaterialType" xml:space="preserve">
+    <value>物料类型</value>
+  </data>
+  <data name="CheckSettingQueryViewModel_ProductionLineCode" xml:space="preserve">
+    <value>生产线</value>
+  </data>
+  <data name="CheckSettingQueryViewModel_RouteEnterpriseName" xml:space="preserve">
+    <value>工艺流程组</value>
+  </data>
+  <data name="CheckSettingQueryViewModel_RouteName" xml:space="preserve">
+    <value>工艺流程</value>
+  </data>
+  <data name="CheckSettingQueryViewModel_RouteOperationName" xml:space="preserve">
+    <value>工序</value>
+  </data>
+  <data name="CheckSettingQueryViewModel_RouteStepName" xml:space="preserve">
+    <value>工步</value>
+  </data>
+  <data name="CheckSettingViewModel_ActionName" xml:space="preserve">
+    <value>动作</value>
+  </data>
+  <data name="CheckSettingViewModel_EquipmentCode" xml:space="preserve">
+    <value>设备代码</value>
+  </data>
+  <data name="CheckSettingViewModel_GroupName" xml:space="preserve">
+    <value>组名</value>
+  </data>
+  <data name="CheckSettingViewModel_MaterialCode" xml:space="preserve">
+    <value>物料编码</value>
+  </data>
+  <data name="CheckSettingViewModel_MaterialType" xml:space="preserve">
+    <value>物料类型</value>
+  </data>
+  <data name="CheckSettingViewModel_ProductionLineCode" xml:space="preserve">
+    <value>生产线</value>
+  </data>
+  <data name="CheckSettingViewModel_RouteEnterpriseName" xml:space="preserve">
+    <value>工艺流程组</value>
+  </data>
+  <data name="CheckSettingViewModel_RouteName" xml:space="preserve">
+    <value>工艺流程</value>
+  </data>
+  <data name="CheckSettingViewModel_RouteOperationName" xml:space="preserve">
+    <value>工序</value>
+  </data>
+  <data name="CheckSettingViewModel_RouteStepName" xml:space="preserve">
+    <value>工步</value>
+  </data>
+  <data name="CheckSetting_AddTitle" xml:space="preserve">
+    <value>新增检验设置</value>
+  </data>
+  <data name="CheckSetting_ConfirmDelete" xml:space="preserve">
+    <value>确定删除检验设置 ( {0}） ？</value>
+  </data>
+  <data name="CheckSetting_Delete_Success" xml:space="preserve">
+    <value>删除检验设置 {0}  成功。</value>
+  </data>
+  <data name="CheckSetting_DetailTitle" xml:space="preserve">
+    <value>检验设置信息</value>
+  </data>
+  <data name="CheckSetting_ManagePageTitle" xml:space="preserve">
+    <value>检验设置管理</value>
+  </data>
+  <data name="CheckSetting_ModifyTitle" xml:space="preserve">
+    <value>修改检验设置</value>
+  </data>
+  <data name="CheckSetting_SaveModify_Success" xml:space="preserve">
+    <value>修改检验设置 {0} 成功。</value>
+  </data>
+  <data name="CheckSetting_Save_Success" xml:space="preserve">
+    <value>保存检验设置 {0} 成功。</value>
+  </data>
+</root>

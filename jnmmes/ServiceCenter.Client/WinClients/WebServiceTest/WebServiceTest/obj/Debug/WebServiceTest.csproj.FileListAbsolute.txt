@@ -1,0 +1,1 @@
+E:\Workspace\Jinergy\JNMMES\trunk\src\ServiceCenter.Client\WinClients\WebServiceTest\WebServiceTest\bin\Debug\WebServiceTest.exe.config

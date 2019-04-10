@@ -1,0 +1,26 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.FMM.Models.MaterialPrintSetViewModel
+@using ServiceCenter.Common;
+
+@Html.ValidationSummary(true)
+
+<div class="form-group">
+    @Html.LabelFor(m => m.MaterialCode, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        <p class="form-control-static">@Model.MaterialCode</p>
+        @Html.HiddenFor(m => m.MaterialCode)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.LabelCode, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        <p class="form-control-static">@Model.LabelCode</p>
+        @Html.HiddenFor(m => m.LabelCode)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.Qty, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.Qty, new { @class = "form-control", @id = "txtAddDecayCode" })
+        @Html.ValidationMessageFor(m => m.Qty)
+    </div>
+</div>

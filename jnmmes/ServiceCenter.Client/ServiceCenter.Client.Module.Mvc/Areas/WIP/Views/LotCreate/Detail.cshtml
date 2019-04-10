@@ -1,0 +1,298 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.WIP.Models.LotCreateMainViewModel
+@using ServiceCenter.MES.Model.WIP;
+@using ServiceCenter.Model;
+@using ServiceCenter.Common;
+@using ServiceCenter.Client.Mvc.Areas.WIP.Models;
+@using WIPRsources = ServiceCenter.Client.Mvc.Resources.WIP;
+@using ServiceCenter.Client.Mvc.Resources;
+@using ServiceCenter.MES.Model.BaseData;
+
+@{
+    ViewBag.Title = WIPRsources.StringResource.LotCreate_ManagePageTitle;
+}
+<h2>@ViewBag.Title</h2>
+@using (Ajax.BeginForm("Save", "LotCreate", null
+                    , new AjaxOptions()
+                    {
+                        HttpMethod = "Post",
+                        OnSuccess = "completeSave",
+                        OnBegin = "beginSave"
+                    }
+                    , new { @class = "form-horizontal", resource = "form", id = "frmCreate" }))
+{
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <input type="button" value="@StringResource.Save" class="btn btn-primary" id="btnSave" />
+            @*@Ajax.ActionLink(StringResource.Print
+                          , "Print"
+                         , null
+                         , new AjaxOptions()
+                         {
+                             HttpMethod = "Post",
+                             OnBegin = "beginPrint",
+                             OnSuccess = "completePrint"
+                         }
+                          , new { @class = "btn btn-default", @id = "btnPrint" })*@
+            @Html.ActionLink(StringResource.Return, "Index", "LotCreate", null, new { @class = "btn btn-default", id = "btnReturn" })
+        </div>
+        <div class="panel-body">
+            @Html.AntiForgeryToken()
+            <div class="alert fade in hide" resource="alert" id="statusMessage" style="margin:0px">
+                <button type="button" class="close" onclick="hideStatusMessage()">
+                    <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+                </button>
+                <p></p>
+            </div>
+            <div id="divMain" style="margin-top:2px">
+                <!--基本信息-->
+                <div class="form-group">
+                    <div class="col-md-2">
+                        @Html.LabelFor(m => m.OrderNumber, new { @class = "control-label" })
+                    </div>
+                    <div class="col-md-2">
+                        @Html.TextBoxFor(m => m.OrderNumber, new { @class = "form-control", @readonly = "readonly" })
+                    </div>
+
+                    @* 车间代码 *@
+                    <div class="col-md-2">
+                        @Html.LabelFor(m => m.LocationName, new { @class = "control-label" })
+                    </div>
+                    <div class="col-md-2">
+                        @Html.TextBoxFor(m => m.LocationName, new { @class = "form-control", @readonly = "readonly" })
+                    </div>
+
+                    @* 线别 *@
+                    <div class="col-md-2">
+                        @Html.LabelFor(m => m.LineCode, new { @class = "control-label" })
+                    </div>
+                    <div class="col-md-2">
+                        @Html.TextBoxFor(m => m.LineCode, new { @class = "form-control", @readonly = "readonly" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @* 打印机 *@
+                    @*<div class="col-md-2">
+                        @Html.LabelFor(m => m.PrinterName, new { @class = "control-label" })
+                    </div>
+                    <div class="col-md-2">
+                        @Html.DropDownListFor(m => m.PrinterName, @Model.GetPrinterNameList(), new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.PrinterName)
+                    </div>*@
+
+                    @* 标签类型 *@
+                    @*<div class="col-md-2">
+                        @Html.LabelFor(m => m.PrintLabelCode, new { @class = "control-label" })
+                    </div>
+                    <div class="col-md-2">
+                        @Html.DropDownListFor(m => m.PrintLabelCode, @Model.GetLabelCodeList(@Model.MaterialCode), new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.PrintLabelCode)
+                    </div>*@
+
+                    @* 打印数量 *@
+                    @*<div class="col-md-2">
+                        @Html.LabelFor(m => m.PrintQty, new { @class = "control-label" })
+                    </div>
+                    <div class="col-md-2">
+                        @Html.TextBoxFor(m => m.PrintQty, new { @class = "form-control", @readonly = "readonly" })                        
+                        @Html.ValidationMessageFor(m => m.PrintQty)
+                    </div>*@
+                </div>
+                <div class="form-group">
+                    @* 备注 *@
+                    <div class="col-md-2">
+                        @Html.LabelFor(m => m.Description, new { @class = "control-label" })
+                    </div>
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.Description, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Description)
+                    </div>
+
+                    @* 产品物料代码 *@
+                    @Html.HiddenFor(m => m.MaterialCode)
+
+                    @*单批次产品数量*@
+                    @Html.HiddenFor(m => m.LotQuantity)
+
+                    @*批次创建数量*@
+                    @Html.HiddenFor(m => m.Count)
+                </div>
+                <div class="form-group">
+                    @*错误信息显示*@
+                    <div class="alert fade in hide" resource="alert" id="statusMessage" style="margin:0px">
+                        <button type="button" class="close" onclick="hideStatusMessage()">
+                            <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+                        </button>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            @Html.Partial("_ListPartial", new LotCreateDetailViewModel())
+        </div>
+    </div>
+}
+
+@using (Html.BeginForm("Detail", "LotCreate", FormMethod.Post
+                        , new { @class = "form-horizontal", resource = "form", id = "frmRefresh" }))
+{
+    @Html.AntiForgeryToken()
+}
+
+@section Scripts {
+    <script type="text/javascript" language="javascript">
+        //隐藏状态消息
+        function hideStatusMessage() {
+            $("#statusMessage").addClass("hide");
+        }
+
+        function beginSave() {
+            $("#btnSave").attr("disabled", "disabled");
+        }
+
+        function completeSave(result) {
+            $("#btnSave").removeAttr("disabled");
+            $("#statusMessage").find("p").html(result.Message);
+            $("#statusMessage").removeClass("hide");
+            if (result.Code > 0) {
+                $("#statusMessage").removeClass("alert-success");
+                $("#statusMessage").addClass("alert-danger");
+            }
+            else {
+                $("#statusMessage").removeClass("alert-danger");
+                $("#statusMessage").addClass("alert-success");
+                //setTimeout(function () { $("#frmRefresh").submit(); }, 500);
+            }
+        }
+
+        $(function () {
+            var texts = $("#frmCreate").find(":text:visible:enabled,:checkbox:visible:enabled,textarea:visible:enabled,select:visible:enabled");
+
+            texts = texts.not("[readonly]");
+
+            texts.focus(function () {
+                $(this).select();
+            })
+            .keypress(function (args) {
+                if (args.ctrlKey == false && args.keyCode == 13) {
+                    var index = texts.index(this) + 1;
+                    if (index < texts.length) {
+                        texts.eq(index).focus().select();
+                    }
+                    else {
+                        texts.eq(0).focus().select();
+                        $("#btnSave").click();
+                    }
+                }
+            });
+
+            texts.eq(0).focus().select();
+
+            $(".datetimepicker").datetimepicker({
+                changeMonth: true,
+                changeYear: true,
+                dateFormat: "yy/mm/dd",
+                timeFormat: 'HH:mm:ss'
+            });
+
+            $(".datepicker").datepicker({
+                changeMonth: true,
+                changeYear: true,
+                dateFormat: "yy/mm/dd"
+            });
+
+            $("body").keypress(function (args) {
+                if (args.ctrlKey == true && args.keyCode == 13) {
+                    $("#btnSave").click();
+                }
+            });
+
+
+            $("#btnSave").click(function () {
+                hideStatusMessage();
+                var valid = true;
+                var tbl = $("#tblDetail");
+                var tbody = tbl.find("tbody");
+                var master = $("#divMain");
+
+                master.find("input,select").each(function () {
+                    valid = valid && $(this).valid();
+                    if (valid == false) {
+                        $(this).focus();
+                        $(this).select();
+                        return false;
+                    }
+                })
+                if (valid == false) {
+                    return valid;
+                }
+
+                tbody.find("tr").each(function (index) {
+                    $(this).find("input,select").each(function () {
+                        valid = valid && $(this).valid();
+                        var span=$(this).parent().find("span");
+                        if (valid == false) {
+                            $(this).focus();
+                            $(this).select();
+                            var message = $(this.form).validate().errorList[0].message;
+                            span.html(message);
+                            span.attr("style", "diplay:block");
+                            return false;
+                        }
+                        else {
+                            span.attr("style", "diplay:none");
+                            span.html("");
+                        }
+                    })
+                    if (valid == false) {
+                        return false;
+                    }
+                });
+
+                if (valid) {
+                    $("#frmCreate").submit();
+                }
+            });
+
+            //打印标签变更事件
+            $("#PrintLabelCode").change(function () {
+                //改变标签打印数量
+                changePrintQty($("#MaterialCode").val(), $(this).val());
+            });
+
+            //初始化标签打印数量
+            changePrintQty($("#MaterialCode").val(), $("#PrintLabelCode").val());
+        });
+
+        function changePrintQty( materialCode, labelCode ) {
+            if (materialCode == null || materialCode == "") {
+                return;
+            }
+
+            if (labelCode == null || labelCode == "") {
+                return;
+            }
+
+            var url = "@Url.Action("GetPrintLabelQty", "MaterialPrintSet", new { area = "FMM" })";
+            var reqdata = { MaterialCode: materialCode, LabelCode: labelCode };
+
+            $.getJSON(url, reqdata, function (data) {
+                $("#PrintQty").val(data);
+            });
+        }
+    </script>
+
+    <script type="text/javascript" language="javascript">
+        //刷新列表
+        function beginPrint(obj, req) {
+            var data = $("#frmCreate").serialize();
+            req.data += "&" + data;
+            $("#btnPrint").attr("disabled", "disabled");
+            $("#btnSave").attr("disabled", "disabled");
+        }
+
+        function completePrint(result) {
+            $("#btnPrint").removeAttr("disabled");
+            $("#btnSave").removeAttr("disabled");
+            completeSave(result);
+        }
+    </script>
+}

@@ -1,0 +1,143 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.PPM.Models.TargetParameterViewModel
+@using ServiceCenter.Client.Mvc.Areas.PPM.Models;
+@using ServiceCenter.Client.Mvc.Resources;
+@using PPM = ServiceCenter.Client.Mvc.Resources.PPM;
+@using ServiceCenter.MES.Model.PPM;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@{
+    PagingConfig cfg = ViewBag.PagingConfig;
+}
+<div id="_list">
+    <table class="table table-hover table-bordered table-condensed">
+        <thead>
+            <tr class="active">
+                <td nowrap align="center">@StringResource.ItemNo</td>
+                <td nowrap align="center">@Html.DisplayNameFor(m => m.Year)</td>
+                <td nowrap align="center">@Html.DisplayNameFor(m => m.Month)</td>
+                <td nowrap align="center">@Html.DisplayNameFor(m => m.Day)</td>
+                <td nowrap align="center">@Html.DisplayNameFor(m => m.LocationName)</td>
+                <td nowrap align="center">@Html.DisplayNameFor(m => m.ItemCode)</td>
+                <td nowrap align="center">@Html.DisplayNameFor(m => m.ValueData)</td>                
+                <td nowrap align="center">@StringResource.Detail</td>
+                <td nowrap align="center">@StringResource.Modify</td>
+                <td nowrap align="center">@StringResource.Delete</td>
+            </tr>
+        </thead>
+        @if (ViewBag.List != null)
+        {
+            <tbody>
+                @for (int i = 0; i < ViewBag.List.Length; i++)
+                {
+                    TargetParameter obj = ViewBag.List[i];
+                    
+                    <tr>
+                        <td>@(cfg.PageSize * cfg.PageNo + i + 1)</td>
+                        <td>
+                            @obj.Key.Year
+                        </td>
+                        <td>
+                            @obj.Key.Month
+                        </td>
+                        <td>
+                            @obj.Key.Day
+                        </td>
+                        <td>
+                            @obj.Key.LocationName
+                        </td>
+                        <td>
+                            @obj.Key.ItemCode                            
+                        </td>
+                        <td>
+                            @obj.ValueData
+                        </td>
+                        
+                        <td>
+                            @Ajax.ActionLink(StringResource.Detail
+                                            , actionName: null
+                                            , routeValues: null
+                                            , ajaxOptions: new AjaxOptions()
+                                            {
+                                                HttpMethod = "Post",
+                                                UpdateTargetId = "detailInfo",
+                                                OnSuccess = "showInfoModal",
+                                                Url = Url.Action("Detail", new 
+                                                {
+                                                    @Year = obj.Key.Year,
+                                                    @Month = obj.Key.Month,
+                                                    @Day = obj.Key.Day,
+                                                    @LocationName = obj.Key.LocationName,
+                                                    @ItemType = obj.Key.ItemType,
+                                                    @ItemCode = obj.Key.ItemCode
+                                                })
+                                            })
+                        </td>
+                        <td>
+
+                            @Ajax.ActionLink(StringResource.Modify
+                                            , actionName: null
+                                            , routeValues: null
+                                            , ajaxOptions: new AjaxOptions()
+                                            {
+                                                HttpMethod = "Post",
+                                                UpdateTargetId = "modifyFormContent",
+                                                OnSuccess = "showModifyModal",
+                                                Url = Url.Action("Modify", new 
+                                                {
+                                                    @Year = obj.Key.Year,
+                                                    @Month = obj.Key.Month,
+                                                    @Day = obj.Key.Day,
+                                                    @LocationName = obj.Key.LocationName,
+                                                    @ItemType = obj.Key.ItemType,
+                                                    @ItemCode = obj.Key.ItemCode
+                                                })
+                                            })
+                        </td>
+                        <td>
+                            @Ajax.ActionLink(StringResource.Delete, actionName: null
+                                            , routeValues: null
+                                            , ajaxOptions: new AjaxOptions()
+                                            {
+                                                HttpMethod = "Post",
+                                                Confirm = string.Format(PPM.StringResource.TargetParameter_ConfirmDelete, obj.Key),
+                                                Url = Url.Action("Delete", new
+                                                {
+                                                    @Year = obj.Key.Year,
+                                                    @Month = obj.Key.Month,
+                                                    @Day = obj.Key.Day,                                               
+                                                    @LocationName = obj.Key.LocationName,
+                                                    @ItemType = obj.Key.ItemType,
+                                                    @ItemCode = obj.Key.ItemCode
+                                                }),
+                                                OnSuccess = "completeDelete"
+                                            })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        }
+    </table>
+    <div style="margin-top:-18px">
+        @if (cfg != null)
+        {
+            using (Ajax.BeginForm("PagingQuery", "TargetParameter"
+                            , new
+                            {
+                                @Where = cfg.Where,
+                                @OrderBy = cfg.OrderBy,
+                                @CurrentPageNo = cfg.PageNo,
+                                @CurrentPageSize = cfg.PageSize
+                            }
+                            , new AjaxOptions()
+                            {
+                                HttpMethod = "Post",
+                                UpdateTargetId = "_list"
+                            }
+                            , new { @class = "form-horizontal", resource = "form", id = "frmPagingQuery" }))
+            {
+                @Html.AntiForgeryToken()
+                <div>@Html.Partial("_PaginationPartial")</div>
+            }
+        }
+    </div>
+</div>

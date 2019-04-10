@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   namespace="ServiceCenter.MES.Model.RBAC" 
+                   assembly="ServiceCenter.MES.Model.RBAC">
+  <class name="UserInRole" table="RBAC_USER_IN_ROLE">
+    <composite-id  name="Key" class="UserInRoleKey">
+      <key-property name="LoginName" column="LOGIN_NAME"/>
+      <key-property name="RoleName" column="ROLE_NAME"/>
+    </composite-id >
+    <property name="Editor" column="EDITOR"/>
+    <property name="EditTime" column="EDIT_TIME"/>
+  </class>
+</hibernate-mapping>

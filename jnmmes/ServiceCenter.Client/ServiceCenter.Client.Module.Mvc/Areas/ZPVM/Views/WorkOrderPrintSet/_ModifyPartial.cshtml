@@ -1,0 +1,46 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.ZPVM.Models.WorkOrderPrintSetViewModel
+@using ServiceCenter.Common;
+
+@Html.ValidationSummary(true)
+<div class="form-group">
+    @Html.LabelFor(m => m.OrderNumber, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        <p class="form-control-static">@Model.OrderNumber</p>
+        @Html.HiddenFor(m => m.OrderNumber)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.MaterialCode, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        <p class="form-control-static">@Model.MaterialCode</p>
+        @Html.HiddenFor(m => m.MaterialCode)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.LabelCode, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        <p class="form-control-static">@Model.LabelCode</p>
+        @Html.HiddenFor(m => m.LabelCode)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.ItemNo, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.ItemNo, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.ItemNo)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.Qty, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.Qty, new { @class = "form-control", @id = "txtAddDecayCode" })
+        @Html.ValidationMessageFor(m => m.Qty)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.IsUsed, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.CheckBoxFor(m => m.IsUsed, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.IsUsed)
+    </div>
+</div>

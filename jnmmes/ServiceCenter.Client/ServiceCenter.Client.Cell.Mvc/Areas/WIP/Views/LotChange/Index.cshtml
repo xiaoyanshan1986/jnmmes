@@ -1,0 +1,248 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.WIP.Models.LotChangeViewModel
+@using ServiceCenter.MES.Model.WIP;
+@using ServiceCenter.Model;
+@using ServiceCenter.Common;
+@using ServiceCenter.Client.Mvc.Areas.WIP.Models;
+@using WIPRsources = ServiceCenter.Client.Mvc.Resources.WIP;
+@using ServiceCenter.Client.Mvc.Resources;
+
+@{
+    ViewBag.Title = WIPRsources.StringResource.LotChange_ManagePageTitle;
+}
+<h2>@ViewBag.Title</h2>
+@using (Ajax.BeginForm("Save", "LotChange", null
+                    , new AjaxOptions()
+                    {
+                        HttpMethod = "Post",
+                        OnSuccess = "completeSave",
+                        OnBegin = "beginSave"
+                    }
+                    , new { @class = "form-horizontal", resource = "form", id = "frmChange", autocomplete = "off" }))
+{
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <input type="button" value="@StringResource.Save" class="btn btn-primary" id="btnSave" />
+    </div>
+    <div class="panel-body">
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        <div class="form-group">
+            <div class="col-md-1">
+                @Html.LabelFor(m => m.NewOrderNumber, new { @class = "control-label" })
+            </div>
+            <div class="col-md-3">
+                @Html.TextBoxFor(m => m.NewOrderNumber, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.NewOrderNumber)
+            </div>
+            <div class="col-md-1">
+                @Html.LabelFor(m => m.NewMaterialCode, new { @class = "control-label" })
+            </div>
+            <div class="col-md-3">
+                @Html.DropDownListFor(m => m.NewMaterialCode, new List<SelectListItem>(), new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.NewMaterialCode)
+            </div>
+            <div class="col-md-1">
+                @Html.LabelFor(m => m.RouteEnterpriseName, new { @class = "control-label" })
+            </div>
+            <div class="col-md-3">
+                @Html.DropDownListFor(m => m.RouteEnterpriseName, new List<SelectListItem>(), new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.RouteEnterpriseName)
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-1">
+                @Html.LabelFor(m => m.RouteName, new { @class = "control-label" })
+            </div>
+            <div class="col-md-3">
+                @Html.DropDownListFor(m => m.RouteName, new List<SelectListItem>(), new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.RouteName)
+            </div>
+            <div class="col-md-1">
+                @Html.LabelFor(m => m.RouteStepName, new { @class = "control-label" })
+            </div>
+            <div class="col-md-3">
+                @Html.DropDownListFor(m => m.RouteStepName, new List<SelectListItem>(), new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.RouteStepName)
+            </div>
+            <div class="col-md-1">
+                @Html.LabelFor(m => m.Description, new { @class = "control-label" })
+            </div>
+            <div class="col-md-3">
+                @Html.TextBoxFor(m => m.Description, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Description)
+            </div>
+        </div>
+        <div class="alert fade in hide" resource="alert" id="statusMessage" style="margin:0px">
+            <button type="button" class="close" onclick="hideStatusMessage()">
+                <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+            </button>
+            <p></p>
+        </div>
+        <div class="form-group has-success">
+            <div class="col-md-12">
+                @Html.LabelFor(m => m.LotNumber, new { @class = "control-label" })
+                @Html.TextBoxFor(m => m.LotNumber, new { @class = "form-control", @style = "height:50px;font-size:20px;text-transform:uppercase;" })
+                @Html.ValidationMessageFor(m => m.LotNumber)
+            </div>
+        </div>
+    </div>
+</div>
+}
+@section Scripts {
+    <script type="text/javascript" language="javascript">
+        var preOrderNumber = "";
+        $(function () {
+            $("#LotNumber:first").focus();
+            var isChanging = false;
+            $("#NewOrderNumber").keypress(function (args) {
+                if (args.ctrlKey == false && args.keyCode == 13) {
+                    $(this).change();
+                }
+            }).change(function () {
+
+                if (isChanging == true) {
+                    return;
+                }
+                isChanging = true;
+                hideStatusMessage();
+                preOrderNumber = "";
+                $("#NewMaterialCode").get(0).options.length = 0;
+                $("#RouteEnterpriseName").get(0).options.length = 0;
+                $("#RouteName").get(0).options.length = 0; //清空
+                $("#RouteName").get(0).options.length = 0; //清空
+
+                var url = "@Url.Action("GetOrderNumber", "LotChange", new { area = "WIP" })";
+                var val = $(this).val().toUpperCase();
+                var reqdata = { OrderNumber: val };
+                $.getJSON(url, reqdata, function (data) {
+                    $("#NewMaterialCode").get(0).options.length = 0;
+                    $("#RouteEnterpriseName").get(0).options.length = 0;
+                    $("#RouteName").get(0).options.length = 0; //清空
+                    $("#RouteName").get(0).options.length = 0; //清空
+                    $.each(data, function (i, item) {
+                        $("<option></option>").val(item.Value).text(item.Text).appendTo($("#NewMaterialCode"));
+                    });
+                    changeRouteEnterpriseName(val);
+                    isChanging = false;
+                });
+            });
+
+            $("#btnSave").click(function () {
+                hideStatusMessage();
+                if (isChanging) {
+                    return;
+                }
+                $("#frmChange").submit();
+            });
+
+            $("body").keypress(function (args) {
+                if (args.ctrlKey == true && args.keyCode == 13) {
+                    $("#btnSave").click();
+                }
+            });
+
+            var texts = $("#frmChange").find(":text:visible:enabled,:checkbox:visible:enabled,textarea:visible:enabled,select:visible:enabled");
+
+            texts.focus(function () {
+                    $(this).select();
+                })
+                .keypress(function (args) {
+                if (args.ctrlKey == false && args.keyCode == 13) {
+                    var index = texts.index(this)+1;
+                    if (index < texts.length) {
+                        texts.eq(index).focus();
+                    }
+                    else {
+                        $("#btnSave").click();
+                    }
+                }
+            });
+
+            $("#RouteEnterpriseName").change(function () {
+                changeRouteName($(this).val());
+            });
+
+            $("#RouteName").change(function () {
+                changeRouteStepName($(this).val());
+            });
+
+        });
+
+        function changeRouteEnterpriseName(orderNumber) {
+
+            $("#RouteEnterpriseName").get(0).options.length = 0; //清空
+
+            if (orderNumber == null || orderNumber == "") {
+                return;
+            }
+
+            var url = "@Url.Action("GetRouteEnterpriseNames", "LotChange", new { area = "WIP" })";
+            var reqdata = { OrderNumber: orderNumber };
+
+            $.getJSON(url, reqdata, function (data) {
+                $.each(data, function (i, item) {
+                    $("<option></option>").val(item.Value).text(item.Text).appendTo($("#RouteEnterpriseName"));
+                });
+                changeRouteName($("#RouteEnterpriseName").val());
+            });
+        }
+
+        function changeRouteName(routeEnterpriseName) {
+
+            $("#RouteName").get(0).options.length = 0; //清空
+            var url = "@Url.Action("GetRouteNames", "LotChange", new { area = "WIP" })";
+            var reqdata = { RouteEnterpriseName: routeEnterpriseName};
+
+            $.getJSON(url, reqdata, function (data) {
+                $.each(data, function (i, item) {
+                    $("<option></option>").val(item.Value).text(item.Text).appendTo($("#RouteName"));
+                });
+                changeRouteStepName($("#RouteName").val());
+            });
+        }
+
+        function changeRouteStepName(routeName) {
+
+            $("#RouteStepName").get(0).options.length = 0; //清空
+            var url = "@Url.Action("GetRouteStepNames", "LotChange", new { area = "WIP" })";
+            var reqdata = { RouteName: routeName };
+
+            $.getJSON(url, reqdata, function (data) {
+                $.each(data, function (i, item) {
+                    $("<option></option>").val(item.Value).text(item.Text).appendTo($("#RouteStepName"));
+                });
+            });
+        }
+
+        //隐藏状态消息
+        function hideStatusMessage() {
+            $("#statusMessage").addClass("hide");
+        }
+
+        function beginSave() {
+            $("#btnSave").attr("disabled", "disabled");
+            hideStatusMessage();
+        }
+
+        function completeSave(result) {
+            $("#btnSave").removeAttr("disabled");
+            showErrorInfo(result);
+            $("#LotNumber:first").select();
+        }
+
+
+        function showErrorInfo(result) {
+            $("#statusMessage").find("p").html(result.Message);
+            $("#statusMessage").removeClass("hide");
+            if (result.Code > 0) {
+                $("#statusMessage").removeClass("alert-success");
+                $("#statusMessage").addClass("alert-danger");
+            }
+            else {
+                $("#statusMessage").removeClass("alert-danger");
+                $("#statusMessage").addClass("alert-success");
+            }
+        }
+    </script>
+
+}

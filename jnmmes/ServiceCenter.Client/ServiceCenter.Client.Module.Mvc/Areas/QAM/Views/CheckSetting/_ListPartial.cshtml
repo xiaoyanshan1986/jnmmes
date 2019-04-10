@@ -1,0 +1,140 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.QAM.Models.CheckSettingViewModel
+@using ServiceCenter.Client.Mvc.Areas.QAM.Models;
+@using ServiceCenter.Client.Mvc.Resources;
+@using QAMResources = ServiceCenter.Client.Mvc.Resources.QAM;
+@using ServiceCenter.MES.Model.QAM;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@{
+    PagingConfig cfg = ViewBag.PagingConfig;
+}
+<div id="_list">
+    <table class="table table-hover table-bordered table-condensed">
+        <thead>
+            <tr class="active">
+                <td>@StringResource.ItemNo</td>
+                <td>@Html.DisplayNameFor(m => m.GroupName)</td>
+                <td>@Html.DisplayNameFor(m => m.ActionName)</td>
+                <td>@Html.DisplayNameFor(m => m.ProductionLineCode)</td>
+                <td>@Html.DisplayNameFor(m => m.EquipmentCode)</td>
+                <td>@Html.DisplayNameFor(m => m.MaterialType)</td>
+                <td>@Html.DisplayNameFor(m => m.MaterialCode)</td>
+                <td>@Html.DisplayNameFor(m => m.RouteEnterpriseName)</td>
+                <td>@Html.DisplayNameFor(m => m.RouteName)</td>
+                <td>@Html.DisplayNameFor(m => m.RouteStepName)</td>
+                <td>@Html.DisplayNameFor(m => m.RouteOperationName)</td>
+                <td>@Html.DisplayNameFor(m => m.Status)</td>
+                <td>@StringResource.Detail</td>
+                <td>@StringResource.Modify</td>
+                <td>@StringResource.Delete</td>
+            </tr>
+        </thead>
+        @if (ViewBag.List != null)
+        {
+            <tbody>
+                @for (int i = 0; i < ViewBag.List.Length; i++)
+                {
+                    CheckSetting obj = ViewBag.List[i];
+                    <tr>
+                        <td>@(cfg.PageSize * cfg.PageNo+i+1)</td>
+                        <td>
+                            @Html.ActionLink(linkText: obj.GroupName
+                                            , actionName: "Index"
+                                            , controllerName: "CheckSettingPoint"
+                                            , routeValues: new { @GroupName = obj.GroupName, @CheckSettingKey=obj.Key }
+                                            , htmlAttributes: new { @target = "_self" })
+                        </td>
+                        <td>
+                            @obj.ActionName.GetDisplayName()
+                        </td>
+                        <td>
+                            @obj.ProductionLineCode
+                        </td>
+                        <td>
+                            @obj.EquipmentCode
+                        </td>
+                        <td>
+                            @obj.MaterialType
+                        </td>
+                        <td>
+                            @obj.MaterialCode
+                        </td>
+                        <td>
+                            @obj.RouteEnterpriseName
+                        </td>
+                        <td>
+                            @obj.RouteName
+                        </td>
+                        <td>
+                            @obj.RouteStepName
+                        </td>
+                        <td>
+                            @obj.RouteOperationName
+                        </td>
+                        <td>
+                            @obj.Status.GetDisplayName()
+                        </td>
+                        <td>
+                            @Ajax.ActionLink(StringResource.Detail, actionName: null
+                                            , routeValues: null
+                                            , ajaxOptions:new AjaxOptions() 
+                                            { 
+                                                HttpMethod = "Post", 
+                                                UpdateTargetId = "detailInfo",
+                                                OnSuccess = "showInfoModal",
+                                                Url = Url.Action("Detail", new { @Key = obj.Key })
+                                            })
+                        </td>
+                        <td>
+                            @Ajax.ActionLink(StringResource.Modify, actionName: null
+                                            ,routeValues:null
+                                            ,ajaxOptions:new AjaxOptions()
+                                            {
+                                                HttpMethod = "Post",
+                                                UpdateTargetId = "modifyFormContent",
+                                                OnSuccess = "showModifyModal",
+                                                Url = Url.Action("Modify", new { @Key = obj.Key })
+                                            })
+                        </td>
+                        <td>
+                            @Ajax.ActionLink(StringResource.Delete, actionName: null
+                                            , routeValues: null
+                                            , ajaxOptions:new AjaxOptions()
+                                            {
+                                                HttpMethod = "Post",
+                                                Confirm = string.Format(QAMResources.StringResource.CheckSetting_ConfirmDelete, (i+1)),
+                                                Url = Url.Action("Delete", new { @Key = obj.Key }),
+                                                OnSuccess = "completeDelete"
+                                            })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        }
+    </table>
+    <div style="margin-top:-18px">
+        @if (cfg != null)
+        {
+            using (Ajax.BeginForm("PagingQuery", "CheckSetting"
+                            , new
+                            {
+                                @Where = cfg.Where,
+                                @OrderBy = cfg.OrderBy,
+                                @CurrentPageNo = cfg.PageNo,
+                                @CurrentPageSize = cfg.PageSize
+                            }
+                            , new AjaxOptions()
+                            {
+                                HttpMethod = "Post",
+                                UpdateTargetId = "_list"
+                            }
+                            , new { @class = "form-horizontal", resource = "form", id = "frmPagingQuery" }))
+            {
+                @Html.AntiForgeryToken()
+                <div>@Html.Partial("_PaginationPartial")</div>
+            }
+        }
+    </div>
+</div>
+
+

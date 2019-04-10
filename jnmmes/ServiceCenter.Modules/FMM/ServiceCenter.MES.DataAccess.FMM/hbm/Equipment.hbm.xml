@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   namespace="ServiceCenter.MES.Model.FMM" 
+                   assembly="ServiceCenter.MES.Model.FMM">
+  <class name="Equipment" table="FMM_EQUIPMENT">
+    <id name="Key" column="EQUIPMENT_CODE">
+      <generator class="assigned" />
+    </id>
+    <property name="Name" column="EQUIPMENT_NAME"/>
+    <property name="No" column="EQUIPMENT_NO"/>
+    <property name="Type" column="EQUIPMENT_TYPE"/>
+    <property name="WPH" column="EQUIPMENT_WPH"/>
+    <property name="AvTime" column="EQUIPMENT_AV_TIME"/>
+    <property name="TactTime" column="EQUIPMENT_TACT_TIME"/>
+    <property name="AssetsNo" column="EQUIPMENT_ASSETSNO"/>
+    <property name="RealEquipmentCode" column="REAL_EQUIPMENT_CODE"/>
+    <property name="IsMultiChamber" column="ISMULTICHAMBER"/>
+    <property name="IsBatch" column="ISBATCH"/>
+    <property name="IsChamber" column="ISCHAMBER"/>
+    <property name="TotalChamber" column="CHAMBER_TOTAL"/>
+    <property name="ChamberIndex" column="CHAMBER_INDEX"/>
+    <property name="RunRate" column="RUNRATE"/>
+    <property name="Description" column="DESCRIPTION"/>
+    <property name="MinQuantity" column="MINQUANTITY"/>
+    <property name="MaxQuantity" column="MAXQUANTITY"/>
+    <property name="StateName" column="EQUIPMENT_STATE_NAME"/>
+    <property name="ChangeStateName" column="EQUIPMENT_CHANGE_STATE_NAME"/>
+    <property name="GroupName" column="EQUIPMENT_GROUP_NAME"/>
+    <property name="LocationName" column="LOCATION_NAME"/>
+    <property name="LineCode" column="LINE_CODE"/>
+    <property name="ParentEquipmentCode" column="PARENT_EQUIPMENT_CODE"/>
+    <property name="Creator" column="CREATOR"/>
+    <property name="CreateTime" column="CREATE_TIME"/>
+    <property name="Editor" column="EDITOR"/>
+    <property name="EditTime" column="EDIT_TIME"/>
+  </class>
+</hibernate-mapping>

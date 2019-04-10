@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   namespace="ServiceCenter.MES.Model.WIP" 
+                   assembly="ServiceCenter.MES.Model.WIP">
+  <class name="Lot" table="WIP_LOT">
+    <id name="Key" column="LOT_NUMBER">
+      <generator class="assigned" />
+    </id>
+    <property name="ContainerNo" column="CONTAINER_NO"/>
+    <property name="LotType" column="LOT_TYPE"/>
+    <property name="OriginalOrderNumber" column="ORG_ORDER_NUMBER"/>
+    <property name="OrderNumber" column="ORDER_NUMBER"/>
+    <property name="MaterialCode" column="MATERIAL_CODE"/>
+    <property name="Grade" column="GRADE"/>
+    <property name="Color" column="COLOR"/>
+    <property name="Priority" column="PRIORITY"/>
+    <property name="InitialQuantity" column="QUANTITY_INITIAL"/>
+    <property name="Quantity" column="QUANTITY"/>
+    <property name="RouteEnterpriseName" column="ROUTE_ENTERPRISE_NAME"/>
+    <property name="RouteName" column="ROUTE_NAME"/>
+    <property name="RouteStepName" column="ROUTE_STEP_NAME"/>
+    <property name="LineCode" column="LINE_CODE"/>
+    <property name="EquipmentCode" column="EQUIPMENT_CODE"/>
+    <property name="StartWaitTime" column="START_WAIT_TIME"/>
+    <property name="StartProcessTime" column="START_PROCESS_TIME"/>
+    <property name="IsMainLot" column="IS_MAIN_LOT"/>
+    <property name="SplitFlag" column="SPLIT_FLAG"/>
+    <property name="RepairFlag" column="REPAIR_FLAG"/>
+    <property name="ReworkFlag" column="REWORK_FLAG"/>
+    <property name="HoldFlag" column="HOLD_FLAG"/>
+    <property name="ShippedFlag" column="SHIPPED_FLAG"/>
+    <property name="PackageFlag" column="PACKAGE_FLAG"/>
+    <property name="PackageNo" column="PACKAGE_NO"/>
+    <property name="DeletedFlag" column="DELETED_FLAG"/>
+    <property name="StateFlag" column="STATE_FLAG"/>
+    <property name="Status" column="STATUS"/>
+    <property name="OperateComputer" column="OPR_COMPUTER"/>
+    <property name="PreLineCode" column="PRE_LINE_CODE"/>
+    <property name="Reworker" column="REWORKER"/>
+    <property name="ReworkTime" column="REWORK_TIME"/>
+    <property name="Description" column="DESCRIPTION"/>
+    <property name="LocationName" column="LOCATION_NAME"/>
+    <property name="Creator" column="CREATOR"/>
+    <property name="CreateTime" column="CREATE_TIME"/>
+    <property name="Editor" column="EDITOR"/>
+    <property name="EditTime" column="EDIT_TIME"/>
+    <property name="Attr1" column="ATTR_1"/>
+    <property name="Attr2" column="ATTR_2"/>
+    <property name="Attr3" column="ATTR_3"/>
+    <property name="Attr4" column="ATTR_4"/>
+    <property name="Attr5" column="ATTR_5"/>
+    <property name="InOrder" column="IN_ORDER"/>
+    <property name="LotState" column="LOT_STATE"/>
+    <property name="InStg" column="IN_STG"/>
+    <!--<property name="LastTransactionKey" column="LAST_TRANSACTION_KEY"/>-->
+
+  </class>
+</hibernate-mapping>

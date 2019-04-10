@@ -1,0 +1,316 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.WIP.Models.LotPatchViewModel
+@using ServiceCenter.MES.Model.WIP;
+@using ServiceCenter.Model;
+@using ServiceCenter.Common;
+@using ServiceCenter.Client.Mvc.Areas.WIP.Models;
+@using WIPRsources = ServiceCenter.Client.Mvc.Resources.WIP;
+@using ServiceCenter.Client.Mvc.Resources;
+
+@{
+    ViewBag.Title = WIPRsources.StringResource.LotPatch_ManagePageTitle;
+}
+<h2>@ViewBag.Title</h2>
+@using (Ajax.BeginForm("Save", "LotPatch", null
+                    , new AjaxOptions()
+                    {
+                        HttpMethod = "Post",
+                        OnSuccess = "completeSave",
+                        OnBegin = "beginSave"
+                    }
+                    , new { @class = "form-horizontal", resource = "form", id = "frmPatch", autocomplete = "off" }))
+{
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <input type="button" value="@StringResource.Save" class="btn btn-primary" id="btnSave" />
+        @Html.ActionLink(@StringResource.Query, "Query", null, new { @class="btn btn-default"})
+    </div>
+    <div class="panel-body">
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        
+        <div class="form-group">
+            <div class="col-md-2">
+                @Html.LabelFor(m => m.LineStoreName, new { @class = "control-label" })
+            </div>
+            <div class="col-md-4">
+                @Html.DropDownListFor(m => m.LineStoreName, @Model.GetLineStoreNameList(), new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.LineStoreName)
+            </div>
+            <div class="col-md-2">
+                @Html.LabelFor(m => m.LineCode, new { @class = "control-label" })
+            </div>
+            <div class="col-md-4">
+                @Html.DropDownListFor(m => m.LineCode, new List<SelectListItem>(), new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.LineCode)
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-2">
+                @Html.LabelFor(m => m.OrderNumber, new { @class = "control-label" })
+            </div>
+            <div class="col-md-4">
+                @Html.DropDownListFor(m => m.OrderNumber, new List<SelectListItem>(), new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.OrderNumber)
+            </div>
+            <div class="col-md-2">
+                @Html.LabelFor(m => m.MaterialCode, new { @class = "control-label" })
+            </div>
+            <div class="col-md-4">
+                @Html.DropDownListFor(m => m.MaterialCode, new List<SelectListItem>(), new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.MaterialCode)
+            </div>
+        </div>
+        <div class="form-group">
+
+            <div class="col-md-2">
+                @Html.LabelFor(m => m.MaterialLot, new { @class = "control-label" })
+            </div>
+            <div class="col-md-4">
+                @Html.DropDownListFor(m => m.MaterialLot, new List<SelectListItem>(), new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.MaterialLot)
+            </div>
+            <div class="col-md-2">
+                @Html.LabelFor(m => m.ReasonCodeCategoryName, new { @class = "control-label" })
+            </div>
+            <div class="col-md-4">
+                @Html.DropDownListFor(m => m.ReasonCodeCategoryName, @Model.GetReasonCodeCategoryNameList(), new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.ReasonCodeCategoryName)
+            </div>
+        </div>
+        <div class="form-group">
+
+            <div class="col-md-2">
+                @Html.LabelFor(m => m.ReasonCodeName, new { @class = "control-label" })
+            </div>
+            <div class="col-md-4">
+                @Html.DropDownListFor(m => m.ReasonCodeName, new List<SelectListItem>(), new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.ReasonCodeName)
+            </div>
+            <div class="col-md-2">
+                @Html.LabelFor(m => m.ReasonDescription, new { @class = "control-label" })
+            </div>
+            <div class="col-md-4">
+                @Html.TextBoxFor(m => m.ReasonDescription, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.ReasonDescription)
+            </div>
+        </div>
+        <div class="alert fade in hide" resource="alert" id="statusMessage" style="margin:0px">
+            <button type="button" class="close" onclick="hideStatusMessage()">
+                <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+            </button>
+            <p></p>
+        </div>
+        <div class="form-group has-success">
+            <div class="col-md-12">
+                @Html.LabelFor(m => m.LotNumber, new { @class = "control-label" })
+                @Html.TextBoxFor(m => m.LotNumber, new { @class = "form-control", @style = "height:50px;font-size:20px;text-transform:uppercase;" })
+                @Html.ValidationMessageFor(m => m.LotNumber)
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-2">
+                @Html.LabelFor(m => m.RouteOperationName, new { @class = "control-label" })
+            </div>
+            <div class="col-md-2">
+                @Html.DropDownListFor(m => m.RouteOperationName, @Model.GetRouteOperationNameList(), string.Empty, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.RouteOperationName)
+            </div>
+            <div class="col-md-2">
+                @Html.LabelFor(m => m.ResponsiblePerson, new { @class = "control-label" })
+            </div>
+            <div class="col-md-2">
+                @Html.TextBoxFor(m => m.ResponsiblePerson, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.ResponsiblePerson)
+            </div>
+            <div class="col-md-2">
+                @Html.LabelFor(m => m.PatchQuantity, new { @class = "control-label" })
+            </div>
+            <div class="col-md-2">
+                @Html.TextBoxFor(m => m.PatchQuantity, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.PatchQuantity)
+            </div>
+        </div>
+    </div>
+</div>
+}
+@section Scripts {
+    <script type="text/javascript" language="javascript">
+        var preOrderNumber = "";
+        $(function () {
+            $("#LotNumber:first").focus();
+            $("#PatchQuantity,#LotNumber").focus(function () {
+                $(this).select();
+            });
+
+            $("#LotNumber").keypress(function (args) {
+                if (args.ctrlKey == false && args.keyCode == 13) {
+                    $(this).change();
+                }
+            });
+
+            $("#btnSave").click(function () {
+                hideStatusMessage();
+                $("#frmPatch").submit();
+            });
+
+            $("#ReasonCodeName").change(function () {
+                $(this).next("input,select").select();
+            });
+
+            $("body").keypress(function (args) {
+                if (args.ctrlKey == true && args.keyCode == 13) {
+                    $("#btnSave").click();
+                }
+            });
+
+            $("input,textarea,select").keypress(function (args) {
+                if (args.ctrlKey == false && args.keyCode == 13) {
+                    var texts = $("input[type='text'],textarea,select");
+                    var index = texts.index(this)+1;
+                    if (index < texts.length) {
+                        texts.eq(index).focus();
+                    }
+                    else {
+                        $("#btnSave").click();
+                    }
+                }
+            });
+
+            $("#LineStoreName").change(function () {
+                changeLineCode();
+                changeOrderNumber();
+            });
+
+            $("#OrderNumber").change(function () {
+                changeMaterialCode();
+            });
+
+            $("#MaterialCode").change(function () {
+                changeMaterialLot();
+            });
+
+            $("#ReasonCodeCategoryName").change(function () {
+                changeReasonCodeName($(this).val());
+            });
+            changeReasonCodeName($("#ReasonCodeCategoryName").val());
+            changeLineCode();
+            changeOrderNumber();
+        });
+
+        function changeLineCode() {
+
+            $("#LineCode").get(0).options.length = 0; //清空
+            var url = "@Url.Action("GetProductionLines", "LotCreate", new { area = "WIP" })";
+            var lineStoreName = $("#LineStoreName").val();
+            var timestamp = Math.round(new Date().getTime() / 1000);
+            var reqdata = { LineStoreName: lineStoreName, timestamp: timestamp };
+
+            $.getJSON(url, reqdata, function (data) {
+                $.each(data, function (i, item) {
+                    $("<option></option>").val(item.Value).text(item.Text).appendTo($("#LineCode"));
+                });
+            });
+        }
+
+        function changeOrderNumber() {
+
+            $("#OrderNumber").get(0).options.length = 0; //清空
+            var url = "@Url.Action("GetOrderNumbers", "LotPatch", new { area = "WIP" })";
+            var lineStoreName = $("#LineStoreName").val();
+            var timestamp = Math.round(new Date().getTime() / 1000);
+            var reqdata = { LineStoreName: lineStoreName, timestamp: timestamp };
+
+            $.getJSON(url, reqdata, function (data) {
+                $.each(data, function (i, item) {
+                    $("<option></option>").val(item.Value).text(item.Text).appendTo($("#OrderNumber"));
+                });
+                changeMaterialCode();
+            });
+        }
+
+
+        function changeMaterialCode() {
+
+            $("#MaterialCode").get(0).options.length = 0; //清空
+            var url = "@Url.Action("GetMaterialCodes", "LotPatch", new { area = "WIP" })";
+            var orderNumber = $("#OrderNumber").val();
+            var lineStoreName = $("#LineStoreName").val();
+            var timestamp = Math.round(new Date().getTime() / 1000);
+            var reqdata = { OrderNumber: orderNumber, LineStoreName: lineStoreName, timestamp: timestamp };
+
+            $.getJSON(url, reqdata, function (data) {
+                $.each(data, function (i, item) {
+                    $("<option></option>").val(item).text(item).appendTo($("#MaterialCode"));
+                });
+                changeMaterialLot();
+            });
+
+        }
+
+        function changeMaterialLot() {
+
+            $("#MaterialLot").get(0).options.length = 0; //清空
+            var url = "@Url.Action("GetMaterialLots", "LotPatch", new { area = "WIP" })";
+            var orderNumber = $("#OrderNumber").val();
+            var lineStoreName = $("#LineStoreName").val();
+            var materialCode = $("#MaterialCode").val();
+            var timestamp = Math.round(new Date().getTime() / 1000);
+            var reqdata = { OrderNumber: orderNumber, LineStoreName: lineStoreName, MaterialCode: materialCode, timestamp: timestamp };
+
+            $.getJSON(url, reqdata, function (data) {
+                $.each(data, function (i, item) {
+                    $("<option></option>").val(item.Value).text(item.Text).appendTo($("#MaterialLot"));
+                });
+            });
+        }
+
+        function changeReasonCodeName(categoryName) {
+
+            $("#ReasonCodeName").get(0).options.length = 0; //清空
+
+            if (categoryName == null || categoryName == "") {
+                return;
+            }
+            var url = "@Url.Action("GetReasonCode", "LotPatch", new { area = "WIP" })";
+            var timestamp = Math.round(new Date().getTime() / 1000);
+            var reqdata = { CategoryName: categoryName, timestamp: timestamp };
+            $.getJSON(url, reqdata, function (data) {
+                $.each(data, function (i, item) {
+                    $("<option></option>").val(item.Value).text(item.Text).appendTo($("#ReasonCodeName"));
+                });
+            });
+        }
+
+        //隐藏状态消息
+        function hideStatusMessage() {
+            $("#statusMessage").addClass("hide");
+        }
+
+
+        function beginSave() {
+            $("#btnSave").attr("disabled", "disabled");
+            hideStatusMessage();
+        }
+
+        function completeSave(result) {
+            $("#btnSave").removeAttr("disabled");
+            showErrorInfo(result);
+            $("#LotNumber:first").select();
+        }
+
+
+        function showErrorInfo(result) {
+            $("#statusMessage").find("p").html(result.Message);
+            $("#statusMessage").removeClass("hide");
+            if (result.Code > 0) {
+                $("#statusMessage").removeClass("alert-success");
+                $("#statusMessage").addClass("alert-danger");
+            }
+            else {
+                $("#statusMessage").removeClass("alert-danger");
+                $("#statusMessage").addClass("alert-success");
+            }
+        }
+    </script>
+
+}

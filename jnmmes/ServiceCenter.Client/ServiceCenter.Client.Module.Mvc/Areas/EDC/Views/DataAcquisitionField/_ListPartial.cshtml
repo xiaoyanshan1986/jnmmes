@@ -1,0 +1,116 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.EDC.Models.DataAcquisitionFieldViewModel
+@using ServiceCenter.Client.Mvc.Areas.EDC.Models;
+@using ServiceCenter.Client.Mvc.Resources;
+@using EDC = ServiceCenter.Client.Mvc.Resources.EDC;
+@using ServiceCenter.MES.Model.EDC;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@{
+    PagingConfig cfg = ViewBag.PagingConfig;
+}
+
+<div id="_list">
+    <table class="table table-striped table-hover table-bordered table-condensed">
+        <thead>
+            <tr class="active">
+                <td align="center">@Html.DisplayNameFor(m => m.FieldCode)</td>
+                <td align="center">@Html.DisplayNameFor(m => m.FieldName)</td>
+                <td align="center">@Html.DisplayNameFor(m => m.SerialNumber)</td>                
+                <td align="center">@Html.DisplayNameFor(m => m.DataType)</td>
+                <td align="center">@Html.DisplayNameFor(m => m.IsKEY)</td>
+                <td align="center">@Html.DisplayNameFor(m => m.IsControl)</td>
+                <td align="center">@Html.DisplayNameFor(m => m.MaxLine)</td>
+                <td align="center">@Html.DisplayNameFor(m => m.MinLine)</td>
+                <td align="center">@Html.DisplayNameFor(m => m.Creator)</td> 
+                <td align="center">@Html.DisplayNameFor(m => m.CreateTime)</td>
+                <td align="center">@Html.DisplayNameFor(m => m.Editor)</td>
+                <td align="center">@Html.DisplayNameFor(m => m.EditTime)</td>              
+                <td align="center">@StringResource.Detail</td>
+                <td align="center">@StringResource.Modify</td>
+                <td align="center">@StringResource.Delete</td>
+            </tr>
+        </thead>
+        @if (ViewBag.List != null)
+        {
+            <tbody>
+                @for (int i = 0; i < ViewBag.List.Length; i++)
+                {
+                    DataAcquisitionField obj = ViewBag.List[i];
+                    <tr>
+                        <td>@obj.Key.FieldCode</td>
+                        <td>@obj.FieldName</td>
+                        <td align="center">@obj.SerialNumber</td>                        
+                        <td align="center">@obj.DataType.GetDisplayName()</td>
+                        <td align="center">@(obj.IsKEY ? "是" : "")</td>
+                        <td align="center">@(obj.IsControl ? "范围控制" : "")</td>
+                        <td>@obj.MaxLine</td>
+                        <td>@obj.MinLine</td>
+                        <td>@obj.Creator</td>
+                        <td>@obj.CreateTime</td>
+                        <td>@obj.Editor</td>
+                        <td>@obj.EditTime</td>
+                        <td align="center">
+                            @Ajax.ActionLink(StringResource.Detail, actionName: null
+                                            , routeValues: null
+                                            , ajaxOptions: new AjaxOptions()
+                                            {
+                                                HttpMethod = "Post",
+                                                UpdateTargetId = "detailInfo",
+                                                OnSuccess = "showInfoModal",
+                                                Url = Url.Action("Detail", new { @ItemCode = obj.Key.ItemCode, @FieldCode = obj.Key.FieldCode })
+                                            })
+                        </td>
+
+                        <td align="center">
+                            @Ajax.ActionLink(StringResource.Modify, actionName: null
+                                            , routeValues: null
+                                            , ajaxOptions: new AjaxOptions()
+                                            {
+                                                HttpMethod = "Post",
+                                                UpdateTargetId = "modifyFormContent",
+                                                OnSuccess = "showModifyModal",
+                                                Url = Url.Action("Modify", new { @ItemCode = obj.Key.ItemCode, @FieldCode = obj.Key.FieldCode })
+                                            })
+                        </td>
+                        <td align="center">
+                            @Ajax.ActionLink(StringResource.Delete, actionName: null
+                                            , routeValues: null
+                                            , ajaxOptions: new AjaxOptions()
+                                            {
+                                                HttpMethod = "Post",
+                                                Confirm = string.Format(EDC.StringResource.DataAcquisitionField_ConfirmDelete, obj.Key),
+                                                Url = Url.Action("Delete", new { @ItemCode = obj.Key.ItemCode, @FieldCode = obj.Key.FieldCode }),
+                                                OnSuccess = "completeDelete"
+                                            })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        }
+    </table>
+    <div style="margin-top:-18px">
+        @if (cfg != null)
+        {
+            using (Ajax.BeginForm("PagingQuery", "DataAcquisitionField"
+                            , new
+                            {
+                                @Where = cfg.Where,
+                                @OrderBy = cfg.OrderBy,
+                                @CurrentPageNo = cfg.PageNo,
+                                @CurrentPageSize = cfg.PageSize
+                            }
+                            , new AjaxOptions()
+                            {
+                                HttpMethod = "Post",
+                                UpdateTargetId = "_list"
+                            }
+                            , new { @class = "form-horizontal", resource = "form", id = "frmPagingQuery" }))
+            {
+                @Html.AntiForgeryToken()
+                <div>@Html.Partial("_PaginationPartial")</div>
+            }
+        }
+    </div>
+</div>
+
+

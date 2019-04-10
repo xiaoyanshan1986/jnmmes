@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   namespace="ServiceCenter.MES.Model.RBAC" 
+                   assembly="ServiceCenter.MES.Model.RBAC">
+  <class name="UserOwnResource" table="RBAC_USER_OWN_RESOURCE">
+    <composite-id  name="Key" class="UserOwnResourceKey">
+      <key-property name="LoginName" column="LOGIN_NAME"/>
+      <key-property name="ResourceType" column="RESOURCE_TYPE"/>
+      <key-property name="ResourceCode" column="RESOURCE_CODE"/>
+    </composite-id >
+    <property name="Editor" column="EDITOR"/>
+    <property name="EditTime" column="EDIT_TIME"/>
+  </class>
+</hibernate-mapping>

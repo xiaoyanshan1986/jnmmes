@@ -1,0 +1,245 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.ZPVM.Models.IVTestDataViewModel
+@using ServiceCenter.Client.Mvc.Areas.ZPVM.Models;
+@using ServiceCenter.Client.Mvc.Resources;
+@using ZPVMResources = ServiceCenter.Client.Mvc.Resources.ZPVM;
+@using ServiceCenter.MES.Model.ZPVM;
+@using ServiceCenter.MES.Model.WIP;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@{
+    PagingConfig cfg = ViewBag.PagingConfig;
+}
+<div id="_list">
+    <table class="table table-hover table-bordered table-condensed table-responsive table-striped">
+        <thead>
+            <tr class="active">
+                <td nowrap>@StringResource.ItemNo</td>
+                <td nowrap>批次号</td>
+                <td nowrap>工单号</td>
+                <td nowrap>测试时间</td>
+                <td nowrap>线别</td>
+                <td nowrap>层压机编号</td>
+                <td nowrap>功率</td>
+                <td nowrap>电流</td>
+                <td nowrap>最大电流</td>
+                <td nowrap>电压</td>
+                <td nowrap>最大电压</td>
+                <td nowrap>填充因子</td>
+                <td nowrap>转换效率</td>
+                <td nowrap>串联电阻</td>
+                <td nowrap>并联电阻</td>
+                <td nowrap>测试温度</td>
+                <td nowrap>环境温度</td>
+                <td nowrap>光强</td>
+                @*<td nowrap>实际功率</td>
+                <td nowrap>实际电流</td>
+                <td nowrap>实际最大电流</td>
+                <td nowrap>实际电压</td>
+                <td nowrap>实际最大电压</td>
+                <td nowrap>实际填充因子</td>*@
+                <td nowrap>CTM</td>
+                <td nowrap>电池片效率</td>
+                <td nowrap>分档代码</td>
+                <td nowrap>分档项目号</td>
+                <td nowrap>分档名称</td>
+                <td nowrap>子分档代码</td>
+                <td nowrap>有效值？</td>
+                <td nowrap>打印？</td>
+                <td nowrap>打印时间</td>
+                <td nowrap>打印次数</td>
+                <td nowrap>校准时间</td>
+                <td nowrap>校准板编号</td>
+                @*<td nowrap>电池片物料</td>*@
+                <td nowrap>电池片供应商</td>
+                @*<td nowrap>玻璃物料</td>
+                <td nowrap>玻璃名称</td>*@
+                <td nowrap>玻璃供应商</td>
+                <td nowrap>Eva供应商</td>
+                <td nowrap>互联条供应商</td>
+                <td nowrap>背板供应商</td>
+            </tr>
+        </thead>
+        @if (ViewBag.List != null)
+        {
+            <tbody>
+                @for (int i = 0; i < ViewBag.List.Length; i++)
+                {
+                    IVTestData obj = ViewBag.List[i];
+
+                    Lot lot = Model.GetLot(obj.Key.LotNumber);
+                    LotBOM lotBOMCell = null;
+                    LotBOM lotBOMGlass = null;
+                    LotBOM lotBOMEva = null;
+                    LotBOM lotBOMHlt = null;
+                    LotBOM lotBOMBB = null;
+                    LotAttribute LotAttribute = Model.GetLaminator(obj.Key.LotNumber);
+                    //获得电池片供应商
+                    ServiceCenter.MES.Model.FMM.Supplier sCell = null;
+                    //获得玻璃供应商
+                    ServiceCenter.MES.Model.FMM.Supplier sGlass = null;
+                    //获得Eva供应商
+                    ServiceCenter.MES.Model.FMM.Supplier sEva = null;
+                    //获得互联条供应商
+                    ServiceCenter.MES.Model.FMM.Supplier sHlt = null;
+                    //获得背板供应商
+                    ServiceCenter.MES.Model.FMM.Supplier sBB = null;
+                    if (obj.Key.LotNumber.ToString().Contains("JZ"))
+                    {
+                        lot = null;
+                        //获得电池片供应商
+                        sCell = null;
+                        //获得玻璃供应商
+                        sGlass = null;
+                        //获得Eva供应商
+                        sEva = null;
+                        //获得互联条供应商
+                        sHlt = null;
+                        //获得背板供应商
+                        sBB = null;
+                    }
+                    else
+                    {
+                        lot = Model.GetLot(obj.Key.LotNumber);
+                        lotBOMCell = Model.GetLotCellBom(obj.Key.LotNumber);
+                        if (lotBOMCell != null)
+                        {
+                            //获得电池片供应商
+                            sCell = Model.GetLotCellMaterialSupplier(obj.Key.LotNumber);
+                        }
+                        else
+                        {
+                            sCell = null;
+                        }
+
+                        lotBOMGlass = Model.GetLotGlassBom(obj.Key.LotNumber);
+                        if (lotBOMGlass != null)
+                        {
+                            //获得玻璃供应商
+                            sGlass = Model.GetLotGlassMaterialSupplier(obj.Key.LotNumber);
+                        }
+                        else
+                        {
+                            sGlass = null;
+                        }
+
+                        lotBOMEva = Model.GetLotEvaBom(obj.Key.LotNumber);
+                        if (lotBOMEva != null)
+                        {
+                            //获得Eva供应商
+                            sEva = Model.GetLotEvaMaterialSupplier(obj.Key.LotNumber);
+                        }
+                        else
+                        {
+                            sEva = null;
+                        }
+
+                        lotBOMHlt = Model.GetLotHltBom(obj.Key.LotNumber);
+                        if (lotBOMHlt != null)
+                        {
+                            //获得互联条供应商
+                            sHlt = Model.GetLotHltMaterialSupplier(obj.Key.LotNumber);
+                        }
+                        else
+                        {
+                            sHlt = null;
+                        }
+                        lotBOMBB = Model.GetLotBBBom(obj.Key.LotNumber);
+                        if (lotBOMBB != null)
+                        {
+                            //获得背板供应商
+                            sBB = Model.GetLotBBMaterialSupplier(obj.Key.LotNumber);
+                        }
+                        else
+                        {
+                            sBB = null;
+                        }
+
+                    }
+                    <tr>
+                        <td nowrap>@(cfg.PageSize * cfg.PageNo+i+1)</td>
+                        <td nowrap>
+                            @Html.ActionLink(obj.Key.LotNumber
+                                            , "Detail"
+                                            , "LotQuery"
+                                            , new { LotNumber = obj.Key.LotNumber,area = "WIP" }
+                                            , new {  })
+                        </td>
+                        <td nowrap>@(lot != null ? lot.OrderNumber : string.Empty)</td>
+                        <td nowrap>@string.Format("{0:yyyy-MM-dd HH:mm:ss}", obj.Key.TestTime)</td>
+                        <td nowrap>@(lot != null ? lot.LineCode : string.Empty)</td>
+                        <td nowrap>@(LotAttribute != null ? LotAttribute.AttributeValue : string.Empty)</td>
+                        <td nowrap>@obj.CoefPM</td>
+                        <td nowrap>@obj.CoefISC</td>
+                        <td nowrap>@obj.CoefIPM</td>
+                        <td nowrap>@obj.CoefVOC</td>
+                        <td nowrap>@obj.CoefVPM</td>
+                        <td nowrap>@obj.CoefFF</td>
+                        @*<td nowrap>@obj.PM</td>
+                        <td nowrap>@obj.ISC</td>
+                        <td nowrap>@obj.IPM</td>
+                        <td nowrap>@obj.VOC</td>
+                        <td nowrap>@obj.VPM</td>
+                        <td nowrap>@obj.FF</td>*@
+                        <td nowrap>@obj.EFF</td>
+                        <td nowrap>@obj.RS</td>
+                        <td nowrap>@obj.RSH</td>
+                        <td nowrap>@obj.AmbientTemperature</td>
+                        <td nowrap>@obj.SensorTemperature</td>
+                        <td nowrap>@obj.Intensity</td>
+
+                        <td nowrap>@(obj.CTM * 100)% </td>
+                        <td nowrap>@Model.GetEfficiency(obj.Key.LotNumber)</td>
+                        <td nowrap>@obj.PowersetCode</td>
+                        <td nowrap>@obj.PowersetItemNo</td>
+                        @if (string.IsNullOrEmpty(obj.PowersetCode) || obj.PowersetItemNo == null)
+                        {
+                            <td nowrap></td>
+                        }
+                        else
+                        { 
+                            <td nowrap>@Model.GetPowersetName(obj.Key.LotNumber,obj.PowersetCode,obj.PowersetItemNo.Value)</td>
+                        }
+                        <td nowrap>@obj.PowersetSubCode</td>
+                        <td nowrap>@(obj.IsDefault ? StringResource.Yes : StringResource.No)</td>
+                        <td nowrap>@(obj.IsPrint ? StringResource.Yes : StringResource.No)</td>
+                        <td nowrap>@string.Format("{0:yyyy-MM-dd HH:mm:ss}", obj.PrintTime)</td>
+                        <td nowrap>@obj.PrintCount</td>
+                        <td nowrap>@string.Format("{0:yyyy-MM-dd HH:mm:ss}", obj.CalibrateTime)</td>
+                        <td nowrap>@obj.CalibrationNo</td>
+                        <td nowrap>@(sCell != null ? sCell.Name : string.Empty)</td>
+                        <td nowrap>@(sGlass != null ? sGlass.Name : string.Empty)</td>
+                        <td nowrap>@(sEva != null ? sEva.Name : string.Empty)</td>
+                        <td nowrap>@(sHlt != null ? sHlt.Name : string.Empty)</td>
+                        <td nowrap>@(sBB != null ? sBB.Name : string.Empty)</td>
+                    </tr>
+                }
+            </tbody>
+        }
+    </table>
+
+    <div style="margin-top:-18px">
+        @if (cfg != null)
+        {
+            using (Ajax.BeginForm("PagingQuery", "IVTestDataQuery"
+                            , new
+                            {
+                                @Where = cfg.Where,
+                                @OrderBy = cfg.OrderBy,
+                                @CurrentPageNo = cfg.PageNo,
+                                @CurrentPageSize = cfg.PageSize
+                            }
+                            , new AjaxOptions()
+                            {
+                                HttpMethod = "Post",
+                                UpdateTargetId = "_list"
+                            }
+                            , new { @class = "form-horizontal", resource = "form", id = "frmPagingQuery" }))
+            {
+                @Html.AntiForgeryToken()
+                <div>@Html.Partial("_PaginationPartial")</div>
+            }
+        }
+    </div>
+</div>
+
+

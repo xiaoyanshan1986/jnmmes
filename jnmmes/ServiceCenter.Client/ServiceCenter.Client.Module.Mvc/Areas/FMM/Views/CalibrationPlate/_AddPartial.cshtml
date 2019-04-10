@@ -1,0 +1,132 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.FMM.Models.CalibrationPlateViewModel
+
+@Html.ValidationSummary(true)
+
+<div class="form-group">
+    @Html.LabelFor(m => m.CalibrationPlateID, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.CalibrationPlateID, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.CalibrationPlateID)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.CalibrationPlateName, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.CalibrationPlateName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.CalibrationPlateName)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.CalibrationPlateType, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @*@Html.TextBoxFor(m => m.CalibrationPlateType, new { @class = "form-control" })*@
+        @Html.DropDownListFor(m => m.CalibrationPlateType, @Model.GetTypeList(), new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.CalibrationPlateType)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.PM, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.PM, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.PM)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.ISC, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.ISC, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.ISC)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.VOC, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.VOC, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.VOC)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.MaxPM, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.MaxPM, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.MaxPM)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.MinPM, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @*@Html.DropDownListFor(m => m.MinPM, Model.GetColorList(), new { @class = "form-control" })*@
+        @Html.TextBoxFor(m => m.MinPM, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.MinPM)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.MaxISC, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.MaxISC, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.MaxISC)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.MinISC, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.MinISC, new { @class = "form-control"})
+        @Html.ValidationMessageFor(m => m.MinISC)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.MaxVOC, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.MaxVOC, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.MaxVOC)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.MinVOC, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.MinVOC, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.MinVOC)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.StdIsc1, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.StdIsc1, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.StdIsc1)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.StdIsc2, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.StdIsc2, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.StdIsc2)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.Stdsun1, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.Stdsun1, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Stdsun1)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.Stdsun2, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.Stdsun2, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Stdsun2)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.Explain, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.Explain, new { @class = "form-control"})
+        @Html.ValidationMessageFor(m => m.Explain)
+    </div>
+</div>
+
+
+
+
+
+
+

@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   namespace="ServiceCenter.MES.Model.FMM" 
+                   assembly="ServiceCenter.MES.Model.FMM">
+  <class name="MaterialChestParameter" table="FMM_MATERIAL_CHEST_PARAMETER">
+    <id name="Key" column="MATERIAL_CODE">
+      <generator class="assigned" />
+    </id>
+    <property name="ColorLimit" column="COLOR_LIMIT"/>
+    <property name="GradeLimit" column="GRADE_LIMIT"/>
+    <property name="PowerLimit" column="POWER_LIMIT"/>
+    <property name="IscLimit" column="ISC_LIMIT"/>
+    <property name="FullChestQty" column="FULL_CHEST_QTY"/>
+    <property name="InChestFullPackageQty" column="IN_CHEST_FULL_PACKAGE_QTY"/>
+    <property name="IsPackagedChest" column="IS_PACKAGED_CHEST"/>
+    <property name="OrderNumberLimit" column="ORDERNUMBER_LIMIT"/>
+    <property name="LastChestMaterialLimit" column="LAST_CHEST_MATERIAL_LIMIT"/>
+    <property name="Creator" column="CREATOR"/>
+    <property name="CreateTime" column="CREATE_TIME"/>
+    <property name="Editor" column="EDITOR"/>
+    <property name="EditTime" column="EDIT_TIME"/>
+  </class>
+</hibernate-mapping>

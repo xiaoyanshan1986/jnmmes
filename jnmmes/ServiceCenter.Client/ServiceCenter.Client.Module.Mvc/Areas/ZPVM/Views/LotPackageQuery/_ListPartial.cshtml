@@ -1,0 +1,141 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.ZPVM.Models.ZPVMLotPackageViewModel
+@using ServiceCenter.Client.Mvc.Areas.ZPVM.Models;
+@using ServiceCenter.Client.Mvc.Resources;
+@using ZPVMResources = ServiceCenter.Client.Mvc.Resources.ZPVM;
+@using ServiceCenter.MES.Model.ZPVM;
+@using ServiceCenter.MES.Model.WIP;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@{
+    PagingConfig cfg = ViewBag.PagingConfig;
+}
+<div id="_list">
+    <table class="table table-hover table-bordered table-condensed table-responsive table-striped">
+        <thead>
+            <tr class="active">
+                <td align="center">@StringResource.ItemNo</td>
+                <td align="center">包装号</td>
+                <td align="center">项目号</td>
+                <td align="center">批次号</td>
+                <td align="center">工单号</td>
+                <td align="center">物料编码</td>
+                <td align="center">等级</td>
+                <td align="center">花色</td>
+                <td align="center">功率</td>
+                <td align="center">电流</td>
+                <td align="center">最大电流</td>
+                <td align="center">电压</td>
+                <td align="center">最大电压</td>
+                <td align="center">填充因子</td>
+                <td align="center">分档名称</td>
+                <td align="center">子分档代码</td>
+                <td align="center">包装日期</td>
+            </tr>
+        </thead>
+        @if (ViewBag.List != null)
+        {
+            <tbody>
+                @for (int i = 0; i < ViewBag.List.Length; i++)
+                {
+                    PackageDetail obj = ViewBag.List[i];
+                    Lot lot = null;
+                    IVTestData ivtest = null;
+                    List<string> dic = null;
+                    string ff = "";
+                    OemData oemData = Model.GetOemData(obj.Key.ObjectNumber);
+                    if (oemData != null)
+                    {
+                        dic = Model.GetCodeAndItemNo(oemData);
+                        ff = (oemData.FF * 100).ToString("F4");
+                    }
+                    else
+                    {
+                        lot = Model.GetLotData(obj.Key.ObjectNumber);
+                        ivtest = Model.GetIVTestData(obj.Key.ObjectNumber);
+                    }                                        
+                    
+                    <tr>
+                        <td align="center">@(cfg.PageSize * cfg.PageNo + i + 1)</td>
+                        <td align="center">
+                            @Html.ActionLink(obj.Key.PackageNo
+                                            , "Detail"
+                                            , "PackageTransaction"
+                                            , new { packageNo = obj.Key.PackageNo }
+                                            , null)
+                        </td>
+                        <td align="center">@obj.ItemNo</td>
+                        <td align="center">@obj.Key.ObjectNumber</td>
+                        <td align="center">@obj.OrderNumber</td>
+                        <td align="center">@obj.MaterialCode</td>
+                        @if (oemData != null)
+                        {
+                            <td align="center">@oemData.Grade</td>
+                            <td align="center">@oemData.Color</td>
+                            <td align="center">@oemData.PMAX</td>
+                            <td align="center">@oemData.ISC</td>
+                            <td align="center">@oemData.IPM</td>
+                            <td align="center">@oemData.VOC</td>
+                            <td align="center">@oemData.VPM</td>
+                            <td align="center">@ff</td>
+                            @*<td align="center">@dic[0]</td>
+                            <td align="center">@dic[1]</td>*@
+                            <td align="center">@(oemData.PnName == null? string.Empty :oemData.PnName)</td>
+                            <td align="center">@oemData.PsSubCode</td>
+                        }
+                        else
+                        {
+                            <td align="center">@(lot != null ? lot.Grade : string.Empty)</td>
+                            <td align="center">@(lot != null ? lot.Color : string.Empty)</td>
+                            <td align="center">@(ivtest != null ? ivtest.CoefPM : 0)</td>
+                            <td align="center">@(ivtest != null ? ivtest.CoefISC : 0)</td>
+                            <td align="center">@(ivtest != null ? ivtest.CoefIPM : 0)</td>
+                            <td align="center">@(ivtest != null ? ivtest.CoefVOC : 0)</td>
+                            <td align="center">@(ivtest != null ? ivtest.CoefVPM : 0)</td>
+                            <td align="center">@(ivtest != null ? ivtest.CoefFF : 0)</td>
+                            if (ivtest == null
+                                || string.IsNullOrEmpty(ivtest.PowersetCode)
+                                || ivtest.PowersetItemNo == null)
+                            {
+                                <td nowrap></td>
+                            }
+                            else
+                            {
+                                <td align="center">@Model.GetPowersetName(ivtest.Key.LotNumber, ivtest.PowersetCode, ivtest.PowersetItemNo.Value)</td>
+                            }
+                            <td align="center">
+                                @(ivtest != null ? ivtest.PowersetSubCode : string.Empty)
+                            </td>
+                        }   
+                        <td align="center">@string.Format("{0:yyyy-MM-dd}", obj.CreateTime)</td>                   
+                    </tr>
+                }
+            </tbody>
+        }
+    </table>
+
+    <div style="margin-top:-18px">
+        @if (cfg != null)
+        {
+            using (Ajax.BeginForm("PagingQuery", "LotPackageQuery"
+                            , new
+                            {
+                                @Where = cfg.Where,
+                                @OrderBy = cfg.OrderBy,
+                                @CurrentPageNo = cfg.PageNo,
+                                @CurrentPageSize = cfg.PageSize
+                            }
+                            , new AjaxOptions()
+                            {
+                                HttpMethod = "Post",
+                                UpdateTargetId = "_list"
+                            }
+                            , new { @class = "form-horizontal", resource = "form", id = "frmPagingQuery" }))
+            {
+                @Html.AntiForgeryToken()
+                <div>@Html.Partial("_PaginationPartial")</div>
+            }
+        }
+    </div>
+</div>
+
+

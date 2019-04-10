@@ -1,0 +1,108 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.RPT.Models.LotMaterialList1ViewModel
+@using ServiceCenter.Client.Mvc.Resources;
+@using RPTResources = ServiceCenter.Client.Mvc.Resources.RPT;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@using System.Data;
+@{
+    PagingConfig cfg = ViewBag.PagingConfig;
+    MethodReturnResult<DataSet> ds = new MethodReturnResult<DataSet>();
+    DataTable dtList = ViewBag.ListData;
+    ds = ViewBag.dtList;
+}
+
+@if (dtList != null)
+{
+   <div id="_list" style="overflow:auto">
+       <table class="table table-hover table-bordered table-condensed table-responsive table-striped">
+        <thead>
+            <tr class="active">
+                <td nowrap>序号</td>
+                <td nowrap>批次号</td>
+                <td nowrap>工单号</td>
+                <td nowrap>动作</td>
+                <td nowrap>工艺流程组</td>
+                <td nowrap>工艺流程</td>
+                <td nowrap>工步</td>
+                <td nowrap>操作客户端</td>
+                <td nowrap>描述</td>
+                <td nowrap>创建人</td>
+                <td nowrap>创建时间</td>
+                <td nowrap>编辑人</td>
+                <td nowrap>编辑时间</td>
+            </tr>
+        </thead>
+        <tbody>
+            @if (dtList != null )
+            {
+                for (int i = 0; i < dtList.Rows.Count; i++)
+                {
+                    System.Data.DataRow obj = dtList.Rows[i];
+                   
+            <tr>
+                <td nowrap>@obj["RowNumber"] </td>
+                <td nowrap>@obj["LOT_NUMBER"] </td>
+                <td nowrap>@obj["ORDER_NUMBER"]</td>
+                <td nowrap>@obj["ACTIVITY"]</td>
+                <td nowrap>@obj["ROUTE_ENTERPRISE_NAME"]</td>
+                <td nowrap>@obj["ROUTE_NAME"]</td>
+                <td nowrap>@obj["ROUTE_STEP_NAME"]</td>
+                <td nowrap>@obj["OPR_COMPUTER"]</td>
+                <td nowrap>@obj["DESCRIPTION"]</td>
+                <td nowrap>@obj["CREATOR"]</td>
+                <td nowrap>@obj["CREATE_TIME"]</td>
+                <td nowrap>@obj["EDITOR"]</td>
+                <td nowrap>@obj["EDIT_TIME"]</td>
+
+
+            </tr>
+                   
+                }
+
+            }
+        </tbody>
+        
+       </table>
+        <div style="margin-top:-18px">
+            @if (cfg != null)
+            {
+                using (Ajax.BeginForm("QueryLotProcessingHistory", "LotMaterialList"
+                                , null
+                                , new AjaxOptions()
+                                {
+                                    HttpMethod = "Post",
+                                    UpdateTargetId = "_list"
+                                }
+                                , new { @class = "form-horizontal", resource = "form", id = "frmPagingQuery" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.HiddenFor(m => m.LotNumber)
+                    @Html.HiddenFor(m => m.OrderNumber)
+                    @Html.HiddenFor(m => m.Activity)
+                    @Html.HiddenFor(m => m.RouteEnterpriseName)
+                    @Html.HiddenFor(m => m.RouteName)
+                    @Html.HiddenFor(m => m.RouteStepName)
+                    @Html.HiddenFor(m => m.Computer)
+                    @Html.HiddenFor(m => m.Description)
+                    @Html.HiddenFor(m => m.Creator)
+                    @*@Html.HiddenFor(m => m.CreateTime)*@
+                    @Html.HiddenFor(m => m.Editor)
+                    @*@Html.HiddenFor(m => m.EditTime)*@
+                    @Html.HiddenFor(m => m.PageSize)
+                    <div>@Html.Partial("_PaginationPartial")</div>
+                }
+            }
+
+        </div>
+    </div>
+
+}
+else
+{
+    
+}
+    <p>@ViewBag.Message</p>
+       
+       
+    
+

@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   namespace="ServiceCenter.MES.Model.PPM" 
+                   assembly="ServiceCenter.MES.Model.PPM">
+  <class name="TargetParameter" table="PPM_Target_Parameter">
+    <composite-id  name="Key" class="TargetParameterKey">
+      <key-property name="Year" column="CUR_YEAR"/>
+      <key-property name="Month" column="CUR_MONTH"/>
+      <key-property name="Day" column="CUR_DAY"/>
+      <key-property name="LocationName" column="LOCATION_NAME"/>
+      <key-property name="ItemType" column="ItemType"/>
+      <key-property name="ItemCode" column="ItemCode"/>
+    </composite-id >
+    <property name="ValueData" column="ValueData"/>    
+    <property name="Creator" column="CREATOR"/>
+    <property name="CreateTime" column="CREATE_TIME"/>
+    <property name="Editor" column="EDITOR"/>
+    <property name="EditTime" column="EDIT_TIME"/>
+  </class>
+</hibernate-mapping>

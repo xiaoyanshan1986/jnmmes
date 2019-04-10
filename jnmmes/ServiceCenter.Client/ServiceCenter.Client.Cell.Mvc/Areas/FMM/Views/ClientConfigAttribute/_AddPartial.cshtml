@@ -1,0 +1,22 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.FMM.Models.ClientConfigAttributeViewModel
+<div class="form-group">
+    @Html.LabelFor(m => m.ClientName, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        <p class="form-control-static">@Model.ClientName</p>
+        @Html.HiddenFor(m => m.ClientName)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.AttributeName, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.DropDownListFor(m => Model.AttributeName, @Model.GetAttributeName(), new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.AttributeName)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.Value, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.Value, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Value)
+    </div>
+</div>

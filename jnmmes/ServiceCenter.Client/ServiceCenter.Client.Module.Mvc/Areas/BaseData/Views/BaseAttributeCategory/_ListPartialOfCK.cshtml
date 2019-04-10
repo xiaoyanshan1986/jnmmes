@@ -1,0 +1,110 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.BaseData.Models.BaseAttributeCategoryViewModel
+@using ServiceCenter.Client.Mvc.Areas.BaseData.Models;
+@using ServiceCenter.Client.Mvc.Resources;
+@using BaseData = ServiceCenter.Client.Mvc.Resources.BaseData;
+@using ServiceCenter.MES.Model.BaseData;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@{
+    PagingConfig cfg = ViewBag.PagingConfig;
+}
+<div id="_list">
+    <table class="table table-hover table-bordered table-condensed">
+        <thead>
+            <tr class="active">
+                <td>@StringResource.ItemNo</td>
+                <td>@Html.DisplayNameFor(m => m.Name)</td>
+                <td>@Html.DisplayNameFor(m => m.Description)</td>
+                @*<td>@StringResource.Field</td>*@
+                <td>@StringResource.Detail</td>
+                @*<td>@StringResource.Modify</td>
+                <td>@StringResource.Delete</td>*@
+            </tr>
+        </thead>
+        @if (ViewBag.List != null)
+        {
+            <tbody>
+                @for (int i = 0; i < ViewBag.List.Length; i++)
+                {
+                    BaseAttributeCategory obj = ViewBag.List[i];
+                    <tr>
+                        <td>@(cfg.PageSize * cfg.PageNo+i+1)</td>
+                        <td>
+                            @Html.ActionLink(linkText: obj.Key,
+                                            actionName: "Index",
+                                            controllerName: "BaseAttributeValue"
+                                            , routeValues: new { @CategoryName = obj.Key }
+                                            , htmlAttributes: new { @target="blank"})
+                        </td>
+                        <td>@obj.Description</td>
+                        @*<td>
+                            @Html.ActionLink(linkText: StringResource.Field
+                                            , actionName: "Index"
+                                            , controllerName: "BaseAttribute"
+                                            , routeValues: new { @CategoryName = obj.Key }
+                                            , htmlAttributes: new { @target = "blank" })
+                        </td>*@
+                        <td>
+                            @Ajax.ActionLink(StringResource.Detail, actionName: null
+                                            , routeValues: null
+                                            , ajaxOptions:new AjaxOptions() 
+                                            { 
+                                                HttpMethod = "Post", 
+                                                UpdateTargetId = "detailInfo",
+                                                OnSuccess = "showInfoModal",
+                                                Url = Url.Action("Detail", new { @Name= obj.Key })
+                                            })
+                        </td>
+                        @*<td>
+                            @Ajax.ActionLink(StringResource.Modify, actionName: null
+                                            ,routeValues:null
+                                            ,ajaxOptions:new AjaxOptions()
+                                            {
+                                                HttpMethod = "Post",
+                                                UpdateTargetId = "modifyFormContent",
+                                                OnSuccess = "showModifyModal",
+                                                Url = Url.Action("Modify", new { @Name = obj.Key })
+                                            })
+                        </td>*@
+                        @*<td>
+                            @Ajax.ActionLink(StringResource.Delete, actionName: null
+                                            , routeValues: null
+                                            , ajaxOptions:new AjaxOptions()
+                                            {
+                                                HttpMethod = "Post",
+                                                Confirm = string.Format(BaseData.StringResource.BaseAttributeCategory_ConfirmDelete, obj.Key),
+                                                Url = Url.Action("Delete", new { @Name = obj.Key }),
+                                                OnSuccess = "completeDelete"
+                                            })
+                        </td>*@
+                    </tr>
+                }
+            </tbody>
+        }
+    </table>
+    <div style="margin-top:-18px">
+        @if (cfg != null)
+        {
+            using (Ajax.BeginForm("PagingQuery", "BaseAttributeCategory"
+                            , new
+                            {
+                                @Where = cfg.Where,
+                                @OrderBy = cfg.OrderBy,
+                                @CurrentPageNo = cfg.PageNo,
+                                @CurrentPageSize = cfg.PageSize
+                            }
+                            , new AjaxOptions()
+                            {
+                                HttpMethod = "Post",
+                                UpdateTargetId = "_list"
+                            }
+                            , new { @class = "form-horizontal", resource = "form", id = "frmPagingQuery" }))
+            {
+                @Html.AntiForgeryToken()
+                <div>@Html.Partial("_PaginationPartial")</div>
+            }
+        }
+    </div>
+</div>
+
+

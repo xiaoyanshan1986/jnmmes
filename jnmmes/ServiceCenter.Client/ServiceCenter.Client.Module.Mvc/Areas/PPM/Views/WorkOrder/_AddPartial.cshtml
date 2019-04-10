@@ -1,0 +1,99 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.PPM.Models.WorkOrderViewModel
+
+<div class="form-group">
+    @* 工单号 *@
+    @Html.LabelFor(m => m.OrderNumber, new { @class = "col-md-1 control-label" })
+    <div class="col-md-3">
+        @Html.TextBoxFor(m => m.OrderNumber, new { @class = "form-control" , @id="txtAddOrderNumber"})
+        @Html.ValidationMessageFor(m => m.OrderNumber)
+    </div>
+
+    @* 产品编号 *@
+    @Html.LabelFor(m => m.MaterialCode, new { @class = "col-md-1 control-label" })
+    <div class="col-md-3">
+        @Html.TextBoxFor(m => m.MaterialCode, new { @class = "form-control", @id = "txtAddMaterialCode" })
+        @Html.ValidationMessageFor(m => m.MaterialCode)
+    </div>
+
+    @* 生产车间 *@
+    @Html.LabelFor(m => m.LocationName, new { @class = "col-md-1 control-label" })
+    <div class="col-md-3">
+        @Html.DropDownListFor(m => m.LocationName, @Model.GetLocationNameList(), new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.LocationName)
+    </div>
+
+    @* 工单状态 *@
+    @*@Html.LabelFor(m => m.OrderState, new { @class = "col-md-1 control-label" })
+    <div class="col-md-3">
+        @Html.DropDownListFor(m => m.OrderState, @Model.GetOrderStateList(), new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.OrderState)
+    </div>*@
+</div>
+<div class="form-group">
+    @* 工单类型 *@
+    @Html.LabelFor(m => m.OrderType, new { @class = "col-md-1 control-label" })
+    <div class="col-md-3">
+        @Html.DropDownListFor(m => m.OrderType, @Model.GetOrderTypeList(), new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.OrderType)
+    </div>
+
+    @* 工单数量 *@
+    @Html.LabelFor(m => m.OrderQuantity, new { @class = "col-md-1 control-label" })
+    <div class="col-md-3">
+        @Html.TextBoxFor(m => m.OrderQuantity, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.OrderQuantity)
+    </div>
+
+    @* 关闭类型 *@
+    @Html.LabelFor(m => m.CloseType, new { @class = "col-md-1 control-label" })
+    <div class="col-md-3">
+        @Html.DropDownListFor(m => m.CloseType, @Model.GetWorkOrderCloseTypeList(), new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.CloseType)
+    </div>
+
+
+    @* 生产车间 *@
+    @*@Html.LabelFor(m => m.LocationName, new { @class = "col-md-1 control-label" })
+    <div class="col-md-3">
+        @Html.DropDownListFor(m => m.LocationName, @Model.GetLocationNameList(), new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.LocationName)
+    </div>*@
+</div>
+@*<div class="form-group">
+     优先级 
+    @Html.LabelFor(m => m.Priority, new { @class = "col-md-1 control-label" })
+    <div class="col-md-3">
+        @Html.DropDownListFor(m => m.Priority, @Model.GetWorkOrderPriorityList(), new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Priority)
+    </div>
+    
+    关闭类型
+    @Html.LabelFor(m => m.CloseType, new { @class = "col-md-1 control-label" })
+    <div class="col-md-3">
+        @Html.DropDownListFor(m => m.CloseType, @Model.GetWorkOrderCloseTypeList(), new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.CloseType)
+    </div>
+</div>*@
+<div class="form-group">
+    @* 计划开工日期 *@
+    @Html.LabelFor(m => m.PlanStartTime, new { @class = "col-md-1 control-label" })
+    <div class="col-md-3">
+        @Html.TextBoxFor(m => m.PlanStartTime, "{0:yyyy-MM-dd}", new { @class = "form-control", @id = "txtAddStartTime" })
+        @Html.ValidationMessageFor(m => m.PlanStartTime)
+    </div>
+
+    @* 计划完工日期 *@
+    @Html.LabelFor(m => m.PlanFinishTime, new { @class = "col-md-1 control-label" })
+    <div class="col-md-3">
+        @Html.TextBoxFor(m => m.PlanFinishTime, "{0:yyyy-MM-dd}", new { @class = "form-control", @id = "txtAddFinishTime" })
+        @Html.ValidationMessageFor(m => m.PlanFinishTime)
+    </div>    
+</div>
+<div class="form-group">
+    @* 描述 *@
+    @Html.LabelFor(m => m.Description, new { @class = "col-sm-1 control-label" })
+    <div class="col-sm-11">
+        @Html.TextAreaFor(m => m.Description, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Description)
+    </div>
+</div>

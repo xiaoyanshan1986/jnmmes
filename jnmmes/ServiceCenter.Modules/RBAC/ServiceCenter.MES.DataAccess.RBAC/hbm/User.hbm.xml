@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   namespace="ServiceCenter.MES.Model.RBAC" 
+                   assembly="ServiceCenter.MES.Model.RBAC">
+  <class name="User" table="RBAC_USER">
+    <id name="Key" column="LOGIN_NAME">
+      <generator class="assigned" />
+    </id>
+    <property name="UserName" column="USER_NAME"/>
+    <property name="Password" column="PASSWORD"/>
+    <property name="Email" column="EMAIL"/>
+    <property name="OfficePhone" column="OFFICE_PHONE"/>
+    <property name="MobilePhone" column="MOBILE_PHONE"/>
+    <property name="IsLocked" column="IS_LOCKED_OUT"/>
+    <property name="IsActive" column="IS_ACTIVE"/>
+    <property name="IsApproved" column="IS_APPROVED"/>
+    <property name="LastLoginIP" column="LAST_LOGIN_IP"/>
+    <property name="LastLoginTime" column="LAST_LOGIN_TIME"/>
+    <property name="Description" column="DESCRIPTION"/>
+    <property name="Creator" column="CREATOR"/>
+    <property name="CreateTime" column="CREATE_TIME"/>
+    <property name="Editor" column="EDITOR"/>
+    <property name="EditTime" column="EDIT_TIME"/>
+  </class>
+</hibernate-mapping>

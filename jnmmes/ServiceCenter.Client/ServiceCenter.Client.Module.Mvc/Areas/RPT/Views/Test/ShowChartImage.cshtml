@@ -1,0 +1,71 @@
+﻿@using ServiceCenter.Client.Mvc.Resources;
+@using RPTResources = ServiceCenter.Client.Mvc.Resources.RPT;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@using System.Data;
+@using ServiceCenter.Client.Mvc.Areas.RPT.Controllers;
+@{
+    DataTable dtChart = ViewBag.ChartData.Tables[0];
+    
+
+    var ChartTheme = @"<Chart BackColor=""#C9DC87"" BackGradientStyle=""TopBottom"" BorderColor=""181, 64, 1"" BorderWidth=""2"" BorderlineDashStyle=""Solid"" Palette=""BrightPastel"">
+  <ChartAreas>
+    <ChartArea Name=""Default"" _Template_=""All"" BackColor=""Transparent"" BackSecondaryColor=""White"" BorderColor=""64, 64, 64, 64"" BorderDashStyle=""Solid"" ShadowColor=""Transparent"">
+      <AxisY LineColor=""64, 64, 64, 64"">
+        <MajorGrid Interval=""Auto"" LineColor=""64, 64, 64, 64"" />
+        <LabelStyle Font=""Trebuchet MS, 8.25pt, style=Bold"" />
+      </AxisY>
+      <AxisX LineColor=""64, 64, 64, 64"" Interval=""1"">
+        <MajorGrid LineColor=""64, 64, 64, 64"" />
+        <LabelStyle Font=""Trebuchet MS, 8.25pt, style=Bold"" />
+      </AxisX>
+      <AxisY2 Enabled=""true"" Title=""比例（%）"">
+        <MajorGrid Interval=""Auto"" />
+      </AxisY2>
+      <Area3DStyle Inclination=""15"" IsClustered=""False"" IsRightAngleAxes=""False"" Perspective=""10"" Rotation=""10"" WallWidth=""0"" />
+    </ChartArea>
+  </ChartAreas>
+  <Series>
+    <Series Name=""比例"" YAxisType=""Secondary"" MarkerStyle=""Square"" Url=""http://www.baidu.com""></Series>
+  </Series>
+  <Legends>
+    <Legend _Template_=""All"" Alignment=""Center"" BackColor=""Transparent"" Docking=""Bottom"" Font=""Trebuchet MS, 8.25pt, style=Bold"" IsTextAutoFit =""False"" LegendStyle=""Row"">
+    </Legend>
+  </Legends>
+  <BorderSkin SkinStyle=""Emboss"" />
+</Chart>";
+}
+@{
+    var chart = new Chart(1200, 500, ChartTheme);
+    chart.AddTitle("图");
+    if (dtChart != null) {
+        
+        var lnqX=from item in dtChart.AsEnumerable()
+                 select Convert.ToString(item["日期"]);
+        
+        IList<string> lstX=lnqX.ToList<string>();
+        
+        for (int i = 1; i<dtChart.Columns.Count;i++ )
+        {
+            string colName = dtChart.Columns[i].ColumnName;
+            string colCaption = dtChart.Columns[i].Caption;
+            
+            
+            var lnq=from item in dtChart.AsEnumerable()
+                    select Convert.ToDouble(item[colName]);
+            string chartType = "Column";
+            if (colName == "比例")
+            {
+                chartType = "Line";
+            }
+            chart.AddSeries(
+                        name: colCaption,
+                        chartType: chartType,
+                        axisLabel: "Secondary",
+                        xValue: lstX,
+                        yValues: lnq.ToList());
+        }
+    }
+    chart.AddLegend();
+    chart.Write();
+}

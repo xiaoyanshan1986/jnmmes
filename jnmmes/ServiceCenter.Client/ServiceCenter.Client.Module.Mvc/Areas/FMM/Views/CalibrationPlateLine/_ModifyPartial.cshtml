@@ -1,0 +1,42 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.FMM.Models.CalibrationPlateLineViewModel
+
+@Html.ValidationSummary(true)
+
+<div class="form-group">
+    @Html.LabelFor(m => m.CalibrationPlateID, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        <p class="form-control-static">@Model.CalibrationPlateID</p>
+        @Html.HiddenFor(m => m.CalibrationPlateID)
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(m => m.LocationName, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        <p class="form-control-static">@Model.LocationName</p>
+        @Html.HiddenFor(m => m.LocationName)
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(m => m.LineCode, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        <p class="form-control-static">@Model.LineCode</p>
+        @Html.HiddenFor(m => m.LineCode)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.Explain, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.Explain, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Explain)
+    </div>
+</div>
+
+
+
+
+
+
+
+

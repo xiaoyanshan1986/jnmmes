@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   namespace="ServiceCenter.MES.Model.ZPVM" 
+                   assembly="ServiceCenter.MES.Model.ZPVM">
+  <class name="PowersetDetail" table="ZFMM_POWERSET_DETAIL">
+    <composite-id  name="Key" class="PowersetDetailKey">
+      <key-property name="Code" column="PS_CODE"/>
+      <key-property name="ItemNo" column="ITEM_NO"/>
+      <key-property name="SubCode" column="PS_SUBCODE"/>
+    </composite-id >
+    <property name="SubName" column="PS_SUBNAME"/>
+    <property name="MinValue" column="MIN_VALUE"/>
+    <property name="MaxValue" column="MAX_VALUE"/>
+    <property name="Picture" column="Picture" type="BinaryBlob"/>
+    <property name="IsUsed" column="IS_USED"/>
+    <property name="Creator" column="CREATOR"/>
+    <property name="CreateTime" column="CREATE_TIME"/>
+    <property name="Editor" column="EDITOR"/>
+    <property name="EditTime" column="EDIT_TIME"/>
+  </class>
+</hibernate-mapping>

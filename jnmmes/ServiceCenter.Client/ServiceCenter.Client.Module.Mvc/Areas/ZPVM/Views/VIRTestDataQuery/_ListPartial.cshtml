@@ -1,0 +1,99 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.ZPVM.Models.VIRTestDataViewModel
+@using ServiceCenter.Client.Mvc.Areas.ZPVM.Models;
+@using ServiceCenter.Client.Mvc.Resources;
+@using ZPVMResources = ServiceCenter.Client.Mvc.Resources.ZPVM;
+@using ServiceCenter.MES.Model.ZPVM;
+@using ServiceCenter.MES.Model.WIP;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@{
+    PagingConfig cfg = ViewBag.PagingConfig;
+}
+<div id="_list">
+    <table class="table table-hover table-bordered table-condensed table-responsive table-striped">
+        <thead>
+            <tr class="active">
+
+                <td nowrap>序号</td>
+                <td nowrap>设备名称</td>
+                <td nowrap>测试时间</td>
+                <td nowrap>批次号</td>
+                <td nowrap>测试类型</td>
+                <td nowrap>测试结果</td>
+                <td nowrap>步骤</td>
+                <td nowrap>测试数据1</td>
+                <td nowrap>测试数据2</td>
+                <td nowrap>输出电压</td>
+                <td nowrap>频率</td>
+                <td nowrap>加载电流</td>
+                <td nowrap>范围上限</td>
+                <td nowrap>范围下限</td>
+                <td nowrap>缓升时间</td>
+                <td nowrap>延时时间</td>
+                <td nowrap>持续时间</td>
+                <td nowrap>最低电荷</td>
+                <td nowrap>灵敏度</td>
+                
+            </tr>
+        </thead>
+        @if (ViewBag.List != null)
+        {
+            <tbody>
+                @for (int i = 0; i < ViewBag.List.Length; i++)
+                {
+                    VIRTestData obj = ViewBag.List[i];
+
+                    <tr>
+                        <td nowrap>@(cfg.PageSize * cfg.PageNo + i + 1)</td>
+                        <td nowrap>@obj.Key.EquipmentCode</td>
+                        <td nowrap>@obj.Key.TestTime</td>
+                        <td nowrap>@obj.Key.LotNumber</td>
+                        <td nowrap>@obj.Key.TestType</td>
+                        <td nowrap>@obj.TestResult</td>
+                        <td nowrap>@obj.TestStepSeq</td>
+                        <td nowrap>@obj.TestParam1</td>
+                        <td nowrap>@obj.TestParam2</td>
+                        <td nowrap>@obj.Voltage</td>
+                        <td nowrap>@obj.Frequency</td>
+                        <td nowrap>@obj.Ecurren</td>
+                        <td nowrap>@obj.Hilimit</td>
+                        <td nowrap>@obj.Lolimit</td>
+                        <td nowrap>@obj.Rampup</td>
+                        <td nowrap>@obj.Dwelltime</td>
+                        <td nowrap>@obj.Delaytime</td>
+                        <td nowrap>@obj.Chargelo</td>
+                        <td nowrap>@obj.Arcsense</td>
+
+                    </tr>
+                }
+            </tbody>
+        }
+    </table>
+
+
+    <div style="margin-top:-18px">
+        @if (cfg != null)
+        {
+            using (Ajax.BeginForm("PagingQuery", "VIRTestDataQuery"
+                            , new
+                            {
+                                @Where = cfg.Where,
+                                @OrderBy = cfg.OrderBy,
+                                @CurrentPageNo = cfg.PageNo,
+                                @CurrentPageSize = cfg.PageSize
+                            }
+                            , new AjaxOptions()
+                            {
+                                HttpMethod = "Post",
+                                UpdateTargetId = "_list"
+                            }
+                            , new { @class = "form-horizontal", resource = "form", id = "frmPagingQuery" }))
+            {
+                @Html.AntiForgeryToken()
+                <div>@Html.Partial("_PaginationPartial")</div>
+            }
+        }
+    </div>
+</div>
+
+

@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   namespace="ServiceCenter.MES.Model.ZPVC" 
+                   assembly="ServiceCenter.MES.Model.ZPVC">
+  <class name="PackageInfo" table="ZWIP_PACKAGE_INFO">
+    <id name="Key" column="PACKAGE_NO">
+      <generator class="assigned" />
+    </id>
+    <property name="ConfigGroup" column="CONFIG_GROUP"/>
+    <property name="ConfigCode" column="CONFIG_CODE"/>
+    <property name="EfficiencyName" column="EFFI_NAME"/>
+    <property name="EfficiencyLower" column="LOWER_EFFI"/>
+    <property name="EfficiencyUpper" column="UPPER_EFFI"/>
+    <property name="Grade" column="GRADE"/>
+    <property name="Color" column="COLOR"/>
+    <property name="LineCode" column="LINE_CODE"/>
+    <property name="PNType" column="PNTYPE"/>
+    <property name="ProductId" column="PRODID"/>
+    <property name="Creator" column="CREATOR"/>
+    <property name="CreateTime" column="CREATE_TIME"/>
+    <property name="Editor" column="EDITOR"/>
+    <property name="EditTime" column="EDIT_TIME"/>
+  </class>
+</hibernate-mapping>

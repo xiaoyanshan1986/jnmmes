@@ -1,0 +1,60 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.PPM.Models.WorkOrderBOMViewModel
+@using ServiceCenter.Common;
+
+@Html.ValidationSummary(true)
+<div class="form-group">
+    @Html.LabelFor(m => m.OrderNumber, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        <p class="form-control-static">@Model.OrderNumber</p>
+        @Html.HiddenFor(m => m.OrderNumber)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.ItemNo, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        <p class="form-control-static">@Model.ItemNo</p>
+        @Html.HiddenFor(m => m.ItemNo)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.MaterialCode, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.MaterialCode, new { @class = "form-control", @id = "txtModifyMaterialCode" })
+        @Html.ValidationMessageFor(m => m.MaterialCode)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.Qty, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.Qty, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Qty)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.MaterialUnit, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.MaterialUnit, new { @class = "form-control", @id = "txtModifyMaterialUnit", @readonly = "readonly" })
+        @Html.ValidationMessageFor(m => m.MaterialUnit)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.WorkCenter, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.WorkCenter, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.WorkCenter)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.StoreLocation, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.StoreLocation, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.StoreLocation)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.Description, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.Description, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Description)
+    </div>
+</div>

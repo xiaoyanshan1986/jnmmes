@@ -1,0 +1,73 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.ERP.Models.WOReportDetailViewModel
+@using ServiceCenter.Client.Mvc.Areas.ERP.Models;
+@using ServiceCenter.Client.Mvc.Resources;
+@using ZPVMResources = ServiceCenter.Client.Mvc.Resources.ERP;
+@using ServiceCenter.MES.Model.ERP;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@using WIPRsources = ServiceCenter.Client.Mvc.Resources.WIP;
+@using ServiceCenter.MES.Model.WIP;
+@using ServiceCenter.MES.Model.BaseData;
+@{
+    PagingConfig cfg = ViewBag.PagingConfig;
+}
+<div id="_list">
+    <table class="table table-striped table-hover table-bordered table-condensed">
+        <thead>
+            <tr class="active">
+            <td align="center">@Html.DisplayNameFor(m => m.ItemNo)</td>            @*行号*@
+            <td align="center">@Html.DisplayNameFor(m => m.ObjectNumber)</td>      @*托号*@
+            <td align="center">@Html.DisplayNameFor(m => m.MaterialCode)</td>
+            <td align="center">@Html.DisplayNameFor(m => m.PackageCheckState)</td>
+            <td align="center">@Html.DisplayNameFor(m => m.OrderNumber)</td>
+            <td align="center">@Html.DisplayNameFor(m => m.Grade)</td>
+            <td align="center">@Html.DisplayNameFor(m => m.EffiName)</td>
+            <td align="center">@Html.DisplayNameFor(m => m.PsSubcode)</td>
+            <td align="center">@Html.DisplayNameFor(m => m.EffiCode)</td>
+            <td align="center">@Html.DisplayNameFor(m => m.Qty)</td>
+            <td align="center">@Html.DisplayNameFor(m => m.SumCoefPMax)</td>
+            <td align="center">@Html.DisplayNameFor(m => m.ERPStockInCode)</td>
+            <td align="center">@Html.DisplayNameFor(m => m.ERPStockInKey)</td>
+            <td align="center">取消检验</td>
+            </tr>
+        </thead>
+        @if (ViewBag.WOReportDetailList != null)
+        {
+                <tbody>
+            @for (int i = 0; i < ViewBag.WOReportDetailList.Length; i++)
+            {
+                WOReportDetail obj = ViewBag.WOReportDetailList[i];
+                <tr>
+                    <td align="center">@obj.Key.ItemNo</td>
+                    <td align="center">@obj.ObjectNumber</td>
+                    <td align="center">@obj.MaterialCode</td>
+                    <td align="center">@obj.PackageCheckState.GetDisplayName()</td>
+                    <td align="center">@obj.OrderNumber</td>
+                    <td align="center">@obj.Grade</td>
+                    <td align="center">@obj.EffiName</td>
+                    <td align="center">@obj.PsSubcode</td>
+                    <td align="center">@obj.EffiCode</td>
+                    <td align="center">@obj.Qty</td>
+                    <td align="center">@obj.SumCoefPMax</td>
+                    <td align="center">@obj.ERPStockInCode</td> 
+                    <td align="center">@obj.ERPStockInKey</td> 
+                    <td align="center">
+                        @Ajax.ActionLink("取消核对", actionName: null
+                                        , routeValues: null
+                                        , ajaxOptions: new AjaxOptions()
+                                        {
+                                            HttpMethod = "Post",
+                                            Confirm = string.Format("是否确认取消托号[{0}]已核对状态？", obj.ObjectNumber),
+                                            Url = Url.Action("UnCheck", new { @BillCode = obj.Key.BillCode, @PackageNo = obj.ObjectNumber }),
+                                            OnSuccess = "completeCancel",
+                                            OnBegin = "beginCancel"
+                                        }, htmlAttributes: new { @class = "btn btn-warning btn-sm btn-delete" })
+                    </td>                      
+                </tr>
+            }
+            </tbody>
+        }
+        </table>
+</div>
+
+

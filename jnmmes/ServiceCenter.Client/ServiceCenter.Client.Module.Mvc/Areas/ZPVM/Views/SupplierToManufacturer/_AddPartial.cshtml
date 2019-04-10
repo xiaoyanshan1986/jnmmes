@@ -1,0 +1,30 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.ZPVM.Models.SupplierToManufacturerViewModel
+<div class="form-group">
+    @Html.LabelFor(m => m.MaterialCode, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.MaterialCode, new { @class = "form-control", style = "text-transform:uppercase;ime-mode:inactive" })
+        @Html.ValidationMessageFor(m => m.MaterialCode)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.OrderNumber, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.OrderNumber, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.OrderNumber)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.SupplierCode, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.SupplierCode, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.SupplierCode)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.ManufacturerCode, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.ManufacturerCode, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.ManufacturerCode)
+    </div>
+</div>
+

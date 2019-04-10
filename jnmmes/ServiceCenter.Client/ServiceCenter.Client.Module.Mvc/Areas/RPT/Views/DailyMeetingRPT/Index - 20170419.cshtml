@@ -1,0 +1,409 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.RPT.Models.DailyMeetingRPTViewModel
+@using ServiceCenter.Model;
+@using ServiceCenter.Common;
+@using ServiceCenter.Client.Mvc.Areas.RPT.Models;
+@using RPTResources = ServiceCenter.Client.Mvc.Resources.RPT;
+@using ServiceCenter.Client.Mvc.Resources;
+
+@{
+    ViewBag.Title = RPTResources.StringResource.RPTDailyMeetingPageTitle;
+}
+<h2>@ViewBag.Title</h2>
+@using (Ajax.BeginForm("Query", "DailyMeetingRPT", null
+        , new AjaxOptions()
+        {
+            HttpMethod = "Post",
+            OnBegin = "beginRefresh",
+            //UpdateTargetId = "list",
+            UpdateTargetId = "ProducePcs",
+            OnSuccess = "completeRefresh"
+        }
+        , new { @class = "form-horizontal", resource = "form", id = "frmQuery" }))
+{
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <button type="submit" class="btn btn-primary" id="btnQuery">查询</button>
+    </div>
+    <div class="panel-body">
+        @Html.AntiForgeryToken()
+        <div class="form-group">
+            @*开始日期*@
+            <div class="col-md-1">
+                @Html.LabelFor(m => m.StartDate, new { @class = "control-label" })
+            </div>
+            <div class="col-md-2">
+                @Html.TextBoxFor(m => m.StartDate, "{0:yyyy-MM-dd}", new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.StartDate)
+            </div>
+            @*结束日期*@
+            <div class="col-md-1">
+                @Html.LabelFor(m => m.EndDate, new { @class = "control-label" })
+            </div>
+            <div class="col-md-2">
+                @Html.TextBoxFor(m => m.EndDate, "{0:yyyy-MM-dd}", new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.EndDate)
+            </div>
+            @*车间*@
+            <div class="col-md-1">
+                @Html.LabelFor(m => m.LocationName, new { @class = "control-label" })
+            </div>
+            <div class="col-md-2">
+                @Html.DropDownListFor(m => m.LocationName, @Model.GetLocations(), string.Empty, new { @class = "form-control" })
+            </div>
+        </div>
+        <div  class="form-group">
+            @*线别*@
+            <div class="col-md-1">
+                @Html.LabelFor(m => m.LineCode, new { @class = "control-label" })
+            </div>
+            <div class="col-md-2">
+                @Html.DropDownListFor(m => m.LineCode, @Model.GetProductionLineList(), string.Empty, new { @class = "form-control" })
+            </div>
+            @*工单*@
+            <div class="col-md-1">
+                @Html.LabelFor(m => m.OrderNumber, new { @class = "control-label" })
+            </div>
+            <div class="col-md-2">
+                @Html.TextBoxFor(m => m.OrderNumber, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.OrderNumber)
+            </div>
+            @*产品类型*@
+            @*<div class="col-md-1">
+                @Html.LabelFor(m => m.ProductID, new { @class = "control-label" })
+            </div>
+            <div class="col-md-2">
+                @Html.DropDownListFor(m => m.ProductID, @Model.GetProductName(), string.Empty, new { @class = "form-control" })
+            </div>*@
+
+            @*<div class="alert fade in hide" resource="alert" id="statusMessage" style="margin:0px">
+                <button type="button" class="close" onclick="hideStatusMessage()">
+                    <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+                </button>
+                <p></p>
+            </div>*@
+
+            @*报表代码*@
+            @Html.HiddenFor(m => m.ReportCode)
+
+            @*报表名称*@
+            @Html.HiddenFor(m => m.ReportName)
+        </div>
+        <div class="form-group">
+            @*错误信息显示*@
+            <div class="alert fade in hide" resource="alert" id="statusMessage" style="margin:0px">
+                <button type="button" class="close" onclick="hideStatusMessage()">
+                    <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+                </button>
+                <p></p>
+            </div>
+        </div>
+    </div> 
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="active"><a href="#ProducePcs" role="tab" data-toggle="tab" onfocus="this.blur()">产出PCS</a></li>
+        <li><a href="#ProduceMV" role="tab" data-toggle="tab" onfocus="this.blur()">产出MV</a></li>
+        <li><a href="#transaction" role="tab" data-toggle="tab" onfocus="this.blur()">加工历史</a></li>
+        <li><a href="#equipment" role="tab" data-toggle="tab" onfocus="this.blur()">批次设备</a></li>
+        <li><a href="#param" role="tab" data-toggle="tab" onfocus="this.blur()">批次参数</a></li>
+        <li><a href="#material" role="tab" data-toggle="tab" onfocus="this.blur()">批次用料</a></li>
+        <li><a href="#defect" role="tab" data-toggle="tab" onfocus="this.blur()">批次不良</a></li>
+        <li><a href="#scrap" role="tab" data-toggle="tab" onfocus="this.blur()">批次报废</a></li>
+        <li><a href="#patch" role="tab" data-toggle="tab" onfocus="this.blur()">批次补料</a></li>
+        <li><a href="#job" role="tab" data-toggle="tab" onfocus="this.blur()">批次定时作业</a></li>
+    </ul>
+    <!-- Tab panes -->
+    <div class="tab-content">
+        <div class="tab-pane active" id="ProducePcs" style="padding-top:10px">
+
+        </div>
+        <div class="tab-pane" style="padding-top:10px" id="ProduceMV">
+            @*图形控件*@
+            <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto">
+
+            </div>
+        </div>
+        <div class="tab-pane" style="padding-top:10px" id="transaction">
+
+        </div>
+        <div class="tab-pane" style="padding-top:10px" id="equipment">
+
+        </div>
+        <div class="tab-pane" style="padding-top:10px" id="param">
+
+        </div>
+        <div class="tab-pane" style="padding-top:10px" id="material">
+
+        </div>
+        <div class="tab-pane" style="padding-top:10px" id="defect">
+
+        </div>
+        <div class="tab-pane" style="padding-top:10px" id="scrap">
+
+        </div>
+        <div class="tab-pane" style="padding-top:10px" id="patch">
+
+        </div>
+        <div class="tab-pane" style="padding-top:10px" id="job">
+
+        </div>
+    </div>
+    <div id="list" style="overflow:auto">
+        @*@Html.Partial("_ListPartial", Model)*@
+    </div>
+</div>
+}
+@section Scripts {
+    <script src="~/Scripts/Highstock-2.1.5/highstock.js"></script>
+    <script src="~/Scripts/Highcharts-4.0.3/modules/exporting.js"></script>
+    @*查询*@
+    <script type="text/javascript" language="javascript">
+        @*日期格式*@
+        $(function () {
+            $("#StartDate,#EndDate").datepicker({
+                changeMonth: true,
+                changeYear: true,
+                dateFormat: "yy-mm-dd"
+            });
+
+            $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
+                if ($(e.target).attr("href") == "#ProducePcs")
+                {
+                    //产出PCS
+                    @*alert("ProducePcs");
+
+                    var url = "@Url.Action("QueryModuleDetail", "DailyMeetingRPT", new { model = "1251225225399" })";
+                    $("#ProducePcs").load(url);*@
+                }
+                else if ($(e.target).attr("href") == "#ProduceMV")
+                {
+                    //产出MV
+                    //var modeldata = "@Model.StartDate"ReportCode=
+                    var ReportCode = 'DAY0101';
+                    var StartDate = $("#StartDate").val();
+                    var EndDate = $("#EndDate").val();
+                    var LocationName = $("#LocationName").val();
+                    var LineCode = $("#LineCode").val();
+                    var OrderNumber = $("#OrderNumber").val();
+                    
+
+                    //var url = "@Url.Action("QueryTimeDetail", "DailyMeetingRPT", new { area = "RPT" })";
+                    var url = "@Url.Action("QueryTimeDetailForCharts", "DailyMeetingRPT", new { area = "RPT" })";
+
+                    url = url + "?ReportCode=" + ReportCode;
+                    url = url + "&StartDate=" + StartDate;
+                    url = url + "&EndDate=" + EndDate;
+                    url = url + "&LocationName=" + LocationName;
+                    url = url + "&LineCode=" + LineCode;
+                    url = url + "&OrderNumber=" + OrderNumber;
+                    //url = url + "?ReportCode=DAY0101&ReportName=组件日运营报表（产出PCS）&StartDate=2017-04-11&EndDate=2017-04-18&LocationName=&LineCode=&OrderNumber=&ProductID=";
+                    //url = "http://localhost:6103/RPT/DailyMeetingRPT/DetailIndex?ReportCode=DAY0101&ReportName=%E7%BB%84%E4%BB%B6%E6%97%A5%E8%BF%90%E8%90%A5%E6%8A%A5%E8%A1%A8%EF%BC%88%E4%BA%A7%E5%87%BAPCS%EF%BC%89&StartDate=2017-04-11&EndDate=2017-04-18&LocationName=&LineCode=&OrderNumber=&ProductID=";
+                    //url = "http://localhost:6103/RPT/RPTDailyData/DetailIndex?ReportCode=DAY0101&ReportName=%E7%BB%84%E4%BB%B6%E6%97%A5%E8%BF%90%E8%90%A5%E6%8A%A5%E8%A1%A8%EF%BC%88%E4%BA%A7%E5%87%BAPCS%EF%BC%89&StartDate=2017-04-11&EndDate=2017-04-18&LocationName=&LineCode=&OrderNumber=&ProductID=";
+
+                    $("#ProduceMV").load(url);
+
+                    //var da = $("#ProduceMV");
+
+                    //图形装载
+                    //Query(ReportCode);
+                }
+                else if ($(e.target).attr("href") == "#equipment")
+                {
+                    var url = "@Url.Action("GetLotEquipment", "LotQuery", new { LotNumber = "1251225225399" })";
+                    $("#equipment").load(url);
+                }
+                else if ($(e.target).attr("href") == "#defect")
+                {
+                    var url = "@Url.Action("GetLotDefect", "LotQuery", new { LotNumber = "1251225225399" })";
+                    $("#defect").load(url);
+                }
+                else if ($(e.target).attr("href") == "#scrap")
+                {
+                    var url = "@Url.Action("GetLotScrap", "LotQuery", new { LotNumber = "1251225225399" })";
+                    $("#scrap").load(url);
+                }
+                else if ($(e.target).attr("href") == "#patch")
+                {
+                    var url = "@Url.Action("GetLotPatch", "LotQuery", new { LotNumber = "1251225225399" })";
+                    $("#patch").load(url);
+                }
+                else if ($(e.target).attr("href") == "#material")
+                {
+                    var url = "@Url.Action("GetLotMaterial", "LotQuery", new { LotNumber = "1251225225399" })";
+                    $("#material").load(url);
+                }
+                else if ($(e.target).attr("href") == "#param")
+                {
+                    var url = "@Url.Action("GetLotParam", "LotQuery", new { LotNumber = "1251225225399" })";
+                    $("#param").load(url);
+                }
+                else if ($(e.target).attr("href") == "#job")
+                {
+                    var url = "@Url.Action("GetLotJob", "LotQuery", new { LotNumber = "1251225225399" })";
+                    $("#job").load(url);
+                }
+            })
+        });
+        
+        function loading() {
+            //查询数据
+            alert("123");
+        }
+
+        function beginRefresh(obj, req) {
+            var StartDate = $('#StartDate').val();
+            var EndDate = $("#EndDate").val();
+            req.data += "&StartDate=" + StartDate;
+            req.data += "&EndDate=" + EndDate;
+
+        }
+
+        function completeRefresh(result) {
+            if (result.Code > 0)
+            {
+                //alert(result.Message);
+                //显示错误信息
+                showErrorInfo(result);
+                return;
+            }                    
+        }
+
+        function showErrorInfo(result) {
+            $("#statusMessage").find("p").html(result.Message);
+            $("#statusMessage").removeClass("hide");
+            if (result.Code > 0) {
+                $("#statusMessage").removeClass("alert-success");
+                $("#statusMessage").addClass("alert-danger");
+            }
+            else {
+                $("#statusMessage").removeClass("alert-danger");
+                $("#statusMessage").addClass("alert-success");
+            }
+        }
+
+
+
+
+        function Query(ReportCode)
+        {
+            var StartDate = $('#StartDate').val();          //开始日期
+            var EndDate = $('#EndDate').val();              //结束日期
+            var LocationName = $("#LocationName").val();    //车间代码
+            var LineCode = $("#LineCode").val();            //线别代码
+            var OrderNumber = $("#OrderNumber").val();      //工单代码
+            //var ReportCode = $("#ReportCode").val();        //报表代码
+            var ReportName = $("#ReportName").val();        //报表名称
+            var ProductID = $("#ProductID").val();          //产品代码
+            $.ajax(
+                {
+                    type: "post",
+                    url: "@Url.Action("QueryModuleDetailForCharts", "DailyMeetingRPT")",
+                    data: {
+                    StartDate: StartDate,
+                    EndDate: EndDate,
+                    LocationName: LocationName,
+                    LineCode: LineCode,
+                    OrderNumber: OrderNumber,
+                    ReportCode: ReportCode,
+                    ReportName: ReportName,
+                    ProductID: ProductID
+                    },
+                async: false,
+                dataType: "json",
+                success: function (result)
+                {
+                    if (result != null)
+                    {
+                        alert(result.ReportName);
+                            
+                        var title = result.ReportName;
+                        var ColumnText = result.ColumnText;
+                        var SplineText = result.SplineText;
+                        var ColumnFormat = result.ColumnFormat;
+                        var SplineFormat = result.SplineFormat;
+                        var ShowColumnLabels = result.ShowColumnLabels;
+                        var ShowSplineLabels = result.ShowSplineLabels;
+                        var ColumnLabelsFormat = result.ColumnLabelsFormat;
+                        var SplineLabelsFormat = result.SplineLabelsFormat;
+                        var mAxis = eval("(" + result.mAxis + ")");
+                        var nAxis = eval("(" + result.nAxis + ")");
+                        var ColumnStacking = result.ColumnStacking;
+
+                        if (result.ShowSplineLabels == "true")
+                            ShowSplineLabels = true;
+                        else
+                            ShowSplineLabels = false;
+
+                        //列表数据刷新
+                        //refreshList();
+
+                        //图形装载
+                        highchartsInit(title, mAxis, nAxis, ColumnText, SplineText, ColumnFormat, SplineFormat, ShowColumnLabels, ShowSplineLabels, ColumnLabelsFormat, SplineLabelsFormat, ColumnStacking);
+
+                            
+                    }
+                }
+            });
+        }
+
+
+
+
+
+        //图形装载
+        function highchartsInit(TitleValue, xAxisData, yAxisData, ColumnText, SplineText, ColumnFormat, SplineFormat, ShowColumnLabels, ShowSplineLabels, ColumnLabelsFormat, SplineLabelsFormat, ColumnStacking) {
+            alert("456");
+            $("#ProduceMV").find("container");
+
+            //$('#container').highcharts({
+            $("#ProduceMV").find('container').highcharts({
+                title:
+                    {
+                        text: TitleValue
+                    },
+                xAxis: {
+                    categories: xAxisData
+                },
+                yAxis: [{
+                    lineWidth: 1,
+                    title: {
+                        text: ColumnText,
+                    },
+                    labels: {
+                        format: ColumnFormat,
+                    },
+                    tooltip: {
+                        enabled: true,
+                    },
+                },
+                {
+                    lineWidth: 1,
+                    labels: {
+                        format: SplineFormat,
+                    },
+                    title: {
+                        text: SplineText,
+                    },
+                    tooltip: {
+                        enabled: true,
+                    },
+                    opposite: true
+                }],
+                plotOptions: {
+                    line: {
+                        dataLabels: {
+                            enabled: ShowSplineLabels, //是否显示数据标签
+                            format: SplineLabelsFormat,
+                        }
+                    },
+                    column: {
+                        stacking: ColumnStacking,
+                        dataLabels: {
+                            enabled: ShowColumnLabels, //是否显示数据标签
+                            format: ColumnLabelsFormat,
+                        }
+                    }
+                },
+                series: yAxisData
+            });
+        }
+    </script>
+}

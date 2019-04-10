@@ -1,0 +1,113 @@
+2017-06-15 16:08:41,538 - ERROR - START>Application
+2017-06-15 16:26:20,000 - ERROR - START>Application
+2017-06-15 16:30:41,887 - ERROR - START>Application
+2017-06-15 16:31:08,246 - ERROR - Could not load type ServiceCenter.MES.Model.EDC.DataAcquisitionField, ServiceCenter.MES.Model.EDC.
+System.TypeLoadException: 未能从程序集“ServiceCenter.MES.Model.EDC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null”中加载类型“ServiceCenter.MES.Model.EDC.DataAcquisitionField”。
+   在 System.Reflection.RuntimeAssembly.GetType(RuntimeAssembly assembly, String name, Boolean throwOnError, Boolean ignoreCase, ObjectHandleOnStack type)
+   在 System.Reflection.RuntimeAssembly.GetType(String name, Boolean throwOnError, Boolean ignoreCase)
+   在 NHibernate.Util.ReflectHelper.TypeFromAssembly(AssemblyQualifiedTypeName name, Boolean throwOnError) 位置 p:\nhibernate-core\src\NHibernate\Util\ReflectHelper.cs:行号 291
+2017-06-15 16:31:08,443 - ERROR - Could not compile the mapping document: ServiceCenter.MES.DataAccess.EDC.hbm.DataAcquisitionField.hbm.xml
+NHibernate.MappingException: Could not compile the mapping document: ServiceCenter.MES.DataAccess.EDC.hbm.DataAcquisitionField.hbm.xml ---> NHibernate.MappingException: persistent class ServiceCenter.MES.Model.EDC.DataAcquisitionField, ServiceCenter.MES.Model.EDC not found ---> System.TypeLoadException: 未能从程序集“ServiceCenter.MES.Model.EDC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null”中加载类型“ServiceCenter.MES.Model.EDC.DataAcquisitionField”。
+   在 System.Reflection.RuntimeAssembly.GetType(RuntimeAssembly assembly, String name, Boolean throwOnError, Boolean ignoreCase, ObjectHandleOnStack type)
+   在 System.Reflection.RuntimeAssembly.GetType(String name, Boolean throwOnError, Boolean ignoreCase)
+   在 NHibernate.Util.ReflectHelper.TypeFromAssembly(AssemblyQualifiedTypeName name, Boolean throwOnError) 位置 p:\nhibernate-core\src\NHibernate\Util\ReflectHelper.cs:行号 308
+   在 NHibernate.Util.ReflectHelper.ClassForName(String name) 位置 p:\nhibernate-core\src\NHibernate\Util\ReflectHelper.cs:行号 181
+   在 NHibernate.Cfg.XmlHbmBinding.Binder.ClassForFullNameChecked(String fullName, String errorMessage) 位置 p:\nhibernate-core\src\NHibernate\Cfg\XmlHbmBinding\Binder.cs:行号 99
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 NHibernate.Cfg.XmlHbmBinding.Binder.ClassForFullNameChecked(String fullName, String errorMessage) 位置 p:\nhibernate-core\src\NHibernate\Cfg\XmlHbmBinding\Binder.cs:行号 103
+   在 NHibernate.Cfg.XmlHbmBinding.Binder.ClassForNameChecked(String name, Mappings mappings, String errorMessage) 位置 p:\nhibernate-core\src\NHibernate\Cfg\XmlHbmBinding\Binder.cs:行号 117
+   在 NHibernate.Cfg.XmlHbmBinding.ClassBinder.BindClass(IEntityMapping classMapping, PersistentClass model, IDictionary`2 inheritedMetas) 位置 p:\nhibernate-core\src\NHibernate\Cfg\XmlHbmBinding\ClassBinder.cs:行号 32
+   在 NHibernate.Cfg.XmlHbmBinding.RootClassBinder.Bind(HbmClass classSchema, IDictionary`2 inheritedMetas) 位置 p:\nhibernate-core\src\NHibernate\Cfg\XmlHbmBinding\RootClassBinder.cs:行号 21
+   在 NHibernate.Cfg.XmlHbmBinding.MappingRootBinder.AddRootClasses(HbmClass rootClass, IDictionary`2 inheritedMetas) 位置 p:\nhibernate-core\src\NHibernate\Cfg\XmlHbmBinding\MappingRootBinder.cs:行号 84
+   在 NHibernate.Cfg.XmlHbmBinding.MappingRootBinder.AddEntitiesMappings(HbmMapping mappingSchema, IDictionary`2 inheritedMetas) 位置 p:\nhibernate-core\src\NHibernate\Cfg\XmlHbmBinding\MappingRootBinder.cs:行号 42
+   在 NHibernate.Cfg.XmlHbmBinding.MappingRootBinder.Bind(HbmMapping mappingSchema) 位置 p:\nhibernate-core\src\NHibernate\Cfg\XmlHbmBinding\MappingRootBinder.cs:行号 31
+   在 NHibernate.Cfg.Configuration.AddDeserializedMapping(HbmMapping mappingDocument, String documentFileName) 位置 p:\nhibernate-core\src\NHibernate\Cfg\Configuration.cs:行号 523
+   --- 内部异常堆栈跟踪的结尾 ---
+2017-06-15 16:31:08,705 - ERROR - Problem parsing configuration
+NHibernate.MappingException: Could not compile the mapping document: ServiceCenter.MES.DataAccess.EDC.hbm.DataAcquisitionField.hbm.xml ---> NHibernate.MappingException: persistent class ServiceCenter.MES.Model.EDC.DataAcquisitionField, ServiceCenter.MES.Model.EDC not found ---> System.TypeLoadException: 未能从程序集“ServiceCenter.MES.Model.EDC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null”中加载类型“ServiceCenter.MES.Model.EDC.DataAcquisitionField”。
+   在 System.Reflection.RuntimeAssembly.GetType(RuntimeAssembly assembly, String name, Boolean throwOnError, Boolean ignoreCase, ObjectHandleOnStack type)
+   在 System.Reflection.RuntimeAssembly.GetType(String name, Boolean throwOnError, Boolean ignoreCase)
+   在 NHibernate.Util.ReflectHelper.TypeFromAssembly(AssemblyQualifiedTypeName name, Boolean throwOnError) 位置 p:\nhibernate-core\src\NHibernate\Util\ReflectHelper.cs:行号 308
+   在 NHibernate.Util.ReflectHelper.ClassForName(String name) 位置 p:\nhibernate-core\src\NHibernate\Util\ReflectHelper.cs:行号 181
+   在 NHibernate.Cfg.XmlHbmBinding.Binder.ClassForFullNameChecked(String fullName, String errorMessage) 位置 p:\nhibernate-core\src\NHibernate\Cfg\XmlHbmBinding\Binder.cs:行号 99
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 NHibernate.Cfg.XmlHbmBinding.Binder.ClassForFullNameChecked(String fullName, String errorMessage) 位置 p:\nhibernate-core\src\NHibernate\Cfg\XmlHbmBinding\Binder.cs:行号 103
+   在 NHibernate.Cfg.XmlHbmBinding.Binder.ClassForNameChecked(String name, Mappings mappings, String errorMessage) 位置 p:\nhibernate-core\src\NHibernate\Cfg\XmlHbmBinding\Binder.cs:行号 117
+   在 NHibernate.Cfg.XmlHbmBinding.ClassBinder.BindClass(IEntityMapping classMapping, PersistentClass model, IDictionary`2 inheritedMetas) 位置 p:\nhibernate-core\src\NHibernate\Cfg\XmlHbmBinding\ClassBinder.cs:行号 32
+   在 NHibernate.Cfg.XmlHbmBinding.RootClassBinder.Bind(HbmClass classSchema, IDictionary`2 inheritedMetas) 位置 p:\nhibernate-core\src\NHibernate\Cfg\XmlHbmBinding\RootClassBinder.cs:行号 21
+   在 NHibernate.Cfg.XmlHbmBinding.MappingRootBinder.AddRootClasses(HbmClass rootClass, IDictionary`2 inheritedMetas) 位置 p:\nhibernate-core\src\NHibernate\Cfg\XmlHbmBinding\MappingRootBinder.cs:行号 84
+   在 NHibernate.Cfg.XmlHbmBinding.MappingRootBinder.AddEntitiesMappings(HbmMapping mappingSchema, IDictionary`2 inheritedMetas) 位置 p:\nhibernate-core\src\NHibernate\Cfg\XmlHbmBinding\MappingRootBinder.cs:行号 42
+   在 NHibernate.Cfg.XmlHbmBinding.MappingRootBinder.Bind(HbmMapping mappingSchema) 位置 p:\nhibernate-core\src\NHibernate\Cfg\XmlHbmBinding\MappingRootBinder.cs:行号 31
+   在 NHibernate.Cfg.Configuration.AddDeserializedMapping(HbmMapping mappingDocument, String documentFileName) 位置 p:\nhibernate-core\src\NHibernate\Cfg\Configuration.cs:行号 523
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 NHibernate.Cfg.Configuration.LogAndThrow(Exception exception) 位置 p:\nhibernate-core\src\NHibernate\Cfg\Configuration.cs:行号 342
+   在 NHibernate.Cfg.Configuration.AddDeserializedMapping(HbmMapping mappingDocument, String documentFileName) 位置 p:\nhibernate-core\src\NHibernate\Cfg\Configuration.cs:行号 530
+   在 NHibernate.Cfg.Configuration.AddValidatedDocument(NamedXmlDocument doc) 位置 p:\nhibernate-core\src\NHibernate\Cfg\Configuration.cs:行号 500
+   在 NHibernate.Cfg.Configuration.ProcessMappingsQueue() 位置 p:\nhibernate-core\src\NHibernate\Cfg\Configuration.cs:行号 1865
+   在 NHibernate.Cfg.Configuration.AddDocumentThroughQueue(NamedXmlDocument document) 位置 p:\nhibernate-core\src\NHibernate\Cfg\Configuration.cs:行号 1857
+   在 NHibernate.Cfg.Configuration.AddXmlReader(XmlReader hbmReader, String name) 位置 p:\nhibernate-core\src\NHibernate\Cfg\Configuration.cs:行号 1850
+   在 NHibernate.Cfg.Configuration.AddInputStream(Stream xmlInputStream, String name) 位置 p:\nhibernate-core\src\NHibernate\Cfg\Configuration.cs:行号 638
+   在 NHibernate.Cfg.Configuration.AddResource(String path, Assembly assembly) 位置 p:\nhibernate-core\src\NHibernate\Cfg\Configuration.cs:行号 676
+   在 NHibernate.Cfg.Configuration.AddAssembly(Assembly assembly) 位置 p:\nhibernate-core\src\NHibernate\Cfg\Configuration.cs:行号 769
+   在 NHibernate.Cfg.Configuration.AddAssembly(String assemblyName) 位置 p:\nhibernate-core\src\NHibernate\Cfg\Configuration.cs:行号 752
+   在 NHibernate.Cfg.Configuration.DoConfigure(ISessionFactoryConfiguration factoryConfiguration) 位置 p:\nhibernate-core\src\NHibernate\Cfg\Configuration.cs:行号 1574
+   在 NHibernate.Cfg.Configuration.Configure(XmlReader textReader) 位置 p:\nhibernate-core\src\NHibernate\Cfg\Configuration.cs:行号 1539
+2017-06-15 20:38:54,326 - ERROR - START>Application
+2017-06-15 21:56:26,532 - ERROR - START>Application
+2017-06-15 22:06:10,914 - ERROR - START>Application
+2017-06-15 22:19:23,334 - ERROR - START>Application
+2017-06-15 22:21:22,644 - ERROR - Could not load type ServiceCenter.MES.Model.EDC.DataAcquisitionField, ServiceCenter.MES.Model.EDC.
+System.TypeLoadException: 未能从程序集“ServiceCenter.MES.Model.EDC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null”中加载类型“ServiceCenter.MES.Model.EDC.DataAcquisitionField”。
+   在 System.Reflection.RuntimeAssembly.GetType(RuntimeAssembly assembly, String name, Boolean throwOnError, Boolean ignoreCase, ObjectHandleOnStack type)
+   在 System.Reflection.RuntimeAssembly.GetType(String name, Boolean throwOnError, Boolean ignoreCase)
+   在 System.Reflection.Assembly.GetType(String name, Boolean throwOnError)
+   在 NHibernate.Util.ReflectHelper.TypeFromAssembly(AssemblyQualifiedTypeName name, Boolean throwOnError) 位置 p:\nhibernate-core\src\NHibernate\Util\ReflectHelper.cs:行号 291
+2017-06-15 22:21:22,741 - ERROR - Could not compile the mapping document: ServiceCenter.MES.DataAccess.EDC.hbm.DataAcquisitionField.hbm.xml
+NHibernate.MappingException: Could not compile the mapping document: ServiceCenter.MES.DataAccess.EDC.hbm.DataAcquisitionField.hbm.xml ---> NHibernate.MappingException: persistent class ServiceCenter.MES.Model.EDC.DataAcquisitionField, ServiceCenter.MES.Model.EDC not found ---> System.TypeLoadException: 未能从程序集“ServiceCenter.MES.Model.EDC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null”中加载类型“ServiceCenter.MES.Model.EDC.DataAcquisitionField”。
+   在 System.Reflection.RuntimeAssembly.GetType(RuntimeAssembly assembly, String name, Boolean throwOnError, Boolean ignoreCase, ObjectHandleOnStack type)
+   在 System.Reflection.RuntimeAssembly.GetType(String name, Boolean throwOnError, Boolean ignoreCase)
+   在 System.Reflection.Assembly.GetType(String name, Boolean throwOnError)
+   在 NHibernate.Util.ReflectHelper.TypeFromAssembly(AssemblyQualifiedTypeName name, Boolean throwOnError) 位置 p:\nhibernate-core\src\NHibernate\Util\ReflectHelper.cs:行号 307
+   在 NHibernate.Util.ReflectHelper.ClassForName(String name) 位置 p:\nhibernate-core\src\NHibernate\Util\ReflectHelper.cs:行号 181
+   在 NHibernate.Cfg.XmlHbmBinding.Binder.ClassForFullNameChecked(String fullName, String errorMessage) 位置 p:\nhibernate-core\src\NHibernate\Cfg\XmlHbmBinding\Binder.cs:行号 99
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 NHibernate.Cfg.XmlHbmBinding.Binder.ClassForFullNameChecked(String fullName, String errorMessage) 位置 p:\nhibernate-core\src\NHibernate\Cfg\XmlHbmBinding\Binder.cs:行号 103
+   在 NHibernate.Cfg.XmlHbmBinding.Binder.ClassForNameChecked(String name, Mappings mappings, String errorMessage) 位置 p:\nhibernate-core\src\NHibernate\Cfg\XmlHbmBinding\Binder.cs:行号 117
+   在 NHibernate.Cfg.XmlHbmBinding.ClassBinder.BindClass(IEntityMapping classMapping, PersistentClass model, IDictionary`2 inheritedMetas) 位置 p:\nhibernate-core\src\NHibernate\Cfg\XmlHbmBinding\ClassBinder.cs:行号 32
+   在 NHibernate.Cfg.XmlHbmBinding.RootClassBinder.Bind(HbmClass classSchema, IDictionary`2 inheritedMetas) 位置 p:\nhibernate-core\src\NHibernate\Cfg\XmlHbmBinding\RootClassBinder.cs:行号 19
+   在 NHibernate.Cfg.XmlHbmBinding.MappingRootBinder.AddRootClasses(HbmClass rootClass, IDictionary`2 inheritedMetas) 位置 p:\nhibernate-core\src\NHibernate\Cfg\XmlHbmBinding\MappingRootBinder.cs:行号 83
+   在 NHibernate.Cfg.XmlHbmBinding.MappingRootBinder.AddEntitiesMappings(HbmMapping mappingSchema, IDictionary`2 inheritedMetas) 位置 p:\nhibernate-core\src\NHibernate\Cfg\XmlHbmBinding\MappingRootBinder.cs:行号 42
+   在 NHibernate.Cfg.XmlHbmBinding.MappingRootBinder.Bind(HbmMapping mappingSchema) 位置 p:\nhibernate-core\src\NHibernate\Cfg\XmlHbmBinding\MappingRootBinder.cs:行号 29
+   在 NHibernate.Cfg.Configuration.AddDeserializedMapping(HbmMapping mappingDocument, String documentFileName) 位置 p:\nhibernate-core\src\NHibernate\Cfg\Configuration.cs:行号 522
+   --- 内部异常堆栈跟踪的结尾 ---
+2017-06-15 22:21:22,847 - ERROR - Problem parsing configuration
+NHibernate.MappingException: Could not compile the mapping document: ServiceCenter.MES.DataAccess.EDC.hbm.DataAcquisitionField.hbm.xml ---> NHibernate.MappingException: persistent class ServiceCenter.MES.Model.EDC.DataAcquisitionField, ServiceCenter.MES.Model.EDC not found ---> System.TypeLoadException: 未能从程序集“ServiceCenter.MES.Model.EDC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null”中加载类型“ServiceCenter.MES.Model.EDC.DataAcquisitionField”。
+   在 System.Reflection.RuntimeAssembly.GetType(RuntimeAssembly assembly, String name, Boolean throwOnError, Boolean ignoreCase, ObjectHandleOnStack type)
+   在 System.Reflection.RuntimeAssembly.GetType(String name, Boolean throwOnError, Boolean ignoreCase)
+   在 System.Reflection.Assembly.GetType(String name, Boolean throwOnError)
+   在 NHibernate.Util.ReflectHelper.TypeFromAssembly(AssemblyQualifiedTypeName name, Boolean throwOnError) 位置 p:\nhibernate-core\src\NHibernate\Util\ReflectHelper.cs:行号 307
+   在 NHibernate.Util.ReflectHelper.ClassForName(String name) 位置 p:\nhibernate-core\src\NHibernate\Util\ReflectHelper.cs:行号 181
+   在 NHibernate.Cfg.XmlHbmBinding.Binder.ClassForFullNameChecked(String fullName, String errorMessage) 位置 p:\nhibernate-core\src\NHibernate\Cfg\XmlHbmBinding\Binder.cs:行号 99
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 NHibernate.Cfg.XmlHbmBinding.Binder.ClassForFullNameChecked(String fullName, String errorMessage) 位置 p:\nhibernate-core\src\NHibernate\Cfg\XmlHbmBinding\Binder.cs:行号 103
+   在 NHibernate.Cfg.XmlHbmBinding.Binder.ClassForNameChecked(String name, Mappings mappings, String errorMessage) 位置 p:\nhibernate-core\src\NHibernate\Cfg\XmlHbmBinding\Binder.cs:行号 117
+   在 NHibernate.Cfg.XmlHbmBinding.ClassBinder.BindClass(IEntityMapping classMapping, PersistentClass model, IDictionary`2 inheritedMetas) 位置 p:\nhibernate-core\src\NHibernate\Cfg\XmlHbmBinding\ClassBinder.cs:行号 32
+   在 NHibernate.Cfg.XmlHbmBinding.RootClassBinder.Bind(HbmClass classSchema, IDictionary`2 inheritedMetas) 位置 p:\nhibernate-core\src\NHibernate\Cfg\XmlHbmBinding\RootClassBinder.cs:行号 19
+   在 NHibernate.Cfg.XmlHbmBinding.MappingRootBinder.AddRootClasses(HbmClass rootClass, IDictionary`2 inheritedMetas) 位置 p:\nhibernate-core\src\NHibernate\Cfg\XmlHbmBinding\MappingRootBinder.cs:行号 83
+   在 NHibernate.Cfg.XmlHbmBinding.MappingRootBinder.AddEntitiesMappings(HbmMapping mappingSchema, IDictionary`2 inheritedMetas) 位置 p:\nhibernate-core\src\NHibernate\Cfg\XmlHbmBinding\MappingRootBinder.cs:行号 42
+   在 NHibernate.Cfg.XmlHbmBinding.MappingRootBinder.Bind(HbmMapping mappingSchema) 位置 p:\nhibernate-core\src\NHibernate\Cfg\XmlHbmBinding\MappingRootBinder.cs:行号 29
+   在 NHibernate.Cfg.Configuration.AddDeserializedMapping(HbmMapping mappingDocument, String documentFileName) 位置 p:\nhibernate-core\src\NHibernate\Cfg\Configuration.cs:行号 522
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 NHibernate.Cfg.Configuration.LogAndThrow(Exception exception) 位置 p:\nhibernate-core\src\NHibernate\Cfg\Configuration.cs:行号 342
+   在 NHibernate.Cfg.Configuration.AddDeserializedMapping(HbmMapping mappingDocument, String documentFileName) 位置 p:\nhibernate-core\src\NHibernate\Cfg\Configuration.cs:行号 530
+   在 NHibernate.Cfg.Configuration.AddValidatedDocument(NamedXmlDocument doc) 位置 p:\nhibernate-core\src\NHibernate\Cfg\Configuration.cs:行号 499
+   在 NHibernate.Cfg.Configuration.ProcessMappingsQueue() 位置 p:\nhibernate-core\src\NHibernate\Cfg\Configuration.cs:行号 1865
+   在 NHibernate.Cfg.Configuration.AddDocumentThroughQueue(NamedXmlDocument document) 位置 p:\nhibernate-core\src\NHibernate\Cfg\Configuration.cs:行号 1856
+   在 NHibernate.Cfg.Configuration.AddXmlReader(XmlReader hbmReader, String name) 位置 p:\nhibernate-core\src\NHibernate\Cfg\Configuration.cs:行号 1849
+   在 NHibernate.Cfg.Configuration.AddInputStream(Stream xmlInputStream, String name) 位置 p:\nhibernate-core\src\NHibernate\Cfg\Configuration.cs:行号 638
+   在 NHibernate.Cfg.Configuration.AddResource(String path, Assembly assembly) 位置 p:\nhibernate-core\src\NHibernate\Cfg\Configuration.cs:行号 676
+   在 NHibernate.Cfg.Configuration.AddAssembly(Assembly assembly) 位置 p:\nhibernate-core\src\NHibernate\Cfg\Configuration.cs:行号 769
+   在 NHibernate.Cfg.Configuration.AddAssembly(String assemblyName) 位置 p:\nhibernate-core\src\NHibernate\Cfg\Configuration.cs:行号 752
+   在 NHibernate.Cfg.Configuration.DoConfigure(ISessionFactoryConfiguration factoryConfiguration) 位置 p:\nhibernate-core\src\NHibernate\Cfg\Configuration.cs:行号 1574
+   在 NHibernate.Cfg.Configuration.Configure(XmlReader textReader) 位置 p:\nhibernate-core\src\NHibernate\Cfg\Configuration.cs:行号 1539
+2017-06-15 23:06:03,124 - ERROR - START>Application

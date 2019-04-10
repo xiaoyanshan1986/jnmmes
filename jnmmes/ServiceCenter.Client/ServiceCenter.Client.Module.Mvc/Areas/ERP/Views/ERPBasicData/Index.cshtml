@@ -1,0 +1,67 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.ERP.Models.ERPBasicDataViewModels
+@using ServiceCenter.Model;
+@using ServiceCenter.Common;
+@using ServiceCenter.Client.Mvc.Areas.ERP.Models;
+@using ERP = ServiceCenter.Client.Mvc.Resources.ERP;
+@using ServiceCenter.Client.Mvc.Resources;
+
+@{
+    ViewBag.Title = "ERP基础数据同步";
+}
+<h2>@ViewBag.Title</h2>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        &nbsp;
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-2">
+                @Ajax.ActionLink("物料类型同步", actionName: null
+                                    , routeValues: null
+                                    , ajaxOptions: new AjaxOptions()
+                                    {
+                                        HttpMethod = "Post",
+                                        UpdateTargetId = "list",
+                                        Url = Url.Action("AddMaterialTypeFromERP", new { }),
+
+                                    }
+                                , htmlAttributes: new { @class = "btn btn-default", @id = "btnAddMaterialType" })
+            </div>
+         </div>
+    </div>
+    <div class="alert fade in hide" resource="alert" id="statusMessage" style="margin:0px">
+        <button type="button" class="close" onclick="hideStatusMessage()">
+            <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+        </button>
+        <p></p>
+    </div>
+</div>
+
+
+@section Scripts {
+    <script type="text/javascript" language="javascript">
+        function hideStatusMessage() {
+            $("#statusMessage").addClass("hide");
+        }
+
+        function beginQuery() {
+            $("#btnQuery").attr("disabled", "disabled");
+            hideStatusMessage();
+        }
+
+        function completeQuery(result) {
+            $("#btnQuery").removeAttr("disabled");
+            var json = JSON.parse(result.responseText);
+            if (json.Code > 0) {
+                $("#statusMessage").removeClass("hide");
+                $("#statusMessage").removeClass("alert-success");
+                $("#statusMessage").addClass("alert-danger");
+                $("#statusMessage").find("p").html(json.Message);
+            }
+            else {
+                location.href = "/ERP/ERPWorkOrder/Detail?OrderNumber=" + $("#OrderNumber").val();
+            }
+        }
+    </script>
+}

@@ -1,0 +1,111 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.RPT.Models.LotMaterialListOutViewModel
+@using ServiceCenter.Client.Mvc.Resources;
+@using RPTResources = ServiceCenter.Client.Mvc.Resources.RPT;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@using System.Data;
+@{
+
+    PagingConfig cfg = ViewBag.PagingConfig;
+    DataTable dtList = ViewBag.ListData;
+}
+
+@if (dtList != null)
+{
+    <div id="_list" style="overflow:auto">
+        <table class="table table-hover table-bordered table-condensed table-responsive table-striped">
+            <thead>
+                <tr class="active">
+                    <td nowrap>序号</td>
+                    <td nowrap>产品编码</td>
+                    <td nowrap>产品名称</td>
+                    <td nowrap>产品规格</td>
+                    <td nowrap>产品型号</td>
+                    <td nowrap>物料编码</td>
+                    <td nowrap>物料名称</td>
+                    <td nowrap>出货仓库</td>
+                    <td nowrap>出库托号</td>
+                    <td nowrap>用料批次数</td>
+                    <td nowrap>销售订单号</td>
+                    <td nowrap>销售出库单号</td>
+                    <td nowrap>销售出库单单据日期</td>
+                    <td nowrap>销售出库单签字日期</td>
+                    <td nowrap>客户编码</td>
+                    <td nowrap>客户名称</td>
+                    <td nowrap>业务员</td>
+                </tr>
+            </thead>
+            <tbody>
+                @if (dtList != null)
+                {
+                    for (int i = 0; i < dtList.Rows.Count; i++)
+                    {
+                        System.Data.DataRow obj = dtList.Rows[i];
+
+                        <tr>
+                            <td nowrap>@obj["序号"]</td>
+                            <td nowrap>@obj["产品编码"]</td>
+                            <td nowrap>@obj["产品名称"]</td>
+                            <td nowrap>@obj["产品规格"]</td>
+                            <td nowrap>@obj["产品型号"]</td>
+                            <td nowrap>@obj["物料编码"]</td>
+                            <td nowrap>@obj["物料名称"]</td>
+                            <td nowrap>@obj["出货仓库"]</td>
+                            <td nowrap>@obj["出库托号"]</td>
+                            <td nowrap>@obj["用料批次数"]</td>
+                            <td nowrap>@obj["销售订单号"]</td>
+                            <td nowrap>@obj["销售出库单号"]</td>
+                            <td nowrap>@obj["销售出库单单据日期"]</td>
+                            <td nowrap>@obj["销售出库单签字日期"]</td>
+                            <td nowrap>@obj["客户编码"]</td>
+                            <td nowrap>@obj["客户名称"]</td>
+                            <td nowrap>@obj["业务员"]</td>
+                        </tr>
+                    }
+                }
+            </tbody>
+
+        </table>
+        <div style="margin-top:-18px">
+            @if (cfg != null)
+            {
+                using (Ajax.BeginForm("PagingQuery", "LotMaterialList"
+                                , null
+                                , new AjaxOptions()
+                                {
+                                    HttpMethod = "Post",
+                                    UpdateTargetId = "_list",
+
+                                }
+                                , new
+                                {
+                                    @class = "form-horizontal",
+                                    resource = "form",
+                                    id = "frmPagingQuery"
+                                }
+                                ))
+                {
+                    @Html.AntiForgeryToken()
+                    <div>@Html.Partial("_PaginationPartial")</div>
+                }
+            }
+            else
+            {
+
+            }
+        </div>
+    </div>
+}
+else
+{ 
+<div class="alert-danger" resource="alert" id="statusMessage" style="margin:0px">
+    <button type="button" class="close" onclick="hideStatusMessage()">
+        <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+    </button>
+    <p>@ViewBag.Message</p>
+</div>
+}
+
+
+
+

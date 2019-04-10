@@ -1,0 +1,365 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3CFBC1CE-0C07-4589-B12B-C22E67114AF1}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ServiceCenter.Host</RootNamespace>
+    <AssemblyName>ServiceCenter.Host</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=4.1.0.0, Culture=neutral, PublicKeyToken=e44a2bc38ed2c13c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\libs\entlib\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Data, Version=6.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\libs\entlib\Microsoft.Practices.EnterpriseLibrary.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\libs\entlib\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\libs\entlib\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\libs\entlib\Microsoft.Practices.Unity.Interception.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception.Configuration, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\libs\entlib\Microsoft.Practices.Unity.Interception.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate">
+      <HintPath>..\..\libs\NHibernate\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="config\module.release.hibernate.cfg.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="config\module.debug.hibernate.cfg.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Global.asax" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class\SessionFactory.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="config\module.debug.container.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\ServiceCenter.Modules\BASE\ServiceCenter.MES.DataAccess.BaseData\ServiceCenter.MES.DataAccess.BaseData.csproj">
+      <Project>{99e7b39d-7693-4e17-8946-98c5bbbab3b2}</Project>
+      <Name>ServiceCenter.MES.DataAccess.BaseData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ServiceCenter.Modules\BASE\ServiceCenter.MES.Service.BaseData\ServiceCenter.MES.Service.BaseData.csproj">
+      <Project>{572f7ab4-d7df-4ad6-87f7-d3ff57bc7113}</Project>
+      <Name>ServiceCenter.MES.Service.BaseData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ServiceCenter.Modules\BASE\ServiceCenter.MES.Service.Contract.BaseData\ServiceCenter.MES.Service.Contract.BaseData.csproj">
+      <Project>{12667a93-dc84-41a9-8589-907154adcc43}</Project>
+      <Name>ServiceCenter.MES.Service.Contract.BaseData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ServiceCenter.Modules\EDC\ServiceCenter.MES.DataAccess.EDC\ServiceCenter.MES.DataAccess.EDC.csproj">
+      <Project>{d4f7608c-70f9-4232-aacd-fe24b1397723}</Project>
+      <Name>ServiceCenter.MES.DataAccess.EDC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ServiceCenter.Modules\EDC\ServiceCenter.MES.Service.Contract.EDC\ServiceCenter.MES.Service.Contract.EDC.csproj">
+      <Project>{e52d9f4e-308a-421e-bf71-9957a10d3558}</Project>
+      <Name>ServiceCenter.MES.Service.Contract.EDC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ServiceCenter.Modules\EDC\ServiceCenter.MES.Service.EDC\ServiceCenter.MES.Service.EDC.csproj">
+      <Project>{a95d0215-7d39-472d-8e94-fccf9a643016}</Project>
+      <Name>ServiceCenter.MES.Service.EDC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ServiceCenter.Modules\EMS\ServiceCenter.MES.DataAccess.EMS\ServiceCenter.MES.DataAccess.EMS.csproj">
+      <Project>{d9e782bf-89c1-4604-abc4-d2070fb7a087}</Project>
+      <Name>ServiceCenter.MES.DataAccess.EMS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ServiceCenter.Modules\EMS\ServiceCenter.MES.Service.Contract.EMS\ServiceCenter.MES.Service.Contract.EMS.csproj">
+      <Project>{403f7134-4b50-4e75-adaf-52493f4f3955}</Project>
+      <Name>ServiceCenter.MES.Service.Contract.EMS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ServiceCenter.Modules\EMS\ServiceCenter.MES.Service.EMS\ServiceCenter.MES.Service.EMS.csproj">
+      <Project>{a26e34e5-afa7-4f80-83ee-b31db583ffb0}</Project>
+      <Name>ServiceCenter.MES.Service.EMS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ServiceCenter.Modules\FMM\ServiceCenter.MES.DataAccess.FMM\ServiceCenter.MES.DataAccess.FMM.csproj">
+      <Project>{151e6950-77c7-42d8-afea-618e57f4fe6f}</Project>
+      <Name>ServiceCenter.MES.DataAccess.FMM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ServiceCenter.Modules\FMM\ServiceCenter.MES.Service.Contract.FMM\ServiceCenter.MES.Service.Contract.FMM.csproj">
+      <Project>{ac3655eb-9b09-491d-b817-16941f318a4f}</Project>
+      <Name>ServiceCenter.MES.Service.Contract.FMM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ServiceCenter.Modules\FMM\ServiceCenter.MES.Service.FMM\ServiceCenter.MES.Service.FMM.csproj">
+      <Project>{61c3c979-c92c-4ea3-9cf7-e95fea1458a1}</Project>
+      <Name>ServiceCenter.MES.Service.FMM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ServiceCenter.Modules\LSM\ServiceCenter.MES.DataAccess.LSM\ServiceCenter.MES.DataAccess.LSM.csproj">
+      <Project>{63f4e8ad-a23d-43d1-b736-196bd386d360}</Project>
+      <Name>ServiceCenter.MES.DataAccess.LSM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ServiceCenter.Modules\LSM\ServiceCenter.MES.Service.Contract.LSM\ServiceCenter.MES.Service.Contract.LSM.csproj">
+      <Project>{9f80ae00-3c0b-412a-b935-daf9281d766d}</Project>
+      <Name>ServiceCenter.MES.Service.Contract.LSM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ServiceCenter.Modules\LSM\ServiceCenter.MES.Service.LSM\ServiceCenter.MES.Service.LSM.csproj">
+      <Project>{4f812a11-7b7d-4695-b8f9-decb7f912d96}</Project>
+      <Name>ServiceCenter.MES.Service.LSM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ServiceCenter.Modules\PPM\ServiceCenter.MES.DataAccess.PPM\ServiceCenter.MES.DataAccess.PPM.csproj">
+      <Project>{c7b3e276-3039-4f65-bd53-cb9164fa1b39}</Project>
+      <Name>ServiceCenter.MES.DataAccess.PPM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ServiceCenter.Modules\PPM\ServiceCenter.MES.Service.Contract.PPM\ServiceCenter.MES.Service.Contract.PPM.csproj">
+      <Project>{c11dfda4-7b55-478e-9271-146325f4ef33}</Project>
+      <Name>ServiceCenter.MES.Service.Contract.PPM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ServiceCenter.Modules\PPM\ServiceCenter.MES.Service.PPM\ServiceCenter.MES.Service.PPM.csproj">
+      <Project>{2c6fd1ae-58c5-4fa1-9c0b-bbe2ba9cd379}</Project>
+      <Name>ServiceCenter.MES.Service.PPM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ServiceCenter.Modules\QAM\ServiceCenter.MES.DataAccess.QAM\ServiceCenter.MES.DataAccess.QAM.csproj">
+      <Project>{28f33fa0-b3fe-44c8-ac00-9516b3d881ee}</Project>
+      <Name>ServiceCenter.MES.DataAccess.QAM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ServiceCenter.Modules\QAM\ServiceCenter.MES.Service.Contract.QAM\ServiceCenter.MES.Service.Contract.QAM.csproj">
+      <Project>{f9dd84ee-c901-4bfe-acb8-6575ae4d0418}</Project>
+      <Name>ServiceCenter.MES.Service.Contract.QAM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ServiceCenter.Modules\QAM\ServiceCenter.MES.Service.QAM\ServiceCenter.MES.Service.QAM.csproj">
+      <Project>{2cb1f971-1077-483a-8d59-bf37958cd19c}</Project>
+      <Name>ServiceCenter.MES.Service.QAM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ServiceCenter.Modules\RBAC\ServiceCenter.MES.DataAccess.RBAC\ServiceCenter.MES.DataAccess.RBAC.csproj">
+      <Project>{90143b4f-3993-48e4-b215-14da29cb0064}</Project>
+      <Name>ServiceCenter.MES.DataAccess.RBAC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ServiceCenter.Modules\RBAC\ServiceCenter.MES.Service.Contract.RBAC\ServiceCenter.MES.Service.Contract.RBAC.csproj">
+      <Project>{beb3dac5-b668-42bc-87cf-ea12b6010771}</Project>
+      <Name>ServiceCenter.MES.Service.Contract.RBAC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ServiceCenter.Modules\RBAC\ServiceCenter.MES.Service.RBAC\ServiceCenter.MES.Service.RBAC.csproj">
+      <Project>{9e3ac561-f9ac-4e97-aeb7-1bbe61916785}</Project>
+      <Name>ServiceCenter.MES.Service.RBAC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ServiceCenter.Modules\RPT\ServiceCenter.MES.DataAccess.RPT\ServiceCenter.MES.DataAccess.RPT.csproj">
+      <Project>{bb7716d3-0229-4d15-980c-cd16986035b0}</Project>
+      <Name>ServiceCenter.MES.DataAccess.RPT</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ServiceCenter.Modules\RPT\ServiceCenter.MES.Service.Contract.RPT\ServiceCenter.MES.Service.Contract.RPT.csproj">
+      <Project>{1a5e6952-6ef0-4d7f-bb93-87fde885fee7}</Project>
+      <Name>ServiceCenter.MES.Service.Contract.RPT</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ServiceCenter.Modules\RPT\ServiceCenter.MES.Service.RPT\ServiceCenter.MES.Service.RPT.csproj">
+      <Project>{d577b7a1-ecbe-43cb-95d0-c383ce1c427d}</Project>
+      <Name>ServiceCenter.MES.Service.RPT</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ServiceCenter.Modules\WIP\ServiceCenter.MES.DataAccess.WIP\ServiceCenter.MES.DataAccess.WIP.csproj">
+      <Project>{6974ab95-eddd-45e0-b87d-bde54f7bf040}</Project>
+      <Name>ServiceCenter.MES.DataAccess.WIP</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ServiceCenter.Modules\WIP\ServiceCenter.MES.Service.Contract.WIP\ServiceCenter.MES.Service.Contract.WIP.csproj">
+      <Project>{59109d57-5fb5-41e7-bbde-a22cfba26f6c}</Project>
+      <Name>ServiceCenter.MES.Service.Contract.WIP</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ServiceCenter.Modules\WIP\ServiceCenter.MES.Service.WIP\ServiceCenter.MES.Service.WIP.csproj">
+      <Project>{c2abb3f0-f2e8-4844-9bef-402ddc8375e4}</Project>
+      <Name>ServiceCenter.MES.Service.WIP</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ServiceCenter.Modules\ZPVC\ServiceCenter.MES.DataAccess.ZPVC\ServiceCenter.MES.DataAccess.ZPVC.csproj">
+      <Project>{6dd22930-1ce3-47ad-91ac-26b1b8633053}</Project>
+      <Name>ServiceCenter.MES.DataAccess.ZPVC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ServiceCenter.Modules\ZPVC\ServiceCenter.MES.Service.Contract.ZPVC\ServiceCenter.MES.Service.Contract.ZPVC.csproj">
+      <Project>{a3b0280e-d98a-4ea3-b435-a4d97f0216d7}</Project>
+      <Name>ServiceCenter.MES.Service.Contract.ZPVC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ServiceCenter.Modules\ZPVC\ServiceCenter.MES.Service.ZPVC\ServiceCenter.MES.Service.ZPVC.csproj">
+      <Project>{4ca2b1e4-6dd5-4056-82ef-1ae7fb8d17f6}</Project>
+      <Name>ServiceCenter.MES.Service.ZPVC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ServiceCenter.Modules\ZPVM\ServiceCenter.MES.DataAccess.ZPVM\ServiceCenter.MES.DataAccess.ZPVM.csproj">
+      <Project>{fc7b108a-5aa5-4ac1-9dca-f3f690156e27}</Project>
+      <Name>ServiceCenter.MES.DataAccess.ZPVM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ServiceCenter.Modules\ZPVM\ServiceCenter.MES.Service.Contract.ZPVM\ServiceCenter.MES.Service.Contract.ZPVM.csproj">
+      <Project>{23410278-f525-43dc-af6c-2078a6177a09}</Project>
+      <Name>ServiceCenter.MES.Service.Contract.ZPVM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ServiceCenter.Modules\ZPVM\ServiceCenter.MES.Service.ZPVM\ServiceCenter.MES.Service.ZPVM.csproj">
+      <Project>{67dc76dc-eb4b-40e1-a549-e4c044738e02}</Project>
+      <Name>ServiceCenter.MES.Service.ZPVM</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="config\module.release.container.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="Properties\PublishProfiles\102_13_RELEASE.pubxml" />
+    <None Include="Properties\PublishProfiles\102_14_RELEASE.pubxml" />
+    <None Include="Properties\PublishProfiles\102_Test_Release.pubxml" />
+    <None Include="Web.module.debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.module.release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == '102A|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'CELLDebug|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'module.debug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'module.release|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'cell.debug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'cell.release|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>False</AutoAssignPort>
+          <DevelopmentServerPort>8080</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:8102/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

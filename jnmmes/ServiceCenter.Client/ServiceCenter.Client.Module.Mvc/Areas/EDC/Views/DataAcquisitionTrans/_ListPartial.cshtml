@@ -1,0 +1,112 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.EDC.Models.DataAcquisitionTransQueryViewModel
+@using ServiceCenter.Client.Mvc.Resources;
+@using EDC=ServiceCenter.Client.Mvc.Resources.EDC;
+@using ServiceCenter.MES.Model.EDC;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@using System.Data;
+@using ServiceCenter.Client.Mvc.Areas.EDC.Models;
+@{    
+    DataTable dtList = ViewBag.ListData;
+    PagingConfig cfg = ViewBag.PagingConfig;
+}
+
+<div id="_list">
+    <table class="table table-striped table-hover table-bordered table-condensed">
+        @if (dtList != null)
+        {
+            <thead>
+                <tr class="active">
+                    @for (int i = 0; i < dtList.Columns.Count; i++)
+                    {
+                        if (@dtList.Columns[i].Caption == "HIDE")   //隐藏列
+                        {
+                            <td hidden>@dtList.Columns[i].Caption</td>
+                        }
+                        else
+                        {
+                            <td nowrap align="center">@dtList.Columns[i].Caption</td>
+                        }
+                    }
+                </tr>
+            </thead>
+            
+            <tbody>
+                @for (int row = 0; row < dtList.Rows.Count; row++)
+                {
+                    <tr id="@row">
+                        @for (int col = 0; col < dtList.Columns.Count; col++)
+                        {
+                            if (@dtList.Columns[col].Caption == "HIDE")
+                            {
+                                <td hidden></td>
+                            }
+                            else
+                            {
+                                if (@dtList.Columns[col].ColumnName == "RowsNumber" || @dtList.Columns[col].ColumnName == "DataState" || @dtList.Columns[col].ColumnName == "Activity")
+                                {
+                                    <td align="center">
+                                        @dtList.Rows[row][col]
+                                    </td>
+                                }
+                                else
+                                {
+                                    <td align="right">
+                                        @dtList.Rows[row][col]
+                                    </td> 
+                                }                                
+                            }
+
+                            @*if (col == dtList.Columns.Count - 1 && @dtList.Rows[row]["DataState"] == "")
+                            {
+                                <td align="center">
+                                    @Ajax.ActionLink(StringResource.Audit, actionName: null
+                                                    , routeValues: null
+                                                    , ajaxOptions: new AjaxOptions()
+                                                    {
+                                                        HttpMethod = "Post",
+                                                        UpdateTargetId = "AuditInfo",
+                                                        OnSuccess = "completeAudit",
+                                                        Url = Url.Action("Audit", new
+                                                        {
+                                                            @ItemCode = dtList.Rows[row]["ItemCode"],           //项目代码
+                                                            @EDCTime = dtList.Rows[row]["EDCTime"],             //采集时间
+                                                            @LineCode = dtList.Rows[row]["LineCode"],           //线别
+                                                            @EquipmentCode = dtList.Rows[row]["EquipmentCode"]  //设备代码
+                                                        })
+                                                    })
+                                </td>
+                                
+                            }*@
+                        }    
+                    </tr>    
+                }                
+            </tbody>
+        } 
+    </table>
+    <div style="margin-top:-18px">
+        @if (cfg != null)
+        {
+            using (Ajax.BeginForm("PagingQuery", "DataAcquisitionTrans"
+                            , new
+                            {
+                                @Where = cfg.Where,
+                                @OrderBy = cfg.OrderBy,
+                                @CurrentPageNo = cfg.PageNo,
+                                @CurrentPageSize = cfg.PageSize
+                            }
+                            , new AjaxOptions()
+                            {
+                                HttpMethod = "Post",
+                                OnBegin = "beginQuery",
+                                UpdateTargetId = "_list"
+                            }
+                            , new { @class = "form-horizontal", resource = "form", id = "frmPagingQuery" }))
+            {
+                @Html.AntiForgeryToken()
+                <div>@Html.Partial("_PaginationPartial")</div>
+            }
+        } 
+    </div>
+</div>
+

@@ -1,0 +1,63 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.RBAC.Models.UserViewModel
+
+@Html.ValidationSummary(true)
+<div class="form-group">
+    @Html.LabelFor(m => m.LoginName, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.LoginName</p>
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.UserName, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.UserName</p>
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.Email, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.Email</p>
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.OfficePhone, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.OfficePhone</p>
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.MobilePhone, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.MobilePhone</p>
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.IsLocked, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@(Model.IsLocked ? "√" : "×")</p>
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.IsActive, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@(Model.IsActive ? "√" : "×")</p>
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.LastLoginIP, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.LastLoginIP</p>
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.LastLoginTime, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.LastLoginTime</p>
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.Description, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.Description</p>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.EDC.Models.DataAcquisitionItemViewModel
+
+<div class="form-group">
+    @Html.LabelFor(m => m.ItemCode, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.ItemCode, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.ItemCode)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.ItemName, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.ItemName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.ItemName)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.RouteStepName, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.DropDownListFor(m => m.RouteStepName, @Model.GetRouteStepNameList(), new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.RouteStepName)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.Description, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextAreaFor(m => m.Description, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Description)
+    </div>
+</div>

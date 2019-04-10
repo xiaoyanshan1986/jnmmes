@@ -1,0 +1,90 @@
+﻿@using ServiceCenter.MES.Model.FMM;
+@using ServiceCenter.Model;
+@using ServiceCenter.Common;
+@using ServiceCenter.Client.Mvc.Areas.FMM.Models;
+@using FMM=ServiceCenter.Client.Mvc.Resources.FMM;
+@using ServiceCenter.Client.Mvc.Resources;
+
+@{
+    ViewBag.Title = string.Format(FMM.StringResource.EquipmentChangeState_ManagePageTitle);
+}
+<h2>@ViewBag.Title</h2>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        @Ajax.ActionLink(StringResource.Refresh, actionName: null
+                        , routeValues: null
+                        , ajaxOptions: new AjaxOptions()
+                        {
+                            HttpMethod = "Post",
+                            UpdateTargetId = "list",
+                            Url = Url.Action("Index"),
+                            OnBegin="beginRefresh",
+                            OnSuccess = "completeRefresh"
+                        }
+                                 , htmlAttributes: new { @class = "btn btn-primary", @id = "btnQuery" })
+    </div>
+    <div class="alert fade in hide" resource="alert" id="statusMessage" style="margin:0px">
+        <button type="button" class="close" onclick="hideStatusMessage()">
+            <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+        </button>
+        <p></p>
+    </div>
+    <div id="list">
+        @Html.Partial("_ListPartial")
+    </div>
+</div>
+
+@section Scripts {
+
+    <script type="text/javascript" language="javascript">
+        $(function () {
+            regsiterChangeEvent();
+        });
+
+        function beginRefresh()
+        {
+            $("#btnQuery").attr("disabled");
+        }
+
+        function completeRefresh()
+        {
+            $("#btnQuery").removeAttr("disabled");
+            regsiterChangeEvent();
+            hideStatusMessage();
+        }
+
+        function regsiterChangeEvent()
+        {
+            $("input[type='checkbox']").change(function () {
+                $.ajax({
+                    type: "post",
+                    url:"@Url.Action("Change","EquipmentChangeState")",
+                    data: { startState: $(this).data('start'), endState: $(this).data('end'), isChecked: $(this).is(":checked") },
+                    dataType: "json",
+                    success: function (result)
+                    {
+                        if (result.Code > 0) {
+                            $("#statusMessage").find("p").html(result.Message);
+                            $("#statusMessage").removeClass("hide");
+                            $("#statusMessage").removeClass("alert-success");
+                            $("#statusMessage").addClass("alert-danger");
+                            $(this).prop('checked', !$(this).is(":checked"));
+                        }
+
+                        if ($(this).is(":checked")) {
+                            $(this).addClass("has-success");
+                        }
+                        else {
+                            $(this).removeClass("has-success");
+                        }
+                    }
+                });
+            })
+        }
+        //隐藏状态消息
+        function hideStatusMessage() {
+            $("#statusMessage").addClass("hide");
+        }
+    </script>
+}

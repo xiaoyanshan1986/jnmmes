@@ -1,0 +1,50 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.RPT.Models.WIPDisplayQueryViewModel
+@using ServiceCenter.Client.Mvc.Resources;
+@using RPTResources = ServiceCenter.Client.Mvc.Resources.RPT;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@using System.Data;
+@{
+    DataTable dtList = ViewBag.ListData;
+    string key = ViewBag.Key;
+}
+<div style="text-align:center">
+    <img src="@Url.Action("ShowChartImage", "WIPDisplay", new { @Key = key })" />
+</div>
+@if(dtList!=null)
+{
+<table class="table table-hover table-bordered table-condensed">
+    <thead>
+        <tr class="active">
+            @for (int i = 0; i < dtList.Columns.Count; i++)
+            {
+                <td>@dtList.Columns[i].Caption</td>
+            }
+        </tr>
+    </thead>
+    <tbody>
+        @for (int row = 0; row < dtList.Rows.Count; row++)
+        {
+            <tr>
+                @for (int col = 0; col < dtList.Columns.Count; col++)
+                {
+                    <td>
+                        @if (col == 0)
+                        {
+                            @dtList.Rows[row][col]
+                        }
+                        else
+                        {
+                            string routeOperationName = dtList.Columns[col].ColumnName;
+                            string status = Convert.ToString(dtList.Rows[row][0]);
+                            <a href="javascript:showDetail('@routeOperationName','@status','@Model.LocationName','@Model.MaterialCode','@Model.OrderNumber','@Model.OnlineTime')">
+                                    @dtList.Rows[row][col]
+                            </a>
+                        }
+                    </td>
+                }
+            </tr>
+        }
+    </tbody>
+</table>
+}

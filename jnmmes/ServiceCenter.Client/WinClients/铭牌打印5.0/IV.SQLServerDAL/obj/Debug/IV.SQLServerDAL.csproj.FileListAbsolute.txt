@@ -1,0 +1,10 @@
+E:\MES组件程序\trunk\src\ServiceCenter.Client\WinClients\铭牌打印4.0\IV.SQLServerDAL\bin\Debug\IV.SQLServerDAL.dll
+E:\MES组件程序\trunk\src\ServiceCenter.Client\WinClients\铭牌打印4.0\IV.SQLServerDAL\bin\Debug\IV.SQLServerDAL.pdb
+E:\MES组件程序\trunk\src\ServiceCenter.Client\WinClients\铭牌打印4.0\IV.SQLServerDAL\obj\Debug\IV.SQLServerDAL.csprojResolveAssemblyReference.cache
+E:\MES组件程序\trunk\src\ServiceCenter.Client\WinClients\铭牌打印4.0\IV.SQLServerDAL\obj\Debug\IV.SQLServerDAL.dll
+E:\MES组件程序\trunk\src\ServiceCenter.Client\WinClients\铭牌打印4.0\IV.SQLServerDAL\obj\Debug\IV.SQLServerDAL.pdb
+E:\Workspace\Jinergy\JNMMES\trunk\src\ServiceCenter.Client\WinClients\铭牌打印5.0\IV.SQLServerDAL\bin\Debug\IV.SQLServerDAL.dll
+E:\Workspace\Jinergy\JNMMES\trunk\src\ServiceCenter.Client\WinClients\铭牌打印5.0\IV.SQLServerDAL\bin\Debug\IV.SQLServerDAL.pdb
+E:\Workspace\Jinergy\JNMMES\trunk\src\ServiceCenter.Client\WinClients\铭牌打印5.0\IV.SQLServerDAL\obj\Debug\IV.SQLServerDAL.csprojResolveAssemblyReference.cache
+E:\Workspace\Jinergy\JNMMES\trunk\src\ServiceCenter.Client\WinClients\铭牌打印5.0\IV.SQLServerDAL\obj\Debug\IV.SQLServerDAL.dll
+E:\Workspace\Jinergy\JNMMES\trunk\src\ServiceCenter.Client\WinClients\铭牌打印5.0\IV.SQLServerDAL\obj\Debug\IV.SQLServerDAL.pdb

@@ -1,0 +1,146 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.WIP.Models.LotViewModel
+@using ServiceCenter.Client.Mvc.Areas.WIP.Models;
+@using ServiceCenter.Client.Mvc.Resources;
+@using WIPResources = ServiceCenter.Client.Mvc.Resources.WIP;
+@using ServiceCenter.MES.Model.WIP;
+@using ServiceCenter.MES.Model.FMM;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@using ServiceCenter.Client.Mvc.Resources;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@using System.Data;
+
+
+@{
+    PagingConfig cfg = ViewBag.PagingConfig;
+    MethodReturnResult<DataSet> ds = new MethodReturnResult<DataSet>();
+    ds = ViewBag.HistoryList;
+    //DataTable dtList = ViewBag.HistoryList.Data.Tables[0];
+}
+<div id="_list">
+    <table class="table table-hover table-bordered table-condensed table-responsive table-striped">
+        <thead>
+            <tr class="active">
+                <td nowrap>@StringResource.ItemNo</td>
+                <td nowrap>@Html.DisplayNameFor(m => m.LotNumber)</td>
+                <td nowrap>@Html.DisplayNameFor(m => m.OriginalOrderNumber)</td>
+                <td nowrap>@Html.DisplayNameFor(m => m.OrderNumber)</td>
+                <td nowrap>@Html.DisplayNameFor(m => m.MaterialCode)</td>
+                <td nowrap>@Html.DisplayNameFor(m => m.Quantity)</td>
+                <td nowrap>效率档</td>
+                <td nowrap>@Html.DisplayNameFor(m => m.Grade)</td>
+                <td nowrap>@Html.DisplayNameFor(m => m.Color)</td>
+                <td nowrap>@Html.DisplayNameFor(m => m.LineCode)</td>
+                <td nowrap>@Html.DisplayNameFor(m => m.EquipmentCode)</td>
+                <td nowrap>@Html.DisplayNameFor(m => m.LocationName)</td>
+                <td nowrap>@Html.DisplayNameFor(m => m.RouteEnterpriseName)</td>
+                <td nowrap>@Html.DisplayNameFor(m => m.RouteName)</td>
+                <td nowrap>@Html.DisplayNameFor(m => m.RouteStepName)</td>
+                <td nowrap>@Html.DisplayNameFor(m => m.StartWaitTime)</td>
+                <td nowrap>@Html.DisplayNameFor(m => m.StartProcessTime)</td>
+                <td nowrap>@Html.DisplayNameFor(m => m.StateFlag)</td>
+                <td nowrap>@Html.DisplayNameFor(m => m.LotType)</td>
+                <td nowrap>@Html.DisplayNameFor(m => m.HoldFlag)</td>
+                <td nowrap>@Html.DisplayNameFor(m => m.DeletedFlag)</td>
+                <td nowrap>@Html.DisplayNameFor(m => m.PackageFlag)</td>
+                <td nowrap>@Html.DisplayNameFor(m => m.PackageNo)</td>
+                <td nowrap>@Html.DisplayNameFor(m => m.RepairFlag)</td>
+                <td nowrap>@Html.DisplayNameFor(m => m.ReworkFlag)</td>
+                <td nowrap>@Html.DisplayNameFor(m => m.ReworkTime)</td>
+                <td nowrap>@Html.DisplayNameFor(m => m.Reworker)</td>
+                <td nowrap>电池片物料</td>
+                <td nowrap>电池片物料名称</td>
+                <td nowrap>电池片批号</td>
+                <td nowrap>电池片供应商</td>
+                <td nowrap>@Html.DisplayNameFor(m => m.CreateTime)</td>
+                <td nowrap>@Html.DisplayNameFor(m => m.Creator)</td>
+                <td nowrap>@Html.DisplayNameFor(m => m.EditTime)</td>
+                <td nowrap>@Html.DisplayNameFor(m => m.Editor)</td>
+            </tr>
+        </thead>
+            <tbody>
+
+               
+                
+             @if (ds != null && ds.Data != null && ds.Data.Tables.Count > 0 && ds.Data.Tables[0].Rows.Count > 0)
+             {
+
+                 DataTable dtList = ViewBag.HistoryList.Data.Tables[0];
+                 
+                for (int i = 0; i < dtList.Rows.Count; i++)
+                {
+                    System.Data.DataRow obj = ds.Data.Tables[0].Rows[i];
+                    
+                    
+
+                    <tr>
+                        <td nowrap>@(i + 1) </td>
+                        <td nowrap>
+                           @Html.ActionLink(dtList.Rows[i]["LOT_NUMBER"].ToString()
+                                            , "Detail"
+                                         , new { LotNumber = obj["LOT_NUMBER"] }) 
+                        </td>
+                        <td nowrap>@obj["ORG_ORDER_NUMBER"] </td>
+                        <td nowrap>@obj["ORDER_NUMBER"] </td>
+                        <td nowrap>@obj["MATERIAL_CODE"] </td>
+                        <td nowrap>@obj["QUANTITY"] </td>
+                        <td nowrap>@obj["ATTR_1"] </td>
+                        <td nowrap>@obj["GRADE"] </td>
+                        <td nowrap>@obj["COLOR"] </td>
+                        <td nowrap>@obj["LINE_CODE"] </td>
+                        <td nowrap>@obj["EQUIPMENT_CODE"] </td>
+                        <td nowrap>@obj["LOCATION_NAME"] </td>
+                        <td nowrap>@obj["ROUTE_ENTERPRISE_NAME"] </td>
+                        <td nowrap>@obj["ROUTE_NAME"] </td>
+                        <td nowrap>@obj["ROUTE_STEP_NAME"] </td>
+                        <td nowrap>@string.Format("{0:yyyy-MM-dd HH:mm:ss}", obj["START_WAIT_TIME"])</td>
+                        <td nowrap>@string.Format("{0:yyyy-MM-dd HH:mm:ss}", obj["START_PROCESS_TIME"])</td>
+                        <td nowrap>@obj["STATE_FLAG"] </td>
+                        <td nowrap>@obj["LOT_TYPE"] </td>
+                        <td nowrap>@obj["HOLD_FLAG"] </td>
+                        <td nowrap>@obj["END_FLAG"] </td>
+                        <td nowrap>@obj["PACKAGE_FLAG"] </td>
+                        <td nowrap>@obj["PACKAGE_NO"] </td>
+                        <td nowrap>@obj["REPAIR_FLAG"] </td>
+                        <td nowrap>@obj["REWORK_FLAG"] </td>
+                        <td nowrap>@obj["REWORK_TIME"] </td>
+                        <td nowrap>@obj["REWORKER"] </td>
+                        <td nowrap>@obj["CELL_MATERIAL_CODE"] </td>
+                        <td nowrap>@obj["MATERIAL_NAME"] </td>
+                        <td nowrap>@obj["MATERIAL_LOT"] </td>
+                        <td nowrap>@obj["SUPPLIER_NAME"] </td>
+                        <td nowrap>@obj["CREATE_TIME"] </td>
+                        <td nowrap>@obj["CREATOR"] </td>
+                        <td nowrap>@obj["EDIT_TIME"] </td>
+                        <td nowrap>@obj["EDITOR"] </td>
+                    </tr>
+                }
+             }
+            </tbody>
+    </table>
+
+    <div style="margin-top:-18px">
+        @if (cfg != null)
+        {
+            using (Ajax.BeginForm("PagingQuery", "LotQuery"
+                            , new
+                            {
+                                @Where = cfg.Where,
+                                @OrderBy = cfg.OrderBy,
+                                @CurrentPageNo = cfg.PageNo,
+                                @CurrentPageSize = cfg.PageSize
+                            }
+                            , new AjaxOptions()
+                            {
+                                HttpMethod = "Post",
+                                UpdateTargetId = "_list"
+                            }
+                            , new { @class = "form-horizontal", resource = "form", id = "frmPagingQuery" }))
+            {
+                @Html.AntiForgeryToken()
+                <div>@Html.Partial("_PaginationPartial")</div>
+            }
+        }
+    </div>
+</div>

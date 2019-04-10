@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   namespace="ServiceCenter.MES.Model.LSM" 
+                   assembly="ServiceCenter.MES.Model.LSM">
+  <class name="MaterialScrap" table="LSM_MATERIAL_SCRAP">
+    <id name="Key" column="SCRAP_NO">
+      <generator class="assigned" />
+    </id>
+    <property name="Type" column="SCRAP_TYPE"/>
+    <property name="ScrapDate" column="SCRAP_DATE"/>
+    <property name="State" column="SCRAP_STATE"/>
+    <property name="OrderNumber" column="ORDER_NUMBER"/>
+    <property name="Description" column="DESCRIPTION"/>
+    <property name="Creator" column="CREATOR"/>
+    <property name="CreateTime" column="CREATE_TIME"/>
+    <property name="Editor" column="EDITOR"/>
+    <property name="EditTime" column="EDIT_TIME"/>
+  </class>
+</hibernate-mapping>

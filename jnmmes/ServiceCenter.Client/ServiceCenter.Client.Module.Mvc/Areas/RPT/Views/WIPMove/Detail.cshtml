@@ -1,0 +1,31 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.RPT.Models.WIPMoveDetailQueryViewModel
+@using ServiceCenter.Model;
+@using ServiceCenter.Common;
+
+@using RPTRsources = ServiceCenter.Client.Mvc.Resources.RPT;
+@using ServiceCenter.Client.Mvc.Resources;
+@{
+    ViewBag.Title = "工序MOVE量明细";
+}
+<h2>@ViewBag.Title</h2>
+@using (Html.BeginForm("ExportToExcel", "WIPMove", FormMethod.Post
+            , new { @class = "form-horizontal", resource = "form", id = "frmQuery" }))
+{
+   <input type="submit"
+            value="@StringResource.ExportToExcel"
+            class="btn btn-default"
+            id="btnExportToExcel" />
+    @Html.HiddenFor(m=>m.LocationName)
+    @Html.HiddenFor(m=>m.MaterialCode)
+    @Html.HiddenFor(m=>m.StartDate)
+    @Html.HiddenFor(m=>m.EndDate)
+    @Html.HiddenFor(m=>m.OrderNumber)
+    @Html.HiddenFor(m=>m.RouteOperationName)
+    @Html.HiddenFor(m=>m.Date)
+    @Html.HiddenFor(m => m.ShiftName)
+    @Html.HiddenFor(m => m.Activity)
+    @Html.HiddenFor(m => m.TotalRecords)
+}
+<div id="list" style="overflow:auto">
+    @Html.Partial("_DetailListPartial")
+</div>

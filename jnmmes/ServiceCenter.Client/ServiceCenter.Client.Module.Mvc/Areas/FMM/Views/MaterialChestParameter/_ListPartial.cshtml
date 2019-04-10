@@ -1,0 +1,113 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.FMM.Models.MaterialChestParameterViewModel
+@using ServiceCenter.Client.Mvc.Areas.FMM.Models;
+@using ServiceCenter.Client.Mvc.Resources;
+@using FMM = ServiceCenter.Client.Mvc.Resources.FMM;
+@using ServiceCenter.MES.Model.FMM;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@{
+    PagingConfig cfg = ViewBag.PagingConfig;
+}
+<div id="_list">
+    <table class="table table-hover table-bordered table-condensed">
+        <thead>
+            <tr class="active">
+                <td align="center">@StringResource.ItemNo</td>
+                <td align="center">@Html.DisplayNameFor(m => m.ProductCode)</td>
+                <td align="center">@Html.DisplayNameFor(m => m.ColorLimit)</td>
+                <td align="center">@Html.DisplayNameFor(m => m.GradeLimit)</td>
+                <td align="center">@Html.DisplayNameFor(m => m.PowerLimit)</td>
+                <td align="center">@Html.DisplayNameFor(m => m.IscLimit)</td>
+                <td align="center">@Html.DisplayNameFor(m => m.FullChestQty)</td>
+                <td align="center">@Html.DisplayNameFor(m => m.InChestFullPackageQty)</td>
+                <td align="center">@Html.DisplayNameFor(m => m.IsPackagedChest)</td>
+                <td align="center">@Html.DisplayNameFor(m => m.OrderNumberLimit)</td>
+                <td align="center">@Html.DisplayNameFor(m => m.LastChestMaterialLimit)</td>
+                <td align="center">@StringResource.Detail</td>
+                <td align="center">@StringResource.Modify</td>
+                <td align="center">@StringResource.Delete</td>
+            </tr>
+        </thead>
+        @if (ViewBag.List != null)
+        {
+            <tbody>
+                @for (int i = 0; i < ViewBag.List.Length; i++)
+                {
+                    MaterialChestParameter obj = ViewBag.List[i];
+                    <tr>
+                        <td align="center">@(cfg.PageSize * cfg.PageNo + i + 1)</td>
+                        <td align="center">@obj.Key</td>
+                        <td align="center">@(obj.ColorLimit ? StringResource.Yes : StringResource.No)</td>
+                        <td align="center">@(obj.GradeLimit ? StringResource.Yes : StringResource.No)</td>
+                        <td align="center">@(obj.PowerLimit ? StringResource.Yes : StringResource.No)</td>
+                        <td align="center">@(obj.IscLimit ? StringResource.Yes : StringResource.No)</td>
+                        <td align="center">@(obj.FullChestQty)</td>
+                        <td align="center">@(obj.InChestFullPackageQty)</td>
+                        <td align="center">@(obj.IsPackagedChest ? StringResource.Yes : StringResource.No)</td>
+                        <td align="center">@(obj.OrderNumberLimit ? StringResource.Yes : StringResource.No)</td>
+                        <td align="center">@(obj.LastChestMaterialLimit ? StringResource.Yes : StringResource.No)</td>
+                        <td align="center">
+                            @Ajax.ActionLink(StringResource.Detail, actionName: null
+                                            , routeValues: null
+                                            , ajaxOptions: new AjaxOptions()
+                                            {
+                                                HttpMethod = "Post",
+                                                UpdateTargetId = "detailInfo",
+                                                OnSuccess = "showInfoModal",
+                                                Url = Url.Action("Detail", new { @ProductCode = obj.Key })
+                                            })
+                        </td>
+
+                        <td align="center">
+                            @Ajax.ActionLink(StringResource.Modify, actionName: null
+                                            , routeValues: null
+                                            , ajaxOptions: new AjaxOptions()
+                                            {
+                                                HttpMethod = "Post",
+                                                UpdateTargetId = "modifyFormContent",
+                                                OnSuccess = "showModifyModal",
+                                                Url = Url.Action("Modify", new { @ProductCode = obj.Key})
+                                            })
+                        </td>
+                        <td align="center">
+                            @Ajax.ActionLink(StringResource.Delete, actionName: null
+                                            , routeValues: null
+                                            , ajaxOptions: new AjaxOptions()
+                                            {
+                                                HttpMethod = "Post",
+                                                Confirm = string.Format(FMM.StringResource.MaterialChestParameter_ConfirmDelete, obj.Key),
+                                                Url = Url.Action("Delete", new { @ProductCode = obj.Key}),
+                                                OnSuccess = "completeDelete"
+                                            })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        }
+    </table>
+    <div style="margin-top:-18px">
+        @if (cfg != null)
+        {
+            using (Ajax.BeginForm("PagingQuery", "MaterialChestParameter"
+                            , new
+                            {
+                                @Where = cfg.Where,
+                                @OrderBy = cfg.OrderBy,
+                                @CurrentPageNo = cfg.PageNo,
+                                @CurrentPageSize = cfg.PageSize
+                            }
+                            , new AjaxOptions()
+                            {
+                                HttpMethod = "Post",
+                                UpdateTargetId = "_list"
+                            }
+                            , new { @class = "form-horizontal", resource = "form", id = "frmPagingQuery" }))
+            {
+                @Html.AntiForgeryToken()
+                <div>@Html.Partial("_PaginationPartial")</div>
+            }
+        }
+    </div>
+</div>
+
+

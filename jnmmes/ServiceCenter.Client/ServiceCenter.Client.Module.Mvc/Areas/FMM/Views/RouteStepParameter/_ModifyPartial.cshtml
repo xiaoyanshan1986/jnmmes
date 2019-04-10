@@ -1,0 +1,109 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.FMM.Models.RouteStepParameterViewModel
+@using ServiceCenter.Common;
+
+@Html.ValidationSummary(true)
+<div class="form-group">
+    @Html.LabelFor(m => m.RouteName, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        <p class="form-control-static">@Model.RouteName</p>
+        @Html.HiddenFor(m => m.RouteName)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.RouteStepName, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        <p class="form-control-static">@Model.RouteStepName</p>
+        @Html.HiddenFor(m => m.RouteStepName)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.ParameterName, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        <p class="form-control-static">@Model.ParameterName</p>
+        @Html.HiddenFor(m => m.ParameterName)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.ParamIndex, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.ParamIndex, new { @class = "form-control", @id = "txtParamIndex" })
+        @Html.ValidationMessageFor(m => m.ParamIndex)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.DataType, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.DropDownListFor(m => m.DataType, @Model.GetDataTypeList(), new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.DataType)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.DataFrom, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.DropDownListFor(m => m.DataFrom, @Model.GetDataFromList(), new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.DataFrom)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.DCType, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.DropDownListFor(m => m.DCType, @Model.GetDataCollectionActionList(), new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.DCType)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.MaterialType, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.MaterialType, new { @class = "form-control", @id = "txtParamIndex" })
+        @Html.ValidationMessageFor(m => m.MaterialType)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.IsMustInput, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.CheckBoxFor(m => m.IsMustInput, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.IsMustInput)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.IsReadOnly, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.CheckBoxFor(m => m.IsReadOnly, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.IsReadOnly)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.IsUsePreValue, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.CheckBoxFor(m => m.IsUsePreValue, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.IsUsePreValue)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.ValidateRule, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.DropDownListFor(m => m.ValidateRule, @Model.GetValidateRuleList(), new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.ValidateRule)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.ValidateFailedRule, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.DropDownListFor(m => m.ValidateFailedRule, @Model.GetValidateFailedRuleList(), new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.ValidateFailedRule)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.ValidateFailedMessage, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.ValidateFailedMessage, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.ValidateFailedMessage)
+    </div>
+</div>
+@*<div class="form-group">
+    @Html.LabelFor(m => m.IsDeleted, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.CheckBoxFor(m => m.IsDeleted, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.IsDeleted)
+    </div>
+</div>*@

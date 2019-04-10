@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   namespace="ServiceCenter.MES.Model.ZPVM" 
+                   assembly="ServiceCenter.MES.Model.ZPVM">
+  <class name="ChestLog" table="CHEST_LOG">
+    <composite-id  name="Key" class="ChestLogKey">
+      <key-property name="ChestNo" column="CHEST_NO"/>
+      <key-property name="PackageNo" column="PACKAGE_NO"/>
+      <key-property name="ChestActivity" column="CHEST_ACTIVITY"/>
+      <key-property name="CreateTime" column="CREATE_TIME"/>
+    </composite-id >
+    <property name="Creator" column="CREATOR"/>
+    <property name="ModelType" column="MODEL_TYPE"/>
+  </class>
+</hibernate-mapping>

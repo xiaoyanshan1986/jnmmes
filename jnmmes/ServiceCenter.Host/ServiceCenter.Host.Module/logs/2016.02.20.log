@@ -1,0 +1,168 @@
+2016-02-20 14:08:20,938 - ERROR - START>Application
+2016-02-20 14:25:39,959 - ERROR - NoViableAltException(6@[])
+2016-02-20 14:26:14,430 - ERROR - NoViableAltException(6@[])
+2016-02-20 15:15:55,932 - ERROR - START>Application
+2016-02-20 15:19:59,015 - ERROR - START>Application
+2016-02-20 15:43:13,665 - ERROR - START>Application
+2016-02-20 15:53:46,140 - ERROR - START>Application
+2016-02-20 15:54:36,598 - ERROR - Could not compile the mapping document: ServiceCenter.MES.DataAccess.PPM.hbm.PlanMonth.hbm.xml
+NHibernate.MappingException: Could not compile the mapping document: ServiceCenter.MES.DataAccess.PPM.hbm.PlanMonth.hbm.xml ---> NHibernate.MappingException: Problem trying to set property type by reflection ---> NHibernate.MappingException: class ServiceCenter.MES.Model.PPM.PlanMonth, ServiceCenter.MES.Model.PPM, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null not found while looking for property: LocationName ---> NHibernate.PropertyNotFoundException: Could not find a getter for property 'LocationName' in class 'ServiceCenter.MES.Model.PPM.PlanMonth'
+   在 NHibernate.Properties.BasicPropertyAccessor.GetGetter(Type type, String propertyName) 位置 p:\nhibernate-core\src\NHibernate\Properties\BasicPropertyAccessor.cs:行号 35
+   在 NHibernate.Util.ReflectHelper.GetGetter(Type theClass, String propertyName, String propertyAccessorName) 位置 p:\nhibernate-core\src\NHibernate\Util\ReflectHelper.cs:行号 112
+   在 NHibernate.Util.ReflectHelper.ReflectedPropertyClass(String className, String name, String accessorName) 位置 p:\nhibernate-core\src\NHibernate\Util\ReflectHelper.cs:行号 165
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 NHibernate.Util.ReflectHelper.ReflectedPropertyClass(String className, String name, String accessorName) 位置 p:\nhibernate-core\src\NHibernate\Util\ReflectHelper.cs:行号 169
+   在 NHibernate.Mapping.SimpleValue.SetTypeUsingReflection(String className, String propertyName, String accesorName) 位置 p:\nhibernate-core\src\NHibernate\Mapping\SimpleValue.cs:行号 355
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 NHibernate.Mapping.SimpleValue.SetTypeUsingReflection(String className, String propertyName, String accesorName) 位置 p:\nhibernate-core\src\NHibernate\Mapping\SimpleValue.cs:行号 359
+   在 NHibernate.Cfg.XmlHbmBinding.PropertiesBinder.CreateProperty(IEntityPropertyMapping propertyMapping, String propertyOwnerClassName, IValue value, IDictionary`2 inheritedMetas) 位置 p:\nhibernate-core\src\NHibernate\Cfg\XmlHbmBinding\PropertiesBinder.cs:行号 399
+   在 NHibernate.Cfg.XmlHbmBinding.PropertiesBinder.Bind(IEnumerable`1 properties, Table table, IDictionary`2 inheritedMetas, Action`1 modifier, Action`1 addToModelAction) 位置 p:\nhibernate-core\src\NHibernate\Cfg\XmlHbmBinding\PropertiesBinder.cs:行号 92
+   在 NHibernate.Cfg.XmlHbmBinding.PropertiesBinder.Bind(IEnumerable`1 properties, IDictionary`2 inheritedMetas, Action`1 modifier) 位置 p:\nhibernate-core\src\NHibernate\Cfg\XmlHbmBinding\PropertiesBinder.cs:行号 52
+   在 NHibernate.Cfg.XmlHbmBinding.PropertiesBinder.Bind(IEnumerable`1 properties, IDictionary`2 inheritedMetas) 位置 p:\nhibernate-core\src\NHibernate\Cfg\XmlHbmBinding\PropertiesBinder.cs:行号 47
+   在 NHibernate.Cfg.XmlHbmBinding.RootClassBinder.Bind(HbmClass classSchema, IDictionary`2 inheritedMetas) 位置 p:\nhibernate-core\src\NHibernate\Cfg\XmlHbmBinding\RootClassBinder.cs:行号 59
+   在 NHibernate.Cfg.XmlHbmBinding.MappingRootBinder.AddRootClasses(HbmClass rootClass, IDictionary`2 inheritedMetas) 位置 p:\nhibernate-core\src\NHibernate\Cfg\XmlHbmBinding\MappingRootBinder.cs:行号 83
+   在 NHibernate.Cfg.XmlHbmBinding.MappingRootBinder.AddEntitiesMappings(HbmMapping mappingSchema, IDictionary`2 inheritedMetas) 位置 p:\nhibernate-core\src\NHibernate\Cfg\XmlHbmBinding\MappingRootBinder.cs:行号 42
+   在 NHibernate.Cfg.XmlHbmBinding.MappingRootBinder.Bind(HbmMapping mappingSchema) 位置 p:\nhibernate-core\src\NHibernate\Cfg\XmlHbmBinding\MappingRootBinder.cs:行号 29
+   在 NHibernate.Cfg.Configuration.AddDeserializedMapping(HbmMapping mappingDocument, String documentFileName) 位置 p:\nhibernate-core\src\NHibernate\Cfg\Configuration.cs:行号 522
+   --- 内部异常堆栈跟踪的结尾 ---
+2016-02-20 15:54:36,716 - ERROR - Problem parsing configuration
+NHibernate.MappingException: Could not compile the mapping document: ServiceCenter.MES.DataAccess.PPM.hbm.PlanMonth.hbm.xml ---> NHibernate.MappingException: Problem trying to set property type by reflection ---> NHibernate.MappingException: class ServiceCenter.MES.Model.PPM.PlanMonth, ServiceCenter.MES.Model.PPM, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null not found while looking for property: LocationName ---> NHibernate.PropertyNotFoundException: Could not find a getter for property 'LocationName' in class 'ServiceCenter.MES.Model.PPM.PlanMonth'
+   在 NHibernate.Properties.BasicPropertyAccessor.GetGetter(Type type, String propertyName) 位置 p:\nhibernate-core\src\NHibernate\Properties\BasicPropertyAccessor.cs:行号 35
+   在 NHibernate.Util.ReflectHelper.GetGetter(Type theClass, String propertyName, String propertyAccessorName) 位置 p:\nhibernate-core\src\NHibernate\Util\ReflectHelper.cs:行号 112
+   在 NHibernate.Util.ReflectHelper.ReflectedPropertyClass(String className, String name, String accessorName) 位置 p:\nhibernate-core\src\NHibernate\Util\ReflectHelper.cs:行号 165
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 NHibernate.Util.ReflectHelper.ReflectedPropertyClass(String className, String name, String accessorName) 位置 p:\nhibernate-core\src\NHibernate\Util\ReflectHelper.cs:行号 169
+   在 NHibernate.Mapping.SimpleValue.SetTypeUsingReflection(String className, String propertyName, String accesorName) 位置 p:\nhibernate-core\src\NHibernate\Mapping\SimpleValue.cs:行号 355
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 NHibernate.Mapping.SimpleValue.SetTypeUsingReflection(String className, String propertyName, String accesorName) 位置 p:\nhibernate-core\src\NHibernate\Mapping\SimpleValue.cs:行号 359
+   在 NHibernate.Cfg.XmlHbmBinding.PropertiesBinder.CreateProperty(IEntityPropertyMapping propertyMapping, String propertyOwnerClassName, IValue value, IDictionary`2 inheritedMetas) 位置 p:\nhibernate-core\src\NHibernate\Cfg\XmlHbmBinding\PropertiesBinder.cs:行号 399
+   在 NHibernate.Cfg.XmlHbmBinding.PropertiesBinder.Bind(IEnumerable`1 properties, Table table, IDictionary`2 inheritedMetas, Action`1 modifier, Action`1 addToModelAction) 位置 p:\nhibernate-core\src\NHibernate\Cfg\XmlHbmBinding\PropertiesBinder.cs:行号 92
+   在 NHibernate.Cfg.XmlHbmBinding.PropertiesBinder.Bind(IEnumerable`1 properties, IDictionary`2 inheritedMetas, Action`1 modifier) 位置 p:\nhibernate-core\src\NHibernate\Cfg\XmlHbmBinding\PropertiesBinder.cs:行号 52
+   在 NHibernate.Cfg.XmlHbmBinding.PropertiesBinder.Bind(IEnumerable`1 properties, IDictionary`2 inheritedMetas) 位置 p:\nhibernate-core\src\NHibernate\Cfg\XmlHbmBinding\PropertiesBinder.cs:行号 47
+   在 NHibernate.Cfg.XmlHbmBinding.RootClassBinder.Bind(HbmClass classSchema, IDictionary`2 inheritedMetas) 位置 p:\nhibernate-core\src\NHibernate\Cfg\XmlHbmBinding\RootClassBinder.cs:行号 59
+   在 NHibernate.Cfg.XmlHbmBinding.MappingRootBinder.AddRootClasses(HbmClass rootClass, IDictionary`2 inheritedMetas) 位置 p:\nhibernate-core\src\NHibernate\Cfg\XmlHbmBinding\MappingRootBinder.cs:行号 83
+   在 NHibernate.Cfg.XmlHbmBinding.MappingRootBinder.AddEntitiesMappings(HbmMapping mappingSchema, IDictionary`2 inheritedMetas) 位置 p:\nhibernate-core\src\NHibernate\Cfg\XmlHbmBinding\MappingRootBinder.cs:行号 42
+   在 NHibernate.Cfg.XmlHbmBinding.MappingRootBinder.Bind(HbmMapping mappingSchema) 位置 p:\nhibernate-core\src\NHibernate\Cfg\XmlHbmBinding\MappingRootBinder.cs:行号 29
+   在 NHibernate.Cfg.Configuration.AddDeserializedMapping(HbmMapping mappingDocument, String documentFileName) 位置 p:\nhibernate-core\src\NHibernate\Cfg\Configuration.cs:行号 522
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 NHibernate.Cfg.Configuration.LogAndThrow(Exception exception) 位置 p:\nhibernate-core\src\NHibernate\Cfg\Configuration.cs:行号 342
+   在 NHibernate.Cfg.Configuration.AddDeserializedMapping(HbmMapping mappingDocument, String documentFileName) 位置 p:\nhibernate-core\src\NHibernate\Cfg\Configuration.cs:行号 530
+   在 NHibernate.Cfg.Configuration.AddValidatedDocument(NamedXmlDocument doc) 位置 p:\nhibernate-core\src\NHibernate\Cfg\Configuration.cs:行号 499
+   在 NHibernate.Cfg.Configuration.ProcessMappingsQueue() 位置 p:\nhibernate-core\src\NHibernate\Cfg\Configuration.cs:行号 1865
+   在 NHibernate.Cfg.Configuration.AddDocumentThroughQueue(NamedXmlDocument document) 位置 p:\nhibernate-core\src\NHibernate\Cfg\Configuration.cs:行号 1856
+   在 NHibernate.Cfg.Configuration.AddXmlReader(XmlReader hbmReader, String name) 位置 p:\nhibernate-core\src\NHibernate\Cfg\Configuration.cs:行号 1849
+   在 NHibernate.Cfg.Configuration.AddInputStream(Stream xmlInputStream, String name) 位置 p:\nhibernate-core\src\NHibernate\Cfg\Configuration.cs:行号 638
+   在 NHibernate.Cfg.Configuration.AddResource(String path, Assembly assembly) 位置 p:\nhibernate-core\src\NHibernate\Cfg\Configuration.cs:行号 676
+   在 NHibernate.Cfg.Configuration.AddAssembly(Assembly assembly) 位置 p:\nhibernate-core\src\NHibernate\Cfg\Configuration.cs:行号 769
+   在 NHibernate.Cfg.Configuration.AddAssembly(String assemblyName) 位置 p:\nhibernate-core\src\NHibernate\Cfg\Configuration.cs:行号 752
+   在 NHibernate.Cfg.Configuration.DoConfigure(ISessionFactoryConfiguration factoryConfiguration) 位置 p:\nhibernate-core\src\NHibernate\Cfg\Configuration.cs:行号 1574
+   在 NHibernate.Cfg.Configuration.Configure(XmlReader textReader) 位置 p:\nhibernate-core\src\NHibernate\Cfg\Configuration.cs:行号 1539
+2016-02-20 15:58:53,589 - ERROR - START>Application
+2016-02-20 15:59:57,696 - ERROR - Could not compile the mapping document: ServiceCenter.MES.DataAccess.PPM.hbm.PlanMonth.hbm.xml
+NHibernate.MappingException: Could not compile the mapping document: ServiceCenter.MES.DataAccess.PPM.hbm.PlanMonth.hbm.xml ---> NHibernate.MappingException: Problem trying to set property type by reflection ---> NHibernate.MappingException: class ServiceCenter.MES.Model.PPM.PlanMonth, ServiceCenter.MES.Model.PPM, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null not found while looking for property: LocationName ---> NHibernate.PropertyNotFoundException: Could not find a getter for property 'LocationName' in class 'ServiceCenter.MES.Model.PPM.PlanMonth'
+   在 NHibernate.Properties.BasicPropertyAccessor.GetGetter(Type type, String propertyName) 位置 p:\nhibernate-core\src\NHibernate\Properties\BasicPropertyAccessor.cs:行号 35
+   在 NHibernate.Util.ReflectHelper.GetGetter(Type theClass, String propertyName, String propertyAccessorName) 位置 p:\nhibernate-core\src\NHibernate\Util\ReflectHelper.cs:行号 112
+   在 NHibernate.Util.ReflectHelper.ReflectedPropertyClass(String className, String name, String accessorName) 位置 p:\nhibernate-core\src\NHibernate\Util\ReflectHelper.cs:行号 165
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 NHibernate.Util.ReflectHelper.ReflectedPropertyClass(String className, String name, String accessorName) 位置 p:\nhibernate-core\src\NHibernate\Util\ReflectHelper.cs:行号 169
+   在 NHibernate.Mapping.SimpleValue.SetTypeUsingReflection(String className, String propertyName, String accesorName) 位置 p:\nhibernate-core\src\NHibernate\Mapping\SimpleValue.cs:行号 355
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 NHibernate.Mapping.SimpleValue.SetTypeUsingReflection(String className, String propertyName, String accesorName) 位置 p:\nhibernate-core\src\NHibernate\Mapping\SimpleValue.cs:行号 359
+   在 NHibernate.Cfg.XmlHbmBinding.PropertiesBinder.CreateProperty(IEntityPropertyMapping propertyMapping, String propertyOwnerClassName, IValue value, IDictionary`2 inheritedMetas) 位置 p:\nhibernate-core\src\NHibernate\Cfg\XmlHbmBinding\PropertiesBinder.cs:行号 399
+   在 NHibernate.Cfg.XmlHbmBinding.PropertiesBinder.Bind(IEnumerable`1 properties, Table table, IDictionary`2 inheritedMetas, Action`1 modifier, Action`1 addToModelAction) 位置 p:\nhibernate-core\src\NHibernate\Cfg\XmlHbmBinding\PropertiesBinder.cs:行号 92
+   在 NHibernate.Cfg.XmlHbmBinding.PropertiesBinder.Bind(IEnumerable`1 properties, IDictionary`2 inheritedMetas, Action`1 modifier) 位置 p:\nhibernate-core\src\NHibernate\Cfg\XmlHbmBinding\PropertiesBinder.cs:行号 52
+   在 NHibernate.Cfg.XmlHbmBinding.PropertiesBinder.Bind(IEnumerable`1 properties, IDictionary`2 inheritedMetas) 位置 p:\nhibernate-core\src\NHibernate\Cfg\XmlHbmBinding\PropertiesBinder.cs:行号 47
+   在 NHibernate.Cfg.XmlHbmBinding.RootClassBinder.Bind(HbmClass classSchema, IDictionary`2 inheritedMetas) 位置 p:\nhibernate-core\src\NHibernate\Cfg\XmlHbmBinding\RootClassBinder.cs:行号 59
+   在 NHibernate.Cfg.XmlHbmBinding.MappingRootBinder.AddRootClasses(HbmClass rootClass, IDictionary`2 inheritedMetas) 位置 p:\nhibernate-core\src\NHibernate\Cfg\XmlHbmBinding\MappingRootBinder.cs:行号 83
+   在 NHibernate.Cfg.XmlHbmBinding.MappingRootBinder.AddEntitiesMappings(HbmMapping mappingSchema, IDictionary`2 inheritedMetas) 位置 p:\nhibernate-core\src\NHibernate\Cfg\XmlHbmBinding\MappingRootBinder.cs:行号 42
+   在 NHibernate.Cfg.XmlHbmBinding.MappingRootBinder.Bind(HbmMapping mappingSchema) 位置 p:\nhibernate-core\src\NHibernate\Cfg\XmlHbmBinding\MappingRootBinder.cs:行号 29
+   在 NHibernate.Cfg.Configuration.AddDeserializedMapping(HbmMapping mappingDocument, String documentFileName) 位置 p:\nhibernate-core\src\NHibernate\Cfg\Configuration.cs:行号 522
+   --- 内部异常堆栈跟踪的结尾 ---
+2016-02-20 15:59:57,819 - ERROR - Problem parsing configuration
+NHibernate.MappingException: Could not compile the mapping document: ServiceCenter.MES.DataAccess.PPM.hbm.PlanMonth.hbm.xml ---> NHibernate.MappingException: Problem trying to set property type by reflection ---> NHibernate.MappingException: class ServiceCenter.MES.Model.PPM.PlanMonth, ServiceCenter.MES.Model.PPM, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null not found while looking for property: LocationName ---> NHibernate.PropertyNotFoundException: Could not find a getter for property 'LocationName' in class 'ServiceCenter.MES.Model.PPM.PlanMonth'
+   在 NHibernate.Properties.BasicPropertyAccessor.GetGetter(Type type, String propertyName) 位置 p:\nhibernate-core\src\NHibernate\Properties\BasicPropertyAccessor.cs:行号 35
+   在 NHibernate.Util.ReflectHelper.GetGetter(Type theClass, String propertyName, String propertyAccessorName) 位置 p:\nhibernate-core\src\NHibernate\Util\ReflectHelper.cs:行号 112
+   在 NHibernate.Util.ReflectHelper.ReflectedPropertyClass(String className, String name, String accessorName) 位置 p:\nhibernate-core\src\NHibernate\Util\ReflectHelper.cs:行号 165
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 NHibernate.Util.ReflectHelper.ReflectedPropertyClass(String className, String name, String accessorName) 位置 p:\nhibernate-core\src\NHibernate\Util\ReflectHelper.cs:行号 169
+   在 NHibernate.Mapping.SimpleValue.SetTypeUsingReflection(String className, String propertyName, String accesorName) 位置 p:\nhibernate-core\src\NHibernate\Mapping\SimpleValue.cs:行号 355
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 NHibernate.Mapping.SimpleValue.SetTypeUsingReflection(String className, String propertyName, String accesorName) 位置 p:\nhibernate-core\src\NHibernate\Mapping\SimpleValue.cs:行号 359
+   在 NHibernate.Cfg.XmlHbmBinding.PropertiesBinder.CreateProperty(IEntityPropertyMapping propertyMapping, String propertyOwnerClassName, IValue value, IDictionary`2 inheritedMetas) 位置 p:\nhibernate-core\src\NHibernate\Cfg\XmlHbmBinding\PropertiesBinder.cs:行号 399
+   在 NHibernate.Cfg.XmlHbmBinding.PropertiesBinder.Bind(IEnumerable`1 properties, Table table, IDictionary`2 inheritedMetas, Action`1 modifier, Action`1 addToModelAction) 位置 p:\nhibernate-core\src\NHibernate\Cfg\XmlHbmBinding\PropertiesBinder.cs:行号 92
+   在 NHibernate.Cfg.XmlHbmBinding.PropertiesBinder.Bind(IEnumerable`1 properties, IDictionary`2 inheritedMetas, Action`1 modifier) 位置 p:\nhibernate-core\src\NHibernate\Cfg\XmlHbmBinding\PropertiesBinder.cs:行号 52
+   在 NHibernate.Cfg.XmlHbmBinding.PropertiesBinder.Bind(IEnumerable`1 properties, IDictionary`2 inheritedMetas) 位置 p:\nhibernate-core\src\NHibernate\Cfg\XmlHbmBinding\PropertiesBinder.cs:行号 47
+   在 NHibernate.Cfg.XmlHbmBinding.RootClassBinder.Bind(HbmClass classSchema, IDictionary`2 inheritedMetas) 位置 p:\nhibernate-core\src\NHibernate\Cfg\XmlHbmBinding\RootClassBinder.cs:行号 59
+   在 NHibernate.Cfg.XmlHbmBinding.MappingRootBinder.AddRootClasses(HbmClass rootClass, IDictionary`2 inheritedMetas) 位置 p:\nhibernate-core\src\NHibernate\Cfg\XmlHbmBinding\MappingRootBinder.cs:行号 83
+   在 NHibernate.Cfg.XmlHbmBinding.MappingRootBinder.AddEntitiesMappings(HbmMapping mappingSchema, IDictionary`2 inheritedMetas) 位置 p:\nhibernate-core\src\NHibernate\Cfg\XmlHbmBinding\MappingRootBinder.cs:行号 42
+   在 NHibernate.Cfg.XmlHbmBinding.MappingRootBinder.Bind(HbmMapping mappingSchema) 位置 p:\nhibernate-core\src\NHibernate\Cfg\XmlHbmBinding\MappingRootBinder.cs:行号 29
+   在 NHibernate.Cfg.Configuration.AddDeserializedMapping(HbmMapping mappingDocument, String documentFileName) 位置 p:\nhibernate-core\src\NHibernate\Cfg\Configuration.cs:行号 522
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 NHibernate.Cfg.Configuration.LogAndThrow(Exception exception) 位置 p:\nhibernate-core\src\NHibernate\Cfg\Configuration.cs:行号 342
+   在 NHibernate.Cfg.Configuration.AddDeserializedMapping(HbmMapping mappingDocument, String documentFileName) 位置 p:\nhibernate-core\src\NHibernate\Cfg\Configuration.cs:行号 530
+   在 NHibernate.Cfg.Configuration.AddValidatedDocument(NamedXmlDocument doc) 位置 p:\nhibernate-core\src\NHibernate\Cfg\Configuration.cs:行号 499
+   在 NHibernate.Cfg.Configuration.ProcessMappingsQueue() 位置 p:\nhibernate-core\src\NHibernate\Cfg\Configuration.cs:行号 1865
+   在 NHibernate.Cfg.Configuration.AddDocumentThroughQueue(NamedXmlDocument document) 位置 p:\nhibernate-core\src\NHibernate\Cfg\Configuration.cs:行号 1856
+   在 NHibernate.Cfg.Configuration.AddXmlReader(XmlReader hbmReader, String name) 位置 p:\nhibernate-core\src\NHibernate\Cfg\Configuration.cs:行号 1849
+   在 NHibernate.Cfg.Configuration.AddInputStream(Stream xmlInputStream, String name) 位置 p:\nhibernate-core\src\NHibernate\Cfg\Configuration.cs:行号 638
+   在 NHibernate.Cfg.Configuration.AddResource(String path, Assembly assembly) 位置 p:\nhibernate-core\src\NHibernate\Cfg\Configuration.cs:行号 676
+   在 NHibernate.Cfg.Configuration.AddAssembly(Assembly assembly) 位置 p:\nhibernate-core\src\NHibernate\Cfg\Configuration.cs:行号 769
+   在 NHibernate.Cfg.Configuration.AddAssembly(String assemblyName) 位置 p:\nhibernate-core\src\NHibernate\Cfg\Configuration.cs:行号 752
+   在 NHibernate.Cfg.Configuration.DoConfigure(ISessionFactoryConfiguration factoryConfiguration) 位置 p:\nhibernate-core\src\NHibernate\Cfg\Configuration.cs:行号 1574
+   在 NHibernate.Cfg.Configuration.Configure(XmlReader textReader) 位置 p:\nhibernate-core\src\NHibernate\Cfg\Configuration.cs:行号 1539
+2016-02-20 16:02:45,626 - ERROR - START>Application
+2016-02-20 16:04:09,224 - ERROR - Could not compile the mapping document: ServiceCenter.MES.DataAccess.PPM.hbm.PlanMonth.hbm.xml
+NHibernate.MappingException: Could not compile the mapping document: ServiceCenter.MES.DataAccess.PPM.hbm.PlanMonth.hbm.xml ---> NHibernate.MappingException: Problem trying to set property type by reflection ---> NHibernate.MappingException: class ServiceCenter.MES.Model.PPM.PlanMonth, ServiceCenter.MES.Model.PPM, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null not found while looking for property: LocationName ---> NHibernate.PropertyNotFoundException: Could not find a getter for property 'LocationName' in class 'ServiceCenter.MES.Model.PPM.PlanMonth'
+   在 NHibernate.Properties.BasicPropertyAccessor.GetGetter(Type type, String propertyName) 位置 p:\nhibernate-core\src\NHibernate\Properties\BasicPropertyAccessor.cs:行号 35
+   在 NHibernate.Util.ReflectHelper.GetGetter(Type theClass, String propertyName, String propertyAccessorName) 位置 p:\nhibernate-core\src\NHibernate\Util\ReflectHelper.cs:行号 112
+   在 NHibernate.Util.ReflectHelper.ReflectedPropertyClass(String className, String name, String accessorName) 位置 p:\nhibernate-core\src\NHibernate\Util\ReflectHelper.cs:行号 165
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 NHibernate.Util.ReflectHelper.ReflectedPropertyClass(String className, String name, String accessorName) 位置 p:\nhibernate-core\src\NHibernate\Util\ReflectHelper.cs:行号 169
+   在 NHibernate.Mapping.SimpleValue.SetTypeUsingReflection(String className, String propertyName, String accesorName) 位置 p:\nhibernate-core\src\NHibernate\Mapping\SimpleValue.cs:行号 355
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 NHibernate.Mapping.SimpleValue.SetTypeUsingReflection(String className, String propertyName, String accesorName) 位置 p:\nhibernate-core\src\NHibernate\Mapping\SimpleValue.cs:行号 359
+   在 NHibernate.Cfg.XmlHbmBinding.PropertiesBinder.CreateProperty(IEntityPropertyMapping propertyMapping, String propertyOwnerClassName, IValue value, IDictionary`2 inheritedMetas) 位置 p:\nhibernate-core\src\NHibernate\Cfg\XmlHbmBinding\PropertiesBinder.cs:行号 399
+   在 NHibernate.Cfg.XmlHbmBinding.PropertiesBinder.Bind(IEnumerable`1 properties, Table table, IDictionary`2 inheritedMetas, Action`1 modifier, Action`1 addToModelAction) 位置 p:\nhibernate-core\src\NHibernate\Cfg\XmlHbmBinding\PropertiesBinder.cs:行号 92
+   在 NHibernate.Cfg.XmlHbmBinding.PropertiesBinder.Bind(IEnumerable`1 properties, IDictionary`2 inheritedMetas, Action`1 modifier) 位置 p:\nhibernate-core\src\NHibernate\Cfg\XmlHbmBinding\PropertiesBinder.cs:行号 52
+   在 NHibernate.Cfg.XmlHbmBinding.PropertiesBinder.Bind(IEnumerable`1 properties, IDictionary`2 inheritedMetas) 位置 p:\nhibernate-core\src\NHibernate\Cfg\XmlHbmBinding\PropertiesBinder.cs:行号 47
+   在 NHibernate.Cfg.XmlHbmBinding.RootClassBinder.Bind(HbmClass classSchema, IDictionary`2 inheritedMetas) 位置 p:\nhibernate-core\src\NHibernate\Cfg\XmlHbmBinding\RootClassBinder.cs:行号 59
+   在 NHibernate.Cfg.XmlHbmBinding.MappingRootBinder.AddRootClasses(HbmClass rootClass, IDictionary`2 inheritedMetas) 位置 p:\nhibernate-core\src\NHibernate\Cfg\XmlHbmBinding\MappingRootBinder.cs:行号 83
+   在 NHibernate.Cfg.XmlHbmBinding.MappingRootBinder.AddEntitiesMappings(HbmMapping mappingSchema, IDictionary`2 inheritedMetas) 位置 p:\nhibernate-core\src\NHibernate\Cfg\XmlHbmBinding\MappingRootBinder.cs:行号 42
+   在 NHibernate.Cfg.XmlHbmBinding.MappingRootBinder.Bind(HbmMapping mappingSchema) 位置 p:\nhibernate-core\src\NHibernate\Cfg\XmlHbmBinding\MappingRootBinder.cs:行号 29
+   在 NHibernate.Cfg.Configuration.AddDeserializedMapping(HbmMapping mappingDocument, String documentFileName) 位置 p:\nhibernate-core\src\NHibernate\Cfg\Configuration.cs:行号 522
+   --- 内部异常堆栈跟踪的结尾 ---
+2016-02-20 16:04:09,333 - ERROR - Problem parsing configuration
+NHibernate.MappingException: Could not compile the mapping document: ServiceCenter.MES.DataAccess.PPM.hbm.PlanMonth.hbm.xml ---> NHibernate.MappingException: Problem trying to set property type by reflection ---> NHibernate.MappingException: class ServiceCenter.MES.Model.PPM.PlanMonth, ServiceCenter.MES.Model.PPM, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null not found while looking for property: LocationName ---> NHibernate.PropertyNotFoundException: Could not find a getter for property 'LocationName' in class 'ServiceCenter.MES.Model.PPM.PlanMonth'
+   在 NHibernate.Properties.BasicPropertyAccessor.GetGetter(Type type, String propertyName) 位置 p:\nhibernate-core\src\NHibernate\Properties\BasicPropertyAccessor.cs:行号 35
+   在 NHibernate.Util.ReflectHelper.GetGetter(Type theClass, String propertyName, String propertyAccessorName) 位置 p:\nhibernate-core\src\NHibernate\Util\ReflectHelper.cs:行号 112
+   在 NHibernate.Util.ReflectHelper.ReflectedPropertyClass(String className, String name, String accessorName) 位置 p:\nhibernate-core\src\NHibernate\Util\ReflectHelper.cs:行号 165
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 NHibernate.Util.ReflectHelper.ReflectedPropertyClass(String className, String name, String accessorName) 位置 p:\nhibernate-core\src\NHibernate\Util\ReflectHelper.cs:行号 169
+   在 NHibernate.Mapping.SimpleValue.SetTypeUsingReflection(String className, String propertyName, String accesorName) 位置 p:\nhibernate-core\src\NHibernate\Mapping\SimpleValue.cs:行号 355
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 NHibernate.Mapping.SimpleValue.SetTypeUsingReflection(String className, String propertyName, String accesorName) 位置 p:\nhibernate-core\src\NHibernate\Mapping\SimpleValue.cs:行号 359
+   在 NHibernate.Cfg.XmlHbmBinding.PropertiesBinder.CreateProperty(IEntityPropertyMapping propertyMapping, String propertyOwnerClassName, IValue value, IDictionary`2 inheritedMetas) 位置 p:\nhibernate-core\src\NHibernate\Cfg\XmlHbmBinding\PropertiesBinder.cs:行号 399
+   在 NHibernate.Cfg.XmlHbmBinding.PropertiesBinder.Bind(IEnumerable`1 properties, Table table, IDictionary`2 inheritedMetas, Action`1 modifier, Action`1 addToModelAction) 位置 p:\nhibernate-core\src\NHibernate\Cfg\XmlHbmBinding\PropertiesBinder.cs:行号 92
+   在 NHibernate.Cfg.XmlHbmBinding.PropertiesBinder.Bind(IEnumerable`1 properties, IDictionary`2 inheritedMetas, Action`1 modifier) 位置 p:\nhibernate-core\src\NHibernate\Cfg\XmlHbmBinding\PropertiesBinder.cs:行号 52
+   在 NHibernate.Cfg.XmlHbmBinding.PropertiesBinder.Bind(IEnumerable`1 properties, IDictionary`2 inheritedMetas) 位置 p:\nhibernate-core\src\NHibernate\Cfg\XmlHbmBinding\PropertiesBinder.cs:行号 47
+   在 NHibernate.Cfg.XmlHbmBinding.RootClassBinder.Bind(HbmClass classSchema, IDictionary`2 inheritedMetas) 位置 p:\nhibernate-core\src\NHibernate\Cfg\XmlHbmBinding\RootClassBinder.cs:行号 59
+   在 NHibernate.Cfg.XmlHbmBinding.MappingRootBinder.AddRootClasses(HbmClass rootClass, IDictionary`2 inheritedMetas) 位置 p:\nhibernate-core\src\NHibernate\Cfg\XmlHbmBinding\MappingRootBinder.cs:行号 83
+   在 NHibernate.Cfg.XmlHbmBinding.MappingRootBinder.AddEntitiesMappings(HbmMapping mappingSchema, IDictionary`2 inheritedMetas) 位置 p:\nhibernate-core\src\NHibernate\Cfg\XmlHbmBinding\MappingRootBinder.cs:行号 42
+   在 NHibernate.Cfg.XmlHbmBinding.MappingRootBinder.Bind(HbmMapping mappingSchema) 位置 p:\nhibernate-core\src\NHibernate\Cfg\XmlHbmBinding\MappingRootBinder.cs:行号 29
+   在 NHibernate.Cfg.Configuration.AddDeserializedMapping(HbmMapping mappingDocument, String documentFileName) 位置 p:\nhibernate-core\src\NHibernate\Cfg\Configuration.cs:行号 522
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 NHibernate.Cfg.Configuration.LogAndThrow(Exception exception) 位置 p:\nhibernate-core\src\NHibernate\Cfg\Configuration.cs:行号 342
+   在 NHibernate.Cfg.Configuration.AddDeserializedMapping(HbmMapping mappingDocument, String documentFileName) 位置 p:\nhibernate-core\src\NHibernate\Cfg\Configuration.cs:行号 530
+   在 NHibernate.Cfg.Configuration.AddValidatedDocument(NamedXmlDocument doc) 位置 p:\nhibernate-core\src\NHibernate\Cfg\Configuration.cs:行号 499
+   在 NHibernate.Cfg.Configuration.ProcessMappingsQueue() 位置 p:\nhibernate-core\src\NHibernate\Cfg\Configuration.cs:行号 1865
+   在 NHibernate.Cfg.Configuration.AddDocumentThroughQueue(NamedXmlDocument document) 位置 p:\nhibernate-core\src\NHibernate\Cfg\Configuration.cs:行号 1856
+   在 NHibernate.Cfg.Configuration.AddXmlReader(XmlReader hbmReader, String name) 位置 p:\nhibernate-core\src\NHibernate\Cfg\Configuration.cs:行号 1849
+   在 NHibernate.Cfg.Configuration.AddInputStream(Stream xmlInputStream, String name) 位置 p:\nhibernate-core\src\NHibernate\Cfg\Configuration.cs:行号 638
+   在 NHibernate.Cfg.Configuration.AddResource(String path, Assembly assembly) 位置 p:\nhibernate-core\src\NHibernate\Cfg\Configuration.cs:行号 676
+   在 NHibernate.Cfg.Configuration.AddAssembly(Assembly assembly) 位置 p:\nhibernate-core\src\NHibernate\Cfg\Configuration.cs:行号 769
+   在 NHibernate.Cfg.Configuration.AddAssembly(String assemblyName) 位置 p:\nhibernate-core\src\NHibernate\Cfg\Configuration.cs:行号 752
+   在 NHibernate.Cfg.Configuration.DoConfigure(ISessionFactoryConfiguration factoryConfiguration) 位置 p:\nhibernate-core\src\NHibernate\Cfg\Configuration.cs:行号 1574
+   在 NHibernate.Cfg.Configuration.Configure(XmlReader textReader) 位置 p:\nhibernate-core\src\NHibernate\Cfg\Configuration.cs:行号 1539
+2016-02-20 16:08:03,596 - ERROR - START>Application
+2016-02-20 16:26:04,900 - ERROR - START>Application
+2016-02-20 17:27:52,218 - ERROR - START>Application

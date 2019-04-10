@@ -1,0 +1,170 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.FMM.Models.EquipmentConsumingViewModel
+@using ServiceCenter.Client.Mvc.Areas.FMM.Models;
+@using ServiceCenter.Client.Mvc.Resources;
+@using FMM = ServiceCenter.Client.Mvc.Resources.FMM;
+@using ServiceCenter.MES.Model.FMM;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@{
+    PagingConfig cfg = ViewBag.PagingConfig;
+}
+<div id="_list">
+    <table class="table table-hover table-bordered table-condensed">
+        <thead>
+            <tr class="active">
+                <td nowrap align="center">@StringResource.ItemNo</td>
+                <td nowrap align="center">@Html.DisplayNameFor(m => m.Year)</td>
+                <td nowrap align="center">@Html.DisplayNameFor(m => m.Month)</td>
+                <td nowrap align="center">@Html.DisplayNameFor(m => m.Day)</td>
+                <td nowrap align="center">@Html.DisplayNameFor(m => m.LocationName)</td>
+                <td nowrap align="center">@Html.DisplayNameFor(m => m.ShiftName)</td>
+                <td nowrap align="center">@Html.DisplayNameFor(m => m.LineCode)</td>
+                <td nowrap align="center">@Html.DisplayNameFor(m => m.RouteStepName)</td>
+                <td nowrap align="center">@Html.DisplayNameFor(m => m.EquipmentCode)</td>
+                <td nowrap align="center">@Html.DisplayNameFor(m => m.ReasonCodeName)</td>
+                <td nowrap align="center">@Html.DisplayNameFor(m => m.Consuming)</td>
+                <td nowrap align="center">@StringResource.Detail</td>
+                <td nowrap align="center">@StringResource.Modify</td>
+                <td nowrap align="center">@StringResource.Delete</td>
+            </tr>
+        </thead>
+        @if (ViewBag.List != null)
+        {
+            <tbody>
+                @for (int i = 0; i < ViewBag.List.Length; i++)
+                {
+                    EquipmentConsuming obj = ViewBag.List[i];
+                   
+                    
+                    <tr>
+                        <td>@(cfg.PageSize * cfg.PageNo + i + 1)</td>
+                        <td>
+                            @obj.Key.Year
+                        </td>
+                        <td>
+                            @obj.Key.Month
+                        </td>
+                        <td>
+                            @obj.Key.Day
+                        </td>
+                        <td>
+                            @obj.Key.LocationName
+                        </td>
+                        <td>
+                            @obj.Key.ShiftName                            
+                        </td>
+                        <td>
+                            @obj.Key.LineCode
+                        </td>
+                        <td>
+                            @obj.Key.RouteStepName
+                        </td>
+                        <td>
+                            @obj.Key.EquipmentCode
+                        </td>
+                       
+                        <td>
+                            @obj.Key.ReasonCodeName
+                        </td>
+                        <td>
+                            @obj.Consuming
+                        </td>
+                        <td>
+                            @Ajax.ActionLink(StringResource.Detail
+                                            , actionName: null
+                                            , routeValues: null
+                                            , ajaxOptions: new AjaxOptions()
+                                            {
+                                                HttpMethod = "Post",
+                                                UpdateTargetId = "detailInfo",
+                                                OnSuccess = "showInfoModal",
+                                                Url = Url.Action("Detail", new 
+                                                {
+                                                    @Year = obj.Key.Year,
+                                                    @Month = obj.Key.Month,
+                                                    @Day = obj.Key.Day,
+                                                    @LocationName = obj.Key.LocationName,
+                                                    @ShiftName = obj.Key.ShiftName,
+                                                    @LineCode = obj.Key.LineCode,
+                                                    @RouteStepName = obj.Key.RouteStepName,
+                                                    @EquipmentCode = obj.Key.EquipmentCode,
+                                                    @ReasonCodeName = obj.Key.ReasonCodeName
+                                                 
+                                                })
+                                            })
+                        </td>
+                        <td>
+
+                            @Ajax.ActionLink(StringResource.Modify
+                                            , actionName: null
+                                            , routeValues: null
+                                            , ajaxOptions: new AjaxOptions()
+                                            {
+                                                HttpMethod = "Post",
+                                                UpdateTargetId = "modifyFormContent",
+                                                OnSuccess = "showModifyModal",
+                                                Url = Url.Action("Modify", new 
+                                                {
+                                                    @Year = obj.Key.Year,
+                                                    @Month = obj.Key.Month,
+                                                    @Day = obj.Key.Day,
+                                                    @LocationName = obj.Key.LocationName,
+                                                    @ShiftName = obj.Key.ShiftName,
+                                                    @LineCode = obj.Key.LineCode,
+                                                    @RouteStepName = obj.Key.RouteStepName,
+                                                    @EquipmentCode = obj.Key.EquipmentCode,
+                                                    @ReasonCodeName = obj.Key.ReasonCodeName
+                                                })
+                                            })
+                        </td>
+                        <td>
+                            @Ajax.ActionLink(StringResource.Delete, actionName: null
+                                            , routeValues: null
+                                            , ajaxOptions: new AjaxOptions()
+                                            {
+                                                HttpMethod = "Post",
+                                                Confirm = string.Format(FMM.StringResource.EquipmentConsuming_ConfirmDelete, obj.Key),
+                                                Url = Url.Action("Delete", new
+                                                {
+                                                    @Year = obj.Key.Year,
+                                                    @Month = obj.Key.Month,
+                                                    @Day = obj.Key.Day,
+                                                    @LocationName = obj.Key.LocationName,
+                                                    @ShiftName = obj.Key.ShiftName,
+                                                    @LineCode = obj.Key.LineCode,
+                                                    @RouteStepName = obj.Key.RouteStepName,
+                                                    @EquipmentCode = obj.Key.EquipmentCode,
+                                                    @ReasonCodeName = obj.Key.ReasonCodeName
+                                                }),
+                                                OnSuccess = "completeDelete"
+                                            })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        }
+    </table>
+    <div style="margin-top:-18px">
+        @if (cfg != null)
+        {
+            using (Ajax.BeginForm("PagingQuery", "EquipmentConsuming"
+                            , new
+                            {
+                                @Where = cfg.Where,
+                                @OrderBy = cfg.OrderBy,
+                                @CurrentPageNo = cfg.PageNo,
+                                @CurrentPageSize = cfg.PageSize
+                            }
+                            , new AjaxOptions()
+                            {
+                                HttpMethod = "Post",
+                                UpdateTargetId = "_list"
+                            }
+                            , new { @class = "form-horizontal", resource = "form", id = "frmPagingQuery" }))
+            {
+                @Html.AntiForgeryToken()
+                <div>@Html.Partial("_PaginationPartial")</div>
+            }
+        }
+    </div>
+</div>

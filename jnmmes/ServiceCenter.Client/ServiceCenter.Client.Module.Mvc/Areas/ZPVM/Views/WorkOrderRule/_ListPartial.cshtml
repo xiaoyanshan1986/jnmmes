@@ -1,0 +1,199 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.ZPVM.Models.WorkOrderRuleViewModel
+@using ServiceCenter.Client.Mvc.Areas.ZPVM.Models;
+@using ServiceCenter.Client.Mvc.Resources;
+@using ZPVM = ServiceCenter.Client.Mvc.Resources.ZPVM;
+@using PPMResources = ServiceCenter.Client.Mvc.Resources.PPM;
+@using ServiceCenter.MES.Model.ZPVM;
+@using ServiceCenter.MES.Model.PPM;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@{
+    PagingConfig cfg = ViewBag.PagingConfig;
+}
+<div id="_list">
+    <table class="table table-hover table-bordered table-condensed">
+        <thead>
+            <tr class="active">
+                <td>@Html.DisplayNameFor(m => m.OrderNumber)</td>
+                <td>@Html.DisplayNameFor(m => m.MaterialCode)</td>
+                <td>@Html.DisplayNameFor(m => m.RuleCode)</td>
+                <td>@Html.DisplayNameFor(m => m.RuleName)</td>
+                <td>@Html.DisplayNameFor(m => m.FullPackageQty)</td>
+                <td>@Html.DisplayNameFor(m => m.PowerDegree)</td>
+                <td>@Html.DisplayNameFor(m => m.MinPower)</td>
+                <td>@Html.DisplayNameFor(m => m.MaxPower)</td>
+                <td>@Html.DisplayNameFor(m => m.CalibrationType)</td>
+                <td>@Html.DisplayNameFor(m => m.CalibrationCycle)</td>
+                <td>@Html.DisplayNameFor(m => m.FixCycle)</td>
+                <td>@PPMResources.StringResource.WorkOrder_SettingLine</td>
+                <td>@PPMResources.StringResource.WorkOrder_SettingRoute</td>
+                <td>分档规则</td>
+                <td>控制参数</td>
+                <td>衰减设置</td>
+                <td>等级设置</td>
+                <td>标签设置</td>
+                <td>@StringResource.Detail</td>
+                <td>@StringResource.Modify</td>
+                <td>@StringResource.Delete</td>
+            </tr>
+        </thead>
+        @if (ViewBag.List != null)
+        {
+            <tbody>
+                @for (int i = 0; i < ViewBag.List.Length; i++)
+                {
+                    WorkOrderProduct obj = ViewBag.List[i];
+                    WorkOrderRule ruleObj = Model.GetWorkOrderRule(obj.Key.OrderNumber, obj.Key.MaterialCode);
+                    
+                    <tr>
+                        <td>@obj.Key.OrderNumber</td>
+                        <td>
+                            @obj.Key.MaterialCode
+                        </td>
+                        <td>@(ruleObj!=null?ruleObj.RuleCode:string.Empty)</td>
+                        <td>
+                            @(ruleObj!=null?ruleObj.RuleName:string.Empty)
+                        </td>
+                        <td>
+                            @(ruleObj != null ? Convert.ToString(ruleObj.FullPackageQty) : string.Empty)
+                        </td>
+                        <td>
+                            @(ruleObj!=null?Convert.ToString(ruleObj.PowerDegree):string.Empty)
+                        </td>
+                        <td>
+                            @(ruleObj!=null?Convert.ToString(ruleObj.MinPower):string.Empty)
+                        </td>
+                        <td>
+                            @(ruleObj!=null?Convert.ToString(ruleObj.MaxPower):string.Empty)
+                        </td>
+                        <td>
+                            @(ruleObj!=null?Convert.ToString(ruleObj.CalibrationType):string.Empty)
+                        </td>
+                        <td>
+                           @(ruleObj!=null?Convert.ToString(ruleObj.CalibrationCycle):string.Empty)
+                        </td>
+                        <td>
+                            @(ruleObj!=null?Convert.ToString(ruleObj.FixCycle):string.Empty)
+                        </td>
+                        <td>
+                            @Html.ActionLink(linkText: PPMResources.StringResource.WorkOrder_SettingLine
+                                            , actionName: "Index"
+                                            , controllerName: "WorkOrderProductionLine"
+                                         , routeValues: new { @OrderNumber = obj.Key.OrderNumber, area = "PPM" }
+                                            , htmlAttributes: new { @target = "_self" })
+                        </td>
+                        <td>
+                            @Html.ActionLink(linkText: PPMResources.StringResource.WorkOrder_SettingRoute
+                                            , actionName: "Index"
+                                            , controllerName: "WorkOrderRoute"
+                                            , routeValues: new { @OrderNumber = obj.Key.OrderNumber, area = "PPM" }
+                                            , htmlAttributes: new { @target = "_self" })
+                        </td>
+                        @if (ruleObj != null)
+                        { 
+                            <td>@Html.ActionLink(linkText: "分档规则"
+                                            , actionName: "Index"
+                                             , controllerName: "WorkOrderPowerset"
+                                               , routeValues: new { @OrderNumber = obj.Key.OrderNumber, @MaterialCode = obj.Key.MaterialCode }
+                                            , htmlAttributes: new { @target = "_self" })</td>
+                            <td>@Html.ActionLink(linkText: "控制参数"
+                                            , actionName: "Index"
+                                              , controllerName: "WorkOrderControlObject"
+                                              , routeValues: new { @OrderNumber = obj.Key.OrderNumber, @MaterialCode = obj.Key.MaterialCode }
+                                            , htmlAttributes: new { @target = "_self" })</td>
+                            <td>@Html.ActionLink(linkText: "衰减设置"
+                                            , actionName: "Index"
+                                               , controllerName: "WorkOrderDecay"
+                                              , routeValues: new { @OrderNumber = obj.Key.OrderNumber, @MaterialCode = obj.Key.MaterialCode }
+                                            , htmlAttributes: new { @target = "_self" })</td>
+                            <td>@Html.ActionLink(linkText: "等级设置"
+                                            , actionName: "Index"
+                                               , controllerName: "WorkOrderGrade"
+                                              , routeValues: new { @OrderNumber = obj.Key.OrderNumber, @MaterialCode = obj.Key.MaterialCode }
+                                            , htmlAttributes: new { @target = "_self" })</td>
+                            <td>@Html.ActionLink(linkText: "标签设置"
+                                            , actionName: "Index"
+                                               , controllerName: "WorkOrderPrintSet"
+                                              , routeValues: new { @OrderNumber = obj.Key.OrderNumber, @MaterialCode = obj.Key.MaterialCode }
+                                            , htmlAttributes: new { @target = "_self" })</td>
+                            <td>
+                                @Ajax.ActionLink(StringResource.Detail, actionName: null
+                                                , routeValues: null
+                                                , ajaxOptions:new AjaxOptions() 
+                                                { 
+                                                    HttpMethod = "Post", 
+                                                    UpdateTargetId = "detailInfo",
+                                                    OnSuccess = "showInfoModal",
+                                                    Url = Url.Action("Detail", new { @OrderNumber = obj.Key.OrderNumber, @MaterialCode = obj.Key.MaterialCode })
+                                                })
+                            </td>
+                        }
+                        else
+                        {
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        }
+                        <td>
+                            @Ajax.ActionLink(StringResource.Modify, actionName: null
+                                            ,routeValues:null
+                                            ,ajaxOptions:new AjaxOptions()
+                                            {
+                                                HttpMethod = "Post",
+                                                UpdateTargetId = "modifyFormContent",
+                                                OnSuccess = "showModifyModal",
+                                                Url = Url.Action("Modify", new { @OrderNumber = obj.Key.OrderNumber, @MaterialCode = obj.Key.MaterialCode })
+                                            })
+                        </td>
+                        @if (ruleObj != null)
+                        {
+                        <td>
+                            @Ajax.ActionLink(StringResource.Delete, actionName: null
+                                            , routeValues: null
+                                            , ajaxOptions:new AjaxOptions()
+                                            {
+                                                HttpMethod = "Post",
+                                                Confirm = string.Format(ZPVM.StringResource.WorkOrderRule_ConfirmDelete, obj.Key),
+                                                Url = Url.Action("Delete", new { @OrderNumber = obj.Key.OrderNumber, @MaterialCode = obj.Key.MaterialCode }),
+                                                OnSuccess = "completeDelete"
+                                            })
+                        </td>
+                        }
+                        else
+                        {
+                            <td></td>
+                        }
+                    </tr>
+                }
+            </tbody>
+        }
+    </table>
+    <div style="margin-top:-18px">
+        @if (cfg != null)
+        {
+            using (Ajax.BeginForm("PagingQuery", "WorkOrderRule"
+                            , new
+                            {
+                                @Where = cfg.Where,
+                                @OrderBy = cfg.OrderBy,
+                                @CurrentPageNo = cfg.PageNo,
+                                @CurrentPageSize = cfg.PageSize
+                            }
+                            , new AjaxOptions()
+                            {
+                                HttpMethod = "Post",
+                                UpdateTargetId = "_list"
+                            }
+                            , new { @class = "form-horizontal", resource = "form", id = "frmPagingQuery" }))
+            {
+                @Html.AntiForgeryToken()
+                <div>@Html.Partial("_PaginationPartial")</div>
+            }
+        }
+    </div>
+</div>
+
+

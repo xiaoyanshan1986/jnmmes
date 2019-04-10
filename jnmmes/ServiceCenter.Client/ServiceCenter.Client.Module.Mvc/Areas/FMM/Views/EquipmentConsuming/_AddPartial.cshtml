@@ -1,0 +1,182 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.FMM.Models.EquipmentConsumingViewModel
+
+<div class="form-group">
+    @*年*@
+    @Html.LabelFor(m => m.Year, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.DropDownListFor(m => m.Year, @Model.GetYear(), new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Year)
+    </div>
+</div>
+
+<div class="form-group">
+    @*月*@
+    @Html.LabelFor(m => m.Month, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.DropDownListFor(m => m.Month, @Model.GetMonth(), new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Month)
+    </div>
+</div>
+
+<div class="form-group">
+    @*日*@
+    @Html.LabelFor(m => m.Day, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.DropDownListFor(m => m.Day, new List<SelectListItem>(), new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Day)
+    </div>
+</div>
+
+<div class="form-group">
+    @*班别*@
+    @Html.LabelFor(m => m.ShiftName, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.DropDownListFor(m => m.ShiftName, @Model.GetShiftName(), new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.ShiftName)
+    </div>
+</div>
+
+<div class="form-group">
+    @*车间*@
+    @Html.LabelFor(m => m.LocationName, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.DropDownListFor(m => m.LocationName, @Model.GetLocationName(), new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.LocationName)
+    </div>
+</div>
+
+
+<div class="form-group">
+    @*工步*@
+@Html.LabelFor(m => m.RouteStepName, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.DropDownListFor(m => m.RouteStepName, @Model.GetRouteOperationList(), new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.RouteStepName)
+    </div>
+</div>
+
+<div class="form-group">
+    @*线别*@
+    @Html.LabelFor(m => m.LineCode, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.DropDownListFor(m => m.LineCode, @Model.GetProductionLineList(), new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.LineCode)
+    </div>
+</div>
+
+<div class="form-group">
+    @*设备代码*@
+    @*@Html.LabelFor(m => m.EquipmentCode, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.DropDownListFor(m => m.EquipmentCode, @Model.GetEquipmentCode(), new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.EquipmentCode)
+    </div>*@
+    @Html.LabelFor(m => m.EquipmentCode, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.DropDownListFor(m => m.EquipmentCode, @Model.GetEquipmentCode(), new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.EquipmentCode)
+    </div>
+</div>
+<div class="form-group">
+    @*原因代码*@
+    @Html.LabelFor(m => m.ReasonCodeName, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.DropDownListFor(m => m.ReasonCodeName, @Model.GetEquipmentReasonCodeName(), new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.ReasonCodeName)
+    </div>
+</div>
+
+<div class="form-group">
+    @*耗时*@
+    @Html.LabelFor(m => m.Consuming, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.Consuming, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Consuming)
+    </div>
+</div>
+
+@section Scripts {
+    @*定义事件*@
+    @*<script type="text/javascript" language="javascript">
+        $(function () {
+            alert(8);
+            //年度控件事件
+            $("#Year").change(function () {
+                changeDate($(this).val(), $("#Month").val());
+            });
+
+            //月度控件事件
+            $("#Month").change(function () {
+                changeDate($("#Year").val(), $(this).val());
+            });
+            //线别控件事件
+            $("#LineCode").change(function () {
+                changeEquipmentCode($(this).val(), $("#RouteStepName").val());
+            });
+
+            //工序控件事件
+            $("#RouteStepName").change(function () {
+                changeEquipmentCode($("#LineCode").val(), $(this).val());
+            });
+        });
+    </script>*@
+
+    @*事件函数*@
+    @*<script type="text/javascript" language="javascript">
+        function changeDate(year, month)
+        {
+            alert(year);
+            alert(month);
+            $("#Day").get(0).options.length = 0; //清空
+
+            if (year == null || year == "") {
+                return;
+            }
+            if (month == null || month == "") {
+                return;
+            }
+
+            var url = "@Url.Action("GetDays", "EquipmentConsuming", new { area = "FMM" })";
+
+            var reqdata = { Year: year, Month: month };
+
+            $.getJSON(url, reqdata, function (data)
+            {
+                $("#Day").get(0).options.length = 0; //清空
+                $.each(data, function (i, item) {
+                    $("<option></option>").val(item.Text).text(item.Value).appendTo($("#Day"));
+                });
+            });
+        }
+        function changeEquipmentCode(routestepname, linecode)
+        {
+            $("#EquipmentCode").get(0).options.length = 0; //清空
+
+            if (routestepname == null || routestepname == "") {
+                return;
+            }
+            if (linecode == null || linecode == "") {
+                return;
+            }
+            //var content = $("#addContent");
+            //var obj = content.find("select[name='EquipmentCode']");
+            //$(obj).each(function () {
+            //    $(this).get(0).options.length = 0;
+            //});//清空
+
+            var url = "@Url.Action("GetEquipments", "EquipmentConsuming", new { area = "FMM" })";
+            var routestepname = content.find("select[name='RouteStepName']").val();
+            var linecode = content.find("select[name='LineCode']").val();
+            var reqdata = { RouteStepName: routestepname, LineCode: linecode };
+
+            $.getJSON(url, reqdata, function (data) {
+
+                $("#EquipmentCode").get(0).options.length = 0; //清空
+                $.each(data, function (i, item) {
+                    $("<option></option>").val(item.Key).text(item.Text).appendTo($("#EquipmentCode"));
+                });
+                changeEquipmentState($("#EquipmentCode").val())
+            });
+        }
+    </script>*@
+}

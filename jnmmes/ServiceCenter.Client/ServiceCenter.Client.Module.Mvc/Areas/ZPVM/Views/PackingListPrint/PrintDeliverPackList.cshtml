@@ -1,0 +1,64 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.ZPVM.Models.PackingListPrintQueryViewModel
+@using ServiceCenter.MES.Model.ZPVM;
+@using ServiceCenter.Model;
+@using ServiceCenter.Common;
+@using ServiceCenter.Client.Mvc.Areas.ZPVM.Models;
+@using ZPVM=ServiceCenter.Client.Mvc.Resources.ZPVM;
+@using ServiceCenter.Client.Mvc.Resources;
+
+@{
+    ViewBag.Title = "销售包装清单打印";
+    PagingConfig cfg = ViewBag.PagingConfig;
+}
+<h2>@ViewBag.Title</h2>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        &nbsp;
+    </div>
+    <div class="panel-body">
+    @using (Html.BeginForm("ShowDeliverReport"
+                            , "PackingListPrint"
+                            , FormMethod.Post
+                            , new { @class = "form-horizontal", resource = "form", target = "list", id="frmQuery"}))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-group">
+            <div class="col-md-1">
+                @Html.LabelFor(m => m.PackageListType, new { @class = "control-label" })
+            </div>
+            <div class="col-md-2">
+                @Html.DropDownListFor(m => m.PackageListType, @Model.GetPackageListTypeList(), new { @class = "form-control" })
+            </div>
+
+            <div class="col-md-1">
+                @Html.LabelFor(m => m.PackageNo, new { @class = "control-label" })
+            </div>
+            <div class="col-md-7">
+                @Html.TextBoxFor(m => m.PackageNo, new { @class = "form-control", @style = "text-transform:uppercase;ime-mode:disabled" })
+            </div>
+
+            <div class="col-md-1">
+                <input type="submit" value="@StringResource.Query" class="btn btn-primary" id="btnQuery"/>
+            </div>
+        </div>
+    }
+    </div>
+    <iframe id="list" style="width:100%;height:800px;border:none 0px;" name="list" >
+       
+    </iframe>
+</div>
+
+@section Scripts {
+<script type="text/javascript" language="javascript">
+    //保存
+    $(function () {
+        $("#PackageNo").focus().select();
+        $("#btnQuery").click(function () {
+            $("#PackageNo").focus().select();
+        });
+
+    });
+    </script>
+}

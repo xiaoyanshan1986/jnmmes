@@ -1,0 +1,116 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.ZPVM.Models.RuleGradeViewModel
+@using ServiceCenter.Client.Mvc.Areas.ZPVM.Models;
+@using ServiceCenter.Client.Mvc.Resources;
+@using ZPVM = ServiceCenter.Client.Mvc.Resources.ZPVM;
+@using ServiceCenter.MES.Model.ZPVM;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@{
+    PagingConfig cfg = ViewBag.PagingConfig;
+}
+<div id="_list">
+    <table class="table table-hover table-bordered table-condensed">
+        <thead>
+            <tr class="active">
+                <td>@Html.DisplayNameFor(m => m.Code)</td>
+                <td>@Html.DisplayNameFor(m => m.Grade)</td>
+                <td>@Html.DisplayNameFor(m => m.ItemNo)</td>
+                <td>@Html.DisplayNameFor(m => m.PackageGroup)</td>
+                <td>@Html.DisplayNameFor(m => m.MixColor)</td>
+                <td>@Html.DisplayNameFor(m => m.MixPowerset)</td>
+                <td>@Html.DisplayNameFor(m => m.MixSubPowerset)</td>
+                <td>@Html.DisplayNameFor(m => m.IsUsed)</td>
+                <td>@StringResource.Detail</td>
+                <td>@StringResource.Modify</td>
+                <td>@StringResource.Delete</td>
+            </tr>
+        </thead>
+        @if (ViewBag.List != null)
+        {
+            <tbody>
+                @for (int i = 0; i < ViewBag.List.Length; i++)
+                {
+                    RuleGrade obj = ViewBag.List[i];
+                    <tr>
+                        <td>@obj.Key.Code</td>
+                        <td>
+                            @obj.Key.Grade
+                        </td>
+                        <td>@obj.ItemNo</td>
+                        <td>@obj.PackageGroup</td>
+                        <td>
+                            @(obj.MixColor ? StringResource.Yes : StringResource.No)
+                        </td>
+                        <td>
+                            @(obj.MixPowerset ? StringResource.Yes : StringResource.No)
+                        </td>
+                        <td>
+                            @(obj.MixSubPowerset ? StringResource.Yes : StringResource.No)
+                        </td>
+                        <td>
+                            @(obj.IsUsed ? StringResource.Yes : StringResource.No)
+                        </td>
+                        <td>
+                            @Ajax.ActionLink(StringResource.Detail, actionName: null
+                                            , routeValues: null
+                                            , ajaxOptions:new AjaxOptions() 
+                                            { 
+                                                HttpMethod = "Post", 
+                                                UpdateTargetId = "detailInfo",
+                                                OnSuccess = "showInfoModal",
+                                                Url = Url.Action("Detail", new { @Code = obj.Key.Code, @Grade = obj.Key.Grade})
+                                            })
+                        </td>
+                        <td>
+                            @Ajax.ActionLink(StringResource.Modify, actionName: null
+                                            ,routeValues:null
+                                            ,ajaxOptions:new AjaxOptions()
+                                            {
+                                                HttpMethod = "Post",
+                                                UpdateTargetId = "modifyFormContent",
+                                                OnSuccess = "showModifyModal",
+                                                Url = Url.Action("Modify", new { @Code = obj.Key.Code, @Grade = obj.Key.Grade })
+                                            })
+                        </td>
+                        <td>
+                            @Ajax.ActionLink(StringResource.Delete, actionName: null
+                                            , routeValues: null
+                                            , ajaxOptions:new AjaxOptions()
+                                            {
+                                                HttpMethod = "Post",
+                                                Confirm = string.Format(ZPVM.StringResource.RuleGrade_ConfirmDelete, obj.Key),
+                                                Url = Url.Action("Delete", new { @Code = obj.Key.Code, @Grade = obj.Key.Grade }),
+                                                OnSuccess = "completeDelete"
+                                            })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        }
+    </table>
+    <div style="margin-top:-18px">
+        @if (cfg != null)
+        {
+            using (Ajax.BeginForm("PagingQuery", "RuleGrade"
+                            , new
+                            {
+                                @Where = cfg.Where,
+                                @OrderBy = cfg.OrderBy,
+                                @CurrentPageNo = cfg.PageNo,
+                                @CurrentPageSize = cfg.PageSize
+                            }
+                            , new AjaxOptions()
+                            {
+                                HttpMethod = "Post",
+                                UpdateTargetId = "_list"
+                            }
+                            , new { @class = "form-horizontal", resource = "form", id = "frmPagingQuery" }))
+            {
+                @Html.AntiForgeryToken()
+                <div>@Html.Partial("_PaginationPartial")</div>
+            }
+        }
+    </div>
+</div>
+
+

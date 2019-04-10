@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ufinterface receiver="K01" sender="mes" roottag="" replace="Y" isexchange="Y" groupcode="001" filename="" billtype="55A4" account="01">
+  <bill id="">
+    <billhead>
+      <pk_wr>
+      </pk_wr>
+      <product>
+        <item>
+          <pk_wr_product>
+          </pk_wr_product>
+          <pk_group>001</pk_group>
+          <pk_org>K01</pk_org>
+          <pk_org_v>K01</pk_org_v>
+          <vbrowno>0</vbrowno>
+          <cbmoid>1001A11000000017C38C</cbmoid>
+          <vbmobillcode>1MO-16110008</vbmobillcode>
+          <cbfirstmoid>1001A11000000017C38C</cbfirstmoid>
+          <vbfirstmocode>1MO-16110008</vbfirstmocode>
+          <vbsrcmocode>1MO-16110008</vbsrcmocode>
+          <fbproducttype>1</fbproducttype>
+          <cbmaterialid>1202020013</cbmaterialid>
+          <cbmaterialvid>1202020013</cbmaterialvid>
+          <cbbomversionid>1001A1100000000IB2U1</cbbomversionid>
+          <vbbomversioncode>1.0</vbbomversioncode>
+          <cbmainbomid>1001A1100000000IB2U1</cbmainbomid>
+          <vbmainbomcode>1.0</vbmainbomcode>
+          <cbdeptid>K013D5</cbdeptid>
+          <cbdeptvid>K013D5</cbdeptvid>
+          <tbstarttime>2017/1/10 00:00:00</tbstarttime>
+          <tbendtime>2017/1/10 23:59:59</tbendtime>
+          <vbbatchcode>161211080229</vbbatchcode>
+          <fbsourcetype>2</fbsourcetype>
+          <cbunitid>Pcs</cbunitid>
+          <cbastunitid>WA</cbastunitid>
+          <vbchangerate>1/270.0000</vbchangerate>
+          <nbwrnum>30.0000</nbwrnum>
+          <nbwrastnum>8100.000</nbwrastnum>
+          <nbsldchecknum>0</nbsldchecknum>
+          <nbsldcheckastnum>0</nbsldcheckastnum>
+          <nbchecknum>0</nbchecknum>
+          <nbcheckastnum>0</nbcheckastnum>
+          <bbhasbckfled>N</bbhasbckfled>
+          <bbhaspicked>N</bbhaspicked>
+          <bbstockbycheck>N</bbstockbycheck>
+          <bbisempass>N</bbisempass>
+          <bbchkflag>N</bbchkflag>
+          <bbinstock>N</bbinstock>
+          <bbotherreject>N</bbotherreject>
+          <bbsetmark>N</bbsetmark>
+          <vbsrctranstype>55C2-Cxx-01</vbsrctranstype>
+          <cbsrctranstype>0001A110000000001MSJ</cbsrctranstype>
+          <cbsrctype>55C2</cbsrctype>
+          <vbsrccode>1MO-16110008</vbsrccode>
+          <vbsrcid>1001A11000000017C38C</vbsrcid>
+          <vbfirstranstype>55C2-Cxx-01</vbfirstranstype>
+          <cbfirstranstype>0001A110000000001MSJ</cbfirstranstype>
+          <vbfirsttype>55C2</vbfirsttype>
+          <vbfirstcode>1MO-16110008</vbfirstcode>
+          <vbfirstid>1001A11000000017C38C</vbfirstid>
+          <bbhasfbill>N</bbhasfbill>
+          <vbfree1>270</vbfree1>
+          <vbfree2>01</vbfree2>
+          <vbfree3>01</vbfree3>
+        </item>
+      </product>
+      <pk_group>001</pk_group>
+      <pk_org>K01</pk_org>
+      <pk_org_v>K01</pk_org_v>
+      <vbillcode>
+      </vbillcode>
+      <fbillstatus>1</fbillstatus>
+      <vdef17>INC170110001</vdef17>
+      <vtrantypeid>0001A110000000001MSI</vtrantypeid>
+      <vtrantypecode>55A4-01</vtrantypecode>
+      <fprodmode>2</fprodmode>
+      <cdeptid>K013D5</cdeptid>
+      <cdeptvid>K013D5</cdeptvid>
+      <dbilldate>2017/1/10 0:00:00</dbilldate>
+      <vnote>1232</vnote>
+      <billmaker>jun.fang</billmaker>
+      <dmakedate>2017-01-10 08:51:57</dmakedate>
+      <creator>jun.fang</creator>
+      <creationtime>2017-01-10 08:48:47</creationtime>
+    </billhead>
+  </bill>
+</ufinterface>

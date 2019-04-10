@@ -1,0 +1,59 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.LSM.Models.MaterialUnloadingViewModel
+@using ServiceCenter.Client.Mvc.Areas.LSM.Models;
+
+<div class="form-group" id="divAddMaster">
+    @Html.LabelFor(m => m.UnloadingNo, new { @class = "col-md-1 control-label" })
+    <div class="col-md-3">
+        @Html.TextBoxFor(m => m.UnloadingNo, new { @class = "form-control", @style = "text-transform:uppercase;ime-mode:inactive"})
+        @Html.ValidationMessageFor(m => m.UnloadingNo)
+    </div>
+    @Html.LabelFor(m => m.UnloadingTime, new { @class = "col-md-1 control-label" })
+    <div class="col-md-3">
+        @Html.TextBoxFor(m => m.UnloadingTime, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.UnloadingTime)
+    </div>
+    @Html.LabelFor(m => m.RouteOperationName, new { @class = "col-md-1 control-label" })
+    <div class="col-md-3">
+        @Html.DropDownListFor(m => m.RouteOperationName, @Model.GetRouteOperationNameList(), new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.RouteOperationName)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.ProductionLineCode, new { @class = "col-md-1 control-label" })
+    <div class="col-md-3">
+        @Html.DropDownListFor(m => m.ProductionLineCode,@Model.GetProductionLineCodeList(), new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.ProductionLineCode)
+    </div>
+
+    @Html.LabelFor(m => m.EquipmentCode, new { @class = "col-md-1 control-label" })
+    <div class="col-md-3">
+        @Html.DropDownListFor(m => m.EquipmentCode,new List<SelectListItem>(), new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.EquipmentCode)
+    </div>
+
+    @Html.LabelFor(m => m.OrderNumber, new { @class = "col-md-1 control-label" })
+    <div class="col-md-3">
+        @Html.TextBoxFor(m => m.OrderNumber, new { @class = "form-control", @id = "txtOrderNumber" })
+        @Html.ValidationMessageFor(m => m.OrderNumber)
+    </div>
+
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.Operator, new { @class = "col-md-1 control-label" })
+    <div class="col-md-3">
+        @Html.TextBoxFor(m => m.Operator, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Operator)
+    </div>
+
+    @Html.LabelFor(m => m.Description, new { @class = "col-md-1 control-label" })
+    <div class="col-md-7">
+        @Html.TextBoxFor(m => m.Description, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Description)
+    </div>
+</div>
+<div class="form-group">
+    <input type="button" class="btn btn-default" 
+           value="@ServiceCenter.Client.Mvc.Resources.StringResource.Add" 
+           id="btnAddDetailRow" onclick="javascript:addDetailRow()"/>
+    @Html.Partial("_AddDetailPartial", new MaterialUnloadingDetailViewModel())
+</div>

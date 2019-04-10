@@ -1,0 +1,146 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.ZPVM.Models.WorkOrderPowersetViewModel
+@using ServiceCenter.Common;
+
+@Html.ValidationSummary(true)
+<div class="form-group">
+    @Html.LabelFor(m => m.OrderNumber, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        <p class="form-control-static">@Model.OrderNumber</p>
+        @Html.HiddenFor(m => m.OrderNumber)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.MaterialCode, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        <p class="form-control-static">@Model.MaterialCode</p>
+        @Html.HiddenFor(m => m.MaterialCode)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.Code, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        <p class="form-control-static">@Model.Code</p>
+        @Html.HiddenFor(m => m.Code)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.ItemNo, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        <p class="form-control-static">@Model.ItemNo</p>
+        @Html.HiddenFor(m => m.ItemNo)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.Name, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.Name, new { @class = "form-control", @readonly = "readonly" })
+        @Html.ValidationMessageFor(m => m.Name)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.PowerName, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.PowerName, new { @class = "form-control", @readonly = "readonly" })
+        @Html.ValidationMessageFor(m => m.PowerName)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.MinValue, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.MinValue, new { @class = "form-control", @readonly = "readonly" })
+        @Html.ValidationMessageFor(m => m.MinValue)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.MaxValue, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.MaxValue, new { @class = "form-control", @readonly = "readonly" })
+        @Html.ValidationMessageFor(m => m.MaxValue)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.PowerDifference, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.PowerDifference, new { @class = "form-control", @readonly = "readonly" })
+        @Html.ValidationMessageFor(m => m.PowerDifference)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.StandardPower, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.StandardPower, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.StandardPower)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.StandardIPM, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.StandardIPM, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.StandardIPM)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.StandardIsc, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.StandardIsc, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.StandardIsc)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.StandardVPM, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.StandardVPM, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.StandardVPM)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.StandardVoc, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.StandardVoc, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.StandardVoc)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.StandardFuse, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.StandardFuse, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.StandardFuse)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.SubWay, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.DropDownListFor(m => m.SubWay, @Model.GetPowersetSubWayList(), new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.SubWay)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.ArticleNo, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.ArticleNo, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.ArticleNo)
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(m => m.MixColor, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.CheckBoxFor(m => m.MixColor, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.MixColor)
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(m => m.IsUsed, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.CheckBoxFor(m => m.IsUsed, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.IsUsed)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.Description, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextAreaFor(m => m.Description, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Description)
+    </div>
+</div>

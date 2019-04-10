@@ -1,0 +1,92 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.RPT.Models.WIPMoveDetailQueryViewModel
+@using ServiceCenter.Client.Mvc.Resources;
+@using RPTResources = ServiceCenter.Client.Mvc.Resources.RPT;
+@using ServiceCenter.Common;
+@using ServiceCenter.MES.Model.WIP;
+@using ServiceCenter.Model;
+@using System.Data;
+@{
+    DataTable dtList = ViewBag.List;
+    PagingConfig cfg = ViewBag.PagingConfig;
+}
+@if (dtList != null)
+{
+<div id="_list">
+    <table class="table table-hover table-bordered table-condensed">
+        <thead>
+            <tr class="active">
+                @for (int i = 0; i < dtList.Columns.Count; i++)
+                {
+                <td nowrap>@dtList.Columns[i].Caption</td>
+                }
+            </tr>
+        </thead>
+        <tbody>
+            @for (int row = 0; row < dtList.Rows.Count; row++)
+            {
+            <tr>
+                @for (int col = 0; col < dtList.Columns.Count; col++)
+                    {
+                        if (dtList.Columns[col].Caption == "动作")
+                        {
+                            EnumLotActivity activity = (EnumLotActivity)Convert.ToInt32(dtList.Rows[row][col]);
+                    <td nowrap>
+                        @activity.GetDisplayName()
+                    </td>
+                        }
+                        else if (dtList.Columns[col].Caption == "批次号（组件序列号）")
+                        {
+                    <td nowrap>
+                        @Html.ActionLink(Convert.ToString(dtList.Rows[row][col])
+                                                , "Detail"
+                                                , "LotQuery"
+                                                , new { LotNumber = Convert.ToString(dtList.Rows[row][col]), area = "WIP" }
+                                                , new { @target="_blank" })
+                    </td>
+                        }
+                        else
+                        {
+                    <td nowrap>
+                        @dtList.Rows[row][col]
+                    </td>
+                        }
+                    }
+            </tr>
+            }
+        </tbody>
+    </table>
+    <div style="margin-top:-18px">
+    @if (cfg != null)
+    {
+        using (Ajax.BeginForm("Detail", "WIPMove"
+                        ,null
+                        , new AjaxOptions()
+                        {
+                            HttpMethod = "Post",
+                            UpdateTargetId = "_list"
+                        }
+                        , new { @class = "form-horizontal", resource = "form", id = "frmPagingQuery" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.HiddenFor(m=>m.LocationName)
+            @Html.HiddenFor(m=>m.MaterialCode)
+            @Html.HiddenFor(m=>m.OrderNumber)
+            @Html.HiddenFor(m=>m.PageSize)
+            @Html.HiddenFor(m=>m.RouteOperationName)
+            @Html.HiddenFor(m=>m.Shift)
+            @Html.HiddenFor(m=>m.ShiftName)
+            @Html.HiddenFor(m=>m.StartDate)
+            @Html.HiddenFor(m=>m.EndDate)
+            @Html.HiddenFor(m=>m.Date)
+            @Html.HiddenFor(m=>m.Activity)
+            @Html.HiddenFor(m=>m.TotalRecords)
+            <div>@Html.Partial("_PaginationPartial")</div>
+        }
+    }
+    </div>
+</div>
+}
+else
+{
+    <p>无数据。</p>
+}

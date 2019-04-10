@@ -1,0 +1,106 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.FMM.Models.RouteStepParameterViewModel
+@using ServiceCenter.Common;
+
+@Html.ValidationSummary(true)
+<div class="form-group">
+    @Html.LabelFor(m => m.RouteName, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.RouteName</p>
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.RouteStepName, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.RouteStepName</p>
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.ParameterName, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.ParameterName</p>
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.ParamIndex, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.ParamIndex</p>
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.DataType, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.DataType.GetDisplayName()</p>
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.DataFrom, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.DataFrom.GetDisplayName()</p>
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.DCType, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.DCType.GetDisplayName()</p>
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.MaterialType, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.MaterialType</p>
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.IsMustInput, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.IsMustInput</p>
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.IsReadOnly, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.IsReadOnly</p>
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.IsUsePreValue, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.IsUsePreValue</p>
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.ValidateRule, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.ValidateRule.GetDisplayName()</p>
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.ValidateFailedRule, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.ValidateFailedRule.GetDisplayName()</p>
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.ValidateFailedMessage, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.ValidateFailedMessage</p>
+    </div>
+</div>
+@*<div class="form-group">
+    @Html.LabelFor(m => m.IsDeleted, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.IsDeleted</p>
+    </div>
+</div>*@
+<div class="form-group">
+    @Html.LabelFor(m => m.Editor, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.Editor</p>
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.EditTime, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.EditTime</p>
+    </div>
+</div>

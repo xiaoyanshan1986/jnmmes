@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   namespace="ServiceCenter.MES.Model.ZPVM" 
+                   assembly="ServiceCenter.MES.Model.ZPVM">
+  <class name="Efficiency" table="ZFMM_EFFICIENCY">
+    <composite-id  name="Key" class="EfficiencyKey">
+      <key-property name="Group" column="EFFI_GROUP"/>
+      <key-property name="Code" column="EFFI_CODE"/>
+    </composite-id >
+    <property name="Name" column="EFFI_NAME"/>
+    <property name="Lower" column="LOWER_EFFI"/>
+    <property name="Upper" column="UPPER_EFFI"/>
+    <property name="Description" column="DESCRIPTION"/>
+    <property name="IsUsed" column="IS_USED"/>
+    <property name="Creator" column="CREATOR"/>
+    <property name="CreateTime" column="CREATE_TIME"/>
+    <property name="Editor" column="EDITOR"/>
+    <property name="EditTime" column="EDIT_TIME"/>
+  </class>
+</hibernate-mapping>

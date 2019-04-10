@@ -1,0 +1,35 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.LSM.Models.MaterialReturnViewModel
+@using ServiceCenter.Client.Mvc.Areas.LSM.Models;
+
+<div class="form-group" id="divAddMaster">
+    @Html.LabelFor(m => m.ReturnNo, new { @class = "col-md-1 control-label" })
+    <div class="col-md-3">
+        @Html.TextBoxFor(m => m.ReturnNo, new { @class = "form-control", @style = "text-transform:uppercase;ime-mode:inactive" })
+        @Html.ValidationMessageFor(m => m.ReturnNo)
+    </div>
+    @Html.LabelFor(m => m.OrderNumber, new { @class = "col-md-1 control-label" })
+    <div class="col-md-3">
+        @Html.TextBoxFor(m => m.OrderNumber, new { @class = "form-control", @id = "txtOrderNumber", @style = "text-transform:uppercase;ime-mode:inactive" })
+        @Html.ValidationMessageFor(m => m.OrderNumber)
+    </div>
+
+    @Html.LabelFor(m => m.ReturnDate, new { @class = "col-md-1 control-label" })
+    <div class="col-md-3">
+        @Html.TextBoxFor(m => m.ReturnDate, "{0:yyyy-MM-dd}", new { @class = "form-control", @id = "txtReturnDate" })
+        @Html.ValidationMessageFor(m => m.ReturnDate)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.Description, new { @class = "col-md-1 control-label" })
+    <div class="col-md-11">
+        @Html.TextBoxFor(m => m.Description, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Description)
+    </div>
+</div>
+
+<div class="form-group">
+    <input type="button" class="btn btn-default"
+           value="@ServiceCenter.Client.Mvc.Resources.StringResource.Add"
+           id="btnAddDetailRow" onclick="javascript:addDetailRow()" />
+    @Html.Partial("_AddDetailPartial", new MaterialReturnDetailViewModel())
+</div>

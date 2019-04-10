@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   namespace="ServiceCenter.MES.Model.ZPVM" 
+                   assembly="ServiceCenter.MES.Model.ZPVM">
+  <class name="WorkOrderGrade" table="ZPPM_WORK_ORDER_PRD_GRADE">
+    <composite-id  name="Key" class="WorkOrderGradeKey">
+      <key-property name="OrderNumber" column="ORDER_NUMBER"/>
+      <key-property name="MaterialCode" column="MATERIAL_CODE"/>
+      <key-property name="Grade" column="GRADE"/>
+    </composite-id >
+    <property name="ItemNo" column="ITEM_NO"/>
+    <property name="MixPowerset" column="MIX_POWERSET"/>
+    <property name="MixSubPowerset" column="MIX_SUB_POWERSET"/>
+    <property name="MixColor" column="MIX_COLOR"/>
+    <property name="PackageGroup" column="PACKAGE_GROUP"/>
+    <property name="IsUsed" column="IS_USED"/>
+    <property name="Creator" column="CREATOR"/>
+    <property name="CreateTime" column="CREATE_TIME"/>
+    <property name="Editor" column="EDITOR"/>
+    <property name="EditTime" column="EDIT_TIME"/>
+  </class>
+</hibernate-mapping>

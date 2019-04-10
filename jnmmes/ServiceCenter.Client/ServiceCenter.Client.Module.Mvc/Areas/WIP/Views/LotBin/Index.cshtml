@@ -1,0 +1,130 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.WIP.Models.LotBinViewModel
+@using ServiceCenter.MES.Model.WIP;
+@using ServiceCenter.Model;
+@using ServiceCenter.Common;
+@using ServiceCenter.Client.Mvc.Areas.WIP.Models;
+@using WIPRsources = ServiceCenter.Client.Mvc.Resources.WIP;
+@using ServiceCenter.Client.Mvc.Resources;
+
+@{
+    ViewBag.Title = WIPRsources.StringResource.LotBin_ManagePageTitle;
+}
+<h2>批次入托测试</h2>
+@using (Ajax.BeginForm("Save", "LotBin", null
+                    , new AjaxOptions()
+                    {
+                        HttpMethod = "Post",
+                        OnSuccess = "completeSave",
+                        OnBegin = "beginSave"
+                    }
+                    , new { @class = "form-horizontal", id = "frmLotBin", resource = "form" }))
+{
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            @Ajax.ActionLink("入Bin前检查"
+                         , "ChkBin"
+                         , null
+                         , new AjaxOptions()
+                         {
+                             HttpMethod = "Post",
+                             OnBegin = "beginChkBin",
+                             OnSuccess = "successChkBin"
+                         }
+                          , new { @class = "btn btn-primary", @id = "btnChkBin" }
+                          )
+            <input type="submit" value="@StringResource.Save" class="btn btn-primary" id="btnSave" />
+        </div>
+        <div class="panel-body">
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+            <div class="alert fade in hide" resource="alert" id="statusMessage" style="margin:0px">
+                <button type="button" class="close" onclick="hideStatusMessage()">
+                    <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+                </button>
+                <p></p>
+            </div>
+            <div class="form-group has-success">
+                <div class="col-md-3">
+                    @Html.LabelFor(m => m.LotNumber, new { @class = "control-label" })
+                    @Html.TextBoxFor(m => m.LotNumber, new { @class = "form-control", @style = "height:50px;font-size:20px;text-transform:uppercase;" })
+                </div>
+                <div class="col-md-3">
+                    @Html.LabelFor(m => m.ScanIP, new { @class = "control-label" })
+                    @Html.DropDownListFor(m => m.ScanIP,@Model.GetScanCodeList(), new { @class = "form-control", @id = "LineList" ,@style = "height:50px;font-size:20px;text-transform:uppercase;"})
+                </div>
+                <div class="col-md-3">
+                    @Html.LabelFor(m => m.BinNo, new { @class = "control-label" })
+                    @Html.TextBoxFor(m => m.BinNo, new { @class = "form-control", @style = "height:50px;font-size:20px;text-transform:uppercase;" })
+                </div>
+                <div class="col-md-3">
+                    @Html.LabelFor(m => m.ScanNo, new { @class = "control-label" })
+                    @Html.TextBoxFor(m => m.ScanNo, new { @class = "form-control", @style = "height:50px;font-size:20px;text-transform:uppercase;" })
+                </div>
+            </div>
+        </div>
+    </div>
+}
+@section Scripts {
+    <script type="text/javascript" language="javascript">
+
+        //隐藏状态消息
+        function hideStatusMessage() {
+            $("#statusMessage").addClass("hide");
+        }
+
+        function beginSave() {
+            $("#btnSave").attr("disabled", "disabled");
+            hideStatusMessage();
+        }
+
+        function completeSave(result) {
+            $("#btnSave").removeAttr("disabled");
+            showErrorInfo(result);
+            $("#LotNumber:first").select();
+        }
+
+        //刷新列表
+        function beginChkBin(obj, req) {
+            var data = $("#frmLotBin").serialize();
+            req.data += "&" + data;
+            $("#btnChkBin").attr("disabled", "disabled");
+            hideStatusMessage();
+        }
+
+        function successChkBin(result) {
+            $("#btnChkBin").removeAttr("disabled");
+            showErrorInfo(result);
+            $("#LotNumber:first").select();
+        }
+
+
+        function showErrorInfo(result) {
+            $("#statusMessage").find("p").html(result.Message);
+            $("#statusMessage").removeClass("hide");
+            if (result.Code > 0) {
+                $("#statusMessage").removeClass("alert-success");
+                $("#statusMessage").addClass("alert-danger");
+            }
+            else {
+                $("#statusMessage").removeClass("alert-danger");
+                $("#statusMessage").addClass("alert-success");
+            }
+        }
+
+
+        function changeReasonCodeName() {
+
+            $("#ReasonCodeName").get(0).options.length = 0; //清空
+            var url = "@Url.Action("GetReasonCode", "LotTerminal", new { area = "WIP" })";
+            var categoryName = $("#ReasonCodeCategoryName").val();
+            var reqdata = { CategoryName: categoryName };
+
+            $.getJSON(url, reqdata, function (data) {
+                $.each(data, function (i, item) {
+                    $("<option></option>").val(item.Value).text(item.Text).appendTo($("#ReasonCodeName"));
+                });
+            });
+        }
+    </script>
+
+}

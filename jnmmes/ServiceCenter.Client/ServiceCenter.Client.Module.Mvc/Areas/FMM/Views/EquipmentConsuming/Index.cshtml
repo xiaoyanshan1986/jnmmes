@@ -1,0 +1,493 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.FMM.Models.EquipmentConsumingQueryViewModel
+@using ServiceCenter.MES.Model.FMM;
+@using ServiceCenter.Model;
+@using ServiceCenter.Common;
+@using ServiceCenter.Client.Mvc.Areas.FMM.Models;
+@using FMM = ServiceCenter.Client.Mvc.Resources.FMM;
+@using ServiceCenter.Client.Mvc.Resources;
+
+@{
+    ViewBag.Title = FMM.StringResource.EquipmentConsuming_ManagePageTitle;
+    PagingConfig cfg = ViewBag.PagingConfig;
+
+}
+<h2>@ViewBag.Title</h2>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        @*新增按钮*@
+        <a href="javascript:showAddModal()" class="btn btn-primary">@StringResource.Add</a>
+        @Ajax.ActionLink(StringResource.Query
+                         , "Query"
+                         , "EquipmentConsuming"
+                         , new AjaxOptions()
+                         {
+                             HttpMethod = "Post",
+                             OnBegin = "beginQuery",
+                             UpdateTargetId = "list",
+                             OnComplete = "completeQuery"
+                         }
+                         , new { @class = "btn btn-primary", @id = "btnQuery" })
+
+
+    </div>
+    <div class="panel-body">
+        @using (Ajax.BeginForm("Query", "EquipmentConsuming", null
+            , new AjaxOptions()
+            {
+                HttpMethod = "Post",
+                OnBegin = "beginQuery",
+                UpdateTargetId = "list",
+                OnSuccess = "completeRefresh"
+            }
+            , new { @class = "form-horizontal", id = "query", resource = "form" }))
+        {
+            @Html.AntiForgeryToken()
+            <div class="form-group">
+                @*年度*@
+                <div class="col-md-1">
+                    @Html.LabelFor(m => Model.Year, new { @class = "control-label" })
+                </div>
+                <div class="col-md-2">
+                    @Html.DropDownListFor(m => Model.Year, @Model.GetYear(), new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => Model.Year)
+                </div>
+                @*月份*@
+                <div class="col-md-1">
+                    @Html.LabelFor(m => Model.Month, new { @class = "control-label" })
+                </div>
+                <div class="col-md-2">
+                    @Html.DropDownListFor(m => Model.Month, @Model.GetMonth(), string.Empty, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => Model.Month)
+                </div>
+                @*班别*@
+                <div class="col-md-1">
+                    @Html.LabelFor(m => Model.ShiftName, new { @class = "control-label" })
+                </div>
+                <div class="col-md-2">
+                    @Html.DropDownListFor(m => Model.ShiftName, @Model.GetShiftName(), string.Empty, new { @class = "form-control" })
+                </div>
+                @*车间*@
+                <div class="col-md-1">
+                    @Html.LabelFor(m => Model.LocationName, new { @class = "control-label" })
+                </div>
+                <div class="col-md-2">
+                    @Html.DropDownListFor(m => Model.LocationName, @Model.GetLocationName(), new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                @*线别*@
+                <div class="col-md-1">
+                    @Html.LabelFor(m => Model.LineCode, new { @class = "control-label" })
+                </div>
+                <div class="col-md-2">
+                    @Html.DropDownListFor(m => Model.LineCode, @Model.GetProductionLineList(), new { @class = "form-control" })
+                </div>
+                @*工序*@
+                <div class="col-md-1">
+                    @Html.LabelFor(m => Model.RouteStepName, new { @class = "control-label" })
+                </div>
+                <div class="col-md-2">
+                    @Html.DropDownListFor(m => Model.RouteStepName, @Model.GetRouteOperationList(), new { @class = "form-control" })
+                </div>
+                @*设备代码*@
+                <div class="col-md-1">
+                    @Html.LabelFor(m => Model.EquipmentCode, new { @class = "control-label" })
+                </div>
+                <div class="col-md-2">
+                    @Html.DropDownListFor(m => Model.EquipmentCode, @Model.GetEquipmentCode(), string.Empty, new { @class = "form-control" })
+                </div>
+                @*原因代码*@
+                <div class="col-md-1">
+                    @Html.LabelFor(m => Model.ReasonCodeName, new { @class = "control-label" })
+                </div>
+                <div class="col-md-2">
+                    @Html.DropDownListFor(m => Model.ReasonCodeName, @Model.GetEquipmentReasonCodeName(), string.Empty, new { @class = "form-control" })
+                </div>
+
+                @*查询按钮*@
+                @*<div class="col-md-2">
+                        <input type="submit" value="@StringResource.Query" class="btn btn-default" id="btnQuery" />
+                    </div>*@
+            </div>
+        }
+    </div>
+    <div class="alert fade in hide" resource="alert" id="statusMessage" style="margin:0px">
+        <button type="button" class="close" onclick="hideStatusMessage()">
+            <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+        </button>
+        <p></p>
+    </div>
+    <div id="list">
+        @Html.Partial("_ListPartial", new EquipmentConsumingViewModel())
+    </div>
+</div>
+
+@*新增异常耗时记录*@
+<div id="add" class="modal fade" tabindex="-1" resource="dialog" aria-labelledby="addHeader" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="addHeader">@FMM.StringResource.EquipmentConsuming_AddTitle</h4>
+            </div>
+            <div class="modal-body" id="addContent" style="margin:0px;padding:5px">
+                @using (Ajax.BeginForm("Add", "EquipmentConsuming", null
+                        , new AjaxOptions()
+                        {
+                            HttpMethod = "Post",
+                            OnSuccess = "completeSave",
+                            OnBegin = "beginSave"
+                        }
+                        , new { @class = "form-horizontal", resource = "form", id = "frmAdd" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <input type="submit" class="btn btn-primary" value="@StringResource.Save" id="btnSave" />
+                            <input type="reset" class="btn btn-default" value="@StringResource.Reset" id="btnReset" />
+                        </div>
+                        <div class="panel-body">
+                            <div class="alert fade in hide" resource="alert" id="addStatusMessage">
+                                <button type="button" class="close" onclick="hideAddAlert()">
+                                    <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+                                </button>
+                                <p></p>
+                            </div>
+                            <div>
+                                @Html.Partial("_AddPartial", new EquipmentConsumingViewModel())
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+@*修改*@
+<div id="modify"
+     class="modal fade"
+     tabindex="-1"
+     resource="dialog"
+     aria-labelledby="modifyHeader"
+     aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="modifyHeader">@FMM.StringResource.EquipmentConsuming_ModifyTitle</h4>
+            </div>
+            <div class="modal-body" id="modifyResourceContent" style="margin:0px;padding:5px">
+                @using (Ajax.BeginForm("SaveModify", "EquipmentConsuming", null
+                    , new AjaxOptions()
+                    {
+                        HttpMethod = "Post",
+                        OnSuccess = "completeSaveModify",
+                        OnBegin = "beginSaveModify"
+                    }
+                    , new { @class = "form-horizontal", resource = "form" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <input type="submit" class="btn btn-primary" value="@StringResource.Save" id="btnSaveModify" />
+                        </div>
+                        <div class="panel-body">
+                            <div class="alert fade in hide" resource="alert" id="modifyStatusMessage">
+                                <button type="button" class="close" onclick="hideModifyAlert()">
+                                    <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+                                </button>
+                                <p></p>
+                            </div>
+                            <div id="modifyFormContent">
+                                @Html.Partial("_ModifyPartial", new EquipmentConsumingViewModel())
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+@*显示明细*@
+<div id="info"
+     class="modal fade"
+     tabindex="-1"
+     resource="dialog"
+     aria-labelledby="infoHeader"
+     aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="infoHeader">@FMM.StringResource.EquipmentConsuming_DetailTitle</h4>
+            </div>
+            <div class="modal-body" id="infoContent" style="margin:0px;padding:5px">
+                <form class="form-horizontal" resource="form">
+                    <div class="panel panel-default">
+                        <div class="panel-body" id="detailInfo">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script type="text/javascript" language="javascript">
+        function completeRefresh(result) {
+            if (result.Code > 0) {
+                //显示错误信息
+                showErrorInfo(result);
+                return;
+            }
+        }
+
+        //刷新列表
+        function refreshList() {
+            if ($("#frmPagingQuery").length > 0) {
+                $("#frmPagingQuery").submit();
+            }
+        }
+
+        //隐藏状态消息
+        function hideStatusMessage() {
+            $("#statusMessage").addClass("hide");
+        }
+
+        //显示错误信息
+        function showErrorInfo(result) {
+            $("#statusMessage").find("p").html(result.Message);
+            $("#statusMessage").removeClass("hide");
+            if (result.Code > 0) {
+                $("#statusMessage").removeClass("alert-success");
+                $("#statusMessage").addClass("alert-danger");
+            }
+            else {
+                $("#statusMessage").removeClass("alert-danger");
+                $("#statusMessage").addClass("alert-success");
+            }
+        }
+    </script>
+
+    @*查询*@
+    <script type="text/javascript" language="javascript">
+        //查询
+        $(function () {
+            beginQuery();
+            //$('#query').on('hide.bs.modal', function (e) {
+            //    $("#btnQuery").click();
+            //});
+            //$("#query").on('shown.bs.modal', function (e) {
+            //    var texts = $(this).find(":text:visible:enabled,:checkbox:visible:enabled,textarea:visible:enabled,select:visible:enabled");
+            //    texts.eq(0).focus().select();
+            //});
+        })
+        //刷新列表
+        function beginQuery() {
+            hideStatusMessage();
+            $("#btnQuery").removeAttr("disabled");
+            //$('#query').modal('show');
+            //var content = $("#query");
+            //$("#LineCode").change(function () {
+            //    changeEquipmentCode("#query", $(this).val(), $("#EquipmentCode").val());
+            //});
+            //$("#EquipmentCode").change(function () {
+            //    changeEquipmentCode("#query",$("#LineCode").val(), $(this).val());
+            //});
+            //changeEquipmentCode("#query", $("#LineCode").val(), $("#EquipmentCode").val());
+           
+        }
+    </script>
+
+    @*新增*@
+    <script type="text/javascript" language="javascript">
+        //保存
+        $(function () {
+            $('#add').on('hide.bs.modal', function (e) {
+                $("#btnReset").click();
+            });
+            $("#add").on('shown.bs.modal', function (e) {
+                var texts = $(this).find(":text:visible:enabled,:checkbox:visible:enabled,textarea:visible:enabled,select:visible:enabled");
+                texts.eq(0).focus().select();
+            });
+        })
+
+        function showAddModal() {
+            hideAddAlert();
+            hideStatusMessage();
+            $("#btnSave").removeAttr("disabled");
+            $('#add').modal('show');
+            var content = $("#add");
+            content.find("select[name='Year']").change(function () {
+                changeDate($(this).val(), content.find("select[name='Month']").val());
+            });
+
+            content.find("select[name='Month']").change(function () {
+                changeDate(content.find("select[name='Year']").val(), $(this).val());
+            });
+            //content.find("select[name='LineCode']").change(function () {
+            //    changeEquipmentCode("#add", $(this).val(), content.find("select[name='EquipmentCode']").val());
+            //});
+            //content.find("select[name='EquipmentCode']").change(function () {
+            //    changeEquipmentCode("#add",content.find("select[name='LineCode']").val(), $(this).val());
+            //});
+            changeDate(content.find("select[name='Year']").val(), content.find("select[name='Month']").val());
+            //changeEquipmentCode("#add", content.find("select[name='LineCode']").val(), content.find("select[name='EquipmentCode']").val());
+        }
+
+        function hideAddAlert() {
+            $("#addStatusMessage").addClass("hide");
+        }
+
+        function beginSave() {
+            $("#btnSave").attr("disabled", "disabled");
+        }
+
+        function completeSave(result) {
+            $("#btnSave").removeAttr("disabled");
+            $("#addStatusMessage").find("p").html(result.Message);
+            $("#addStatusMessage").removeClass("hide");
+            if (result.Code > 0) {
+                $("#addStatusMessage").removeClass("alert-success");
+                $("#addStatusMessage").addClass("alert-danger");
+            }
+            else {
+                $("#addStatusMessage").removeClass("alert-danger");
+                $("#addStatusMessage").addClass("alert-success");
+                refreshList();
+            }
+        }
+
+        //根据年及月重新提取日列表
+        function changeDate(year, month) {
+            $("#Day").get(0).options.length = 0; //清空
+
+            if (year == null || year == "") {
+                return;
+            }
+            if (month == null || month == "") {
+                return;
+            }
+
+            var url = "@Url.Action("GetDays", "EquipmentConsuming", new { area = "FMM" })";
+
+            var reqdata = { Year: year, Month: month };
+
+            $.getJSON(url, reqdata, function (data) {
+                $("#Day").get(0).options.length = 0; //清空
+                $.each(data, function (i, item) {
+                    $("<option></option>").val(item.Text).text(item.Value).appendTo($("#Day"));
+                });
+            });
+        }
+
+        //根据工序及线别重新提取设备代码列表
+        @*function changeEquipmentCode(content, LineCode, EquipmentCode) {
+            var content1 = $(content);
+            content1.find("select[name='Name']").get(0).options.length = 0; //清空
+            if (EquipmentCode == null || EquipmentCode == "") {
+                return;
+            }
+            if (LineCode == null || LineCode == "") {
+                return;
+            }
+
+            var url = "@Url.Action("GetEquipmentName", "EquipmentConsuming", new { area = "FMM" })";
+
+            var reqdata = { LineCode: LineCode, EquipmentCode: EquipmentCode };
+            $.getJSON(url, reqdata, function (data) {
+                content1.find("select[name='Name']").get(0).options.length = 0; //清空
+                $.each(data, function (i, item) {
+                    $("<option></option>").val(item.Text).text(item.Value).appendTo(content1.find("select[name='Name']"));
+                });
+            });
+        }*@
+    </script>
+
+    @*修改*@
+    <script type="text/javascript" language="javascript">
+        //修改资源
+        function showModifyModal(result) {
+            hideModifyAlert();
+            hideStatusMessage();
+            $("#btnSaveModify").removeAttr("disabled");
+            $('#modify').modal('show');
+            var content = $("#modify");
+            //content.find("select[name='LineCode']").change(function () {
+            //    changeEquipmentCode("#modify", $(this).val(), content.find("select[name='EquipmentCode']").val());
+            //});
+
+            //content.find("select[name='EquipmentCode']").change(function () {
+            //    changeEquipmentCode("#modify",content.find("select[name='LineCode']"), $(this).val());
+            //});
+            //changeEquipmentCode("#modify", content.find("select[name='LineCode']").val(), content.find("select[name='EquipmentCode']").val());
+
+        }
+
+        function hideModifyAlert() {
+            $("#modifyStatusMessage").addClass("hide");
+        }
+
+        function beginSaveModify() {
+            $("#btnSaveModify").attr("disabled", "disabled");
+        }
+
+        function completeSaveModify(result) {
+            $("#btnSaveModify").removeAttr("disabled");
+            $("#modifyStatusMessage").find("p").html(result.Message);
+            $("#modifyStatusMessage").removeClass("hide");
+            if (result.Code > 0) {
+                $("#modifyStatusMessage").removeClass("alert-success");
+                $("#modifyStatusMessage").addClass("alert-danger");
+            }
+            else {
+                $("#modifyStatusMessage").removeClass("alert-danger");
+                $("#modifyStatusMessage").addClass("alert-success");
+                refreshList();
+            }
+        }
+
+    </script>
+
+    @*显示明细*@
+    <script type="text/javascript" language="javascript">
+        //显示明细
+        function showInfoModal(result) {
+            $('#info').modal('show')
+        }
+    </script>
+
+
+    @*删除*@
+    <script type="text/javascript" language="javascript">
+        //删除
+        function completeDelete(result)
+        {
+            $("#statusMessage").find("p").html(result.Message);
+            $("#statusMessage").removeClass("hide");
+            if (result.Code > 0) {
+                $("#statusMessage").removeClass("alert-success");
+                $("#statusMessage").addClass("alert-danger");
+            }
+            else {
+                $("#statusMessage").removeClass("alert-danger");
+                $("#statusMessage").addClass("alert-success");
+                refreshList();
+            }
+        }
+
+    </script>
+
+}

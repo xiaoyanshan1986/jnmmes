@@ -1,0 +1,164 @@
+2017-03-08 10:52:56,403 - ERROR - START>Application
+2017-03-08 12:12:45,189 - ERROR - START>Application
+2017-03-08 15:36:18,385 - ERROR - Could not execute query: select count(*) as col_0_0_ from LSM_STORE_MATERIAL_DETAIL linestorem0_ where (MaterialLot like '1%') and (exists (select materiallo1_.LOADING_KEY, materiallo1_.ITEM_NO from LSM_MATERIAL_LOADING_DETAIL materiallo1_ where materiallo1_.STORE_NAME=linestorem0_.STORE_NAME and materiallo1_.ORDER_NUMBER=linestorem0_.ORDER_NUMBER and materiallo1_.MATERILA_CODE=linestorem0_.MATERIAL_CODE and materiallo1_.MATERIAL_LOT=linestorem0_.MATERIAL_LOT and materiallo1_.ORDER_NUMBER='1' and materiallo1_.CURRENT_QTY>0 and (exists (select materiallo2_.LOADING_KEY from LSM_MATERIAL_LOADING materiallo2_ where materiallo2_.LOADING_KEY=materiallo1_.LOADING_KEY and materiallo2_.EQUIPMENT_CODE='MASLD-STR01')))) and OrderNumber='1MO-16120006'
+System.Data.SqlClient.SqlException (0x80131904): 列名 'MaterialLot' 无效。
+列名 'OrderNumber' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 223
+ClientConnectionId:f76eab03-8d32-499f-bd5c-20d293d9aba9
+Error Number:207,State:1,Class:16
+2017-03-08 15:36:18,463 - ERROR - 列名 'MaterialLot' 无效。
+列名 'OrderNumber' 无效。
+2017-03-08 15:36:18,494 - ERROR - 列名 'MaterialLot' 无效。
+列名 'OrderNumber' 无效。
+2017-03-08 15:36:18,510 - ERROR - 列名 'MaterialLot' 无效。
+列名 'OrderNumber' 无效。
+2017-03-08 15:53:33,855 - ERROR - Could not execute query: select count(*) as col_0_0_ from LSM_STORE_MATERIAL_DETAIL linestorem0_ where (MaterialLot like '1%') and (exists (select materiallo1_.LOADING_KEY, materiallo1_.ITEM_NO from LSM_MATERIAL_LOADING_DETAIL materiallo1_ where materiallo1_.STORE_NAME=linestorem0_.STORE_NAME and materiallo1_.ORDER_NUMBER=linestorem0_.ORDER_NUMBER and materiallo1_.MATERILA_CODE=linestorem0_.MATERIAL_CODE and materiallo1_.MATERIAL_LOT=linestorem0_.MATERIAL_LOT and materiallo1_.ORDER_NUMBER='1' and materiallo1_.CURRENT_QTY>0 and (exists (select materiallo2_.LOADING_KEY from LSM_MATERIAL_LOADING materiallo2_ where materiallo2_.LOADING_KEY=materiallo1_.LOADING_KEY and materiallo2_.EQUIPMENT_CODE='MASLD-STR01')))) and OrderNumber='1MO-16120006'
+System.Data.SqlClient.SqlException (0x80131904): 列名 'MaterialLot' 无效。
+列名 'OrderNumber' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 223
+ClientConnectionId:ea8279c8-98f6-494a-b9ec-3e38241dc668
+Error Number:207,State:1,Class:16
+2017-03-08 15:53:33,902 - ERROR - 列名 'MaterialLot' 无效。
+列名 'OrderNumber' 无效。
+2017-03-08 15:53:33,934 - ERROR - 列名 'MaterialLot' 无效。
+列名 'OrderNumber' 无效。
+2017-03-08 15:53:33,934 - ERROR - 列名 'MaterialLot' 无效。
+列名 'OrderNumber' 无效。
+2017-03-08 15:55:09,309 - ERROR - Could not execute query: select count(*) as col_0_0_ from LSM_STORE_MATERIAL_DETAIL linestorem0_ where (MaterialLot like '1%') and (exists (select materiallo1_.LOADING_KEY, materiallo1_.ITEM_NO from LSM_MATERIAL_LOADING_DETAIL materiallo1_ where materiallo1_.STORE_NAME=linestorem0_.STORE_NAME and materiallo1_.ORDER_NUMBER=linestorem0_.ORDER_NUMBER and materiallo1_.MATERILA_CODE=linestorem0_.MATERIAL_CODE and materiallo1_.MATERIAL_LOT=linestorem0_.MATERIAL_LOT and materiallo1_.ORDER_NUMBER='1MO-16120006' and materiallo1_.CURRENT_QTY>0 and (exists (select materiallo2_.LOADING_KEY from LSM_MATERIAL_LOADING materiallo2_ where materiallo2_.LOADING_KEY=materiallo1_.LOADING_KEY and materiallo2_.EQUIPMENT_CODE='MASLD-STR01')))) and OrderNumber='1MO-16120006'
+System.Data.SqlClient.SqlException (0x80131904): 列名 'MaterialLot' 无效。
+列名 'OrderNumber' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 223
+ClientConnectionId:ea8279c8-98f6-494a-b9ec-3e38241dc668
+Error Number:207,State:1,Class:16
+2017-03-08 15:55:09,341 - ERROR - 列名 'MaterialLot' 无效。
+列名 'OrderNumber' 无效。
+2017-03-08 15:55:09,388 - ERROR - 列名 'MaterialLot' 无效。
+列名 'OrderNumber' 无效。
+2017-03-08 15:55:09,388 - ERROR - 列名 'MaterialLot' 无效。
+列名 'OrderNumber' 无效。
+2017-03-08 15:59:55,181 - ERROR - Could not execute query: select count(*) as col_0_0_ from LSM_STORE_MATERIAL_DETAIL linestorem0_ where (linestorem0_.MATERIAL_LOT like '1%') and (exists (select materiallo1_.LOADING_KEY, materiallo1_.ITEM_NO from LSM_MATERIAL_LOADING_DETAIL materiallo1_ where materiallo1_.STORE_NAME=linestorem0_.STORE_NAME and materiallo1_.ORDER_NUMBER=linestorem0_.ORDER_NUMBER and materiallo1_.MATERILA_CODE=linestorem0_.MATERIAL_CODE and materiallo1_.MATERIAL_LOT=linestorem0_.MATERIAL_LOT and materiallo1_.ORDER_NUMBER='1MO-16120006' and materiallo1_.CURRENT_QTY>0 and (exists (select materiallo2_.LOADING_KEY from LSM_MATERIAL_LOADING materiallo2_ where materiallo2_.LOADING_KEY=materiallo1_.LOADING_KEY and materiallo2_.EQUIPMENT_CODE='MASLD-STR01')))) and OrderNumber='1MO-16120006'
+System.Data.SqlClient.SqlException (0x80131904): 列名 'OrderNumber' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 223
+ClientConnectionId:2faabe7c-0d61-46ef-acaa-26563b8b1146
+Error Number:207,State:1,Class:16
+2017-03-08 15:59:55,212 - ERROR - 列名 'OrderNumber' 无效。
+2017-03-08 15:59:55,259 - ERROR - 列名 'OrderNumber' 无效。
+2017-03-08 15:59:55,259 - ERROR - 列名 'OrderNumber' 无效。
+2017-03-08 16:05:20,396 - ERROR - Could not execute query: select count(*) as col_0_0_ from LSM_STORE_MATERIAL_DETAIL linestorem0_ where (linestorem0_.MATERIAL_LOT like '1%') and (exists (select materiallo1_.LOADING_KEY, materiallo1_.ITEM_NO from LSM_MATERIAL_LOADING_DETAIL materiallo1_ where materiallo1_.MATERIAL_LOT=linestorem0_.MATERIAL_LOT and materiallo1_.ORDER_NUMBER='1MO-16120006' and materiallo1_.CURRENT_QTY>0)) and OrderNumber='1MO-16120006'
+System.Data.SqlClient.SqlException (0x80131904): 列名 'OrderNumber' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 223
+ClientConnectionId:1e9a3a7a-0334-4767-b7f8-633035e524d4
+Error Number:207,State:1,Class:16
+2017-03-08 16:05:20,443 - ERROR - 列名 'OrderNumber' 无效。
+2017-03-08 16:05:20,475 - ERROR - 列名 'OrderNumber' 无效。
+2017-03-08 16:05:20,475 - ERROR - 列名 'OrderNumber' 无效。
+2017-03-08 16:07:40,098 - ERROR - Could not execute query: select count(*) as col_0_0_ from LSM_STORE_MATERIAL_DETAIL linestorem0_ where (linestorem0_.MATERIAL_LOT like '1%') and (exists (select materiallo1_.LOADING_KEY, materiallo1_.ITEM_NO from LSM_MATERIAL_LOADING_DETAIL materiallo1_ where materiallo1_.MATERIAL_LOT=linestorem0_.MATERIAL_LOT)) and OrderNumber='1MO-16120006'
+System.Data.SqlClient.SqlException (0x80131904): 列名 'OrderNumber' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 223
+ClientConnectionId:1e9a3a7a-0334-4767-b7f8-633035e524d4
+Error Number:207,State:1,Class:16
+2017-03-08 16:07:40,142 - ERROR - 列名 'OrderNumber' 无效。
+2017-03-08 16:07:40,179 - ERROR - 列名 'OrderNumber' 无效。
+2017-03-08 16:07:40,179 - ERROR - 列名 'OrderNumber' 无效。
+2017-03-08 16:09:55,224 - ERROR - Could not execute query: select count(*) as col_0_0_ from LSM_STORE_MATERIAL_DETAIL linestorem0_ where (linestorem0_.MATERIAL_LOT like '1%') and OrderNumber='1MO-16120006'
+System.Data.SqlClient.SqlException (0x80131904): 列名 'OrderNumber' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 223
+ClientConnectionId:2faabe7c-0d61-46ef-acaa-26563b8b1146
+Error Number:207,State:1,Class:16
+2017-03-08 16:09:55,255 - ERROR - 列名 'OrderNumber' 无效。
+2017-03-08 16:09:55,304 - ERROR - 列名 'OrderNumber' 无效。
+2017-03-08 16:09:55,305 - ERROR - 列名 'OrderNumber' 无效。
+2017-03-08 16:31:38,292 - ERROR - MismatchedTokenException(-1!=104)
+2017-03-08 16:32:46,354 - ERROR - MismatchedTokenException(-1!=104)
+2017-03-08 20:47:08,948 - ERROR - START>Application

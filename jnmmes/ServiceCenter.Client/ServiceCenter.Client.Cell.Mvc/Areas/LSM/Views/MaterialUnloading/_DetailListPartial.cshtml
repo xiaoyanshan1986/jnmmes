@@ -1,0 +1,129 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.LSM.Models.MaterialUnloadingDetailViewModel
+@using ServiceCenter.Client.Mvc.Areas.LSM.Models;
+@using ServiceCenter.Client.Mvc.Resources;
+@using LSMResources = ServiceCenter.Client.Mvc.Resources.LSM;
+@using ServiceCenter.MES.Model.LSM;
+@using ServiceCenter.MES.Model.FMM;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@{
+    PagingConfig cfg = ViewBag.PagingConfig;
+}
+<div id="_list">
+    <table class="table table-hover table-bordered table-condensed">
+        <thead>
+            <tr class="active">
+                <td nowrap>@Html.DisplayNameFor(m => m.UnloadingNo)</td>
+                <td nowrap>@Html.DisplayNameFor(m => m.ItemNo)</td>
+                <td nowrap>@LSMResources.StringResource.MaterialUnloadingViewModel_RouteOperationName</td>
+                <td nowrap>@LSMResources.StringResource.MaterialUnloadingViewModel_ProductionLineCode</td>
+                <td nowrap>@LSMResources.StringResource.MaterialUnloadingViewModel_EquipmentCode</td>
+                <td nowrap>下料日期</td>
+                <td nowrap>@LSMResources.StringResource.MaterialUnloadingViewModel_UnloadingTime</td>
+                <td nowrap>@LSMResources.StringResource.MaterialUnloadingViewModel_Operator</td>
+                <td nowrap>@Html.DisplayNameFor(m => m.LoadingNo)</td>
+                <td nowrap>@Html.DisplayNameFor(m => m.LoadingItemNo)</td>
+                <td nowrap>@Html.DisplayNameFor(m => m.LineStoreName)</td>
+                <td nowrap>工单号</td>
+                <td nowrap>@Html.DisplayNameFor(m => m.MaterialCode)</td>
+                <td nowrap>物料名称</td>
+                <td nowrap>@Html.DisplayNameFor(m => m.MaterialLot)</td>
+                <td nowrap>@Html.DisplayNameFor(m => m.UnloadingQty)</td>
+                <td nowrap>@Html.DisplayNameFor(m => m.Editor)</td>
+                <td nowrap>@Html.DisplayNameFor(m => m.EditTime)</td>
+            </tr>
+        </thead>
+        @if (ViewBag.List != null)
+        {
+            <tbody>
+                @for (int i = 0; i < ViewBag.List.Length; i++)
+                {
+                    MaterialUnloadingDetail obj = ViewBag.List[i];
+                    MaterialUnloading objMaterialUnloading = @Model.GetMaterialUnloading(obj.Key.UnloadingKey);
+                    Material m = @Model.GetMaterial(obj.MaterialCode);
+                    
+                    <tr>
+                        <td nowrap>@obj.Key.UnloadingKey</td>
+                        <td nowrap>
+                            @obj.Key.ItemNo
+                        </td>
+                        <td nowrap>
+                            @objMaterialUnloading.RouteOperationName
+                        </td>
+                        <td nowrap>
+                            @objMaterialUnloading.ProductionLineCode
+                        </td>
+                        <td nowrap>
+                            @objMaterialUnloading.EquipmentCode
+                        </td>
+                        <td nowrap>
+                            @string.Format("{0:yyyy-MM-dd}", objMaterialUnloading.UnloadingTime)
+                        </td>
+                        <td nowrap>
+                            @string.Format("{0:yyyy-MM-dd HH:mm:ss}", objMaterialUnloading.UnloadingTime)
+                        </td>
+                        <td nowrap>
+                            @objMaterialUnloading.Operator
+                        </td>
+                        <td nowrap>
+                            @obj.LoadingKey
+                        </td>
+                        <td nowrap>
+                            @obj.LoadingItemNo
+                        </td>
+                       
+                        <td nowrap>
+                            @obj.LineStoreName
+                        </td>
+                        <td nowrap>
+                            @obj.OrderNumber
+                        </td>
+                        <td nowrap>
+                            @obj.MaterialCode
+                        </td>
+                        <td nowrap>
+                            @(m == null ? string.Empty : m.Name)
+                        </td>
+                        <td nowrap>
+                            @obj.MaterialLot
+                        </td>
+                        <td nowrap>
+                            @obj.UnloadingQty
+                        </td>
+                        <td nowrap>
+                            @obj.Editor
+                        </td>
+                        <td nowrap>
+                            @string.Format("{0:yyyy-MM-dd HH:mm:ss}", obj.EditTime)
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        }
+    </table>
+    <div style="margin-top:-18px">
+        @if (cfg != null)
+        {
+            using (Ajax.BeginForm("DetailPagingQuery", "MaterialUnloading"
+                            , new
+                            {
+                                @Where = cfg.Where,
+                                @OrderBy = cfg.OrderBy,
+                                @CurrentPageNo = cfg.PageNo,
+                                @CurrentPageSize = cfg.PageSize
+                            }
+                            , new AjaxOptions()
+                            {
+                                HttpMethod = "Post",
+                                UpdateTargetId = "_list"
+                            }
+                            , new { @class = "form-horizontal", resource = "form", id = "frmPagingQuery" }))
+            {
+                @Html.AntiForgeryToken()
+                <div>@Html.Partial("_PaginationPartial")</div>
+            }
+        }
+    </div>
+</div>
+
+

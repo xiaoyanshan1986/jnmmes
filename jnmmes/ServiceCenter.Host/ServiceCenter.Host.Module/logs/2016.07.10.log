@@ -1,0 +1,59 @@
+2016-07-10 13:03:17,107 - ERROR - START>Application
+2016-07-10 14:40:19,476 - ERROR - START>Application
+2016-07-10 14:57:15,967 - ERROR - START>Application
+2016-07-10 15:15:48,574 - ERROR - START>Application
+2016-07-10 15:39:59,754 - ERROR - START>Application
+2016-07-10 15:55:22,369 - ERROR - Could not execute query: select count(*) as col_0_0_ from BASE_ATTRIBUTE baseattrib0_ where baseattrib0_.CATEGORY_NAME='RouteStepAttribute' and AttributeName='isAutoDeductMaterial'
+System.Data.SqlClient.SqlException (0x80131904): 列名 'AttributeName' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 223
+ClientConnectionId:dcb3aa47-fec7-460f-82a2-3dc925f6f5c9
+Error Number:207,State:1,Class:16
+2016-07-10 15:55:22,431 - ERROR - 列名 'AttributeName' 无效。
+2016-07-10 15:55:22,471 - ERROR - 列名 'AttributeName' 无效。
+2016-07-10 15:55:22,472 - ERROR - 列名 'AttributeName' 无效。
+2016-07-10 15:56:07,180 - ERROR - Could not execute query: select count(*) as col_0_0_ from BASE_ATTRIBUTE baseattrib0_ where baseattrib0_.CATEGORY_NAME='RouteStepAttribute' and AttributeName='isAutoDeductMaterial'
+System.Data.SqlClient.SqlException (0x80131904): 列名 'AttributeName' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 223
+ClientConnectionId:dcb3aa47-fec7-460f-82a2-3dc925f6f5c9
+Error Number:207,State:1,Class:16
+2016-07-10 15:56:07,221 - ERROR - 列名 'AttributeName' 无效。
+2016-07-10 15:56:07,259 - ERROR - 列名 'AttributeName' 无效。
+2016-07-10 15:56:07,259 - ERROR - 列名 'AttributeName' 无效。
+2016-07-10 16:58:54,690 - ERROR - START>Application
+2016-07-10 17:35:32,836 - ERROR - START>Application
+2016-07-10 17:41:03,451 - ERROR - START>Application
+2016-07-10 17:43:07,096 - ERROR - START>Application
+2016-07-10 17:45:10,784 - ERROR - START>Application
+2016-07-10 18:02:59,773 - ERROR - START>Application
+2016-07-10 18:19:25,753 - ERROR - START>Application
+2016-07-10 18:40:16,858 - ERROR - START>Application
+2016-07-10 18:52:53,554 - ERROR - START>Application
+2016-07-10 18:54:46,709 - ERROR - START>Application
+2016-07-10 19:17:22,400 - ERROR - START>Application
+2016-07-10 19:18:46,683 - ERROR - START>Application

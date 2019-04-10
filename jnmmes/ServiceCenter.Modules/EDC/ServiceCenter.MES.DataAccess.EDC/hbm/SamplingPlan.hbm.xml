@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   namespace="ServiceCenter.MES.Model.EDC" 
+                   assembly="ServiceCenter.MES.Model.EDC">
+  <class name="SamplingPlan" table="EDC_SAMPLINGPLAN">
+    <id name="Key" column="SAMPLINGPLAN_NAME">
+      <generator class="assigned" />
+    </id>
+    <property name="Type" column="SAMPLING_TYPE"/>
+    <property name="Mode" column="SAMPLING_MODE"/>
+    <property name="Size" column="SAMPLING_SIZE"/>
+    <property name="Description" column="DESCRIPTION"/>
+    <property name="Status" column="STATUS"/>
+    <property name="Creator" column="CREATOR"/>
+    <property name="CreateTime" column="CREATE_TIME"/>
+    <property name="Editor" column="EDITOR"/>
+    <property name="EditTime" column="EDIT_TIME"/>
+  </class>
+</hibernate-mapping>

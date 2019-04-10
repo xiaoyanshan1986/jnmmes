@@ -1,0 +1,34 @@
+﻿@using ServiceCenter.Client.Mvc.Resources;
+@using RPTResources = ServiceCenter.Client.Mvc.Resources.RPT;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@using System.Data;
+@using ServiceCenter.Client.Mvc.Areas.RPT.Controllers;
+@{
+    DataTable dtChart = ViewBag.ChartData;
+}
+@{
+    var chart = new Chart(1200, 500, WIPMoveController.ChartTheme);
+    chart.AddTitle(RPTResources.StringResource.WIPMoveQuery_ManagePageTitle);
+    if (dtChart != null) {
+        
+        var lnqX=from item in dtChart.AsEnumerable()
+                 select Convert.ToString(item["STEP_NAME"]);
+        IList<string> lstRouteStep=lnqX.ToList<string>();
+        for (int i = 1; i<dtChart.Columns.Count;i++ )
+        {
+            string colName = dtChart.Columns[i].ColumnName;
+            string colCaption = dtChart.Columns[i].Caption;
+            var lnq=from item in dtChart.AsEnumerable()
+                    select Convert.ToDouble(item[colName]);
+            
+            chart.AddSeries(
+                        name: colCaption,
+                        chartType: "Column",
+                        xValue: lstRouteStep,
+                        yValues: lnq.ToList());
+        }
+    }
+    chart.AddLegend();
+    chart.Write();
+}

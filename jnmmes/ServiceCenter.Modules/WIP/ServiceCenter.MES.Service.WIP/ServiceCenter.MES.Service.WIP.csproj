@@ -1,0 +1,275 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C2ABB3F0-F2E8-4844-9BEF-402DDC8375E4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ServiceCenter.MES.Service.WIP</RootNamespace>
+    <AssemblyName>ServiceCenter.MES.Service.WIP</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'CELLDebug|AnyCPU'">
+    <OutputPath>bin\CELLDebug\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'module.debug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\module.debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'module.release|AnyCPU'">
+    <OutputPath>bin\module.release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'cell.debug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\cell.debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'cell.release|AnyCPU'">
+    <OutputPath>bin\cell.release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\libs\entlib\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\libs\entlib\Microsoft.Practices.EnterpriseLibrary.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate">
+      <HintPath>..\..\..\libs\NHibernate\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceCenter.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\ServiceCenter.Modules.Libs\ServiceCenter.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceCenter.MES.Service.Class.COMMON">
+      <HintPath>..\..\..\ServiceCenter.Host\ServiceCenter.Host.Module\bin\ServiceCenter.MES.Service.Class.COMMON.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceCenter.MES.Service.Contract.ZPVM">
+      <HintPath>..\..\..\ServiceCenter.Host\ServiceCenter.Host.Module\bin\ServiceCenter.MES.Service.Contract.ZPVM.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="OemDataService.cs" />
+    <Compile Include="PrintLogService.cs" />
+    <Compile Include="LotAttributeService.cs" />
+    <Compile Include="LotBinServiceExForBin.cs" />
+    <Compile Include="LotBinServiceExForDefine.cs" />
+    <Compile Include="LotBinServiceExForPackage.cs" />
+    <Compile Include="LotBinServiceEx.cs" />
+    <Compile Include="LotPackageServiceEx.cs" />
+    <Compile Include="LotPackageServiceExForTrackIn.cs" />
+    <Compile Include="LotPackageServiceExForUnPackage.cs" />
+    <Compile Include="LotPackageServiceExForTrackOut.cs" />
+    <Compile Include="LotReworkService.cs" />
+    <Compile Include="LotChangeService.cs" />
+    <Compile Include="LotJobService.cs" />
+    <Compile Include="LotPatchService.cs" />
+    <Compile Include="LotTrackInServiceEx.cs" />
+    <Compile Include="LotTrackInServiceExForAutoTrackOut.cs" />
+    <Compile Include="LotTrackInServiceExForEquipmentState.cs" />
+    <Compile Include="LotTrackOutServiceEx.cs" />
+    <Compile Include="LotTrackOutServiceExForAutoTrackIn.cs" />
+    <Compile Include="LotTrackOutServiceExForDefect.cs" />
+    <Compile Include="LotTrackOutServiceExForEquipmentState.cs" />
+    <Compile Include="LotTrackOutServiceExForParameter.cs" />
+    <Compile Include="LotTrackOutServiceExForPowerset.cs" />
+    <Compile Include="LotTrackOutServiceExForScrap.cs" />
+    <Compile Include="PackageOemQueryService.cs" />
+    <Compile Include="PackageQueryService.cs" />
+    <Compile Include="LotRepairService.cs" />
+    <Compile Include="LotScrapService.cs" />
+    <Compile Include="LotQueryService.cs" />
+    <Compile Include="LotDefectService.cs" />
+    <Compile Include="LotTerminalService.cs" />
+    <Compile Include="LotReleaseService.cs" />
+    <Compile Include="LotHoldService.cs" />
+    <Compile Include="LotCreateService.cs" />
+    <Compile Include="LotUndoService.cs" />
+    <Compile Include="ServiceExtensions\LotRepairForEquipmentState.cs" />
+    <Compile Include="ServiceExtensions\LotPackageForCheckPackageAttribute.cs" />
+    <Compile Include="ServiceExtensions\LotPackageForTrackOut.cs" />
+    <Compile Include="ServiceExtensions\LotPackageForTrackIn.cs" />
+    <Compile Include="ServiceExtensions\LotCreateForAutoTrackIn.cs" />
+    <Compile Include="ServiceExtensions\LotTrackInForAutoTrackOut.cs" />
+    <Compile Include="ServiceExtensions\LotTrackOutForAutoTrackIn.cs" />
+    <Compile Include="ServiceExtensions\LotChangeForEquipmentState.cs" />
+    <Compile Include="ServiceExtensions\LotTrackOutForParameter.cs" />
+    <Compile Include="ServiceExtensions\LotTrackOutForScrap.cs" />
+    <Compile Include="ServiceExtensions\LotTrackOutForDefect.cs" />
+    <Compile Include="ServiceExtensions\LotTrackOutForEquipmentState.cs" />
+    <Compile Include="ServiceExtensions\LotTrackInForEquipmentState.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\StringResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StringResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="WipEngineerServiceForTrack.cs" />
+    <Compile Include="WipEngineerServiceForDefine.cs" />
+    <Compile Include="WipEngineerService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\BASE\ServiceCenter.MES.DataAccess.Interface.BaseData\ServiceCenter.MES.DataAccess.Interface.BaseData.csproj">
+      <Project>{57d3cf03-07a8-4750-89b1-482b7e99cab6}</Project>
+      <Name>ServiceCenter.MES.DataAccess.Interface.BaseData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\BASE\ServiceCenter.MES.Model.Base\ServiceCenter.MES.Model.BaseData.csproj">
+      <Project>{e71fc045-1359-445f-8006-9babb4b28c34}</Project>
+      <Name>ServiceCenter.MES.Model.BaseData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\ServiceCenter.MES.Service.Client.COMMON\ServiceCenter.MES.Service.Client.COMMON.csproj">
+      <Project>{e30a05df-943e-478c-820e-93cea920a1fe}</Project>
+      <Name>ServiceCenter.MES.Service.Client.COMMON</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\ServiceCenter.MES.Service.Contract.COMMON\ServiceCenter.MES.Service.Contract.COMMON.csproj">
+      <Project>{9506458b-2a10-478e-a984-bba80ab4172d}</Project>
+      <Name>ServiceCenter.MES.Service.Contract.COMMON</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\EMS\ServiceCenter.MES.DataAccess.Interface.EMS\ServiceCenter.MES.DataAccess.Interface.EMS.csproj">
+      <Project>{02781a65-7463-4370-9d35-aa9d8468bdc5}</Project>
+      <Name>ServiceCenter.MES.DataAccess.Interface.EMS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\EMS\ServiceCenter.MES.Model.EMS\ServiceCenter.MES.Model.EMS.csproj">
+      <Project>{59b973d5-3d92-441b-aec5-1c1d09908dc2}</Project>
+      <Name>ServiceCenter.MES.Model.EMS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ERP\ServiceCenter.MES.DataAccess.Interface.ERP\ServiceCenter.MES.DataAccess.Interface.ERP.csproj">
+      <Project>{dbc1f353-6250-4259-836a-cc4d91679f2a}</Project>
+      <Name>ServiceCenter.MES.DataAccess.Interface.ERP</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ERP\ServiceCenter.MES.Model.ERP\ServiceCenter.MES.Model.ERP.csproj">
+      <Project>{c8c3e543-5479-4912-9c67-923693bf5e7a}</Project>
+      <Name>ServiceCenter.MES.Model.ERP</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ERP\ServiceCenter.MES.Service.Contract.ERP\ServiceCenter.MES.Service.Contract.ERP.csproj">
+      <Project>{6b8ac20f-6d4c-43c2-a0b2-dffc8b48ae39}</Project>
+      <Name>ServiceCenter.MES.Service.Contract.ERP</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FMM\ServiceCenter.MES.DataAccess.Interface.FMM\ServiceCenter.MES.DataAccess.Interface.FMM.csproj">
+      <Project>{a14b36e0-c558-495a-b725-ca37f54c862c}</Project>
+      <Name>ServiceCenter.MES.DataAccess.Interface.FMM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FMM\ServiceCenter.MES.Model.FMM\ServiceCenter.MES.Model.FMM.csproj">
+      <Project>{bace1677-4fc1-40a6-93cd-c78664bab941}</Project>
+      <Name>ServiceCenter.MES.Model.FMM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\LSM\ServiceCenter.MES.DataAccess.Interface.LSM\ServiceCenter.MES.DataAccess.Interface.LSM.csproj">
+      <Project>{24d7605f-18ea-433f-8b64-0a6dd9d731ce}</Project>
+      <Name>ServiceCenter.MES.DataAccess.Interface.LSM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\LSM\ServiceCenter.MES.Model.LSM\ServiceCenter.MES.Model.LSM.csproj">
+      <Project>{799263c7-bde1-4ad4-b579-e18db87d37b5}</Project>
+      <Name>ServiceCenter.MES.Model.LSM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\PPM\ServiceCenter.MES.DataAccess.Interface.PPM\ServiceCenter.MES.DataAccess.Interface.PPM.csproj">
+      <Project>{9878c82b-f370-441f-b8e7-1b7c84c220e3}</Project>
+      <Name>ServiceCenter.MES.DataAccess.Interface.PPM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\PPM\ServiceCenter.MES.Model.PPM\ServiceCenter.MES.Model.PPM.csproj">
+      <Project>{a79db951-5da3-4668-aeea-7dbd667724aa}</Project>
+      <Name>ServiceCenter.MES.Model.PPM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\RBAC\ServiceCenter.MES.DataAccess.Interface.RBAC\ServiceCenter.MES.DataAccess.Interface.RBAC.csproj">
+      <Project>{bcc281aa-80bf-4864-8317-a90396c46cca}</Project>
+      <Name>ServiceCenter.MES.DataAccess.Interface.RBAC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\RBAC\ServiceCenter.MES.Model.RBAC\ServiceCenter.MES.Model.RBAC.csproj">
+      <Project>{8af67964-d4d9-4bdb-b3d3-ce337e196b6d}</Project>
+      <Name>ServiceCenter.MES.Model.RBAC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ZPVM\ServiceCenter.MES.DataAccess.Interface.ZPVM\ServiceCenter.MES.DataAccess.Interface.ZPVM.csproj">
+      <Project>{a1311e59-1081-458d-93b1-9e11c11e5fe1}</Project>
+      <Name>ServiceCenter.MES.DataAccess.Interface.ZPVM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ZPVM\ServiceCenter.MES.Model.ZPVM\ServiceCenter.MES.Model.ZPVM.csproj">
+      <Project>{0c089113-7e7f-4768-a505-f88c5360ee6d}</Project>
+      <Name>ServiceCenter.MES.Model.ZPVM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ServiceCenter.MES.DataAccess.Interface.WIP\ServiceCenter.MES.DataAccess.Interface.WIP.csproj">
+      <Project>{fc479902-1e4e-4e84-9056-90a87043bfa0}</Project>
+      <Name>ServiceCenter.MES.DataAccess.Interface.WIP</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ServiceCenter.MES.Model.WIP\ServiceCenter.MES.Model.WIP.csproj">
+      <Project>{9d2471c5-93c8-45b4-be45-7bba88025fa6}</Project>
+      <Name>ServiceCenter.MES.Model.WIP</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ServiceCenter.MES.Service.Contract.WIP\ServiceCenter.MES.Service.Contract.WIP.csproj">
+      <Project>{59109d57-5fb5-41e7-bbde-a22cfba26f6c}</Project>
+      <Name>ServiceCenter.MES.Service.Contract.WIP</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\StringResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>StringResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

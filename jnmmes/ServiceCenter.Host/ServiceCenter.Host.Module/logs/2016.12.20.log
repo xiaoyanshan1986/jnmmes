@@ -1,0 +1,498 @@
+2016-12-20 08:23:42,779 - ERROR - START>Application
+2016-12-20 09:24:22,981 - ERROR - START>Application
+2016-12-20 09:30:05,688 - ERROR - START>Application
+2016-12-20 09:57:26,453 - ERROR - START>Application
+2016-12-20 10:01:35,277 - ERROR - START>Application
+2016-12-20 10:06:53,037 - ERROR - START>Application
+2016-12-20 10:20:09,399 - ERROR - START>Application
+2016-12-20 10:41:17,942 - ERROR - START>Application
+2016-12-20 10:51:11,189 - ERROR - START>Application
+2016-12-20 11:08:35,133 - ERROR - START>Application
+2016-12-20 11:17:44,746 - ERROR - START>Application
+2016-12-20 11:24:16,990 - ERROR - START>Application
+2016-12-20 11:37:38,070 - ERROR - START>Application
+2016-12-20 11:40:20,492 - ERROR - START>Application
+2016-12-20 11:44:08,453 - ERROR - START>Application
+2016-12-20 12:05:46,926 - ERROR - START>Application
+2016-12-20 13:01:05,105 - ERROR - START>Application
+2016-12-20 14:56:17,120 - ERROR - START>Application
+2016-12-20 15:15:48,369 - ERROR - START>Application
+2016-12-20 15:18:42,879 - ERROR - START>Application
+2016-12-20 15:36:47,611 - ERROR - START>Application
+2016-12-20 15:39:22,125 - ERROR - Could not execute query: select woreportde0_.BILL_CODE as BILL1_142_, woreportde0_.OBJECT_NUMBER as OBJECT2_142_, woreportde0_.ORDER_NUMBER as ORDER3_142_, woreportde0_.EFFI_NAME as EFFI4_142_, woreportde0_.COLOR as COLOR142_, woreportde0_.PS_SUBCODE as PS6_142_, woreportde0_.MATERIAL_CODE as MATERIAL7_142_, woreportde0_.GRADE as GRADE142_, woreportde0_.EFFI_CODE as EFFI9_142_, woreportde0_.QUANTITY as QUANTITY142_, woreportde0_.SumCOEF_PMAX as SumCOEF11_142_, woreportde0_.CREATOR as CREATOR142_, woreportde0_.CREATE_TIME as CREATE13_142_, woreportde0_.EDITOR as EDITOR142_, woreportde0_.EDIT_TIME as EDIT15_142_ from ERP_WO_REPORT_DETAIL woreportde0_ where woreportde0_.BILL_CODE='INC161205014' order by woreportde0_.CREATE_TIME
+System.Data.SqlClient.SqlException (0x80131904): 列名 'ORDER_NUMBER' 无效。
+列名 'PS_SUBCODE' 无效。
+列名 'CREATOR' 无效。
+列名 'CREATE_TIME' 无效。
+列名 'EDITOR' 无效。
+列名 'EDIT_TIME' 无效。
+列名 'CREATE_TIME' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 223
+ClientConnectionId:b6726828-1330-4e89-83bb-66d6c3e7343f
+Error Number:207,State:1,Class:16
+2016-12-20 15:39:22,225 - ERROR - 列名 'ORDER_NUMBER' 无效。
+列名 'PS_SUBCODE' 无效。
+列名 'CREATOR' 无效。
+列名 'CREATE_TIME' 无效。
+列名 'EDITOR' 无效。
+列名 'EDIT_TIME' 无效。
+列名 'CREATE_TIME' 无效。
+2016-12-20 15:39:22,299 - ERROR - 列名 'ORDER_NUMBER' 无效。
+列名 'PS_SUBCODE' 无效。
+列名 'CREATOR' 无效。
+列名 'CREATE_TIME' 无效。
+列名 'EDITOR' 无效。
+列名 'EDIT_TIME' 无效。
+列名 'CREATE_TIME' 无效。
+2016-12-20 15:39:22,300 - ERROR - 列名 'ORDER_NUMBER' 无效。
+列名 'PS_SUBCODE' 无效。
+列名 'CREATOR' 无效。
+列名 'CREATE_TIME' 无效。
+列名 'EDITOR' 无效。
+列名 'EDIT_TIME' 无效。
+列名 'CREATE_TIME' 无效。
+2016-12-20 15:41:26,847 - ERROR - Could not execute query: select woreportde0_.BILL_CODE as BILL1_142_, woreportde0_.OBJECT_NUMBER as OBJECT2_142_, woreportde0_.ORDER_NUMBER as ORDER3_142_, woreportde0_.EFFI_NAME as EFFI4_142_, woreportde0_.COLOR as COLOR142_, woreportde0_.PS_SUBCODE as PS6_142_, woreportde0_.MATERIAL_CODE as MATERIAL7_142_, woreportde0_.GRADE as GRADE142_, woreportde0_.EFFI_CODE as EFFI9_142_, woreportde0_.QUANTITY as QUANTITY142_, woreportde0_.SumCOEF_PMAX as SumCOEF11_142_, woreportde0_.CREATOR as CREATOR142_, woreportde0_.CREATE_TIME as CREATE13_142_, woreportde0_.EDITOR as EDITOR142_, woreportde0_.EDIT_TIME as EDIT15_142_ from ERP_WO_REPORT_DETAIL woreportde0_ where woreportde0_.BILL_CODE='INC161205005' order by woreportde0_.CREATE_TIME
+System.Data.SqlClient.SqlException (0x80131904): 列名 'ORDER_NUMBER' 无效。
+列名 'PS_SUBCODE' 无效。
+列名 'CREATOR' 无效。
+列名 'CREATE_TIME' 无效。
+列名 'EDITOR' 无效。
+列名 'EDIT_TIME' 无效。
+列名 'CREATE_TIME' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 223
+ClientConnectionId:b6726828-1330-4e89-83bb-66d6c3e7343f
+Error Number:207,State:1,Class:16
+2016-12-20 15:41:26,932 - ERROR - 列名 'ORDER_NUMBER' 无效。
+列名 'PS_SUBCODE' 无效。
+列名 'CREATOR' 无效。
+列名 'CREATE_TIME' 无效。
+列名 'EDITOR' 无效。
+列名 'EDIT_TIME' 无效。
+列名 'CREATE_TIME' 无效。
+2016-12-20 15:41:27,003 - ERROR - 列名 'ORDER_NUMBER' 无效。
+列名 'PS_SUBCODE' 无效。
+列名 'CREATOR' 无效。
+列名 'CREATE_TIME' 无效。
+列名 'EDITOR' 无效。
+列名 'EDIT_TIME' 无效。
+列名 'CREATE_TIME' 无效。
+2016-12-20 15:41:27,003 - ERROR - 列名 'ORDER_NUMBER' 无效。
+列名 'PS_SUBCODE' 无效。
+列名 'CREATOR' 无效。
+列名 'CREATE_TIME' 无效。
+列名 'EDITOR' 无效。
+列名 'EDIT_TIME' 无效。
+列名 'CREATE_TIME' 无效。
+2016-12-20 15:44:55,101 - ERROR - Could not execute query: select woreportde0_.BILL_CODE as BILL1_142_, woreportde0_.OBJECT_NUMBER as OBJECT2_142_, woreportde0_.ORDER_NUMBER as ORDER3_142_, woreportde0_.EFFI_NAME as EFFI4_142_, woreportde0_.COLOR as COLOR142_, woreportde0_.PS_SUBCODE as PS6_142_, woreportde0_.MATERIAL_CODE as MATERIAL7_142_, woreportde0_.GRADE as GRADE142_, woreportde0_.EFFI_CODE as EFFI9_142_, woreportde0_.QUANTITY as QUANTITY142_, woreportde0_.SumCOEF_PMAX as SumCOEF11_142_, woreportde0_.CREATOR as CREATOR142_, woreportde0_.CREATE_TIME as CREATE13_142_, woreportde0_.EDITOR as EDITOR142_, woreportde0_.EDIT_TIME as EDIT15_142_ from ERP_WO_REPORT_DETAIL woreportde0_ where woreportde0_.BILL_CODE='INC161205005' order by woreportde0_.CREATE_TIME
+System.Data.SqlClient.SqlException (0x80131904): 列名 'ORDER_NUMBER' 无效。
+列名 'PS_SUBCODE' 无效。
+列名 'CREATOR' 无效。
+列名 'CREATE_TIME' 无效。
+列名 'EDITOR' 无效。
+列名 'EDIT_TIME' 无效。
+列名 'CREATE_TIME' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 223
+ClientConnectionId:b6726828-1330-4e89-83bb-66d6c3e7343f
+Error Number:207,State:1,Class:16
+2016-12-20 15:44:55,166 - ERROR - 列名 'ORDER_NUMBER' 无效。
+列名 'PS_SUBCODE' 无效。
+列名 'CREATOR' 无效。
+列名 'CREATE_TIME' 无效。
+列名 'EDITOR' 无效。
+列名 'EDIT_TIME' 无效。
+列名 'CREATE_TIME' 无效。
+2016-12-20 15:44:55,235 - ERROR - 列名 'ORDER_NUMBER' 无效。
+列名 'PS_SUBCODE' 无效。
+列名 'CREATOR' 无效。
+列名 'CREATE_TIME' 无效。
+列名 'EDITOR' 无效。
+列名 'EDIT_TIME' 无效。
+列名 'CREATE_TIME' 无效。
+2016-12-20 15:44:55,235 - ERROR - 列名 'ORDER_NUMBER' 无效。
+列名 'PS_SUBCODE' 无效。
+列名 'CREATOR' 无效。
+列名 'CREATE_TIME' 无效。
+列名 'EDITOR' 无效。
+列名 'EDIT_TIME' 无效。
+列名 'CREATE_TIME' 无效。
+2016-12-20 15:45:04,443 - ERROR - Could not execute query: select woreportde0_.BILL_CODE as BILL1_142_, woreportde0_.OBJECT_NUMBER as OBJECT2_142_, woreportde0_.ORDER_NUMBER as ORDER3_142_, woreportde0_.EFFI_NAME as EFFI4_142_, woreportde0_.COLOR as COLOR142_, woreportde0_.PS_SUBCODE as PS6_142_, woreportde0_.MATERIAL_CODE as MATERIAL7_142_, woreportde0_.GRADE as GRADE142_, woreportde0_.EFFI_CODE as EFFI9_142_, woreportde0_.QUANTITY as QUANTITY142_, woreportde0_.SumCOEF_PMAX as SumCOEF11_142_, woreportde0_.CREATOR as CREATOR142_, woreportde0_.CREATE_TIME as CREATE13_142_, woreportde0_.EDITOR as EDITOR142_, woreportde0_.EDIT_TIME as EDIT15_142_ from ERP_WO_REPORT_DETAIL woreportde0_ where woreportde0_.BILL_CODE='INC161204034' order by woreportde0_.CREATE_TIME
+System.Data.SqlClient.SqlException (0x80131904): 列名 'ORDER_NUMBER' 无效。
+列名 'PS_SUBCODE' 无效。
+列名 'CREATOR' 无效。
+列名 'CREATE_TIME' 无效。
+列名 'EDITOR' 无效。
+列名 'EDIT_TIME' 无效。
+列名 'CREATE_TIME' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 223
+ClientConnectionId:b6726828-1330-4e89-83bb-66d6c3e7343f
+Error Number:207,State:1,Class:16
+2016-12-20 15:45:04,510 - ERROR - 列名 'ORDER_NUMBER' 无效。
+列名 'PS_SUBCODE' 无效。
+列名 'CREATOR' 无效。
+列名 'CREATE_TIME' 无效。
+列名 'EDITOR' 无效。
+列名 'EDIT_TIME' 无效。
+列名 'CREATE_TIME' 无效。
+2016-12-20 15:45:04,578 - ERROR - 列名 'ORDER_NUMBER' 无效。
+列名 'PS_SUBCODE' 无效。
+列名 'CREATOR' 无效。
+列名 'CREATE_TIME' 无效。
+列名 'EDITOR' 无效。
+列名 'EDIT_TIME' 无效。
+列名 'CREATE_TIME' 无效。
+2016-12-20 15:45:04,578 - ERROR - 列名 'ORDER_NUMBER' 无效。
+列名 'PS_SUBCODE' 无效。
+列名 'CREATOR' 无效。
+列名 'CREATE_TIME' 无效。
+列名 'EDITOR' 无效。
+列名 'EDIT_TIME' 无效。
+列名 'CREATE_TIME' 无效。
+2016-12-20 15:45:18,327 - ERROR - Could not execute query: select woreportde0_.BILL_CODE as BILL1_142_, woreportde0_.OBJECT_NUMBER as OBJECT2_142_, woreportde0_.ORDER_NUMBER as ORDER3_142_, woreportde0_.EFFI_NAME as EFFI4_142_, woreportde0_.COLOR as COLOR142_, woreportde0_.PS_SUBCODE as PS6_142_, woreportde0_.MATERIAL_CODE as MATERIAL7_142_, woreportde0_.GRADE as GRADE142_, woreportde0_.EFFI_CODE as EFFI9_142_, woreportde0_.QUANTITY as QUANTITY142_, woreportde0_.SumCOEF_PMAX as SumCOEF11_142_, woreportde0_.CREATOR as CREATOR142_, woreportde0_.CREATE_TIME as CREATE13_142_, woreportde0_.EDITOR as EDITOR142_, woreportde0_.EDIT_TIME as EDIT15_142_ from ERP_WO_REPORT_DETAIL woreportde0_ where woreportde0_.BILL_CODE='INC161204021' order by woreportde0_.CREATE_TIME
+System.Data.SqlClient.SqlException (0x80131904): 列名 'ORDER_NUMBER' 无效。
+列名 'PS_SUBCODE' 无效。
+列名 'CREATOR' 无效。
+列名 'CREATE_TIME' 无效。
+列名 'EDITOR' 无效。
+列名 'EDIT_TIME' 无效。
+列名 'CREATE_TIME' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 223
+ClientConnectionId:b6726828-1330-4e89-83bb-66d6c3e7343f
+Error Number:207,State:1,Class:16
+2016-12-20 15:45:18,399 - ERROR - 列名 'ORDER_NUMBER' 无效。
+列名 'PS_SUBCODE' 无效。
+列名 'CREATOR' 无效。
+列名 'CREATE_TIME' 无效。
+列名 'EDITOR' 无效。
+列名 'EDIT_TIME' 无效。
+列名 'CREATE_TIME' 无效。
+2016-12-20 15:45:18,468 - ERROR - 列名 'ORDER_NUMBER' 无效。
+列名 'PS_SUBCODE' 无效。
+列名 'CREATOR' 无效。
+列名 'CREATE_TIME' 无效。
+列名 'EDITOR' 无效。
+列名 'EDIT_TIME' 无效。
+列名 'CREATE_TIME' 无效。
+2016-12-20 15:45:18,468 - ERROR - 列名 'ORDER_NUMBER' 无效。
+列名 'PS_SUBCODE' 无效。
+列名 'CREATOR' 无效。
+列名 'CREATE_TIME' 无效。
+列名 'EDITOR' 无效。
+列名 'EDIT_TIME' 无效。
+列名 'CREATE_TIME' 无效。
+2016-12-20 15:47:04,802 - ERROR - Could not execute query: select woreportde0_.BILL_CODE as BILL1_142_, woreportde0_.OBJECT_NUMBER as OBJECT2_142_, woreportde0_.ORDER_NUMBER as ORDER3_142_, woreportde0_.EFFI_NAME as EFFI4_142_, woreportde0_.COLOR as COLOR142_, woreportde0_.PS_SUBCODE as PS6_142_, woreportde0_.MATERIAL_CODE as MATERIAL7_142_, woreportde0_.GRADE as GRADE142_, woreportde0_.EFFI_CODE as EFFI9_142_, woreportde0_.QUANTITY as QUANTITY142_, woreportde0_.SumCOEF_PMAX as SumCOEF11_142_, woreportde0_.CREATOR as CREATOR142_, woreportde0_.CREATE_TIME as CREATE13_142_, woreportde0_.EDITOR as EDITOR142_, woreportde0_.EDIT_TIME as EDIT15_142_ from ERP_WO_REPORT_DETAIL woreportde0_ where woreportde0_.BILL_CODE='INC161204031' order by woreportde0_.CREATE_TIME
+System.Data.SqlClient.SqlException (0x80131904): 列名 'ORDER_NUMBER' 无效。
+列名 'PS_SUBCODE' 无效。
+列名 'CREATOR' 无效。
+列名 'CREATE_TIME' 无效。
+列名 'EDITOR' 无效。
+列名 'EDIT_TIME' 无效。
+列名 'CREATE_TIME' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 223
+ClientConnectionId:b6726828-1330-4e89-83bb-66d6c3e7343f
+Error Number:207,State:1,Class:16
+2016-12-20 15:47:04,874 - ERROR - 列名 'ORDER_NUMBER' 无效。
+列名 'PS_SUBCODE' 无效。
+列名 'CREATOR' 无效。
+列名 'CREATE_TIME' 无效。
+列名 'EDITOR' 无效。
+列名 'EDIT_TIME' 无效。
+列名 'CREATE_TIME' 无效。
+2016-12-20 15:47:04,944 - ERROR - 列名 'ORDER_NUMBER' 无效。
+列名 'PS_SUBCODE' 无效。
+列名 'CREATOR' 无效。
+列名 'CREATE_TIME' 无效。
+列名 'EDITOR' 无效。
+列名 'EDIT_TIME' 无效。
+列名 'CREATE_TIME' 无效。
+2016-12-20 15:47:04,944 - ERROR - 列名 'ORDER_NUMBER' 无效。
+列名 'PS_SUBCODE' 无效。
+列名 'CREATOR' 无效。
+列名 'CREATE_TIME' 无效。
+列名 'EDITOR' 无效。
+列名 'EDIT_TIME' 无效。
+列名 'CREATE_TIME' 无效。
+2016-12-20 15:48:11,488 - ERROR - Could not execute query: select woreportde0_.BILL_CODE as BILL1_142_, woreportde0_.OBJECT_NUMBER as OBJECT2_142_, woreportde0_.ORDER_NUMBER as ORDER3_142_, woreportde0_.EFFI_NAME as EFFI4_142_, woreportde0_.COLOR as COLOR142_, woreportde0_.PS_SUBCODE as PS6_142_, woreportde0_.MATERIAL_CODE as MATERIAL7_142_, woreportde0_.GRADE as GRADE142_, woreportde0_.EFFI_CODE as EFFI9_142_, woreportde0_.QUANTITY as QUANTITY142_, woreportde0_.SumCOEF_PMAX as SumCOEF11_142_, woreportde0_.CREATOR as CREATOR142_, woreportde0_.CREATE_TIME as CREATE13_142_, woreportde0_.EDITOR as EDITOR142_, woreportde0_.EDIT_TIME as EDIT15_142_ from ERP_WO_REPORT_DETAIL woreportde0_ where woreportde0_.BILL_CODE='INC161205013' order by ItemNo
+System.Data.SqlClient.SqlException (0x80131904): 列名 'ORDER_NUMBER' 无效。
+列名 'PS_SUBCODE' 无效。
+列名 'CREATOR' 无效。
+列名 'CREATE_TIME' 无效。
+列名 'EDITOR' 无效。
+列名 'EDIT_TIME' 无效。
+列名 'ItemNo' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 223
+ClientConnectionId:b6726828-1330-4e89-83bb-66d6c3e7343f
+Error Number:207,State:1,Class:16
+2016-12-20 15:48:11,557 - ERROR - 列名 'ORDER_NUMBER' 无效。
+列名 'PS_SUBCODE' 无效。
+列名 'CREATOR' 无效。
+列名 'CREATE_TIME' 无效。
+列名 'EDITOR' 无效。
+列名 'EDIT_TIME' 无效。
+列名 'ItemNo' 无效。
+2016-12-20 15:48:11,625 - ERROR - 列名 'ORDER_NUMBER' 无效。
+列名 'PS_SUBCODE' 无效。
+列名 'CREATOR' 无效。
+列名 'CREATE_TIME' 无效。
+列名 'EDITOR' 无效。
+列名 'EDIT_TIME' 无效。
+列名 'ItemNo' 无效。
+2016-12-20 15:48:11,625 - ERROR - 列名 'ORDER_NUMBER' 无效。
+列名 'PS_SUBCODE' 无效。
+列名 'CREATOR' 无效。
+列名 'CREATE_TIME' 无效。
+列名 'EDITOR' 无效。
+列名 'EDIT_TIME' 无效。
+列名 'ItemNo' 无效。
+2016-12-20 15:52:05,938 - ERROR - Could not execute query: select woreportde0_.BILL_CODE as BILL1_142_, woreportde0_.OBJECT_NUMBER as OBJECT2_142_, woreportde0_.ORDER_NUMBER as ORDER3_142_, woreportde0_.EFFI_NAME as EFFI4_142_, woreportde0_.COLOR as COLOR142_, woreportde0_.PS_SUBCODE as PS6_142_, woreportde0_.MATERIAL_CODE as MATERIAL7_142_, woreportde0_.GRADE as GRADE142_, woreportde0_.EFFI_CODE as EFFI9_142_, woreportde0_.QUANTITY as QUANTITY142_, woreportde0_.SumCOEF_PMAX as SumCOEF11_142_, woreportde0_.CREATOR as CREATOR142_, woreportde0_.CREATE_TIME as CREATE13_142_, woreportde0_.EDITOR as EDITOR142_, woreportde0_.EDIT_TIME as EDIT15_142_ from ERP_WO_REPORT_DETAIL woreportde0_ where woreportde0_.BILL_CODE='INC161205014' order by woreportde0_.CREATE_TIME
+System.Data.SqlClient.SqlException (0x80131904): 列名 'ORDER_NUMBER' 无效。
+列名 'PS_SUBCODE' 无效。
+列名 'CREATOR' 无效。
+列名 'CREATE_TIME' 无效。
+列名 'EDITOR' 无效。
+列名 'EDIT_TIME' 无效。
+列名 'CREATE_TIME' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 223
+ClientConnectionId:b6726828-1330-4e89-83bb-66d6c3e7343f
+Error Number:207,State:1,Class:16
+2016-12-20 15:52:06,006 - ERROR - 列名 'ORDER_NUMBER' 无效。
+列名 'PS_SUBCODE' 无效。
+列名 'CREATOR' 无效。
+列名 'CREATE_TIME' 无效。
+列名 'EDITOR' 无效。
+列名 'EDIT_TIME' 无效。
+列名 'CREATE_TIME' 无效。
+2016-12-20 15:52:06,074 - ERROR - 列名 'ORDER_NUMBER' 无效。
+列名 'PS_SUBCODE' 无效。
+列名 'CREATOR' 无效。
+列名 'CREATE_TIME' 无效。
+列名 'EDITOR' 无效。
+列名 'EDIT_TIME' 无效。
+列名 'CREATE_TIME' 无效。
+2016-12-20 15:52:06,074 - ERROR - 列名 'ORDER_NUMBER' 无效。
+列名 'PS_SUBCODE' 无效。
+列名 'CREATOR' 无效。
+列名 'CREATE_TIME' 无效。
+列名 'EDITOR' 无效。
+列名 'EDIT_TIME' 无效。
+列名 'CREATE_TIME' 无效。
+2016-12-20 15:54:55,132 - ERROR - Could not execute query: select woreportde0_.BILL_CODE as BILL1_142_, woreportde0_.OBJECT_NUMBER as OBJECT2_142_, woreportde0_.ORDER_NUMBER as ORDER3_142_, woreportde0_.EFFI_NAME as EFFI4_142_, woreportde0_.COLOR as COLOR142_, woreportde0_.PS_SUBCODE as PS6_142_, woreportde0_.MATERIAL_CODE as MATERIAL7_142_, woreportde0_.GRADE as GRADE142_, woreportde0_.EFFI_CODE as EFFI9_142_, woreportde0_.QUANTITY as QUANTITY142_, woreportde0_.SumCOEF_PMAX as SumCOEF11_142_, woreportde0_.CREATOR as CREATOR142_, woreportde0_.CREATE_TIME as CREATE13_142_, woreportde0_.EDITOR as EDITOR142_, woreportde0_.EDIT_TIME as EDIT15_142_ from ERP_WO_REPORT_DETAIL woreportde0_ where woreportde0_.BILL_CODE='INC161205014' order by woreportde0_.CREATE_TIME
+System.Data.SqlClient.SqlException (0x80131904): 列名 'ORDER_NUMBER' 无效。
+列名 'PS_SUBCODE' 无效。
+列名 'CREATOR' 无效。
+列名 'CREATE_TIME' 无效。
+列名 'EDITOR' 无效。
+列名 'EDIT_TIME' 无效。
+列名 'CREATE_TIME' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 223
+ClientConnectionId:b6726828-1330-4e89-83bb-66d6c3e7343f
+Error Number:207,State:1,Class:16
+2016-12-20 15:54:55,201 - ERROR - 列名 'ORDER_NUMBER' 无效。
+列名 'PS_SUBCODE' 无效。
+列名 'CREATOR' 无效。
+列名 'CREATE_TIME' 无效。
+列名 'EDITOR' 无效。
+列名 'EDIT_TIME' 无效。
+列名 'CREATE_TIME' 无效。
+2016-12-20 15:54:55,268 - ERROR - 列名 'ORDER_NUMBER' 无效。
+列名 'PS_SUBCODE' 无效。
+列名 'CREATOR' 无效。
+列名 'CREATE_TIME' 无效。
+列名 'EDITOR' 无效。
+列名 'EDIT_TIME' 无效。
+列名 'CREATE_TIME' 无效。
+2016-12-20 15:54:55,269 - ERROR - 列名 'ORDER_NUMBER' 无效。
+列名 'PS_SUBCODE' 无效。
+列名 'CREATOR' 无效。
+列名 'CREATE_TIME' 无效。
+列名 'EDITOR' 无效。
+列名 'EDIT_TIME' 无效。
+列名 'CREATE_TIME' 无效。
+2016-12-20 15:57:25,495 - ERROR - Could not execute query: select woreportde0_.BILL_CODE as BILL1_142_, woreportde0_.OBJECT_NUMBER as OBJECT2_142_, woreportde0_.ORDER_NUMBER as ORDER3_142_, woreportde0_.EFFI_NAME as EFFI4_142_, woreportde0_.COLOR as COLOR142_, woreportde0_.PS_SUBCODE as PS6_142_, woreportde0_.MATERIAL_CODE as MATERIAL7_142_, woreportde0_.GRADE as GRADE142_, woreportde0_.EFFI_CODE as EFFI9_142_, woreportde0_.QUANTITY as QUANTITY142_, woreportde0_.SumCOEF_PMAX as SumCOEF11_142_, woreportde0_.CREATOR as CREATOR142_, woreportde0_.CREATE_TIME as CREATE13_142_, woreportde0_.EDITOR as EDITOR142_, woreportde0_.EDIT_TIME as EDIT15_142_ from ERP_WO_REPORT_DETAIL woreportde0_ where woreportde0_.BILL_CODE='INC161205013' order by woreportde0_.CREATE_TIME
+System.Data.SqlClient.SqlException (0x80131904): 列名 'ORDER_NUMBER' 无效。
+列名 'PS_SUBCODE' 无效。
+列名 'CREATOR' 无效。
+列名 'CREATE_TIME' 无效。
+列名 'EDITOR' 无效。
+列名 'EDIT_TIME' 无效。
+列名 'CREATE_TIME' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 223
+ClientConnectionId:b6726828-1330-4e89-83bb-66d6c3e7343f
+Error Number:207,State:1,Class:16
+2016-12-20 15:57:25,569 - ERROR - 列名 'ORDER_NUMBER' 无效。
+列名 'PS_SUBCODE' 无效。
+列名 'CREATOR' 无效。
+列名 'CREATE_TIME' 无效。
+列名 'EDITOR' 无效。
+列名 'EDIT_TIME' 无效。
+列名 'CREATE_TIME' 无效。
+2016-12-20 15:57:25,643 - ERROR - 列名 'ORDER_NUMBER' 无效。
+列名 'PS_SUBCODE' 无效。
+列名 'CREATOR' 无效。
+列名 'CREATE_TIME' 无效。
+列名 'EDITOR' 无效。
+列名 'EDIT_TIME' 无效。
+列名 'CREATE_TIME' 无效。
+2016-12-20 15:57:25,643 - ERROR - 列名 'ORDER_NUMBER' 无效。
+列名 'PS_SUBCODE' 无效。
+列名 'CREATOR' 无效。
+列名 'CREATE_TIME' 无效。
+列名 'EDITOR' 无效。
+列名 'EDIT_TIME' 无效。
+列名 'CREATE_TIME' 无效。
+2016-12-20 16:04:34,919 - ERROR - START>Application
+2016-12-20 16:05:20,919 - ERROR - Could not execute query: select woreportde0_.BILL_CODE as BILL1_142_, woreportde0_.OBJECT_NUMBER as OBJECT2_142_, woreportde0_.ORDER_NUMBER as ORDER3_142_, woreportde0_.EFFI_NAME as EFFI4_142_, woreportde0_.COLOR as COLOR142_, woreportde0_.PS_SUBCODE as PS6_142_, woreportde0_.MATERIAL_CODE as MATERIAL7_142_, woreportde0_.GRADE as GRADE142_, woreportde0_.EFFI_CODE as EFFI9_142_, woreportde0_.QUANTITY as QUANTITY142_, woreportde0_.SumCOEF_PMAX as SumCOEF11_142_, woreportde0_.CREATOR as CREATOR142_, woreportde0_.CREATE_TIME as CREATE13_142_, woreportde0_.EDITOR as EDITOR142_, woreportde0_.EDIT_TIME as EDIT15_142_ from ERP_WO_REPORT_DETAIL woreportde0_ where woreportde0_.BILL_CODE='INC161129001' order by woreportde0_.CREATE_TIME
+System.Data.SqlClient.SqlException (0x80131904): 列名 'PS_SUBCODE' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 223
+ClientConnectionId:263efa28-4c19-4044-9207-e3120f6ef2a4
+Error Number:207,State:1,Class:16
+2016-12-20 16:05:21,019 - ERROR - 列名 'PS_SUBCODE' 无效。
+2016-12-20 16:05:21,100 - ERROR - 列名 'PS_SUBCODE' 无效。
+2016-12-20 16:05:21,107 - ERROR - 列名 'PS_SUBCODE' 无效。
+2016-12-20 16:05:30,693 - ERROR - Could not execute query: select woreportde0_.BILL_CODE as BILL1_142_, woreportde0_.OBJECT_NUMBER as OBJECT2_142_, woreportde0_.ORDER_NUMBER as ORDER3_142_, woreportde0_.EFFI_NAME as EFFI4_142_, woreportde0_.COLOR as COLOR142_, woreportde0_.PS_SUBCODE as PS6_142_, woreportde0_.MATERIAL_CODE as MATERIAL7_142_, woreportde0_.GRADE as GRADE142_, woreportde0_.EFFI_CODE as EFFI9_142_, woreportde0_.QUANTITY as QUANTITY142_, woreportde0_.SumCOEF_PMAX as SumCOEF11_142_, woreportde0_.CREATOR as CREATOR142_, woreportde0_.CREATE_TIME as CREATE13_142_, woreportde0_.EDITOR as EDITOR142_, woreportde0_.EDIT_TIME as EDIT15_142_ from ERP_WO_REPORT_DETAIL woreportde0_ where woreportde0_.BILL_CODE='INC161127002' order by woreportde0_.CREATE_TIME
+System.Data.SqlClient.SqlException (0x80131904): 列名 'PS_SUBCODE' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 223
+ClientConnectionId:263efa28-4c19-4044-9207-e3120f6ef2a4
+Error Number:207,State:1,Class:16
+2016-12-20 16:05:30,771 - ERROR - 列名 'PS_SUBCODE' 无效。
+2016-12-20 16:05:30,862 - ERROR - 列名 'PS_SUBCODE' 无效。
+2016-12-20 16:05:30,862 - ERROR - 列名 'PS_SUBCODE' 无效。
+2016-12-20 16:05:46,403 - ERROR - Could not execute query: select woreportde0_.BILL_CODE as BILL1_142_, woreportde0_.OBJECT_NUMBER as OBJECT2_142_, woreportde0_.ORDER_NUMBER as ORDER3_142_, woreportde0_.EFFI_NAME as EFFI4_142_, woreportde0_.COLOR as COLOR142_, woreportde0_.PS_SUBCODE as PS6_142_, woreportde0_.MATERIAL_CODE as MATERIAL7_142_, woreportde0_.GRADE as GRADE142_, woreportde0_.EFFI_CODE as EFFI9_142_, woreportde0_.QUANTITY as QUANTITY142_, woreportde0_.SumCOEF_PMAX as SumCOEF11_142_, woreportde0_.CREATOR as CREATOR142_, woreportde0_.CREATE_TIME as CREATE13_142_, woreportde0_.EDITOR as EDITOR142_, woreportde0_.EDIT_TIME as EDIT15_142_ from ERP_WO_REPORT_DETAIL woreportde0_ where woreportde0_.BILL_CODE='INC161127002' order by woreportde0_.CREATE_TIME
+System.Data.SqlClient.SqlException (0x80131904): 列名 'PS_SUBCODE' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 223
+ClientConnectionId:263efa28-4c19-4044-9207-e3120f6ef2a4
+Error Number:207,State:1,Class:16
+2016-12-20 16:05:46,478 - ERROR - 列名 'PS_SUBCODE' 无效。
+2016-12-20 16:05:46,550 - ERROR - 列名 'PS_SUBCODE' 无效。
+2016-12-20 16:05:46,550 - ERROR - 列名 'PS_SUBCODE' 无效。
+2016-12-20 16:54:01,132 - ERROR - START>Application
+2016-12-20 17:01:16,997 - ERROR - START>Application

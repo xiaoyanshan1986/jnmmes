@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   namespace="ServiceCenter.MES.Model.WIP" 
+                   assembly="ServiceCenter.MES.Model.WIP">
+  <class name="LotTransactionMerge" table="WIP_TRANSACTION_MERGE">
+    <composite-id  name="Key" class="LotTransactionMergeKey">
+      <key-property name="TransactionKey" column="TRANSACTION_KEY"/>
+      <key-property name="ChildTransactionKey" column="CHILD_TRANSACTION_KEY"/>
+    </composite-id >
+    <property name="MainLotNumber" column="MAIN_LOT_NUMBER"/>
+    <property name="ChildLotNumber" column="CHILD_LOT_NUMBER"/>
+    <property name="Quantity" column="MERGE_QUANTITY"/>
+    <property name="Editor" column="EDITOR"/>
+    <property name="EditTime" column="EDIT_TIME"/>
+  </class>
+</hibernate-mapping>

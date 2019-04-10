@@ -1,0 +1,41 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.FMM.Models.RouteViewModel
+
+@* 工艺流程名称 *@
+<div class="form-group">
+    @Html.LabelFor(m => m.Name, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Name)
+    </div>
+</div>
+
+@* 类型 *@
+<div class="form-group">
+    @Html.LabelFor(m => m.RouteType, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.DropDownListFor(m => m.RouteType
+                              , @Model.GetRouteTypeList()
+                              , new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.RouteType)
+    </div>
+</div>
+
+@* 状态 *@
+<div class="form-group">
+    @Html.LabelFor(m => m.Status, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.DropDownListFor(m => m.Status
+                              ,@Model.GetObjectStatusList()
+                              , new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Status)
+    </div>
+</div>
+
+@* 描述 *@
+<div class="form-group">
+    @Html.LabelFor(m => m.Description, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextAreaFor(m => m.Description, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Description)
+    </div>
+</div>

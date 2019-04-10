@@ -1,0 +1,5 @@
+E:\Workspace\Jinergy\JNMMES\trunk\src\ServiceCenter.Client\WinClients\铭牌打印4.0\IV.Common\bin\Debug\IV.Common.dll
+E:\Workspace\Jinergy\JNMMES\trunk\src\ServiceCenter.Client\WinClients\铭牌打印4.0\IV.Common\bin\Debug\IV.Common.pdb
+E:\Workspace\Jinergy\JNMMES\trunk\src\ServiceCenter.Client\WinClients\铭牌打印4.0\IV.Common\obj\Debug\IV.Common.csprojResolveAssemblyReference.cache
+E:\Workspace\Jinergy\JNMMES\trunk\src\ServiceCenter.Client\WinClients\铭牌打印4.0\IV.Common\obj\Debug\IV.Common.dll
+E:\Workspace\Jinergy\JNMMES\trunk\src\ServiceCenter.Client\WinClients\铭牌打印4.0\IV.Common\obj\Debug\IV.Common.pdb

@@ -1,0 +1,318 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.WIP.Models.LotViewModel
+@using ServiceCenter.MES.Model.WIP;
+@using ServiceCenter.Model;
+@using ServiceCenter.Common;
+@using ServiceCenter.Client.Mvc.Areas.WIP.Models;
+@using WIPRsources = ServiceCenter.Client.Mvc.Resources.WIP;
+@using ServiceCenter.Client.Mvc.Resources;
+
+@{
+    Lot obj = ViewBag.Lot;
+    string s = obj.Key;
+    ViewBag.Title = WIPRsources.StringResource.LotQuery_ManagePageTitle + "-" + obj.Key;
+}
+<h2>@ViewBag.Title</h2>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        &nbsp;
+    </div>
+    <div class="panel-body">
+        @Html.ValidationSummary(true)
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist">
+            <li class="active"><a href="#base" role="tab" data-toggle="tab" onfocus="this.blur()">基本信息</a></li>
+            <li><a href="#attribute" role="tab" data-toggle="tab" onfocus="this.blur()">批次属性</a></li>
+            <li><a href="#transaction" role="tab" data-toggle="tab" onfocus="this.blur()">加工历史</a></li>
+            <li><a href="#equipment" role="tab" data-toggle="tab" onfocus="this.blur()">批次设备</a></li>
+            <li><a href="#param" role="tab" data-toggle="tab" onfocus="this.blur()">批次参数</a></li>
+            <li><a href="#material" role="tab" data-toggle="tab" onfocus="this.blur()">批次用料</a></li>
+            <li><a href="#defect" role="tab" data-toggle="tab" onfocus="this.blur()">批次不良</a></li>
+            <li><a href="#scrap" role="tab" data-toggle="tab" onfocus="this.blur()">批次报废</a></li>
+            <li><a href="#patch" role="tab" data-toggle="tab" onfocus="this.blur()">批次补料</a></li>
+            <li><a href="#job" role="tab" data-toggle="tab" onfocus="this.blur()">批次定时作业</a></li>
+        </ul>
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div class="tab-pane active" id="base" style="padding-top:10px">
+                <div class="row">
+                    <div class="col-md-1">
+                        @Html.LabelFor(m => m.LotNumber, new { @class = "control-label" })
+                    </div>
+                    <div class="col-md-2">
+                        <p class="form-control">@obj.Key</p>
+                    </div>
+                    <div class="col-md-1">
+                        @Html.LabelFor(m => m.StateFlag, new { @class = "control-label" })
+                    </div>
+                    <div class="col-md-2">
+                        <p class="form-control">@obj.StateFlag.GetDisplayName()</p>
+                    </div>
+                    <div class="col-md-1">
+                        @Html.LabelFor(m => m.Quantity, new { @class = "control-label" })
+                    </div>
+                    <div class="col-md-2">
+                        <p class="form-control">@obj.Quantity</p>
+                    </div>
+                    <div class="col-md-1">
+                        @Html.LabelFor(m => m.LocationName, new { @class = "control-label" })
+                    </div>
+                    <div class="col-md-2">
+                        <p class="form-control">@obj.LocationName</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-1">
+                        @Html.LabelFor(m => m.LotType, new { @class = "control-label" })
+                    </div>
+                    <div class="col-md-2">
+                        <p class="form-control">@obj.LotType.GetDisplayName()</p>
+                    </div>
+                    <div class="col-md-1">
+                        @Html.LabelFor(m => m.OrderNumber, new { @class = "control-label" })
+                    </div>
+                    <div class="col-md-2">
+                        <p class="form-control">@obj.OrderNumber</p>
+                    </div>
+                    <div class="col-md-1">
+                        @Html.LabelFor(m => m.MaterialCode, new { @class = "control-label" })
+                    </div>
+                    <div class="col-md-2">
+                        <p class="form-control">@obj.MaterialCode</p>
+                    </div>
+                    <div class="col-md-1">
+                        @Html.LabelFor(m => m.OriginalOrderNumber, new { @class = "control-label" })
+                    </div>
+                    <div class="col-md-2">
+                        <p class="form-control">@obj.OriginalOrderNumber</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-1">
+                        @Html.LabelFor(m => m.LineCode, new { @class = "control-label" })
+                    </div>
+                    <div class="col-md-2">
+                        <p class="form-control">@obj.LineCode</p>
+                    </div>
+                    <div class="col-md-1">
+                        @Html.LabelFor(m => m.RouteEnterpriseName, new { @class = "control-label" })
+                    </div>
+                    <div class="col-md-2">
+                        <p class="form-control">@obj.RouteEnterpriseName</p>
+                    </div>
+                    <div class="col-md-1">
+                        @Html.LabelFor(m => m.RouteName, new { @class = "control-label" })
+                    </div>
+                    <div class="col-md-2">
+                        <p class="form-control">@obj.RouteName</p>
+                    </div>
+                    <div class="col-md-1">
+                        @Html.LabelFor(m => m.RouteStepName, new { @class = "control-label" })
+                    </div>
+                    <div class="col-md-2">
+                        <p class="form-control">@obj.RouteStepName</p>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-md-1">
+                        @Html.LabelFor(m => m.EquipmentCode, new { @class = "control-label" })
+                    </div>
+                    <div class="col-md-2">
+                        <p class="form-control">@obj.EquipmentCode</p>
+                    </div>
+                    <div class="col-md-1">
+                        @Html.LabelFor(m => m.StartWaitTime, new { @class = "control-label" })
+                    </div>
+                    <div class="col-md-2">
+                        <p class="form-control">@string.Format("{0:yyyy-MM-dd HH:mm:ss}", obj.StartWaitTime)</p>
+                    </div>
+                    <div class="col-md-1">
+                        @Html.LabelFor(m => m.StartProcessTime, new { @class = "control-label" })
+                    </div>
+                    <div class="col-md-2">
+                        <p class="form-control">@string.Format("{0:yyyy-MM-dd HH:mm:ss}", obj.StartProcessTime)</p>
+                    </div>
+                    <div class="col-md-1">
+                        @Html.LabelFor(m => m.HoldFlag, new { @class = "control-label" })
+                    </div>
+                    <div class="col-md-2">
+                        <p class="form-control">@(obj.HoldFlag ? StringResource.Yes : StringResource.No)</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-1">
+                        @Html.LabelFor(m => m.DeletedFlag, new { @class = "control-label" })
+                    </div>
+                    <div class="col-md-2">
+                        <p class="form-control">@(obj.DeletedFlag ? StringResource.Yes : StringResource.No)</p>
+                    </div>
+                    <div class="col-md-1">
+                        @Html.LabelFor(m => m.PackageFlag, new { @class = "control-label" })
+                    </div>
+                    <div class="col-md-2">
+                        <p class="form-control">@(obj.PackageFlag ? StringResource.Yes : StringResource.No)</p>
+                    </div>
+                    <div class="col-md-1">
+                        @Html.LabelFor(m => m.PackageNo, new { @class = "control-label" })
+                    </div>
+                    <div class="col-md-2">
+                        <p class="form-control">@obj.PackageNo</p>
+                    </div>
+                    <div class="col-md-1">
+                        @Html.LabelFor(m => m.RepairFlag, new { @class = "control-label" })
+                    </div>
+                    <div class="col-md-2">
+                        <p class="form-control">@obj.RepairFlag</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-1">
+                        @Html.LabelFor(m => m.ReworkFlag, new { @class = "control-label" })
+                    </div>
+                    <div class="col-md-2">
+                        <p class="form-control">@obj.ReworkFlag</p>
+                    </div>
+                    <div class="col-md-1">
+                        @Html.LabelFor(m => m.ReworkTime, new { @class = "control-label" })
+                    </div>
+                    <div class="col-md-2">
+                        <p class="form-control">@string.Format("{0:yyyy-MM-dd HH:mm:ss}", obj.ReworkTime)</p>
+                    </div>
+                    <div class="col-md-1">
+                        @Html.LabelFor(m => m.Reworker, new { @class = "control-label" })
+                    </div>
+                    <div class="col-md-2">
+                        <p class="form-control">@obj.Reworker</p>
+                    </div>
+                    <div class="col-md-1">
+                        @Html.LabelFor(m => m.OperateComputer, new { @class = "control-label" })
+                    </div>
+                    <div class="col-md-2">
+                        <p class="form-control">@obj.OperateComputer</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-1" style="font-weight:bold">
+                        效率档
+                    </div>
+                    <div class="col-md-2">
+                        <p class="form-control">@obj.Attr1</p>
+                    </div>
+                    <div class="col-md-1" style="font-weight:bold">
+                        优化器序列号
+                    </div>
+                    <div class="col-md-2">
+                        <p class="form-control">@obj.Attr3</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-1">
+                        @Html.LabelFor(m => m.CreateTime, new { @class = "control-label" })
+                    </div>
+                    <div class="col-md-2">
+                        <p class="form-control">@string.Format("{0:yyyy-MM-dd HH:mm:ss}", obj.CreateTime)</p>
+                    </div>
+                    <div class="col-md-1">
+                        @Html.LabelFor(m => m.Creator, new { @class = "control-label" })
+                    </div>
+                    <div class="col-md-2">
+                        <p class="form-control">@obj.Creator</p>
+                    </div>
+                    <div class="col-md-1">
+                        @Html.LabelFor(m => m.EditTime, new { @class = "control-label" })
+                    </div>
+                    <div class="col-md-2">
+                        <p class="form-control">@string.Format("{0:yyyy-MM-dd HH:mm:ss}", obj.EditTime)</p>
+                    </div>
+                    <div class="col-md-1">
+                        @Html.LabelFor(m => m.Editor, new { @class = "control-label" })
+                    </div>
+                    <div class="col-md-2">
+                        <p class="form-control">@obj.Editor</p>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane" style="padding-top:10px" id="attribute">
+
+            </div>
+            <div class="tab-pane" style="padding-top:10px" id="transaction">
+
+            </div>
+            <div class="tab-pane" style="padding-top:10px" id="equipment">
+
+            </div>
+            <div class="tab-pane" style="padding-top:10px" id="param">
+
+            </div>
+            <div class="tab-pane" style="padding-top:10px" id="material">
+
+            </div>
+            <div class="tab-pane" style="padding-top:10px" id="defect">
+
+            </div>
+            <div class="tab-pane" style="padding-top:10px" id="scrap">
+
+            </div>
+            <div class="tab-pane" style="padding-top:10px" id="patch">
+
+            </div>
+            <div class="tab-pane" style="padding-top:10px" id="job">
+
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+@*查询*@
+<script type="text/javascript" language="javascript">
+    $(function () {
+        $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
+            if ($(e.target).attr("href") == "#attribute")
+            {
+                var url = "@Url.Action("GetLotAttribute", "LotQuery", new { LotNumber = @obj.Key})";
+                $("#attribute").load(url);
+            }
+            else if ($(e.target).attr("href") == "#transaction")
+            {
+                var url = "@Url.Action("GetLotTransaction", "LotQuery", new { LotNumber = @obj.Key })";
+                $("#transaction").load(url);
+            }
+            else if ($(e.target).attr("href") == "#equipment")
+            {
+                var url = "@Url.Action("GetLotEquipment", "LotQuery", new { LotNumber = @obj.Key })";
+                $("#equipment").load(url);
+            }
+            else if ($(e.target).attr("href") == "#defect")
+            {
+                var url = "@Url.Action("GetLotDefect", "LotQuery", new { LotNumber = @obj.Key })";
+                $("#defect").load(url);
+            }
+            else if ($(e.target).attr("href") == "#scrap")
+            {
+                var url = "@Url.Action("GetLotScrap", "LotQuery", new { LotNumber = @obj.Key })";
+                $("#scrap").load(url);
+            }
+            else if ($(e.target).attr("href") == "#patch")
+            {
+                var url = "@Url.Action("GetLotPatch", "LotQuery", new { LotNumber = @obj.Key })";
+                $("#patch").load(url);
+            }
+            else if ($(e.target).attr("href") == "#material")
+            {
+                var url = "@Url.Action("GetLotMaterial", "LotQuery", new { LotNumber = @obj.Key })";
+                $("#material").load(url);
+            }
+            else if ($(e.target).attr("href") == "#param")
+            {
+                var url = "@Url.Action("GetLotParam", "LotQuery", new { LotNumber = @obj.Key })";
+                $("#param").load(url);
+            }
+            else if ($(e.target).attr("href") == "#job")
+            {
+                var url = "@Url.Action("GetLotJob", "LotQuery", new { LotNumber = @obj.Key })";
+                $("#job").load(url);
+            }
+        })
+    })
+</script>
+}

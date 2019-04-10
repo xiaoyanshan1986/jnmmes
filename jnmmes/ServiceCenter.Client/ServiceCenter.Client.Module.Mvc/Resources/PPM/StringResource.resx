@@ -1,0 +1,726 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="WorkOrderAttributeQueryViewModel_AttributeName" xml:space="preserve">
+    <value>属性名</value>
+  </data>
+  <data name="WorkOrderAttributeQueryViewModel_OrderNumber" xml:space="preserve">
+    <value>工单号</value>
+  </data>
+  <data name="WorkOrderAttributeViewModel_AttributeName" xml:space="preserve">
+    <value>属性名</value>
+  </data>
+  <data name="WorkOrderAttributeViewModel_OrderNumber" xml:space="preserve">
+    <value>工单号</value>
+  </data>
+  <data name="WorkOrderAttributeViewModel_Value" xml:space="preserve">
+    <value>属性值</value>
+  </data>
+  <data name="WorkOrderAttribute_AddTitle" xml:space="preserve">
+    <value>新增工单属性值</value>
+  </data>
+  <data name="WorkOrderAttribute_ConfirmDelete" xml:space="preserve">
+    <value>确定删除工单属性 ( {0}）值 ？</value>
+  </data>
+  <data name="WorkOrderAttribute_Delete_Success" xml:space="preserve">
+    <value>删除工单属性  {0} 值成功。</value>
+  </data>
+  <data name="WorkOrderAttribute_DetailTitle" xml:space="preserve">
+    <value>工单属性值信息</value>
+  </data>
+  <data name="WorkOrderAttribute_ManagePageTitle" xml:space="preserve">
+    <value>工单（{0}）属性值管理</value>
+  </data>
+  <data name="WorkOrderAttribute_ModifyTitle" xml:space="preserve">
+    <value>修改工单属性值</value>
+  </data>
+  <data name="WorkOrderAttribute_SaveModify_Success" xml:space="preserve">
+    <value>修改工单属性 {0} 值成功。</value>
+  </data>
+  <data name="WorkOrderAttribute_Save_Success" xml:space="preserve">
+    <value>保存工单属性 {0} 值成功。</value>
+  </data>
+  <data name="WorkOrderBOMViewModel_ItemNo" xml:space="preserve">
+    <value>序号</value>
+  </data>
+  <data name="WorkOrderBOMQueryViewModel_MaterialCode" xml:space="preserve">
+    <value>物料编码</value>
+  </data>
+  <data name="WorkOrderBOMViewModel_MaterialUnit" xml:space="preserve">
+    <value>单位</value>
+  </data>
+  <data name="WorkOrderBOMQueryViewModel_OrderNumber" xml:space="preserve">
+    <value>工单号</value>
+  </data>
+  <data name="WorkOrderBOMViewModel_Qty" xml:space="preserve">
+    <value>数量</value>
+  </data>
+  <data name="WorkOrderBOMViewModel_StoreLocation" xml:space="preserve">
+    <value>存储位置</value>
+  </data>
+  <data name="WorkOrderBOMViewModel_WorkCenter" xml:space="preserve">
+    <value>工作中心</value>
+  </data>
+  <data name="WorkOrderBOMViewModel_MaterialCode" xml:space="preserve">
+    <value>物料编码</value>
+  </data>
+  <data name="WorkOrderBOMViewModel_OrderNumber" xml:space="preserve">
+    <value>工单号</value>
+  </data>
+  <data name="WorkOrderBOM_AddTitle" xml:space="preserve">
+    <value>新增工单BOM</value>
+  </data>
+  <data name="WorkOrderBOM_ConfirmDelete" xml:space="preserve">
+    <value>确定删除工单BOM ( {0}） ？</value>
+  </data>
+  <data name="WorkOrderBOM_Delete_Success" xml:space="preserve">
+    <value>删除工单BOM  {0} 成功。</value>
+  </data>
+  <data name="WorkOrderBOM_DetailTitle" xml:space="preserve">
+    <value>工单BOM信息</value>
+  </data>
+  <data name="WorkOrderBOM_ManagePageTitle" xml:space="preserve">
+    <value>工单（{0}）BOM管理</value>
+  </data>
+  <data name="WorkOrderBOM_ModifyTitle" xml:space="preserve">
+    <value>修改工单BOM</value>
+  </data>
+  <data name="WorkOrderBOM_SaveModify_Success" xml:space="preserve">
+    <value>修改工单BOM {0} 成功。</value>
+  </data>
+  <data name="WorkOrderBOM_Save_Success" xml:space="preserve">
+    <value>保存工单BOM {0} 成功。</value>
+  </data>
+  <data name="WorkOrderProductionLineQueryViewModel_LineCode" xml:space="preserve">
+    <value>线别代码</value>
+  </data>
+  <data name="WorkOrderProductionLineQueryViewModel_OrderNumber" xml:space="preserve">
+    <value>工单号</value>
+  </data>
+  <data name="WorkOrderProductionLineViewModel_LineCode" xml:space="preserve">
+    <value>线别代码</value>
+  </data>
+  <data name="WorkOrderProductionLineViewModel_OrderNumber" xml:space="preserve">
+    <value>工单号</value>
+  </data>
+  <data name="WorkOrderProductionLine_AddTitle" xml:space="preserve">
+    <value>新增线别代码</value>
+  </data>
+  <data name="WorkOrderProductionLine_ConfirmDelete" xml:space="preserve">
+    <value>确定删除线别代码 ( {0}） ？</value>
+  </data>
+  <data name="WorkOrderProductionLine_Delete_Success" xml:space="preserve">
+    <value>删除线别代码  {0} 成功。</value>
+  </data>
+  <data name="WorkOrderProductionLine_LineName" xml:space="preserve">
+    <value>线别名称</value>
+  </data>
+  <data name="WorkOrderProductionLine_ManagePageTitle" xml:space="preserve">
+    <value>设置工单（{0}）线别</value>
+  </data>
+  <data name="WorkOrderProductionLine_Save_Success" xml:space="preserve">
+    <value>保存工单线别 {0} 成功。</value>
+  </data>
+  <data name="WorkOrderProductQueryViewModel_IsMain" xml:space="preserve">
+    <value>主产品？</value>
+  </data>
+  <data name="WorkOrderProductQueryViewModel_ItemNo" xml:space="preserve">
+    <value>项目号</value>
+  </data>
+  <data name="WorkOrderProductQueryViewModel_MaterialCode" xml:space="preserve">
+    <value>产品编码</value>
+  </data>
+  <data name="WorkOrderProductQueryViewModel_OrderNumber" xml:space="preserve">
+    <value>工单号</value>
+  </data>
+  <data name="WorkOrderProductViewModel_MaterialCode" xml:space="preserve">
+    <value>物料编码</value>
+  </data>
+  <data name="WorkOrderProductViewModel_OrderNumber" xml:space="preserve">
+    <value>工单号</value>
+  </data>
+  <data name="WorkOrderQueryViewModel_OrderNumber" xml:space="preserve">
+    <value>工单号</value>
+  </data>
+  <data name="WorkOrderRouteQueryViewModel_OrderNumber" xml:space="preserve">
+    <value>工单号</value>
+  </data>
+  <data name="WorkOrderRouteViewModel_ItemNo" xml:space="preserve">
+    <value>项目号</value>
+  </data>
+  <data name="WorkOrderRouteViewModel_OrderNumber" xml:space="preserve">
+    <value>工单号</value>
+  </data>
+  <data name="WorkOrderRouteViewModel_RouteEnterpriseName" xml:space="preserve">
+    <value>工艺流程组</value>
+  </data>
+  <data name="WorkOrderRouteViewModel_RouteName" xml:space="preserve">
+    <value>工艺流程</value>
+  </data>
+  <data name="WorkOrderRouteViewModel_RouteStepName" xml:space="preserve">
+    <value>工艺工步</value>
+  </data>
+  <data name="WorkOrderRoute_AddTitle" xml:space="preserve">
+    <value>新增工艺路线</value>
+  </data>
+  <data name="WorkOrderRoute_ConfirmDelete" xml:space="preserve">
+    <value>确定删除工艺路线 ( {0}） ？</value>
+  </data>
+  <data name="WorkOrderRoute_Delete_Success" xml:space="preserve">
+    <value>删除工艺路线  {0} 成功。</value>
+  </data>
+  <data name="WorkOrderRoute_DetailTitle" xml:space="preserve">
+    <value>工艺路线信息</value>
+  </data>
+  <data name="WorkOrderRoute_ManagePageTitle" xml:space="preserve">
+    <value>工单（{0}）工艺路线设置</value>
+  </data>
+  <data name="WorkOrderRoute_ModifyTitle" xml:space="preserve">
+    <value>修改工艺路线</value>
+  </data>
+  <data name="WorkOrderRoute_SaveModify_Success" xml:space="preserve">
+    <value>修改工艺路线 {0} 成功。</value>
+  </data>
+  <data name="WorkOrderRoute_Save_Success" xml:space="preserve">
+    <value>保存工艺路线 {0} 成功。</value>
+  </data>
+  <data name="WorkOrderViewModel_CloseType" xml:space="preserve">
+    <value>关闭类型</value>
+  </data>
+  <data name="WorkOrderViewModel_FinishQuantity" xml:space="preserve">
+    <value>完工数量</value>
+  </data>
+  <data name="WorkOrderViewModel_FinishTime" xml:space="preserve">
+    <value>完工时间</value>
+  </data>
+  <data name="WorkOrderViewModel_LeftQuantity" xml:space="preserve">
+    <value>剩余数量</value>
+  </data>
+  <data name="WorkOrderViewModel_LocationName" xml:space="preserve">
+    <value>车间名称</value>
+  </data>
+  <data name="WorkOrderViewModel_MaterialCode" xml:space="preserve">
+    <value>产品编码</value>
+  </data>
+  <data name="WorkOrderViewModel_OrderNumber" xml:space="preserve">
+    <value>工单号</value>
+  </data>
+  <data name="WorkOrderViewModel_OrderQuantity" xml:space="preserve">
+    <value>计划数量</value>
+  </data>
+  <data name="WorkOrderViewModel_OrderState" xml:space="preserve">
+    <value>工单状态</value>
+  </data>
+  <data name="WorkOrderViewModel_OrderType" xml:space="preserve">
+    <value>工单类型</value>
+  </data>
+  <data name="WorkOrderViewModel_Priority" xml:space="preserve">
+    <value>优先级</value>
+  </data>
+  <data name="WorkOrderViewModel_RepairQuantity" xml:space="preserve">
+    <value>返修数量</value>
+  </data>
+  <data name="WorkOrderViewModel_RevenueType" xml:space="preserve">
+    <value>保税类型</value>
+  </data>
+  <data name="WorkOrderViewModel_ReworkQuantity" xml:space="preserve">
+    <value>返工数量</value>
+  </data>
+  <data name="WorkOrderViewModel_ScrapQuantity" xml:space="preserve">
+    <value>报废数量</value>
+  </data>
+  <data name="WorkOrderViewModel_StartTime" xml:space="preserve">
+    <value>开始时间</value>
+  </data>
+  <data name="WorkOrderViewModel_WIPQuantity" xml:space="preserve">
+    <value>在制品数量</value>
+  </data>
+  <data name="WorkOrder_AddTitle" xml:space="preserve">
+    <value>新增工单</value>
+  </data>
+  <data name="WorkOrder_ConfirmDelete" xml:space="preserve">
+    <value>确定删除工单 ( {0}） ？</value>
+  </data>
+  <data name="WorkOrder_Delete_Success" xml:space="preserve">
+    <value>删除工单  {0}  成功。</value>
+  </data>
+  <data name="WorkOrder_DetailTitle" xml:space="preserve">
+    <value>工单信息</value>
+  </data>
+  <data name="WorkOrder_ManagePageTitle" xml:space="preserve">
+    <value>工单管理</value>
+  </data>
+  <data name="WorkOrder_ModifyTitle" xml:space="preserve">
+    <value>修改工单</value>
+  </data>
+  <data name="WorkOrder_SaveModify_Success" xml:space="preserve">
+    <value>修改工单 {0} 成功。</value>
+  </data>
+  <data name="WorkOrder_Save_Success" xml:space="preserve">
+    <value>保存工单 {0} 成功。</value>
+  </data>
+  <data name="WorkOrder_SettingLine" xml:space="preserve">
+    <value>设置线别</value>
+  </data>
+  <data name="WorkOrder_SettingRoute" xml:space="preserve">
+    <value>设置工艺</value>
+  </data>
+  <data name="WorkOrderProduct_AddTitle" xml:space="preserve">
+    <value>新增工单产品</value>
+  </data>
+  <data name="WorkOrderProduct_ConfirmDelete" xml:space="preserve">
+    <value>确定删除工单产品 ( {0}） ？</value>
+  </data>
+  <data name="WorkOrderProduct_Delete_Success" xml:space="preserve">
+    <value>删除工单产品  {0} 成功。</value>
+  </data>
+  <data name="WorkOrderProduct_DetailTitle" xml:space="preserve">
+    <value>工单产品信息</value>
+  </data>
+  <data name="WorkOrderProduct_ManagePageTitle" xml:space="preserve">
+    <value>工单（{0}）产品管理</value>
+  </data>
+  <data name="WorkOrderProduct_ModifyTitle" xml:space="preserve">
+    <value>修改工单产品</value>
+  </data>
+  <data name="WorkOrderProduct_SaveModify_Success" xml:space="preserve">
+    <value>修改工单产品 {0} 成功。</value>
+  </data>
+  <data name="WorkOrderProduct_Save_Success" xml:space="preserve">
+    <value>保存工单产品 {0} 成功。</value>
+  </data>
+  <data name="WorkOrder_SettingProduct" xml:space="preserve">
+    <value>产品维护</value>
+  </data>
+  <data name="WorkOrderRouteViewModel_IsRework" xml:space="preserve">
+    <value>返工/返修？</value>
+  </data>
+  <data name="PlanMonth_Save_Success" xml:space="preserve">
+    <value>保存月生产计划 {0} 成功。</value>
+  </data>
+  <data name="PlanMonth_Delete_Success" xml:space="preserve">
+    <value>删除月生产计划  {0} 成功。</value>
+  </data>
+  <data name="PlanMonth_AddTitle" xml:space="preserve">
+    <value>新增月生产计划</value>
+  </data>
+  <data name="PlanMonth_ManagePageTitle" xml:space="preserve">
+    <value>生产计划管理</value>
+  </data>
+  <data name="PlanMonthQueryViewModel_LocationName" xml:space="preserve">
+    <value>车间名称</value>
+  </data>
+  <data name="PlanMonthQueryViewModel_Month" xml:space="preserve">
+    <value>月份</value>
+  </data>
+  <data name="PlanMonthQueryViewModel_RouteStepName" xml:space="preserve">
+    <value>工序</value>
+  </data>
+  <data name="PlanMonthQueryViewModel_Year" xml:space="preserve">
+    <value>年份</value>
+  </data>
+  <data name="PlanMonthViewModel_LocationName" xml:space="preserve">
+    <value>车间名称</value>
+  </data>
+  <data name="PlanMonthViewModel_Month" xml:space="preserve">
+    <value>月份</value>
+  </data>
+  <data name="PlanMonthViewModel_PlanQty" xml:space="preserve">
+    <value>计划数量</value>
+  </data>
+  <data name="PlanMonthViewModel_RouteStepName" xml:space="preserve">
+    <value>工序</value>
+  </data>
+  <data name="PlanMonthViewModel_Year" xml:space="preserve">
+    <value>年份</value>
+  </data>
+  <data name="PlanDayViewModel_LocationName" xml:space="preserve">
+    <value>车间名称</value>
+  </data>
+  <data name="PlanDayViewModel_PlanQty" xml:space="preserve">
+    <value>计划产出量(PCS)</value>
+  </data>
+  <data name="PlanDayViewModel_RouteStepName" xml:space="preserve">
+    <value>工序</value>
+  </data>
+  <data name="PlanMonth_ConfirmDelete" xml:space="preserve">
+    <value>确定删除月生产计划 ( {0}） ？</value>
+  </data>
+  <data name="PlanDayViewModel_SeqNo" xml:space="preserve">
+    <value>序号</value>
+  </data>
+  <data name="PlanDay_ManagePageTitle" xml:space="preserve">
+    <value>生产计划数据</value>
+  </data>
+  <data name="PlanDayViewModel_Day" xml:space="preserve">
+    <value>日期</value>
+  </data>
+  <data name="PlanDayViewModel_Month" xml:space="preserve">
+    <value>月</value>
+  </data>
+  <data name="PlanDayViewModel_ProductCode" xml:space="preserve">
+    <value>产品类型</value>
+  </data>
+  <data name="PlanDayViewModel_Year" xml:space="preserve">
+    <value>年度</value>
+  </data>
+  <data name="PlanDay_Add_Success" xml:space="preserve">
+    <value>保存日生产计划数据 {0} 成功。</value>
+  </data>
+  <data name="PlanDay_AddTitle" xml:space="preserve">
+    <value>新增日生产计划数据</value>
+  </data>
+  <data name="PlanDay_ConfirmDelete" xml:space="preserve">
+    <value>确定删除日生产计划数据 ( {0}） ？</value>
+  </data>
+  <data name="PlanDay_Delete_Success" xml:space="preserve">
+    <value>删除日生产计划数据  {0} 成功。</value>
+  </data>
+  <data name="PlanDay_ModifyTitle" xml:space="preserve">
+    <value>修改生产计划数据</value>
+  </data>
+  <data name="PlanDay_Modify_Success" xml:space="preserve">
+    <value>保存生产计划数据 {0} 成功。</value>
+  </data>
+  <data name="PlanDay_DetailTitle" xml:space="preserve">
+    <value>生产计划数据</value>
+  </data>
+  <data name="PlanAttendance_Add_Success" xml:space="preserve">
+    <value>保存生产数据{0}成功。</value>
+  </data>
+  <data name="PlanAttendance_Delete_Success" xml:space="preserve">
+    <value>删除生产数据{0}成功。</value>
+  </data>
+  <data name="PlanAttendance_Modify_Success" xml:space="preserve">
+    <value>修改生产数据{0}成功。</value>
+  </data>
+  <data name="PlanAttendance_AddTitle" xml:space="preserve">
+    <value>新增生产数据</value>
+  </data>
+  <data name="PlanAttendance_DetailTitle" xml:space="preserve">
+    <value>明细记录</value>
+  </data>
+  <data name="PlanAttendance_ModifyTitle" xml:space="preserve">
+    <value>编辑生产数据</value>
+  </data>
+  <data name="PlanAttendance_ConfirmDelete" xml:space="preserve">
+    <value>确定删除生产数据{0}？</value>
+  </data>
+  <data name="PlanAttendanceViewModel_Day" xml:space="preserve">
+    <value>日</value>
+  </data>
+  <data name="PlanAttendanceViewModel_LocationName" xml:space="preserve">
+    <value>车间</value>
+  </data>
+  <data name="PlanAttendanceViewModel_Month" xml:space="preserve">
+    <value>月</value>
+  </data>
+  <data name="PlanAttendanceViewModel_PlanQty" xml:space="preserve">
+    <value>人数</value>
+  </data>
+  <data name="PlanAttendanceViewModel_ShiftName" xml:space="preserve">
+    <value>班别</value>
+  </data>
+  <data name="PlanAttendanceViewModel_Year" xml:space="preserve">
+    <value>年</value>
+  </data>
+  <data name="PlanAttendance_ManagePageTitle" xml:space="preserve">
+    <value>生产数据维护</value>
+  </data>
+  <data name="PlanDayViewModel_PlanWatt" xml:space="preserve">
+    <value>计划产出量(MW)</value>
+  </data>
+  <data name="PlanDayViewModel_PlanInQty" xml:space="preserve">
+    <value>计划投入量(PCS)</value>
+  </data>
+  <data name="DefectViewModel_Day" xml:space="preserve">
+    <value>日</value>
+  </data>
+  <data name="DefectViewModel_LocationName" xml:space="preserve">
+    <value>车间名称</value>
+  </data>
+  <data name="DefectViewModel_Month" xml:space="preserve">
+    <value>月</value>
+  </data>
+  <data name="DefectViewModel_Qty" xml:space="preserve">
+    <value>不良数量</value>
+  </data>
+  <data name="DefectViewModel_ReasonCodeCategoryName" xml:space="preserve">
+    <value>不良组</value>
+  </data>
+  <data name="DefectViewModel_ReasonCodeName" xml:space="preserve">
+    <value>不良原因</value>
+  </data>
+  <data name="DefectViewModel_ShiftName" xml:space="preserve">
+    <value>班别</value>
+  </data>
+  <data name="DefectViewModel_Year" xml:space="preserve">
+    <value>年</value>
+  </data>
+  <data name="Defect_AddTitle" xml:space="preserve">
+    <value>新增</value>
+  </data>
+  <data name="Defect_Add_Success" xml:space="preserve">
+    <value>新增不良成功！</value>
+  </data>
+  <data name="Defect_ConfirmDelete" xml:space="preserve">
+    <value>删除</value>
+  </data>
+  <data name="Defect_Delete_Success" xml:space="preserve">
+    <value>删除不良成功！</value>
+  </data>
+  <data name="Defect_DetailTitle" xml:space="preserve">
+    <value>明细</value>
+  </data>
+  <data name="Defect_ManagePageTitle" xml:space="preserve">
+    <value>层前不良</value>
+  </data>
+  <data name="Defect_ModifyTitle" xml:space="preserve">
+    <value>修改</value>
+  </data>
+  <data name="Defect_Modify_Success" xml:space="preserve">
+    <value>修改成功！</value>
+  </data>
+  <data name="PlanAttendanceViewModel_TargetDebrisRate" xml:space="preserve">
+    <value>电池片目标碎片率</value>
+  </data>
+  <data name="WorkOrderBOMViewModel_MinUnit" xml:space="preserve">
+    <value>最小扣料单位</value>
+  </data>
+  <data name="WorkOrderBOMViewModel_ReplaceMaterial" xml:space="preserve">
+    <value>可替换料</value>
+  </data>
+  <data name="WorkOrderBOMViewModel_MaterialName" xml:space="preserve">
+    <value>物料名称</value>
+  </data>
+  <data name="WorkOrderViewModel_CreateType" xml:space="preserve">
+    <value>来源</value>
+  </data>
+  <data name="WorkOrderViewModel_ERPWorkOrderKey" xml:space="preserve">
+    <value>ERP工单主键</value>
+  </data>
+  <data name="WorkOrderViewModel_PlanFinishTime" xml:space="preserve">
+    <value>计划完工时间</value>
+  </data>
+  <data name="WorkOrderViewModel_PlanStartTime" xml:space="preserve">
+    <value>计划开工时间</value>
+  </data>
+  <data name="EnumWorkOrderCloseType_Manual" xml:space="preserve">
+    <value>手动关闭</value>
+  </data>
+  <data name="EnumWorkOrderCloseType_None" xml:space="preserve">
+    <value>未关闭</value>
+  </data>
+  <data name="EnumWorkOrderCloseType_Normal" xml:space="preserve">
+    <value>正常关闭</value>
+  </data>
+  <data name="EnumWorkOrderCloseType_Other" xml:space="preserve">
+    <value>其它</value>
+  </data>
+  <data name="EnumWorkOrderCreateType_ERP" xml:space="preserve">
+    <value>ERP</value>
+  </data>
+  <data name="EnumWorkOrderCreateType_SYS" xml:space="preserve">
+    <value />
+  </data>
+  <data name="EnumWorkOrderState_Close" xml:space="preserve">
+    <value>关闭</value>
+  </data>
+  <data name="EnumWorkOrderState_Delete" xml:space="preserve">
+    <value>删除</value>
+  </data>
+  <data name="EnumWorkOrderState_Hold" xml:space="preserve">
+    <value>暂停</value>
+  </data>
+  <data name="EnumWorkOrderState_Open" xml:space="preserve">
+    <value>正常</value>
+  </data>
+  <data name="WorkOrderBOMViewModel_MaterialMemo" xml:space="preserve">
+    <value>物料描述</value>
+  </data>
+  <data name="WorkOrderBOMViewModel_MaterialModel" xml:space="preserve">
+    <value>物料型号</value>
+  </data>
+  <data name="WorkOrderBOMViewModel_MaterialSpec" xml:space="preserve">
+    <value>物料规格</value>
+  </data>
+  <data name="PlanAttendanceViewModel_BeforePressQRate" xml:space="preserve">
+    <value>层前合格率</value>
+  </data>
+  <data name="PlanAttendanceViewModel_HProductARate" xml:space="preserve">
+    <value>半成品A级品率</value>
+  </data>
+  <data name="PlanAttendanceViewModel_PerCapitaEfficiency" xml:space="preserve">
+    <value>人均产出</value>
+  </data>
+  <data name="PlanAttendanceViewModel_ProductARate" xml:space="preserve">
+    <value>A级品率</value>
+  </data>
+  <data name="TargetParameterViewModel_Day" xml:space="preserve">
+    <value>日</value>
+  </data>
+  <data name="TargetParameterViewModel_ItemCode" xml:space="preserve">
+    <value>项目</value>
+  </data>
+  <data name="TargetParameterViewModel_ItemType" xml:space="preserve">
+    <value>类型</value>
+  </data>
+  <data name="TargetParameterViewModel_LocationName" xml:space="preserve">
+    <value>车间</value>
+  </data>
+  <data name="TargetParameterViewModel_Month" xml:space="preserve">
+    <value>月</value>
+  </data>
+  <data name="TargetParameterViewModel_ValueData" xml:space="preserve">
+    <value>目标值</value>
+  </data>
+  <data name="TargetParameterViewModel_Year" xml:space="preserve">
+    <value>年</value>
+  </data>
+  <data name="TargetParameter_AddTitle" xml:space="preserve">
+    <value>新增目标项</value>
+  </data>
+  <data name="TargetParameter_Add_Success" xml:space="preserve">
+    <value>保存目标参数 {0} 成功。</value>
+  </data>
+  <data name="TargetParameter_Delete_Success" xml:space="preserve">
+    <value>目标参数 {0} 删除成功。</value>
+  </data>
+  <data name="TargetParameter_DetailTitle" xml:space="preserve">
+    <value>明细</value>
+  </data>
+  <data name="TargetParameter_ManagePageTitle" xml:space="preserve">
+    <value>目标值管理</value>
+  </data>
+  <data name="TargetParameter_ModifyTitle" xml:space="preserve">
+    <value>修改目标项</value>
+  </data>
+  <data name="TargetParameter_Modify_Success" xml:space="preserve">
+    <value>修改目标参数 {0} 成功。</value>
+  </data>
+  <data name="TargetParameter_ConfirmDelete" xml:space="preserve">
+    <value>确定删除目标设置 ( {0}）?</value>
+  </data>
+  <data name="WorkOrderGroupDetail_Save_Success" xml:space="preserve">
+    <value>保存混工单组规则{0}成功！</value>
+  </data>
+  <data name="WorkOrderBOMViewModel_RowNo" xml:space="preserve">
+    <value>行号</value>
+  </data>
+</root>

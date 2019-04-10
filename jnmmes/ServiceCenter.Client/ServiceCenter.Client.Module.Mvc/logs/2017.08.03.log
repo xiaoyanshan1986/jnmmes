@@ -1,0 +1,22 @@
+2017-08-03 08:45:40,471 - INFO  - START>Application
+2017-08-03 14:08:38,623 - INFO  - START>Application
+2017-08-03 14:10:21,162 - INFO  - START>Application
+2017-08-03 14:12:06,486 - INFO  - START>Application
+2017-08-03 14:33:54,782 - INFO  - START>Application
+2017-08-03 14:44:21,656 - INFO  - START>Application
+2017-08-03 14:53:11,410 - INFO  - START>Application
+2017-08-03 16:23:24,334 - ERROR - End Send Xml File:Error请求通道在等待 00:01:00 以后答复时超时。增加传递给请求调用的超时值，或者增加绑定上的 SendTimeout 值。分配给此操作的时间可能已经是更长超时的一部分。
+2017-08-03 16:34:14,949 - INFO  - START>Application
+2017-08-03 16:36:35,191 - ERROR - End Send Xml File:Error请求通道在等待 00:01:00 以后答复时超时。增加传递给请求调用的超时值，或者增加绑定上的 SendTimeout 值。分配给此操作的时间可能已经是更长超时的一部分。
+2017-08-03 16:40:53,614 - INFO  - START>Application
+2017-08-03 17:19:07,568 - INFO  - START>Application
+2017-08-03 17:20:26,016 - ERROR - Begin Send Xml File
+2017-08-03 17:20:28,427 - ERROR - End Send Xml File
+2017-08-03 17:36:09,590 - INFO  - START>Application
+2017-08-03 17:39:24,073 - ERROR - End Send Xml File:Error列“MATERIAL_CODE”不属于表 Table。
+2017-08-03 17:42:43,391 - INFO  - START>Application
+2017-08-03 17:43:49,728 - ERROR - Begin Send Xml File
+2017-08-03 17:43:51,775 - ERROR - End Send Xml File
+2017-08-03 18:44:58,981 - INFO  - START>Application
+2017-08-03 18:52:06,475 - INFO  - START>Application
+2017-08-03 19:04:28,314 - INFO  - START>Application

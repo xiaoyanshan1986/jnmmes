@@ -1,0 +1,41 @@
+﻿@using ServiceCenter.Client.Mvc.Areas.WIP.Models;
+@using ServiceCenter.Client.Mvc.Resources;
+@using WIPResources = ServiceCenter.Client.Mvc.Resources.WIP;
+@using ServiceCenter.MES.Model.WIP;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+<div id="_list">
+    <table class="table table-hover table-bordered table-condensed table-responsive table-striped">
+        <thead>
+            <tr class="active">
+                <td nowrap>@StringResource.ItemNo</td>
+                <td nowrap>参数名称</td>
+                <td nowrap>参数值</td>
+                @*<td nowrap>编辑人</td>
+                <td nowrap>编辑时间</td>*@
+            </tr>
+        </thead>
+        @if (ViewBag.ParamList != null)
+        {
+            <tbody>
+                @for (int i = 0; i < ViewBag.ParamList.Length; i++)
+                {
+                    LotTransactionParameter obj = ViewBag.ParamList[i];
+                    <tr>
+                        <td nowrap>@(i+1)</td>
+                        <td nowrap>
+                            @obj.Key.ParameterName
+                        </td>
+                        <td nowrap>
+                            @obj.ParameterValue
+                        </td>
+                        @*<td nowrap>@obj.Editor</td>
+                        <td nowrap>@string.Format("{0:yyyy-MM-dd HH:mm:ss}", obj.EditTime)</td>*@
+                    </tr>
+                }
+            </tbody>
+        }
+    </table>
+</div>
+
+

@@ -1,0 +1,44 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.FMM.Models.EquipmentLayoutDetailViewModel
+@using ServiceCenter.Client.Mvc.Areas.FMM.Models;
+@using ServiceCenter.Client.Mvc.Resources;
+@using FMMResources = ServiceCenter.Client.Mvc.Resources.FMM;
+@using ServiceCenter.MES.Model.FMM;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@{
+    IList<EquipmentLayoutDetail> lstEquipment = new List<EquipmentLayoutDetail>();
+    if(ViewBag.List!=null)
+    {
+        lstEquipment = ViewBag.List;
+    }
+    EquipmentLayout objLayout = ViewBag.EquipmentLayout;
+}
+<style>
+    .draggable {
+        word-break :break-all;
+        padding:0px;
+        margin:0px;
+        font-size:26px;
+        cursor:pointer;
+        position:absolute;
+    }
+    #droppable {
+        position:relative;
+        width:  @(objLayout.Width)px;
+        height: @(objLayout.Height)px;
+        margin:0 auto;        
+        background:url("@Url.Action("ShowBackgroudImage", "EquipmentLayout", new {@Key=@Model.LayoutName})") 50% 50% repeat;
+    }
+</style>
+<div id="droppable" class="ui-widget-content">
+    @foreach (EquipmentLayoutDetail item in lstEquipment)
+{
+    <div class="ui-widget-content draggable text-center" title="@item.Key.EquipmentCode"
+         style="left:@(item.Left)px;top:@(item.Top)px;width:@(item.Width)px;height:@(item.Height)px;">
+        <p style="font-size:small">@item.Description</p>
+</div>
+}
+</div>
+
+
+

@@ -1,0 +1,134 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.WIP.Models.PackagePrintViewModel
+@using ServiceCenter.MES.Model.WIP;
+@using ServiceCenter.Model;
+@using ServiceCenter.Common;
+@using ServiceCenter.Client.Mvc.Areas.WIP.Models;
+@using WIPRsources = ServiceCenter.Client.Mvc.Resources.WIP;
+@using ServiceCenter.Client.Mvc.Resources;
+
+@{
+    ViewBag.Title = WIPRsources.StringResource.PackagePrint_ManagePageTitle;
+}
+<h2>@ViewBag.Title</h2>
+@using (Ajax.BeginForm("Save", "PackagePrint", null
+                    , new AjaxOptions()
+                    {
+                        HttpMethod = "Post",
+                        OnSuccess = "completeSave",
+                        OnBegin = "beginSave"
+                    }
+                    , new { @class = "form-horizontal", resource = "form", id = "frmPrint", autocomplete = "off" }))
+{
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <input type="button" value="@StringResource.Print" class="btn btn-primary" id="btnSave" />
+    </div>
+    <div class="panel-body">
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        <div class="form-group">
+            <div class="col-md-1">
+                @Html.LabelFor(m => m.PrinterName, new { @class = "control-label" })
+            </div>
+            <div class="col-md-3">
+                @Html.DropDownListFor(m => m.PrinterName,@Model.GetPrinterNameList(), new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.PrinterName)
+            </div>
+            <div class="col-md-1">
+                @Html.LabelFor(m => m.PrintLabelCode, new { @class = "control-label" })
+            </div>
+            <div class="col-md-3">
+                @Html.DropDownListFor(m => m.PrintLabelCode, @Model.GetLabelCodeList(), new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.PrintLabelCode)
+            </div>
+            <div class="col-md-1">
+                @Html.LabelFor(m => m.PrintQty, new { @class = "control-label" })
+            </div>
+            <div class="col-md-3">
+                @Html.TextBoxFor(m => m.PrintQty, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.PrintQty)
+            </div>
+        </div>
+        <div class="alert fade in hide" resource="alert" id="statusMessage" style="margin:0px">
+            <button type="button" class="close" onclick="hideStatusMessage()">
+                <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+            </button>
+            <p></p>
+        </div>
+        <div class="form-group has-success">
+            <div class="col-md-12">
+                @Html.LabelFor(m => m.PackageNo, new { @class = "control-label" })
+                @Html.TextBoxFor(m => m.PackageNo, new { @class = "form-control", @style = "height:50px;font-size:20px;text-transform:uppercase;" })
+                @Html.ValidationMessageFor(m => m.PackageNo)
+            </div>
+        </div>
+    </div>
+</div>
+}
+@section Scripts {
+    <script type="text/javascript" language="javascript">
+        var preOrderNumber = "";
+        $(function () {
+            $("#PackageNo:first").focus();
+            
+            $("#btnSave").click(function () {
+                hideStatusMessage();
+                $("#frmPrint").submit();
+            });
+
+            $("body").keypress(function (args) {
+                if (args.ctrlKey == true && args.keyCode == 13) {
+                    $("#btnSave").click();
+                }
+            });
+
+            var texts = $("#frmPrint").find(":text:visible:enabled,:checkbox:visible:enabled,textarea:visible:enabled,select:visible:enabled");
+
+            texts.focus(function () {
+                    $(this).select();
+                })
+                .keypress(function (args) {
+                if (args.ctrlKey == false && args.keyCode == 13) {
+                    var index = texts.index(this)+1;
+                    if (index < texts.length) {
+                        texts.eq(index).focus();
+                    }
+                    else {
+                        $("#btnSave").click();
+                    }
+                }
+            });
+
+        });
+        //隐藏状态消息
+        function hideStatusMessage() {
+            $("#statusMessage").addClass("hide");
+        }
+
+        function beginSave() {
+            $("#btnSave").attr("disabled", "disabled");
+            hideStatusMessage();
+        }
+
+        function completeSave(result) {
+            $("#btnSave").removeAttr("disabled");
+            showErrorInfo(result);
+            $("#PackageNo:first").select();
+        }
+
+
+        function showErrorInfo(result) {
+            $("#statusMessage").find("p").html(result.Message);
+            $("#statusMessage").removeClass("hide");
+            if (result.Code > 0) {
+                $("#statusMessage").removeClass("alert-success");
+                $("#statusMessage").addClass("alert-danger");
+            }
+            else {
+                $("#statusMessage").removeClass("alert-danger");
+                $("#statusMessage").addClass("alert-success");
+            }
+        }
+    </script>
+
+}

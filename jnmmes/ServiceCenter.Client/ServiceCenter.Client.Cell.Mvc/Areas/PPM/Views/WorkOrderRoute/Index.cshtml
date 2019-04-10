@@ -1,0 +1,235 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.PPM.Models.WorkOrderRouteQueryViewModel
+@using ServiceCenter.MES.Model.PPM;
+@using ServiceCenter.Model;
+@using ServiceCenter.Common;
+@using ServiceCenter.Client.Mvc.Areas.PPM.Models;
+@using PPM=ServiceCenter.Client.Mvc.Resources.PPM;
+@using ServiceCenter.Client.Mvc.Resources;
+
+@{
+    ViewBag.Title = string.Format(PPM.StringResource.WorkOrderRoute_ManagePageTitle, @Model.OrderNumber);
+    PagingConfig cfg = ViewBag.PagingConfig;
+}
+<h2>@ViewBag.Title</h2>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <a href="javascript:showAddModal()" class="btn btn-primary">@StringResource.Add</a>
+    </div>
+    <div class="panel-body">
+    @using (Ajax.BeginForm("Query", "WorkOrderRoute", null
+            , new AjaxOptions()
+            {
+                HttpMethod = "Post",
+                OnBegin="beginQuery",
+                UpdateTargetId = "list"
+            }
+            , new { @class = "form-horizontal", resource = "form" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="row">
+            <div class="col-md-12">
+                @Html.HiddenFor(m => m.OrderNumber)
+                <input type="submit" value="@StringResource.Refresh" class="btn btn-default" />
+            </div>
+        </div>
+    }
+    </div>
+    <div class="alert fade in hide" resource="alert" id="statusMessage" style="margin:0px">
+        <button type="button" class="close" onclick="hideStatusMessage()">
+            <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+        </button>
+        <p></p>
+    </div>
+    <div id="list">
+        @Html.Partial("_ListPartial", new WorkOrderRouteViewModel() { OrderNumber = @Model.OrderNumber })
+    </div>
+</div>
+
+@*新增*@
+<div id="add" class="modal fade" tabindex="-1" resource="dialog" aria-labelledby="addHeader" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                <span aria-hidden="true">&times;</span>
+                <span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="addHeader">@PPM.StringResource.WorkOrderRoute_AddTitle</h4>
+            </div>
+            <div class="modal-body" id="addContent" style="margin:0px;padding:5px">
+                @using (Ajax.BeginForm("Save", "WorkOrderRoute", null
+                        , new AjaxOptions()
+                        {
+                            HttpMethod = "Post",
+                            OnSuccess = "completeSave",
+                            OnBegin = "beginSave"
+                        }
+                        , new { @class = "form-horizontal", resource = "form",id="frmAdd"}))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <input type="submit" class="btn btn-primary" value="@StringResource.Save" id="btnSave" />
+                            <input type="reset" class="btn btn-default" style="display:none" value="@StringResource.Reset" id="btnReset" />
+                        </div>
+                        <div class="panel-body">
+                            <div class="alert fade in hide" resource="alert" id="addStatusMessage">
+                                <button type="button" class="close" onclick="hideAddAlert()">
+                                    <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+                                </button>
+                                <p></p>
+                            </div>
+                            <div>
+                                @Html.Partial("_AddPartial", new WorkOrderRouteViewModel() { OrderNumber = @Model.OrderNumber })
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+
+
+    <script type="text/javascript" language="javascript">
+         //刷新列表
+        function refreshList() {
+            if ($("#frmPagingQuery").length > 0) {
+                $("#frmPagingQuery").submit();
+            }
+        }
+        //隐藏状态消息
+        function hideStatusMessage() {
+            $("#statusMessage").addClass("hide");
+        }
+    </script>
+    @*查询*@
+    <script type="text/javascript" language="javascript">
+        //刷新列表
+        function beginQuery() {
+            hideStatusMessage();
+        }
+    </script>
+
+    @*新增*@
+    <script type="text/javascript" language="javascript">
+        //保存
+        $(function () {
+
+            $("#drpRouteEnterpriseName").change(function () {
+                var val = $(this).val();
+                $("#drpRouteName").get(0).options.length = 0; //清空
+                var url = "@Url.Action("GetRouteList"
+                                      , "WorkOrderRoute"
+                                      , new { area = "PPM" })";
+                var req = { RouteEnterpriseName: val };
+                $.getJSON(url, req, function (data) {
+                    $.each(data, function (i, item) {
+                        $("<option></option>").val(item["Key"].RouteName).text(item["Key"].RouteName).appendTo($("#drpRouteName"));
+                    });
+                    $("#drpRouteName").change();
+                });
+            });
+
+            $("#drpRouteName").change(function () {
+                var val = $(this).val();
+                $("#drpRouteStepName").get(0).options.length = 0; //清空
+                var url = "@Url.Action("GetRouteStepList"
+                                      , "WorkOrderRoute"
+                                      , new { area = "PPM" })";
+                var req = { RouteName: val };
+                $.getJSON(url, req, function (data) {
+                    $.each(data, function (i, item) {
+                        $("<option></option>").val(item["Key"].RouteStepName).text(item["Key"].RouteStepName).appendTo($("#drpRouteStepName"));
+                    });
+                });
+            });
+
+            var texts = $('#add').find(":text:enabled,:checkbox:enabled,select:enabled")
+            texts.keypress(function (args) {
+                if (args.ctrlKey == false && args.keyCode == 13) {
+                    var index = texts.index(this) + 1;
+                    if (index < texts.length) {
+                        texts.eq(index).focus().select();
+                        return false;
+                    }
+                    else {
+                        return true;
+                    }
+                }
+            });
+
+            $('#add').on('shown.bs.modal', function (e) {
+                $("#btnReset").click();
+            });
+
+            $("#btnReset").click(function () {
+                generateSortSeq();
+                $("#drpRouteName").get(0).options.length = 0;
+                $("#drpRouteStepName").get(0).options.length = 0;
+                texts.eq(0).focus().select();
+            });
+        });
+
+        function showAddModal() {
+            hideAddAlert();
+            hideStatusMessage();
+            $("#btnSave").removeAttr("disabled");
+            $('#add').modal('show');
+        }
+
+        function generateSortSeq()
+        {
+            var url="@Url.Action("GetMaxItemNo"
+                                 , "WorkOrderRoute"
+                                 , new { area = "PPM" })";
+            $.getJSON(url + "?OrderNumber=@Model.OrderNumber", null, function (data) {
+                $("#txtAddItemNo").val(data);
+            });
+        }
+
+        function hideAddAlert() {
+            $("#addStatusMessage").addClass("hide");
+        }
+
+        function beginSave() {
+            $("#btnSave").attr("disabled", "disabled");
+        }
+
+        function completeSave(result) {
+            $("#btnSave").removeAttr("disabled");
+            $("#addStatusMessage").find("p").html(result.Message);
+            $("#addStatusMessage").removeClass("hide");
+            generateSortSeq();
+            if (result.Code > 0) {
+                $("#addStatusMessage").removeClass("alert-success");
+                $("#addStatusMessage").addClass("alert-danger");
+            }
+            else {
+                $("#addStatusMessage").removeClass("alert-danger");
+                $("#addStatusMessage").addClass("alert-success");
+                refreshList();
+            }
+        }
+    </script>
+    
+    @*删除*@
+    <script type="text/javascript" language="javascript">
+        //删除资源
+        function completeDelete(result) {
+            $("#statusMessage").find("p").html(result.Message);
+            $("#statusMessage").removeClass("hide");
+            if (result.Code > 0) {
+                $("#statusMessage").removeClass("alert-success");
+                $("#statusMessage").addClass("alert-danger");
+            }
+            else {
+                $("#statusMessage").removeClass("alert-danger");
+                $("#statusMessage").addClass("alert-success");
+                refreshList();
+            }
+        }
+    </script>
+}

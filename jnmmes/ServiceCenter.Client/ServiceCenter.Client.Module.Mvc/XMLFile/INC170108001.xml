@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ufinterface receiver="K01" sender="mes" roottag="" replace="Y" isexchange="Y" groupcode="001" filename="" billtype="46" account="01">
+  <bill id="">
+    <billhead>
+      <cgeneralhid>
+      </cgeneralhid>
+      <cgeneralbid>
+        <item>
+          <cgeneralbid>
+          </cgeneralbid>
+          <crowno>0</crowno>
+          <pk_group>001</pk_group>
+          <pk_org>K01</pk_org>
+          <pk_org_v>K01</pk_org_v>
+          <corpoid>K01</corpoid>
+          <corpvid>K01</corpvid>
+          <cstateid>2</cstateid>
+          <cbodywarehouseid>CP002</cbodywarehouseid>
+          <dbizdate>2017/1/8 11:30:28</dbizdate>
+          <dproducedate>2017/1/8 0:00:00</dproducedate>
+          <cmaterialoid>1202020013</cmaterialoid>
+          <cmaterialvid>1202020013</cmaterialvid>
+          <cproductid>1202020013</cproductid>
+          <fproductclass>1</fproductclass>
+          <cunitid>Pcs</cunitid>
+          <castunitid>WA</castunitid>
+          <vbatchcode>161211080220</vbatchcode>
+          <nshouldnum>30.0000</nshouldnum>
+          <nnum>30.0000</nnum>
+          <nshouldassistnum>8100.000</nshouldassistnum>
+          <nassistnum>8100.000</nassistnum>
+          <vfree1>270</vfree1>
+          <vchangerate>1/270.0000</vchangerate>
+          <vbdef1>8111.8900</vbdef1>
+          <vfree2>01</vfree2>
+          <vfree3>01</vfree3>
+          <vproductbatch>1MO-16110008</vproductbatch>
+          <csourcebillhid>1001A110000000194UTR</csourcebillhid>
+          <csourcebillbid>1001A110000000194UTU</csourcebillbid>
+          <csourcetype>55A4</csourcetype>
+          <csourcetranstype>0001A110000000001MSI</csourcetranstype>
+          <vsourcebillcode>1BG-17010003</vsourcebillcode>
+          <vsourcerowno>1001A110000000194UTT</vsourcerowno>
+          <cfirsttype>55C2</cfirsttype>
+          <cfirsttranstype>0001A110000000001MSJ</cfirsttranstype>
+          <cfirstbillhid>1001A11000000017C38C</cfirstbillhid>
+          <vfirstbillcode>1MO-16110008</vfirstbillcode>
+          <cfirstbillbid>1001A11000000017C38C</cfirstbillbid>
+          <bbarcodeclose>N</bbarcodeclose>
+          <bonroadflag>N</bonroadflag>
+          <flargess>N</flargess>
+        </item>
+      </cgeneralbid>
+      <creationtime>2017-01-08 10:39:23</creationtime>
+      <cwarehouseid>CP002</cwarehouseid>
+      <cprowarehouseid>CP002</cprowarehouseid>
+      <cprocalbodyoid>K01</cprocalbodyoid>
+      <cprocalbodyvid>K01</cprocalbodyvid>
+      <cdptid>K013D5</cdptid>
+      <cdptvid>K013D5</cdptvid>
+      <ctrantypeid>0001A110000000001MQC</ctrantypeid>
+      <vtrantypecode>46-01</vtrantypecode>
+      <vnote>2017.1.8上线前测试</vnote>
+      <fbillflag>2</fbillflag>
+      <creator>jun.fang</creator>
+      <billmaker>jun.fang</billmaker>
+    </billhead>
+  </bill>
+</ufinterface>

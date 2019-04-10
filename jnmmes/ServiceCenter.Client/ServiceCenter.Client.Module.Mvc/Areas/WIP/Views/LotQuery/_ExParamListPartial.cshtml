@@ -1,0 +1,55 @@
+﻿@using ServiceCenter.Client.Mvc.Resources;
+@using System.Data;
+
+@model ServiceCenter.Client.Mvc.Areas.WIP.Models.LotAttributeViewModel
+@using ServiceCenter.Client.Mvc.Areas.WIP.Models;
+@using ServiceCenter.Client.Mvc.Resources;
+@using WIPResources = ServiceCenter.Client.Mvc.Resources.WIP;
+@using ServiceCenter.MES.Model.WIP;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@{
+    PagingConfig cfg = ViewBag.PagingConfig;
+    MethodReturnResult<DataSet> ds = new MethodReturnResult<DataSet>();
+    ds = ViewBag.HistoryList;
+}
+
+<div id="_list" style="overflow:auto">
+    <table class="table table-hover table-bordered table-condensed table-responsive table-striped">
+        <thead>
+            <tr class="active">
+                <td nowrap>@StringResource.ItemNo</td>
+                <td nowrap>参数名称</td>
+                <td nowrap>参数值</td>
+                <td nowrap>编辑人</td>
+                <td nowrap>编辑时间</td>
+            </tr>
+        </thead>
+        <tbody>
+            @if (ds != null && ds.Data != null && ds.Data.Tables.Count > 0 && ds.Data.Tables[0].Rows.Count > 0)
+            {
+                for (int i = 0; i < ds.Data.Tables[0].Rows.Count; i++)
+                {
+                    System.Data.DataRow obj = ds.Data.Tables[0].Rows[i];
+                    <tr>
+                        <td nowrap>@(i + 1) </td>
+                        <td nowrap>@obj["PARAM_NAME"] </td>
+                        <td nowrap>@obj["PARAM_VALUE"] </td>
+                        <td nowrap>@obj["EDITOR"]</td>
+                        <td nowrap>@obj["EDIT_TIME"]</td>
+
+
+                    </tr>
+
+                }
+
+            }
+        </tbody>
+
+    </table>
+</div>
+
+
+
+
+

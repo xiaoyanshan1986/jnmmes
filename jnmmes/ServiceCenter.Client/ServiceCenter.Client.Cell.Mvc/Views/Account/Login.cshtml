@@ -1,0 +1,55 @@
+﻿@model ServiceCenter.Client.Mvc.Models.LoginViewModel
+
+@{
+    ViewBag.Title = "登录";
+}
+
+<h2>@ViewBag.Title。</h2>
+<div class="row">
+    <div class="col-md-5">
+        <section id="loginForm">
+            @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+                <h4>使用本地帐户登录。</h4>
+                <hr />
+                @Html.ValidationSummary(true)
+                <div class="form-group">
+                    @Html.LabelFor(m => m.UserName, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", @style = "max-width:280px" })
+                        @Html.ValidationMessageFor(m => m.UserName)
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control",@style="max-width:280px" })
+                        @Html.ValidationMessageFor(m => m.Password)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <div class="checkbox">
+                            @Html.CheckBoxFor(m => m.RememberMe)
+                            @Html.LabelFor(m => m.RememberMe)
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        如果您没有帐户，请点击 @Html.ActionLink("注册", "Register")，
+                        <input type="submit" value=" 登 录 " class="btn btn-primary" />
+                    </div>
+                </div>
+            }
+        </section>
+    </div>
+    <div class="col-md-7">
+        <div class="jumbotron">
+            <h1>MES</h1>
+            <p class="lead">MES是一套面向制造企业车间执行层的生产信息化管理系统。</p>
+            <p><a href="#" class="btn btn-default btn-large">Learn more &raquo;</a></p>
+        </div>
+    </div>
+</div>

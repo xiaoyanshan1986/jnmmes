@@ -1,0 +1,97 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.ERP.Models.MaterialReceiptReplaceViewModel
+@using ServiceCenter.Client.Mvc.Areas.ERP.Models;
+@using ServiceCenter.Client.Mvc.Resources;
+@using ERPResources = ServiceCenter.Client.Mvc.Resources.ERP;
+@using ServiceCenter.MES.Model.LSM;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@using ServiceCenter.MES.Model.ERP;
+
+@{
+    PagingConfig cfg = ViewBag.PagingConfig;
+    string receiptNo = ViewBag.ReceiptNo;    
+}
+
+<div id="_list" style="overflow:auto">
+    <table class="table table-hover table-bordered table-condensed table-responsive table-striped table text-nowrap">
+        <thead>
+            <tr class="active">
+                <td nowrap>@Html.DisplayNameFor(m => m.ItemNo)</td>
+                <td nowrap>@Html.DisplayNameFor(m => m.OrderNumber)</td>
+                <td nowrap>@Html.DisplayNameFor(m => m.OldMaterialCode)</td>
+                <td nowrap>@Html.DisplayNameFor(m => m.OldMaterialLot)</td>
+                <td nowrap>@Html.DisplayNameFor(m => m.MaterialCode)</td>
+                <td nowrap>@Html.DisplayNameFor(m => m.MaterialLot)</td>
+                <td nowrap>@Html.DisplayNameFor(m => m.Qty)</td>
+                <td nowrap>@Html.DisplayNameFor(m => m.CellPower)</td>
+                <td nowrap>@Html.DisplayNameFor(m => m.CellGrade)</td>
+                <td nowrap>@Html.DisplayNameFor(m => m.OldCellColor)</td>
+                <td nowrap>@Html.DisplayNameFor(m => m.CellColor)</td>
+                <td nowrap>@Html.DisplayNameFor(m => m.OldSupplierCode)</td>
+                <td nowrap>@Html.DisplayNameFor(m => m.OldSupplierName)</td>
+                <td nowrap>@Html.DisplayNameFor(m => m.SupplierCode)</td>
+                <td nowrap>@Html.DisplayNameFor(m => m.SupplierName)</td>
+                <td nowrap>@Html.DisplayNameFor(m => m.OldManufacturerCode)</td>
+                <td nowrap>@Html.DisplayNameFor(m => m.OldManufacturerName)</td>
+                <td nowrap>@Html.DisplayNameFor(m => m.ManufacturerCode)</td>
+                <td nowrap>@Html.DisplayNameFor(m => m.ManufacturerName)</td>
+                @*<td nowrap>@Html.DisplayNameFor(m => m.SupplierMaterialLot)</td>
+                    <td nowrap>@Html.DisplayNameFor(m => m.Description)</td>*@
+            </tr>
+        </thead>
+        @if (ViewBag.MaterialReceiptReplace != null)
+        {
+            <tbody>
+                @foreach (MaterialReceiptReplaceViewModel item in ViewBag.MaterialReceiptReplace)
+                {
+                    <tr>
+                        <td nowrap>@item.ItemNo</td>
+                        <td nowrap>@item.OrderNumber</td>
+                        <td nowrap>@item.OldMaterialCode</td>
+                        <td nowrap>@item.OldMaterialLot</td>
+                        <td nowrap>@item.MaterialCode</td>
+                        <td nowrap>@item.MaterialLot</td>
+                        <td nowrap>@item.Qty</td>
+                        <td nowrap>@item.CellPower</td>
+                        <td nowrap>@item.CellGrade</td>
+                        <td nowrap>@item.OldCellColor</td>
+                        <td nowrap>@item.CellColor</td>
+                        <td nowrap>@item.OldSupplierCode</td>
+                        <td nowrap>@item.OldSupplierName</td>
+                        <td nowrap>@item.SupplierCode</td>
+                        <td nowrap>@item.SupplierName</td>
+                        <td nowrap>@item.OldManufacturerCode</td>
+                        <td nowrap>@item.OldManufacturerName</td>
+                        <td nowrap>@item.ManufacturerCode</td>
+                        <td nowrap>@item.ManufacturerName</td>
+                        @*<td nowrap>@item.SupplierMaterialLot</td>
+                            <td nowrap>@item.Description</td>*@
+                    </tr>
+                }
+            </tbody>
+        }
+    </table>
+    <div style="margin-top:-18px">
+        @if (cfg != null)
+        {
+            using (Ajax.BeginForm("PagingQueryReplace", "ERPMaterialReceipt"
+                            , new
+                            {
+                                @ReceiptNo = receiptNo,
+                                @OrderBy = cfg.OrderBy,
+                                @CurrentPageNo = cfg.PageNo,
+                                @CurrentPageSize = cfg.PageSize
+                            }
+                            , new AjaxOptions()
+                            {
+                                HttpMethod = "Post",
+                                UpdateTargetId = "_list"
+                            }
+                            , new { @class = "form-horizontal", resource = "form", id = "frmPagingQuery" }))
+            {
+                @Html.AntiForgeryToken()
+                <div>@Html.Partial("_PaginationPartial")</div>
+            }
+        }
+    </div>
+</div>

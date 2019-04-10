@@ -1,0 +1,666 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="LotCreateDetailViewModel_MaterialQty" xml:space="preserve">
+    <value>物料数量</value>
+  </data>
+  <data name="LotCreateDetailViewModel_ProductCode" xml:space="preserve">
+    <value>产品编码</value>
+  </data>
+  <data name="LotCreateDetailViewModel_Quantity" xml:space="preserve">
+    <value>每批产品数量</value>
+  </data>
+  <data name="LotCreateDetailViewModel_RawQuantity" xml:space="preserve">
+    <value>每批原料数量</value>
+  </data>
+  <data name="LotCreateDetailViewModel_RouteEnterpriseName" xml:space="preserve">
+    <value>工艺流程组</value>
+  </data>
+  <data name="LotCreateDetailViewModel_RouteName" xml:space="preserve">
+    <value>工艺流程</value>
+  </data>
+  <data name="LotCreateDetailViewModel_RouteStepName" xml:space="preserve">
+    <value>工艺工步</value>
+  </data>
+  <data name="LotCreateDetailViewModel_SupplierCode" xml:space="preserve">
+    <value>供应商</value>
+  </data>
+  <data name="LotCreateMainViewModel_Count" xml:space="preserve">
+    <value>批次个数</value>
+  </data>
+  <data name="LotCreateMainViewModel_LineStoreName" xml:space="preserve">
+    <value>线边仓</value>
+  </data>
+  <data name="LotCreateMainViewModel_LotType" xml:space="preserve">
+    <value>批次类型</value>
+  </data>
+  <data name="LotCreateMainViewModel_MaterialCode" xml:space="preserve">
+    <value>物料编码</value>
+  </data>
+  <data name="LotCreateMainViewModel_MaterialLot" xml:space="preserve">
+    <value>物料批号</value>
+  </data>
+  <data name="LotCreateMainViewModel_OrderNumber" xml:space="preserve">
+    <value>工单号</value>
+  </data>
+  <data name="LotCreate_ManagePageTitle" xml:space="preserve">
+    <value>创建批次</value>
+  </data>
+  <data name="LotDefectViewModel_DefectQuantity" xml:space="preserve">
+    <value>不良数量</value>
+  </data>
+  <data name="LotDefectViewModel_ResponsiblePerson" xml:space="preserve">
+    <value>责任人</value>
+  </data>
+  <data name="LotDefectViewModel_RouteOperationName" xml:space="preserve">
+    <value>责任工序</value>
+  </data>
+  <data name="LotDefect_ManagePageTitle" xml:space="preserve">
+    <value>批次不良</value>
+  </data>
+  <data name="LotHoldViewModel_HoldDescription" xml:space="preserve">
+    <value>原因描述</value>
+  </data>
+  <data name="LotHoldViewModel_HoldPassword" xml:space="preserve">
+    <value>暂停密码</value>
+  </data>
+  <data name="LotHoldViewModel_ReasonCodeCategoryName" xml:space="preserve">
+    <value>原因组</value>
+  </data>
+  <data name="LotHoldViewModel_ReasonCodeName" xml:space="preserve">
+    <value>原因代码</value>
+  </data>
+  <data name="LotHold_ManagePageTitle" xml:space="preserve">
+    <value>批次暂停</value>
+  </data>
+  <data name="LotIsNotExists" xml:space="preserve">
+    <value>批次号（{0}）不存在。</value>
+  </data>
+  <data name="LotNumber" xml:space="preserve">
+    <value>批次号</value>
+  </data>
+  <data name="LotPatchViewModel_LineStoreName" xml:space="preserve">
+    <value>线边仓</value>
+  </data>
+  <data name="LotPatchViewModel_MaterialCode" xml:space="preserve">
+    <value>物料编码</value>
+  </data>
+  <data name="LotPatchViewModel_MaterialLot" xml:space="preserve">
+    <value>物料批号</value>
+  </data>
+  <data name="LotPatchViewModel_PatchQuantity" xml:space="preserve">
+    <value>补片数量</value>
+  </data>
+  <data name="LotPatchViewModel_ResponsiblePerson" xml:space="preserve">
+    <value>责任人</value>
+  </data>
+  <data name="LotPatchViewModel_RouteOperationName" xml:space="preserve">
+    <value>责任工序</value>
+  </data>
+  <data name="LotPatch_ManagePageTitle" xml:space="preserve">
+    <value>批次补料</value>
+  </data>
+  <data name="LotReleaseViewModel_ReleaseDescription" xml:space="preserve">
+    <value>原因描述</value>
+  </data>
+  <data name="LotReleaseViewModel_ReleasePassword" xml:space="preserve">
+    <value>释放密码</value>
+  </data>
+  <data name="LotRelease_ManagePageTitle" xml:space="preserve">
+    <value>批次释放</value>
+  </data>
+  <data name="LotReturnViewModel_ReturnQuantity" xml:space="preserve">
+    <value>退料数量</value>
+  </data>
+  <data name="LotReturn_ManagePageTitle" xml:space="preserve">
+    <value>批次退料</value>
+  </data>
+  <data name="LotScrapViewModel_ResponsiblePerson" xml:space="preserve">
+    <value>责任人</value>
+  </data>
+  <data name="LotScrapViewModel_RouteOperationName" xml:space="preserve">
+    <value>责任工序</value>
+  </data>
+  <data name="LotScrapViewModel_ScrapQuantity" xml:space="preserve">
+    <value>报废数量</value>
+  </data>
+  <data name="LotScrap_ManagePageTitle" xml:space="preserve">
+    <value>批次报废</value>
+  </data>
+  <data name="LotTerminalViewModel_ReasonCodeCategoryName" xml:space="preserve">
+    <value>原因组</value>
+  </data>
+  <data name="LotTerminalViewModel_ReasonCodeName" xml:space="preserve">
+    <value>原因代码</value>
+  </data>
+  <data name="LotTerminal_ManagePageTitle" xml:space="preserve">
+    <value>批次结束</value>
+  </data>
+  <data name="LotViewModel_ContainerNo" xml:space="preserve">
+    <value>容器号</value>
+  </data>
+  <data name="LotViewModel_DeletedFlag" xml:space="preserve">
+    <value>结束？</value>
+  </data>
+  <data name="LotViewModel_EquipmentCode" xml:space="preserve">
+    <value>设备代码</value>
+  </data>
+  <data name="LotViewModel_Grade" xml:space="preserve">
+    <value>等级</value>
+  </data>
+  <data name="LotViewModel_HoldFlag" xml:space="preserve">
+    <value>暂停？</value>
+  </data>
+  <data name="LotViewModel_InitialQuantity" xml:space="preserve">
+    <value>初始数量</value>
+  </data>
+  <data name="LotViewModel_LineCode" xml:space="preserve">
+    <value>生产线</value>
+  </data>
+  <data name="LotViewModel_LocationName" xml:space="preserve">
+    <value>车间名称</value>
+  </data>
+  <data name="LotViewModel_LotState" xml:space="preserve">
+    <value>批次状态</value>
+  </data>
+  <data name="LotViewModel_LotType" xml:space="preserve">
+    <value>批次类型</value>
+  </data>
+  <data name="LotViewModel_MaterialCode" xml:space="preserve">
+    <value>产品编码</value>
+  </data>
+  <data name="LotViewModel_OperateComputer" xml:space="preserve">
+    <value>操作客户端</value>
+  </data>
+  <data name="LotViewModel_OrderNumber" xml:space="preserve">
+    <value>工单号</value>
+  </data>
+  <data name="LotViewModel_OriginalOrderNumber" xml:space="preserve">
+    <value>原始工单号</value>
+  </data>
+  <data name="LotViewModel_PackageFlag" xml:space="preserve">
+    <value>包装？</value>
+  </data>
+  <data name="LotViewModel_PreLineCode" xml:space="preserve">
+    <value>前一生产线</value>
+  </data>
+  <data name="LotViewModel_Priority" xml:space="preserve">
+    <value>优先级</value>
+  </data>
+  <data name="LotViewModel_Quantity" xml:space="preserve">
+    <value>数量</value>
+  </data>
+  <data name="LotViewModel_RepairFlag" xml:space="preserve">
+    <value>返修次数</value>
+  </data>
+  <data name="LotViewModel_Reworker" xml:space="preserve">
+    <value>返工操作人</value>
+  </data>
+  <data name="LotViewModel_ReworkFlag" xml:space="preserve">
+    <value>返工次数</value>
+  </data>
+  <data name="LotViewModel_ReworkTime" xml:space="preserve">
+    <value>返工时间</value>
+  </data>
+  <data name="LotViewModel_RouteEnterpriseName" xml:space="preserve">
+    <value>工艺流程组</value>
+  </data>
+  <data name="LotViewModel_RouteName" xml:space="preserve">
+    <value>工艺流程</value>
+  </data>
+  <data name="LotViewModel_RouteStepName" xml:space="preserve">
+    <value>工艺工步</value>
+  </data>
+  <data name="LotViewModel_ShippedFlag" xml:space="preserve">
+    <value>出货？</value>
+  </data>
+  <data name="LotViewModel_StartProcessTime" xml:space="preserve">
+    <value>开始处理时间</value>
+  </data>
+  <data name="LotViewModel_StartWaitTime" xml:space="preserve">
+    <value>开始等待时间</value>
+  </data>
+  <data name="LotViewModel_StateFlag" xml:space="preserve">
+    <value>批次状态</value>
+  </data>
+  <data name="ReasonCodeCategoryName" xml:space="preserve">
+    <value>原因组</value>
+  </data>
+  <data name="ReasonCodeName" xml:space="preserve">
+    <value>原因代码</value>
+  </data>
+  <data name="ReasonDescription" xml:space="preserve">
+    <value>原因描述</value>
+  </data>
+  <data name="LotQuery_ManagePageTitle" xml:space="preserve">
+    <value>批次查询</value>
+  </data>
+  <data name="LotRepair_ManagePageTitle" xml:space="preserve">
+    <value>批次返修</value>
+  </data>
+  <data name="LotTrackViewModel_EquipmentCode" xml:space="preserve">
+    <value>设备</value>
+  </data>
+  <data name="LotTrackViewModel_EquipmentState" xml:space="preserve">
+    <value>设备状态</value>
+  </data>
+  <data name="LotTrackViewModel_LineCode" xml:space="preserve">
+    <value>生产线</value>
+  </data>
+  <data name="LotTrack_ManagePageTitle" xml:space="preserve">
+    <value>工作站作业</value>
+  </data>
+  <data name="Track" xml:space="preserve">
+    <value>过站</value>
+  </data>
+  <data name="LotPackage_ManagePageTitle" xml:space="preserve">
+    <value>包装作业</value>
+  </data>
+  <data name="Package" xml:space="preserve">
+    <value>包装</value>
+  </data>
+  <data name="LotPackageViewModel_CurrentQuantity" xml:space="preserve">
+    <value>当前数量</value>
+  </data>
+  <data name="LotPackageViewModel_EquipmentCode" xml:space="preserve">
+    <value>设备</value>
+  </data>
+  <data name="LotPackageViewModel_EquipmentState" xml:space="preserve">
+    <value>设备状态</value>
+  </data>
+  <data name="LotPackageViewModel_FullQuantity" xml:space="preserve">
+    <value>满包数量</value>
+  </data>
+  <data name="LotPackageViewModel_IsLastestPackage" xml:space="preserve">
+    <value>尾包？</value>
+  </data>
+  <data name="LotPackageViewModel_LineCode" xml:space="preserve">
+    <value>生产线</value>
+  </data>
+  <data name="LotPackageViewModel_RouteOperationName" xml:space="preserve">
+    <value>工序名称</value>
+  </data>
+  <data name="PackageNo" xml:space="preserve">
+    <value>包装号</value>
+  </data>
+  <data name="PackageDetail_ConfirmDelete" xml:space="preserve">
+    <value>确定删除（{0}）?</value>
+  </data>
+  <data name="FinishPackage" xml:space="preserve">
+    <value>完成包装</value>
+  </data>
+  <data name="LotUndo_ManagePageTitle" xml:space="preserve">
+    <value>批次撤销</value>
+  </data>
+  <data name="Undo" xml:space="preserve">
+    <value>确定撤销</value>
+  </data>
+  <data name="LotViewModel_Color" xml:space="preserve">
+    <value>花色</value>
+  </data>
+  <data name="LotViewModel_PackageNo" xml:space="preserve">
+    <value>包装号</value>
+  </data>
+  <data name="LotViewModel_EndCreateTime" xml:space="preserve">
+    <value>创建时间（止）</value>
+  </data>
+  <data name="LotViewModel_StartCreateTime" xml:space="preserve">
+    <value>创建时间（起）</value>
+  </data>
+  <data name="AttributeName" xml:space="preserve">
+    <value>属性名称</value>
+  </data>
+  <data name="AttributeValue" xml:space="preserve">
+    <value>属性值</value>
+  </data>
+  <data name="LotChangeViewModel_NewMaterialCode" xml:space="preserve">
+    <value>新产品料号</value>
+  </data>
+  <data name="LotChangeViewModel_NewOrderNumber" xml:space="preserve">
+    <value>新工单号</value>
+  </data>
+  <data name="LotChangeViewModel_RouteEnterpriseName" xml:space="preserve">
+    <value>工艺流程组</value>
+  </data>
+  <data name="LotChangeViewModel_RouteName" xml:space="preserve">
+    <value>工艺流程</value>
+  </data>
+  <data name="LotChangeViewModel_RouteStepName" xml:space="preserve">
+    <value>工步</value>
+  </data>
+  <data name="LotChange_ManagePageTitle" xml:space="preserve">
+    <value>转工单作业</value>
+  </data>
+  <data name="LotPrintViewModel_PrinterName" xml:space="preserve">
+    <value>打印机名称</value>
+  </data>
+  <data name="LotPrintViewModel_PrintLabelCode" xml:space="preserve">
+    <value>打印标签</value>
+  </data>
+  <data name="LotPrintViewModel_PrintQty" xml:space="preserve">
+    <value>打印数量</value>
+  </data>
+  <data name="LotPrint_ManagePageTitle" xml:space="preserve">
+    <value>批次标签打印</value>
+  </data>
+  <data name="LotReworkViewModel_NewMaterialCode" xml:space="preserve">
+    <value>新产品料号</value>
+  </data>
+  <data name="LotReworkViewModel_NewOrderNumber" xml:space="preserve">
+    <value>新工单号</value>
+  </data>
+  <data name="LotReworkViewModel_RouteEnterpriseName" xml:space="preserve">
+    <value>工艺流程组</value>
+  </data>
+  <data name="LotReworkViewModel_RouteName" xml:space="preserve">
+    <value>工艺流程</value>
+  </data>
+  <data name="LotReworkViewModel_RouteStepName" xml:space="preserve">
+    <value>工步</value>
+  </data>
+  <data name="LotRework_ManagePageTitle" xml:space="preserve">
+    <value>返工作业</value>
+  </data>
+  <data name="LotReworkViewModel_IsPackageNo" xml:space="preserve">
+    <value>按包返工？</value>
+  </data>
+  <data name="PackagePrintViewModel_PrinterName" xml:space="preserve">
+    <value>打印机名称</value>
+  </data>
+  <data name="PackagePrintViewModel_PrintLabelCode" xml:space="preserve">
+    <value>标签代码</value>
+  </data>
+  <data name="PackagePrintViewModel_PrintQty" xml:space="preserve">
+    <value>打印数量</value>
+  </data>
+  <data name="PackagePrint_ManagePageTitle" xml:space="preserve">
+    <value>包装标签打印</value>
+  </data>
+  <data name="LotPatchViewModel_OrderNumber" xml:space="preserve">
+    <value>工单号</value>
+  </data>
+  <data name="LotPatchQuery_ManagePageTitle" xml:space="preserve">
+    <value>补料明细查询</value>
+  </data>
+  <data name="LotPatchViewModel_EndPatchTime" xml:space="preserve">
+    <value>补料时间</value>
+  </data>
+  <data name="LotPatchViewModel_StartPatchTime" xml:space="preserve">
+    <value>补料时间</value>
+  </data>
+  <data name="LotViewModel_Description" xml:space="preserve">
+    <value>备注</value>
+  </data>
+  <data name="LotDefectViewModel_EndTime" xml:space="preserve">
+    <value>结束时间</value>
+  </data>
+  <data name="LotDefectViewModel_StartTime" xml:space="preserve">
+    <value>开始时间</value>
+  </data>
+  <data name="LotDefectQuery_ManagePageTitle" xml:space="preserve">
+    <value>不良明细查询</value>
+  </data>
+  <data name="LotDefectViewModel_RouteStepName" xml:space="preserve">
+    <value>工序</value>
+  </data>
+  <data name="LotScrapQuery_ManagePageTitle" xml:space="preserve">
+    <value>报废明细查询</value>
+  </data>
+  <data name="LotViewModel_Barcode1" xml:space="preserve">
+    <value>检验条码1</value>
+  </data>
+  <data name="LotViewModel_Barcode2" xml:space="preserve">
+    <value>检验条码2</value>
+  </data>
+  <data name="LotCreateMainViewModel_LineCode" xml:space="preserve">
+    <value>线别</value>
+  </data>
+  <data name="LotPatchViewModel_LineCode" xml:space="preserve">
+    <value>线别</value>
+  </data>
+  <data name="LotBin_ManagePageTitle" xml:space="preserve">
+    <value>手动入Bin管理</value>
+  </data>
+  <data name="LotBinQuery_ManagePageTitle" xml:space="preserve">
+    <value>包装实时监控</value>
+  </data>
+  <data name="LotViewModel_LayerEquipmentNo" xml:space="preserve">
+    <value>层压机设备号</value>
+  </data>
+  <data name="PackageRework_ManagePageTitle" xml:space="preserve">
+    <value>投料作业</value>
+  </data>
+  <data name="LotCreateMainViewModel_LocationName" xml:space="preserve">
+    <value>车间</value>
+  </data>
+  <data name="LotCreateMainViewModel_LotQuantity" xml:space="preserve">
+    <value>批次产品数量</value>
+  </data>
+  <data name="LotTrackViewModel_RouteOperationName" xml:space="preserve">
+    <value>工序名称</value>
+  </data>
+  <data name="LotTrackMaterialViewModel_LoadingQty" xml:space="preserve">
+    <value>数量</value>
+  </data>
+  <data name="LotTrackMaterialViewModel_MaterialLot" xml:space="preserve">
+    <value>物料批次</value>
+  </data>
+  <data name="LotTrackMaterialViewModel_MaterialName" xml:space="preserve">
+    <value>物料名称</value>
+  </data>
+  <data name="LotTrackMaterialViewModel_RouteName" xml:space="preserve">
+    <value>工艺流程</value>
+  </data>
+  <data name="LotTrackViewModel_RouteName" xml:space="preserve">
+    <value>工艺流程</value>
+  </data>
+  <data name="LotTrackMaterialViewModel_OrderNumber" xml:space="preserve">
+    <value>工单号</value>
+  </data>
+  <data name="LotTrackMaterialViewModel_MaterialCode" xml:space="preserve">
+    <value>物料</value>
+  </data>
+  <data name="LineCode" xml:space="preserve">
+    <value>线别</value>
+  </data>
+  <data name="LocationName" xml:space="preserve">
+    <value>车间</value>
+  </data>
+  <data name="OrderNumber" xml:space="preserve">
+    <value>工单号</value>
+  </data>
+  <data name="PackageReworkViewModel_RouteName" xml:space="preserve">
+    <value>工艺流程</value>
+  </data>
+  <data name="PackageReworkViewModel_RouteStepName" xml:space="preserve">
+    <value>工步</value>
+  </data>
+  <data name="RetainPackageNo" xml:space="preserve">
+    <value>保留托号</value>
+  </data>
+  <data name="LotViewModel_BarcodeAA" xml:space="preserve">
+    <value>检验条码AA</value>
+  </data>
+  <data name="LotViewModel_BarcodeAB" xml:space="preserve">
+    <value>检验条码AB</value>
+  </data>
+  <data name="LotViewModel_BarcodeAC" xml:space="preserve">
+    <value>检验条码AC</value>
+  </data>
+  <data name="LotViewModel_BarcodeBA" xml:space="preserve">
+    <value>检验条码BA</value>
+  </data>
+  <data name="LotViewModel_BarcodeBB" xml:space="preserve">
+    <value>检验条码BB</value>
+  </data>
+  <data name="LotViewModel_BarcodeBC" xml:space="preserve">
+    <value>检验条码BC</value>
+  </data>
+  <data name="IsLot" xml:space="preserve">
+    <value>按批次号投料</value>
+  </data>
+  <data name="LotViewModel_ShowDialog" xml:space="preserve">
+    <value>包装护角</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>保存</value>
+  </data>
+  <data name="UndoPackageCorner" xml:space="preserve">
+    <value>撤销包装护角</value>
+  </data>
+  <data name="LotBatchRevocation_ManagePageTitle" xml:space="preserve">
+    <value>批量批次撤销</value>
+  </data>
+  <data name="LotMateSemodules_ManagePageTitle" xml:space="preserve">
+    <value>组件匹配优化器作业</value>
+  </data>
+  <data name="Mate" xml:space="preserve">
+    <value>匹配</value>
+  </data>
+  <data name="SEModulesNo" xml:space="preserve">
+    <value>优化器编号</value>
+  </data>
+  <data name="OemDataQuery_ManagePageTitle" xml:space="preserve">
+    <value>OEM数据查询</value>
+  </data>
+  <data name="OemDataViewModel_Color" xml:space="preserve">
+    <value>花色</value>
+  </data>
+  <data name="OemDataViewModel_Grade" xml:space="preserve">
+    <value>等级</value>
+  </data>
+  <data name="OemDataViewModel_LotNumber" xml:space="preserve">
+    <value>批次号</value>
+  </data>
+  <data name="OemDataViewModel_OrderNumber" xml:space="preserve">
+    <value>工单号</value>
+  </data>
+  <data name="OemDataViewModel_PackageNo" xml:space="preserve">
+    <value>包装号</value>
+  </data>
+  <data name="OemDataViewModel_PnName" xml:space="preserve">
+    <value>功率档</value>
+  </data>
+  <data name="OemDataViewModel_PsSubCode" xml:space="preserve">
+    <value>电流档</value>
+  </data>
+  <data name="OemDataViewModel_Status" xml:space="preserve">
+    <value>批次状态</value>
+  </data>
+</root>

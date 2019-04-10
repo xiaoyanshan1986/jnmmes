@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   namespace="ServiceCenter.MES.Model.FMM" 
+                   assembly="ServiceCenter.MES.Model.FMM">
+  <class name="EquipmentReasonCodeCategoryDetail" table="FMM_EQUIPMENT_REASON_CODE_CATEGORY_DETAIL">
+    <composite-id  name="Key" class="EquipmentReasonCodeCategoryDetailKey">
+      <key-property name="ReasonCodeCategoryName" column="REASON_CODE_CATEGORY_NAME"/>
+      <key-property name="ReasonCodeName" column="REASON_CODE_NAME"/>
+    </composite-id >
+    <property name="ItemNo" column="ITEM_NO"/>
+    <property name="Creator" column="CREATOR"/>
+    <property name="CreateTime" column="CREATE_TIME"/>
+    <property name="Editor" column="EDITOR"/>
+    <property name="EditTime" column="EDIT_TIME"/>
+  </class>
+</hibernate-mapping>

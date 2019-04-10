@@ -1,0 +1,47 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.ZPVM.Models.WorkOrderDecayViewModel
+@using ServiceCenter.Client.Mvc.Areas.ZPVM.Models;
+@using ServiceCenter.Common;
+
+@Html.ValidationSummary(true)
+<div class="form-group">
+    @Html.LabelFor(m => m.OrderNumber, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        <p class="form-control-static">@Model.OrderNumber</p>
+        @Html.HiddenFor(m => m.OrderNumber)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.MaterialCode, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        <p class="form-control-static">@Model.MaterialCode</p>
+        @Html.HiddenFor(m => m.MaterialCode)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.MinPower, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        <p class="form-control-static">@Model.MinPower</p>
+        @Html.HiddenFor(m => m.MinPower)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.MaxPower, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        <p class="form-control-static">@Model.MaxPower</p>
+        @Html.HiddenFor(m => m.MaxPower)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.DecayCode, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.DecayCode, new { @class = "form-control", @id = "txtModifyDecayCode", style = "text-transform:uppercase;ime-mode:inactive" })
+        @Html.ValidationMessageFor(m => m.DecayCode)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.IsUsed, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.CheckBoxFor(m => m.IsUsed, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.IsUsed)
+    </div>
+</div>

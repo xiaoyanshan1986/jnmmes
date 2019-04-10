@@ -1,0 +1,25 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.QAM.Models.CheckCategoryDetailViewModel
+@using ServiceCenter.Common;
+
+@Html.ValidationSummary(true)
+<div class="form-group">
+    @Html.LabelFor(m => m.CategoryName, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        <p class="form-control-static">@Model.CategoryName</p>
+        @Html.HiddenFor(m => m.CategoryName)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.ParameterName, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        <p class="form-control-static">@Model.ParameterName</p>
+        @Html.HiddenFor(m => m.ParameterName)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.ItemNo, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.ItemNo, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.ItemNo)
+    </div>
+</div>

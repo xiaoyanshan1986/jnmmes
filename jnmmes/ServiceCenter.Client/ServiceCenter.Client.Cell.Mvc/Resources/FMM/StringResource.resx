@@ -1,0 +1,1719 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="LocationQueryViewModel_Name" xml:space="preserve">
+    <value>区域名称</value>
+  </data>
+  <data name="LocationQueryViewModel_Level" xml:space="preserve">
+    <value>区域层级</value>
+  </data>
+  <data name="LocationViewModel_Name" xml:space="preserve">
+    <value>区域名称</value>
+  </data>
+  <data name="Location_AddTitle" xml:space="preserve">
+    <value>新增区域</value>
+  </data>
+  <data name="Location_ConfirmDelete" xml:space="preserve">
+    <value>确定删除区域 ( {0}） ？</value>
+  </data>
+  <data name="Location_Delete_Success" xml:space="preserve">
+    <value>删除区域  {0}  成功。</value>
+  </data>
+  <data name="Location_DetailTitle" xml:space="preserve">
+    <value>区域信息</value>
+  </data>
+  <data name="Location_ManagePageTitle" xml:space="preserve">
+    <value>区域管理</value>
+  </data>
+  <data name="Location_ModifyTitle" xml:space="preserve">
+    <value>修改区域</value>
+  </data>
+  <data name="Location_SaveModify_Success" xml:space="preserve">
+    <value>修改区域 {0} 成功。</value>
+  </data>
+  <data name="Location_Save_Success" xml:space="preserve">
+    <value>保存区域 {0} 成功。</value>
+  </data>
+  <data name="LocationViewModel_Level" xml:space="preserve">
+    <value>区域层级</value>
+  </data>
+  <data name="LocationViewModel_ParentLocationName" xml:space="preserve">
+    <value>父级区域</value>
+  </data>
+  <data name="ProductionLineQueryViewModel_Code" xml:space="preserve">
+    <value>代码</value>
+  </data>
+  <data name="ProductionLineQueryViewModel_LocationName" xml:space="preserve">
+    <value>区域名称</value>
+  </data>
+  <data name="ProductionLineQueryViewModel_Name" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="ProductionLineViewModel_Code" xml:space="preserve">
+    <value>代码</value>
+  </data>
+  <data name="ProductionLineViewModel_LocationName" xml:space="preserve">
+    <value>区域名称</value>
+  </data>
+  <data name="ProductionLineViewModel_Name" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="ProductionLine_AddTitle" xml:space="preserve">
+    <value>新增生产线</value>
+  </data>
+  <data name="ProductionLine_ConfirmDelete" xml:space="preserve">
+    <value>确定删除生产线 ( {0}） ？</value>
+  </data>
+  <data name="ProductionLine_Delete_Success" xml:space="preserve">
+    <value>删除生产线  {0}  成功。</value>
+  </data>
+  <data name="ProductionLine_DetailTitle" xml:space="preserve">
+    <value>生产线信息</value>
+  </data>
+  <data name="ProductionLine_ManagePageTitle" xml:space="preserve">
+    <value>生产线管理</value>
+  </data>
+  <data name="ProductionLine_ModifyTitle" xml:space="preserve">
+    <value>修改生产线</value>
+  </data>
+  <data name="ProductionLine_SaveModify_Success" xml:space="preserve">
+    <value>修改生产线 {0} 成功。</value>
+  </data>
+  <data name="ProductionLine_Save_Success" xml:space="preserve">
+    <value>保存生产线 {0} 成功。</value>
+  </data>
+  <data name="LineStoreQueryViewModel_LocationName" xml:space="preserve">
+    <value>车间名称</value>
+  </data>
+  <data name="LineStoreQueryViewModel_Name" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="LineStoreQueryViewModel_RouteOperationName" xml:space="preserve">
+    <value>工序名称</value>
+  </data>
+  <data name="LineStoreQueryViewModel_Type" xml:space="preserve">
+    <value>类型</value>
+  </data>
+  <data name="LineStoreViewModel_LocationName" xml:space="preserve">
+    <value>车间名称</value>
+  </data>
+  <data name="LineStoreViewModel_Name" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="LineStoreViewModel_RouteOperationName" xml:space="preserve">
+    <value>工序名称</value>
+  </data>
+  <data name="LineStoreViewModel_Type" xml:space="preserve">
+    <value>类型</value>
+  </data>
+  <data name="LineStore_AddTitle" xml:space="preserve">
+    <value>新增线边仓</value>
+  </data>
+  <data name="LineStore_ConfirmDelete" xml:space="preserve">
+    <value>确定删除线边仓 ( {0}） ？</value>
+  </data>
+  <data name="LineStore_Delete_Success" xml:space="preserve">
+    <value>删除线边仓  {0}  成功。</value>
+  </data>
+  <data name="LineStore_DetailTitle" xml:space="preserve">
+    <value>线边仓信息</value>
+  </data>
+  <data name="LineStore_ManagePageTitle" xml:space="preserve">
+    <value>线边仓管理</value>
+  </data>
+  <data name="LineStore_ModifyTitle" xml:space="preserve">
+    <value>修改线边仓</value>
+  </data>
+  <data name="LineStore_SaveModify_Success" xml:space="preserve">
+    <value>修改线边仓 {0} 成功。</value>
+  </data>
+  <data name="LineStore_Save_Success" xml:space="preserve">
+    <value>保存线边仓 {0} 成功。</value>
+  </data>
+  <data name="MaterialTypeQueryViewModel_Name" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="MaterialTypeViewModel_Name" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="MaterialType_AddTitle" xml:space="preserve">
+    <value>新增物料类型</value>
+  </data>
+  <data name="MaterialType_ConfirmDelete" xml:space="preserve">
+    <value>确定删除物料类型 ( {0}） ？</value>
+  </data>
+  <data name="MaterialType_Delete_Success" xml:space="preserve">
+    <value>删除物料类型  {0}  成功。</value>
+  </data>
+  <data name="MaterialType_DetailTitle" xml:space="preserve">
+    <value>物料类型信息</value>
+  </data>
+  <data name="MaterialType_ManagePageTitle" xml:space="preserve">
+    <value>物料类型管理</value>
+  </data>
+  <data name="MaterialType_ModifyTitle" xml:space="preserve">
+    <value>修改物料类型</value>
+  </data>
+  <data name="MaterialType_SaveModify_Success" xml:space="preserve">
+    <value>修改物料类型 {0} 成功。</value>
+  </data>
+  <data name="MaterialType_Save_Success" xml:space="preserve">
+    <value>保存物料类型 {0} 成功。</value>
+  </data>
+  <data name="ClientConfigQueryViewModel_IPAddress" xml:space="preserve">
+    <value>IP地址</value>
+  </data>
+  <data name="ClientConfigQueryViewModel_LocationName" xml:space="preserve">
+    <value>车间名称</value>
+  </data>
+  <data name="ClientConfigQueryViewModel_Name" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="ClientConfigViewModel_IPAddress" xml:space="preserve">
+    <value>值</value>
+  </data>
+  <data name="ClientConfigViewModel_LocationName" xml:space="preserve">
+    <value>车间名称</value>
+  </data>
+  <data name="ClientConfigViewModel_Name" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="ClientConfig_AddTitle" xml:space="preserve">
+    <value>新增客户端</value>
+  </data>
+  <data name="ClientConfig_ConfirmDelete" xml:space="preserve">
+    <value>确定删除客户端 ( {0}） ？</value>
+  </data>
+  <data name="ClientConfig_Delete_Success" xml:space="preserve">
+    <value>删除客户端  {0}  成功。</value>
+  </data>
+  <data name="ClientConfig_DetailTitle" xml:space="preserve">
+    <value>客户端信息</value>
+  </data>
+  <data name="ClientConfig_ManagePageTitle" xml:space="preserve">
+    <value>客户端管理</value>
+  </data>
+  <data name="ClientConfig_ModifyTitle" xml:space="preserve">
+    <value>修改客户端</value>
+  </data>
+  <data name="ClientConfig_SaveModify_Success" xml:space="preserve">
+    <value>修改客户端 {0} 成功。</value>
+  </data>
+  <data name="ClientConfig_Save_Success" xml:space="preserve">
+    <value>保存客户端 {0} 成功。</value>
+  </data>
+  <data name="ClientConfigAttributeQueryViewModel_AttributeName" xml:space="preserve">
+    <value>属性名称</value>
+  </data>
+  <data name="ClientConfigAttributeQueryViewModel_ClientName" xml:space="preserve">
+    <value>客户端名称</value>
+  </data>
+  <data name="ClientConfigAttributeViewModel_AttributeName" xml:space="preserve">
+    <value>属性名称</value>
+  </data>
+  <data name="ClientConfigAttributeViewModel_ClientName" xml:space="preserve">
+    <value>客户端名称</value>
+  </data>
+  <data name="ClientConfigAttributeViewModel_Value" xml:space="preserve">
+    <value>属性值</value>
+  </data>
+  <data name="ClientConfigAttribute_AddTitle" xml:space="preserve">
+    <value>新增客户端属性值</value>
+  </data>
+  <data name="ClientConfigAttribute_ConfirmDelete" xml:space="preserve">
+    <value>确定删除客户端属性 ( {0}）值 ？</value>
+  </data>
+  <data name="ClientConfigAttribute_Delete_Success" xml:space="preserve">
+    <value>删除客户端属性  {0} 值成功。</value>
+  </data>
+  <data name="ClientConfigAttribute_DetailTitle" xml:space="preserve">
+    <value>客户端属性值信息</value>
+  </data>
+  <data name="ClientConfigAttribute_ManagePageTitle" xml:space="preserve">
+    <value>客户端（{0}）属性值管理</value>
+  </data>
+  <data name="ClientConfigAttribute_ModifyTitle" xml:space="preserve">
+    <value>修改客户端属性值</value>
+  </data>
+  <data name="ClientConfigAttribute_SaveModify_Success" xml:space="preserve">
+    <value>修改属性值 {0} 成功。</value>
+  </data>
+  <data name="ClientConfigAttribute_Save_Success" xml:space="preserve">
+    <value>保存属性值 {0} 成功。</value>
+  </data>
+  <data name="MaterialQueryViewModel_Code" xml:space="preserve">
+    <value>编码</value>
+  </data>
+  <data name="MaterialQueryViewModel_Name" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="MaterialQueryViewModel_Type" xml:space="preserve">
+    <value>类型</value>
+  </data>
+  <data name="MaterialViewModel_BarCode" xml:space="preserve">
+    <value>条形码</value>
+  </data>
+  <data name="MaterialViewModel_Code" xml:space="preserve">
+    <value>编码</value>
+  </data>
+  <data name="MaterialViewModel_Name" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="MaterialViewModel_Spec" xml:space="preserve">
+    <value>规格</value>
+  </data>
+  <data name="MaterialViewModel_Type" xml:space="preserve">
+    <value>类型</value>
+  </data>
+  <data name="MaterialViewModel_Unit" xml:space="preserve">
+    <value>单位</value>
+  </data>
+  <data name="Material_AddTitle" xml:space="preserve">
+    <value>新增物料</value>
+  </data>
+  <data name="Material_ConfirmDelete" xml:space="preserve">
+    <value>确定删除物料 ( {0}） ？</value>
+  </data>
+  <data name="Material_Delete_Success" xml:space="preserve">
+    <value>删除物料 {0}  成功。</value>
+  </data>
+  <data name="Material_DetailTitle" xml:space="preserve">
+    <value>物料信息</value>
+  </data>
+  <data name="Material_ManagePageTitle" xml:space="preserve">
+    <value>物料管理</value>
+  </data>
+  <data name="Material_ModifyTitle" xml:space="preserve">
+    <value>修改物料</value>
+  </data>
+  <data name="Material_SaveModify_Success" xml:space="preserve">
+    <value>修改物料 {0} 成功。</value>
+  </data>
+  <data name="Material_Save_Success" xml:space="preserve">
+    <value>保存物料 {0} 成功。</value>
+  </data>
+  <data name="MaterialAttributeQueryViewModel_AttributeName" xml:space="preserve">
+    <value>属性名</value>
+  </data>
+  <data name="MaterialAttributeQueryViewModel_MaterialCode" xml:space="preserve">
+    <value>物料编码</value>
+  </data>
+  <data name="MaterialAttributeViewModel_AttributeName" xml:space="preserve">
+    <value>属性名</value>
+  </data>
+  <data name="MaterialAttributeViewModel_MaterialCode" xml:space="preserve">
+    <value>物料编码</value>
+  </data>
+  <data name="MaterialAttributeViewModel_Value" xml:space="preserve">
+    <value>属性值</value>
+  </data>
+  <data name="MaterialAttribute_AddTitle" xml:space="preserve">
+    <value>新增物料属性值</value>
+  </data>
+  <data name="MaterialAttribute_ConfirmDelete" xml:space="preserve">
+    <value>确定删除物料属性 ( {0}）值 ？</value>
+  </data>
+  <data name="MaterialAttribute_Delete_Success" xml:space="preserve">
+    <value>删除物料属性  {0} 值成功。</value>
+  </data>
+  <data name="MaterialAttribute_DetailTitle" xml:space="preserve">
+    <value>物料属性值信息</value>
+  </data>
+  <data name="MaterialAttribute_ManagePageTitle" xml:space="preserve">
+    <value>物料（{0}）属性值管理</value>
+  </data>
+  <data name="MaterialAttribute_ModifyTitle" xml:space="preserve">
+    <value>修改物料属性值</value>
+  </data>
+  <data name="MaterialAttribute_SaveModify_Success" xml:space="preserve">
+    <value>修改属性值 {0} 成功。</value>
+  </data>
+  <data name="MaterialAttribute_Save_Success" xml:space="preserve">
+    <value>保存属性值 {0} 成功。</value>
+  </data>
+  <data name="SupplierQueryViewModel_Code" xml:space="preserve">
+    <value>代码</value>
+  </data>
+  <data name="SupplierQueryViewModel_Name" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="SupplierQueryViewModel_NickName" xml:space="preserve">
+    <value>简称</value>
+  </data>
+  <data name="SupplierViewModel_Code" xml:space="preserve">
+    <value>代码</value>
+  </data>
+  <data name="SupplierViewModel_Name" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="SupplierViewModel_NickName" xml:space="preserve">
+    <value>简称</value>
+  </data>
+  <data name="Supplier_AddTitle" xml:space="preserve">
+    <value>新增供应商</value>
+  </data>
+  <data name="Supplier_ConfirmDelete" xml:space="preserve">
+    <value>确定删除供应商 ( {0}） ？</value>
+  </data>
+  <data name="Supplier_Delete_Success" xml:space="preserve">
+    <value>删除供应商  {0}  成功。</value>
+  </data>
+  <data name="Supplier_DetailTitle" xml:space="preserve">
+    <value>供应商信息</value>
+  </data>
+  <data name="Supplier_ManagePageTitle" xml:space="preserve">
+    <value>供应商管理</value>
+  </data>
+  <data name="Supplier_ModifyTitle" xml:space="preserve">
+    <value>修改供应商</value>
+  </data>
+  <data name="Supplier_SaveModify_Success" xml:space="preserve">
+    <value>修改供应商 {0} 成功。</value>
+  </data>
+  <data name="Supplier_Save_Success" xml:space="preserve">
+    <value>保存供应商 {0} 成功。</value>
+  </data>
+  <data name="ShiftQueryViewModel_Name" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="ShiftViewModel_EndTime" xml:space="preserve">
+    <value>结束时间(HH:mm)</value>
+  </data>
+  <data name="ShiftViewModel_IsOverDay" xml:space="preserve">
+    <value>是否跨天</value>
+  </data>
+  <data name="ShiftViewModel_Name" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="ShiftViewModel_StartTime" xml:space="preserve">
+    <value>开始时间(HH:mm)</value>
+  </data>
+  <data name="Shift_AddTitle" xml:space="preserve">
+    <value>新增班别</value>
+  </data>
+  <data name="Shift_ConfirmDelete" xml:space="preserve">
+    <value>确定删除班别 ( {0}） ？</value>
+  </data>
+  <data name="Shift_Delete_Success" xml:space="preserve">
+    <value>删除班别  {0}  成功。</value>
+  </data>
+  <data name="Shift_DetailTitle" xml:space="preserve">
+    <value>班别信息</value>
+  </data>
+  <data name="Shift_ManagePageTitle" xml:space="preserve">
+    <value>班别管理</value>
+  </data>
+  <data name="Shift_ModifyTitle" xml:space="preserve">
+    <value>修改班别</value>
+  </data>
+  <data name="Shift_SaveModify_Success" xml:space="preserve">
+    <value>修改班别 {0} 成功。</value>
+  </data>
+  <data name="Shift_Save_Success" xml:space="preserve">
+    <value>保存班别 {0} 成功。</value>
+  </data>
+  <data name="EquipmentGroupQueryViewModel_Name" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="EquipmentGroupViewModel_Name" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="EquipmentGroup_AddTitle" xml:space="preserve">
+    <value>新增设备组</value>
+  </data>
+  <data name="EquipmentGroup_ConfirmDelete" xml:space="preserve">
+    <value>确定删除设备组 ( {0}） ？</value>
+  </data>
+  <data name="EquipmentGroup_Delete_Success" xml:space="preserve">
+    <value>删除设备组  {0}  成功。</value>
+  </data>
+  <data name="EquipmentGroup_DetailTitle" xml:space="preserve">
+    <value>设备组信息</value>
+  </data>
+  <data name="EquipmentGroup_ManagePageTitle" xml:space="preserve">
+    <value>设备组管理</value>
+  </data>
+  <data name="EquipmentGroup_ModifyTitle" xml:space="preserve">
+    <value>修改设备组</value>
+  </data>
+  <data name="EquipmentGroup_SaveModify_Success" xml:space="preserve">
+    <value>修改设备组 {0} 成功。</value>
+  </data>
+  <data name="EquipmentGroup_Save_Success" xml:space="preserve">
+    <value>保存设备组 {0} 成功。</value>
+  </data>
+  <data name="EquipmentStateQueryViewModel_Category" xml:space="preserve">
+    <value>分类</value>
+  </data>
+  <data name="EquipmentStateQueryViewModel_Name" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="EquipmentStateQueryViewModel_Type" xml:space="preserve">
+    <value>类型</value>
+  </data>
+  <data name="EquipmentStateViewModel_Category" xml:space="preserve">
+    <value>分类</value>
+  </data>
+  <data name="EquipmentStateViewModel_Name" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="EquipmentStateViewModel_Type" xml:space="preserve">
+    <value>类型</value>
+  </data>
+  <data name="EquipmentState_AddTitle" xml:space="preserve">
+    <value>新增设备状态</value>
+  </data>
+  <data name="EquipmentState_ConfirmDelete" xml:space="preserve">
+    <value>确定删除设备状态 ( {0}） ？</value>
+  </data>
+  <data name="EquipmentState_Delete_Success" xml:space="preserve">
+    <value>删除设备状态  {0}  成功。</value>
+  </data>
+  <data name="EquipmentState_DetailTitle" xml:space="preserve">
+    <value>设备状态信息</value>
+  </data>
+  <data name="EquipmentState_ManagePageTitle" xml:space="preserve">
+    <value>设备状态管理</value>
+  </data>
+  <data name="EquipmentState_ModifyTitle" xml:space="preserve">
+    <value>修改设备状态</value>
+  </data>
+  <data name="EquipmentState_SaveModify_Success" xml:space="preserve">
+    <value>修改设备状态 {0} 成功。</value>
+  </data>
+  <data name="EquipmentState_Save_Success" xml:space="preserve">
+    <value>保存设备状态 {0} 成功。</value>
+  </data>
+  <data name="EquipmentChangeState_ManagePageTitle" xml:space="preserve">
+    <value>设备可切换状态维护</value>
+  </data>
+  <data name="EquipmentChangeState_Change_Success" xml:space="preserve">
+    <value>修改成功。</value>
+  </data>
+  <data name="EquipmentQueryViewModel_Code" xml:space="preserve">
+    <value>设备代码</value>
+  </data>
+  <data name="EquipmentQueryViewModel_GroupName" xml:space="preserve">
+    <value>设备组名称</value>
+  </data>
+  <data name="EquipmentQueryViewModel_Name" xml:space="preserve">
+    <value>设备名称</value>
+  </data>
+  <data name="EquipmentViewModel_AssetsNo" xml:space="preserve">
+    <value>资产编号</value>
+  </data>
+  <data name="EquipmentViewModel_AvTime" xml:space="preserve">
+    <value>平均时间（分钟）</value>
+  </data>
+  <data name="EquipmentViewModel_ChamberIndex" xml:space="preserve">
+    <value>腔体索引号</value>
+  </data>
+  <data name="EquipmentViewModel_Code" xml:space="preserve">
+    <value>设备代码</value>
+  </data>
+  <data name="EquipmentViewModel_GroupName" xml:space="preserve">
+    <value>设备组名称</value>
+  </data>
+  <data name="EquipmentViewModel_IsBatch" xml:space="preserve">
+    <value>批量加工？</value>
+  </data>
+  <data name="EquipmentViewModel_IsChamber" xml:space="preserve">
+    <value>设备腔体？</value>
+  </data>
+  <data name="EquipmentViewModel_IsMultiChamber" xml:space="preserve">
+    <value>多腔体设备？</value>
+  </data>
+  <data name="EquipmentViewModel_LineCode" xml:space="preserve">
+    <value>生产线代码</value>
+  </data>
+  <data name="EquipmentViewModel_LocationName" xml:space="preserve">
+    <value>区域名称</value>
+  </data>
+  <data name="EquipmentViewModel_MaxQuantity" xml:space="preserve">
+    <value>最大加工数量</value>
+  </data>
+  <data name="EquipmentViewModel_MinQuantity" xml:space="preserve">
+    <value>最小加工数量</value>
+  </data>
+  <data name="EquipmentViewModel_Name" xml:space="preserve">
+    <value>设备名称</value>
+  </data>
+  <data name="EquipmentViewModel_No" xml:space="preserve">
+    <value>设备编号</value>
+  </data>
+  <data name="EquipmentViewModel_ParentEquipmentCode" xml:space="preserve">
+    <value>父设备名称</value>
+  </data>
+  <data name="EquipmentViewModel_RealEquipmentCode" xml:space="preserve">
+    <value>物理设备名称</value>
+  </data>
+  <data name="EquipmentViewModel_RunRate" xml:space="preserve">
+    <value>运行速率</value>
+  </data>
+  <data name="EquipmentViewModel_StateName" xml:space="preserve">
+    <value>设备初始状态</value>
+  </data>
+  <data name="EquipmentViewModel_TactTime" xml:space="preserve">
+    <value>设备节拍（分钟）</value>
+  </data>
+  <data name="EquipmentViewModel_TotalChamber" xml:space="preserve">
+    <value>腔体数量</value>
+  </data>
+  <data name="EquipmentViewModel_Type" xml:space="preserve">
+    <value>设备类型</value>
+  </data>
+  <data name="EquipmentViewModel_WPH" xml:space="preserve">
+    <value>每小时加工量</value>
+  </data>
+  <data name="Equipment_AddTitle" xml:space="preserve">
+    <value>新增设备</value>
+  </data>
+  <data name="Equipment_ConfirmDelete" xml:space="preserve">
+    <value>确定删除设备 ( {0}） ？</value>
+  </data>
+  <data name="Equipment_Delete_Success" xml:space="preserve">
+    <value>删除设备  {0}  成功。</value>
+  </data>
+  <data name="Equipment_DetailTitle" xml:space="preserve">
+    <value>设备信息</value>
+  </data>
+  <data name="Equipment_ManagePageTitle" xml:space="preserve">
+    <value>设备管理</value>
+  </data>
+  <data name="Equipment_ModifyTitle" xml:space="preserve">
+    <value>修改设备</value>
+  </data>
+  <data name="Equipment_SaveModify_Success" xml:space="preserve">
+    <value>修改设备 {0} 成功。</value>
+  </data>
+  <data name="Equipment_Save_Success" xml:space="preserve">
+    <value>保存设备 {0} 成功。</value>
+  </data>
+  <data name="ParameterQueryViewModel_Name" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="ParameterQueryViewModel_Type" xml:space="preserve">
+    <value>类型</value>
+  </data>
+  <data name="ParameterViewModel_DataType" xml:space="preserve">
+    <value>数据类型</value>
+  </data>
+  <data name="ParameterViewModel_DerivedFormula" xml:space="preserve">
+    <value>计算公式</value>
+  </data>
+  <data name="ParameterViewModel_DeviceType" xml:space="preserve">
+    <value>设备类型</value>
+  </data>
+  <data name="ParameterViewModel_IsDerived" xml:space="preserve">
+    <value>计算？</value>
+  </data>
+  <data name="ParameterViewModel_Mandatory" xml:space="preserve">
+    <value>必填？</value>
+  </data>
+  <data name="ParameterViewModel_Name" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="ParameterViewModel_Type" xml:space="preserve">
+    <value>类型</value>
+  </data>
+  <data name="Parameter_AddTitle" xml:space="preserve">
+    <value>新增参数</value>
+  </data>
+  <data name="Parameter_ConfirmDelete" xml:space="preserve">
+    <value>确定删除参数 ( {0}） ？</value>
+  </data>
+  <data name="Parameter_Delete_Success" xml:space="preserve">
+    <value>删除参数  {0}  成功。</value>
+  </data>
+  <data name="Parameter_DetailTitle" xml:space="preserve">
+    <value>参数信息</value>
+  </data>
+  <data name="Parameter_ManagePageTitle" xml:space="preserve">
+    <value>参数管理</value>
+  </data>
+  <data name="Parameter_ModifyTitle" xml:space="preserve">
+    <value>修改参数</value>
+  </data>
+  <data name="Parameter_SaveModify_Success" xml:space="preserve">
+    <value>修改参数 {0} 成功。</value>
+  </data>
+  <data name="Parameter_Save_Success" xml:space="preserve">
+    <value>保存参数 {0} 成功。</value>
+  </data>
+  <data name="ParameterDerivationQueryViewModel_DerivedParameterName" xml:space="preserve">
+    <value>被计算参数</value>
+  </data>
+  <data name="ParameterDerivationQueryViewModel_ParameterName" xml:space="preserve">
+    <value>计算参数</value>
+  </data>
+  <data name="ParameterDerivationViewModel_DerivedParameterName" xml:space="preserve">
+    <value>被计算参数</value>
+  </data>
+  <data name="ParameterDerivationViewModel_ParameterName" xml:space="preserve">
+    <value>计算参数</value>
+  </data>
+  <data name="ParameterDerivation_AddTitle" xml:space="preserve">
+    <value>新增公式参数</value>
+  </data>
+  <data name="ParameterDerivation_ConfirmDelete" xml:space="preserve">
+    <value>确定删除公式参数 ( {0}）？</value>
+  </data>
+  <data name="ParameterDerivation_Delete_Success" xml:space="preserve">
+    <value>删除公式参数 {0} 成功。</value>
+  </data>
+  <data name="ParameterDerivation_ManagePageTitle" xml:space="preserve">
+    <value>参数（{0}）公式管理</value>
+  </data>
+  <data name="ParameterDerivation_Save_Success" xml:space="preserve">
+    <value>保存公式参数 {0} 成功。</value>
+  </data>
+  <data name="ReasonCodeQueryViewModel_Name" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="ReasonCodeQueryViewModel_Type" xml:space="preserve">
+    <value>类型</value>
+  </data>
+  <data name="ReasonCodeViewModel_Class" xml:space="preserve">
+    <value>分类</value>
+  </data>
+  <data name="ReasonCodeViewModel_Name" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="ReasonCodeViewModel_Type" xml:space="preserve">
+    <value>类型</value>
+  </data>
+  <data name="ReasonCode_AddTitle" xml:space="preserve">
+    <value>新增原因代码</value>
+  </data>
+  <data name="ReasonCode_ConfirmDelete" xml:space="preserve">
+    <value>确定删除原因代码 ( {0}） ？</value>
+  </data>
+  <data name="ReasonCode_Delete_Success" xml:space="preserve">
+    <value>删除原因代码  {0}  成功。</value>
+  </data>
+  <data name="ReasonCode_DetailTitle" xml:space="preserve">
+    <value>原因代码信息</value>
+  </data>
+  <data name="ReasonCode_ManagePageTitle" xml:space="preserve">
+    <value>原因代码管理</value>
+  </data>
+  <data name="ReasonCode_ModifyTitle" xml:space="preserve">
+    <value>修改原因代码</value>
+  </data>
+  <data name="ReasonCode_SaveModify_Success" xml:space="preserve">
+    <value>修改原因代码 {0} 成功。</value>
+  </data>
+  <data name="ReasonCode_Save_Success" xml:space="preserve">
+    <value>保存原因代码 {0} 成功。</value>
+  </data>
+  <data name="ReasonCodeCategoryQueryViewModel_Name" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="ReasonCodeCategoryQueryViewModel_Type" xml:space="preserve">
+    <value>类型</value>
+  </data>
+  <data name="ReasonCodeCategoryViewModel_Name" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="ReasonCodeCategoryViewModel_Type" xml:space="preserve">
+    <value>类型</value>
+  </data>
+  <data name="ReasonCodeCategory_AddTitle" xml:space="preserve">
+    <value>新增原因代码组</value>
+  </data>
+  <data name="ReasonCodeCategory_Delete_Success" xml:space="preserve">
+    <value>删除原因代码组  {0}  成功。</value>
+  </data>
+  <data name="ReasonCodeCategory_DetailTitle" xml:space="preserve">
+    <value>原因代码组信息</value>
+  </data>
+  <data name="ReasonCodeCategory_ManagePageTitle" xml:space="preserve">
+    <value>原因代码组管理</value>
+  </data>
+  <data name="ReasonCodeCategory_ModifyTitle" xml:space="preserve">
+    <value>修改原因代码组</value>
+  </data>
+  <data name="ReasonCodeCategory_SaveModify_Success" xml:space="preserve">
+    <value>修改原因代码组 {0} 成功。</value>
+  </data>
+  <data name="ReasonCodeCategory_Save_Success" xml:space="preserve">
+    <value>保存原因代码组 {0} 成功。</value>
+  </data>
+  <data name="ReasonCodeCategory_ConfirmDelete" xml:space="preserve">
+    <value>确定删除原因代码组 ( {0}） ？</value>
+  </data>
+  <data name="ReasonCodeCategoryDetailQueryViewModel_ReasonCodeCategoryName" xml:space="preserve">
+    <value>代码组名称</value>
+  </data>
+  <data name="ReasonCodeCategoryDetailQueryViewModel_ReasonCodeName" xml:space="preserve">
+    <value>代码名称</value>
+  </data>
+  <data name="ReasonCodeCategoryDetailViewModel_ItemNo" xml:space="preserve">
+    <value>项目号</value>
+  </data>
+  <data name="ReasonCodeCategoryDetailViewModel_ReasonCodeCategoryName" xml:space="preserve">
+    <value>代码组名称</value>
+  </data>
+  <data name="ReasonCodeCategoryDetailViewModel_ReasonCodeName" xml:space="preserve">
+    <value>代码名称</value>
+  </data>
+  <data name="ReasonCodeCategoryDetail_AddTitle" xml:space="preserve">
+    <value>新增代码</value>
+  </data>
+  <data name="ReasonCodeCategoryDetail_ConfirmDelete" xml:space="preserve">
+    <value>确定删除代码 ( {0}） ？</value>
+  </data>
+  <data name="ReasonCodeCategoryDetail_Delete_Success" xml:space="preserve">
+    <value>删除代码  {0}  成功。</value>
+  </data>
+  <data name="ReasonCodeCategoryDetail_DetailTitle" xml:space="preserve">
+    <value>代码信息</value>
+  </data>
+  <data name="ReasonCodeCategoryDetail_ManagePageTitle" xml:space="preserve">
+    <value>代码组（{0}）管理</value>
+  </data>
+  <data name="ReasonCodeCategoryDetail_ModifyTitle" xml:space="preserve">
+    <value>修改代码</value>
+  </data>
+  <data name="ReasonCodeCategoryDetail_SaveModify_Success" xml:space="preserve">
+    <value>修改代码 {0} 成功。</value>
+  </data>
+  <data name="ReasonCodeCategoryDetail_Save_Success" xml:space="preserve">
+    <value>保存代码 {0} 成功。</value>
+  </data>
+  <data name="ScheduleQueryViewModel_Name" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="ScheduleViewModel_Name" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="Schedule_AddTitle" xml:space="preserve">
+    <value>新增排班计划</value>
+  </data>
+  <data name="Schedule_ConfirmDelete" xml:space="preserve">
+    <value>确定删除排班计划 ( {0}） ？</value>
+  </data>
+  <data name="Schedule_Delete_Success" xml:space="preserve">
+    <value>删除排班计划  {0}  成功。</value>
+  </data>
+  <data name="Schedule_DetailTitle" xml:space="preserve">
+    <value>排班计划信息</value>
+  </data>
+  <data name="Schedule_ManagePageTitle" xml:space="preserve">
+    <value>排班计划管理</value>
+  </data>
+  <data name="Schedule_ModifyTitle" xml:space="preserve">
+    <value>修改排班计划</value>
+  </data>
+  <data name="Schedule_SaveModify_Success" xml:space="preserve">
+    <value>修改排班计划 {0} 成功。</value>
+  </data>
+  <data name="Schedule_Save_Success" xml:space="preserve">
+    <value>保存排班计划 {0} 成功。</value>
+  </data>
+  <data name="ScheduleDetailQueryViewModel_ScheduleName" xml:space="preserve">
+    <value>排班计划</value>
+  </data>
+  <data name="ScheduleDetailQueryViewModel_ShiftName" xml:space="preserve">
+    <value>班别名称</value>
+  </data>
+  <data name="ScheduleDetailViewModel_ScheduleName" xml:space="preserve">
+    <value>排班计划</value>
+  </data>
+  <data name="ScheduleDetailViewModel_ShiftName" xml:space="preserve">
+    <value>班别名称</value>
+  </data>
+  <data name="ScheduleDetail_AddTitle" xml:space="preserve">
+    <value>新增班别</value>
+  </data>
+  <data name="ScheduleDetail_ConfirmDelete" xml:space="preserve">
+    <value>确定删除班别 ( {0}） ？</value>
+  </data>
+  <data name="ScheduleDetail_Delete_Success" xml:space="preserve">
+    <value>删除班别  {0} 成功。</value>
+  </data>
+  <data name="ScheduleDetail_DetailTitle" xml:space="preserve">
+    <value>班别信息</value>
+  </data>
+  <data name="ScheduleDetail_ManagePageTitle" xml:space="preserve">
+    <value>（{0}）班别管理</value>
+  </data>
+  <data name="ScheduleDetail_ModifyTitle" xml:space="preserve">
+    <value>修改班别</value>
+  </data>
+  <data name="ScheduleDetail_SaveModify_Success" xml:space="preserve">
+    <value>修改班别 {0} 成功。</value>
+  </data>
+  <data name="ScheduleDetail_Save_Success" xml:space="preserve">
+    <value>保存班别 {0} 成功。</value>
+  </data>
+  <data name="ScheduleMonthQueryViewModel_LocationName" xml:space="preserve">
+    <value>车间名称</value>
+  </data>
+  <data name="ScheduleMonthQueryViewModel_Month" xml:space="preserve">
+    <value>月份</value>
+  </data>
+  <data name="ScheduleMonthQueryViewModel_RouteOperationName" xml:space="preserve">
+    <value>工序名称</value>
+  </data>
+  <data name="ScheduleMonthQueryViewModel_Year" xml:space="preserve">
+    <value>年份</value>
+  </data>
+  <data name="ScheduleMonthViewModel_LocationName" xml:space="preserve">
+    <value>车间名称</value>
+  </data>
+  <data name="ScheduleMonthViewModel_Month" xml:space="preserve">
+    <value>月份</value>
+  </data>
+  <data name="ScheduleMonthViewModel_RouteOperationName" xml:space="preserve">
+    <value>工序名称</value>
+  </data>
+  <data name="ScheduleMonthViewModel_Year" xml:space="preserve">
+    <value>年份</value>
+  </data>
+  <data name="ScheduleMonth_AddTitle" xml:space="preserve">
+    <value>新增排班</value>
+  </data>
+  <data name="ScheduleMonth_ConfirmDelete" xml:space="preserve">
+    <value>确定删除排班 ( {0}） ？</value>
+  </data>
+  <data name="ScheduleMonth_Delete_Success" xml:space="preserve">
+    <value>删除排班  {0}  成功。</value>
+  </data>
+  <data name="ScheduleMonth_DetailTitle" xml:space="preserve">
+    <value>排班信息</value>
+  </data>
+  <data name="ScheduleMonth_ManagePageTitle" xml:space="preserve">
+    <value>排班管理</value>
+  </data>
+  <data name="ScheduleMonth_ModifyTitle" xml:space="preserve">
+    <value>修改排班</value>
+  </data>
+  <data name="ScheduleMonth_SaveModify_Success" xml:space="preserve">
+    <value>修改排班 {0} 成功。</value>
+  </data>
+  <data name="ScheduleMonth_Save_Success" xml:space="preserve">
+    <value>保存排班 {0} 成功。</value>
+  </data>
+  <data name="ScheduleMonthViewModel_ScheduleName" xml:space="preserve">
+    <value>排班计划</value>
+  </data>
+  <data name="ScheduleDayViewModel_Day" xml:space="preserve">
+    <value>排班日期</value>
+  </data>
+  <data name="ScheduleDayViewModel_EndTime" xml:space="preserve">
+    <value>结束时间</value>
+  </data>
+  <data name="ScheduleDayViewModel_LocationName" xml:space="preserve">
+    <value>车间名称</value>
+  </data>
+  <data name="ScheduleDayViewModel_RouteOperationName" xml:space="preserve">
+    <value>工序名称</value>
+  </data>
+  <data name="ScheduleDayViewModel_SeqNo" xml:space="preserve">
+    <value>序号</value>
+  </data>
+  <data name="ScheduleDayViewModel_ShiftName" xml:space="preserve">
+    <value>班别</value>
+  </data>
+  <data name="ScheduleDayViewModel_ShiftValue" xml:space="preserve">
+    <value>班次</value>
+  </data>
+  <data name="ScheduleDayViewModel_StartTime" xml:space="preserve">
+    <value>开始时间</value>
+  </data>
+  <data name="ScheduleDay_ManagePageTitle" xml:space="preserve">
+    <value>（{0}）排班管理</value>
+  </data>
+  <data name="ScheduleDay_Save_Success" xml:space="preserve">
+    <value>保存排班（{0}）成功。</value>
+  </data>
+  <data name="RouteQueryViewModel_Name" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="RouteViewModel_Name" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="Route_AddTitle" xml:space="preserve">
+    <value>新增工艺流程</value>
+  </data>
+  <data name="Route_ConfirmDelete" xml:space="preserve">
+    <value>确定删除工艺流程 ( {0}） ？</value>
+  </data>
+  <data name="Route_Delete_Success" xml:space="preserve">
+    <value>删除工艺流程  {0}  成功。</value>
+  </data>
+  <data name="Route_DetailTitle" xml:space="preserve">
+    <value>工艺流程信息</value>
+  </data>
+  <data name="Route_ManagePageTitle" xml:space="preserve">
+    <value>工艺流程管理</value>
+  </data>
+  <data name="Route_ModifyTitle" xml:space="preserve">
+    <value>修改工艺流程</value>
+  </data>
+  <data name="Route_SaveModify_Success" xml:space="preserve">
+    <value>修改工艺流程 {0} 成功。</value>
+  </data>
+  <data name="Route_Save_Success" xml:space="preserve">
+    <value>保存工艺流程 {0} 成功。</value>
+  </data>
+  <data name="RouteEnterpriseQueryViewModel_Name" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="RouteEnterpriseViewModel_Name" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="RouteEnterprise_AddTitle" xml:space="preserve">
+    <value>新增工艺流程组</value>
+  </data>
+  <data name="RouteEnterprise_ConfirmDelete" xml:space="preserve">
+    <value>确定删除工艺流程组 ( {0}） ？</value>
+  </data>
+  <data name="RouteEnterprise_Delete_Success" xml:space="preserve">
+    <value>删除工艺流程组  {0}  成功。</value>
+  </data>
+  <data name="RouteEnterprise_DetailTitle" xml:space="preserve">
+    <value>工艺流程组信息</value>
+  </data>
+  <data name="RouteEnterprise_ManagePageTitle" xml:space="preserve">
+    <value>工艺流程组管理</value>
+  </data>
+  <data name="RouteEnterprise_ModifyTitle" xml:space="preserve">
+    <value>修改工艺流程组</value>
+  </data>
+  <data name="RouteEnterprise_SaveModify_Success" xml:space="preserve">
+    <value>修改工艺流程组 {0} 成功。</value>
+  </data>
+  <data name="RouteEnterprise_Save_Success" xml:space="preserve">
+    <value>保存工艺流程组 {0} 成功。</value>
+  </data>
+  <data name="DefectReasonCodeCategoryName" xml:space="preserve">
+    <value>不良原因代码组</value>
+  </data>
+  <data name="RouteOperationQueryViewModel_Name" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="RouteOperationViewModel_Duration" xml:space="preserve">
+    <value>时长（分钟）</value>
+  </data>
+  <data name="RouteOperationViewModel_Name" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="RouteOperationViewModel_SortSeq" xml:space="preserve">
+    <value>序号</value>
+  </data>
+  <data name="RouteOperation_AddTitle" xml:space="preserve">
+    <value>新增工序</value>
+  </data>
+  <data name="RouteOperation_ConfirmDelete" xml:space="preserve">
+    <value>确定删除工序 ( {0}） ？</value>
+  </data>
+  <data name="RouteOperation_Delete_Success" xml:space="preserve">
+    <value>删除工序  {0}  成功。</value>
+  </data>
+  <data name="RouteOperation_DetailTitle" xml:space="preserve">
+    <value>工序信息</value>
+  </data>
+  <data name="RouteOperation_ManagePageTitle" xml:space="preserve">
+    <value>工序管理</value>
+  </data>
+  <data name="RouteOperation_ModifyTitle" xml:space="preserve">
+    <value>修改工序</value>
+  </data>
+  <data name="RouteOperation_SaveModify_Success" xml:space="preserve">
+    <value>修改工序 {0} 成功。</value>
+  </data>
+  <data name="RouteOperation_Save_Success" xml:space="preserve">
+    <value>保存工序 {0} 成功。</value>
+  </data>
+  <data name="ScrapReasonCodeCategoryName" xml:space="preserve">
+    <value>报废原因代码组</value>
+  </data>
+  <data name="RouteEnterpriseDetailQueryViewModel_RouteEnterpriseName" xml:space="preserve">
+    <value>工艺流程组</value>
+  </data>
+  <data name="RouteEnterpriseDetailQueryViewModel_RouteName" xml:space="preserve">
+    <value>工艺流程</value>
+  </data>
+  <data name="RouteEnterpriseDetailViewModel_ItemNo" xml:space="preserve">
+    <value>项目号</value>
+  </data>
+  <data name="RouteEnterpriseDetailViewModel_RouteEnterpriseName" xml:space="preserve">
+    <value>工艺流程组</value>
+  </data>
+  <data name="RouteEnterpriseDetailViewModel_RouteName" xml:space="preserve">
+    <value>工艺流程</value>
+  </data>
+  <data name="RouteEnterpriseDetail_AddTitle" xml:space="preserve">
+    <value>新增工艺流程</value>
+  </data>
+  <data name="RouteEnterpriseDetail_ConfirmDelete" xml:space="preserve">
+    <value>确定删除工艺流程 ( {0}） ？</value>
+  </data>
+  <data name="RouteEnterpriseDetail_Delete_Success" xml:space="preserve">
+    <value>删除工艺流程  {0} 成功。</value>
+  </data>
+  <data name="RouteEnterpriseDetail_DetailTitle" xml:space="preserve">
+    <value>工艺流程信息</value>
+  </data>
+  <data name="RouteEnterpriseDetail_ManagePageTitle" xml:space="preserve">
+    <value>工艺流程组（{0}）管理</value>
+  </data>
+  <data name="RouteEnterpriseDetail_ModifyTitle" xml:space="preserve">
+    <value>修改工艺流程</value>
+  </data>
+  <data name="RouteEnterpriseDetail_SaveModify_Success" xml:space="preserve">
+    <value>修改工艺流程 {0} 成功。</value>
+  </data>
+  <data name="RouteEnterpriseDetail_Save_Success" xml:space="preserve">
+    <value>保存工艺流程 {0} 成功。</value>
+  </data>
+  <data name="MaterialTypeRouteQueryViewModel_LocationName" xml:space="preserve">
+    <value>车间名称</value>
+  </data>
+  <data name="MaterialTypeRouteQueryViewModel_MaterialType" xml:space="preserve">
+    <value>物料类型</value>
+  </data>
+  <data name="MaterialTypeRouteViewModel_IsRework" xml:space="preserve">
+    <value>返工/返修？</value>
+  </data>
+  <data name="MaterialTypeRouteViewModel_LocationName" xml:space="preserve">
+    <value>车间名称</value>
+  </data>
+  <data name="MaterialTypeRouteViewModel_MaterialType" xml:space="preserve">
+    <value>物料类型</value>
+  </data>
+  <data name="MaterialTypeRouteViewModel_RouteEnterpriseName" xml:space="preserve">
+    <value>工艺流程</value>
+  </data>
+  <data name="MaterialTypeRoute_AddTitle" xml:space="preserve">
+    <value>设置工艺流程</value>
+  </data>
+  <data name="MaterialTypeRoute_ConfirmDelete" xml:space="preserve">
+    <value>确定删除工艺流程 ( {0}）？</value>
+  </data>
+  <data name="MaterialTypeRoute_Delete_Success" xml:space="preserve">
+    <value>删除工艺流程  {0} 成功。</value>
+  </data>
+  <data name="MaterialTypeRoute_ManagePageTitle" xml:space="preserve">
+    <value>物料类型（{0}）工艺流程设置</value>
+  </data>
+  <data name="MaterialTypeRoute_Save_Success" xml:space="preserve">
+    <value>保存物料类型工艺流程  {0} 成功。</value>
+  </data>
+  <data name="MaterialType_SettingRoute" xml:space="preserve">
+    <value>设置工艺流程</value>
+  </data>
+  <data name="RouteOperationAttributeQueryViewModel_AttributeName" xml:space="preserve">
+    <value>属性名称</value>
+  </data>
+  <data name="RouteOperationAttributeQueryViewModel_RouteOperationName" xml:space="preserve">
+    <value>工序名称</value>
+  </data>
+  <data name="RouteOperationAttributeViewModel_AttributeName" xml:space="preserve">
+    <value>属性名称</value>
+  </data>
+  <data name="RouteOperationAttributeViewModel_RouteOperationName" xml:space="preserve">
+    <value>工序名称</value>
+  </data>
+  <data name="RouteOperationAttributeViewModel_Value" xml:space="preserve">
+    <value>属性值</value>
+  </data>
+  <data name="RouteOperationAttribute_AddTitle" xml:space="preserve">
+    <value>新增工序属性值</value>
+  </data>
+  <data name="RouteOperationAttribute_ConfirmDelete" xml:space="preserve">
+    <value>确定删除工序属性 ( {0}）值 ？</value>
+  </data>
+  <data name="RouteOperationAttribute_Delete_Success" xml:space="preserve">
+    <value>删除工序属性  {0} 值成功。</value>
+  </data>
+  <data name="RouteOperationAttribute_DetailTitle" xml:space="preserve">
+    <value>工序属性值信息</value>
+  </data>
+  <data name="RouteOperationAttribute_ManagePageTitle" xml:space="preserve">
+    <value>工序（{0}）属性值管理</value>
+  </data>
+  <data name="RouteOperationAttribute_ModifyTitle" xml:space="preserve">
+    <value>修改工序属性值</value>
+  </data>
+  <data name="RouteOperationAttribute_SaveModify_Success" xml:space="preserve">
+    <value>修改属性 {0} 值成功。</value>
+  </data>
+  <data name="RouteOperationAttribute_Save_Success" xml:space="preserve">
+    <value>修改属性 {0} 值成功。</value>
+  </data>
+  <data name="RouteOperationEquipmentQueryViewModel_EquipmentCode" xml:space="preserve">
+    <value>设备代码</value>
+  </data>
+  <data name="RouteOperationEquipmentQueryViewModel_RouteOperationName" xml:space="preserve">
+    <value>工序名称</value>
+  </data>
+  <data name="RouteOperationEquipmentViewModel_EquipmentCode" xml:space="preserve">
+    <value>设备代码</value>
+  </data>
+  <data name="RouteOperationEquipmentViewModel_RouteOperationName" xml:space="preserve">
+    <value>工序名称</value>
+  </data>
+  <data name="RouteOperationEquipment_AddTitle" xml:space="preserve">
+    <value>新增工序设备</value>
+  </data>
+  <data name="RouteOperationEquipment_ConfirmDelete" xml:space="preserve">
+    <value>确定删除工序设备 ( {0}）？</value>
+  </data>
+  <data name="RouteOperationEquipment_Delete_Success" xml:space="preserve">
+    <value>删除工序设备  {0}  成功。</value>
+  </data>
+  <data name="RouteOperationEquipment_ManagePageTitle" xml:space="preserve">
+    <value>工序（{0}）设备管理</value>
+  </data>
+  <data name="RouteOperationEquipment_Save_Success" xml:space="preserve">
+    <value>保存工序设备 {0} 成功。</value>
+  </data>
+  <data name="RouteOperationEquipment_EquipmentName" xml:space="preserve">
+    <value>设备名称</value>
+  </data>
+  <data name="RouteOperation_Equipment" xml:space="preserve">
+    <value>设备</value>
+  </data>
+  <data name="RouteOperationParameterQueryViewModel_ParameterName" xml:space="preserve">
+    <value>参数名称</value>
+  </data>
+  <data name="RouteOperationParameterQueryViewModel_RouteOperationName" xml:space="preserve">
+    <value>工序名称</value>
+  </data>
+  <data name="RouteOperationParameterViewModel_DataFrom" xml:space="preserve">
+    <value>数据来源</value>
+  </data>
+  <data name="RouteOperationParameterViewModel_DataType" xml:space="preserve">
+    <value>数据类型</value>
+  </data>
+  <data name="RouteOperationParameterViewModel_DCType" xml:space="preserve">
+    <value>触发动作</value>
+  </data>
+  <data name="RouteOperationParameterViewModel_IsDeleted" xml:space="preserve">
+    <value>删除？</value>
+  </data>
+  <data name="RouteOperationParameterViewModel_IsMustInput" xml:space="preserve">
+    <value>必填？</value>
+  </data>
+  <data name="RouteOperationParameterViewModel_IsReadOnly" xml:space="preserve">
+    <value>只读?</value>
+  </data>
+  <data name="RouteOperationParameterViewModel_IsUsePreValue" xml:space="preserve">
+    <value>预填值？</value>
+  </data>
+  <data name="RouteOperationParameterViewModel_ParameterName" xml:space="preserve">
+    <value>参数名称</value>
+  </data>
+  <data name="RouteOperationParameterViewModel_ParamIndex" xml:space="preserve">
+    <value>项目号</value>
+  </data>
+  <data name="RouteOperationParameterViewModel_RouteOperationName" xml:space="preserve">
+    <value>工序名称</value>
+  </data>
+  <data name="RouteOperationParameterViewModel_ValidateFailedMessage" xml:space="preserve">
+    <value>提示消息</value>
+  </data>
+  <data name="RouteOperationParameterViewModel_ValidateFailedRule" xml:space="preserve">
+    <value>验证失败</value>
+  </data>
+  <data name="RouteOperationParameterViewModel_ValidateRule" xml:space="preserve">
+    <value>验证规则</value>
+  </data>
+  <data name="RouteOperationParameter_AddTitle" xml:space="preserve">
+    <value>新增工序参数</value>
+  </data>
+  <data name="RouteOperationParameter_ConfirmDelete" xml:space="preserve">
+    <value>确定删除工序参数 ( {0}） ？</value>
+  </data>
+  <data name="RouteOperationParameter_Delete_Success" xml:space="preserve">
+    <value>删除工序参数  {0} 成功。</value>
+  </data>
+  <data name="RouteOperationParameter_DetailTitle" xml:space="preserve">
+    <value>工序参数信息</value>
+  </data>
+  <data name="RouteOperationParameter_ManagePageTitle" xml:space="preserve">
+    <value>工序（{0}）参数管理</value>
+  </data>
+  <data name="RouteOperationParameter_ModifyTitle" xml:space="preserve">
+    <value>修改工序参数</value>
+  </data>
+  <data name="RouteOperationParameter_SaveModify_Success" xml:space="preserve">
+    <value>修改工序参数 {0} 成功。</value>
+  </data>
+  <data name="RouteOperationParameter_Save_Success" xml:space="preserve">
+    <value>修改工序参数 {0} 成功。</value>
+  </data>
+  <data name="RouteOperation_Parameter" xml:space="preserve">
+    <value>参数</value>
+  </data>
+  <data name="RouteStepQueryViewModel_RouteName" xml:space="preserve">
+    <value>工艺流程</value>
+  </data>
+  <data name="RouteStepQueryViewModel_RouteStepName" xml:space="preserve">
+    <value>工艺工步</value>
+  </data>
+  <data name="RouteStepViewModel_Duration" xml:space="preserve">
+    <value>时长</value>
+  </data>
+  <data name="RouteStepViewModel_RouteName" xml:space="preserve">
+    <value>工艺流程</value>
+  </data>
+  <data name="RouteStepViewModel_RouteOperationName" xml:space="preserve">
+    <value>工序</value>
+  </data>
+  <data name="RouteStepViewModel_RouteStepName" xml:space="preserve">
+    <value>工步</value>
+  </data>
+  <data name="RouteStepViewModel_SortSeq" xml:space="preserve">
+    <value>序号</value>
+  </data>
+  <data name="RouteStep_AddTitle" xml:space="preserve">
+    <value>新增工步</value>
+  </data>
+  <data name="RouteStep_ConfirmDelete" xml:space="preserve">
+    <value>确定删除工步( {0}） ？</value>
+  </data>
+  <data name="RouteStep_Delete_Success" xml:space="preserve">
+    <value>删除工步  {0}  成功。</value>
+  </data>
+  <data name="RouteStep_DetailTitle" xml:space="preserve">
+    <value>工步信息</value>
+  </data>
+  <data name="RouteStep_ManagePageTitle" xml:space="preserve">
+    <value>工艺流程（{0}）工步管理</value>
+  </data>
+  <data name="RouteStep_ModifyTitle" xml:space="preserve">
+    <value>修改工步</value>
+  </data>
+  <data name="RouteStep_SaveModify_Success" xml:space="preserve">
+    <value>修改工步 {0} 成功。</value>
+  </data>
+  <data name="RouteStep_Save_Success" xml:space="preserve">
+    <value>保存工步 {0} 成功。</value>
+  </data>
+  <data name="RouteStepAttributeQueryViewModel_AttributeName" xml:space="preserve">
+    <value>属性</value>
+  </data>
+  <data name="RouteStepAttributeQueryViewModel_RouteName" xml:space="preserve">
+    <value>工艺流程</value>
+  </data>
+  <data name="RouteStepAttributeQueryViewModel_RouteStepName" xml:space="preserve">
+    <value>工步</value>
+  </data>
+  <data name="RouteStepAttributeViewModel_AttributeName" xml:space="preserve">
+    <value>属性</value>
+  </data>
+  <data name="RouteStepAttributeViewModel_RouteName" xml:space="preserve">
+    <value>工艺流程</value>
+  </data>
+  <data name="RouteStepAttributeViewModel_RouteStepName" xml:space="preserve">
+    <value>工步</value>
+  </data>
+  <data name="RouteStepAttributeViewModel_Value" xml:space="preserve">
+    <value>属性值</value>
+  </data>
+  <data name="RouteStepAttribute_AddTitle" xml:space="preserve">
+    <value>新增工步属性值</value>
+  </data>
+  <data name="RouteStepAttribute_ConfirmDelete" xml:space="preserve">
+    <value>确定删除工步属性 ( {0}）值 ？</value>
+  </data>
+  <data name="RouteStepAttribute_Delete_Success" xml:space="preserve">
+    <value>删除工步属性  {0} 值成功。</value>
+  </data>
+  <data name="RouteStepAttribute_DetailTitle" xml:space="preserve">
+    <value>工步属性值信息</value>
+  </data>
+  <data name="RouteStepAttribute_ManagePageTitle" xml:space="preserve">
+    <value>工步（{0}）属性值管理</value>
+  </data>
+  <data name="RouteStepAttribute_ModifyTitle" xml:space="preserve">
+    <value>修改工步属性值</value>
+  </data>
+  <data name="RouteStepAttribute_SaveModify_Success" xml:space="preserve">
+    <value>修改属性 {0} 值成功。</value>
+  </data>
+  <data name="RouteStepAttribute_Save_Success" xml:space="preserve">
+    <value>修改属性 {0} 值成功。</value>
+  </data>
+  <data name="RouteStepParameterQueryViewModel_ParameterName" xml:space="preserve">
+    <value>参数</value>
+  </data>
+  <data name="RouteStepParameterQueryViewModel_RouteName" xml:space="preserve">
+    <value>工艺流程</value>
+  </data>
+  <data name="RouteStepParameterQueryViewModel_RouteStepName" xml:space="preserve">
+    <value>工步</value>
+  </data>
+  <data name="RouteStepParameterViewModel_RouteName" xml:space="preserve">
+    <value>工艺流程</value>
+  </data>
+  <data name="RouteStepParameterViewModel_RouteStepName" xml:space="preserve">
+    <value>工步</value>
+  </data>
+  <data name="RouteStepParameter_AddTitle" xml:space="preserve">
+    <value>新增工步参数</value>
+  </data>
+  <data name="RouteStepParameter_ConfirmDelete" xml:space="preserve">
+    <value>确定删除工步参数 ( {0}） ？</value>
+  </data>
+  <data name="RouteStepParameter_Delete_Success" xml:space="preserve">
+    <value>删除工序参数  {0} 成功。</value>
+  </data>
+  <data name="RouteStepParameter_DetailTitle" xml:space="preserve">
+    <value>工步参数信息</value>
+  </data>
+  <data name="RouteStepParameter_ManagePageTitle" xml:space="preserve">
+    <value>工步（{0}）参数管理</value>
+  </data>
+  <data name="RouteStepParameter_ModifyTitle" xml:space="preserve">
+    <value>修改工步参数</value>
+  </data>
+  <data name="RouteStepParameter_SaveModify_Success" xml:space="preserve">
+    <value>修改工步参数 {0} 成功。</value>
+  </data>
+  <data name="RouteStepParameter_Save_Success" xml:space="preserve">
+    <value>保存工步参数 {0} 成功。</value>
+  </data>
+  <data name="EquipmentLayoutQueryViewModel_Name" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="EquipmentLayoutViewModel_BackgroundImage" xml:space="preserve">
+    <value>背景图片</value>
+  </data>
+  <data name="EquipmentLayoutViewModel_Height" xml:space="preserve">
+    <value>高度</value>
+  </data>
+  <data name="EquipmentLayoutViewModel_Name" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="EquipmentLayoutViewModel_Width" xml:space="preserve">
+    <value>宽度</value>
+  </data>
+  <data name="EquipmentLayout_AddTitle" xml:space="preserve">
+    <value>新增设备布局</value>
+  </data>
+  <data name="EquipmentLayout_ConfirmDelete" xml:space="preserve">
+    <value>确定删除设备布局 ( {0}） ？</value>
+  </data>
+  <data name="EquipmentLayout_Delete_Success" xml:space="preserve">
+    <value>删除设备布局  {0}  成功。</value>
+  </data>
+  <data name="EquipmentLayout_DetailTitle" xml:space="preserve">
+    <value>设备布局信息</value>
+  </data>
+  <data name="EquipmentLayout_ManagePageTitle" xml:space="preserve">
+    <value>设备布局管理</value>
+  </data>
+  <data name="EquipmentLayout_ModifyTitle" xml:space="preserve">
+    <value>修改设备布局</value>
+  </data>
+  <data name="EquipmentLayout_SaveModify_Success" xml:space="preserve">
+    <value>修改设备布局 {0} 成功。</value>
+  </data>
+  <data name="EquipmentLayout_Save_Success" xml:space="preserve">
+    <value>保存设备布局 {0} 成功。</value>
+  </data>
+  <data name="EquipmentLayoutViewModel_IsDeleteBackgroudImage" xml:space="preserve">
+    <value>删除背景？</value>
+  </data>
+  <data name="EquipmentLayoutDetailQueryViewModel_EquipmentCode" xml:space="preserve">
+    <value>设备代码</value>
+  </data>
+  <data name="EquipmentLayoutDetailQueryViewModel_LayoutName" xml:space="preserve">
+    <value>布局名称</value>
+  </data>
+  <data name="EquipmentLayoutDetailViewModel_EquipmentCode" xml:space="preserve">
+    <value>设备代码</value>
+  </data>
+  <data name="EquipmentLayoutDetailViewModel_Height" xml:space="preserve">
+    <value>Height</value>
+  </data>
+  <data name="EquipmentLayoutDetailViewModel_LayoutName" xml:space="preserve">
+    <value>布局名称</value>
+  </data>
+  <data name="EquipmentLayoutDetailViewModel_Left" xml:space="preserve">
+    <value>Left</value>
+  </data>
+  <data name="EquipmentLayoutDetailViewModel_Top" xml:space="preserve">
+    <value>Top</value>
+  </data>
+  <data name="EquipmentLayoutDetailViewModel_Width" xml:space="preserve">
+    <value>Width</value>
+  </data>
+  <data name="EquipmentLayoutDetail_AddTitle" xml:space="preserve">
+    <value>新增设备</value>
+  </data>
+  <data name="EquipmentLayoutDetail_ConfirmDelete" xml:space="preserve">
+    <value>确定删除设备 ( {0}） ？</value>
+  </data>
+  <data name="EquipmentLayoutDetail_Delete_Success" xml:space="preserve">
+    <value>删除设备  {0} 成功。</value>
+  </data>
+  <data name="EquipmentLayoutDetail_ManagePageTitle" xml:space="preserve">
+    <value>设备布局（{0}）管理</value>
+  </data>
+  <data name="EquipmentLayoutDetail_Save_Success" xml:space="preserve">
+    <value>保存设备布局成功。</value>
+  </data>
+  <data name="ParameterDerivationViewModel_ItemNo" xml:space="preserve">
+    <value>项目号</value>
+  </data>
+  <data name="MaterialViewModel_IsProduct" xml:space="preserve">
+    <value>产品？</value>
+  </data>
+  <data name="MaterialViewModel_IsRaw" xml:space="preserve">
+    <value>原材料？</value>
+  </data>
+  <data name="MaterialTypeViewModel_MainProductQtyPerLot" xml:space="preserve">
+    <value>每批产品数量</value>
+  </data>
+  <data name="MaterialTypeViewModel_MainRawQtyPerLot" xml:space="preserve">
+    <value>每批材料数量</value>
+  </data>
+  <data name="EquipmentStateViewModel_StateColor" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="PrintLabelQueryViewModel_Code" xml:space="preserve">
+    <value>代码</value>
+  </data>
+  <data name="PrintLabelQueryViewModel_Name" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="PrintLabelViewModel_Code" xml:space="preserve">
+    <value>代码</value>
+  </data>
+  <data name="PrintLabelViewModel_Content" xml:space="preserve">
+    <value>内容</value>
+  </data>
+  <data name="PrintLabelViewModel_IsUsed" xml:space="preserve">
+    <value>可用？</value>
+  </data>
+  <data name="PrintLabelViewModel_Name" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="PrintLabel_Delete_Success" xml:space="preserve">
+    <value>删除标签（{0}）成功。</value>
+  </data>
+  <data name="PrintLabel_SaveModify_Success" xml:space="preserve">
+    <value>修改标签（{0}）成功。</value>
+  </data>
+  <data name="PrintLabel_Save_Success" xml:space="preserve">
+    <value>保存标签（{0}）成功。</value>
+  </data>
+  <data name="PrintLabel_ConfirmDelete" xml:space="preserve">
+    <value>确定删除标签（{0}）?</value>
+  </data>
+  <data name="PrintLabel_ManagePageTitle" xml:space="preserve">
+    <value>标签管理</value>
+  </data>
+  <data name="PrintLabel_AddTitle" xml:space="preserve">
+    <value>新增标签</value>
+  </data>
+  <data name="PrintLabel_DetailTitle" xml:space="preserve">
+    <value>标签明细</value>
+  </data>
+  <data name="PrintLabel_ModifyTitle" xml:space="preserve">
+    <value>标签修改</value>
+  </data>
+  <data name="PrintTestViewModel_Print" xml:space="preserve">
+    <value>打印</value>
+  </data>
+  <data name="PrintTestViewModel_PrintContent" xml:space="preserve">
+    <value>打印内容</value>
+  </data>
+  <data name="PrintTestViewModel_PrinterName" xml:space="preserve">
+    <value>打印机名称/IP</value>
+  </data>
+  <data name="PrintTestViewModel_PrinterPort" xml:space="preserve">
+    <value>打印机端口号</value>
+  </data>
+  <data name="PrintTestViewModel_PrinterType" xml:space="preserve">
+    <value>打印机类型</value>
+  </data>
+  <data name="ClientConfigViewModel_ClientType" xml:space="preserve">
+    <value>类型</value>
+  </data>
+  <data name="MaterialViewModel_Class" xml:space="preserve">
+    <value>分类</value>
+  </data>
+  <data name="PrintLabelViewModel_Type" xml:space="preserve">
+    <value>类型</value>
+  </data>
+  <data name="RouteOperationParameterViewModel_MaterialType" xml:space="preserve">
+    <value>物料类型</value>
+  </data>
+  <data name="MaterialBOMQueryViewModel_MaterialCode" xml:space="preserve">
+    <value>物料编码</value>
+  </data>
+  <data name="MaterialBOMQueryViewModel_RawMaterialCode" xml:space="preserve">
+    <value>原料编码</value>
+  </data>
+  <data name="MaterialBOMViewModel_ItemNo" xml:space="preserve">
+    <value>项目号</value>
+  </data>
+  <data name="MaterialBOMViewModel_MaterialCode" xml:space="preserve">
+    <value>物料编码</value>
+  </data>
+  <data name="MaterialBOMViewModel_MaterialUnit" xml:space="preserve">
+    <value>单位</value>
+  </data>
+  <data name="MaterialBOMViewModel_Qty" xml:space="preserve">
+    <value>数量</value>
+  </data>
+  <data name="MaterialBOMViewModel_RawMaterialCode" xml:space="preserve">
+    <value>原料编码</value>
+  </data>
+  <data name="MaterialBOMViewModel_StoreLocation" xml:space="preserve">
+    <value>存储位置</value>
+  </data>
+  <data name="MaterialBOMViewModel_WorkCenter" xml:space="preserve">
+    <value>工作中心</value>
+  </data>
+  <data name="MaterialBOM_AddTitle" xml:space="preserve">
+    <value>新增物料BOM</value>
+  </data>
+  <data name="MaterialBOM_ConfirmDelete" xml:space="preserve">
+    <value>确定删除物料BOM ( {0}） ？</value>
+  </data>
+  <data name="MaterialBOM_Delete_Success" xml:space="preserve">
+    <value>删除物料BOM  {0} 成功。</value>
+  </data>
+  <data name="MaterialBOM_DetailTitle" xml:space="preserve">
+    <value>物料BOM信息</value>
+  </data>
+  <data name="MaterialBOM_ManagePageTitle" xml:space="preserve">
+    <value>物料（{0}）BOM管理</value>
+  </data>
+  <data name="MaterialBOM_ModifyTitle" xml:space="preserve">
+    <value>修改物料BOM</value>
+  </data>
+  <data name="MaterialBOM_SaveModify_Success" xml:space="preserve">
+    <value>修改物料BOM {0} 成功。</value>
+  </data>
+  <data name="MaterialBOM_Save_Success" xml:space="preserve">
+    <value>保存物料BOM {0} 成功。</value>
+  </data>
+  <data name="ProductionLineViewModel_Attr1" xml:space="preserve">
+    <value>属性1</value>
+  </data>
+</root>

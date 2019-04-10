@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   namespace="ServiceCenter.MES.Model.ZPVM" 
+                   assembly="ServiceCenter.MES.Model.ZPVM">
+  <class name="ChestDetail" table="WIP_CHEST_DETAIL">
+    <composite-id  name="Key" class="ChestDetailKey">
+      <key-property name="ChestNo" column="CHEST_NO"/>
+      <key-property name="ObjectType" column="OBJECT_TYPE"/>
+      <key-property name="ObjectNumber" column="OBJECT_NUMBER"/>
+    </composite-id >
+    <property name="ItemNo" column="ITEM_NO"/>
+    <property name="MaterialCode" column="MATERIAL_CODE"/>
+    <property name="Creator" column="CREATOR"/>
+    <property name="CreateTime" column="CREATE_TIME"/>
+    <!--<one-to-one cascade="all" name="Package"></one-to-one>-->
+
+  </class>
+</hibernate-mapping>

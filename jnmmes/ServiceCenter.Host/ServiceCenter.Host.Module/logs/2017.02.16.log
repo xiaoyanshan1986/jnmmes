@@ -1,0 +1,39 @@
+2017-02-16 08:17:09,375 - ERROR - START>Application
+2017-02-16 08:52:17,646 - ERROR - ChkBin:Start> Lot_Number:JN2222025212240|| Scan_IP:10.0.12.132
+2017-02-16 08:52:18,094 - ERROR - ChkBin:End> Lot_Number:JN2222025212240|| Scan_IP:10.0.12.132||Bin_No:24||InBinOrder:||Message:批次：（JN2222025212240） 无对应Bin！
+2017-02-16 08:52:40,249 - ERROR - ChkBin:Start> Lot_Number:JN2222025212240|| Scan_IP:10.0.13.2
+2017-02-16 08:52:40,649 - ERROR - ChkBin:End> Lot_Number:JN2222025212240|| Scan_IP:10.0.13.2||Bin_No:24||InBinOrder:||Message:批次：（JN2222025212240） 无对应Bin！
+2017-02-16 08:52:47,355 - ERROR - ChkBin:Start> Lot_Number:JN2222025212240|| Scan_IP:10.0.13.2
+2017-02-16 08:52:47,742 - ERROR - ChkBin:End> Lot_Number:JN2222025212240|| Scan_IP:10.0.13.2||Bin_No:24||InBinOrder:||Message:批次：（JN2222025212240） 无对应Bin！
+2017-02-16 09:03:42,313 - ERROR - ChkBin:Start> Lot_Number:JN2222025212240|| Scan_IP:10.0.13.2
+2017-02-16 09:14:22,098 - ERROR - START>Application
+2017-02-16 10:04:34,368 - ERROR - ChkBin:Start> Lot_Number:JN2222025212240|| Scan_IP:10.0.13.2
+2017-02-16 10:12:36,213 - ERROR - ChkBin:End> Lot_Number:JN2222025212240|| Scan_IP:10.0.13.2||Bin_No:24||InBinOrder:||Message:批次：（JN2222025212240） 无对应Bin！
+2017-02-16 10:14:20,015 - ERROR - ChkBin:Start> Lot_Number:JN2222025212240|| Scan_IP:10.0.13.2
+2017-02-16 10:14:20,349 - ERROR - ChkBin:End> Lot_Number:JN2222025212240|| Scan_IP:10.0.13.2||Bin_No:24||InBinOrder:||Message:批次：（JN2222025212240） 无对应Bin！
+2017-02-16 10:15:05,011 - ERROR - ChkBin:Start> Lot_Number:JN2222025212240|| Scan_IP:10.0.13.2
+2017-02-16 10:15:19,771 - ERROR - ChkBin:End> Lot_Number:JN2222025212240|| Scan_IP:10.0.13.2||Bin_No:24||InBinOrder:||Message:批次：（JN2222025212240） 无对应Bin！
+2017-02-16 10:17:31,130 - ERROR - ChkBin:Start> Lot_Number:JN2222025212240|| Scan_IP:10.0.13.2
+2017-02-16 10:18:36,469 - ERROR - ChkBin:End> Lot_Number:JN2222025212240|| Scan_IP:10.0.13.2||Bin_No:24||InBinOrder:||Message:批次：（JN2222025212240） 无对应Bin！
+2017-02-16 10:18:40,049 - ERROR - ChkBin:Start> Lot_Number:JN2222025212240|| Scan_IP:10.0.13.2
+2017-02-16 10:18:41,840 - ERROR - ChkBin:End> Lot_Number:JN2222025212240|| Scan_IP:10.0.13.2||Bin_No:24||InBinOrder:||Message:批次：（JN2222025212240） 无对应Bin！
+2017-02-16 10:20:05,852 - ERROR - ChkBin:Start> Lot_Number:JN2222025212240|| Scan_IP:10.0.13.2
+2017-02-16 10:21:10,906 - ERROR - ChkBin:End> Lot_Number:JN2222025212240|| Scan_IP:10.0.13.2||Bin_No:24||InBinOrder:||Message:批次：（JN2222025212240） 无对应Bin！
+2017-02-16 10:21:13,909 - ERROR - ChkBin:Start> Lot_Number:JN2222025212240|| Scan_IP:10.0.13.2
+2017-02-16 10:21:15,859 - ERROR - ChkBin:End> Lot_Number:JN2222025212240|| Scan_IP:10.0.13.2||Bin_No:24||InBinOrder:||Message:批次：（JN2222025212240） 无对应Bin！
+2017-02-16 10:21:25,376 - ERROR - ChkBin:Start> Lot_Number:JN2222025212240|| Scan_IP:10.0.13.2
+2017-02-16 10:22:13,273 - ERROR - ChkBin:End> Lot_Number:JN2222025212240|| Scan_IP:10.0.13.2||Bin_No:24||InBinOrder:||Message:批次：（JN2222025212240） 无对应Bin！
+2017-02-16 10:22:15,532 - ERROR - ChkBin:Start> Lot_Number:JN2222025212240|| Scan_IP:10.0.13.2
+2017-02-16 10:23:17,147 - ERROR - ChkBin:End> Lot_Number:JN2222025212240|| Scan_IP:10.0.13.2||Bin_No:24||InBinOrder:||Message:批次：（JN2222025212240） 无对应Bin！
+2017-02-16 10:23:19,850 - ERROR - ChkBin:Start> Lot_Number:JN2222025212240|| Scan_IP:10.0.13.2
+2017-02-16 10:24:08,564 - ERROR - ChkBin:End> Lot_Number:JN2222025212240|| Scan_IP:10.0.13.2||Bin_No:24||InBinOrder:||Message:批次：（JN2222025212240） 无对应Bin！
+2017-02-16 10:34:08,754 - ERROR - ChkBin:Start> Lot_Number:JN2222025212240|| Scan_IP:10.0.13.2
+2017-02-16 10:35:11,492 - ERROR - ChkBin:End> Lot_Number:JN2222025212240|| Scan_IP:10.0.13.2||Bin_No:24||InBinOrder:||Message:包装号：（）已完成包装！
+2017-02-16 10:44:49,177 - ERROR - ChkBin:Start> Lot_Number:JN2222025212240|| Scan_IP:10.0.13.2
+2017-02-16 10:45:30,103 - ERROR - ChkBin:End> Lot_Number:JN2222025212240|| Scan_IP:10.0.13.2||Bin_No:1||InBinOrder:1||Message:
+2017-02-16 10:46:03,910 - ERROR - InBin:Start> Lot_Number:JN2222025212240|| Scan_IP:10.0.13.2||Bin_No:1
+2017-02-16 10:46:36,495 - ERROR - InBin:End> Lot_Number:JN2222025212240|| Scan_IP:10.0.13.2||Bin_No:1||Message:请求入Bin顺序：()与计算结果不符，计算应入顺序号：（1）！
+2017-02-16 10:46:46,558 - ERROR - InBin:Start> Lot_Number:JN2222025212240|| Scan_IP:10.0.13.2||Bin_No:1
+2017-02-16 10:47:30,415 - ERROR - InBin:End> Lot_Number:JN2222025212240|| Scan_IP:10.0.13.2||Bin_No:1||Message:请求入Bin顺序：()与计算结果不符，计算应入顺序号：（1）！
+2017-02-16 10:47:43,346 - ERROR - InBin:Start> Lot_Number:JN2222025212240|| Scan_IP:10.0.13.2||Bin_No:1
+2017-02-16 10:55:40,880 - ERROR - InBin:End> Lot_Number:JN2222025212240|| Scan_IP:10.0.13.2||Bin_No:1||Message:

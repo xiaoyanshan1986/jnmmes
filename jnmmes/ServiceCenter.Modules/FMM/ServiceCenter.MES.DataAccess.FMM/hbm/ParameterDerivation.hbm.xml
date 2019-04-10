@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   namespace="ServiceCenter.MES.Model.FMM" 
+                   assembly="ServiceCenter.MES.Model.FMM">
+  <class name="ParameterDerivation" table="FMM_PARAMETER_DERIVATION">
+    <composite-id  name="Key" class="ParameterDerivationKey">
+      <key-property name="DerivedParameterName" column="DERIVED_PARAM_NAME"/>
+      <key-property name="ParameterName" column="PARAM_NAME"/>
+    </composite-id >
+    <property name="ItemNo" column="ITEM_NO"/>
+    <property name="Editor" column="EDITOR"/>
+    <property name="EditTime" column="EDIT_TIME"/>
+    <property name="Creator" column="CREATOR"/>
+    <property name="CreateTime" column="CREATE_TIME"/>
+  </class>
+</hibernate-mapping>

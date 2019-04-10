@@ -1,0 +1,80 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.FMM.Models.MaterialChestParameterViewModel
+<div class="form-group">
+    @Html.LabelFor(m => m.ProductCode, new { @class = "col-md-5 control-label" })
+    <div class="col-md-7">
+        <p class="form-control-static" style="text-align:center">@Model.ProductCode</p>
+        @Html.HiddenFor(m => m.ProductCode)
+    </div>
+</div>
+<div class="form-group">
+    @* 颜色是否不可混 *@
+    @Html.LabelFor(m => m.ColorLimit, new { @class = "col-md-5 control-label" })
+    <div class="col-md-7">
+        @Html.CheckBoxFor(m => m.ColorLimit, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.ColorLimit)
+    </div>
+</div>
+<div class="form-group">
+    @* 等级是否不可混 *@
+    @Html.LabelFor(m => m.GradeLimit, new { @class = "col-md-5 control-label" })
+    <div class="col-md-7">
+        @Html.CheckBoxFor(m => m.GradeLimit, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.GradeLimit)
+    </div>
+</div>
+<div class="form-group">
+    @* 功率是否不可混 *@
+    @Html.LabelFor(m => m.PowerLimit, new { @class = "col-md-5 control-label" })
+    <div class="col-md-7">
+        @Html.CheckBoxFor(m => m.PowerLimit, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.PowerLimit)
+    </div>
+</div>
+<div class="form-group">
+    @* 电流档是否不可混 *@
+    @Html.LabelFor(m => m.IscLimit, new { @class = "col-md-5 control-label" })
+    <div class="col-md-7">
+        @Html.CheckBoxFor(m => m.IscLimit, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.IscLimit)
+    </div>
+</div>
+<div class="form-group">
+    @* 满柜数量 *@
+    @Html.LabelFor(m => m.FullChestQty, new { @class = "col-md-5 control-label" })
+    <div class="col-md-7">
+        @Html.TextBoxFor(m => m.FullChestQty, new { @class = "form-control", @style = "text-align:center" })
+        @Html.ValidationMessageFor(m => m.FullChestQty)
+    </div>
+</div>
+<div class="form-group">
+    @* 柜最大满包数量 *@
+    @Html.LabelFor(m => m.InChestFullPackageQty, new { @class = "col-md-5 control-label" })
+    <div class="col-md-7">
+        @Html.TextBoxFor(m => m.InChestFullPackageQty, new { @class = "form-control", @style = "text-align:center" })
+        @Html.ValidationMessageFor(m => m.InChestFullPackageQty)
+    </div>
+</div>
+<div class="form-group">
+    @* 包装能否入柜 *@
+    @Html.LabelFor(m => m.IsPackagedChest, new { @class = "col-md-5 control-label" })
+    <div class="col-md-7">
+        @Html.CheckBoxFor(m => m.IsPackagedChest, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.IsPackagedChest)
+    </div>
+</div>
+<div class="form-group">
+    @* 工单是否不可混 *@
+    @Html.LabelFor(m => m.OrderNumberLimit, new { @class = "col-md-5 control-label" })
+    <div class="col-md-7">
+        @Html.CheckBoxFor(m => m.OrderNumberLimit, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.OrderNumberLimit)
+    </div>
+</div>
+<div class="form-group">
+    @* 尾柜产品编码是否不可混 *@
+    @Html.LabelFor(m => m.LastChestMaterialLimit, new { @class = "col-md-5 control-label" })
+    <div class="col-md-7">
+        @Html.CheckBoxFor(m => m.LastChestMaterialLimit, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.LastChestMaterialLimit)
+    </div>
+</div>

@@ -1,0 +1,91 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.WIP.Models.LotViewModel
+@using ServiceCenter.Client.Mvc.Areas.WIP.Models;
+@using ServiceCenter.Client.Mvc.Resources;
+@using WIPRsources = ServiceCenter.Client.Mvc.Resources.WIP;
+@using ServiceCenter.MES.Model.WIP;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@using ServiceCenter.MES.Model.BaseData;
+@{
+    PagingConfig cfg = ViewBag.PagingConfig;
+    IList<LotTransaction> lstTransaction = ViewBag.TransactionList;
+}
+<div id="_list">
+    <table class="table table-hover table-bordered table-condensed">
+        <thead>
+            <tr class="active">
+                <td>@StringResource.ItemNo</td>
+                <td>@WIPRsources.StringResource.LotNumber</td>
+                <td>操作名称</td>
+                <td>工艺流程组</td>
+                <td>工艺流程</td>
+                <td>工序</td>
+                <td>操作时间</td>
+                <td>操作人</td>
+                <td>客户端</td>
+                <td>撤销描述</td>
+                <td>@WIPRsources.StringResource.Undo</td>
+            </tr>
+        </thead>
+        @if (lstTransaction != null)
+        {
+            <tbody>
+                @for (int i = 0; i < lstTransaction.Count; i++)
+                {
+                    LotTransaction obj = lstTransaction[i];
+                    <tr>
+                        <td>@(i+1)</td>
+                        <td>
+                            @obj.LotNumber
+                        </td>
+                        <td>
+                            @obj.Activity.GetDisplayName()
+                        </td>
+                        <td>@obj.RouteEnterpriseName</td>
+                        <td>
+                            @obj.RouteName
+                        </td>
+                        <td>
+                            @obj.RouteStepName
+                        </td>
+                        <td>
+                            @string.Format("{0:yyyy-MM-dd HH:mm:ss.fffffff}",obj.CreateTime)
+                        </td>
+                        <td>
+                            @obj.Creator
+                        </td>
+                        <td>
+                            @obj.OperateComputer
+                        </td>
+                       
+                        @if (i == 0 && Model.RouteOperationList().Contains(obj.RouteStepName.ToString()))
+                        {
+                        <td>
+                            <input type="text" class="form-control" id="txtDescription"/>
+                        </td>
+                        <td>
+                            @Ajax.ActionLink(WIPRsources.StringResource.Undo, actionName: null
+                                                                    , routeValues: null
+                                                                    , ajaxOptions: new AjaxOptions()
+                                                                    {
+                                                                        HttpMethod = "Post",
+                                                                        Url = Url.Action("Undo", new { @LotNumber = obj.LotNumber, @TransactionKey = obj.Key }),
+                                                                        OnSuccess = "completeUndo",
+                                                                        OnBegin = "beginUndo"
+                                                                    }, htmlAttributes: new { @class = "btn btn-warning btn-sm" })
+                        </td>
+                        }
+                        else
+                        {
+                            <td></td>
+                            <td></td>
+                        }
+                        
+                    </tr>
+                }
+            </tbody>
+        }
+    </table>
+</div>
+
+

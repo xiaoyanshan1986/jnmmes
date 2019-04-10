@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   namespace="ServiceCenter.MES.Model.WIP"
+                   assembly="ServiceCenter.MES.Model.WIP">
+  <class name="PrintLog" table="WIP_PRINT_LOG">
+    <id name="Key" column="TRANSACTION_KEY">
+      <generator class="assigned" />
+    </id>
+    <property name="LotNumber" column="LOT_NUMBER"/>
+    <property name="ClientName" column="ClientName"/>
+    <property name="PrintQty" column="PrintQty"/>
+    <property name="PrintLabelCode" column="PrintLabelCode"/>
+    <property name="PrinterName" column="PrinterName"/>
+    <property name="PrintType" column="PrintType"/>
+    <property name="IsSucceed" column="IS_SUCCEED"/>
+    <property name="PrintData" column="PrintData"/>
+    <property name="Creator" column="CREATOR"/>
+    <property name="CreateTime" column="CREATE_TIME" type="timestamp"/>
+    <property name="FinishTime" column="FinishTime" type="timestamp"/>
+  </class>
+</hibernate-mapping>

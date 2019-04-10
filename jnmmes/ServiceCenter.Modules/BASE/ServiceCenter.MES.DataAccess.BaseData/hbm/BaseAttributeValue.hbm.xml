@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   namespace="ServiceCenter.MES.Model.BaseData" 
+                   assembly="ServiceCenter.MES.Model.BaseData">
+  <class name="BaseAttributeValue" table="BASE_ATTRIBUTE_VALUE">
+    <composite-id  name="Key" class="BaseAttributeValueKey">
+      <key-property name="CategoryName" column="CATEGORY_NAME"/>
+      <key-property name="AttributeName" column="ATTRIBUTE_NAME"/>
+      <key-property name="ItemOrder" column="ITEM_ORDER"/>
+    </composite-id >
+    <property name="Value" column="ATTRIBUTE_VALUE"/>
+    <property name="Editor" column="EDITOR"/>
+    <property name="EditTime" column="EDIT_TIME"/>
+  </class>
+</hibernate-mapping>

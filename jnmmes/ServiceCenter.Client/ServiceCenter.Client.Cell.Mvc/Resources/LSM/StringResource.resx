@@ -1,0 +1,546 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="LineStoreMaterialDetailQueryViewModel_LineStoreName" xml:space="preserve">
+    <value>线边仓</value>
+  </data>
+  <data name="LineStoreMaterialDetailQueryViewModel_MaterialCode" xml:space="preserve">
+    <value>物料编码</value>
+  </data>
+  <data name="LineStoreMaterialDetailQueryViewModel_MaterialLot" xml:space="preserve">
+    <value>物料批号</value>
+  </data>
+  <data name="LineStoreMaterialDetailQueryViewModel_OrderNumber" xml:space="preserve">
+    <value>工单号</value>
+  </data>
+  <data name="LineStoreMaterialDetailViewModel_CurrentQty" xml:space="preserve">
+    <value>当前数量</value>
+  </data>
+  <data name="LineStoreMaterialDetailViewModel_LineStoreName" xml:space="preserve">
+    <value>线边仓</value>
+  </data>
+  <data name="LineStoreMaterialDetailViewModel_LoadingQty" xml:space="preserve">
+    <value>上料数量</value>
+  </data>
+  <data name="LineStoreMaterialDetailViewModel_MaterialCode" xml:space="preserve">
+    <value>物料编码</value>
+  </data>
+  <data name="LineStoreMaterialDetailViewModel_MaterialLot" xml:space="preserve">
+    <value>物料批号</value>
+  </data>
+  <data name="LineStoreMaterialDetailViewModel_ReceiveQty" xml:space="preserve">
+    <value>领料数量</value>
+  </data>
+  <data name="LineStoreMaterialDetailViewModel_ReturnQty" xml:space="preserve">
+    <value>退料数量</value>
+  </data>
+  <data name="LineStoreMaterialDetailViewModel_ScrapQty" xml:space="preserve">
+    <value>报废数量</value>
+  </data>
+  <data name="LineStoreMaterialDetailViewModel_SupplierCode" xml:space="preserve">
+    <value>供应商</value>
+  </data>
+  <data name="LineStoreMaterialDetailViewModel_SupplierMaterialLot" xml:space="preserve">
+    <value>供应商批号</value>
+  </data>
+  <data name="LineStoreMaterialDetailViewModel_SupplierName" xml:space="preserve">
+    <value>供应商</value>
+  </data>
+  <data name="LineStoreMaterialDetailViewModel_UnloadingQty" xml:space="preserve">
+    <value>下料数量</value>
+  </data>
+  <data name="LineStoreMaterialDetail_ManagePageTitle" xml:space="preserve">
+    <value>线边仓物料明细查询</value>
+  </data>
+  <data name="LineStoreMaterialQueryViewModel_LineStoreName" xml:space="preserve">
+    <value>线边仓</value>
+  </data>
+  <data name="LineStoreMaterialQueryViewModel_MaterialCode" xml:space="preserve">
+    <value>物料编码</value>
+  </data>
+  <data name="LineStoreMaterialViewModel_LineStoreName" xml:space="preserve">
+    <value>线边仓</value>
+  </data>
+  <data name="LineStoreMaterialViewModel_MaterialCode" xml:space="preserve">
+    <value>物料编码</value>
+  </data>
+  <data name="LineStoreMaterial_ManagePageTitle" xml:space="preserve">
+    <value>线边仓物料查询</value>
+  </data>
+  <data name="MaterialLoadingDetailViewModel_CurrentQty" xml:space="preserve">
+    <value>当前数量</value>
+  </data>
+  <data name="MaterialLoadingDetailViewModel_IsShowZeroData" xml:space="preserve">
+    <value>是否显示零数据</value>
+  </data>
+  <data name="MaterialLoadingDetailViewModel_ItemNo" xml:space="preserve">
+    <value>项目号</value>
+  </data>
+  <data name="MaterialLoadingDetailViewModel_LineStoreName" xml:space="preserve">
+    <value>线边仓</value>
+  </data>
+  <data name="MaterialLoadingDetailViewModel_LoadingNo" xml:space="preserve">
+    <value>上料号</value>
+  </data>
+  <data name="MaterialLoadingDetailViewModel_LoadingQty" xml:space="preserve">
+    <value>上料数量</value>
+  </data>
+  <data name="MaterialLoadingDetailViewModel_MaterialCode" xml:space="preserve">
+    <value>物料编码</value>
+  </data>
+  <data name="MaterialLoadingDetailViewModel_MaterialLot" xml:space="preserve">
+    <value>物料批号</value>
+  </data>
+  <data name="MaterialLoadingDetailViewModel_UnloadingQty" xml:space="preserve">
+    <value>下料数量</value>
+  </data>
+  <data name="MaterialLoadingDetail_ManagePageTitle" xml:space="preserve">
+    <value>上料明细查询</value>
+  </data>
+  <data name="MaterialLoadingQueryViewModel_EndLoadingTime" xml:space="preserve">
+    <value>上料时间（止）</value>
+  </data>
+  <data name="MaterialLoadingQueryViewModel_EquipmentCode" xml:space="preserve">
+    <value>设备</value>
+  </data>
+  <data name="MaterialLoadingQueryViewModel_LoadingNo" xml:space="preserve">
+    <value>上料号</value>
+  </data>
+  <data name="MaterialLoadingQueryViewModel_ProductionLineCode" xml:space="preserve">
+    <value>生产线</value>
+  </data>
+  <data name="MaterialLoadingQueryViewModel_RouteOperationName" xml:space="preserve">
+    <value>工序</value>
+  </data>
+  <data name="MaterialLoadingQueryViewModel_StartLoadingTime" xml:space="preserve">
+    <value>上料时间（起）</value>
+  </data>
+  <data name="MaterialLoadingQueryViewModel_UnloadingNo" xml:space="preserve">
+    <value>下料号</value>
+  </data>
+  <data name="MaterialLoadingViewModel_EquipmentCode" xml:space="preserve">
+    <value>设备</value>
+  </data>
+  <data name="MaterialLoadingViewModel_LoadingNo" xml:space="preserve">
+    <value>上料号</value>
+  </data>
+  <data name="MaterialLoadingViewModel_LoadingTime" xml:space="preserve">
+    <value>上料时间</value>
+  </data>
+  <data name="MaterialLoadingViewModel_Operator" xml:space="preserve">
+    <value>操作人</value>
+  </data>
+  <data name="MaterialLoadingViewModel_OrderNumber" xml:space="preserve">
+    <value>工单号</value>
+  </data>
+  <data name="MaterialLoadingViewModel_ProductionLineCode" xml:space="preserve">
+    <value>生产线</value>
+  </data>
+  <data name="MaterialLoadingViewModel_RouteOperationName" xml:space="preserve">
+    <value>工序</value>
+  </data>
+  <data name="MaterialLoading_AddTitle" xml:space="preserve">
+    <value>上料</value>
+  </data>
+  <data name="MaterialLoading_ManagePageTitle" xml:space="preserve">
+    <value>上料管理</value>
+  </data>
+  <data name="MaterialLoading_Save_Success" xml:space="preserve">
+    <value>保存 {0} 成功。</value>
+  </data>
+  <data name="MaterialReceiptDetailQueryViewModel_LineStoreName" xml:space="preserve">
+    <value>线边仓</value>
+  </data>
+  <data name="MaterialReceiptDetailQueryViewModel_MaterialCode" xml:space="preserve">
+    <value>物料编码</value>
+  </data>
+  <data name="MaterialReceiptDetailQueryViewModel_MaterialLot" xml:space="preserve">
+    <value>物料批号</value>
+  </data>
+  <data name="MaterialReceiptDetailQueryViewModel_ReceiptNo" xml:space="preserve">
+    <value>领料号</value>
+  </data>
+  <data name="MaterialReceiptDetailViewModel_ItemNo" xml:space="preserve">
+    <value>项目号</value>
+  </data>
+  <data name="MaterialReceiptDetailViewModel_LineStoreName" xml:space="preserve">
+    <value>线边仓</value>
+  </data>
+  <data name="MaterialReceiptDetailViewModel_MaterialCode" xml:space="preserve">
+    <value>物料编码</value>
+  </data>
+  <data name="MaterialReceiptDetailViewModel_MaterialLot" xml:space="preserve">
+    <value>物料批号</value>
+  </data>
+  <data name="MaterialReceiptDetailViewModel_Qty" xml:space="preserve">
+    <value>数量</value>
+  </data>
+  <data name="MaterialReceiptDetailViewModel_ReceiptNo" xml:space="preserve">
+    <value>领料号</value>
+  </data>
+  <data name="MaterialReceiptDetailViewModel_SupplierCode" xml:space="preserve">
+    <value>供应商代码</value>
+  </data>
+  <data name="MaterialReceiptDetailViewModel_SupplierMaterialLot" xml:space="preserve">
+    <value>供应商批号</value>
+  </data>
+  <data name="MaterialReceiptDetailViewModel_SupplierName" xml:space="preserve">
+    <value>供应商名称</value>
+  </data>
+  <data name="MaterialReceiptDetail_ManagePageTitle" xml:space="preserve">
+    <value>领料明细查询</value>
+  </data>
+  <data name="MaterialReceiptQueryViewModel_EndReceiptDate" xml:space="preserve">
+    <value>领料日期（止）</value>
+  </data>
+  <data name="MaterialReceiptQueryViewModel_OrderNumber" xml:space="preserve">
+    <value>工单号</value>
+  </data>
+  <data name="MaterialReceiptQueryViewModel_ReceiptNo" xml:space="preserve">
+    <value>领料号</value>
+  </data>
+  <data name="MaterialReceiptQueryViewModel_StartReceiptDate" xml:space="preserve">
+    <value>领料日期（起）</value>
+  </data>
+  <data name="MaterialReceiptViewModel_OrderNumber" xml:space="preserve">
+    <value>工单号</value>
+  </data>
+  <data name="MaterialReceiptViewModel_ReceiptDate" xml:space="preserve">
+    <value>领料日期</value>
+  </data>
+  <data name="MaterialReceiptViewModel_ReceiptNo" xml:space="preserve">
+    <value>领料号</value>
+  </data>
+  <data name="MaterialReceiptViewModel_Type" xml:space="preserve">
+    <value>类型</value>
+  </data>
+  <data name="MaterialReceipt_AddTitle" xml:space="preserve">
+    <value>领料</value>
+  </data>
+  <data name="MaterialReceipt_ManagePageTitle" xml:space="preserve">
+    <value>领料管理</value>
+  </data>
+  <data name="MaterialReceipt_Save_Success" xml:space="preserve">
+    <value>保存 {0} 成功。</value>
+  </data>
+  <data name="MaterialReturnDetailQueryViewModel_LineStoreName" xml:space="preserve">
+    <value>线边仓</value>
+  </data>
+  <data name="MaterialReturnDetailQueryViewModel_MaterialCode" xml:space="preserve">
+    <value>物料编码</value>
+  </data>
+  <data name="MaterialReturnDetailQueryViewModel_MaterialLot" xml:space="preserve">
+    <value>物料批号</value>
+  </data>
+  <data name="MaterialReturnDetailQueryViewModel_ReturnNo" xml:space="preserve">
+    <value>退料号</value>
+  </data>
+  <data name="MaterialReturnDetailViewModel_ItemNo" xml:space="preserve">
+    <value>项目号</value>
+  </data>
+  <data name="MaterialReturnDetailViewModel_LineStoreName" xml:space="preserve">
+    <value>线边仓</value>
+  </data>
+  <data name="MaterialReturnDetailViewModel_MaterialCode" xml:space="preserve">
+    <value>物料编码</value>
+  </data>
+  <data name="MaterialReturnDetailViewModel_MaterialLot" xml:space="preserve">
+    <value>物料批号</value>
+  </data>
+  <data name="MaterialReturnDetailViewModel_Qty" xml:space="preserve">
+    <value>数量</value>
+  </data>
+  <data name="MaterialReturnDetailViewModel_ReturnNo" xml:space="preserve">
+    <value>退料号</value>
+  </data>
+  <data name="MaterialReturnDetail_ManagePageTitle" xml:space="preserve">
+    <value>退料明细查询</value>
+  </data>
+  <data name="MaterialReturnQueryViewModel_EndReturnDate" xml:space="preserve">
+    <value>退料日期（止）</value>
+  </data>
+  <data name="MaterialReturnQueryViewModel_OrderNumber" xml:space="preserve">
+    <value>工单号</value>
+  </data>
+  <data name="MaterialReturnQueryViewModel_ReturnNo" xml:space="preserve">
+    <value>退料号</value>
+  </data>
+  <data name="MaterialReturnQueryViewModel_StartReturnDate" xml:space="preserve">
+    <value>退料日期（起）</value>
+  </data>
+  <data name="MaterialReturnViewModel_OrderNumber" xml:space="preserve">
+    <value>工单号</value>
+  </data>
+  <data name="MaterialReturnViewModel_ReturnDate" xml:space="preserve">
+    <value>退料日期</value>
+  </data>
+  <data name="MaterialReturnViewModel_ReturnNo" xml:space="preserve">
+    <value>退料号</value>
+  </data>
+  <data name="MaterialReturnViewModel_Type" xml:space="preserve">
+    <value>类型</value>
+  </data>
+  <data name="MaterialReturn_AddTitle" xml:space="preserve">
+    <value>退料</value>
+  </data>
+  <data name="MaterialReturn_ManagePageTitle" xml:space="preserve">
+    <value>退料管理</value>
+  </data>
+  <data name="MaterialReturn_Save_Success" xml:space="preserve">
+    <value>保存 {0} 成功。</value>
+  </data>
+  <data name="MaterialScrapDetailQueryViewModel_LineStoreName" xml:space="preserve">
+    <value>线边仓</value>
+  </data>
+  <data name="MaterialScrapDetailQueryViewModel_MaterialCode" xml:space="preserve">
+    <value>物料编码</value>
+  </data>
+  <data name="MaterialScrapDetailQueryViewModel_MaterialLot" xml:space="preserve">
+    <value>物料批号</value>
+  </data>
+  <data name="MaterialScrapDetailQueryViewModel_ScrapNo" xml:space="preserve">
+    <value>报废号</value>
+  </data>
+  <data name="MaterialScrapDetailViewModel_ItemNo" xml:space="preserve">
+    <value>项目号</value>
+  </data>
+  <data name="MaterialScrapDetailViewModel_LineStoreName" xml:space="preserve">
+    <value>线边仓</value>
+  </data>
+  <data name="MaterialScrapDetailViewModel_MaterialCode" xml:space="preserve">
+    <value>物料编码</value>
+  </data>
+  <data name="MaterialScrapDetailViewModel_MaterialLot" xml:space="preserve">
+    <value>物料批号</value>
+  </data>
+  <data name="MaterialScrapDetailViewModel_Qty" xml:space="preserve">
+    <value>数量</value>
+  </data>
+  <data name="MaterialScrapDetailViewModel_ScrapNo" xml:space="preserve">
+    <value>报废号</value>
+  </data>
+  <data name="MaterialScrapDetail_ManagePageTitle" xml:space="preserve">
+    <value>线边仓物料报废明细查询</value>
+  </data>
+  <data name="MaterialScrapQueryViewModel_EndScrapDate" xml:space="preserve">
+    <value>报废日期（止）</value>
+  </data>
+  <data name="MaterialScrapQueryViewModel_OrderNumber" xml:space="preserve">
+    <value>工单号</value>
+  </data>
+  <data name="MaterialScrapQueryViewModel_ScrapNo" xml:space="preserve">
+    <value>报废号</value>
+  </data>
+  <data name="MaterialScrapQueryViewModel_StartScrapDate" xml:space="preserve">
+    <value>报废日期（起）</value>
+  </data>
+  <data name="MaterialScrapViewModel_OrderNumber" xml:space="preserve">
+    <value>工单号</value>
+  </data>
+  <data name="MaterialScrapViewModel_ScrapDate" xml:space="preserve">
+    <value>报废日期</value>
+  </data>
+  <data name="MaterialScrapViewModel_ScrapNo" xml:space="preserve">
+    <value>报废号</value>
+  </data>
+  <data name="MaterialScrapViewModel_Type" xml:space="preserve">
+    <value>类型</value>
+  </data>
+  <data name="MaterialScrap_AddTitle" xml:space="preserve">
+    <value>线边仓物料报废</value>
+  </data>
+  <data name="MaterialScrap_ManagePageTitle" xml:space="preserve">
+    <value>线边仓物料报废管理</value>
+  </data>
+  <data name="MaterialScrap_Save_Success" xml:space="preserve">
+    <value>保存线边仓物料报废 {0} 成功。</value>
+  </data>
+  <data name="MaterialUnloadingDetailViewModel_ItemNo" xml:space="preserve">
+    <value>项目号</value>
+  </data>
+  <data name="MaterialUnloadingDetailViewModel_LineStoreName" xml:space="preserve">
+    <value>线边仓</value>
+  </data>
+  <data name="MaterialUnloadingDetailViewModel_LoadingItemNo" xml:space="preserve">
+    <value>上料项目号</value>
+  </data>
+  <data name="MaterialUnloadingDetailViewModel_LoadingNo" xml:space="preserve">
+    <value>上料号</value>
+  </data>
+  <data name="MaterialUnloadingDetailViewModel_MaterialCode" xml:space="preserve">
+    <value>物料编码</value>
+  </data>
+  <data name="MaterialUnloadingDetailViewModel_MaterialLot" xml:space="preserve">
+    <value>物料批号</value>
+  </data>
+  <data name="MaterialUnloadingDetailViewModel_UnloadingNo" xml:space="preserve">
+    <value>下料号</value>
+  </data>
+  <data name="MaterialUnloadingDetailViewModel_UnloadingQty" xml:space="preserve">
+    <value>下料数量</value>
+  </data>
+  <data name="MaterialUnloadingDetail_ManagePageTitle" xml:space="preserve">
+    <value>下料明细查询</value>
+  </data>
+  <data name="MaterialUnloadingQueryViewModel_EndUnloadingTime" xml:space="preserve">
+    <value>下料时间（止）</value>
+  </data>
+  <data name="MaterialUnloadingQueryViewModel_EquipmentCode" xml:space="preserve">
+    <value>设备</value>
+  </data>
+  <data name="MaterialUnloadingQueryViewModel_ProductionLineCode" xml:space="preserve">
+    <value>生产线</value>
+  </data>
+  <data name="MaterialUnloadingQueryViewModel_RouteOperationName" xml:space="preserve">
+    <value>工序</value>
+  </data>
+  <data name="MaterialUnloadingQueryViewModel_StartUnloadingTime" xml:space="preserve">
+    <value>下料时间（起）</value>
+  </data>
+  <data name="MaterialUnloadingViewModel_EquipmentCode" xml:space="preserve">
+    <value>设备</value>
+  </data>
+  <data name="MaterialUnloadingViewModel_Operator" xml:space="preserve">
+    <value>操作人</value>
+  </data>
+  <data name="MaterialUnloadingViewModel_OrderNumber" xml:space="preserve">
+    <value>工单号</value>
+  </data>
+  <data name="MaterialUnloadingViewModel_ProductionLineCode" xml:space="preserve">
+    <value>生产线</value>
+  </data>
+  <data name="MaterialUnloadingViewModel_RouteOperationName" xml:space="preserve">
+    <value>工序</value>
+  </data>
+  <data name="MaterialUnloadingViewModel_UnloadingNo" xml:space="preserve">
+    <value>下料号</value>
+  </data>
+  <data name="MaterialUnloadingViewModel_UnloadingTime" xml:space="preserve">
+    <value>下料时间</value>
+  </data>
+  <data name="MaterialUnloading_AddTitle" xml:space="preserve">
+    <value>下料</value>
+  </data>
+  <data name="MaterialUnloading_ManagePageTitle" xml:space="preserve">
+    <value>下料管理</value>
+  </data>
+  <data name="MaterialUnloading_Save_Success" xml:space="preserve">
+    <value>保存 {0} 成功。</value>
+  </data>
+</root>

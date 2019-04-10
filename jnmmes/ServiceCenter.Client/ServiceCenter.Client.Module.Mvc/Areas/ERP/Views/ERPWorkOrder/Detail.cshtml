@@ -1,0 +1,203 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.ERP.Models.WorkOrderViewModel
+@using ServiceCenter.Model;
+@using ServiceCenter.Common;
+@using ServiceCenter.Client.Mvc.Areas.ERP.Models;
+@using ERP = ServiceCenter.Client.Mvc.Resources.ERP;
+@using ServiceCenter.Client.Mvc.Resources;
+@{
+    PagingConfig cfg = ViewBag.PagingConfig;
+
+    WorkOrderViewModel list = ViewBag.WorkOrder;
+    ViewBag.Title = ERP.StringResource.ERPWorkOrderQuery_ManagePageTitle + "(" + list.OrderNumber + ")";
+}
+<h2>@ViewBag.Title</h2>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <a href="javascript:Save()" class="btn btn-primary">@ERP.StringResource.ERPWorkOrder_Create</a>
+        <a href="javascript:SaveBom()" class="btn btn-primary">工单BOM更新</a>
+        <a href="javascript:javascript:history.go(-1)" class="btn btn-primary">@ERP.StringResource.Back</a>
+    </div>
+    <div class="alert fade in hide" resource="alert" id="statusMessage" style="margin:0px">
+        <button type="button" class="close" onclick="hideStatusMessage()">
+            <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+        </button>
+        <p></p>
+    </div>
+    <div class="panel-body">
+        @Html.ValidationSummary(true)
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist">
+            <li class="active"><a href="#base" role="tab" data-toggle="tab" onfocus="this.blur()">基本信息</a></li>
+            <li><a href="#BOM" role="tab" data-toggle="tab" onfocus="this.blur()">BOM</a></li>
+        </ul>
+
+        <div class="tab-content">
+            <div class="tab-pane active" id="base" style="padding-top:10px">
+                <div class="form-group">
+                    @* 工单号 *@
+                    <div class="col-md-1">
+                        @Html.LabelFor(m => m.OrderNumber, new { @class = "control-label" })
+                    </div>
+                    <div class="col-md-3">
+                        <p class="form-control">@list.OrderNumber</p>
+                    </div>
+
+                    @* 产品代码 *@
+                    <div class="col-md-1">
+                        @Html.LabelFor(m => m.MaterialCode, new { @class = "control-label" })
+                    </div>
+                    <div class="col-md-3">
+                        <p class="form-control">@list.MaterialCode</p>
+                    </div>
+
+                    @* 工单类型 *@
+                    <div class="col-md-1">
+                        @Html.LabelFor(m => m.OrderType, new { @class = "control-label" })
+                    </div>
+                    <div class="col-md-3">
+                        @*<p class="form-control">@list.OrderType</p>*@
+                        <p class="form-control">@Model.GetOrderTypeName(@list.OrderType)</p>
+                    </div>
+                    
+                    @*<div class="col-md-1">
+                            @Html.LabelFor(m => m.OrderState, new { @class = "control-label" })
+                        </div>
+                        <div class="col-md-3">
+                            <p class="form-control">@list.OrderState</p>
+                        </div>*@
+                </div>
+                <div class="form-group">
+                    @*<div class="col-md-1">
+                            @Html.LabelFor(m => m.OrderType, new { @class = "control-label" })
+                        </div>
+                        <div class="col-md-3">
+                            <p class="form-control">@list.OrderType</p>
+                        </div>*@
+
+                    @* 生产车间 *@
+                    <div class="col-md-1">
+                        @Html.LabelFor(m => m.LocationName, new { @class = "control-label" })
+                    </div>
+                    <div class="col-md-3">
+                        <p class="form-control">@list.LocationName</p>
+                    </div>
+
+                    @* 生产数量 *@
+                    <div class="col-md-1">
+                        @Html.LabelFor(m => m.OrderQuantity, new { @class = "control-label" })
+                    </div>
+                    <div class="col-md-3">
+                        <p class="form-control">@list.OrderQuantity</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    @*<div class="col-md-1">
+                            @Html.LabelFor(m => m.Priority, new { @class = "control-label" })
+                        </div>
+                        <div class="col-md-3">
+                            @Html.DropDownListFor(m => m.Priority, Model.GetWorkOrderPriorityList(), new { @class = "form-control" })
+                        </div>*@
+
+                    @* 计划开始日期 *@
+                    <div class="col-md-1">
+                        @Html.LabelFor(m => m.PlanStartTime, new { @class = "control-label" })
+                    </div>
+                    <div class="col-md-3">
+                        <p class="form-control">@list.PlanStartTime</p>
+                    </div>
+
+                    @* 计划结束日期 *@
+                    <div class="col-md-1">
+                        @Html.LabelFor(m => m.PlanFinishTime, new { @class = "control-label" })
+                    </div>
+                    <div class="col-md-3">
+                        <p class="form-control">@list.PlanFinishTime</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    @* 描述 *@
+                    <div class="col-md-1">
+                        @Html.LabelFor(m => m.Description, new { @class = "control-label" })
+                    </div>
+                    <div class="col-sm-7">
+                        @*@Html.TextAreaFor(m => m.Description, new { @class = "form-control" })*@
+                        <p class="form-control">@list.Description</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-pane" style="padding-top:10px" id="BOM">
+
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    <script type="text/javascript" language="javascript">
+        $(function () {
+            $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
+                if ($(e.target).attr("href") == "#BOM") {
+                    var url = "@Url.Action("GetERPWorkOrderBOM", "ERPWorkOrder", new { OrderNumber = list.OrderNumber })";
+                    $("#BOM").load(url);
+                }
+
+            })
+        })
+    </script>
+
+    <script type="text/javascript" language="javascript">
+        @*function Save() {
+            if (confirm("@ERP.StringResource.ERPWorkOrder_ConfirmSave".replace("{0}", '@list.OrderNumber'))) {
+                $.ajax({
+                    type: "post",
+                    url: "@Url.Action("Save", "ERPWorkOrder")",
+                    data: { OrderNumber: '@list.OrderNumber', Priority: '@Model.Priority', Description: '@Model.Description' },
+                    dataType: "json",
+                    success: function (result) { completeSave(result) }
+                });
+            }
+        }*@
+
+        function Save() {
+            if (confirm("@ERP.StringResource.ERPWorkOrder_ConfirmSave".replace("{0}", '@list.OrderNumber'))) {
+                $.ajax({
+                    type: "post",
+                    url: "@Url.Action("Save", "ERPWorkOrder")",
+                    data: { OrderNumber: '@list.OrderNumber'},
+                dataType: "json",
+                success: function (result) { completeSave(result) }
+            });
+        }
+        }
+
+        function SaveBom() {
+            if (confirm("@ERP.StringResource.ERPWorkBOMOrder_ConfirmSave".replace("{0}", '@list.OrderNumber'))) {
+                $.ajax({
+                    type: "post",
+                    url: "@Url.Action("SaveBOM", "ERPWorkOrder")",
+                    data: { OrderNumber: '@list.OrderNumber', Priority: '@Model.Priority'},
+                dataType: "json",
+                success: function (result) { completeSave(result) }
+            });
+        }
+        }
+        
+        function hideStatusMessage() {
+            $("#statusMessage").addClass("hide");
+        }
+
+        function completeSave(result) {
+            $("#statusMessage").find("p").html(result.Message);
+            $("#statusMessage").removeClass("hide");
+            if (result.Code > 0) {
+                $("#statusMessage").removeClass("alert-success");
+                $("#statusMessage").addClass("alert-danger");
+            }
+            else {
+                $("#statusMessage").removeClass("alert-danger");
+                $("#statusMessage").addClass("alert-success");
+            }
+        }
+    </script>
+}

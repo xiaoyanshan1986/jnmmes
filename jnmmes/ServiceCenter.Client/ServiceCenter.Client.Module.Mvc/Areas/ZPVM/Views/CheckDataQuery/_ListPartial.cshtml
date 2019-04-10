@@ -1,0 +1,131 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.ZPVM.Models.CheckDataViewModel
+@using ServiceCenter.Client.Mvc.Areas.ZPVM.Models;
+@using ServiceCenter.Client.Mvc.Resources;
+@using ZPVMResources = ServiceCenter.Client.Mvc.Resources.ZPVM;
+@using ServiceCenter.MES.Model.ZPVM;
+@using ServiceCenter.Common;
+@using ServiceCenter.MES.Model.WIP;
+@using ServiceCenter.Model;
+@{
+    PagingConfig cfg = ViewBag.PagingConfig;
+    string count = ViewBag.count;
+    string sTime= ViewBag.stime;
+    string eTime= ViewBag.etime;
+}
+<div id="_list">
+    <h5>查询开始时间：@sTime    查询结束时间：@eTime   总计：<span style="color:red">@count</span> 条数据</h5>
+    <table class="table table-hover table-bordered table-condensed table-responsive table-striped">
+        <thead>
+            <tr class="active">
+                <td nowrap>@StringResource.ItemNo</td>
+                <td nowrap>批次号</td>
+                <td nowrap>工单号</td>
+                <td nowrap>产品料号</td>
+                <td nowrap>线别</td>
+                <td nowrap>等级</td>
+                <td nowrap>花色</td>
+                <td nowrap>分档名称</td>
+                <td nowrap>子分档代码</td>
+                <td nowrap>实际功率</td>
+                <td nowrap>实际电流</td>
+                <td nowrap>实际最大电流</td>
+                <td nowrap>实际电压</td>
+                <td nowrap>实际最大电压</td>
+                <td nowrap>实际填充因子</td>
+                <td nowrap>备注</td>
+                <td nowrap>检验时间</td>
+                <td nowrap>检验操作人</td>
+            </tr>
+        </thead>
+        @if (ViewBag.List != null)
+        {
+            <tbody>
+                @for (int i = 0; i < ViewBag.List.Length; i++)
+                {
+                    LotTransaction obj = ViewBag.List[i];
+                    Lot lotObj = Model.GetLot(obj.LotNumber);
+                    IVTestData ivtestData = Model.GetIVTestData(obj.LotNumber);
+                    LotTransactionHistory lotHisObj = Model.GetLotTransactionHistory(obj.Key);
+                    
+                    <tr>
+                        <td nowrap>@(cfg.PageSize * cfg.PageNo+i+1)</td>
+                        <td nowrap>
+                            @Html.ActionLink(obj.LotNumber
+                                            , "Detail"
+                                            , "LotQuery"
+                                            , new { LotNumber = obj.LotNumber,area = "WIP" }
+                                            , new {  })
+                        </td>
+                        <td nowrap>@obj.OrderNumber</td>
+                        <td nowrap>@(lotHisObj!=null?lotHisObj.MaterialCode:string.Empty)</td>
+                        <td nowrap>@(lotHisObj != null ? lotHisObj.LineCode : string.Empty)</td>
+                        <td nowrap>@(lotObj != null ? lotObj.Grade : string.Empty)</td>
+                        <td nowrap>@(lotObj != null ? lotObj.Color : string.Empty)</td>
+                        
+                        
+
+                        @if (ivtestData==null || string.IsNullOrEmpty(ivtestData.PowersetCode) || ivtestData.PowersetItemNo == null)
+                        {
+                            <td nowrap></td>
+                            <td nowrap></td>
+                        }
+                        else
+                        { 
+                            <td nowrap>@Model.GetPowersetName(ivtestData.Key.LotNumber, ivtestData.PowersetCode, ivtestData.PowersetItemNo.Value)</td>
+                            <td nowrap>@ivtestData.PowersetSubCode</td>
+                        }
+
+                        @if (ivtestData == null)
+                        {
+                            <td nowrap></td>
+                            <td nowrap></td>
+                            <td nowrap></td>
+                            <td nowrap></td>
+                            <td nowrap></td>
+                            <td nowrap></td>
+                        }
+                        else
+                        {
+                            <td nowrap>@ivtestData.CoefPM.ToString("0.00")</td>
+                            <td nowrap>@ivtestData.CoefISC</td>
+                            <td nowrap>@ivtestData.CoefIPM</td>
+                            <td nowrap>@ivtestData.CoefVOC</td>
+                            <td nowrap>@ivtestData.CoefVPM</td>
+                            <td nowrap>@ivtestData.CoefFF</td>
+                        }
+
+                        <td nowrap>@obj.Description</td>
+                        <td nowrap>@string.Format("{0:yyyy-MM-dd HH:mm:ss}", obj.CreateTime)</td>
+                        <td nowrap>@obj.Creator</td>
+                    </tr>
+                }
+            </tbody>
+        }
+    </table>
+
+    <div style="margin-top:-18px">
+        @if (cfg != null)
+        {
+            using (Ajax.BeginForm("PagingQuery", "CheckDataQuery"
+                            , new
+                            {
+                                @Where = cfg.Where,
+                                @OrderBy = cfg.OrderBy,
+                                @CurrentPageNo = cfg.PageNo,
+                                @CurrentPageSize = cfg.PageSize
+                            }
+                            , new AjaxOptions()
+                            {
+                                HttpMethod = "Post",
+                                UpdateTargetId = "_list"
+                            }
+                            , new { @class = "form-horizontal", resource = "form", id = "frmPagingQuery" }))
+            {
+                @Html.AntiForgeryToken()
+                <div>@Html.Partial("_PaginationPartial")</div>
+            }
+        }
+    </div>
+</div>
+
+

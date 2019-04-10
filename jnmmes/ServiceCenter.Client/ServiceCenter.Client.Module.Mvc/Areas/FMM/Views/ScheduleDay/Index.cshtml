@@ -1,0 +1,67 @@
+﻿@using ServiceCenter.MES.Model.FMM;
+@using ServiceCenter.Model;
+@using ServiceCenter.Common;
+@using ServiceCenter.Client.Mvc.Areas.FMM.Models;
+@using FMM=ServiceCenter.Client.Mvc.Resources.FMM;
+@using ServiceCenter.Client.Mvc.Resources;
+
+@{
+    ScheduleMonth scheduleMonth = ViewBag.ScheduleMonth;
+    ViewBag.Title = string.Format(FMM.StringResource.ScheduleDay_ManagePageTitle, scheduleMonth.Key);
+}
+<h2>@ViewBag.Title</h2>
+
+@using (Ajax.BeginForm("Save", "ScheduleDay", null
+                        , new AjaxOptions()
+                        {
+                            HttpMethod = "Post",
+                            OnSuccess = "completeSave",
+                            OnBegin = "beginSave"
+                        }
+                        , new { @class = "form-horizontal", resource = "form"}))
+{
+    @Html.AntiForgeryToken()
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <input type="submit" class="btn btn-primary" value="@StringResource.Save" id="btnSave" />
+        </div>
+        <div class="alert fade in hide" resource="alert" id="statusMessage" style="margin:0px">
+            <button type="button" class="close" onclick="hideStatusMessage()">
+                <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+            </button>
+            <p></p>
+        </div>
+        <div id="list">
+            @Html.Partial("_ListPartial", new ScheduleDayViewModel())
+        </div>
+    </div>
+}
+
+@section Scripts {
+    <script type="text/javascript" language="javascript">
+        //隐藏状态消息
+        function hideStatusMessage() {
+            $("#statusMessage").addClass("hide");
+        }
+    </script>
+    @*新增*@
+    <script type="text/javascript" language="javascript">
+        function beginSave() {
+            $("#btnSave").attr("disabled", "disabled");
+        }
+
+        function completeSave(result) {
+            $("#btnSave").removeAttr("disabled");
+            $("#statusMessage").find("p").html(result.Message);
+            $("#statusMessage").removeClass("hide");
+            if (result.Code > 0) {
+                $("#statusMessage").removeClass("alert-success");
+                $("#statusMessage").addClass("alert-danger");
+            }
+            else {
+                $("#statusMessage").removeClass("alert-danger");
+                $("#statusMessage").addClass("alert-success");
+            }
+        }
+    </script>
+}

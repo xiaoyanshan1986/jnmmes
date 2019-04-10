@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   namespace="ServiceCenter.MES.Model.WIP" 
+                   assembly="ServiceCenter.MES.Model.WIP">
+  <class name="LotBOM" table="WIP_LOT_BOM">
+    <composite-id  name="Key" class="LotBOMKey">
+      <key-property name="LotNumber" column="LOT_NUMBER"/>
+      <key-property name="MaterialLot" column="MATERIAL_LOT"/>
+      <key-property name="ItemNo" column="ITEM_NO"/>
+    </composite-id >
+    <property name="TransactionKey" column="TRANSACTION_KEY"/>
+    <property name="LineStoreName" column="LINE_STORE_NAME"/>
+    <property name="MaterialCode" column="MATERIAL_CODE"/>
+    <property name="MaterialName" column="MATERIAL_NAME"/>
+    <property name="Qty" column="MATERIAL_QTY"/>
+    <property name="SupplierCode" column="SUPPLIER_CODE"/>
+    <property name="SupplierName" column="SUPPLIER_NAME"/>
+    <property name="RouteEnterpriseName" column="ROUTE_ENTERPRISE_NAME"/>
+    <property name="RouteName" column="ROUTE_NAME"/>
+    <property name="RouteStepName" column="ROUTE_STEP_NAME"/>
+    <property name="LineCode" column="LINE_CODE"/>
+    <property name="EquipmentCode" column="EQUIPMENT_CODE"/>
+    <property name="MaterialFrom" column="MATERIAL_FROM"/>
+    <property name="LoadingKey" column="LOADING_KEY"/>
+    <property name="LoadingItemNo" column="LOADING_ITEM_NO"/>
+    <property name="Creator" column="CREATOR"/>
+    <property name="CreateTime" column="CREATE_TIME"/>
+    <property name="Editor" column="EDITOR"/>
+    <property name="EditTime" column="EDIT_TIME"/>
+  </class>
+</hibernate-mapping>

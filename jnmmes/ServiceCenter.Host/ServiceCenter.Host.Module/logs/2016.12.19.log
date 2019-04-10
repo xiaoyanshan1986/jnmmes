@@ -1,0 +1,190 @@
+2016-12-19 09:14:09,391 - ERROR - START>Application
+2016-12-19 09:15:51,214 - ERROR - Could not execute query: select TOP (@p0)  route0_.ROUTE_NAME as ROUTE1_31_, route0_.ROUTE_STATUS as ROUTE2_31_, route0_.ROUTETYPE as ROUTETYPE31_, route0_.DESCRIPTION as DESCRIPT4_31_, route0_.CREATOR as CREATOR31_, route0_.CREATE_TIME as CREATE6_31_, route0_.EDITOR as EDITOR31_, route0_.EDIT_TIME as EDIT8_31_ from FMM_ROUTE route0_ order by route0_.ROUTE_NAME
+System.Data.SqlClient.SqlException (0x80131904): 列名 'ROUTETYPE' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 223
+ClientConnectionId:2c0b79ff-01fa-4592-af17-06910f90042e
+Error Number:207,State:1,Class:16
+2016-12-19 09:15:51,321 - ERROR - 列名 'ROUTETYPE' 无效。
+2016-12-19 09:15:51,392 - ERROR - 列名 'ROUTETYPE' 无效。
+2016-12-19 09:15:51,394 - ERROR - 列名 'ROUTETYPE' 无效。
+2016-12-19 13:22:41,796 - ERROR - 在将 varchar 值 'Disabled' 转换成数据类型 int 时失败。
+2016-12-19 13:22:41,796 - ERROR - 在将 varchar 值 'Disabled' 转换成数据类型 int 时失败。
+2016-12-19 14:16:09,553 - ERROR - 在将 varchar 值 'Available' 转换成数据类型 int 时失败。
+2016-12-19 14:16:09,553 - ERROR - 在将 varchar 值 'Available' 转换成数据类型 int 时失败。
+2016-12-19 15:47:39,456 - ERROR - Could not execute query: select count(*) as col_0_0_ from FMM_ROUTE route0_ where RouteName='组件生产流程8.0'
+System.Data.SqlClient.SqlException (0x80131904): 列名 'RouteName' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 223
+ClientConnectionId:ef033e0b-6140-4333-b03b-2ebfea14d790
+Error Number:207,State:1,Class:16
+2016-12-19 15:47:39,530 - ERROR - 列名 'RouteName' 无效。
+2016-12-19 15:47:39,599 - ERROR - 列名 'RouteName' 无效。
+2016-12-19 15:47:39,599 - ERROR - 列名 'RouteName' 无效。
+2016-12-19 15:47:40,034 - ERROR - Could not execute query: select count(*) as col_0_0_ from FMM_ROUTE route0_ where RouteName='扒皮返修流程'
+System.Data.SqlClient.SqlException (0x80131904): 列名 'RouteName' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 223
+ClientConnectionId:ef033e0b-6140-4333-b03b-2ebfea14d790
+Error Number:207,State:1,Class:16
+2016-12-19 15:47:40,106 - ERROR - 列名 'RouteName' 无效。
+2016-12-19 15:47:40,176 - ERROR - 列名 'RouteName' 无效。
+2016-12-19 15:47:40,177 - ERROR - 列名 'RouteName' 无效。
+2016-12-19 15:48:32,137 - ERROR - Could not execute query: select count(*) as col_0_0_ from FMM_ROUTE route0_ where RouteName='组件生产流程8.0'
+System.Data.SqlClient.SqlException (0x80131904): 列名 'RouteName' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 223
+ClientConnectionId:ef033e0b-6140-4333-b03b-2ebfea14d790
+Error Number:207,State:1,Class:16
+2016-12-19 15:48:32,209 - ERROR - 列名 'RouteName' 无效。
+2016-12-19 15:48:32,280 - ERROR - 列名 'RouteName' 无效。
+2016-12-19 15:48:32,280 - ERROR - 列名 'RouteName' 无效。
+2016-12-19 15:48:32,709 - ERROR - Could not execute query: select count(*) as col_0_0_ from FMM_ROUTE route0_ where RouteName='扒皮返修流程'
+System.Data.SqlClient.SqlException (0x80131904): 列名 'RouteName' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 223
+ClientConnectionId:ef033e0b-6140-4333-b03b-2ebfea14d790
+Error Number:207,State:1,Class:16
+2016-12-19 15:48:32,788 - ERROR - 列名 'RouteName' 无效。
+2016-12-19 15:48:32,869 - ERROR - 列名 'RouteName' 无效。
+2016-12-19 15:48:32,869 - ERROR - 列名 'RouteName' 无效。
+2016-12-19 15:50:50,016 - ERROR - Could not execute query: select count(*) as col_0_0_ from FMM_ROUTE route0_ where RouteName='组件生产流程8.0'
+System.Data.SqlClient.SqlException (0x80131904): 列名 'RouteName' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 223
+ClientConnectionId:ef033e0b-6140-4333-b03b-2ebfea14d790
+Error Number:207,State:1,Class:16
+2016-12-19 15:50:50,085 - ERROR - 列名 'RouteName' 无效。
+2016-12-19 15:50:50,155 - ERROR - 列名 'RouteName' 无效。
+2016-12-19 15:50:50,155 - ERROR - 列名 'RouteName' 无效。
+2016-12-19 18:51:57,348 - ERROR - START>Application
+2016-12-19 19:00:35,234 - ERROR - START>Application
+2016-12-19 19:06:03,769 - ERROR - START>Application
+2016-12-19 19:14:32,935 - ERROR - START>Application
+2016-12-19 19:17:08,147 - ERROR - START>Application
+2016-12-19 19:18:18,048 - ERROR - START>Application
+2016-12-19 20:08:28,174 - ERROR - 不能将值 NULL 插入列 'ROUTE_NAME'，表 'JNMES.dbo.PPM_WORK_ORDER_ROUTE'；列不允许有 Null 值。INSERT 失败。
+语句已终止。
+2016-12-19 20:08:28,238 - ERROR - Could not synchronize database state with session
+NHibernate.Exceptions.GenericADOException: could not execute batch command.[SQL: SQL not available] ---> System.Data.SqlClient.SqlException: 不能将值 NULL 插入列 'ROUTE_NAME'，表 'JNMES.dbo.PPM_WORK_ORDER_ROUTE'；列不允许有 Null 值。INSERT 失败。
+语句已终止。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 System.Data.SqlClient.SqlCommandSet.ExecuteNonQuery()
+   在 NHibernate.AdoNet.SqlClientSqlCommandSet.ExecuteNonQuery() 位置 p:\nhibernate-core\src\NHibernate\AdoNet\SqlClientSqlCommandSet.cs:行号 117
+   在 NHibernate.AdoNet.SqlClientBatchingBatcher.DoExecuteBatch(IDbCommand ps) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\SqlClientBatchingBatcher.cs:行号 87
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 NHibernate.AdoNet.SqlClientBatchingBatcher.DoExecuteBatch(IDbCommand ps) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\SqlClientBatchingBatcher.cs:行号 91
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteBatchWithTiming(IDbCommand ps) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 413
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteBatch() 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 397
+   在 NHibernate.Engine.ActionQueue.ExecuteActions(IList list) 位置 p:\nhibernate-core\src\NHibernate\Engine\ActionQueue.cs:行号 130
+   在 NHibernate.Engine.ActionQueue.ExecuteActions() 位置 p:\nhibernate-core\src\NHibernate\Engine\ActionQueue.cs:行号 170
+   在 NHibernate.Event.Default.AbstractFlushingEventListener.PerformExecutions(IEventSource session) 位置 p:\nhibernate-core\src\NHibernate\Event\Default\AbstractFlushingEventListener.cs:行号 241
+2016-12-19 20:10:08,307 - ERROR - START>Application
+2016-12-19 20:12:41,237 - ERROR - 不能将值 NULL 插入列 'ROUTE_NAME'，表 'JNMES.dbo.PPM_WORK_ORDER_ROUTE'；列不允许有 Null 值。INSERT 失败。
+语句已终止。
+2016-12-19 20:12:41,300 - ERROR - Could not synchronize database state with session
+NHibernate.Exceptions.GenericADOException: could not execute batch command.[SQL: SQL not available] ---> System.Data.SqlClient.SqlException: 不能将值 NULL 插入列 'ROUTE_NAME'，表 'JNMES.dbo.PPM_WORK_ORDER_ROUTE'；列不允许有 Null 值。INSERT 失败。
+语句已终止。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 System.Data.SqlClient.SqlCommandSet.ExecuteNonQuery()
+   在 NHibernate.AdoNet.SqlClientSqlCommandSet.ExecuteNonQuery() 位置 p:\nhibernate-core\src\NHibernate\AdoNet\SqlClientSqlCommandSet.cs:行号 117
+   在 NHibernate.AdoNet.SqlClientBatchingBatcher.DoExecuteBatch(IDbCommand ps) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\SqlClientBatchingBatcher.cs:行号 87
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 NHibernate.AdoNet.SqlClientBatchingBatcher.DoExecuteBatch(IDbCommand ps) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\SqlClientBatchingBatcher.cs:行号 91
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteBatchWithTiming(IDbCommand ps) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 413
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteBatch() 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 397
+   在 NHibernate.Engine.ActionQueue.ExecuteActions(IList list) 位置 p:\nhibernate-core\src\NHibernate\Engine\ActionQueue.cs:行号 130
+   在 NHibernate.Engine.ActionQueue.ExecuteActions() 位置 p:\nhibernate-core\src\NHibernate\Engine\ActionQueue.cs:行号 170
+   在 NHibernate.Event.Default.AbstractFlushingEventListener.PerformExecutions(IEventSource session) 位置 p:\nhibernate-core\src\NHibernate\Event\Default\AbstractFlushingEventListener.cs:行号 241
+2016-12-19 20:16:17,677 - ERROR - 不能将值 NULL 插入列 'ROUTE_NAME'，表 'JNMES.dbo.PPM_WORK_ORDER_ROUTE'；列不允许有 Null 值。INSERT 失败。
+语句已终止。
+2016-12-19 20:16:17,737 - ERROR - Could not synchronize database state with session
+NHibernate.Exceptions.GenericADOException: could not execute batch command.[SQL: SQL not available] ---> System.Data.SqlClient.SqlException: 不能将值 NULL 插入列 'ROUTE_NAME'，表 'JNMES.dbo.PPM_WORK_ORDER_ROUTE'；列不允许有 Null 值。INSERT 失败。
+语句已终止。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 System.Data.SqlClient.SqlCommandSet.ExecuteNonQuery()
+   在 NHibernate.AdoNet.SqlClientSqlCommandSet.ExecuteNonQuery() 位置 p:\nhibernate-core\src\NHibernate\AdoNet\SqlClientSqlCommandSet.cs:行号 117
+   在 NHibernate.AdoNet.SqlClientBatchingBatcher.DoExecuteBatch(IDbCommand ps) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\SqlClientBatchingBatcher.cs:行号 87
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 NHibernate.AdoNet.SqlClientBatchingBatcher.DoExecuteBatch(IDbCommand ps) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\SqlClientBatchingBatcher.cs:行号 91
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteBatchWithTiming(IDbCommand ps) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 413
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteBatch() 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 397
+   在 NHibernate.Engine.ActionQueue.ExecuteActions(IList list) 位置 p:\nhibernate-core\src\NHibernate\Engine\ActionQueue.cs:行号 130
+   在 NHibernate.Engine.ActionQueue.ExecuteActions() 位置 p:\nhibernate-core\src\NHibernate\Engine\ActionQueue.cs:行号 170
+   在 NHibernate.Event.Default.AbstractFlushingEventListener.PerformExecutions(IEventSource session) 位置 p:\nhibernate-core\src\NHibernate\Event\Default\AbstractFlushingEventListener.cs:行号 241
+2016-12-19 20:17:34,132 - ERROR - START>Application

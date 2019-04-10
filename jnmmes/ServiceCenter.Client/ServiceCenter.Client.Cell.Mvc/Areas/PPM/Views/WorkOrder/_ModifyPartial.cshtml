@@ -1,0 +1,76 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.PPM.Models.WorkOrderViewModel
+@using ServiceCenter.Common;
+
+@Html.ValidationSummary(true)
+<div class="form-group">
+    @Html.LabelFor(m => m.OrderNumber, new { @class = "col-md-1 control-label" })
+    <div class="col-md-3">
+        <p class="form-control-static">@Model.OrderNumber</p>
+        @Html.HiddenFor(m => m.OrderNumber, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.OrderNumber)
+    </div>
+    @Html.LabelFor(m => m.MaterialCode, new { @class = "col-md-1 control-label" })
+    <div class="col-md-3">
+        @Html.TextBoxFor(m => m.MaterialCode, new { @class = "form-control", @id = "txtModifyMaterialCode",@readonly="readonly" })
+        @Html.ValidationMessageFor(m => m.MaterialCode)
+    </div>
+    @Html.LabelFor(m => m.OrderState, new { @class = "col-md-1 control-label" })
+    <div class="col-md-3">
+        @Html.DropDownListFor(m => m.OrderState, @Model.GetOrderStateList(), new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.OrderState)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.OrderType, new { @class = "col-md-1 control-label" })
+    <div class="col-md-3">
+        @Html.DropDownListFor(m => m.OrderType, @Model.GetOrderTypeList(), new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.OrderType)
+    </div>
+
+    @Html.LabelFor(m => m.LocationName, new { @class = "col-md-1 control-label" })
+    <div class="col-md-3">
+        @Html.DropDownListFor(m => m.LocationName, @Model.GetLocationNameList(), new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.LocationName)
+    </div>
+    @Html.LabelFor(m => m.OrderQuantity, new { @class = "col-md-1 control-label" })
+    <div class="col-md-3">
+        @Html.TextBoxFor(m => m.OrderQuantity, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.OrderQuantity)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.Priority, new { @class = "col-md-1 control-label" })
+    <div class="col-md-3">
+        @Html.DropDownListFor(m => m.Priority, @Model.GetWorkOrderPriorityList(), new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Priority)
+    </div>
+    @Html.LabelFor(m => m.RevenueType, new { @class = "col-md-1 control-label" })
+    <div class="col-md-3">
+        @Html.TextBoxFor(m => m.RevenueType, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.RevenueType)
+    </div>
+    @Html.LabelFor(m => m.CloseType, new { @class = "col-md-1 control-label" })
+    <div class="col-md-3">
+        @Html.DropDownListFor(m => m.CloseType, @Model.GetWorkOrderCloseTypeList(), new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.CloseType)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.StartTime, new { @class = "col-md-1 control-label" })
+    <div class="col-md-3">
+        @Html.TextBoxFor(m => m.StartTime, "{0:yyyy-MM-dd}", new { @class = "form-control", @id = "txtModifyStartTime" })
+        @Html.ValidationMessageFor(m => m.StartTime)
+    </div>
+    @Html.LabelFor(m => m.FinishTime, new { @class = "col-md-1 control-label" })
+    <div class="col-md-3">
+        @Html.TextBoxFor(m => m.FinishTime, "{0:yyyy-MM-dd}", new { @class = "form-control", @id = "txtModifyFinishTime" })
+        @Html.ValidationMessageFor(m => m.FinishTime)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.Description, new { @class = "col-sm-1 control-label" })
+    <div class="col-sm-11">
+        @Html.TextAreaFor(m => m.Description, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Description)
+    </div>
+</div>

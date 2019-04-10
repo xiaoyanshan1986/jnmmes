@@ -1,0 +1,87 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.RPT.Models.SemiProductionViewModels
+@using ServiceCenter.Client.Mvc.Resources;
+@using RPTResources = ServiceCenter.Client.Mvc.Resources.RPT;
+@using ServiceCenter.Client.Mvc.Areas.RPT.Models;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@using System.Data;
+@{
+    List<SemiProductionViewModels> list_line = new List<SemiProductionViewModels>();
+    List<SemiProductionViewModels> list_curday = new List<SemiProductionViewModels>();
+
+    DataTable dtList = new System.Data.DataTable();
+    dtList = ViewBag.dtList;
+    string strGrade = ViewBag.Grade;
+    if (dtList != null && dtList.Rows.Count > 0)
+    {
+        var cur_line = from t in dtList.AsEnumerable()
+                       group t by new { t1 = t.Field<String>("LINE_CODE") } into m
+                       select new
+                       {
+                           LINE_CODE = m.First().Field<String>("LINE_CODE")
+                       };
+        foreach (var data in cur_line)
+        {
+            SemiProductionViewModels m = new SemiProductionViewModels();
+            m.LineCode = data.LINE_CODE;
+            list_line.Add(m);
+        }
+        var cur_day = from t in dtList.AsEnumerable()
+                      group t by new { t1 = t.Field<String>("CUR_DAY") } into m
+                      select new
+                      {
+                          CUR_DAY = m.First().Field<String>("CUR_DAY")
+                      };
+        foreach (var data in cur_day)
+        {
+            SemiProductionViewModels m = new SemiProductionViewModels();
+            m.CurDay = data.CUR_DAY.ToString();
+            list_curday.Add(m);
+        }
+    }
+    int ii = 0;
+}
+@if (dtList != null)
+{
+    <table class="table table-hover table-bordered table-condensed">
+        <thead>
+            <tr class="active">
+
+                @if (ii == 0)
+                {
+                    <td></td>
+                    ii++;
+                }
+
+                @foreach (var data in list_curday)
+                {
+                    <td>@data.CurDay</td>
+                }
+
+            </tr>
+        </thead>
+        <tbody>
+            @for (int row = 0; row < dtList.Columns.Count; row++)
+            {
+                if (strGrade == dtList.Columns[row].ColumnName)
+                {
+
+                    foreach (var data in list_line)
+                    {
+                        <tr>
+                            <td>@data.LineCode</td>
+                            @for (int i = 0; i < dtList.Rows.Count; i++)
+                            {
+                                if (data.LineCode == dtList.Rows[i]["LINE_CODE"].ToString())
+                                {
+                                    <td>@dtList.Rows[i]["RATE_VALUE"]%</td>
+                                }
+                            }
+                        </tr>
+                    }
+                }
+
+            }
+        </tbody>
+    </table>
+}

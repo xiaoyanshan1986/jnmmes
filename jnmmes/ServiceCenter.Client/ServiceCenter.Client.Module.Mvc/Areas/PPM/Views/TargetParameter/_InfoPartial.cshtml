@@ -1,0 +1,92 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.PPM.Models.TargetParameterViewModel
+
+<div class="form-group">
+    @*年*@
+    @Html.LabelFor(m => m.Year, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @*@Html.DropDownListFor(m => m.Year, @Model.GetYear(), new { @class = "form-control", @readonly = "readonly" })*@
+        @Html.TextBoxFor(m => m.Year, new { @class = "form-control", @readonly = "readonly" })
+        @Html.ValidationMessageFor(m => m.Year)
+    </div>
+</div>
+
+<div class="form-group">
+    @*月*@
+    @Html.LabelFor(m => m.Month, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.Month, new { @class = "form-control", @readonly = "readonly" })
+        @Html.ValidationMessageFor(m => m.Month)
+    </div>
+</div>
+
+<div class="form-group">
+    @*日*@
+    @Html.LabelFor(m => m.Day, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @*@Html.DropDownListFor(m => m.Day, new List<SelectListItem>(), new { @class = "form-control", @readonly = "readonly" })*@
+        @Html.TextBoxFor(m => m.Day, new { @class = "form-control", @readonly = "readonly" })
+        @Html.ValidationMessageFor(m => m.Day)
+    </div>
+</div>
+
+<div class="form-group">
+    @*车间*@
+    @Html.LabelFor(m => m.LocationName, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.DropDownListFor(m => m.LocationName, @Model.GetLocationName(), string.Empty, new { @class = "form-control", @readonly = "readonly" })
+        @Html.ValidationMessageFor(m => m.LocationName)
+    </div>
+</div>
+
+<div class="form-group">
+    @*项目*@
+    @Html.LabelFor(m => m.ItemCode, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.DropDownListFor(m => m.ItemCode, @Model.GetRouteOperationList(), string.Empty, new { @class = "form-control", @readonly = "readonly" })
+        @Html.ValidationMessageFor(m => m.ItemCode)
+    </div>
+</div>
+
+<div class="form-group">
+    @*目标值*@
+    @Html.LabelFor(m => m.ValueData, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.ValueData, new { @class = "form-control", @readonly = "readonly" })
+        @Html.ValidationMessageFor(m => m.ValueData)
+    </div>
+</div>
+<div class="form-group">
+    @*创建人*@
+    @Html.LabelFor(m => m.Creator, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.Creator, new { @class = "form-control", @readonly = "readonly" })
+        @Html.ValidationMessageFor(m => m.Creator)
+    </div>
+</div>
+
+<div class="form-group">
+    @*创建日期*@
+    @Html.LabelFor(m => m.CreateTime, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.CreateTime, new { @class = "form-control", @readonly = "readonly" })
+        @Html.ValidationMessageFor(m => m.CreateTime)
+    </div>
+</div>
+
+<div class="form-group">
+    @*最后修改人*@
+    @Html.LabelFor(m => m.Editor, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.Editor, new { @class = "form-control", @readonly = "readonly" })
+        @Html.ValidationMessageFor(m => m.Editor)
+    </div>
+</div>
+
+<div class="form-group">
+    @*最后修改日期*@
+    @Html.LabelFor(m => m.EditTime, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.EditTime, new { @class = "form-control", @readonly = "readonly" })
+        @Html.ValidationMessageFor(m => m.EditTime)
+    </div>
+</div>

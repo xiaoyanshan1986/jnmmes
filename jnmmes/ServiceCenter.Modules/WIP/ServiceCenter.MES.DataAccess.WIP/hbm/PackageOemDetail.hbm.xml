@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   namespace="ServiceCenter.MES.Model.WIP"
+                   assembly="ServiceCenter.MES.Model.WIP">
+  <class name="PackageOemDetail" table="WIP_OEM_PACKAGE_DETAIL">
+    <composite-id  name="Key" class="PackageOemDetailKey">
+      <key-property name="SN" column="SN"/>
+    </composite-id >
+
+    <property name="Type" column="TYPE"/>
+    <property name="PackageNo" column="PALLET_NO"/>
+    <property name="PMP" column="PMP"/>
+    <property name="ISC" column="ISC"/>
+    <property name="VOC" column="VOC"/>
+    <property name="IMP" column="IMP"/>
+    <property name="VMP" column="VMP"/>
+    <property name="FF" column="FF"/>
+    <property name="PNOM" column="PNOM"/>
+    <property name="DL" column="DL"/>
+    <property name="Time" column="EDIT_TIME"/>
+  </class>
+</hibernate-mapping>

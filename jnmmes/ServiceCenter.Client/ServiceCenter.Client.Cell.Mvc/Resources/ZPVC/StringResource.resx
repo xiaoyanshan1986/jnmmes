@@ -1,0 +1,288 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="EfficiencyConfigurationQueryViewModel_Code" xml:space="preserve">
+    <value>配置代码</value>
+  </data>
+  <data name="EfficiencyConfigurationQueryViewModel_Group" xml:space="preserve">
+    <value>配置组名</value>
+  </data>
+  <data name="EfficiencyConfigurationViewModel_Code" xml:space="preserve">
+    <value>配置代码</value>
+  </data>
+  <data name="EfficiencyConfigurationViewModel_Color" xml:space="preserve">
+    <value>花色</value>
+  </data>
+  <data name="EfficiencyConfigurationViewModel_Grade" xml:space="preserve">
+    <value>等级</value>
+  </data>
+  <data name="EfficiencyConfigurationViewModel_Group" xml:space="preserve">
+    <value>配置组名</value>
+  </data>
+  <data name="EfficiencyConfigurationViewModel_IsUsed" xml:space="preserve">
+    <value>可用？</value>
+  </data>
+  <data name="EfficiencyConfigurationViewModel_Lower" xml:space="preserve">
+    <value>效率下限</value>
+  </data>
+  <data name="EfficiencyConfigurationViewModel_MaterialCode" xml:space="preserve">
+    <value>产品料号</value>
+  </data>
+  <data name="EfficiencyConfigurationViewModel_Upper" xml:space="preserve">
+    <value>效率上限</value>
+  </data>
+  <data name="EfficiencyConfiguration_AddTitle" xml:space="preserve">
+    <value>新增</value>
+  </data>
+  <data name="EfficiencyConfiguration_ConfirmDelete" xml:space="preserve">
+    <value>确定删除（{0}）？</value>
+  </data>
+  <data name="EfficiencyConfiguration_Delete_Success" xml:space="preserve">
+    <value>删除（{0}）成功。</value>
+  </data>
+  <data name="EfficiencyConfiguration_DetailTitle" xml:space="preserve">
+    <value>明细</value>
+  </data>
+  <data name="EfficiencyConfiguration_ManagePageTitle" xml:space="preserve">
+    <value>效率档配置管理</value>
+  </data>
+  <data name="EfficiencyConfiguration_ModifyTitle" xml:space="preserve">
+    <value>修改</value>
+  </data>
+  <data name="EfficiencyConfiguration_SaveModify_Success" xml:space="preserve">
+    <value>修改（{0}）成功。</value>
+  </data>
+  <data name="EfficiencyConfiguration_Save_Success" xml:space="preserve">
+    <value>保存（{0}）成功。</value>
+  </data>
+  <data name="PackageViewModel_Code" xml:space="preserve">
+    <value>分类编号</value>
+  </data>
+  <data name="PackageViewModel_Color" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="PackageViewModel_Grade" xml:space="preserve">
+    <value>等级</value>
+  </data>
+  <data name="PackageViewModel_Group" xml:space="preserve">
+    <value>配置组</value>
+  </data>
+  <data name="PackageViewModel_LineCode" xml:space="preserve">
+    <value>线别</value>
+  </data>
+  <data name="PackageViewModel_Lower" xml:space="preserve">
+    <value>效率下限</value>
+  </data>
+  <data name="PackageViewModel_MaterialCode" xml:space="preserve">
+    <value>产品料号</value>
+  </data>
+  <data name="PackageViewModel_Name" xml:space="preserve">
+    <value>效率名称</value>
+  </data>
+  <data name="PackageViewModel_OrderNumber" xml:space="preserve">
+    <value>工单号</value>
+  </data>
+  <data name="PackageViewModel_PackageNo" xml:space="preserve">
+    <value>包号</value>
+  </data>
+  <data name="PackageViewModel_PrinterName" xml:space="preserve">
+    <value>打印机名称</value>
+  </data>
+  <data name="PackageViewModel_PrintLabelCode" xml:space="preserve">
+    <value>打印标签</value>
+  </data>
+  <data name="PackageViewModel_PrintQty" xml:space="preserve">
+    <value>打印数量</value>
+  </data>
+  <data name="PackageViewModel_Qty" xml:space="preserve">
+    <value>每包数量</value>
+  </data>
+  <data name="PackageViewModel_Upper" xml:space="preserve">
+    <value>效率上限</value>
+  </data>
+  <data name="Package_ManagePageTitle" xml:space="preserve">
+    <value>电池成包作业</value>
+  </data>
+  <data name="PackageViewModel_ProductNumber" xml:space="preserve">
+    <value>产品料号</value>
+  </data>
+  <data name="EfficiencyConfigurationViewModel_EffiCode" xml:space="preserve">
+    <value>效率代码</value>
+  </data>
+  <data name="EfficiencyConfigurationViewModel_EffiName" xml:space="preserve">
+    <value>效率名称</value>
+  </data>
+  <data name="PackageViewModel_PNType" xml:space="preserve">
+    <value>导电类型</value>
+  </data>
+  <data name="PackageViewModel_ConfirmDelete" xml:space="preserve">
+    <value>确定删除包（{0}）数据？</value>
+  </data>
+  <data name="PackageQuery_ManagePageTitle" xml:space="preserve">
+    <value>电池小包数据查询</value>
+  </data>
+  <data name="PackageNo" xml:space="preserve">
+    <value>包号</value>
+  </data>
+  <data name="PackageQueryViewModel_EndCreateTime" xml:space="preserve">
+    <value>包装时间（止）</value>
+  </data>
+  <data name="PackageQueryViewModel_StartCreateTime" xml:space="preserve">
+    <value>包装时间（起）</value>
+  </data>
+  <data name="PackagePrint_ManagePageTitle" xml:space="preserve">
+    <value>电池小包标签打印</value>
+  </data>
+  <data name="BoxViewModel_BoxNo" xml:space="preserve">
+    <value>箱号</value>
+  </data>
+  <data name="BoxViewModel_CurrentQuantity" xml:space="preserve">
+    <value>当前数量</value>
+  </data>
+  <data name="BoxViewModel_FullQuantity" xml:space="preserve">
+    <value>满箱数量</value>
+  </data>
+  <data name="BoxViewModel_PackageNo" xml:space="preserve">
+    <value>包号</value>
+  </data>
+  <data name="Box_ManagePageTitle" xml:space="preserve">
+    <value>电池装箱作业</value>
+  </data>
+  <data name="PackageDetail_ConfirmDelete" xml:space="preserve">
+    <value>确认将包 {0} 从箱中移除？</value>
+  </data>
+  <data name="BoxQueryViewModel_EndCreateTime" xml:space="preserve">
+    <value>装箱时间（止）</value>
+  </data>
+  <data name="BoxQueryViewModel_StartCreateTime" xml:space="preserve">
+    <value>装箱时间（起）</value>
+  </data>
+  <data name="BoxQuery_ManagePageTitle" xml:space="preserve">
+    <value>电池箱数据查询</value>
+  </data>
+  <data name="BoxPrint_ManagePageTitle" xml:space="preserve">
+    <value>电池箱标签打印</value>
+  </data>
+  <data name="PackageViewModel_Style" xml:space="preserve">
+    <value>外观样式</value>
+  </data>
+  <data name="PackageViewModel_Technology" xml:space="preserve">
+    <value>制作工艺</value>
+  </data>
+</root>

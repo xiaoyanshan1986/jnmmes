@@ -1,0 +1,67 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.EMS.Models.EquipmentStateEventViewModel
+
+<div class="form-group">
+    @Html.LabelFor(m => m.ProductionLine, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.DropDownListFor(m => m.ProductionLine, @Model.GetProductionLineList(), new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.ProductionLine)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.RouteOperationName, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.DropDownListFor(m => m.RouteOperationName,@Model.GetRouteOperaionNameList(), new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.RouteOperationName)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.EquipmentCode, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.DropDownListFor(m => Model.EquipmentCode, new List<SelectListItem>(), new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.EquipmentCode)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.FromStateName, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.FromStateName, new { @class = "form-control", @readonly = "readonly" })
+        @Html.ValidationMessageFor(m => m.FromStateName)
+        <p></p>
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.ChangeStateName, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.DropDownListFor(m => m.ChangeStateName, new List<SelectListItem>(), new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.ChangeStateName)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.ToStateName, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.ToStateName, new { @class = "form-control", @readonly = "readonly" })
+        @Html.ValidationMessageFor(m => m.ToStateName)
+        <p></p>
+    </div>
+</div>
+<div class="form-group">
+@Html.LabelFor(m => m.ReasonCodeCategoryName, new { @class = "col-md-3 control-label" })
+<div class="col-md-9">
+    @Html.DropDownListFor(m => m.ReasonCodeCategoryName, @Model.GetEquipmentReasonCodeCategoryName(), new { @class = "form-control"})
+    @Html.ValidationMessageFor(m => m.ReasonCodeCategoryName)
+</div>
+</div>
+<div class="form-group">
+ @Html.LabelFor(m => m.ReasonCodeName, new { @class = "col-md-3 control-label" })
+<div class="col-md-9">
+    @Html.DropDownListFor(m => Model.ReasonCodeName, new List<SelectListItem>(), new { @class = "form-control" })
+    @Html.ValidationMessageFor(m => m.ReasonCodeName)
+</div> 
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.Description, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextAreaFor(m => m.Description, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Description)
+    </div>
+</div>

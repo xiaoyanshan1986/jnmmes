@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   namespace="ServiceCenter.MES.Model.ZPVM" 
+                   assembly="ServiceCenter.MES.Model.ZPVM">
+  <class name="Rule" table="ZFMM_RULE">
+    <id name="Key" column="RULE_CODE">
+      <generator class="assigned" />
+    </id>
+    <property name="Name" column="RULE_NAME"/>
+    <property name="PowersetCode" column="PS_CODE"/>
+    <property name="FullPackageQty" column="FULLPACKAGE_QTY"/>
+    <property name="PowerDegree" column="POWER_DEGREE"/>
+    <property name="MinPower" column="MIN_POWER"/>
+    <property name="MaxPower" column="MAX_POWER"/>
+    <property name="CalibrationType" column="CALIBRATION_TYPE"/>
+    <property name="CalibrationCycle" column="CALIBRATION_CYCLE"/>
+    <property name="FixCycle" column="FIX_CYCLE"/>
+    <property name="Description" column="DESCRIPTION"/>
+    <property name="IsUsed" column="IS_USED"/>
+    <property name="Creator" column="CREATOR"/>
+    <property name="CreateTime" column="CREATE_TIME"/>
+    <property name="Editor" column="EDITOR"/>
+    <property name="EditTime" column="EDIT_TIME"/>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,136 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.ZPVC.Models.EfficiencyConfigurationViewModel
+@using ServiceCenter.Client.Mvc.Areas.ZPVC.Models;
+@using ServiceCenter.Client.Mvc.Resources;
+@using ZPVCResources = ServiceCenter.Client.Mvc.Resources.ZPVC;
+@using ServiceCenter.MES.Model.ZPVC;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@{
+    PagingConfig cfg = ViewBag.PagingConfig;
+}
+<div id="_list">
+    <table class="table table-hover table-bordered table-condensed">
+        <thead>
+            <tr class="active">
+                <td>@StringResource.ItemNo</td>
+                <td>@Html.DisplayNameFor(m => m.Group)</td>
+                <td>@Html.DisplayNameFor(m => m.Code)</td>
+                <td>@Html.DisplayNameFor(m => m.EffiCode)</td>
+                <td>@Html.DisplayNameFor(m => m.EffiName)</td>
+                <td>@Html.DisplayNameFor(m => m.Lower)</td>
+                <td>@Html.DisplayNameFor(m => m.Upper)</td>
+                <td>@Html.DisplayNameFor(m => m.Grade)</td>
+                <td>@Html.DisplayNameFor(m => m.Color)</td>
+                <td>@Html.DisplayNameFor(m => m.MaterialCode)</td>
+                <td>@Html.DisplayNameFor(m => m.IsUsed)</td>
+                <td>@Html.DisplayNameFor(m => m.Editor)</td>
+                <td>@Html.DisplayNameFor(m => m.EditTime)</td>
+                <td>@StringResource.Detail</td>
+                <td>@StringResource.Modify</td>
+                <td>@StringResource.Delete</td>
+            </tr>
+        </thead>
+        @if (ViewBag.List != null)
+        {
+            <tbody>
+                @for (int i = 0; i < ViewBag.List.Length; i++)
+                {
+                    EfficiencyConfiguration obj = ViewBag.List[i];
+                    <tr>
+                        <td>@(cfg.PageSize * cfg.PageNo+i+1)</td>
+                        <td>
+                            @obj.Key.Group
+                        </td>
+                        <td>
+                            @obj.Key.Code
+                        </td>
+                        <td>
+                            @obj.Code
+                        </td>
+                        <td>
+                            @obj.Name
+                        </td>
+                        <td>
+                            @obj.Lower
+                        </td>
+                        <td>
+                            @obj.Upper
+                        </td>
+                        <td>
+                            @obj.Grade
+                        </td>
+                        <td>
+                            @obj.Color
+                        </td>
+                        <td>
+                            @obj.MaterialCode
+                        </td>
+                        <td>
+                            @(obj.IsUsed ? StringResource.Yes : StringResource.No)
+                        </td>
+                        <td>@obj.Editor</td>
+                        <td>@string.Format("{0:yyyy-MM-dd HH:mm:ss}",obj.EditTime)</td>
+                        <td>
+                            @Ajax.ActionLink(StringResource.Detail, actionName: null
+                                            , routeValues: null
+                                            , ajaxOptions:new AjaxOptions() 
+                                            { 
+                                                HttpMethod = "Post", 
+                                                UpdateTargetId = "detailInfo",
+                                                OnSuccess = "showInfoModal",
+                                                Url = Url.Action("Detail", new { @Code = obj.Key.Code, @Group = obj.Key.Group })
+                                            })
+                        </td>
+                        <td>
+                            @Ajax.ActionLink(StringResource.Modify, actionName: null
+                                            ,routeValues:null
+                                            ,ajaxOptions:new AjaxOptions()
+                                            {
+                                                HttpMethod = "Post",
+                                                UpdateTargetId = "modifyFormContent",
+                                                OnSuccess = "showModifyModal",
+                                                Url = Url.Action("Modify", new { @Code = obj.Key.Code, @Group = obj.Key.Group })
+                                            })
+                        </td>
+                        <td>
+                            @Ajax.ActionLink(StringResource.Delete, actionName: null
+                                            , routeValues: null
+                                            , ajaxOptions:new AjaxOptions()
+                                            {
+                                                HttpMethod = "Post",
+                                                Confirm = string.Format(ZPVCResources.StringResource.EfficiencyConfiguration_ConfirmDelete, obj.Key),
+                                                Url = Url.Action("Delete", new { @Code = obj.Key.Code, @Group = obj.Key.Group }),
+                                                OnSuccess = "completeDelete"
+                                            })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        }
+    </table>
+    <div style="margin-top:-18px">
+        @if (cfg != null)
+        {
+            using (Ajax.BeginForm("PagingQuery", "EfficiencyConfiguration"
+                            , new
+                            {
+                                @Where = cfg.Where,
+                                @OrderBy = cfg.OrderBy,
+                                @CurrentPageNo = cfg.PageNo,
+                                @CurrentPageSize = cfg.PageSize
+                            }
+                            , new AjaxOptions()
+                            {
+                                HttpMethod = "Post",
+                                UpdateTargetId = "_list"
+                            }
+                            , new { @class = "form-horizontal", resource = "form", id = "frmPagingQuery" }))
+            {
+                @Html.AntiForgeryToken()
+                <div>@Html.Partial("_PaginationPartial")</div>
+            }
+        }
+    </div>
+</div>
+
+

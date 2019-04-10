@@ -1,0 +1,98 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.RPT.Models.WIPMoveQueryViewModel
+@using ServiceCenter.Client.Mvc.Resources;
+@using RPTResources = ServiceCenter.Client.Mvc.Resources.RPT;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@using System.Data;
+@using ServiceCenter.MES.Model.WIP;
+@{
+    DataTable dtList = ViewBag.ListData;
+    string key = ViewBag.Key;
+    string col0Val = string.Empty;
+    string col1Val = string.Empty;
+}
+<div style="text-align:center">
+    <img src="@Url.Action("ShowChartImage", "WIPMove", new { @Key = key })" />
+</div>
+@if(dtList!=null)
+{
+<table class="table table-hover table-bordered table-condensed">
+    <thead>
+        <tr class="active">
+            @for (int i = 0; i < dtList.Columns.Count; i++)
+            {
+                <td>@dtList.Columns[i].Caption</td>
+            }
+        </tr>
+    </thead>
+    <tbody>
+        @for (int row = 0; row < dtList.Rows.Count; row++)
+        {
+            <tr>
+                @for (int col = 0; col < dtList.Columns.Count; col++)
+                {
+                    string val = Convert.ToString(dtList.Rows[row][col]);
+                    if (col == 0 && col0Val != val)
+                    {
+                        int rowspan = dtList
+                                        .AsEnumerable()
+                                        .Where(dr => Convert.ToString(dr[col]) == val)
+                                        .Count();
+                        string curDay = Convert.ToString(dtList.Rows[row][col]);
+                        if (curDay != "合计")
+                        {
+                            curDay = string.Format("{0:yyyy-MM-dd}", Convert.ToDateTime(dtList.Rows[row][col]));
+                        }
+                        <td rowspan="@rowspan" align="center" valign="middle" nowrap style="vertical-align:middle">
+                            @curDay
+                        </td>
+                        col0Val = val;
+                        col1Val = string.Empty;
+                    }
+                    else if (col == 1 && col1Val != val && col0Val == Convert.ToString(dtList.Rows[row][col - 1]))
+                    {
+                        int rowspan = dtList
+                                        .AsEnumerable()
+                                        .Where(dr => Convert.ToString(dr[col]) == val && Convert.ToString(dr[col - 1]) == col0Val)
+                                        .Count();
+                        <td rowspan="@rowspan" align="center" valign="middle" nowrap style="vertical-align:middle">
+                            @dtList.Rows[row][col]
+                        </td>
+                        col1Val = val;
+                    }
+                    else if (col == 2)
+                    {
+                        EnumLotActivity activity = (EnumLotActivity)Convert.ToInt32(dtList.Rows[row][col]);
+                        <td nowrap>
+                            @activity.GetDisplayName()
+                        </td>
+                    }
+                    else if (col > 2)
+                    {
+                        string routeOperationName = dtList.Columns[col].ColumnName;
+                        string date = Convert.ToString(dtList.Rows[row][0]);
+                        string shift = Convert.ToString(dtList.Rows[row][1]);
+                        string activity = Convert.ToString(dtList.Rows[row][2]);
+                        var url = Url.Action("Detail")+"?routeOperationName=" + routeOperationName;
+                        url += "&date=" + date;
+                        url += "&ShiftName=" + shift;
+                        url += "&activity=" + activity;
+                        url += "&locationName=" + Model.LocationName;
+                        url += "&materialCode=" + Model.MaterialCode;
+                        url += "&orderNumber=" + Model.OrderNumber;
+                        url += "&startDate=" + Model.StartDate;
+                        url += "&endDate=" + Model.EndDate;
+
+                        
+                        <td nowrap>
+                            <a href="@url" target="_blank">
+                                @dtList.Rows[row][col]
+                            </a>
+                        </td>
+                    }
+                }
+            </tr>
+        }
+    </tbody>
+</table>
+}

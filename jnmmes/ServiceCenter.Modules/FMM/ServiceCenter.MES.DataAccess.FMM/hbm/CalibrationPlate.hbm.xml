@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   namespace="ServiceCenter.MES.Model.FMM" 
+                   assembly="ServiceCenter.MES.Model.FMM">
+  <class name="CalibrationPlate" table="FMM_CALIBRATION_PLATE">
+    <id name="Key" column="CALIBRATION_PLATE_ID">
+      <generator class="assigned" />
+    </id>
+    <property name="CalibrationPlateType" column="CALIBRATION_PLATE_TYPE"/>
+    <property name="CalibrationPlateName" column="CALIBRATION_PLATE_NAME"/>
+    <property name="PM" column="PM"/>
+    <property name="ISC" column="ISC"/>
+    <property name="VOC" column="VOC"/>
+    <property name="MaxPM" column="MAX_PM"/>
+    <property name="MinPM" column="MIN_PM"/>
+    <property name="MaxISC" column="MAX_ISC"/>
+    <property name="MinISC" column="MIN_ISC"/>
+    <property name="MaxVOC" column="MAX_VOC"/>
+    <property name="MinVOC" column="MIN_VOC"/>
+    <property name="StdIsc1" column="STDISC1"/>
+    <property name="StdIsc2" column="STDISC2"/>
+    <property name="Stdsun1" column="STDSUN1"/>
+    <property name="Stdsun2" column="STDSUN2"/>
+    <property name="Explain" column="EXPLAIN"/>
+    <property name="Creator" column="CREATOR"/>
+    <property name="CreateTime" column="CREATE_TIME"/>
+    <property name="Editor" column="EDITOR"/>
+    <property name="EditTime" column="EDIT_TIME"/>
+  </class>
+</hibernate-mapping>
+
+
+
+
+
+
+
+
+
+

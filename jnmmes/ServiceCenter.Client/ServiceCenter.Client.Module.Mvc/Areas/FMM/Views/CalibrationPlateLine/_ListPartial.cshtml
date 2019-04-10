@@ -1,0 +1,92 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.FMM.Models.CalibrationPlateLineViewModel
+@using ServiceCenter.Client.Mvc.Areas.FMM.Models;
+@using ServiceCenter.Client.Mvc.Resources;
+@using FMM = ServiceCenter.Client.Mvc.Resources.FMM;
+@using ServiceCenter.MES.Model.FMM;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@{
+    Layout = null;
+    PagingConfig cfg = ViewBag.PagingConfig;
+}
+<div id="_list">
+    <table class="table table-hover table-bordered table-condensed">
+        <thead>
+            <tr class="active">
+                <td>@StringResource.ItemNo</td>
+                <td>@Html.DisplayNameFor(m => m.CalibrationPlateID)</td>
+                <td>@Html.DisplayNameFor(m => m.LocationName)</td>
+                <td>@Html.DisplayNameFor(m => m.LineCode)</td>
+                <td>@Html.DisplayNameFor(m => m.Explain)</td>
+                <td>@Html.DisplayNameFor(m => m.Creator)</td>
+                <td>@Html.DisplayNameFor(m => m.CreateTime)</td>
+                <td>@Html.DisplayNameFor(m => m.Editor)</td>
+                <td>@Html.DisplayNameFor(m => m.EditTime)</td>
+                <td>修改</td>
+                <td>删除</td>
+            </tr>
+        </thead>
+        @if (ViewBag.List != null)
+        {
+            <tbody>
+                @for (int i = 0; i < ViewBag.List.Length; i++)
+                {
+                    CalibrationPlateLine obj = ViewBag.List[i];
+                    if (obj != null)
+                    {
+                        <tr>
+                            <td>@(i + 1)</td>
+                            <td>
+                                @obj.Key.CalibrationPlateID
+                            </td>                            
+                            <td>
+                                @obj.Key.LocationName
+                            </td>
+                            <td>
+                                @obj.Key.LineCode
+                            </td>
+                            <td>
+                                @obj.Explain
+                            </td>
+                            <td>
+                                @obj.Creator
+                            </td>
+                            <td>
+                                @obj.CreateTime
+                            </td>
+                            <td>
+                                @obj.Editor
+                            </td>
+                            <td>@obj.EditTime</td>
+                            <td>
+                                @Ajax.ActionLink(StringResource.Modify
+                                            ,actionName: null
+                                            , routeValues: null
+                                            , ajaxOptions: new AjaxOptions()
+                                            {
+                                                HttpMethod = "Post",
+                                                UpdateTargetId = "modifyFormContent",
+                                                OnSuccess = "showModifyModal",
+                                                Url = Url.Action("Modify", "CalibrationPlateLine", new { @CalibrationPlateID = obj.Key.CalibrationPlateID,@LocationName = obj.Key.LocationName,@LineCode=obj.Key.LineCode })
+                                            })
+                            </td>
+                            <td>
+                                @Ajax.ActionLink(StringResource.Delete, actionName: null
+                                            , routeValues: null
+                                            , ajaxOptions: new AjaxOptions()
+                                            {
+                                                HttpMethod = "Post",
+                                                Confirm = string.Format("确定删除规则 ( {0}） ？", obj.Key),
+                                                Url = Url.Action("Delete", "CalibrationPlateLine", new { @CalibrationPlateID = obj.Key.CalibrationPlateID, @LocationName = obj.Key.LocationName, @LineCode = obj.Key.LineCode }),
+                                                OnSuccess = "completeDelete"
+                                            })
+                            </td>
+
+
+                        </tr>
+                    }
+                }
+            </tbody>
+        }
+    </table>
+</div>

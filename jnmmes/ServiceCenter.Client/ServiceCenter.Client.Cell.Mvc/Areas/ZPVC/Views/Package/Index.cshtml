@@ -1,0 +1,388 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.ZPVC.Models.PackageViewModel
+@using ServiceCenter.MES.Model.ZPVC;
+@using ServiceCenter.Model;
+@using ServiceCenter.Common;
+@using ServiceCenter.Client.Mvc.Areas.ZPVC.Models;
+@using ZPVCRsources = ServiceCenter.Client.Mvc.Resources.ZPVC;
+@using ServiceCenter.Client.Mvc.Resources;
+
+@{
+    ViewBag.Title = ZPVCRsources.StringResource.Package_ManagePageTitle;
+}
+<h2>@ViewBag.Title</h2>
+@using (Ajax.BeginForm("Save", "Package", null
+                    , new AjaxOptions()
+                    {
+                        HttpMethod = "Post",
+                        OnSuccess = "completeSave",
+                        OnBegin = "beginSave"
+                    }
+                    , new { @class = "form-horizontal", resource = "form", id = "frmPackage", autocomplete = "off" }))
+{
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <input type="submit" value="@StringResource.Save" class="btn btn-primary" id="btnSave" />
+    </div>
+    <div class="panel-body">
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        <div class="form-group">
+            <div class="col-md-2">
+                @Html.LabelFor(m => m.LineCode, new { @class = "control-label" })
+            </div>
+            <div class="col-md-2">
+                @Html.DropDownListFor(m => m.LineCode,@Model.GetProductionLineList(), new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.LineCode)
+            </div>
+            <div class="col-md-2">
+                @Html.LabelFor(m => m.OrderNumber, new { @class = "control-label" })
+            </div>
+            <div class="col-md-2">
+                @Html.DropDownListFor(m => m.OrderNumber, @Model.GetOrderNumberList(),string.Empty, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.OrderNumber)
+            </div>
+            <div class="col-md-2">
+                @Html.LabelFor(m => m.ProductNumber, new { @class = "control-label" })
+            </div>
+            <div class="col-md-2">
+                @Html.TextBoxFor(m => m.ProductNumber, new { @class = "form-control", @readonly = "readonly" })
+                @Html.ValidationMessageFor(m => m.ProductNumber)
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-2">
+                @Html.LabelFor(m => m.PrinterName, new { @class = "control-label" })
+            </div>
+            <div class="col-md-2">
+                @Html.DropDownListFor(m => m.PrinterName, @Model.GetPrinterNameList(), new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.PrinterName)
+            </div>
+            <div class="col-md-2">
+                @Html.LabelFor(m => m.PrintLabelCode, new { @class = "control-label" })
+            </div>
+            <div class="col-md-2">
+                @Html.DropDownListFor(m => m.PrintLabelCode, @Model.GetLabelCodeList(), new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.PrintLabelCode)
+            </div>
+            <div class="col-md-2">
+                @Html.LabelFor(m => m.PrintQty, new { @class = "control-label" })
+            </div>
+            <div class="col-md-2">
+                @Html.TextBoxFor(m => m.PrintQty, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.PrintQty)
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-2">
+                @Html.LabelFor(m => m.Group, new { @class = "control-label" })
+            </div>
+            <div class="col-md-2">
+                @Html.DropDownListFor(m => m.Group, @Model.GetGroupList(), new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Group)
+            </div>
+            <div class="col-md-2">
+                @Html.LabelFor(m => m.Qty, new { @class = "control-label" })
+            </div>
+            <div class="col-md-2">
+                @Html.TextBoxFor(m => m.Qty, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Qty)
+            </div>
+            <div class="col-md-2">
+                @Html.LabelFor(m => m.PNType, new { @class = "control-label" })
+            </div>
+            <div class="col-md-2">
+                @Html.DropDownListFor(m => m.PNType, @Model.GetPNTypeList(), new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.PNType)
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-2">
+                @Html.LabelFor(m => m.Style, new { @class = "control-label" })
+            </div>
+            <div class="col-md-2">
+                @Html.DropDownListFor(m => m.Style, @Model.GetStyleList(), new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Style)
+            </div>
+            <div class="col-md-2">
+                @Html.LabelFor(m => m.Technology, new { @class = "control-label" })
+            </div>
+            <div class="col-md-2">
+                @Html.DropDownListFor(m => m.Technology, @Model.GetTechnologyList(), new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Technology)
+            </div>
+        </div>
+        <div class="alert fade in hide" resource="alert" id="statusMessage" style="margin:0px">
+            <button type="button" class="close" onclick="hideStatusMessage()">
+                <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+            </button>
+            <p></p>
+        </div>
+        <div class="form-group has-success">
+            <div class="col-md-6">
+                @Html.LabelFor(m => m.Code, new { @class = "control-label" })
+                @Html.TextBoxFor(m => m.Code, new { @class = "form-control", @style = "height:50px;font-size:20px;text-transform:uppercase;" })
+                @Html.ValidationMessageFor(m => m.Code)
+            </div>
+            <div class="col-md-6">
+                @Html.LabelFor(m => m.PackageNo, new { @class = "control-label" })
+                @Html.TextBoxFor(m => m.PackageNo, new { @class = "form-control", @style = "height:50px;font-size:20px;text-transform:uppercase;" })
+                @Html.ValidationMessageFor(m => m.PackageNo)
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-2">
+                @Html.LabelFor(m => m.Name, new { @class = "control-label" })
+            </div>
+            <div class="col-md-2">
+                @Html.TextBoxFor(m => m.Name, new { @class = "form-control", @readonly = "readonly" })
+                @Html.ValidationMessageFor(m => m.Name)
+            </div>
+            <div class="col-md-2">
+                @Html.LabelFor(m => m.Lower, new { @class = "control-label" })
+            </div>
+            <div class="col-md-2">
+                @Html.TextBoxFor(m => m.Lower, new { @class = "form-control", @readonly = "readonly" })
+                @Html.ValidationMessageFor(m => m.Lower)
+            </div>
+            <div class="col-md-2">
+                @Html.LabelFor(m => m.Upper, new { @class = "control-label" })
+            </div>
+            <div class="col-md-2">
+                @Html.TextBoxFor(m => m.Upper, new { @class = "form-control", @readonly = "readonly" })
+                @Html.ValidationMessageFor(m => m.Upper)
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-2">
+                @Html.LabelFor(m => m.Grade, new { @class = "control-label" })
+            </div>
+            <div class="col-md-2">
+                @Html.TextBoxFor(m => m.Grade, new { @class = "form-control", @readonly = "readonly" })
+                @Html.ValidationMessageFor(m => m.Grade)
+            </div>
+            <div class="col-md-2">
+                @Html.LabelFor(m => m.Color, new { @class = "control-label" })
+            </div>
+            <div class="col-md-2">
+                @Html.TextBoxFor(m => m.Color, new { @class = "form-control", @readonly = "readonly" })
+                @Html.ValidationMessageFor(m => m.Color)
+            </div>
+            <div class="col-md-2">
+                @Html.LabelFor(m => m.MaterialCode, new { @class = "control-label" })
+            </div>
+            <div class="col-md-2">
+                @Html.TextBoxFor(m => m.MaterialCode, new { @class = "form-control", @readonly = "readonly" })
+                @Html.ValidationMessageFor(m => m.MaterialCode)
+            </div>
+        </div>
+    </div>
+
+</div>
+}
+@Ajax.ActionLink("刷新", "Query",null, new AjaxOptions()
+{
+    HttpMethod = "Post",
+    OnBegin = "beginQuery",
+    UpdateTargetId = "list"
+}, new { @id="btnQuery",@class="btn btn-default" })
+<div id="list" style="overflow:auto">
+    @Html.Partial("_ListPartial", Model)
+</div>
+
+@section Scripts {
+    <script type="text/javascript" language="javascript">
+        $(function () {
+
+            $("body").keypress(function (args) {
+                if (args.ctrlKey == true && args.keyCode == 13) {
+                    $("#btnSave").click();
+                }
+            });
+
+            registerCodeClientEvent();
+
+            var texts = $("#frmPackage").find(":text:visible:enabled,:checkbox:visible:enabled,textarea:visible:enabled,select:visible:enabled")
+                                        .not("[readonly]");
+            texts.focus(function () {
+                    $(this).select();
+                })
+                .keypress(function (args) {
+                    if (args.ctrlKey == false && args.keyCode == 13) {
+                        var index = texts.index(this)+1;
+                        if (index < texts.length) {
+                            texts.eq(index).focus().select();
+                            return false;
+                        }
+                        else {
+                            //texts.eq(0).focus().select();
+                            $("#btnSave").focus();
+                            return false;
+                        }
+                    }
+                });
+            texts.eq(0).focus();
+
+            $("#LineCode").change(function () {
+                $("#Code").val("");
+                $("#PackageNo").val("");
+                refreshList();
+            });
+            
+
+            $("#OrderNumber").change(function () {
+                changeProductNumber();
+            });
+            refreshList();
+        });
+
+        function changeProductNumber() {
+
+            $("#ProductNumber").val(""); //清空
+            $("#MaterialCode").val("");
+            var url = "@Url.Action("GetProductNumber", "Package", new { area = "ZPVC" })";
+            var timestamp = Math.round(new Date().getTime() / 1000);
+            var orderNumber = $("#OrderNumber").val();
+
+            if (orderNumber == "") {
+                return;
+            }
+            var reqdata = { OrderNumber: orderNumber, timestamp: timestamp };
+
+            $.getJSON(url, reqdata, function (data) {
+                $("#ProductNumber").val(data);
+                $("#MaterialCode").val(data);
+            });
+
+        }
+
+
+        function registerCodeClientEvent() {
+
+            var url = "@Url.Action("GetCode", "Package", new { area = "ZPVC" })";
+            $("#Code").autocomplete({
+                source: function (request, response) {
+                    var term = request.term.toUpperCase();
+                    var group = $("#Group").val();
+                    var lineCode = $("#LineCode").val();
+                    var timestamp = Math.round(new Date().getTime() / 1000);
+                    var reqdata = { q: term, group: group, lineCode: lineCode,isChange:false, timestamp: timestamp };
+
+                    $.getJSON(url, reqdata, function (data, status, xhr) {
+                        response(data);
+                    });
+                },
+                minLength: 1,
+                autoFocus: true,
+                change: function () {
+                    
+                    $("#Name").val("");
+                    $("#Lower").val("");
+                    $("#Upper").val("");
+                    $("#Grade").val("");
+                    $("#Color").val("");
+                    
+                    var val = $(this).val().toUpperCase();
+                    var valid = false;
+                    var obj = $(this);
+                    var group = $("#Group").val();
+                    var lineCode = $("#LineCode").val();
+                    var timestamp = Math.round(new Date().getTime() / 1000);
+                    var reqdata = { q: val, group: group, lineCode: lineCode, isChange: true, timestamp: timestamp };
+
+                    $.getJSON(url, reqdata, function (data, status, xhr) {
+
+                        $("#Name").val("");
+                        $("#Lower").val("");
+                        $("#Upper").val("");
+                        $("#Grade").val("");
+                        $("#Color").val("");
+                        $(data).each(function (index, item) {
+                            if (item.value.toUpperCase() == val) {
+                                valid = true;
+                                $("#Name").val(item.Name);
+                                $("#Lower").val(item.Lower);
+                                $("#Upper").val(item.Upper);
+                                $("#Grade").val(item.Grade);
+                                $("#Color").val(item.Color);
+
+                                if ($("#PackageNo").val().toUpperCase() == "") {
+                                    $("#PackageNo").val(item.PackageNo);
+                                }
+
+                                if (item.MaterialCode != "") {
+                                    $("#MaterialCode").val(item.MaterialCode);
+                                }
+                                return false;
+                            }
+                        });
+                        if (valid == false) {
+                            setTimeout(function () { $(obj).val(""); $(obj).focus(); }, 0);
+                        }
+                        else {
+                            $("#btnSave").click();
+                        }
+                    });
+                }
+            });
+        }
+
+        //隐藏状态消息
+        function hideStatusMessage() {
+            $("#statusMessage").addClass("hide");
+        }
+
+        function beginSave() {
+            $("input,select").attr("disabled", "disabled");
+            $(".btn").attr("disabled", "disabled");
+            hideStatusMessage();
+        }
+
+        function completeSave(result, status, xhr) {
+            $("input,select").removeAttr("disabled");
+            $(".btn").removeAttr("disabled");
+            if (xhr.status == 200) {
+                showErrorInfo(result);
+            }
+            else {
+                var rst = { Code: xhr.statusCode, Message: status + ":" + response };
+                showErrorInfo(rst);
+            }
+            $("#Code").val("");
+            $("#PackageNo").val("");
+            $("#Name").val("");
+            $("#Lower").val("");
+            $("#Upper").val("");
+            $("#Grade").val("");
+            $("#Color").val("");
+            $("#PackageNo").val("");
+            $("#MaterialCode").val($("#ProductNumber").val());
+            $("#Code").focus().select();
+        }
+
+        function showErrorInfo(result) {
+            $("#statusMessage").find("p").html(result.Message);
+            $("#statusMessage").removeClass("hide");
+            if (result.Code > 0) {
+                $("#statusMessage").removeClass("alert-success");
+                $("#statusMessage").addClass("alert-danger");
+            }
+            else {
+                $("#statusMessage").removeClass("alert-danger");
+                $("#statusMessage").addClass("alert-success");
+                refreshList();
+            }
+        }
+
+        function beginQuery(obj,req) {
+            var data = $("#LineCode").val();
+            req.data += "&LineCode=" + data;
+        }
+
+        //刷新列表
+        function refreshList() {
+            if ($("#btnQuery").length > 0) {
+                $("#btnQuery").click();
+            }
+        }
+    </script>
+}

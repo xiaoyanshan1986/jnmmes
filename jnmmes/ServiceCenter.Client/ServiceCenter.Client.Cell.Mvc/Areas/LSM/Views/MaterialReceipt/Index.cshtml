@@ -1,0 +1,579 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.LSM.Models.MaterialReceiptQueryViewModel
+@using ServiceCenter.MES.Model.LSM;
+@using ServiceCenter.Model;
+@using ServiceCenter.Common;
+@using ServiceCenter.Client.Mvc.Areas.LSM.Models;
+@using LSMRsources = ServiceCenter.Client.Mvc.Resources.LSM;
+@using ServiceCenter.Client.Mvc.Resources;
+
+@{
+    ViewBag.Title = LSMRsources.StringResource.MaterialReceipt_ManagePageTitle;
+}
+<h2>@ViewBag.Title</h2>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <a href="javascript:showAddModal()" class="btn btn-primary">@StringResource.Add</a>
+    </div>
+    <div class="panel-body">
+        @using (Ajax.BeginForm("Query", "MaterialReceipt", null
+            , new AjaxOptions()
+            {
+                HttpMethod = "Post",
+                OnBegin = "beginQuery",
+                UpdateTargetId = "list"
+            }
+            , new { @class = "form-horizontal", resource = "form" }))
+        {
+            @Html.AntiForgeryToken()
+            <div class="form-group">
+                <div class="col-md-1">
+                    @Html.LabelFor(m => m.ReceiptNo, new { @class = "control-label" })
+                </div>
+                <div class="col-md-2">
+                    @Html.TextBoxFor(m => m.ReceiptNo, new { @class = "form-control" })
+                </div>
+                <div class="col-md-2">
+                    @Html.LabelFor(m => m.StartReceiptDate, new { @class = "control-label" })
+                </div>
+                <div class="col-md-2">
+                    @Html.TextBoxFor(m => m.StartReceiptDate, new { @class = "form-control", @id = "txtStartReceiptDate" })
+                </div>
+                <div class="col-md-2">
+                    @Html.LabelFor(m => m.EndReceiptDate, new { @class = "control-label" })
+                </div>
+                <div class="col-md-2">
+                    @Html.TextBoxFor(m => m.EndReceiptDate, new { @class = "form-control", @id = "txtEndReceiptDate" })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-1">
+                    @Html.LabelFor(m => m.OrderNumber, new { @class = "control-label" })
+                </div>
+                <div class="col-md-2">
+                    @Html.TextBoxFor(m => m.OrderNumber, new { @class = "form-control" })
+                </div>
+                <div class="col-md-9">
+                    <input type="submit" value="@StringResource.Query" class="btn btn-default" />
+                </div>
+            </div>
+        }
+    </div>
+    <div class="alert fade in hide" resource="alert" id="statusMessage" style="margin:0px">
+        <button type="button" class="close" onclick="hideStatusMessage()">
+            <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+        </button>
+        <p></p>
+    </div>
+    <div id="list" style="overflow:auto">
+        @Html.Partial("_ListPartial", new MaterialReceiptViewModel())
+    </div>
+</div>
+
+@*新增*@
+<div id="add" class="modal fade bs-example-modal-lg"
+     tabindex="-1"
+     resource="dialog"
+     aria-labelledby="addHeader" aria-hidden="true">
+    <div class="modal-dialog modal-lg" style="width:1200px" id="addDialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="addHeader">@LSMRsources.StringResource.MaterialReceipt_AddTitle</h4>
+            </div>
+            <div class="modal-body" id="addContent" style="margin:0px;padding:5px">
+                @using (Ajax.BeginForm("Save", "MaterialReceipt", null
+                        , new AjaxOptions()
+                        {
+                            HttpMethod = "Post",
+                            OnSuccess = "completeSave",
+                            OnBegin = "beginSave"
+                        }
+                        , new { @class = "form-horizontal", resource = "form", id = "frmAdd", autocomplete = "off" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <input type="submit" class="btn btn-primary" value="@StringResource.Save" id="btnSave" />
+                            <input type="reset" class="btn btn-default" value="@StringResource.Reset" id="btnReset" />
+                        </div>
+                        <div class="panel-body">
+                            <div class="alert fade in hide" resource="alert" id="addStatusMessage">
+                                <button type="button" class="close" onclick="hideAddAlert()">
+                                    <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+                                </button>
+                                <p></p>
+                            </div>
+                            <div>
+                                @Html.Partial("_AddPartial", new MaterialReceiptViewModel())
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    <script type="text/javascript" language="javascript">
+        
+    $(function () {
+        $("#txtStartReceiptDate,#txtEndReceiptDate,#txtReceiptDate").datepicker({
+            changeMonth: true,
+            changeYear: true,
+            dateFormat: "yy-mm-dd"
+        });
+
+        $("#btnReset").click(function () {
+            $("#btnSave").removeAttr("disabled");
+            var tbl = $("#tblDetail");
+            var tbody = tbl.find("tbody");
+            tbody.find("tr").each(function (index) {
+                if (index > 0) {
+                    $(this).remove();
+                }
+            });
+            tbody.find("select[name='LineStoreName']").each(function () {
+                $(this).get(0).options.length = 0;
+            });//清空
+            //tbody.find("input[name='SupplierMaterialLot']").each(function () {
+            //    $(this).removeAttr("readonly");
+            //});
+            tbody.find("input[name='SupplierCode']").each(function () {
+                $(this).removeAttr("readonly");
+            });
+            setReceiptNo();
+            var content = $("#addContent");
+            content.find("input[name='ReceiptNo']").focus().select();
+        });
+
+        $("#btnSave").click(function () {
+            var valid = true;
+            var tbl = $("#tblDetail");
+            var tbody = tbl.find("tbody");
+            var master = $("#divAddMaster");
+
+            master.find("input,select").each(function () {
+                valid = valid && $(this).valid();
+                if (valid == false) {
+                    $(this).focus();
+                    $(this).select();
+                    return false;
+                }
+            })
+            if (valid == false) {
+                return valid;
+            }
+
+            tbody.find("tr").each(function (index) {
+                $(this).find("input,select").each(function () {
+                    valid = valid && $(this).valid();
+                    if (valid == false) {
+                        $(this).focus();
+                        $(this).select();
+                        return false;
+                    }
+                });
+                if (valid == false) {
+                    return false;
+                }
+            });
+            return valid;
+        });
+
+        var getOrderNumberUrl = "@Url.Action("GetOrderNumber", "MaterialReceipt", new { area = "LSM" })";
+        $("#txtOrderNumber").autocomplete({
+            source: function (request, response) {
+                var term = request.term.toUpperCase();
+                var reqdata = { q: term };
+                $.getJSON(getOrderNumberUrl, reqdata, function (data, status, xhr) {
+                    response(data);
+                });
+            },
+            minLength: 1,
+            autoFocus: true,
+            appendTo: "#addContent",
+            change: function () {
+                //清空
+                $("select[name='LineStoreName']").each(function () {
+                    $(this).get(0).options.length = 0;
+                });
+                $("input[name='MaterialCode']").each(function () {
+                    $(this).val("");
+                });
+
+                var val = $(this).val().toUpperCase();
+                var valid = false;
+                var obj = $(this);
+                var reqdata = { q: val };
+
+                $.getJSON(getOrderNumberUrl, reqdata, function (data, status, xhr) {
+                    $(data).each(function (index, item) {
+                        if (item.value.toUpperCase() == val) {
+                            valid = true;
+                            changeLineStore(val);
+                            return false;
+                        }
+                    });
+                    if (valid == false) {
+                        setTimeout(function () { $(obj).val(""); $(obj).focus(); }, 0);
+                    }
+                });
+            }
+        });
+        var content = $("#addContent");
+        content.find("input[name='MaterialCode']").each(function () {
+            registerMaterialCodeClientEvent($(this));
+        });
+
+        content.find("input[name='SupplierCode']").each(function () {
+            registerSupplierCodeClientEvent($(this));
+        });
+
+        content.find("input[name='MaterialLot']").each(function () {
+            registerMaterialLotClientEvent($(this));
+        });
+
+        content.find("input[name='Attr1']").each(function () {
+            registerEfficiencyClientEvent($(this));
+        });
+
+        registerKeypressEvent();
+    });
+    
+
+
+
+    function registerKeypressEvent() {
+        var texts = $('#addContent').find(":text:enabled,:checkbox:enabled,select:enabled")
+        texts.keypress(function (args) {
+            if (args.ctrlKey == false && args.keyCode == 13) {
+                var index = texts.index(this) + 1;
+                if (index < texts.length) {
+                    texts.eq(index).focus().select();
+                    return false;
+                }
+                else {
+                    return true;
+                }
+            }
+        });
+    }
+
+    function setReceiptNo() {
+
+        var url = "@Url.Action("GetReceiptNo", "MaterialReceipt", new { area = "LSM" })";
+        var timestamp = Math.round(new Date().getTime() / 1000);
+        var reqdata = { key: timestamp };
+        $.getJSON(url, reqdata, function (data) {
+            $("#addContent input[name='ReceiptNo']").val(data);
+        });
+    }
+
+    function changeLineStore(val)
+    {
+        var url = "@Url.Action("GetLineStoreNames", "MaterialReceipt" , new { area = "LSM" })";
+        var reqdata = { OrderNumber: val };
+        $.getJSON(url, reqdata, function (data) {
+            $.each(data, function (i, item) {
+                $("select[name='LineStoreName']").each(function () {
+                    $("<option></option>").val(item["Key"]).text(item["Key"]).appendTo($(this));
+                });
+            });
+        });
+    }
+
+    function registerMaterialCodeClientEvent(element)
+    {
+        var getMaterialCodeUrl = "@Url.Action("GetMaterialCode", "MaterialReceipt", new { area = "LSM" })";
+
+        $(element).autocomplete({
+            source: function (request, response) {
+                //已缓存物料编码
+                var term = request.term.toUpperCase();
+                var orderNumber = $("#txtOrderNumber").val();
+                var lineStoreName = $(this.element).parent().parent().find("select[name='LineStoreName']").val();
+                var reqdata = {q:term, OrderNumber: orderNumber, LineStoreName: lineStoreName };
+                //动态获取物料编码。
+                $.getJSON(getMaterialCodeUrl, reqdata, function (data, status, xhr) {
+                    response(data);
+                });
+            },
+            minLength: 1,
+            autoFocus: true,
+            appendTo: "#addContent",
+            change: function () {
+                var val = $(this).val().toUpperCase();
+                var valid = false;
+                var obj = $(this);
+                var materialLot = $(this).parent().parent().find("input[name='MaterialLot']");
+                var year = "@DateTime.Now.Year";
+                var objDesc = $(this).parent().find("p");
+                objDesc.text("");
+
+                var orderNumber = $("#txtOrderNumber").val();
+                var lineStoreName = $(this).parent().parent().find("select[name='LineStoreName']").val();
+                var reqdata = { q: val, OrderNumber: orderNumber, LineStoreName: lineStoreName };
+                $.getJSON(getMaterialCodeUrl, reqdata, function (data, status, xhr) {
+                    $(data).each(function (index, item) {
+                        if (item.value.toUpperCase() == val) {
+                            valid = true;
+                            objDesc.text(item.desc);
+                            return false;
+                        }
+                    });
+                    if (valid == false) {
+                        $(obj).val("");
+                        setTimeout(function () { $(obj).focus(); }, 0);
+                    }
+                    else {
+                        materialLot.val(val.substring(0, 6) + year);
+                    }
+                });
+            }
+        });
+
+    }
+
+    var getSupplierNameUrl = "@Url.Action("GetSupplierName", "MaterialReceipt", new { area = "LSM" })";
+
+    function registerSupplierCodeClientEvent(element)
+    {
+        $(element).autocomplete({
+            source: function (request, response) {
+                //已缓存
+                var term = request.term.toUpperCase();
+                var reqdata = { q: term };
+                //动态获取。
+                $.getJSON(getSupplierNameUrl, reqdata, function (data, status, xhr) {
+                    response(data);
+                });
+            },
+            minLength: 1,
+            autoFocus: true,
+            appendTo: "#addContent",
+            change: function () {
+                changeSupplierName($(this));
+            }
+        });
+    }
+
+    function changeSupplierName(element)
+    {
+        var val = $(element).val().toUpperCase();
+        var valid = false;
+        var obj = $(element);
+        var supplierName = $(element).parent().parent().find("input[name='SupplierName']");
+        $(supplierName).val("");
+        var reqdata = { q: val };
+        $.getJSON(getSupplierNameUrl, reqdata, function (data, status, xhr) {
+            $(data).each(function (index, item) {
+                if (item.value.toUpperCase() == val) {
+                    $(supplierName).val(item.SupplierName);
+                    valid = true;
+                    return false;
+                }
+            });
+            if (valid == false) {
+                $(obj).val("");
+                setTimeout(function () { $(obj).focus(); }, 0);
+            }
+        });
+    }
+
+    function registerMaterialLotClientEvent(element)
+    {
+        var getMaterialLotUrl = "@Url.Action("GetMaterialLot", "MaterialReceipt", new { area = "LSM" })";
+
+        $(element).change(function () {
+            var tr=$(element).parent().parent();
+            var materialCode = tr.find("input[name='MaterialCode']").val();
+            var orderNumber = $("#txtOrderNumber").val();
+            var val = $(this).val();
+            var reqdata = { MaterialLot: val, MaterialCode: materialCode,OrderNumber:orderNumber };
+
+            $.getJSON(getMaterialLotUrl, reqdata, function (data, status, xhr) {
+
+                tr.find("input[name='Attr1']").each(function () {
+                    $(this).val(data.Attr1);
+                });
+
+                tr.find("input[name='SupplierMaterialLot']").each(function () {
+                    $(this).val(data.SupplierMaterialLot);
+                    //if (data.SupplierMaterialLot != "")
+                    //{
+                    //    $(this).attr("readonly", "readonly");
+                    //}
+                    //else {
+                    //    $(this).removeAttr("readonly");
+                    //}
+                });
+
+                tr.find("input[name='SupplierCode']").each(function () {
+                    $(this).val(data.SupplierCode);
+                    var obj = $(this);
+                    if (data.SupplierCode != "") {
+                        $(this).attr("readonly", "readonly");
+                        changeSupplierName($(this));
+                    }
+                    else {
+                        $(this).removeAttr("readonly");
+                    }
+                });
+            });
+        })
+    }
+
+    function registerEfficiencyClientEvent(element)
+    {
+        var url = "@Url.Action("GetEfficiency", "MaterialReceipt", new { area = "LSM" })";
+
+        $("#Attr1").autocomplete({
+            source: function (request, response) {
+                var term = request.term.toUpperCase();
+                var reqdata = { q: term };
+                $.getJSON(url, reqdata, function (data, status, xhr) {
+                    response(data);
+                });
+            },
+            minLength: 1,
+            autoFocus: true,
+            appendTo: "#addContent",
+            change: function () {
+                var val = $(this).val().toUpperCase();
+                var valid = false;
+                var obj = $(this);
+                var reqdata = { q: val };
+                $.getJSON(url, reqdata, function (data, status, xhr) {
+                    $(data).each(function (index, item) {
+                        if (item.value.toUpperCase() == val) {
+                            valid = true;
+                            return false;
+                        }
+                    });
+                    if (valid == false) {
+                        setTimeout(function () { $(obj).val(""); $(obj).focus(); }, 0);
+                    }
+                });
+            }
+        });
+    }
+
+    function addDetailRow() {
+        var tbl = $("#tblDetail");
+        var tbody = tbl.find("tbody");
+        var length = tbody.find("tr").length;
+        var lastestTr = tbody.find("tr")[length - 1];
+        var tr = lastestTr.cloneNode(true);
+        var itemNo = $(lastestTr).find("td").eq(0).find("p").text();
+        var newItemNo = parseInt(itemNo, 10) + 1;
+        $(tr).find("td").eq(0).find("p").text(newItemNo);
+        $(tr).find("input[name='ItemNo']").val(newItemNo);
+        $(tr).find("input[name='MaterialCode']").each(function () {
+            registerMaterialCodeClientEvent($(this));
+        });
+
+        $(tr).find("input[name='SupplierCode']").each(function () {
+            registerSupplierCodeClientEvent($(this));
+        });
+
+        $(tr).find("input[name='MaterialLot']").each(function () {
+            registerMaterialLotClientEvent($(this));
+        });
+
+        $(tr).find("input[name='Attr1']").each(function () {
+            registerEfficiencyClientEvent($(this));
+        });
+        
+        var lastestLineStoreName = $(lastestTr).find("select[name='LineStoreName']").val();
+        $(tr).find("select[name='LineStoreName']").each(function () {
+            $(this).val(lastestLineStoreName);
+        });
+        tbody.append(tr);
+
+        registerKeypressEvent();
+    }
+
+    function removeDetailRow(btn) {
+        var tbl = $("#tblDetail");
+        var tbody = tbl.find("tbody");
+        var length = tbody.find("tr").length;
+        if (length > 1) {
+            var tr = btn.parent().parent();
+            tr.remove();
+        }
+        tbody.find("tr").each(function (index) {
+            $(this).find("td").eq(0).find("p").text(index + 1);
+            $(this).find("input[name='ItemNo']").val(index + 1);
+        });
+    }
+
+    //刷新列表
+    function refreshList() {
+        if ($("#frmPagingQuery").length > 0) {
+            $("#frmPagingQuery").submit();
+        }
+    }
+    //隐藏状态消息
+    function hideStatusMessage() {
+        $("#statusMessage").addClass("hide");
+    }
+    </script>
+    @*查询*@
+    <script type="text/javascript" language="javascript">
+        //刷新列表
+        function beginQuery() {
+            hideStatusMessage();
+        }
+    </script>
+
+    @*新增*@
+    <script type="text/javascript" language="javascript">
+        //保存
+        $(function () {
+            $('#add').on('shown.bs.modal', function (e) {
+                $("#btnReset").click();
+            });
+        })
+
+        function showAddModal() {
+            hideAddAlert();
+            hideStatusMessage();
+            var width = $("body").width();
+            if (width != undefined) {
+                $('#addDialog').width(width-35);
+            }
+            $("#btnSave").removeAttr("disabled");
+            $('#add').modal({ backdrop: "static" });
+            $('#add').modal('show');
+        }
+
+        function hideAddAlert() {
+            $("#addStatusMessage").addClass("hide");
+        }
+
+        function beginSave() {
+            $("#btnSave").attr("disabled", "disabled");
+        }
+
+        function completeSave(result) {
+            $("#btnSave").removeAttr("disabled");
+            $("#addStatusMessage").find("p").html(result.Message);
+            $("#addStatusMessage").removeClass("hide");
+            if (result.Code > 0) {
+                $("#addStatusMessage").removeClass("alert-success");
+                $("#addStatusMessage").addClass("alert-danger");
+            }
+            else {
+                $("#addStatusMessage").removeClass("alert-danger");
+                $("#addStatusMessage").addClass("alert-success");
+                refreshList();
+                $("#btnReset").click();
+            }
+        }
+    </script>
+
+}

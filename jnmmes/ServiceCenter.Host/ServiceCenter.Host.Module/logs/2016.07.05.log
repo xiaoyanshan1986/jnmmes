@@ -1,0 +1,64 @@
+2016-07-05 11:52:45,733 - ERROR - START>Application
+2016-07-05 12:13:36,738 - ERROR - START>Application
+2016-07-05 12:17:04,529 - ERROR - START>Application
+2016-07-05 13:10:31,196 - ERROR - START>Application
+2016-07-05 13:55:30,203 - ERROR - START>Application
+2016-07-05 15:46:50,098 - ERROR - ExecuteTrackOutBaseFounction>
+NHibernate.NonUniqueObjectException: a different object with the same identifier value was already associated with the session: ServiceCenter.MES.Model.WIP.LotBOMKey, of entity: ServiceCenter.MES.Model.WIP.LotBOM
+   在 NHibernate.Event.Default.AbstractSaveEventListener.PerformSave(Object entity, Object id, IEntityPersister persister, Boolean useIdentityColumn, Object anything, IEventSource source, Boolean requiresImmediateIdAccess) 位置 p:\nhibernate-core\src\NHibernate\Event\Default\AbstractSaveEventListener.cs:行号 173
+   在 NHibernate.Event.Default.AbstractSaveEventListener.SaveWithGeneratedId(Object entity, String entityName, Object anything, IEventSource source, Boolean requiresImmediateIdAccess) 位置 p:\nhibernate-core\src\NHibernate\Event\Default\AbstractSaveEventListener.cs:行号 129
+   在 NHibernate.Event.Default.DefaultSaveOrUpdateEventListener.SaveWithGeneratedOrRequestedId(SaveOrUpdateEvent event) 位置 p:\nhibernate-core\src\NHibernate\Event\Default\DefaultSaveOrUpdateEventListener.cs:行号 162
+   在 NHibernate.Event.Default.DefaultSaveEventListener.SaveWithGeneratedOrRequestedId(SaveOrUpdateEvent event) 位置 p:\nhibernate-core\src\NHibernate\Event\Default\DefaultSaveEventListener.cs:行号 29
+   在 NHibernate.Event.Default.DefaultSaveOrUpdateEventListener.EntityIsTransient(SaveOrUpdateEvent event) 位置 p:\nhibernate-core\src\NHibernate\Event\Default\DefaultSaveOrUpdateEventListener.cs:行号 148
+   在 NHibernate.Event.Default.DefaultSaveEventListener.PerformSaveOrUpdate(SaveOrUpdateEvent event) 位置 p:\nhibernate-core\src\NHibernate\Event\Default\DefaultSaveEventListener.cs:行号 21
+   在 NHibernate.Event.Default.DefaultSaveOrUpdateEventListener.OnSaveOrUpdate(SaveOrUpdateEvent event) 位置 p:\nhibernate-core\src\NHibernate\Event\Default\DefaultSaveOrUpdateEventListener.cs:行号 53
+   在 NHibernate.Impl.SessionImpl.FireSave(SaveOrUpdateEvent event) 位置 p:\nhibernate-core\src\NHibernate\Impl\SessionImpl.cs:行号 2673
+   在 NHibernate.Impl.SessionImpl.Save(Object obj) 位置 p:\nhibernate-core\src\NHibernate\Impl\SessionImpl.cs:行号 485
+   在 ServiceCenter.Common.DataAccess.NHibernate.DatabaseDataEngine`2.Insert(T obj, ISession session) 位置 e:\Projects\11JNMMES\trunk\src\ServiceCenter.Common\DataAccess\NHibernate\DatabaseDataEngine.cs:行号 47
+   在 ServiceCenter.MES.Service.WIP.WipEngineerService.DeductMaterial(EnumDataCollectionAction workModel, TrackOutParameter p, Equipment equipment, List`1 lstLot, ISession session, String transactionKey) 位置 e:\Workspace\Jinergy\JNMMES\trunk\src\ServiceCenter.Modules\WIP\ServiceCenter.MES.Service.WIP\WipEngineerServiceForTrack.cs:行号 2843
+2016-07-05 17:31:16,511 - ERROR - START>Application
+2016-07-05 17:43:17,559 - ERROR - ExecuteTrackOutBaseFounction>
+NHibernate.NonUniqueObjectException: a different object with the same identifier value was already associated with the session: ServiceCenter.MES.Model.WIP.LotBOMKey, of entity: ServiceCenter.MES.Model.WIP.LotBOM
+   在 NHibernate.Event.Default.AbstractSaveEventListener.PerformSave(Object entity, Object id, IEntityPersister persister, Boolean useIdentityColumn, Object anything, IEventSource source, Boolean requiresImmediateIdAccess) 位置 p:\nhibernate-core\src\NHibernate\Event\Default\AbstractSaveEventListener.cs:行号 173
+   在 NHibernate.Event.Default.AbstractSaveEventListener.SaveWithGeneratedId(Object entity, String entityName, Object anything, IEventSource source, Boolean requiresImmediateIdAccess) 位置 p:\nhibernate-core\src\NHibernate\Event\Default\AbstractSaveEventListener.cs:行号 129
+   在 NHibernate.Event.Default.DefaultSaveOrUpdateEventListener.SaveWithGeneratedOrRequestedId(SaveOrUpdateEvent event) 位置 p:\nhibernate-core\src\NHibernate\Event\Default\DefaultSaveOrUpdateEventListener.cs:行号 162
+   在 NHibernate.Event.Default.DefaultSaveEventListener.SaveWithGeneratedOrRequestedId(SaveOrUpdateEvent event) 位置 p:\nhibernate-core\src\NHibernate\Event\Default\DefaultSaveEventListener.cs:行号 29
+   在 NHibernate.Event.Default.DefaultSaveOrUpdateEventListener.EntityIsTransient(SaveOrUpdateEvent event) 位置 p:\nhibernate-core\src\NHibernate\Event\Default\DefaultSaveOrUpdateEventListener.cs:行号 148
+   在 NHibernate.Event.Default.DefaultSaveEventListener.PerformSaveOrUpdate(SaveOrUpdateEvent event) 位置 p:\nhibernate-core\src\NHibernate\Event\Default\DefaultSaveEventListener.cs:行号 21
+   在 NHibernate.Event.Default.DefaultSaveOrUpdateEventListener.OnSaveOrUpdate(SaveOrUpdateEvent event) 位置 p:\nhibernate-core\src\NHibernate\Event\Default\DefaultSaveOrUpdateEventListener.cs:行号 53
+   在 NHibernate.Impl.SessionImpl.FireSave(SaveOrUpdateEvent event) 位置 p:\nhibernate-core\src\NHibernate\Impl\SessionImpl.cs:行号 2673
+   在 NHibernate.Impl.SessionImpl.Save(Object obj) 位置 p:\nhibernate-core\src\NHibernate\Impl\SessionImpl.cs:行号 485
+   在 ServiceCenter.Common.DataAccess.NHibernate.DatabaseDataEngine`2.Insert(T obj, ISession session) 位置 e:\Projects\11JNMMES\trunk\src\ServiceCenter.Common\DataAccess\NHibernate\DatabaseDataEngine.cs:行号 47
+   在 ServiceCenter.MES.Service.WIP.WipEngineerService.DeductMaterial(EnumDataCollectionAction workModel, TrackOutParameter p, Equipment equipment, List`1 lstLot, ISession session, String transactionKey) 位置 e:\Workspace\Jinergy\JNMMES\trunk\src\ServiceCenter.Modules\WIP\ServiceCenter.MES.Service.WIP\WipEngineerServiceForTrack.cs:行号 2843
+2016-07-05 17:43:29,734 - ERROR - ExecuteTrackOutBaseFounction>
+NHibernate.NonUniqueObjectException: a different object with the same identifier value was already associated with the session: ServiceCenter.MES.Model.WIP.LotBOMKey, of entity: ServiceCenter.MES.Model.WIP.LotBOM
+   在 NHibernate.Event.Default.AbstractSaveEventListener.PerformSave(Object entity, Object id, IEntityPersister persister, Boolean useIdentityColumn, Object anything, IEventSource source, Boolean requiresImmediateIdAccess) 位置 p:\nhibernate-core\src\NHibernate\Event\Default\AbstractSaveEventListener.cs:行号 173
+   在 NHibernate.Event.Default.AbstractSaveEventListener.SaveWithGeneratedId(Object entity, String entityName, Object anything, IEventSource source, Boolean requiresImmediateIdAccess) 位置 p:\nhibernate-core\src\NHibernate\Event\Default\AbstractSaveEventListener.cs:行号 129
+   在 NHibernate.Event.Default.DefaultSaveOrUpdateEventListener.SaveWithGeneratedOrRequestedId(SaveOrUpdateEvent event) 位置 p:\nhibernate-core\src\NHibernate\Event\Default\DefaultSaveOrUpdateEventListener.cs:行号 162
+   在 NHibernate.Event.Default.DefaultSaveEventListener.SaveWithGeneratedOrRequestedId(SaveOrUpdateEvent event) 位置 p:\nhibernate-core\src\NHibernate\Event\Default\DefaultSaveEventListener.cs:行号 29
+   在 NHibernate.Event.Default.DefaultSaveOrUpdateEventListener.EntityIsTransient(SaveOrUpdateEvent event) 位置 p:\nhibernate-core\src\NHibernate\Event\Default\DefaultSaveOrUpdateEventListener.cs:行号 148
+   在 NHibernate.Event.Default.DefaultSaveEventListener.PerformSaveOrUpdate(SaveOrUpdateEvent event) 位置 p:\nhibernate-core\src\NHibernate\Event\Default\DefaultSaveEventListener.cs:行号 21
+   在 NHibernate.Event.Default.DefaultSaveOrUpdateEventListener.OnSaveOrUpdate(SaveOrUpdateEvent event) 位置 p:\nhibernate-core\src\NHibernate\Event\Default\DefaultSaveOrUpdateEventListener.cs:行号 53
+   在 NHibernate.Impl.SessionImpl.FireSave(SaveOrUpdateEvent event) 位置 p:\nhibernate-core\src\NHibernate\Impl\SessionImpl.cs:行号 2673
+   在 NHibernate.Impl.SessionImpl.Save(Object obj) 位置 p:\nhibernate-core\src\NHibernate\Impl\SessionImpl.cs:行号 485
+   在 ServiceCenter.Common.DataAccess.NHibernate.DatabaseDataEngine`2.Insert(T obj, ISession session) 位置 e:\Projects\11JNMMES\trunk\src\ServiceCenter.Common\DataAccess\NHibernate\DatabaseDataEngine.cs:行号 47
+   在 ServiceCenter.MES.Service.WIP.WipEngineerService.DeductMaterial(EnumDataCollectionAction workModel, TrackOutParameter p, Equipment equipment, List`1 lstLot, ISession session, String transactionKey) 位置 e:\Workspace\Jinergy\JNMMES\trunk\src\ServiceCenter.Modules\WIP\ServiceCenter.MES.Service.WIP\WipEngineerServiceForTrack.cs:行号 2843
+2016-07-05 17:46:06,514 - ERROR - ExecuteTrackOutBaseFounction>
+NHibernate.NonUniqueObjectException: a different object with the same identifier value was already associated with the session: ServiceCenter.MES.Model.WIP.LotBOMKey, of entity: ServiceCenter.MES.Model.WIP.LotBOM
+   在 NHibernate.Event.Default.AbstractSaveEventListener.PerformSave(Object entity, Object id, IEntityPersister persister, Boolean useIdentityColumn, Object anything, IEventSource source, Boolean requiresImmediateIdAccess) 位置 p:\nhibernate-core\src\NHibernate\Event\Default\AbstractSaveEventListener.cs:行号 173
+   在 NHibernate.Event.Default.AbstractSaveEventListener.SaveWithGeneratedId(Object entity, String entityName, Object anything, IEventSource source, Boolean requiresImmediateIdAccess) 位置 p:\nhibernate-core\src\NHibernate\Event\Default\AbstractSaveEventListener.cs:行号 129
+   在 NHibernate.Event.Default.DefaultSaveOrUpdateEventListener.SaveWithGeneratedOrRequestedId(SaveOrUpdateEvent event) 位置 p:\nhibernate-core\src\NHibernate\Event\Default\DefaultSaveOrUpdateEventListener.cs:行号 162
+   在 NHibernate.Event.Default.DefaultSaveEventListener.SaveWithGeneratedOrRequestedId(SaveOrUpdateEvent event) 位置 p:\nhibernate-core\src\NHibernate\Event\Default\DefaultSaveEventListener.cs:行号 29
+   在 NHibernate.Event.Default.DefaultSaveOrUpdateEventListener.EntityIsTransient(SaveOrUpdateEvent event) 位置 p:\nhibernate-core\src\NHibernate\Event\Default\DefaultSaveOrUpdateEventListener.cs:行号 148
+   在 NHibernate.Event.Default.DefaultSaveEventListener.PerformSaveOrUpdate(SaveOrUpdateEvent event) 位置 p:\nhibernate-core\src\NHibernate\Event\Default\DefaultSaveEventListener.cs:行号 21
+   在 NHibernate.Event.Default.DefaultSaveOrUpdateEventListener.OnSaveOrUpdate(SaveOrUpdateEvent event) 位置 p:\nhibernate-core\src\NHibernate\Event\Default\DefaultSaveOrUpdateEventListener.cs:行号 53
+   在 NHibernate.Impl.SessionImpl.FireSave(SaveOrUpdateEvent event) 位置 p:\nhibernate-core\src\NHibernate\Impl\SessionImpl.cs:行号 2673
+   在 NHibernate.Impl.SessionImpl.Save(Object obj) 位置 p:\nhibernate-core\src\NHibernate\Impl\SessionImpl.cs:行号 485
+   在 ServiceCenter.Common.DataAccess.NHibernate.DatabaseDataEngine`2.Insert(T obj, ISession session) 位置 e:\Projects\11JNMMES\trunk\src\ServiceCenter.Common\DataAccess\NHibernate\DatabaseDataEngine.cs:行号 47
+   在 ServiceCenter.MES.Service.WIP.WipEngineerService.DeductMaterial(EnumDataCollectionAction workModel, TrackOutParameter p, Equipment equipment, List`1 lstLot, ISession session, String transactionKey) 位置 e:\Workspace\Jinergy\JNMMES\trunk\src\ServiceCenter.Modules\WIP\ServiceCenter.MES.Service.WIP\WipEngineerServiceForTrack.cs:行号 2843
+2016-07-05 18:18:24,157 - ERROR - START>Application
+2016-07-05 20:17:01,332 - ERROR - START>Application
+2016-07-05 20:47:10,123 - ERROR - START>Application
+2016-07-05 20:50:45,767 - ERROR - START>Application
+2016-07-05 22:16:46,789 - ERROR - START>Application
+2016-07-05 23:14:23,067 - ERROR - START>Application

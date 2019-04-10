@@ -1,0 +1,126 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.FMM.Models.RouteStepViewModel
+@using ServiceCenter.Client.Mvc.Areas.FMM.Models;
+@using ServiceCenter.Client.Mvc.Resources;
+@using FMMResources = ServiceCenter.Client.Mvc.Resources.FMM;
+@using FMMModel = ServiceCenter.MES.Model.FMM;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@{
+    PagingConfig cfg = ViewBag.PagingConfig;
+}
+<div id="_list">
+    <table class="table table-hover table-bordered table-condensed">
+        <thead>
+            <tr class="active">
+                <td>@Html.DisplayNameFor(m => m.SortSeq)</td>
+                <td>@Html.DisplayNameFor(m => m.RouteStepName)</td>
+                <td>@Html.DisplayNameFor(m => m.Duration)</td>
+                <td>@Html.DisplayNameFor(m => m.DefectReasonCodeCategoryName)</td>
+                <td>@Html.DisplayNameFor(m => m.ScrapReasonCodeCategoryName)</td>
+                <td>@Html.DisplayNameFor(m => m.RouteOperationName)</td>
+                <td>@StringResource.Parameter</td>
+                <td>@StringResource.Detail</td>
+                <td>@StringResource.Modify</td>
+                <td>@StringResource.Delete</td>
+            </tr>
+        </thead>
+        @if (ViewBag.List != null)
+        {
+            <tbody>
+                @for (int i = 0; i < ViewBag.List.Length; i++)
+                {
+                    FMMModel.RouteStep obj = ViewBag.List[i];
+                    <tr>
+                        <td>
+                            @obj.SortSeq
+                        </td>
+                        <td>
+                            @Html.ActionLink(linkText: obj.Key.RouteStepName
+                                            , actionName: "Index"
+                                            , controllerName: "RouteStepAttribute"
+                                            , routeValues: new { @RouteName = obj.Key.RouteName, @RouteStepName = obj.Key.RouteStepName }
+                                            , htmlAttributes: new { @target = "_self"  })
+                        </td>
+                        <td>
+                            @obj.Duration
+                        </td>
+                        <td>
+                            @obj.DefectReasonCodeCategoryName
+                        </td>
+                        <td>
+                            @obj.ScrapReasonCodeCategoryName
+                        </td>
+                        <td>
+                            @obj.RouteOperationName
+                        </td>
+                        <td>
+                            @Html.ActionLink(linkText: StringResource.Parameter
+                                            , actionName: "Index"
+                                            , controllerName: "RouteStepParameter"
+                                            , routeValues: new { @RouteName = obj.Key.RouteName, @RouteStepName = obj.Key.RouteStepName }
+                                            , htmlAttributes: new { @target = "_self"  })
+                        </td>
+                        <td>
+                            @Ajax.ActionLink(StringResource.Detail, actionName: null
+                                            , routeValues: null
+                                            , ajaxOptions:new AjaxOptions() 
+                                            { 
+                                                HttpMethod = "Post", 
+                                                UpdateTargetId = "detailInfo",
+                                                OnSuccess = "showInfoModal",
+                                                Url = Url.Action("Detail", new { @RouteName = obj.Key.RouteName, @RouteStepName = obj.Key.RouteStepName })
+                                            })
+                        </td>
+                        <td>
+                            @Ajax.ActionLink(StringResource.Modify, actionName: null
+                                            ,routeValues:null
+                                            ,ajaxOptions:new AjaxOptions()
+                                            {
+                                                HttpMethod = "Post",
+                                                UpdateTargetId = "modifyFormContent",
+                                                OnSuccess = "showModifyModal",
+                                                Url = Url.Action("Modify", new { @RouteName = obj.Key.RouteName, @RouteStepName = obj.Key.RouteStepName })
+                                            })
+                        </td>
+                        <td>
+                            @Ajax.ActionLink(StringResource.Delete, actionName: null
+                                            , routeValues: null
+                                            , ajaxOptions:new AjaxOptions()
+                                            {
+                                                HttpMethod = "Post",
+                                                Confirm = string.Format(FMMResources.StringResource.RouteStep_ConfirmDelete, obj.Key),
+                                                Url = Url.Action("Delete", new { @RouteName = obj.Key.RouteName, @RouteStepName = obj.Key.RouteStepName }),
+                                                OnSuccess = "completeDelete"
+                                            })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        }
+    </table>
+    <div style="margin-top:-18px">
+        @if (cfg != null)
+        {
+            using (Ajax.BeginForm("PagingQuery", "RouteStep"
+                            , new
+                            {
+                                @Where = cfg.Where,
+                                @OrderBy = cfg.OrderBy,
+                                @CurrentPageNo = cfg.PageNo,
+                                @CurrentPageSize = cfg.PageSize
+                            }
+                            , new AjaxOptions()
+                            {
+                                HttpMethod = "Post",
+                                UpdateTargetId = "_list"
+                            }
+                            , new { @class = "form-horizontal", resource = "form", id = "frmPagingQuery" }))
+            {
+                @Html.AntiForgeryToken()
+                <div>@Html.Partial("_PaginationPartial")</div>
+            }
+        }
+    </div>
+</div>
+
+

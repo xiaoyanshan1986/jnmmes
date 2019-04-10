@@ -1,0 +1,89 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.RPT.Models.LotMaterialListViewModel
+@using ServiceCenter.Client.Mvc.Resources;
+@using RPTResources = ServiceCenter.Client.Mvc.Resources.RPT;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@using System.Data;
+@using ServiceCenter.Model;
+@using ServiceCenter.Common;
+@using ServiceCenter.Client.Mvc.Resources;
+
+@{
+    PagingConfig cfg = ViewBag.PagingConfig;
+    MethodReturnResult<DataSet> ds = new MethodReturnResult<DataSet>();
+    ds = ViewBag.HistoryList;
+    //string colo11="正蓝";
+}
+
+@*<style type="text/css">
+    table {
+        font-size: 100px;
+    }
+</style>*@ 
+
+<div id="_list" style="overflow:auto">
+    <table class="table table-hover table-bordered table-condensed table-responsive table-striped"> 
+        <thead> <tr class="active">
+                @*<td nowrap>@StringResource.ItemNo</td>
+                    <td nowrap>批次号</td>
+                    <td nowrap>颜色</td>*@
+                <td nowrap>结果</td>
+
+            </tr>
+        </thead>
+        <tbody>
+            @if (ds != null && ds.Data != null && ds.Data.Tables.Count > 0 && ds.Data.Tables[0].Rows.Count > 0)
+            {
+                for (int i = 0; i < ds.Data.Tables[0].Rows.Count; i++)
+                {
+                    System.Data.DataRow obj = ds.Data.Tables[0].Rows[i];
+                    string a = ds.Data.Tables[0].Rows[i][0].ToString();
+                    //font-size:200px;<font color="red" size="1800"></font>
+                    if (a == "正")
+                    {
+                        <tr>
+                            <td style="background-color: yellow;"><font style="font-size:100px">@obj["LOT_NUMBER"]</font></td>
+                        </tr>
+                    }
+                    else if (a == "浅")
+                    {
+                        <tr>
+                            <td style="background-color:#1ABDE6"><font style="font-size:100px">@obj["LOT_NUMBER"]</font></td>
+                        </tr>
+                    }
+                    else if (a == "深")
+                    {
+                        <tr>
+                            <td style="background-color:#FF9900"><font style="font-size:100px">@obj["LOT_NUMBER"]</font></td>
+                        </tr>
+                    }
+                    else if (a == "扒皮返修流程")
+                    {
+                        <tr>
+                            <td nowrap><font color="red" style="font-size:100px">@obj["LOT_NUMBER"]</font></td>
+                        </tr>
+                    }
+                    else if (a.ToUpper().Contains("W"))
+                    {
+                        <tr>
+                            <td nowrap><font color="forestgreen" style="font-size:100px">@obj["LOT_NUMBER"]</font></td>
+                        </tr>
+                    }
+                    else
+                    {
+                        <tr>
+                            <td nowrap ><font color="steelblue" style="font-size:100px">@obj["LOT_NUMBER"]</font></td>
+                        </tr>
+                    }
+                }
+
+            }
+        </tbody>
+
+    </table>
+</div>
+
+
+
+
+

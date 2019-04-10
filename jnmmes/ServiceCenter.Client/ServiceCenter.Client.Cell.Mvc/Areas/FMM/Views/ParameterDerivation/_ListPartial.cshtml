@@ -1,0 +1,47 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.FMM.Models.ParameterDerivationViewModel
+@using ServiceCenter.Client.Mvc.Areas.FMM.Models;
+@using ServiceCenter.Client.Mvc.Resources;
+@using FMM = ServiceCenter.Client.Mvc.Resources.FMM;
+@using ServiceCenter.MES.Model.FMM;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+
+<div id="_list">
+    <table class="table table-hover table-bordered table-condensed">
+        <thead>
+            <tr class="active">
+                <td>@StringResource.ItemNo</td>
+                <td>@Html.DisplayNameFor(m => m.ParameterName)</td>
+                <td>@StringResource.Delete</td>
+            </tr>
+        </thead>
+        @if (ViewBag.List != null)
+        {
+            <tbody>
+                @for (int i = 0; i < ViewBag.List.Length; i++)
+                {
+                    ParameterDerivation obj = ViewBag.List[i];
+                    <tr>
+                        <td>@i</td>
+                        <td>
+                            @obj.Key.ParameterName
+                        </td>
+                        <td>
+                            @Ajax.ActionLink(StringResource.Delete, actionName: null
+                                            , routeValues: null
+                                            , ajaxOptions:new AjaxOptions()
+                                            {
+                                                HttpMethod = "Post",
+                                                Confirm = string.Format(FMM.StringResource.ParameterDerivation_ConfirmDelete, obj.Key),
+                                                Url = Url.Action("Delete", new { @DerivedParameterName = obj.Key.DerivedParameterName, @ParameterName = obj.Key.ParameterName }),
+                                                OnSuccess = "completeDelete"
+                                            })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        }
+    </table>
+</div>
+
+

@@ -1,0 +1,126 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.ERP.Models.WOReportDetailViewModel
+@using ServiceCenter.MES.Model.ERP;
+@using ServiceCenter.Model;
+@using ServiceCenter.Common;
+@using ServiceCenter.Client.Mvc.Areas.ERP.Models;
+@using ERP = ServiceCenter.Client.Mvc.Resources.ERP;
+@using ServiceCenter.Client.Mvc.Resources;
+
+@{
+    PagingConfig cfg = ViewBag.PagingConfig;
+}
+<div id="_list">
+    <table class="table table-striped table-bordered table-condensed">
+        <thead>
+            <tr class="active">
+                <td align="center">@Html.DisplayNameFor(m => m.ItemNo)</td>            @*行号*@
+                <td align="center">@Html.DisplayNameFor(m => m.ObjectNumber)</td>      @*托号*@
+                <td align="center">@Html.DisplayNameFor(m => m.MaterialCode)</td>
+                <td align="center">@Html.DisplayNameFor(m => m.OrderNumber)</td>
+                <td align="center">@Html.DisplayNameFor(m => m.EffiName)</td>
+                <td align="center">@Html.DisplayNameFor(m => m.PsSubcode)</td>
+                <td align="center">@Html.DisplayNameFor(m => m.Grade)</td>
+                @*<td align="center">@Html.DisplayNameFor(m => m.EffiCode)</td>*@
+                <td align="center">@Html.DisplayNameFor(m => m.Qty)</td>
+                <td align="center">@Html.DisplayNameFor(m => m.SumCoefPMax)</td>
+                <td align="center">@Html.DisplayNameFor(m => m.ERPStockInKey)</td>
+                <td align="center">@Html.DisplayNameFor(m => m.PackageCheckState)</td>
+                @if (string.IsNullOrEmpty(ViewBag.WRCode))
+                {
+                    <td align="center">@StringResource.Delete</td>
+                }                
+            </tr>
+        </thead>
+        @if (ViewBag.List != null)
+        {
+            <tbody>
+                @for (int i = 0; i < ViewBag.List.Length; i++)
+                {
+                    WOReportDetail obj = ViewBag.List[i];
+                    <tr>
+                        @*<td>@(cfg.PageSize * cfg.PageNo + i + 1)</td>*@
+                        <td align="center">
+                            @obj.Key.ItemNo
+                        </td>
+                        <td align="center">
+                            @obj.ObjectNumber
+                        </td>
+                        <td align="center">
+                            @obj.MaterialCode
+                        </td>
+                        <td align="center">
+                            @obj.OrderNumber
+                        </td>
+                        <td align="center">
+                            @obj.EffiName
+                        </td>
+                        <td align="center">
+                            @obj.PsSubcode
+                        </td>
+                        <td align="center">
+                            @obj.Grade
+                        </td>
+                        @*<td align="right">
+                            @obj.EffiCode
+                        </td>*@
+                        <td align="center">
+                            @obj.Qty
+                        </td>
+                        <td align="center">
+                            @obj.SumCoefPMax
+                        </td>
+                        <td align="center">
+                            @obj.ERPStockInKey
+                        </td>
+                        <td align="center">
+                            @obj.PackageCheckState.GetDisplayName()
+                        </td>
+                        @if (string.IsNullOrEmpty(ViewBag.WRCode))
+                        {
+                            <td align="center">
+                                @Ajax.ActionLink(StringResource.Delete, actionName: null
+                                        , routeValues: null
+                                        , ajaxOptions: new AjaxOptions()
+                                        {
+                                            HttpMethod = "Post",
+                                            Confirm = string.Format(ERP.StringResource.ERPWOReportDetail_ConfirmDelete, obj.ObjectNumber),
+                                            Url = Url.Action("DeleteStockInDetail", new
+                                            {
+                                                @billCode = obj.Key.BillCode,
+                                                @itemNo = obj.Key.ItemNo,
+                                                @objectNumber = obj.ObjectNumber
+                                            }),
+                                            OnSuccess = "completeDelete"
+                                        })
+                            </td>
+                        }
+                        
+                    </tr>
+                }
+            </tbody>
+        }
+    </table>
+    @*<div style="margin-top:-18px">
+            @if (cfg != null)
+            {
+                using (Ajax.BeginForm("PagingQuery", "ERPWOReportDetail"
+                                , new
+                                {
+                                    @Where = cfg.Where,
+                                    @OrderBy = cfg.OrderBy,
+                                    @CurrentPageNo = cfg.PageNo,
+                                    @CurrentPageSize = cfg.PageSize
+                                }
+                                , new AjaxOptions()
+                                {
+                                    HttpMethod = "Post",
+                                    UpdateTargetId = "_list"
+                                }
+                                , new { @class = "form-horizontal", resource = "form", id = "frmPagingQuery" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <div>@Html.Partial("_PaginationPartial")</div>
+                }
+            }
+        </div>*@
+</div>

@@ -1,0 +1,218 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Error" xml:space="preserve">
+    <value>错误：{0}</value>
+    <comment>1000</comment>
+  </data>
+  <data name="LotAttributeService_IsExists" xml:space="preserve">
+    <value>批次属性（{0}）已存在。</value>
+    <comment>1001</comment>
+  </data>
+  <data name="LotAttributeService_IsNotExists" xml:space="preserve">
+    <value>批次属性（{0}）不存在。</value>
+    <comment>1002</comment>
+  </data>
+  <data name="LotCreate_LocationNameError" xml:space="preserve">
+    <value>工单（{0}）不属于当前创批车间（{1}）。</value>
+    <comment>2002</comment>
+  </data>
+  <data name="LotCreate_MaterialReceiptError" xml:space="preserve">
+    <value>工单（{0}）物料（{1}:{2}）在线边仓({3})中没有领料记录。</value>
+    <comment>2003</comment>
+  </data>
+  <data name="LotCreate_RouteIsNotNull" xml:space="preserve">
+    <value>工艺流程不能为空。</value>
+    <comment>2004</comment>
+  </data>
+  <data name="LotCreate_WorkOrderIsNotExists" xml:space="preserve">
+    <value>工单（{0}）不存在。</value>
+    <comment>2001</comment>
+  </data>
+  <data name="LotJobService_IsExists" xml:space="preserve">
+    <value>批次定时作业（{0}）数据已存在。</value>
+    <comment>1001</comment>
+  </data>
+  <data name="LotJobService_IsNotExists" xml:space="preserve">
+    <value>批次定时作业（{0}）数据不存在。</value>
+    <comment>1002</comment>
+  </data>
+  <data name="LotQueryService_AttributeIsNotExists" xml:space="preserve">
+    <value>批次自定义特性（{0}）不存在。</value>
+    <comment>1002</comment>
+  </data>
+  <data name="LotQueryService_IsNotExists" xml:space="preserve">
+    <value>批次（{0}）不存在。</value>
+    <comment>1001</comment>
+  </data>
+  <data name="LotQueryService_LotBOMIsNotExists" xml:space="preserve">
+    <value>批次用料数据（{0}）不存在。</value>
+  </data>
+  <data name="LotQueryService_LotJobIsNotExists" xml:space="preserve">
+    <value>批次作业（{0}）不存在。</value>
+  </data>
+  <data name="LotQueryService_LotTransactionEquipmentIsNotExists" xml:space="preserve">
+    <value>批次设备加工数据（{0}）不存在。</value>
+  </data>
+  <data name="LotQueryService_TransactionDefectIsNotExists" xml:space="preserve">
+    <value>批次不良数据（{0}）不存在。</value>
+  </data>
+  <data name="LotQueryService_TransactionIsNotExists" xml:space="preserve">
+    <value>批次操作（{0}）不存在。</value>
+    <comment>1003</comment>
+  </data>
+  <data name="LotQueryService_TransactionParameterIsNotExists" xml:space="preserve">
+    <value>批次参数（{0}）不存在。</value>
+  </data>
+  <data name="LotQueryService_TransactionPatchIsNotExists" xml:space="preserve">
+    <value>批次补料数据（{0}）不存在。</value>
+  </data>
+  <data name="LotQueryService_TransactionScrapIsNotExists" xml:space="preserve">
+    <value>批次报废数据（{0}）不存在。</value>
+  </data>
+  <data name="OemDataService_IsExists" xml:space="preserve">
+    <value>OEM批次（{0}）已存在。</value>
+    <comment>1001</comment>
+  </data>
+  <data name="OemDataService_IsNotExists" xml:space="preserve">
+    <value>OEM批次（{0}）不存在。</value>
+    <comment>1001</comment>
+  </data>
+  <data name="OtherError" xml:space="preserve">
+    <value>其它错误：{0}</value>
+  </data>
+  <data name="PackageQueryService_DetailIsNotExists" xml:space="preserve">
+    <value>包装明细（{0}）数据不存在。</value>
+    <comment>1002</comment>
+  </data>
+  <data name="PackageQueryService_IsNotExists" xml:space="preserve">
+    <value>包装（{0}）数据不存在。</value>
+    <comment>1001</comment>
+  </data>
+  <data name="ParameterIsNull" xml:space="preserve">
+    <value>参数为空。</value>
+    <comment>1001</comment>
+  </data>
+  <data name="PrintLogService_IsExists" xml:space="preserve">
+    <value>打印日志（{0}）已存在。</value>
+  </data>
+  <data name="PrintLogService_IsNotExists" xml:space="preserve">
+    <value>打印日志（{0}）不存在。</value>
+  </data>
+</root>

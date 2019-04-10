@@ -1,0 +1,167 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.ZPVM.Models.PowersetViewModel
+@using ServiceCenter.Client.Mvc.Areas.ZPVM.Models;
+@using ServiceCenter.Client.Mvc.Resources;
+@using ZPVMResources = ServiceCenter.Client.Mvc.Resources.ZPVM;
+@using ServiceCenter.MES.Model.ZPVM;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@{
+    PagingConfig cfg = ViewBag.PagingConfig;
+}
+<div id="_list">
+    <table class="table table-hover table-bordered table-condensed">
+        <thead>
+            <tr class="active">
+                <td>@Html.DisplayNameFor(m => m.Code)</td>
+                <td>@Html.DisplayNameFor(m => m.ItemNo)</td>
+                <td>@Html.DisplayNameFor(m => m.Name)</td>
+                <td>@Html.DisplayNameFor(m => m.PowerName)</td>
+                <td>@Html.DisplayNameFor(m => m.PowerDifference)</td>
+                <td>@Html.DisplayNameFor(m => m.MaxValue)</td>
+                <td>@Html.DisplayNameFor(m => m.MinValue)</td>
+                <td>@Html.DisplayNameFor(m => m.StandardPower)</td>
+                <td>@Html.DisplayNameFor(m => m.StandardIPM)</td>
+                <td>@Html.DisplayNameFor(m => m.StandardIsc)</td>
+                <td>@Html.DisplayNameFor(m => m.StandardVPM)</td>
+                <td>@Html.DisplayNameFor(m => m.StandardVoc)</td>
+                <td>@Html.DisplayNameFor(m => m.StandardFuse)</td>
+                <td>@Html.DisplayNameFor(m => m.MixColor)</td>
+                <td>@Html.DisplayNameFor(m => m.SubWay)</td>
+                <td>@Html.DisplayNameFor(m => m.IsUsed)</td>
+                <td>@Html.DisplayNameFor(m => m.Editor)</td>
+                <td>@Html.DisplayNameFor(m => m.EditTime)</td>
+                <td>@StringResource.Detail</td>
+                <td>@StringResource.Modify</td>
+                <td>@StringResource.Delete</td>
+            </tr>
+        </thead>
+        @if (ViewBag.List != null)
+        {
+            <tbody>
+                @for (int i = 0; i < ViewBag.List.Length; i++)
+                {
+                    Powerset obj = ViewBag.List[i];
+                    <tr>
+                        <td>@obj.Key.Code</td>
+                        <td>
+                            @obj.Key.ItemNo
+                        </td>
+                        <td>
+                            @obj.Name
+                        </td>
+                        <td>
+                            @obj.PowerName
+                        </td>
+                        <td>
+                            @obj.PowerDifference
+                        </td>
+                        <td>
+                            @obj.MaxValue
+                        </td>
+                        <td>
+                            @obj.MinValue
+                        </td>
+                        <td>
+                            @obj.StandardPower
+                        </td>
+                        <td>
+                            @obj.StandardIPM
+                        </td>
+                        <td>
+                            @obj.StandardIsc
+                        </td>
+                        <td>
+                            @obj.StandardVPM
+                        </td>
+                        <td>
+                            @obj.StandardVoc
+                        </td>
+                        <td>
+                            @obj.StandardFuse
+                        </td>
+                        <td>
+                            @(obj.MixColor ? StringResource.Yes : StringResource.No)
+                        </td>
+                        @if (obj.SubWay == EnumPowersetSubWay.None)
+                        {
+                            <td>@obj.SubWay.GetDisplayName()</td>
+                        }
+                        else
+                        {
+                            <td>
+                                @Html.ActionLink(linkText: obj.SubWay.GetDisplayName()
+                                            , actionName: "Index"
+                                             , controllerName: "PowersetDetail"
+                                             , routeValues: new { @Code = obj.Key.Code, @ItemNo = obj.Key.ItemNo }
+                                            , htmlAttributes: new { @target = "_self" })
+                            </td>
+                        }
+                        <td>
+                            @(obj.IsUsed ? StringResource.Yes : StringResource.No)
+                        </td>
+                        <td>@obj.Editor</td>
+                        <td>@string.Format("{0:yyyy-MM-dd HH:mm:ss}",obj.EditTime)</td>
+                        <td>
+                            @Ajax.ActionLink(StringResource.Detail, actionName: null
+                                            , routeValues: null
+                                            , ajaxOptions:new AjaxOptions() 
+                                            { 
+                                                HttpMethod = "Post", 
+                                                UpdateTargetId = "detailInfo",
+                                                OnSuccess = "showInfoModal",
+                                                Url = Url.Action("Detail", new { @Code = obj.Key.Code, @ItemNo = obj.Key.ItemNo })
+                                            })
+                        </td>
+                        <td>
+                            @Ajax.ActionLink(StringResource.Modify, actionName: null
+                                            ,routeValues:null
+                                            ,ajaxOptions:new AjaxOptions()
+                                            {
+                                                HttpMethod = "Post",
+                                                UpdateTargetId = "modifyFormContent",
+                                                OnSuccess = "showModifyModal",
+                                                Url = Url.Action("Modify", new { @Code = obj.Key.Code, @ItemNo = obj.Key.ItemNo })
+                                            })
+                        </td>
+                        <td>
+                            @Ajax.ActionLink(StringResource.Delete, actionName: null
+                                            , routeValues: null
+                                            , ajaxOptions:new AjaxOptions()
+                                            {
+                                                HttpMethod = "Post",
+                                                Confirm = string.Format(ZPVMResources.StringResource.Powerset_ConfirmDelete, obj.Key),
+                                                Url = Url.Action("Delete", new { @Code = obj.Key.Code, @ItemNo = obj.Key.ItemNo }),
+                                                OnSuccess = "completeDelete"
+                                            })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        }
+    </table>
+    <div style="margin-top:-18px">
+        @if (cfg != null)
+        {
+            using (Ajax.BeginForm("PagingQuery", "Powerset"
+                            , new
+                            {
+                                @Where = cfg.Where,
+                                @OrderBy = cfg.OrderBy,
+                                @CurrentPageNo = cfg.PageNo,
+                                @CurrentPageSize = cfg.PageSize
+                            }
+                            , new AjaxOptions()
+                            {
+                                HttpMethod = "Post",
+                                UpdateTargetId = "_list"
+                            }
+                            , new { @class = "form-horizontal", resource = "form", id = "frmPagingQuery" }))
+            {
+                @Html.AntiForgeryToken()
+                <div>@Html.Partial("_PaginationPartial")</div>
+            }
+        }
+    </div>
+</div>
+
+

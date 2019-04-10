@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2CB1F971-1077-483A-8D59-BF37958CD19C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ServiceCenter.MES.Service.QAM</RootNamespace>
+    <AssemblyName>ServiceCenter.MES.Service.QAM</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'CELLDebug|AnyCPU'">
+    <OutputPath>bin\CELLDebug\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'module.debug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\module.debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'module.release|AnyCPU'">
+    <OutputPath>bin\module.release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'cell.debug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\cell.debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'cell.release|AnyCPU'">
+    <OutputPath>bin\cell.release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="NHibernate">
+      <HintPath>..\..\..\libs\NHibernate\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceCenter.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\ServiceCenter.Modules.Libs\ServiceCenter.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CheckDataDetailService.cs" />
+    <Compile Include="CheckCategoryDetailService.cs" />
+    <Compile Include="CheckDataService.cs" />
+    <Compile Include="CheckCategoryService.cs" />
+    <Compile Include="CheckSettingPointDetailService.cs" />
+    <Compile Include="CheckSettingPointService.cs" />
+    <Compile Include="CheckSettingService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\StringResource.Designer.cs">
+      <DependentUpon>StringResource.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="CheckPlanService.cs" />
+    <Compile Include="ServiceExtensions\LotTrackInForCheck.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\StringResource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>StringResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\FMM\ServiceCenter.MES.DataAccess.Interface.FMM\ServiceCenter.MES.DataAccess.Interface.FMM.csproj">
+      <Project>{a14b36e0-c558-495a-b725-ca37f54c862c}</Project>
+      <Name>ServiceCenter.MES.DataAccess.Interface.FMM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FMM\ServiceCenter.MES.Model.FMM\ServiceCenter.MES.Model.FMM.csproj">
+      <Project>{bace1677-4fc1-40a6-93cd-c78664bab941}</Project>
+      <Name>ServiceCenter.MES.Model.FMM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\WIP\ServiceCenter.MES.DataAccess.Interface.WIP\ServiceCenter.MES.DataAccess.Interface.WIP.csproj">
+      <Project>{fc479902-1e4e-4e84-9056-90a87043bfa0}</Project>
+      <Name>ServiceCenter.MES.DataAccess.Interface.WIP</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\WIP\ServiceCenter.MES.Model.WIP\ServiceCenter.MES.Model.WIP.csproj">
+      <Project>{9d2471c5-93c8-45b4-be45-7bba88025fa6}</Project>
+      <Name>ServiceCenter.MES.Model.WIP</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\WIP\ServiceCenter.MES.Service.Contract.WIP\ServiceCenter.MES.Service.Contract.WIP.csproj">
+      <Project>{59109d57-5fb5-41e7-bbde-a22cfba26f6c}</Project>
+      <Name>ServiceCenter.MES.Service.Contract.WIP</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ServiceCenter.MES.DataAccess.Interface.QAM\ServiceCenter.MES.DataAccess.Interface.QAM.csproj">
+      <Project>{d0961aff-25d2-40ed-8855-cc05e7e2d45d}</Project>
+      <Name>ServiceCenter.MES.DataAccess.Interface.QAM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ServiceCenter.MES.Model.QAM\ServiceCenter.MES.Model.QAM.csproj">
+      <Project>{415e6fa3-00c2-465e-9ace-cee2733bbc9a}</Project>
+      <Name>ServiceCenter.MES.Model.QAM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ServiceCenter.MES.Service.Contract.QAM\ServiceCenter.MES.Service.Contract.QAM.csproj">
+      <Project>{f9dd84ee-c901-4bfe-acb8-6575ae4d0418}</Project>
+      <Name>ServiceCenter.MES.Service.Contract.QAM</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   namespace="ServiceCenter.MES.Model.QAM" 
+                   assembly="ServiceCenter.MES.Model.QAM">
+  <class name="CheckSetting" table="QAM_CHECK">
+    <id name="Key" column="CHECK_KEY">
+      <generator class="assigned" />
+    </id>
+    <property name="GroupName" column="CHECK_GROUP_NAME"/>
+    <property name="MaterialType" column="MATERIAL_TYPE"/>
+    <property name="MaterialCode" column="MATERIAL_CODE"/> 
+    <property name="RouteEnterpriseName" column="ROUTE_ENTERPRISE_NAME"/>
+    <property name="RouteName" column="ROUTE_NAME"/>
+    <property name="RouteStepName" column="ROUTE_STEP_NAME"/>
+    <property name="RouteOperationName" column="ROUTE_OPERATION_NAME"/>
+    <property name="EquipmentCode" column="EQUIPMENT_CODE"/>
+    <property name="ProductionLineCode" column="LINE_CODE"/>
+    <property name="ActionName" column="ACTION_NAME"/>
+    <property name="Description" column="DESCRIPTION"/>
+    <property name="Status" column="STATUS"/>
+    <property name="Creator" column="CREATOR"/>
+    <property name="CreateTime" column="CREATE_TIME"/>
+    <property name="Editor" column="EDITOR"/>
+    <property name="EditTime" column="EDIT_TIME"/>
+  </class>
+</hibernate-mapping>

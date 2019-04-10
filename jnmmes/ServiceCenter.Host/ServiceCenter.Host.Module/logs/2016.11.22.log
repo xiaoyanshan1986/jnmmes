@@ -1,0 +1,51 @@
+2016-11-22 16:12:27,924 - ERROR - START>Application
+2016-11-22 16:50:26,085 - ERROR - START>Application
+2016-11-22 16:51:13,295 - ERROR - Could not compile the mapping document: ServiceCenter.MES.DataAccess.ZPVM.hbm.VIRTestData.hbm.xml
+NHibernate.MappingException: Could not compile the mapping document: ServiceCenter.MES.DataAccess.ZPVM.hbm.VIRTestData.hbm.xml ---> NHibernate.DuplicateMappingException: Duplicate class/entity mapping ServiceCenter.MES.Model.ZPVM.IVTestData
+   在 NHibernate.Cfg.Mappings.AddClass(PersistentClass persistentClass) 位置 p:\nhibernate-core\src\NHibernate\Cfg\Mappings.cs:行号 152
+   在 NHibernate.Cfg.XmlHbmBinding.RootClassBinder.Bind(HbmClass classSchema, IDictionary`2 inheritedMetas) 位置 p:\nhibernate-core\src\NHibernate\Cfg\XmlHbmBinding\RootClassBinder.cs:行号 69
+   在 NHibernate.Cfg.XmlHbmBinding.MappingRootBinder.AddRootClasses(HbmClass rootClass, IDictionary`2 inheritedMetas) 位置 p:\nhibernate-core\src\NHibernate\Cfg\XmlHbmBinding\MappingRootBinder.cs:行号 84
+   在 NHibernate.Cfg.XmlHbmBinding.MappingRootBinder.AddEntitiesMappings(HbmMapping mappingSchema, IDictionary`2 inheritedMetas) 位置 p:\nhibernate-core\src\NHibernate\Cfg\XmlHbmBinding\MappingRootBinder.cs:行号 42
+   在 NHibernate.Cfg.XmlHbmBinding.MappingRootBinder.Bind(HbmMapping mappingSchema) 位置 p:\nhibernate-core\src\NHibernate\Cfg\XmlHbmBinding\MappingRootBinder.cs:行号 31
+   在 NHibernate.Cfg.Configuration.AddDeserializedMapping(HbmMapping mappingDocument, String documentFileName) 位置 p:\nhibernate-core\src\NHibernate\Cfg\Configuration.cs:行号 523
+   --- 内部异常堆栈跟踪的结尾 ---
+2016-11-22 16:51:13,584 - ERROR - Problem parsing configuration
+NHibernate.MappingException: Could not compile the mapping document: ServiceCenter.MES.DataAccess.ZPVM.hbm.VIRTestData.hbm.xml ---> NHibernate.DuplicateMappingException: Duplicate class/entity mapping ServiceCenter.MES.Model.ZPVM.IVTestData
+   在 NHibernate.Cfg.Mappings.AddClass(PersistentClass persistentClass) 位置 p:\nhibernate-core\src\NHibernate\Cfg\Mappings.cs:行号 152
+   在 NHibernate.Cfg.XmlHbmBinding.RootClassBinder.Bind(HbmClass classSchema, IDictionary`2 inheritedMetas) 位置 p:\nhibernate-core\src\NHibernate\Cfg\XmlHbmBinding\RootClassBinder.cs:行号 69
+   在 NHibernate.Cfg.XmlHbmBinding.MappingRootBinder.AddRootClasses(HbmClass rootClass, IDictionary`2 inheritedMetas) 位置 p:\nhibernate-core\src\NHibernate\Cfg\XmlHbmBinding\MappingRootBinder.cs:行号 84
+   在 NHibernate.Cfg.XmlHbmBinding.MappingRootBinder.AddEntitiesMappings(HbmMapping mappingSchema, IDictionary`2 inheritedMetas) 位置 p:\nhibernate-core\src\NHibernate\Cfg\XmlHbmBinding\MappingRootBinder.cs:行号 42
+   在 NHibernate.Cfg.XmlHbmBinding.MappingRootBinder.Bind(HbmMapping mappingSchema) 位置 p:\nhibernate-core\src\NHibernate\Cfg\XmlHbmBinding\MappingRootBinder.cs:行号 31
+   在 NHibernate.Cfg.Configuration.AddDeserializedMapping(HbmMapping mappingDocument, String documentFileName) 位置 p:\nhibernate-core\src\NHibernate\Cfg\Configuration.cs:行号 523
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 NHibernate.Cfg.Configuration.LogAndThrow(Exception exception) 位置 p:\nhibernate-core\src\NHibernate\Cfg\Configuration.cs:行号 342
+   在 NHibernate.Cfg.Configuration.AddDeserializedMapping(HbmMapping mappingDocument, String documentFileName) 位置 p:\nhibernate-core\src\NHibernate\Cfg\Configuration.cs:行号 530
+   在 NHibernate.Cfg.Configuration.AddValidatedDocument(NamedXmlDocument doc) 位置 p:\nhibernate-core\src\NHibernate\Cfg\Configuration.cs:行号 500
+   在 NHibernate.Cfg.Configuration.ProcessMappingsQueue() 位置 p:\nhibernate-core\src\NHibernate\Cfg\Configuration.cs:行号 1865
+   在 NHibernate.Cfg.Configuration.AddDocumentThroughQueue(NamedXmlDocument document) 位置 p:\nhibernate-core\src\NHibernate\Cfg\Configuration.cs:行号 1857
+   在 NHibernate.Cfg.Configuration.AddXmlReader(XmlReader hbmReader, String name) 位置 p:\nhibernate-core\src\NHibernate\Cfg\Configuration.cs:行号 1850
+   在 NHibernate.Cfg.Configuration.AddInputStream(Stream xmlInputStream, String name) 位置 p:\nhibernate-core\src\NHibernate\Cfg\Configuration.cs:行号 638
+   在 NHibernate.Cfg.Configuration.AddResource(String path, Assembly assembly) 位置 p:\nhibernate-core\src\NHibernate\Cfg\Configuration.cs:行号 676
+   在 NHibernate.Cfg.Configuration.AddAssembly(Assembly assembly) 位置 p:\nhibernate-core\src\NHibernate\Cfg\Configuration.cs:行号 769
+   在 NHibernate.Cfg.Configuration.AddAssembly(String assemblyName) 位置 p:\nhibernate-core\src\NHibernate\Cfg\Configuration.cs:行号 752
+   在 NHibernate.Cfg.Configuration.DoConfigure(ISessionFactoryConfiguration factoryConfiguration) 位置 p:\nhibernate-core\src\NHibernate\Cfg\Configuration.cs:行号 1574
+   在 NHibernate.Cfg.Configuration.Configure(XmlReader textReader) 位置 p:\nhibernate-core\src\NHibernate\Cfg\Configuration.cs:行号 1539
+2016-11-22 23:07:52,657 - ERROR - START>Application
+2016-11-22 23:09:26,888 - ERROR - START>Application
+2016-11-22 23:31:36,513 - ERROR - START>Application
+2016-11-22 23:31:44,556 - ERROR - START>Application
+2016-11-22 23:39:42,686 - ERROR - TrackInBusinessCheck>
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 ServiceCenter.MES.Service.WIP.WipEngineerService.TrackInBusinessCheck(TrackInParameter p, List`1 lstLot) 位置 e:\Workspace\Jinergy\JNMMES\trunk\src\ServiceCenter.Modules\WIP\ServiceCenter.MES.Service.WIP\WipEngineerServiceForTrack.cs:行号 787
+2016-11-22 23:39:52,766 - ERROR - TrackInBusinessCheck>
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 ServiceCenter.MES.Service.WIP.WipEngineerService.TrackInBusinessCheck(TrackInParameter p, List`1 lstLot) 位置 e:\Workspace\Jinergy\JNMMES\trunk\src\ServiceCenter.Modules\WIP\ServiceCenter.MES.Service.WIP\WipEngineerServiceForTrack.cs:行号 787
+2016-11-22 23:41:11,162 - ERROR - TrackInBusinessCheck>
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 ServiceCenter.MES.Service.WIP.WipEngineerService.TrackInBusinessCheck(TrackInParameter p, List`1 lstLot) 位置 e:\Workspace\Jinergy\JNMMES\trunk\src\ServiceCenter.Modules\WIP\ServiceCenter.MES.Service.WIP\WipEngineerServiceForTrack.cs:行号 787
+2016-11-22 23:44:01,252 - ERROR - START>Application
+2016-11-22 23:46:32,846 - ERROR - START>Application
+2016-11-22 23:50:10,138 - ERROR - START>Application
+2016-11-22 23:50:51,957 - ERROR - START>Application
+2016-11-22 23:56:18,715 - ERROR - START>Application
+2016-11-22 23:59:04,658 - ERROR - START>Application

@@ -1,0 +1,97 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.WIP.Models.LotPatchViewModel
+@using ServiceCenter.Client.Mvc.Areas.WIP.Models;
+@using ServiceCenter.Client.Mvc.Resources;
+@using WIPResources = ServiceCenter.Client.Mvc.Resources.WIP;
+@using ServiceCenter.MES.Model.WIP;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@using ServiceCenter.MES.Service.Client.WIP;
+@{
+    PagingConfig cfg = ViewBag.PagingConfig;
+}
+<div id="_list">
+    <table class="table table-hover table-bordered table-condensed table-responsive table-striped">
+        <thead>
+            <tr class="active">
+                <td nowrap>@StringResource.ItemNo</td>
+                <td nowrap>@Html.DisplayNameFor(m => m.LotNumber)</td>
+                <td nowrap>@Html.DisplayNameFor(m => m.LineStoreName)</td>
+                <td nowrap>@Html.DisplayNameFor(m => m.LineCode)</td>
+                <td nowrap>@Html.DisplayNameFor(m => m.OrderNumber)</td>
+                <td nowrap>@Html.DisplayNameFor(m => m.MaterialCode)</td>
+                <td nowrap>@Html.DisplayNameFor(m => m.MaterialLot)</td>
+                <td nowrap>@Html.DisplayNameFor(m => m.PatchQuantity)</td>
+                <td nowrap>@Html.DisplayNameFor(m => m.ReasonCodeCategoryName)</td>
+                <td nowrap>@Html.DisplayNameFor(m => m.ReasonCodeName)</td>
+                <td nowrap>@Html.DisplayNameFor(m => m.ReasonDescription)</td>
+                <td nowrap>@Html.DisplayNameFor(m => m.RouteOperationName)</td>
+                <td nowrap>@Html.DisplayNameFor(m => m.ResponsiblePerson)</td>
+                <td nowrap>补料时间</td>
+                <td nowrap>补料操作人</td>
+            </tr>
+        </thead>
+        @if (ViewBag.List != null)
+        {
+            <tbody>
+                @for (int i = 0; i < ViewBag.List.Length; i++)
+                {
+                    LotTransactionPatch obj = ViewBag.List[i];
+                    LotTransaction transObj = null;
+                    using (LotQueryServiceClient client = new LotQueryServiceClient())
+                    {
+                        MethodReturnResult<LotTransaction> result = client.GetTransaction(obj.Key.TransactionKey);
+                        if (result.Code == 0)
+                        {
+                            transObj = result.Data;
+                        }
+                    }
+                    <tr>
+                        <td nowrap>@(cfg.PageSize * cfg.PageNo+i+1)</td>
+                        <td nowrap>
+                            @transObj.LotNumber
+                        </td>
+                        <td nowrap>@obj.LineStoreName</td>
+                        <td nowrap>@obj.LineCode</td>
+                        <td nowrap>@transObj.OrderNumber</td>
+                        <td nowrap>@obj.MaterialCode</td>
+                        <td nowrap>@obj.MaterialLot</td>
+                        <td nowrap>@obj.Quantity</td>
+                        <td nowrap>@obj.Key.ReasonCodeCategoryName</td>
+                        <td nowrap>@obj.Key.ReasonCodeName</td>
+                        <td nowrap>@obj.Description</td>
+                        <td nowrap>@obj.RouteOperationName</td>
+                        <td nowrap>@obj.ResponsiblePerson</td>
+                        <td nowrap>@string.Format("{0:yyyy-MM-dd HH:mm:ss}", obj.EditTime)</td>
+                        <td nowrap>@obj.Editor</td>
+                    </tr>
+                }
+            </tbody>
+        }
+    </table>
+
+    <div style="margin-top:-18px">
+        @if (cfg != null)
+        {
+            using (Ajax.BeginForm("PagingQuery", "LotPatch"
+                            , new
+                            {
+                                @Where = cfg.Where,
+                                @OrderBy = cfg.OrderBy,
+                                @CurrentPageNo = cfg.PageNo,
+                                @CurrentPageSize = cfg.PageSize
+                            }
+                            , new AjaxOptions()
+                            {
+                                HttpMethod = "Post",
+                                UpdateTargetId = "_list"
+                            }
+                            , new { @class = "form-horizontal", resource = "form", id = "frmPagingQuery" }))
+            {
+                @Html.AntiForgeryToken()
+                <div>@Html.Partial("_PaginationPartial")</div>
+            }
+        }
+    </div>
+</div>
+
+

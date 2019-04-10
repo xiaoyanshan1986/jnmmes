@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   namespace="ServiceCenter.MES.Model.ZPVM" 
+                   assembly="ServiceCenter.MES.Model.ZPVM">
+  <class name="Powerset" table="ZFMM_POWERSET">
+    <composite-id  name="Key" class="PowersetKey">
+      <key-property name="Code" column="PS_CODE"/>
+      <key-property name="ItemNo" column="ITEM_NO"/>
+    </composite-id >
+    <property name="Name" column="PS_NAME"/>
+    <property name="MinValue" column="MIN_VALUE"/>
+    <property name="MaxValue" column="MAX_VALE"/>
+    <property name="PowerName" column="PM_NAME"/>
+    <property name="StandardPower" column="STAND_PMAX"/>
+    <property name="StandardIsc" column="STAND_ISC"/>
+    <property name="StandardVoc" column="STAND_VOC"/>
+    <property name="StandardIPM" column="STAND_IPM"/>
+    <property name="StandardVPM" column="STAND_VPM"/>
+    <property name="StandardFuse" column="STAND_FUSE"/>
+    <property name="PowerDifference" column="POWER_DIFFERENCE"/>
+    <property name="MixColor" column="MIX_COLOR"/>
+    <property name="SubWay" column="SUB_PS_WAY"/>
+    <property name="ArticleNo" column="ARTICLE_NO"/>
+    <property name="Description" column="DESCRIPTION"/>
+    <property name="IsUsed" column="IS_USED"/>
+    <property name="Creator" column="CREATOR"/>
+    <property name="CreateTime" column="CREATE_TIME"/>
+    <property name="Editor" column="EDITOR"/>
+    <property name="EditTime" column="EDIT_TIME"/>
+  </class>
+</hibernate-mapping>

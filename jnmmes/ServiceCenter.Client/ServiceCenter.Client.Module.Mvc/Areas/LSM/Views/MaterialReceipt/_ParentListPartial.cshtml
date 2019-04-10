@@ -1,0 +1,196 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.LSM.Models.MaterialReceiptDetailViewModel
+@using ServiceCenter.Client.Mvc.Areas.LSM.Models;
+@using ServiceCenter.Client.Mvc.Resources;
+@using LSMResources = ServiceCenter.Client.Mvc.Resources.LSM;
+@using ServiceCenter.MES.Model.LSM;
+@using ServiceCenter.MES.Model.FMM;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@{
+    PagingConfig cfg = ViewBag.PagingConfig;
+}
+<div id="_list">
+    <table class="table table-hover table-bordered table-condensed">
+
+
+        @if (ViewBag.lsmd != null)
+        {
+            <thead>
+                <tr class="active">
+                    <td nowrap>线边仓</td>
+                    <td nowrap>工单号</td>
+                    <td nowrap>物料编码</td>
+                    <td nowrap>物料名称</td>
+                    <td nowrap>物料批号</td>
+                    <td nowrap>领料数量</td>
+                    <td nowrap>退料数量</td>
+                    <td nowrap>上料数量</td>
+                    <td nowrap>下料数量</td>
+                    <td nowrap>当前数量</td>
+                    <td nowrap>供应商批号</td>
+                    <td nowrap>供应商</td>
+                    <td nowrap>供应商名称</td>
+                    <td nowrap>效率档</td>
+                    <td nowrap>父级批号</td>
+                    <td nowrap>描述</td>
+                    <td nowrap>编辑人</td>
+                    <td nowrap>编辑时间</td>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+            LineStoreMaterialDetail lsmd = ViewBag.lsmd;
+            Material m = @Model.GetMaterial(lsmd.Key.MaterialCode);
+            Supplier s = @Model.GetSupplier(lsmd.SupplierCode);
+                }
+                <tr>
+                    <td nowrap>
+                        @lsmd.Key.LineStoreName
+                    </td>
+                    <td nowrap>
+                        @lsmd.Key.OrderNumber
+                    </td>
+                    <td nowrap>
+                        @lsmd.Key.MaterialCode
+                    </td>
+                    <td nowrap>
+                        @(m == null ? string.Empty : m.Name)
+                    </td>
+                    <td nowrap>
+                        @lsmd.Key.MaterialLot
+                    </td>
+                    <td nowrap>
+                        @lsmd.ReceiveQty
+                    </td>
+                    <td nowrap>
+                        @lsmd.ReturnQty
+                    </td>
+                    <td nowrap>
+                        @lsmd.LoadingQty
+                    </td>
+                    <td nowrap>
+                        @lsmd.UnloadingQty
+                    </td>
+                    <td nowrap>
+                        @lsmd.CurrentQty
+                    </td>
+                    <td nowrap>
+                        @lsmd.SupplierMaterialLot
+                    </td>
+                    <td nowrap>
+                        @lsmd.SupplierCode
+                    </td>
+                    <td nowrap>
+                        @(s == null ? string.Empty : s.Name)
+                    </td>
+                    <td nowrap>
+                        @lsmd.Attr1
+                    </td>
+                    <td nowrap>
+                        @(lsmd.Attr2 == null ? string.Empty : lsmd.Attr2)
+                    </td>
+                    <td nowrap>
+                        @lsmd.Description
+                    </td>
+                    <td nowrap>
+                        @lsmd.Editor
+                    </td>
+                    <td nowrap>
+                        @string.Format("{0:yyyy-MM-dd HH:mm:ss}", lsmd.EditTime)
+                    </td>
+                </tr>
+
+            </tbody>
+        }
+    </table>
+
+    <table class="table table-hover table-bordered table-condensed">
+
+        @if (ViewBag.mrd != null)
+        {
+            <thead>
+                <tr class="active">
+                    <td nowrap>领料号</td>
+                    <td nowrap>工单号</td>
+                    <td nowrap>领料日期</td>
+                    <td nowrap>项目号</td>
+                    <td nowrap>线边仓</td>
+                    <td nowrap>物料编码</td>
+                    <td nowrap>物料名称</td>
+                    <td nowrap>物料批号</td>
+                    <td nowrap>数量</td>
+                    <td nowrap>供应商批号</td>
+                    <td nowrap>供应商代码</td>
+                    <td nowrap>供应商名称</td>
+                    <td nowrap>效率档</td>
+                    <td nowrap>描述</td>
+                    <td nowrap>编辑人</td>
+                    <td nowrap>编辑时间</td>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+            MaterialReceiptDetail obj = ViewBag.mrd;
+            MaterialReceipt mrObj = @Model.GetMaterialReceipt(obj.Key.ReceiptNo);
+            Material m = @Model.GetMaterial(obj.MaterialCode);
+            Supplier s = @Model.GetSupplier(obj.SupplierCode);
+                }
+
+
+                <tr>
+                    <td nowrap>@obj.Key.ReceiptNo</td>
+                    <td nowrap>
+
+                        @(mrObj == null ? string.Empty : mrObj.OrderNumber)
+                    </td>
+                    <td nowrap>
+                        @(mrObj == null ? string.Empty : string.Format("{0:yyyy-MM-dd}", mrObj.ReceiptDate))
+                    </td>
+                    <td nowrap>
+                        @obj.Key.ItemNo
+                    </td>
+                    <td nowrap>
+                        @obj.LineStoreName
+                    </td>
+                    <td nowrap>
+                        @obj.MaterialCode
+                    </td>
+                    <td nowrap>
+                        @(m == null ? string.Empty : m.Name)
+                    </td>
+                    <td nowrap>
+                        @obj.MaterialLot
+                    </td>
+                    <td nowrap>
+                        @obj.Qty
+                    </td>
+                    <td nowrap>
+                        @obj.SupplierMaterialLot
+                    </td>
+                    <td nowrap>
+                        @obj.SupplierCode
+                    </td>
+                    <td nowrap>
+                        @(s == null ? string.Empty : s.Name)
+                    </td>
+                    <td nowrap>
+                        @obj.Attr1
+                    </td>
+                    <td nowrap>
+                        @obj.Description
+                    </td>
+                    <td nowrap>
+                        @obj.Editor
+                    </td>
+                    <td nowrap>
+                        @string.Format("{0:yyyy-MM-dd HH:mm:ss}", obj.EditTime)
+                    </td>
+                </tr>
+            </tbody>
+
+        }
+    </table>
+
+</div>
+
+

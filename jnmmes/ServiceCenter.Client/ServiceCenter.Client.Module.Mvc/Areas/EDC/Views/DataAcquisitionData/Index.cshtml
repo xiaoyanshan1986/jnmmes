@@ -1,0 +1,478 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.EDC.Models.DataAcquisitionDataQueryViewModel
+@using ServiceCenter.MES.Model.EDC;
+@using ServiceCenter.Model;
+@using ServiceCenter.Common;
+@using ServiceCenter.Client.Mvc.Areas.EDC.Models;
+@using EDC = ServiceCenter.Client.Mvc.Resources.EDC;
+@using ServiceCenter.Client.Mvc.Resources;
+
+@{
+    DataAcquisitionItem acquisitionItem = ViewBag.DataAcquisitionItem;
+    ViewBag.Title = string.Format(EDC.StringResource.DataAcquisitionData_DataPageTitle, acquisitionItem.Key + ":" + acquisitionItem.ItemName);
+    PagingConfig cfg = ViewBag.PagingConfig;
+}
+<h2>@ViewBag.Title</h2>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <a href="javascript:showAddModal()" class="btn btn-primary">@StringResource.Add</a>
+    </div>
+    <div class="panel-body">
+        @using (Ajax.BeginForm("Query", "DataAcquisitionData", null
+            , new AjaxOptions()
+            {
+                HttpMethod = "Post",
+                OnBegin = "beginQuery",
+                UpdateTargetId = "list"
+            }
+            , new { @class = "form-horizontal", resource = "form" }))
+        {
+            @Html.AntiForgeryToken()
+            <div class="row">
+                @*开始日期*@
+                <div class="col-md-1">
+                    @Html.LabelFor(m => m.StartDate, new { @class = "control-label" })
+                </div>
+                <div class="col-md-2">
+                    @Html.TextBoxFor(m => m.StartDate, "{0:yyyy-MM-dd}", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.StartDate)
+                </div>
+
+                @*结束日期*@
+                <div class="col-md-1">
+                    @Html.LabelFor(m => m.EndDate, new { @class = "control-label" })
+                </div>
+                <div class="col-md-2">
+                    @Html.TextBoxFor(m => m.EndDate, "{0:yyyy-MM-dd}", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.EndDate)
+                </div>
+
+                @*线别*@
+                <div class="col-md-1">
+                    @Html.LabelFor(m => m.LineCode, new { @class = "control-label" })
+                </div>
+                <div class="col-md-2">
+                    @Html.DropDownListFor(m => m.LineCode, @Model.GetLineList(), string.Empty, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.LineCode)
+                </div>
+
+                @*设备代码*@
+                <div class="col-md-1">
+                    @Html.LabelFor(m => m.EquipmentCode, new { @class = "control-label" })
+                </div>
+                <div class="col-md-2">
+                    @Html.DropDownListFor(m => m.EquipmentCode, new List<SelectListItem>(), new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.EquipmentCode)
+                </div>
+
+                <div class="col-md-1">
+                    <input type="submit" value="@StringResource.Query" class="btn btn-default" />
+                </div>
+
+                @* 采集项目 *@
+                @Html.HiddenFor(m => m.ItemCode, new { @class = "form-control" })
+
+                @* 工序 *@
+                @Html.HiddenFor(m => m.RouteOperationName, new { @class = "form-control" })
+                @Html.HiddenFor(m => m.PageNo, new { @class = "form-control" })
+                @Html.HiddenFor(m => m.PageSize, new { @class = "form-control" })
+                @Html.HiddenFor(m => m.Records, new { @class = "form-control" })
+            </div>
+        }
+    </div>
+    <div class="alert fade in hide" resource="alert" id="statusMessage" style="margin:0px">
+        <button type="button" class="close" onclick="hideStatusMessage()">
+            <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+        </button>
+        <p></p>
+    </div>
+    <div id="list">
+        @Html.Partial("_ListPartial", new DataAcquisitionDataQueryViewModel())
+    </div>
+</div>
+
+@*新增*@
+<div id="add" class="modal fade" tabindex="-1" resource="dialog" aria-labelledby="addHeader" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="addHeader">@EDC.StringResource.DataAcquisitionData_AddTitle</h4>
+            </div>
+            <div class="modal-body" id="addContent" style="margin:0px;padding:5px">
+                @using (Ajax.BeginForm("Save", "DataAcquisitionData", null
+                        , new AjaxOptions()
+                        {
+                            HttpMethod = "Post",
+                            OnSuccess = "completeSave",
+                            OnBegin = "beginSave"
+                        }
+                        , new { @class = "form-horizontal", resource = "form", id = "frmAdd" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <input type="submit" class="btn btn-primary" value="@StringResource.Save" id="btnSave" />
+                            <input type="reset" class="btn btn-default" value="@StringResource.Reset" id="btnReset" />
+                        </div>
+                        <div class="panel-body">
+                            <div class="alert fade in hide" resource="alert" id="addStatusMessage">
+                                <button type="button" class="close" onclick="hideAddAlert()">
+                                    <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+                                </button>
+                                <p></p>
+                            </div>
+                            <div>
+                                @Html.Partial("_AddPartial", new DataAcquisitionDataViewModel() { ItemCode = @Model.ItemCode,
+                                                                                                  ViewLineCode = @Model.LineCode,
+                                                                                                  ViewRouteOperationName = @Model.RouteOperationName,
+                                                                                                  ViewEquipmentCode = @Model.EquipmentCode,
+                                                                                                  EDCTime = @Model.EDCTime
+                                                                                                })
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+@*修改*@
+<div id="modify"
+     class="modal fade"
+     tabindex="-1"
+     resource="dialog"
+     aria-labelledby="modifyHeader"
+     aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="modifyHeader">@EDC.StringResource.DataAcquisitionData_ModifyTitle</h4>
+            </div>
+            <div class="modal-body" id="modifyResourceContent" style="margin:0px;padding:5px">
+                @using (Ajax.BeginForm("SaveModify", "DataAcquisitionData", null
+                    , new AjaxOptions()
+                    {
+                        HttpMethod = "Post",
+                        OnSuccess = "completeSaveModify",
+                        OnBegin = "beginSaveModify"
+                    }
+                    , new { @class = "form-horizontal", resource = "form" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <input type="submit" class="btn btn-primary" value="@StringResource.Save" id="btnSaveModify" />
+                        </div>
+                        <div class="panel-body">
+                            <div class="alert fade in hide" resource="alert" id="modifyStatusMessage">
+                                <button type="button" class="close" onclick="hideModifyAlert()">
+                                    <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+                                </button>
+                                <p></p>
+                            </div>
+                            <div id="modifyFormContent">
+                                @Html.Partial("_ModifyPartial", new DataAcquisitionDataViewModel())
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+@*显示明细*@
+<div id="info"
+     class="modal fade"
+     tabindex="-1"
+     resource="dialog"
+     aria-labelledby="infoHeader"
+     aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="infoHeader">@EDC.StringResource.DataAcquisitionData_DetailTitle</h4>
+            </div>
+            <div class="modal-body" id="infoContent" style="margin:0px;padding:5px">
+                <form class="form-horizontal" resource="form">
+                    <div class="panel panel-default">
+                        <div class="panel-body" id="detailInfo">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script type="text/javascript" language="javascript">
+        //初始化
+        $(function () {
+            $("#StartDate,#EndDate,#EDCTime").datetimepicker({
+                changeMonth: true,
+                changeYear: true,
+                dateFormat: "yy-mm-dd",
+                timeFormat: 'HH:mm:ss'
+            });
+
+        });
+
+        //刷新列表
+        function refreshList() {
+            if ($("#frmPagingQuery").length > 0) {
+                $("#frmPagingQuery").submit();
+            }
+        }
+
+        //隐藏状态消息
+        function hideStatusMessage() {
+            $("#statusMessage").addClass("hide");
+        }
+
+        $("#LineCode").change(function () {
+            $("#EquipmentCode").get(0).options.length = 0; //清空
+            changeQueryEquipmentCode($("#RouteOperationName").val(), $(this).val());
+        });
+
+        changeQueryEquipmentCode($("#RouteOperationName").val(), $("#LineCode").val());
+
+        function changeQueryEquipmentCode(routeOperationName, productionLineCode) {
+
+            $("#EquipmentCode").get(0).options.length = 0; //清空
+
+            if (routeOperationName == null || routeOperationName == "") {
+                return;
+            }
+            if (routeOperationName == null || productionLineCode == "") {
+                return;
+            }
+
+            var url = "@Url.Action("GetEquipments", "LotTrack", new { area = "WIP" })";
+            var timestamp = Math.round(new Date().getTime() / 1000);
+            var reqdata = { RouteOperationName: routeOperationName, ProductionLineCode: productionLineCode,timestamp:timestamp };
+
+            $.getJSON(url, reqdata, function (data) {
+
+                $("#EquipmentCode").get(0).options.length = 0; //清空
+
+                $("<option></option>").val("").text("").appendTo($("#EquipmentCode"));
+
+                $.each(data, function (i, item) {
+                    $("<option></option>").val(item.Key).text(item.Text).appendTo($("#EquipmentCode"));
+                });
+
+                //changeEquipmentState($("#EquipmentCode").val())
+            });
+        }
+    </script>
+
+    @*查询*@
+    <script type="text/javascript" language="javascript">
+        //刷新列表
+        function beginQuery() {
+            hideStatusMessage();
+        }
+    </script>
+
+    @*新增*@
+    <script type="text/javascript" language="javascript">
+        //初始化
+        $(function () {            
+            var texts = $('#add').find(":text:enabled,:checkbox:enabled,select:enabled")
+            texts.keypress(function (args) {
+                if (args.ctrlKey == false && args.keyCode == 13) {
+                    var index = texts.index(this) + 1;
+                    if (index < texts.length) {
+                        texts.eq(index).focus().select();
+                        return false;
+                    }
+                    else {
+                        texts.eq(0).focus().select();
+                        return true;
+                    }
+                }
+            }).focus(function () {
+                $(this).select();
+            });
+
+            $('#add').on('shown.bs.modal', function (e) {
+                $("#btnReset").click();
+            });
+
+            $("#btnReset").click(function () {
+                texts.eq(0).focus().select();
+            });
+        })
+
+        function showAddModal() {
+            hideAddAlert();
+            hideStatusMessage();
+            $("#btnSave").removeAttr("disabled");
+            $('#add').modal('show');
+        }
+
+        function hideAddAlert() {
+            $("#addStatusMessage").addClass("hide");
+        }
+
+        function beginSave() {
+            $("#btnSave").attr("disabled", "disabled");
+        }
+
+        function completeSave(result) {
+            $("#btnSave").removeAttr("disabled");
+            $("#addStatusMessage").find("p").html(result.Message);
+            $("#addStatusMessage").removeClass("hide");
+            if (result.Code > 0) {
+                $("#addStatusMessage").removeClass("alert-success");
+                $("#addStatusMessage").addClass("alert-danger");
+            }
+            else {
+                $("#addStatusMessage").removeClass("alert-danger");
+                $("#addStatusMessage").addClass("alert-success");
+
+                refreshList();
+            }
+        }
+
+        $("#ViewLineCode").change(function () {
+            $("#ViewEquipmentCode").get(0).options.length = 0; //清空
+            changeEquipmentCode($("#ViewRouteOperationName").val(), $(this).val());
+        });
+
+        changeEquipmentCode($("#ViewRouteOperationName").val(), $("#ViewLineCode").val());
+
+        function changeEquipmentCode(routeOperationName, productionLineCode) {
+
+            $("#ViewEquipmentCode").get(0).options.length = 0; //清空
+
+            if (routeOperationName == null || routeOperationName == "") {
+                return;
+            }
+            if (routeOperationName == null || productionLineCode == "") {
+                return;
+            }
+
+            var url = "@Url.Action("GetEquipments", "LotTrack", new { area = "WIP" })";
+            var timestamp = Math.round(new Date().getTime() / 1000);
+            var reqdata = { RouteOperationName: routeOperationName, ProductionLineCode: productionLineCode,timestamp:timestamp };
+
+            $.getJSON(url, reqdata, function (data) {
+
+                $("#ViewEquipmentCode").get(0).options.length = 0; //清空
+                $.each(data, function (i, item) {
+                    $("<option></option>").val(item.Key).text(item.Text).appendTo($("#ViewEquipmentCode"));
+                });
+                changeEquipmentState($("#ViewEquipmentCode").val())
+            });
+        }
+    </script>
+
+    @*显示明细*@
+    <script type="text/javascript" language="javascript">
+        //显示明细
+        function showInfoModal(result) {
+            $('#info').modal('show')
+        }
+    </script>
+
+    @*修改*@
+    <script type="text/javascript" language="javascript">
+        //修改资源
+        $(function () {
+            $('#modify').on('shown.bs.modal', function (e) {
+                registerModifyClientEvent();
+            });
+        });
+
+        function showModifyModal(result) {
+            hideModifyAlert();
+            hideStatusMessage();
+            $("#btnSaveModify").removeAttr("disabled");
+            $('#modify').modal('show')
+        }
+
+        function registerModifyClientEvent() {
+            var texts = $('#modify').find(":text:enabled,:checkbox:enabled,select:enabled")
+            texts.keypress(function (args) {
+                if (args.ctrlKey == false && args.keyCode == 13) {
+                    var index = texts.index(this) + 1;
+                    if (index < texts.length) {
+                        texts.eq(index).focus().select();
+                        return false;
+                    }
+                    else {
+                        texts.eq(0).focus().select();
+                        return true;
+                    }
+                }
+            }).focus(function () {
+                $(this).select();
+            });
+
+            texts.eq(0).focus().select();
+        }
+
+        function hideModifyAlert() {
+            $("#modifyStatusMessage").addClass("hide");
+        }
+
+        function beginSaveModify() {
+            $("#btnSaveModify").attr("disabled", "disabled");
+        }
+
+        function completeSaveModify(result) {
+            $("#btnSaveModify").removeAttr("disabled");
+            $("#modifyStatusMessage").find("p").html(result.Message);
+            $("#modifyStatusMessage").removeClass("hide");
+            if (result.Code > 0) {
+                $("#modifyStatusMessage").removeClass("alert-success");
+                $("#modifyStatusMessage").addClass("alert-danger");
+            }
+            else {
+                $("#modifyStatusMessage").removeClass("alert-danger");
+                $("#modifyStatusMessage").addClass("alert-success");
+                refreshList();
+            }
+        }
+
+        $("#ViewLineCode").change(function () {
+            $("#ViewEquipmentCode").get(0).options.length = 0; //清空
+            changeEquipmentCode($("#ViewRouteOperationName").val(), $(this).val());
+        });
+
+        changeEquipmentCode($("#ViewRouteOperationName").val(), $("#ViewLineCode").val());
+    </script>
+
+    @*删除*@
+    <script type="text/javascript" language="javascript">
+        //删除资源
+        function completeDelete(result) {
+            $("#statusMessage").find("p").html(result.Message);
+            $("#statusMessage").removeClass("hide");
+            if (result.Code > 0) {
+                $("#statusMessage").removeClass("alert-success");
+                $("#statusMessage").addClass("alert-danger");
+            }
+            else {
+                $("#statusMessage").removeClass("alert-danger");
+                $("#statusMessage").addClass("alert-success");
+                refreshList();
+            }
+        }
+    </script>
+}

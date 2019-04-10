@@ -1,0 +1,17 @@
+E:\组件程序\20160613\trunk\src\ServiceCenter.Client\WinClients\WinClient.PrintTools\PrintModLabel\bin\Debug\1.Lab
+E:\组件程序\20160613\trunk\src\ServiceCenter.Client\WinClients\WinClient.PrintTools\PrintModLabel\bin\Debug\IV.Common.dll
+E:\组件程序\20160613\trunk\src\ServiceCenter.Client\WinClients\WinClient.PrintTools\PrintModLabel\bin\Debug\IV.SQLServerDAL.dll
+E:\组件程序\20160613\trunk\src\ServiceCenter.Client\WinClients\WinClient.PrintTools\PrintModLabel\bin\Debug\IV.Common.pdb
+E:\组件程序\20160613\trunk\src\ServiceCenter.Client\WinClients\WinClient.PrintTools\PrintModLabel\bin\Debug\IV.SQLServerDAL.pdb
+E:\组件程序\20160613\trunk\src\ServiceCenter.Client\WinClients\WinClient.PrintTools\PrintModLabel\obj\Debug\PrintModLabel.csprojResolveAssemblyReference.cache
+E:\组件程序\20160613\trunk\src\ServiceCenter.Client\WinClients\WinClient.PrintTools\PrintModLabel\obj\Debug\Interop.LabelManager2.dll
+E:\组件程序\20160613\trunk\src\ServiceCenter.Client\WinClients\WinClient.PrintTools\PrintModLabel\obj\Debug\PrintModLabel.csproj.ResolveComReference.cache
+E:\组件程序\20160613\trunk\src\ServiceCenter.Client\WinClients\WinClient.PrintTools\PrintModLabel\obj\Debug\PrintModLabel.Form2.resources
+E:\组件程序\20160613\trunk\src\ServiceCenter.Client\WinClients\WinClient.PrintTools\PrintModLabel\obj\Debug\PrintModLabel.Properties.Resources.resources
+E:\组件程序\20160613\trunk\src\ServiceCenter.Client\WinClients\WinClient.PrintTools\PrintModLabel\obj\Debug\PrintModLabel.csproj.GenerateResource.Cache
+E:\组件程序\20160613\trunk\src\ServiceCenter.Client\WinClients\WinClient.PrintTools\PrintModLabel\obj\Debug\PrintModLabel.exe
+E:\组件程序\20160613\trunk\src\ServiceCenter.Client\WinClients\WinClient.PrintTools\PrintModLabel\obj\Debug\PrintModLabel.pdb
+E:\组件程序\20160613\trunk\src\ServiceCenter.Client\WinClients\WinClient.PrintTools\PrintModLabel\bin\Debug\PrintModLabel.exe.config
+E:\组件程序\20160613\trunk\src\ServiceCenter.Client\WinClients\WinClient.PrintTools\PrintModLabel\bin\Debug\PrintModLabel.exe
+E:\组件程序\20160613\trunk\src\ServiceCenter.Client\WinClients\WinClient.PrintTools\PrintModLabel\bin\Debug\PrintModLabel.pdb
+E:\组件程序\20160613\trunk\src\ServiceCenter.Client\WinClients\WinClient.PrintTools\PrintModLabel\bin\Debug\Interop.LabelManager2.dll

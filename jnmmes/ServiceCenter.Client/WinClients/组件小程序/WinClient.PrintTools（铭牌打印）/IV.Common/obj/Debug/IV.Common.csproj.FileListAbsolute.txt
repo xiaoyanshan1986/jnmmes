@@ -1,0 +1,4 @@
+E:\组件程序\20160613\trunk\src\ServiceCenter.Client\WinClients\WinClient.PrintTools\IV.Common\bin\Debug\IV.Common.dll
+E:\组件程序\20160613\trunk\src\ServiceCenter.Client\WinClients\WinClient.PrintTools\IV.Common\bin\Debug\IV.Common.pdb
+E:\组件程序\20160613\trunk\src\ServiceCenter.Client\WinClients\WinClient.PrintTools\IV.Common\obj\Debug\IV.Common.dll
+E:\组件程序\20160613\trunk\src\ServiceCenter.Client\WinClients\WinClient.PrintTools\IV.Common\obj\Debug\IV.Common.pdb

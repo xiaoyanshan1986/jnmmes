@@ -1,0 +1,25 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.FMM.Models.ReasonCodeCategoryDetailViewModel
+@using ServiceCenter.Common;
+
+@Html.ValidationSummary(true)
+<div class="form-group">
+    @Html.LabelFor(m => m.ReasonCodeCategoryName, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        <p class="form-control-static">@Model.ReasonCodeCategoryName</p>
+        @Html.HiddenFor(m => m.ReasonCodeCategoryName)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.ReasonCodeName, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        <p class="form-control-static">@Model.ReasonCodeName</p>
+        @Html.HiddenFor(m => m.ReasonCodeName)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.ItemNo, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.ItemNo, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.ItemNo)
+    </div>
+</div>

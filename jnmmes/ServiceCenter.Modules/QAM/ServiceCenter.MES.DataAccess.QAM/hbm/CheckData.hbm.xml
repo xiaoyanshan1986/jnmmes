@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   namespace="ServiceCenter.MES.Model.QAM" 
+                   assembly="ServiceCenter.MES.Model.QAM">
+  <class name="CheckData" table="QAM_CHECKDATA">
+    <id name="Key" column="CHECKDATA_KEY">
+      <generator class="assigned" />
+    </id>
+    <property name="CheckSettingKey" column="CHECK_KEY"/>
+    <property name="ItemNo" column="ITEM_NO"/>
+    <property name="StartTime" column="COL_START_TIME"/>
+    <property name="EndTime" column="COL_END_TIME"/>
+    <property name="LotNumber" column="LOT_NUMBER"/>
+    <property name="CategoryName" column="CATEGORY_NAME"/>
+    <property name="RouteEnterpriseName" column="ROUTE_ENTERPRISE_NAME"/>
+    <property name="RouteName" column="ROUTE_NAME"/>
+    <property name="RouteStepName" column="ROUTE_STEP_NAME"/>
+    <property name="OrderNumber" column="ORDER_NUMBER"/>
+    <property name="MaterialType" column="MATERIAL_TYPE"/>
+    <property name="MaterialCode" column="MATERIAL_CODE"/>
+    <property name="CheckPlanName" column="CHECKPLAN_NAME"/>
+    <property name="EquipmentCode" column="EQUIPMENT_CODE"/>
+    <property name="ProductionLineCode" column="LINE_CODE"/>
+    <property name="LocationName" column="LOCATION_NAME"/>
+    <property name="Description" column="DESCRIPTION"/>
+    <property name="DeletedFlag" column="DELETED_FLAG"/>
+    <property name="Creator" column="CREATOR"/>
+    <property name="CreateTime" column="CREATE_TIME"/>
+    <property name="Editor" column="EDITOR"/>
+    <property name="EditTime" column="EDIT_TIME"/>
+  </class>
+</hibernate-mapping>

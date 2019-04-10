@@ -1,0 +1,92 @@
+2016-03-10 11:35:54,341 - ERROR - START>Application
+2016-03-10 18:41:21,768 - ERROR - START>Application
+2016-03-10 22:37:44,728 - ERROR - 在与 SQL Server 建立连接时出现与网络相关的或特定于实例的错误。未找到或无法访问服务器。请验证实例名称是否正确并且 SQL Server 已配置为允许远程连接。 (provider: Named Pipes Provider, error: 40 - 无法打开到 SQL Server 的连接)
+2016-03-10 22:37:44,729 - ERROR - 找不到网络路径。
+2016-03-10 22:37:44,818 - ERROR - 在与 SQL Server 建立连接时出现与网络相关的或特定于实例的错误。未找到或无法访问服务器。请验证实例名称是否正确并且 SQL Server 已配置为允许远程连接。 (provider: Named Pipes Provider, error: 40 - 无法打开到 SQL Server 的连接)
+2016-03-10 22:37:44,818 - ERROR - 找不到网络路径。
+2016-03-10 22:37:44,820 - ERROR - 在与 SQL Server 建立连接时出现与网络相关的或特定于实例的错误。未找到或无法访问服务器。请验证实例名称是否正确并且 SQL Server 已配置为允许远程连接。 (provider: Named Pipes Provider, error: 40 - 无法打开到 SQL Server 的连接)
+2016-03-10 22:37:44,820 - ERROR - 找不到网络路径。
+2016-03-10 22:38:06,732 - ERROR - 在与 SQL Server 建立连接时出现与网络相关的或特定于实例的错误。未找到或无法访问服务器。请验证实例名称是否正确并且 SQL Server 已配置为允许远程连接。 (provider: Named Pipes Provider, error: 40 - 无法打开到 SQL Server 的连接)
+2016-03-10 22:38:06,732 - ERROR - 找不到网络路径。
+2016-03-10 22:38:06,796 - ERROR - 在与 SQL Server 建立连接时出现与网络相关的或特定于实例的错误。未找到或无法访问服务器。请验证实例名称是否正确并且 SQL Server 已配置为允许远程连接。 (provider: Named Pipes Provider, error: 40 - 无法打开到 SQL Server 的连接)
+2016-03-10 22:38:06,796 - ERROR - 找不到网络路径。
+2016-03-10 22:38:06,796 - ERROR - 在与 SQL Server 建立连接时出现与网络相关的或特定于实例的错误。未找到或无法访问服务器。请验证实例名称是否正确并且 SQL Server 已配置为允许远程连接。 (provider: Named Pipes Provider, error: 40 - 无法打开到 SQL Server 的连接)
+2016-03-10 22:38:06,796 - ERROR - 找不到网络路径。
+2016-03-10 22:38:24,384 - ERROR - 在与 SQL Server 建立连接时出现与网络相关的或特定于实例的错误。未找到或无法访问服务器。请验证实例名称是否正确并且 SQL Server 已配置为允许远程连接。 (provider: Named Pipes Provider, error: 40 - 无法打开到 SQL Server 的连接)
+2016-03-10 22:38:24,384 - ERROR - 找不到网络路径。
+2016-03-10 22:38:24,490 - ERROR - 在与 SQL Server 建立连接时出现与网络相关的或特定于实例的错误。未找到或无法访问服务器。请验证实例名称是否正确并且 SQL Server 已配置为允许远程连接。 (provider: Named Pipes Provider, error: 40 - 无法打开到 SQL Server 的连接)
+2016-03-10 22:38:24,490 - ERROR - 找不到网络路径。
+2016-03-10 22:38:24,490 - ERROR - 在与 SQL Server 建立连接时出现与网络相关的或特定于实例的错误。未找到或无法访问服务器。请验证实例名称是否正确并且 SQL Server 已配置为允许远程连接。 (provider: Named Pipes Provider, error: 40 - 无法打开到 SQL Server 的连接)
+2016-03-10 22:38:24,490 - ERROR - 找不到网络路径。
+2016-03-10 22:39:26,270 - ERROR - 在与 SQL Server 建立连接时出现与网络相关的或特定于实例的错误。未找到或无法访问服务器。请验证实例名称是否正确并且 SQL Server 已配置为允许远程连接。 (provider: Named Pipes Provider, error: 40 - 无法打开到 SQL Server 的连接)
+2016-03-10 22:39:26,271 - ERROR - 找不到网络路径。
+2016-03-10 22:39:26,347 - ERROR - 在与 SQL Server 建立连接时出现与网络相关的或特定于实例的错误。未找到或无法访问服务器。请验证实例名称是否正确并且 SQL Server 已配置为允许远程连接。 (provider: Named Pipes Provider, error: 40 - 无法打开到 SQL Server 的连接)
+2016-03-10 22:39:26,347 - ERROR - 找不到网络路径。
+2016-03-10 22:39:26,347 - ERROR - 在与 SQL Server 建立连接时出现与网络相关的或特定于实例的错误。未找到或无法访问服务器。请验证实例名称是否正确并且 SQL Server 已配置为允许远程连接。 (provider: Named Pipes Provider, error: 40 - 无法打开到 SQL Server 的连接)
+2016-03-10 22:39:26,347 - ERROR - 找不到网络路径。
+2016-03-10 22:39:47,921 - ERROR - 在与 SQL Server 建立连接时出现与网络相关的或特定于实例的错误。未找到或无法访问服务器。请验证实例名称是否正确并且 SQL Server 已配置为允许远程连接。 (provider: Named Pipes Provider, error: 40 - 无法打开到 SQL Server 的连接)
+2016-03-10 22:39:47,921 - ERROR - 找不到网络路径。
+2016-03-10 22:39:47,991 - ERROR - 在与 SQL Server 建立连接时出现与网络相关的或特定于实例的错误。未找到或无法访问服务器。请验证实例名称是否正确并且 SQL Server 已配置为允许远程连接。 (provider: Named Pipes Provider, error: 40 - 无法打开到 SQL Server 的连接)
+2016-03-10 22:39:47,991 - ERROR - 找不到网络路径。
+2016-03-10 22:39:47,991 - ERROR - 在与 SQL Server 建立连接时出现与网络相关的或特定于实例的错误。未找到或无法访问服务器。请验证实例名称是否正确并且 SQL Server 已配置为允许远程连接。 (provider: Named Pipes Provider, error: 40 - 无法打开到 SQL Server 的连接)
+2016-03-10 22:39:47,991 - ERROR - 找不到网络路径。
+2016-03-10 22:39:48,297 - ERROR - 在与 SQL Server 建立连接时出现与网络相关的或特定于实例的错误。未找到或无法访问服务器。请验证实例名称是否正确并且 SQL Server 已配置为允许远程连接。 (provider: Named Pipes Provider, error: 40 - 无法打开到 SQL Server 的连接)
+2016-03-10 22:39:48,297 - ERROR - 找不到网络路径。
+2016-03-10 22:39:48,336 - ERROR - 在与 SQL Server 建立连接时出现与网络相关的或特定于实例的错误。未找到或无法访问服务器。请验证实例名称是否正确并且 SQL Server 已配置为允许远程连接。 (provider: Named Pipes Provider, error: 40 - 无法打开到 SQL Server 的连接)
+2016-03-10 22:39:48,336 - ERROR - 找不到网络路径。
+2016-03-10 22:39:48,336 - ERROR - 在与 SQL Server 建立连接时出现与网络相关的或特定于实例的错误。未找到或无法访问服务器。请验证实例名称是否正确并且 SQL Server 已配置为允许远程连接。 (provider: Named Pipes Provider, error: 40 - 无法打开到 SQL Server 的连接)
+2016-03-10 22:39:48,336 - ERROR - 找不到网络路径。
+2016-03-10 22:57:56,449 - ERROR - 在与 SQL Server 建立连接时出现与网络相关的或特定于实例的错误。未找到或无法访问服务器。请验证实例名称是否正确并且 SQL Server 已配置为允许远程连接。 (provider: Named Pipes Provider, error: 40 - 无法打开到 SQL Server 的连接)
+2016-03-10 22:57:56,449 - ERROR - 找不到网络路径。
+2016-03-10 22:57:56,517 - ERROR - 在与 SQL Server 建立连接时出现与网络相关的或特定于实例的错误。未找到或无法访问服务器。请验证实例名称是否正确并且 SQL Server 已配置为允许远程连接。 (provider: Named Pipes Provider, error: 40 - 无法打开到 SQL Server 的连接)
+2016-03-10 22:57:56,517 - ERROR - 找不到网络路径。
+2016-03-10 22:57:56,517 - ERROR - 在与 SQL Server 建立连接时出现与网络相关的或特定于实例的错误。未找到或无法访问服务器。请验证实例名称是否正确并且 SQL Server 已配置为允许远程连接。 (provider: Named Pipes Provider, error: 40 - 无法打开到 SQL Server 的连接)
+2016-03-10 22:57:56,517 - ERROR - 找不到网络路径。
+2016-03-10 22:58:15,296 - ERROR - 在与 SQL Server 建立连接时出现与网络相关的或特定于实例的错误。未找到或无法访问服务器。请验证实例名称是否正确并且 SQL Server 已配置为允许远程连接。 (provider: Named Pipes Provider, error: 40 - 无法打开到 SQL Server 的连接)
+2016-03-10 22:58:15,296 - ERROR - 找不到网络路径。
+2016-03-10 22:58:15,362 - ERROR - 在与 SQL Server 建立连接时出现与网络相关的或特定于实例的错误。未找到或无法访问服务器。请验证实例名称是否正确并且 SQL Server 已配置为允许远程连接。 (provider: Named Pipes Provider, error: 40 - 无法打开到 SQL Server 的连接)
+2016-03-10 22:58:15,362 - ERROR - 找不到网络路径。
+2016-03-10 22:58:15,362 - ERROR - 在与 SQL Server 建立连接时出现与网络相关的或特定于实例的错误。未找到或无法访问服务器。请验证实例名称是否正确并且 SQL Server 已配置为允许远程连接。 (provider: Named Pipes Provider, error: 40 - 无法打开到 SQL Server 的连接)
+2016-03-10 22:58:15,362 - ERROR - 找不到网络路径。
+2016-03-10 22:58:15,733 - ERROR - 在与 SQL Server 建立连接时出现与网络相关的或特定于实例的错误。未找到或无法访问服务器。请验证实例名称是否正确并且 SQL Server 已配置为允许远程连接。 (provider: Named Pipes Provider, error: 40 - 无法打开到 SQL Server 的连接)
+2016-03-10 22:58:15,733 - ERROR - 找不到网络路径。
+2016-03-10 22:58:15,799 - ERROR - 在与 SQL Server 建立连接时出现与网络相关的或特定于实例的错误。未找到或无法访问服务器。请验证实例名称是否正确并且 SQL Server 已配置为允许远程连接。 (provider: Named Pipes Provider, error: 40 - 无法打开到 SQL Server 的连接)
+2016-03-10 22:58:15,799 - ERROR - 找不到网络路径。
+2016-03-10 22:58:15,799 - ERROR - 在与 SQL Server 建立连接时出现与网络相关的或特定于实例的错误。未找到或无法访问服务器。请验证实例名称是否正确并且 SQL Server 已配置为允许远程连接。 (provider: Named Pipes Provider, error: 40 - 无法打开到 SQL Server 的连接)
+2016-03-10 22:58:15,800 - ERROR - 找不到网络路径。
+2016-03-10 23:00:11,060 - ERROR - 在与 SQL Server 建立连接时出现与网络相关的或特定于实例的错误。未找到或无法访问服务器。请验证实例名称是否正确并且 SQL Server 已配置为允许远程连接。 (provider: Named Pipes Provider, error: 40 - 无法打开到 SQL Server 的连接)
+2016-03-10 23:00:11,060 - ERROR - 找不到网络路径。
+2016-03-10 23:00:11,178 - ERROR - 在与 SQL Server 建立连接时出现与网络相关的或特定于实例的错误。未找到或无法访问服务器。请验证实例名称是否正确并且 SQL Server 已配置为允许远程连接。 (provider: Named Pipes Provider, error: 40 - 无法打开到 SQL Server 的连接)
+2016-03-10 23:00:11,178 - ERROR - 找不到网络路径。
+2016-03-10 23:00:11,178 - ERROR - 在与 SQL Server 建立连接时出现与网络相关的或特定于实例的错误。未找到或无法访问服务器。请验证实例名称是否正确并且 SQL Server 已配置为允许远程连接。 (provider: Named Pipes Provider, error: 40 - 无法打开到 SQL Server 的连接)
+2016-03-10 23:00:11,178 - ERROR - 找不到网络路径。
+2016-03-10 23:00:33,730 - ERROR - 在与 SQL Server 建立连接时出现与网络相关的或特定于实例的错误。未找到或无法访问服务器。请验证实例名称是否正确并且 SQL Server 已配置为允许远程连接。 (provider: Named Pipes Provider, error: 40 - 无法打开到 SQL Server 的连接)
+2016-03-10 23:00:33,730 - ERROR - 找不到网络路径。
+2016-03-10 23:00:33,836 - ERROR - 在与 SQL Server 建立连接时出现与网络相关的或特定于实例的错误。未找到或无法访问服务器。请验证实例名称是否正确并且 SQL Server 已配置为允许远程连接。 (provider: Named Pipes Provider, error: 40 - 无法打开到 SQL Server 的连接)
+2016-03-10 23:00:33,836 - ERROR - 找不到网络路径。
+2016-03-10 23:00:33,836 - ERROR - 在与 SQL Server 建立连接时出现与网络相关的或特定于实例的错误。未找到或无法访问服务器。请验证实例名称是否正确并且 SQL Server 已配置为允许远程连接。 (provider: Named Pipes Provider, error: 40 - 无法打开到 SQL Server 的连接)
+2016-03-10 23:00:33,836 - ERROR - 找不到网络路径。
+2016-03-10 23:00:51,252 - ERROR - 在与 SQL Server 建立连接时出现与网络相关的或特定于实例的错误。未找到或无法访问服务器。请验证实例名称是否正确并且 SQL Server 已配置为允许远程连接。 (provider: Named Pipes Provider, error: 40 - 无法打开到 SQL Server 的连接)
+2016-03-10 23:00:51,252 - ERROR - 找不到网络路径。
+2016-03-10 23:00:51,290 - ERROR - 在与 SQL Server 建立连接时出现与网络相关的或特定于实例的错误。未找到或无法访问服务器。请验证实例名称是否正确并且 SQL Server 已配置为允许远程连接。 (provider: Named Pipes Provider, error: 40 - 无法打开到 SQL Server 的连接)
+2016-03-10 23:00:51,290 - ERROR - 找不到网络路径。
+2016-03-10 23:00:51,290 - ERROR - 在与 SQL Server 建立连接时出现与网络相关的或特定于实例的错误。未找到或无法访问服务器。请验证实例名称是否正确并且 SQL Server 已配置为允许远程连接。 (provider: Named Pipes Provider, error: 40 - 无法打开到 SQL Server 的连接)
+2016-03-10 23:00:51,290 - ERROR - 找不到网络路径。
+2016-03-10 23:15:47,455 - ERROR - 在与 SQL Server 建立连接时出现与网络相关的或特定于实例的错误。未找到或无法访问服务器。请验证实例名称是否正确并且 SQL Server 已配置为允许远程连接。 (provider: Named Pipes Provider, error: 40 - 无法打开到 SQL Server 的连接)
+2016-03-10 23:15:47,455 - ERROR - 找不到网络路径。
+2016-03-10 23:15:47,562 - ERROR - 在与 SQL Server 建立连接时出现与网络相关的或特定于实例的错误。未找到或无法访问服务器。请验证实例名称是否正确并且 SQL Server 已配置为允许远程连接。 (provider: Named Pipes Provider, error: 40 - 无法打开到 SQL Server 的连接)
+2016-03-10 23:15:47,562 - ERROR - 找不到网络路径。
+2016-03-10 23:15:47,562 - ERROR - 在与 SQL Server 建立连接时出现与网络相关的或特定于实例的错误。未找到或无法访问服务器。请验证实例名称是否正确并且 SQL Server 已配置为允许远程连接。 (provider: Named Pipes Provider, error: 40 - 无法打开到 SQL Server 的连接)
+2016-03-10 23:15:47,562 - ERROR - 找不到网络路径。
+2016-03-10 23:16:11,639 - ERROR - 在与 SQL Server 建立连接时出现与网络相关的或特定于实例的错误。未找到或无法访问服务器。请验证实例名称是否正确并且 SQL Server 已配置为允许远程连接。 (provider: Named Pipes Provider, error: 40 - 无法打开到 SQL Server 的连接)
+2016-03-10 23:16:11,639 - ERROR - 找不到网络路径。
+2016-03-10 23:16:11,677 - ERROR - 在与 SQL Server 建立连接时出现与网络相关的或特定于实例的错误。未找到或无法访问服务器。请验证实例名称是否正确并且 SQL Server 已配置为允许远程连接。 (provider: Named Pipes Provider, error: 40 - 无法打开到 SQL Server 的连接)
+2016-03-10 23:16:11,677 - ERROR - 找不到网络路径。
+2016-03-10 23:16:11,677 - ERROR - 在与 SQL Server 建立连接时出现与网络相关的或特定于实例的错误。未找到或无法访问服务器。请验证实例名称是否正确并且 SQL Server 已配置为允许远程连接。 (provider: Named Pipes Provider, error: 40 - 无法打开到 SQL Server 的连接)
+2016-03-10 23:16:11,677 - ERROR - 找不到网络路径。
+2016-03-10 23:16:29,126 - ERROR - 在与 SQL Server 建立连接时出现与网络相关的或特定于实例的错误。未找到或无法访问服务器。请验证实例名称是否正确并且 SQL Server 已配置为允许远程连接。 (provider: Named Pipes Provider, error: 40 - 无法打开到 SQL Server 的连接)
+2016-03-10 23:16:29,126 - ERROR - 找不到网络路径。
+2016-03-10 23:16:29,189 - ERROR - 在与 SQL Server 建立连接时出现与网络相关的或特定于实例的错误。未找到或无法访问服务器。请验证实例名称是否正确并且 SQL Server 已配置为允许远程连接。 (provider: Named Pipes Provider, error: 40 - 无法打开到 SQL Server 的连接)
+2016-03-10 23:16:29,189 - ERROR - 找不到网络路径。
+2016-03-10 23:16:29,189 - ERROR - 在与 SQL Server 建立连接时出现与网络相关的或特定于实例的错误。未找到或无法访问服务器。请验证实例名称是否正确并且 SQL Server 已配置为允许远程连接。 (provider: Named Pipes Provider, error: 40 - 无法打开到 SQL Server 的连接)
+2016-03-10 23:16:29,189 - ERROR - 找不到网络路径。

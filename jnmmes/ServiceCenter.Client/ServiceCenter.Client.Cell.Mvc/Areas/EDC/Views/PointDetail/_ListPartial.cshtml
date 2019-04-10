@@ -1,0 +1,136 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.EDC.Models.PointDetailViewModel
+@using ServiceCenter.Client.Mvc.Areas.EDC.Models;
+@using ServiceCenter.Client.Mvc.Resources;
+@using EDCResources = ServiceCenter.Client.Mvc.Resources.EDC;
+@using ServiceCenter.MES.Model.EDC;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@{
+    PagingConfig cfg = ViewBag.PagingConfig;
+}
+<div id="_list">
+    <table class="table table-hover table-bordered table-condensed">
+        <thead>
+            <tr class="active">
+                <td>@Html.DisplayNameFor(m => m.ItemNo)</td>
+                <td>@Html.DisplayNameFor(m => m.ParameterName)</td>
+                <td>@Html.DisplayNameFor(m => m.ParameterCount)</td>
+                <td>@Html.DisplayNameFor(m => m.DataType)</td>
+                <td>@Html.DisplayNameFor(m => m.DeviceType)</td>
+                <td>@Html.DisplayNameFor(m => m.Mandatory)</td>
+                <td>@Html.DisplayNameFor(m => m.IsDerived)</td>
+                <td>@Html.DisplayNameFor(m => m.DerivedFormula)</td>
+                <td>@Html.DisplayNameFor(m => m.UpperBoundary)</td>
+                <td>@Html.DisplayNameFor(m => m.UpperSpecification)</td>
+                <td>@Html.DisplayNameFor(m => m.UpperControl)</td>
+                <td>@Html.DisplayNameFor(m => m.Target)</td>
+                <td>@Html.DisplayNameFor(m => m.LowerControl)</td>
+                <td>@Html.DisplayNameFor(m => m.LowerSpecification)</td>
+                <td>@Html.DisplayNameFor(m => m.LowerBoundary)</td>
+                <td>@StringResource.Detail</td>
+                <td>@StringResource.Modify</td>
+            </tr>
+        </thead>
+        @if (ViewBag.List != null)
+        {
+            <tbody>
+                @for (int i = 0; i < ViewBag.List.Length; i++)
+                {
+                    PointDetail obj = ViewBag.List[i];
+                    <tr>
+                        <td>@obj.ItemNo</td>
+                        <td>
+                            @obj.Key.ParameterName
+                        </td>
+                        <td>
+                            @obj.ParameterCount
+                        </td>
+                        <td>
+                            @obj.DataType.GetDisplayName()
+                        </td>
+                        <td>
+                            @obj.DeviceType.GetDisplayName()
+                        </td>
+                        <td>
+                            @(obj.Mandatory ? StringResource.Yes : StringResource.No)
+                        </td>
+                        <td>
+                            @(obj.IsDerived ? StringResource.Yes : StringResource.No)
+                        </td>
+                        <td>
+                            @obj.DerivedFormula
+                        </td>
+                        <td>
+                            @obj.UpperBoundary
+                        </td>
+                        <td>
+                            @obj.UpperSpecification
+                        </td>
+                        <td>
+                            @obj.UpperControl
+                        </td>
+                        <td>
+                            @obj.Target
+                        </td>
+                        <td>
+                            @obj.LowerControl
+                        </td>
+                        <td>
+                            @obj.LowerSpecification
+                        </td>
+                        <td>
+                            @obj.LowerBoundary
+                        </td>
+                        <td>
+                            @Ajax.ActionLink(StringResource.Detail, actionName: null
+                                            , routeValues: null
+                                            , ajaxOptions:new AjaxOptions() 
+                                            { 
+                                                HttpMethod = "Post", 
+                                                UpdateTargetId = "detailInfo",
+                                                OnSuccess = "showInfoModal",
+                                                Url = Url.Action("Detail", new { @PointKey = obj.Key.PointKey, @ParameterName = obj.Key.ParameterName })
+                                            })
+                        </td>
+                        <td>
+                            @Ajax.ActionLink(StringResource.Modify, actionName: null
+                                            ,routeValues:null
+                                            ,ajaxOptions:new AjaxOptions()
+                                            {
+                                                HttpMethod = "Post",
+                                                UpdateTargetId = "modifyFormContent",
+                                                OnSuccess = "showModifyModal",
+                                                Url = Url.Action("Modify", new { @PointKey = obj.Key.PointKey, @ParameterName = obj.Key.ParameterName })
+                                            })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        }
+    </table>
+    <div style="margin-top:-18px">
+        @if (cfg != null)
+        {
+            using (Ajax.BeginForm("PagingQuery", "PointDetail"
+                            , new
+                            {
+                                @Where = cfg.Where,
+                                @OrderBy = cfg.OrderBy,
+                                @CurrentPageNo = cfg.PageNo,
+                                @CurrentPageSize = cfg.PageSize
+                            }
+                            , new AjaxOptions()
+                            {
+                                HttpMethod = "Post",
+                                UpdateTargetId = "_list"
+                            }
+                            , new { @class = "form-horizontal", resource = "form", id = "frmPagingQuery" }))
+            {
+                @Html.AntiForgeryToken()
+                <div>@Html.Partial("_PaginationPartial")</div>
+            }
+        }
+    </div>
+</div>
+
+

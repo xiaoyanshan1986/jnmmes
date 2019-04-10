@@ -1,0 +1,88 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.LSM.Models.LineStoreMaterialViewModel
+@using ServiceCenter.Client.Mvc.Areas.LSM.Models;
+@using ServiceCenter.Client.Mvc.Resources;
+@using LSMResources = ServiceCenter.Client.Mvc.Resources.LSM;
+@using ServiceCenter.MES.Model.LSM;
+@using ServiceCenter.MES.Model.FMM;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@{
+    PagingConfig cfg = ViewBag.PagingConfig;
+}
+<div id="_list">
+    <table class="table table-hover table-bordered table-condensed">
+        <thead>
+            <tr class="active">
+                <td>@StringResource.ItemNo</td>
+                <td>@Html.DisplayNameFor(m => m.LineStoreName)</td>
+                <td>@Html.DisplayNameFor(m => m.MaterialCode)</td>
+                <td>物料名称</td>
+                <td>@Html.DisplayNameFor(m => m.Editor)</td>
+                <td>@Html.DisplayNameFor(m => m.EditTime)</td>
+                <td>@StringResource.Detail</td>
+            </tr>
+        </thead>
+        @if (ViewBag.List != null)
+        {
+            <tbody>
+                @for (int i = 0; i < ViewBag.List.Length; i++)
+                {
+                    LineStoreMaterial obj = ViewBag.List[i];
+                    Material m = @Model.GetMaterial(obj.Key.MaterialCode);
+                    
+                    <tr>
+                        <td>@(cfg.PageSize * cfg.PageNo+i+1)</td>
+                        <td>
+                            @obj.Key.LineStoreName
+                        </td>
+                        <td>
+                            @obj.Key.MaterialCode
+                        </td>
+                        <td>
+                            @(m==null?string.Empty:m.Name)
+                        </td>
+                        <td>
+                            @obj.Editor
+                        </td>
+                        <td>
+                            @string.Format("{0:yyyy-MM-dd HH:mm:ss}", obj.EditTime)
+                        </td>
+                        
+                        <td>
+                            @Html.ActionLink(linkText: StringResource.Detail
+                                            , actionName: "Detail"
+                                            , controllerName: "LineStoreMaterial"
+                                            , routeValues: new { @LineStoreName = obj.Key.LineStoreName, @MaterialCode = obj.Key.MaterialCode }
+                                            , htmlAttributes: new { @target = "_self" })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        }
+    </table>
+    <div style="margin-top:-18px">
+        @if (cfg != null)
+        {
+            using (Ajax.BeginForm("PagingQuery", "LineStoreMaterial"
+                            , new
+                            {
+                                @Where = cfg.Where,
+                                @OrderBy = cfg.OrderBy,
+                                @CurrentPageNo = cfg.PageNo,
+                                @CurrentPageSize = cfg.PageSize
+                            }
+                            , new AjaxOptions()
+                            {
+                                HttpMethod = "Post",
+                                UpdateTargetId = "_list"
+                            }
+                            , new { @class = "form-horizontal", resource = "form", id = "frmPagingQuery" }))
+            {
+                @Html.AntiForgeryToken()
+                <div>@Html.Partial("_PaginationPartial")</div>
+            }
+        }
+    </div>
+</div>
+
+

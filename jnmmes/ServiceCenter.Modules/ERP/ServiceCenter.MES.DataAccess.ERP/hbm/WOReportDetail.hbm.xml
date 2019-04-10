@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   namespace="ServiceCenter.MES.Model.ERP"
+                   assembly="ServiceCenter.MES.Model.ERP">
+  <class name="WOReportDetail" table="MM_StockIn_Detail">
+    <composite-id  name="Key" class="WOReportDetailKey">
+      <key-property name="BillCode" column="BILL_CODE"/>
+      <key-property name="ItemNo" column="ItemNo"/>      
+    </composite-id >
+    <property name="ObjectNumber" column="OBJECT_NUMBER"/>
+    <property name="OrderNumber" column="ORDER_NUMBER"/>
+    <property name="EffiName" column="EFFI_NAME"/>
+    <property name="PsSubcode" column="PS_SUBCODE"/>
+    <property name="MaterialCode" column="MATERIAL_CODE"/>
+    <property name="Grade" column="GRADE"/>
+    <property name="EffiCode" column="EFFI_CODE"/>
+    <property name="Qty" column="QUANTITY"/>
+    <property name="SumCoefPMax" column="SumCOEF_PMAX"/>
+    <property name="ERPStockInCode" column="ERPStockInCode"/>
+    <property name="ERPStockInKey" column="ERPStockInKey"/>
+    <property name="Creator" column="CREATOR"/>
+    <property name="CreateTime" column="CREATE_TIME" type="timestamp"/>
+    <property name="Editor" column="EDITOR"/>
+    <property name="EditTime" column="EDIT_TIME" type="timestamp"/>
+    <property name="PackageCheckState" column="PackageCheckState"/>
+  </class>
+</hibernate-mapping>

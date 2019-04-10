@@ -1,0 +1,151 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.ZPVM.Models.IVTestDataQueryViewModel
+@using ServiceCenter.MES.Model.ZPVM;
+@using ServiceCenter.Model;
+@using ServiceCenter.Common;
+@using ServiceCenter.Client.Mvc.Areas.ZPVM.Models;
+@using ZPVMRsources = ServiceCenter.Client.Mvc.Resources.ZPVM;
+@using ServiceCenter.Client.Mvc.Resources;
+
+@{
+    ViewBag.Title = ZPVMRsources.StringResource.IVTestDataQuery_ManagePageTitle;
+}
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm("ExportToExcelIVdata", "IVTestDataQuery", FormMethod.Post
+            , new { @class = "form-horizontal", resource = "form",id="frmQuery" }))
+{
+<div class="panel panel-default">
+    <div class="panel-heading">
+        @Ajax.ActionLink(StringResource.Query
+                          , "QueryIVdata"
+                         ,null
+                         , new AjaxOptions()
+                         {
+                             HttpMethod = "Post",
+                             OnBegin = "beginQuery",
+                             UpdateTargetId = "list",
+                             OnComplete = "completeQuery"
+                         }
+                         , new { @class="btn btn-primary",@id="btnQuery" })
+
+        <input type="button"
+               value="@StringResource.ExportToExcel"
+               onclick="ExportToExcel()"
+               class="btn btn-default"
+               id="btnExportToExcel" />
+    </div>
+    <div class="panel-body">
+        @Html.AntiForgeryToken()
+        <div class="form-group">
+            @*<div class="col-md-1">
+                @Html.LabelFor(m => m.EquipmentCode, new { @class = "control-label" })
+            </div>
+            <div class="col-md-2">
+                @Html.TextBoxFor(m => m.EquipmentCode, new { @class = "form-control" })
+            </div>*@
+            <div class="col-md-1">
+                @Html.LabelFor(m => m.lineCode, new { @class = "control-label" })
+            </div>
+            <div class="col-md-2">
+                @Html.TextBoxFor(m => m.lineCode, new { @class = "form-control" })
+            </div>
+            <div class="col-md-1">
+                @Html.LabelFor(m => m.LotNumber, new { @class = "control-label" })
+            </div>
+            <div class="col-md-2">
+                @Html.TextBoxFor(m => m.LotNumber, new { @class = "form-control" })
+            </div>
+            <div class="col-md-1">
+                @Html.LabelFor(m => m.IsPrint, new { @class = "control-label" })
+            </div>
+            <div class="col-md-2">
+                @Html.DropDownListFor(m => m.IsPrint, @Model.GetBoolList(), string.Empty, new { @class = "form-control" })
+            </div>
+            <div class="col-md-1">
+                @Html.LabelFor(m => m.IsDefault, new { @class = "control-label" })
+            </div>
+            <div class="col-md-2">
+                @Html.DropDownListFor(m => m.IsDefault, @Model.GetBoolList(), string.Empty, new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-1">
+                @Html.LabelFor(m => m.StartTestTime, new { @class = "control-label" })
+            </div>
+            <div class="col-md-2">
+                @Html.TextBoxFor(m => m.StartTestTime, new { @class = "form-control" })
+            </div>
+            <div class="col-md-1">
+                @Html.LabelFor(m => m.EndTestTime, new { @class = "control-label" })
+            </div>
+            <div class="col-md-2">
+                @Html.TextBoxFor(m => m.EndTestTime, new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @*错误信息显示*@
+            <div class="alert fade in hide" resource="alert" id="statusMessage" style="margin:0px">
+                <button type="button" class="close" onclick="hideStatusMessage()">
+                    <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+                </button>
+                <p></p>
+            </div>
+        </div>
+    </div>
+</div>
+}
+<div id="list" style="overflow:auto">
+    @Html.Partial("_ListPartial", new IVTestDataQueryViewModel())
+</div>
+
+@section Scripts {
+@*查询*@
+<script type="text/javascript" language="javascript">
+    //刷新列表
+    function beginQuery(obj, req) {
+        var data = $("#frmQuery").serialize();
+        req.data +="&"+data;
+        $("#btnQuery").attr("disabled", "disabled");
+        $("#btnExportToExcel").attr("disabled", "disabled");
+    }
+
+    function completeQuery(result) {
+        $("#btnQuery").removeAttr("disabled");
+        $("#btnExportToExcel").removeAttr("disabled");
+
+        if (result.Code > 0) {
+            //显示错误信息
+            showErrorInfo(result);
+            return;
+        }
+    }
+
+    function showErrorInfo(result) {
+        $("#statusMessage").find("p").html(result.Message);
+        $("#statusMessage").removeClass("hide");
+        if (result.Code > 0) {
+            $("#statusMessage").removeClass("alert-success");
+            $("#statusMessage").addClass("alert-danger");
+        }
+        else {
+            $("#statusMessage").removeClass("alert-danger");
+            $("#statusMessage").addClass("alert-success");
+        }
+    }
+
+    function ExportToExcel() {
+        $("#frmQuery").submit();
+    }
+
+    $(function () {
+        $("#StartTestTime,#EndTestTime").datetimepicker({
+            changeMonth: true,
+            changeYear: true,
+            dateFormat: "yy/mm/dd",
+            timeFormat: 'HH:mm:ss'
+        });
+    });
+</script>
+}

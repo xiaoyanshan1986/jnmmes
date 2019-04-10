@@ -1,0 +1,78 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.PPM.Models.WorkOrderRouteViewModel
+@using ServiceCenter.Client.Mvc.Areas.PPM.Models;
+@using ServiceCenter.Client.Mvc.Resources;
+@using PPM = ServiceCenter.Client.Mvc.Resources.PPM;
+@using ServiceCenter.MES.Model.PPM;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@{
+    PagingConfig cfg = ViewBag.PagingConfig;
+}
+<div id="_list">
+    <table class="table table-striped table-bordered table-condensed">
+        <thead>
+            <tr class="active">
+                <td align="center">@Html.DisplayNameFor(m => m.ItemNo)</td>
+                <td align="center">@Html.DisplayNameFor(m => m.RouteEnterpriseName)</td>
+                <td align="center">@Html.DisplayNameFor(m => m.RouteName)</td>
+                <td align="center">@Html.DisplayNameFor(m => m.RouteStepName)</td>
+                <td align="center">@Html.DisplayNameFor(m => m.IsRework)</td>
+                <td align="center">@StringResource.Delete</td>
+            </tr>
+        </thead>
+        @if (ViewBag.List != null)
+        {
+            <tbody>
+                @for (int i = 0; i < ViewBag.List.Length; i++)
+                {
+                    WorkOrderRoute obj = ViewBag.List[i];
+                    <tr>
+                        <td>@obj.Key.ItemNo</td>
+                        <td>
+                            @obj.RouteEnterpriseName
+                        </td>
+                        <td>@obj.RouteName</td>
+                        <td>@obj.RouteStepName</td>
+                        <td align="center">@obj.IsRework</td>
+                        <td align="center">
+                            @Ajax.ActionLink(StringResource.Delete, actionName: null
+                                            , routeValues: null
+                                            , ajaxOptions: new AjaxOptions()
+                                            {
+                                                HttpMethod = "Post",
+                                                Confirm = string.Format(PPM.StringResource.WorkOrderRoute_ConfirmDelete, obj.Key),
+                                                Url = Url.Action("Delete", new { @OrderNumber = obj.Key.OrderNumber, @ItemNo = obj.Key.ItemNo }),
+                                                OnSuccess = "completeDelete"
+                                            })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        }
+    </table>
+    <div style="margin-top:-18px">
+        @if (cfg != null)
+        {
+            using (Ajax.BeginForm("PagingQuery", "WorkOrderRoute"
+                            , new
+                            {
+                                @Where = cfg.Where,
+                                @OrderBy = cfg.OrderBy,
+                                @CurrentPageNo = cfg.PageNo,
+                                @CurrentPageSize = cfg.PageSize
+                            }
+                            , new AjaxOptions()
+                            {
+                                HttpMethod = "Post",
+                                UpdateTargetId = "_list"
+                            }
+                            , new { @class = "form-horizontal", resource = "form", id = "frmPagingQuery" }))
+            {
+                @Html.AntiForgeryToken()
+                <div>@Html.Partial("_PaginationPartial")</div>
+            }
+        }
+    </div>
+</div>
+
+

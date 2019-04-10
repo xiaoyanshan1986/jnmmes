@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{61C3C979-C92C-4EA3-9CF7-E95FEA1458A1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ServiceCenter.MES.Service.FMM</RootNamespace>
+    <AssemblyName>ServiceCenter.MES.Service.FMM</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'CELLDebug|AnyCPU'">
+    <OutputPath>bin\CELLDebug\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'module.debug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\module.debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'module.release|AnyCPU'">
+    <OutputPath>bin\module.release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'cell.debug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\cell.debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'cell.release|AnyCPU'">
+    <OutputPath>bin\cell.release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Data, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\libs\entlib\Microsoft.Practices.EnterpriseLibrary.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate">
+      <HintPath>..\..\..\libs\NHibernate\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceCenter.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\ServiceCenter.Modules.Libs\ServiceCenter.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceCenter.MES.DataAccess.Interface.WIP">
+      <HintPath>..\..\..\ServiceCenter.Host\ServiceCenter.Host.Module\bin\ServiceCenter.MES.DataAccess.Interface.WIP.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceCenter.MES.Model.WIP">
+      <HintPath>..\..\..\ServiceCenter.Host\ServiceCenter.Host.Module\bin\ServiceCenter.MES.Model.WIP.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CalibrationPlateLineService.cs" />
+    <Compile Include="CalibrationPlateService.cs" />
+    <Compile Include="BinRuleService.cs" />
+    <Compile Include="ClientConfigService.cs" />
+    <Compile Include="ClientConfigAttributeService.cs" />
+    <Compile Include="EquipmentConsumingService.cs" />
+    <Compile Include="EquipmentControlObjectService.cs" />
+    <Compile Include="EquipmentService.cs" />
+    <Compile Include="EquipmentChangeStateService.cs" />
+    <Compile Include="EquipmentGroupService.cs" />
+    <Compile Include="EquipmentLayoutService.cs" />
+    <Compile Include="EquipmentLayoutDetailService.cs" />
+    <Compile Include="EquipmentStateService.cs" />
+    <Compile Include="LineStoreService.cs" />
+    <Compile Include="ManufacturerService.cs" />
+    <Compile Include="MaterialChestParameterService.cs" />
+    <Compile Include="MaterialPrintSetService.cs" />
+    <Compile Include="MaterialRouteService.cs" />
+    <Compile Include="PrintLabelService.cs" />
+    <Compile Include="LocationService.cs" />
+    <Compile Include="MaterialService.cs" />
+    <Compile Include="MaterialAttributeService.cs" />
+    <Compile Include="MaterialTypeService.cs" />
+    <Compile Include="MaterialTypeRouteService.cs" />
+    <Compile Include="ParameterService.cs" />
+    <Compile Include="ParameterDerivationService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ProductionLineService.cs" />
+    <Compile Include="EquipmentReasonCodeService.cs" />
+    <Compile Include="EquipmentReasonCodeCategoryService.cs" />
+    <Compile Include="EquipmentReasonCodeCategoryDetailService.cs" />
+    <Compile Include="ReasonCodeService.cs" />
+    <Compile Include="ReasonCodeCategoryService.cs" />
+    <Compile Include="Resources\StringResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StringResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ReasonCodeCategoryDetailService.cs" />
+    <Compile Include="RouteService.cs" />
+    <Compile Include="RouteEnterpriseService.cs" />
+    <Compile Include="RouteEnterpriseDetailService.cs" />
+    <Compile Include="RouteOperationService.cs" />
+    <Compile Include="RouteOperationAttributeService.cs" />
+    <Compile Include="RouteOperationEquipmentService.cs" />
+    <Compile Include="RouteOperationParameterService.cs" />
+    <Compile Include="RouteStepService.cs" />
+    <Compile Include="RouteStepAttributeService.cs" />
+    <Compile Include="RouteStepParameterService.cs" />
+    <Compile Include="ScheduleService.cs" />
+    <Compile Include="ScheduleDayService.cs" />
+    <Compile Include="ScheduleDetailService.cs" />
+    <Compile Include="ScheduleMonthService.cs" />
+    <Compile Include="ShiftService.cs" />
+    <Compile Include="SupplierService.cs" />
+    <Compile Include="MaterialBOMService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ServiceCenter.MES.DataAccess.Interface.FMM\ServiceCenter.MES.DataAccess.Interface.FMM.csproj">
+      <Project>{a14b36e0-c558-495a-b725-ca37f54c862c}</Project>
+      <Name>ServiceCenter.MES.DataAccess.Interface.FMM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ServiceCenter.MES.Model.FMM\ServiceCenter.MES.Model.FMM.csproj">
+      <Project>{bace1677-4fc1-40a6-93cd-c78664bab941}</Project>
+      <Name>ServiceCenter.MES.Model.FMM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ServiceCenter.MES.Service.Contract.FMM\ServiceCenter.MES.Service.Contract.FMM.csproj">
+      <Project>{ac3655eb-9b09-491d-b817-16941f318a4f}</Project>
+      <Name>ServiceCenter.MES.Service.Contract.FMM</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\StringResource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>StringResource.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

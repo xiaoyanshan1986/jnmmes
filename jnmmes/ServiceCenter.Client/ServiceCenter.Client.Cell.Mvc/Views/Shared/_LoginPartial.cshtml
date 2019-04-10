@@ -1,0 +1,26 @@
+﻿@using ServiceCenter.Client.Mvc.Resources;
+
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "Account",new {area=""}, FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+    @Html.AntiForgeryToken()
+
+    <ul class="nav navbar-nav navbar-right">
+        <li>
+            @Html.ActionLink(StringResource.Hello + User.Identity.Name + "!", "ModifyInfo", "Account", routeValues: new { Area = "" }, htmlAttributes: new { title = StringResource.Manage })
+        </li>
+        <li>
+            @Html.ActionLink(StringResource.ModifyPassword, "ModifyPassword", "Account", routeValues: new { Area = "" }, htmlAttributes: new { title = StringResource.ModifyPassword })
+        </li>
+        <li><a href="javascript:document.getElementById('logoutForm').submit()">@StringResource.Logout</a></li>
+    </ul>
+    }
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li>@Html.ActionLink(StringResource.Register, "Register", "Account", routeValues: new { Area = "" }, htmlAttributes: new { id = "registerLink" })</li>
+        <li>@Html.ActionLink(StringResource.Login, "Login", "Account", routeValues: new { Area = "" }, htmlAttributes: new { id = "loginLink" })</li>
+    </ul>
+}

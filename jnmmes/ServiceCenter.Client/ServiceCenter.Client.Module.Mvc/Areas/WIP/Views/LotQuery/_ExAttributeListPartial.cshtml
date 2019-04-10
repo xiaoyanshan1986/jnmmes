@@ -1,0 +1,69 @@
+﻿
+@using ServiceCenter.Client.Mvc.Resources;
+@using System.Data;
+
+@model ServiceCenter.Client.Mvc.Areas.WIP.Models.LotAttributeViewModel
+@using ServiceCenter.Client.Mvc.Areas.WIP.Models;
+@using ServiceCenter.Client.Mvc.Resources;
+@using WIPResources = ServiceCenter.Client.Mvc.Resources.WIP;
+@using ServiceCenter.MES.Model.WIP;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@{
+    PagingConfig cfg = ViewBag.PagingConfig;
+    MethodReturnResult<DataSet> ds = new MethodReturnResult<DataSet>();
+    ds = ViewBag.HistoryList;
+}
+
+<div id="_list" style="overflow:auto">
+    <table class="table table-hover table-bordered table-condensed table-responsive table-striped">
+        <thead>
+            <tr class="active">
+                <td nowrap>@StringResource.ItemNo</td>
+                <td nowrap>@Html.DisplayNameFor(m => m.LotNumber)</td>
+                <td nowrap>@Html.DisplayNameFor(m => m.AttributeName)</td>
+                <td nowrap>@Html.DisplayNameFor(m => m.AttributeValue)</td>
+                <td nowrap>@Html.DisplayNameFor(m => m.EditTime)</td>
+                <td nowrap>@Html.DisplayNameFor(m => m.Editor)</td>
+            </tr>
+        </thead>
+        <tbody>
+            @if (ds != null && ds.Data != null && ds.Data.Tables.Count > 0 && ds.Data.Tables[0].Rows.Count > 0)
+            {
+                for (int i = 0; i < ds.Data.Tables[0].Rows.Count; i++)
+                {
+                    System.Data.DataRow obj = ds.Data.Tables[0].Rows[i];
+                    <tr>
+                        <td nowrap>@(i + 1) </td>
+                        <td nowrap>@obj["LOT_NUMBER"] </td>
+                        <td nowrap>@obj["ATTRIBUTE_NAME"] </td>
+                        @if (obj["ATTRIBUTE_VALUE"].ToString().ToLower().StartsWith("http://"))
+                        {
+                            <td nowrap>
+                                <a href="@obj["ATTRIBUTE_VALUE"]" target="_blank">@obj["ATTRIBUTE_VALUE"]</a>
+                            </td>
+                        }
+                        else
+                        {
+                            <td nowrap>
+                                @obj["ATTRIBUTE_VALUE"]
+                            </td>
+                        }
+                        <td nowrap>@obj["EDITOR"]</td>
+                        <td nowrap>@obj["EDIT_TIME"]</td>
+
+
+                    </tr>
+
+                }
+
+            }
+        </tbody>
+
+    </table>
+</div>
+
+
+
+
+

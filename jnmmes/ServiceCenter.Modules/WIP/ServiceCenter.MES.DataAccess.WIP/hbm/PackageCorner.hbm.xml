@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   namespace="ServiceCenter.MES.Model.WIP" 
+                   assembly="ServiceCenter.MES.Model.WIP">
+  <class name="PackageCorner" table="WIP_PACKAGE_CORNER">
+    <id name="Key" column="PACKAGE_KEY">
+      <generator class="assigned" />
+    </id>
+    <property name="BinNo" column="BIN_NO"/>
+    <property name="PackageLine" column="PACKAGE_LINE"/>
+    <property name="BinQty" column="BIN_QTY"/>
+    <property name="BinMaxQty" column="BIN_MAXQTY"/>
+    <property name="BinPackaged" column="BIN_PACKAGED"/>
+    <property name="BinState" column="BIN_STATE"/>
+    <property name="Creator" column="CREATOR"/>
+    <property name="CreateTime" column="CREATE_TIME"/>
+    <property name="Editor" column="EDITOR"/>
+    <property name="EditTime" column="EDIT_TIME"/>
+    <property name="LockFlag" column="LOCK_FLAG"/>
+  </class>
+</hibernate-mapping>

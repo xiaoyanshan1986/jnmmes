@@ -1,0 +1,343 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.ERP.Models.WOReportQueryViewModel
+@using ServiceCenter.Model;
+@using ServiceCenter.Common;
+@using ServiceCenter.Client.Mvc.Areas.ERP.Models;
+@using ERP = ServiceCenter.Client.Mvc.Resources.ERP;
+@using ServiceCenter.Client.Mvc.Resources;
+
+@{
+    ViewBag.Title = ERP.StringResource.ERPWOReport_ManagePageTitle;
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div class="panel panel-default">
+
+    <div class="panel-heading">
+        <a href="javascript:showAddModal()" class="btn btn-primary">@StringResource.Add</a>
+    </div>
+
+    <div class="panel-body">
+        @using (Ajax.BeginForm("Query", "ERPWOReport", null
+            , new AjaxOptions()
+            {
+                HttpMethod = "Post",
+                UpdateTargetId = "list"
+            }
+            , new { @class = "form-horizontal", resource = "form" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="row">
+                <div class="col-md-1">
+                    @Html.LabelFor(m => m.BillCode, new { @class = "control-label" })
+                </div>
+                <div class="col-md-2">
+                    @Html.TextBoxFor(m => m.BillCode, new { @class = "form-control" })
+                </div>
+
+                @* 非报废入库类型 *@
+                <div class="col-md-1">
+                    @Html.LabelFor(m => m.BillType, new { @class = "control-label" })
+                </div>
+                <div class="col-md-2">
+                    @Html.DropDownListFor(m => m.BillType
+                            , @Model.GetStockInType(0)
+                            , string.Empty
+                            , new { @class = "form-control" })
+                </div>
+
+                @* 状态 *@
+                <div class="col-md-1">
+                    @Html.LabelFor(m => m.BillState, new { @class = "control-label" })
+                </div>
+                <div class="col-md-2">
+                    @Html.DropDownListFor(m => m.BillState
+                            , @Model.GetStockInState()
+                            , string.Empty
+                            , new { @class = "form-control" })
+                </div>
+                <div class="col-md-1">
+                    <input type="submit" value="@StringResource.Query" class="btn btn-default" id="btnQuery" />
+                </div>
+            </div>
+        }
+    </div>
+
+    <div class="alert fade in hide" resource="alert" id="statusMessage" style="margin:0px">
+        <button type="button" class="close" onclick="hideStatusMessage()">
+            <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+        </button>
+        <p></p>
+    </div>
+
+    <div id="list">
+        @Html.Partial("_ListPartial", new WOReportViewModel())
+    </div>
+
+</div>
+
+@*新增*@
+<div id="add" class="modal fade bs-example-modal-lg"
+     tabindex="-1"
+     resource="dialog"
+     aria-labelledby="addHeader" aria-hidden="true">
+    <div class="modal-dialog modal-lg" style="width:1300px; padding-top:100px">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="addHeader">@ERP.StringResource.ERPWOReport_AddTitle</h4>
+            </div>
+            <div class="modal-body" id="addContent" style="margin:0px;padding:5px">
+                @using (Ajax.BeginForm("Save", "ERPWOReport", null
+                        , new AjaxOptions()
+                        {
+                            HttpMethod = "Post",
+                            OnSuccess = "completeSave",
+                            OnBegin = "beginSave"
+                        }
+                        , new { @class = "form-horizontal", resource = "form", id = "frmAdd" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <input type="submit" class="btn btn-primary" value="@StringResource.Save" id="btnSave" />
+                            <input type="reset" class="btn btn-default" value="@StringResource.Reset" id="btnReset" />
+                        </div>
+                        <div class="panel-body">
+                            <div class="alert fade in hide" resource="alert" id="addStatusMessage">
+                                <button type="button" class="close" onclick="hideAddAlert()">
+                                    <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+                                </button>
+                                <p></p>
+                            </div>
+                            <div>
+                                @Html.Partial("_AddPartial", new WOReportViewModel())
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+@*修改*@
+<div id="modify" class="modal fade bs-example-modal-lg"
+     tabindex="-1"
+     resource="dialog"
+     aria-labelledby="modifyHeader" aria-hidden="true">
+    <div class="modal-dialog modal-lg" style="width:1300px; padding-top:100px">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="modifyHeader">@ERP.StringResource.ERPWOReport_EditTitle</h4>
+            </div>
+            <div class="modal-body" id="modifyResourceContent" style="margin:0px;padding:5px">
+                @using (Ajax.BeginForm("SaveModify", "ERPWOReport", null
+                    , new AjaxOptions()
+                    {
+                        HttpMethod = "Post",
+                        OnSuccess = "completeSaveModify",
+                        OnBegin = "beginSaveModify"
+                    }
+                    , new { @class = "form-horizontal", resource = "form" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <input type="submit" class="btn btn-primary" value="@StringResource.Save" id="btnSaveModify" />
+                        </div>
+                        <div class="panel-body">
+                            <div class="alert fade in hide" resource="alert" id="modifyStatusMessage">
+                                <button type="button" class="close" onclick="hideModifyAlert()">
+                                    <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+                                </button>
+                                <p></p>
+                            </div>
+                            <div id="modifyFormContent">
+                                @Html.Partial("_ModifyPartial", new WOReportViewModel())
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script type="text/javascript" language="javascript">
+        $(function () {
+            refreshList();
+            $("#txtBillDate").datepicker({
+                changeMonth: true,
+                changeYear: true,
+                dateFormat: "yy-mm-dd"
+            });
+            $("#txtBillMakedDate").datepicker({
+                changeMonth: true,
+                changeYear: true,
+                dateFormat: "yy-mm-dd"
+            });
+
+            $('#add').on('hide.bs.modal', function (e) {
+                $("#btnReset").click();
+            })
+            $("#OrderNumber").change(function () {
+                changeMaterialCode();
+            });
+            changeOrderNumber();
+
+        })
+
+        $("#BillCode").keypress(function (args) {
+            if (args.keyCode == 13) {
+                $("#btnQuery").click();
+            }
+        });
+
+        $('select#BillType').change(function () {
+            $("#btnQuery").click();
+        });
+
+        $('select#BillState').change(function () {
+            $("#btnQuery").click();
+        });
+
+        function refreshList() {
+            $("#form0").submit();
+            if ($("#frmPagingQuery").length > 0) {
+                $("#frmPagingQuery").submit();
+            }
+        }
+
+        
+
+        function hideStatusMessage() {
+            $("#statusMessage").addClass("hide");
+        }
+
+        function changeOrderNumber() {
+            $("#OrderNumber").get(0).options.length = 0; //清空
+            var url = "@Url.Action("GetOrderNumbers", "ERPWOReport", new { area = "ERP" })";
+            $.getJSON(url, function (data) {
+                $.each(data, function (i, item) {
+                    $("<option></option>").val(item.Value).text(item.Text).appendTo($("#OrderNumber"));
+                });
+                changeMaterialCode();
+            });
+        }
+
+        function changeMaterialCode() {
+
+            $("#MaterialCode").get(0).options.length = 0; //清空
+            var url = "@Url.Action("GetMaterialCodes", "ERPWOReport", new { area = "ERP" })";
+            var orderNumber = $("#OrderNumber").val();
+            var reqdata = { OrderNumber: orderNumber };
+
+            $.getJSON(url, reqdata, function (data) {
+                $.each(data, function (i, item) {
+                    $("<option></option>").val(item).text(item).appendTo($("#MaterialCode"));
+                });
+                changeMaterialLot();
+            });
+        }
+    </script>
+
+    @*新增*@
+    <script type="text/javascript" language="javascript">
+        function showAddModal() {
+            hideAddAlert();
+            hideStatusMessage();
+            $('#add').modal('show');
+        }
+
+        function hideAddAlert() {
+            $("#addStatusMessage").addClass("hide");
+        }
+
+        function beginSave() {
+            $("#btnSave").attr("disabled", "disabled");
+            hideStatusMessage();
+        }
+
+        function completeSave(result) {
+            $("#btnSave").removeAttr("disabled");
+            ShowMessage(result);
+            if (result.Code == 0) {
+                $("#txtBillCode").val(result.Detail);
+            }
+            refreshList();
+        }
+
+        function ShowMessage(result) {
+            $("#addStatusMessage").find("p").html(result.Message);
+            $("#addStatusMessage").removeClass("hide");
+            if (result.Code > 0) {
+                $("#addStatusMessage").removeClass("alert-success");
+                $("#addStatusMessage").addClass("alert-danger");
+            }
+            else {
+                $("#addStatusMessage").removeClass("alert-danger");
+                $("#addStatusMessage").addClass("alert-success");
+                refreshList();
+            }
+        }
+
+
+    </script>
+
+    @*修改*@
+    <script type="text/javascript" language="javascript">
+        function showModifyModal(result) {
+            hideModifyAlert();
+            hideStatusMessage();
+            $('#modify').modal('show')
+        }
+
+        function hideModifyAlert() {
+            $("#modifyStatusMessage").addClass("hide");
+        }
+
+        function beginSaveModify() { }
+
+        function completeSaveModify(result) {
+            $("#modifyStatusMessage").find("p").html(result.Message);
+            $("#modifyStatusMessage").removeClass("hide");
+            if (result.Code > 0) {
+                $("#modifyStatusMessage").removeClass("alert-success");
+                $("#modifyStatusMessage").addClass("alert-danger");
+            }
+            else {
+                $("#modifyStatusMessage").removeClass("alert-danger");
+                $("#modifyStatusMessage").addClass("alert-success");
+                refreshList();
+            }
+        }
+    </script>
+
+    @*删除*@
+    <script type="text/javascript" language="javascript">
+        function completeDelete(result) {
+            $("#statusMessage").find("p").html(result.Message);
+            $("#statusMessage").removeClass("hide");
+            if (result.Code > 0) {
+                $("#statusMessage").removeClass("alert-success");
+                $("#statusMessage").addClass("alert-danger");
+            }
+            else {
+                $("#statusMessage").removeClass("alert-danger");
+                $("#statusMessage").addClass("alert-success");
+                refreshList();
+            }
+        }
+    </script>
+}
+

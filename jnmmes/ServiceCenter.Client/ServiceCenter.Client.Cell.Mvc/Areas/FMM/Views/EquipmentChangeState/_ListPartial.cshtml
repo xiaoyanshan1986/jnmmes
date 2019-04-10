@@ -1,0 +1,83 @@
+﻿@using ServiceCenter.Client.Mvc.Areas.FMM.Models;
+@using ServiceCenter.Client.Mvc.Resources;
+@using FMM = ServiceCenter.Client.Mvc.Resources.FMM;
+@using ServiceCenter.MES.Model.FMM;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@{
+    PagingConfig cfg = ViewBag.PagingConfig;
+    IList<EquipmentChangeState> lstChangeState = new List<EquipmentChangeState>();
+    if (ViewBag.ChangeStateList != null)
+    {
+        lstChangeState = ViewBag.ChangeStateList;
+    }
+    IList<EquipmentState> lstState = new List<EquipmentState>();
+    if (ViewBag.StateList != null)
+    {
+        lstState = ViewBag.StateList;
+    }
+}
+<p></p>
+@Html.ValidationSummary(true)
+<table class="table table-bordered table-condensed">
+    <thead>
+        <tr class="text-center text-primary">
+            <td colspan="2" rowspan="2"></td>
+            @{
+                var lnq = from item in lstState
+                          orderby item.Type
+                          select item.Type;
+                foreach (EnumEquipmentStateType type in lnq.Distinct())
+                {
+                    var colspan = lstState.Where(item => item.Type == type).Count();
+                    <td class="active" colspan="@colspan">@type.GetDisplayName()</td>
+                }
+            }
+        </tr>
+        <tr class="text-center text-primary">
+            @{
+                foreach (EquipmentState state in lstState)
+                {
+                    <td class="active">@state.Key</td>
+                }
+            }
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            var  preStateType = -1;
+            foreach (EquipmentState startState in lstState)
+            {
+                var stateType = Convert.ToInt32(startState.Type);
+                <tr>
+                    @if (preStateType != stateType)
+                    {
+                        preStateType = stateType;
+                        var rowspan = lstState.Where(item => item.Type == startState.Type).Count();
+                        <td class="text-center active text-primary" rowspan="@rowspan">@startState.Type.GetDisplayName()</td>
+                    }
+                    <td class="text-center active text-primary">@startState.Key</td>
+                    @foreach (EquipmentState endState in lstState)
+                    {
+                        var count= (from item in lstChangeState
+                                    where item.FromStateName == startState.Key && item.ToStateName == endState.Key
+                                    select item).Count();
+                        string name=string.Format("{0}_{1}", startState.Key, endState.Key);
+                        <td class="text-center">
+                            @if (startState.Key == endState.Key)
+                            {
+                                <input type="checkbox" name="@name" class="form-control" disabled />
+                            }
+                            else
+                            {
+                                <input type="checkbox" name="@name" class="form-control" data-start="@startState.Key" data-end="@endState.Key" checked="@(count == 0 ? false : true)" />
+                            }
+                        </td>
+                    }
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+
+

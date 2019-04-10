@@ -1,0 +1,208 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.RPT.Models.WIPIVTestDataViewModel
+@using ServiceCenter.Model;
+@using ServiceCenter.Common;
+@using ServiceCenter.Client.Mvc.Areas.EDC.Models;
+@using EDCRsources = ServiceCenter.Client.Mvc.Resources.EDC;
+@using ServiceCenter.Client.Mvc.Resources;
+
+@{
+    ViewBag.Title = "IVTest校准数据折线图";
+}
+<h2>@ViewBag.Title</h2>
+
+<div class="panel panel-default">
+    <div class="panel-body">
+
+        @using (Html.BeginForm("ExportToExcel", "WIPIVTestData", FormMethod.Post, new { @class = "form-horizontal", resource = "form", id = "searchForm" }))
+        {
+            @Html.AntiForgeryToken()
+            <div class="form-group">
+                @*校准版编号*@
+                <div class="col-md-1">
+                    @Html.LabelFor(m => m.CalibrationPlateID, new { @class = "control-label" })
+                </div>
+                <div class="col-md-2">
+                    @Html.DropDownListFor(m => m.CalibrationPlateID, @Model.GetCalibrationPlateIDList(), string.Empty, new { @class = "form-control" })
+                </div>
+                <div class="col-md-1">
+                </div>
+                <div class="col-md-1">
+                    @Html.LabelFor(m => m.LineCode, new { @class = "control-label" })
+                </div>
+                <div class="col-md-2">
+                    @Html.DropDownListFor(m => m.LineCode, @Model.GetLineCodeList(), string.Empty, new { @class = "form-control" })
+                </div>
+
+            </div>
+            <div class="form-group">
+                <div class="col-md-1">
+                    @Html.LabelFor(m => m.StartDate, new { @class = "control-label" })
+                </div>
+                <div class="col-md-2">
+                    @Html.TextBoxFor(m => m.StartDate, "{0:yyyy-MM-dd}", new { @class = "form-control" })
+                </div>
+                <div class="col-md-1">
+                </div>
+                <div class="col-md-1">
+                    @Html.LabelFor(m => m.EndDate, new { @class = "control-label" })
+                </div>
+                <div class="col-md-2">
+                    @Html.TextBoxFor(m => m.EndDate, "{0:yyyy-MM-dd}", new { @class = "form-control" })
+                </div>
+                <div class="col-md-1">
+                </div>
+                <div class="col-md-2">
+                    <input type="button" value="@StringResource.Query" class="btn btn-default" id="btnQuery" />
+                </div>
+            </div>
+        }
+    </div>
+    <div id="container2" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+</div>
+
+
+@section Scripts {    
+    @*<script src="~/Scripts/Highcharts-4.0.3/modules/exporting.js"></script>
+    <script src="~/Scripts/Highstock-2.1.5/highstock.js"></script>*@
+    <script src="~/Scripts/Highstock-5.0.12/code/highstock.js"></script>
+    <script src="~/Scripts/Highcharts-5.0.12/code/modules/exporting.js"></script>
+    <script src="~/Scripts/jquery.multiselect.js"></script>
+    <link href="~/Content/jquery.multiselect.css" rel="stylesheet" />
+    <script type="text/javascript" language="javascript">
+        var rpttype = $("#rpttype").val();
+        $(function () {
+            $("#StartDate,#EndDate").datetimepicker({
+                changeMonth: true,
+                changeYear: true,
+                dateFormat: "yy-mm-dd",
+                timeFormat: 'HH:mm:ss'
+            });
+            //$('#EquipmentCode').multiselect({
+            //    width: 10,
+            //    checkAllText: '全选',
+            //    uncheckAllText: '全不选',
+            //    selectedList: 1
+            //});
+            //$('#CalibrationPlateID').multiselect({
+            //    width: 10,
+            //    checkAllText: '全选',
+            //    uncheckAllText: '全不选',
+            //    selectedList: 1
+            //});
+
+            $("#btnQuery").bind("click", function () {
+                Query();
+            });
+            Query();
+        });
+        @*查询事件*@
+        @*function Query() {
+            var EquipmentCode = $("#EquipmentCode").multiselect("getChecked").map(function () {
+                return this.value;
+            }).get();
+            var starttime = $('#StartDate').val();
+            var endtime = $('#EndDate').val();
+            attr_1 = $("#Attr_1").val();
+            $.ajax({
+                type: "post",
+                url: "@Url.Action("GetHighchartsResultForJZ", "WIPIVTestData")",
+                data: { EquipmentCode: EquipmentCode.join(","), StartDate: starttime, EndDate: endtime, Attr_1: attr_1 },
+                async: false,
+                dataType: "json",
+                success: function (result) {
+                    if (result != null) {
+                        var mAxis = eval("(" + result.mAxis + ")");
+                        var nAxis = eval("(" + result.nAxis + ")");
+                        highchartsInit2(mAxis, nAxis, result.level.split("|")[0], result.level.split("|")[1], result.level.split("|")[2]);
+                    }
+                }
+            });
+        }*@
+        function Query() {
+            var CalibrationPlateID = $('#CalibrationPlateID').val();
+            var LineCode = $('#LineCode').val();
+            var starttime = $('#StartDate').val();
+            var endtime = $('#EndDate').val();
+            attr_1 = $("#Attr_1").val();
+            $.ajax({
+                type: "post",
+                url: "@Url.Action("GetHighchartsResultForJZ", "WIPIVTestData")",
+                data: { CalibrationPlateID: CalibrationPlateID, LineCode:LineCode,StartDate: starttime, EndDate: endtime, Attr_1: attr_1 },
+            async: false,
+            dataType: "json",
+            success: function (result) {
+                if (result != null) {
+                    var mAxis = eval("(" + result.mAxis + ")");
+                    var nAxis = eval("(" + result.nAxis + ")");
+                    highchartsInit2(mAxis, nAxis, result.level.split("|")[0], result.level.split("|")[1], result.level.split("|")[2]);
+                }
+            }
+        });
+        }
+        //根据获取的json数据画charts
+        function highchartsInit2(xAxisData, yAxisData, xMax, xMin, xLevel) {
+
+            $('#container2').highcharts({
+                title: {
+                    text: 'IVTest校准数据折线图',
+                    x: -20 //center
+                },
+                credits: { enabled: false },
+                xAxis: {
+                    categories: xAxisData,
+                    labels: { rotation: -90 }, min: 0, max: 80
+                },
+                yAxis: {
+                    min: xMin,
+                    max: xMax,
+                    tickInterval: xLevel,
+                    lineWidth: 1,
+                    title: {
+                        text: 'g'
+                    },
+                    plotLines: [
+                        {
+                            value: 0,
+                            width: 1,
+                            color: '#808080'
+                        }
+
+                    ]
+
+                },
+                tooltip: {
+                    formatter: function () {
+
+                        return '<strong style="color:#0000ff;font-weight:bold" >Time:' + this.x + '</strong><br/>Value:' + this.y;
+                    }
+                },
+                legend: {
+                    layout: 'vertical',
+                    align: 'right',
+                    verticalAlign: 'middle',
+                    borderWidth: 0
+                },
+                scrollbar: {
+                    enabled: true
+                },
+                series: yAxisData,
+                plotOptions: {
+                    spline: {
+                        marker: {
+                            enabled: true
+                        }
+                    },
+                    series: {
+                        connectNulls: true
+                    }
+                },
+            });
+        }
+    </script>
+    @*导出Excel提交表单*@
+    <script type="text/javascript" language="javascript">
+        function ExportToExcel01() {
+            $("#searchForm").submit();
+        }
+    </script>
+}

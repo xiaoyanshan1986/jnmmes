@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   namespace="ServiceCenter.MES.Model.EDC"
+                   assembly="ServiceCenter.MES.Model.EDC">
+  <class name="DataAcquisitionField" table="EDC_DataAcquisition_Field">
+    <composite-id  name="Key" class="DataAcquisitionFieldKey">
+      <key-property name="ItemCode" column="ItemCode"/>
+      <key-property name="FieldCode" column="FieldCode"/>
+    </composite-id>    
+    <property name="FieldName" column="FieldName"/>
+    <property name="SerialNumber" column="SerialNumber"/>
+    <property name="DataType" column="DataType"/>
+    <property name="IsKEY" column="IsKEY"/>
+    <property name="IsControl" column="IsControl"/>
+    <property name="MaxLine" column="MaxLine"/>
+    <property name="MinLine" column="MinLine"/>
+    <property name="Creator" column="CREATOR"/>
+    <property name="CreateTime" column="CREATE_TIME" type="timestamp"/>
+    <property name="Editor" column="EDITOR"/>
+    <property name="EditTime" column="EDIT_TIME" type="timestamp"/>
+  </class>
+</hibernate-mapping>

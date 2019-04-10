@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   namespace="ServiceCenter.MES.Model.WIP" 
+                   assembly="ServiceCenter.MES.Model.WIP">
+  <class name="LotTransaction" table="WIP_TRANSACTION">
+    <id name="Key" column="TRANSACTION_KEY">
+      <generator class="assigned" />
+    </id>
+    <property name="Activity" column="ACTIVITY"/>
+    <property name="LotNumber" column="LOT_NUMBER"/>
+    <property name="LocationName" column="LOCATION_NAME"/>
+    <property name="LineCode" column="LINE_CODE"/>
+    <property name="OrderNumber" column="ORDER_NUMBER"/>
+    <property name="InQuantity" column="QUANTITY_IN"/>
+    <property name="OutQuantity" column="QUANTITY_OUT"/>
+    <property name="RouteEnterpriseName" column="ROUTE_ENTERPRISE_NAME"/>
+    <property name="RouteName" column="ROUTE_NAME"/>
+    <property name="RouteStepName" column="ROUTE_STEP_NAME"/>
+    <property name="ShiftName" column="SHIFT_NAME"/>
+    <property name="OperateComputer" column="OPR_COMPUTER"/>
+    <property name="Description" column="DESCRIPTION"/>
+    <property name="UndoFlag" column="UNDO_FLAG"/>
+    <property name="UndoTransactionKey" column="UNDO_TRANSACTION_KEY"/>
+    <property name="Creator" column="CREATOR"/>
+    <property name="CreateTime" column="CREATE_TIME" type="timestamp"/>
+    <property name="Editor" column="EDITOR"/>
+    <property name="EditTime" column="EDIT_TIME" type="timestamp"/>
+    <property name="Grade" column="GRADE"/>
+    <property name="Color" column="COLOR"/>
+    <property name="Attr1" column="ATTR_1"/>
+    <property name="Attr2" column="ATTR_2"/>
+    <property name="Attr3" column="ATTR_3"/>
+    <property name="Attr4" column="ATTR_4"/>
+    <property name="Attr5" column="ATTR_5"/>
+    <property name="OriginalOrderNumber" column="ORG_ORDER_NUMBER"/>
+  </class>
+</hibernate-mapping>

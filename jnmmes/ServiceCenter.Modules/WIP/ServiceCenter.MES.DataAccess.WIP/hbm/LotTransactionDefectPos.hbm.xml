@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   namespace="ServiceCenter.MES.Model.WIP" 
+                   assembly="ServiceCenter.MES.Model.WIP">
+  <class name="LotTransactionDefectPos" table="WIP_TRANSACTION_DEFECT_POS">
+    <composite-id  name="Key" class="LotTransactionDefectPosKey">
+      <key-property name="TransactionKey" column="TRANSACTION_KEY"/>
+      <key-property name="PosX" column="POS_X"/>
+      <key-property name="PosY" column="POS_Y"/>
+    </composite-id >
+    <property name="Editor" column="EDITOR"/>
+    <property name="EditTime" column="EDIT_TIME"/>
+  </class>
+</hibernate-mapping>

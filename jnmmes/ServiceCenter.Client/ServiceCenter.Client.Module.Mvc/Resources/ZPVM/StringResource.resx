@@ -1,0 +1,1062 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="DecayQueryViewModel_Code" xml:space="preserve">
+    <value>代码</value>
+  </data>
+  <data name="DecayViewModel_Code" xml:space="preserve">
+    <value>代码</value>
+  </data>
+  <data name="DecayViewModel_IsUsed" xml:space="preserve">
+    <value>可用？</value>
+  </data>
+  <data name="DecayViewModel_Object" xml:space="preserve">
+    <value>对象</value>
+  </data>
+  <data name="DecayViewModel_Type" xml:space="preserve">
+    <value>类型</value>
+  </data>
+  <data name="DecayViewModel_Value" xml:space="preserve">
+    <value>值</value>
+  </data>
+  <data name="Decay_AddTitle" xml:space="preserve">
+    <value>新增衰减系数</value>
+  </data>
+  <data name="Decay_ConfirmDelete" xml:space="preserve">
+    <value>确认删除衰减（{0}）系数？</value>
+  </data>
+  <data name="Decay_Delete_Success" xml:space="preserve">
+    <value>删除系数（{0}）成功。</value>
+  </data>
+  <data name="Decay_DetailTitle" xml:space="preserve">
+    <value>衰减系数信息</value>
+  </data>
+  <data name="Decay_ManagePageTitle" xml:space="preserve">
+    <value>衰减系数管理</value>
+  </data>
+  <data name="Decay_ModifyTitle" xml:space="preserve">
+    <value>修改衰减系数</value>
+  </data>
+  <data name="Decay_SaveModify_Success" xml:space="preserve">
+    <value>修改衰减系数（{0}）成功。</value>
+  </data>
+  <data name="Decay_Save_Success" xml:space="preserve">
+    <value>衰减系数（{0}）保存成功。</value>
+  </data>
+  <data name="EfficiencyQueryViewModel_Code" xml:space="preserve">
+    <value>代码</value>
+  </data>
+  <data name="EfficiencyQueryViewModel_Group" xml:space="preserve">
+    <value>组名</value>
+  </data>
+  <data name="EfficiencyViewModel_Code" xml:space="preserve">
+    <value>代码</value>
+  </data>
+  <data name="EfficiencyViewModel_Group" xml:space="preserve">
+    <value>组名</value>
+  </data>
+  <data name="EfficiencyViewModel_IsUsed" xml:space="preserve">
+    <value>可用？</value>
+  </data>
+  <data name="EfficiencyViewModel_Lower" xml:space="preserve">
+    <value>最小值</value>
+  </data>
+  <data name="EfficiencyViewModel_Name" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="EfficiencyViewModel_Upper" xml:space="preserve">
+    <value>最大值</value>
+  </data>
+  <data name="Efficiency_AddTitle" xml:space="preserve">
+    <value>新增效率档</value>
+  </data>
+  <data name="Efficiency_ConfirmDelete" xml:space="preserve">
+    <value>确认删除效率档（{0}）？</value>
+  </data>
+  <data name="Efficiency_Delete_Success" xml:space="preserve">
+    <value>删除效率档（{0}）成功。</value>
+  </data>
+  <data name="Efficiency_DetailTitle" xml:space="preserve">
+    <value>效率档信息</value>
+  </data>
+  <data name="Efficiency_ManagePageTitle" xml:space="preserve">
+    <value>效率档管理</value>
+  </data>
+  <data name="Efficiency_ModifyTitle" xml:space="preserve">
+    <value>修改效率档</value>
+  </data>
+  <data name="Efficiency_SaveModify_Success" xml:space="preserve">
+    <value>修改效率档（{0}）成功。</value>
+  </data>
+  <data name="Efficiency_Save_Success" xml:space="preserve">
+    <value>效率档（{0}）保存成功。</value>
+  </data>
+  <data name="PowersetQueryViewModel_Code" xml:space="preserve">
+    <value>分档代码</value>
+  </data>
+  <data name="PowersetQueryViewModel_Name" xml:space="preserve">
+    <value>分档名称</value>
+  </data>
+  <data name="PowersetQueryViewModel_PowerDifference" xml:space="preserve">
+    <value>分档方式</value>
+  </data>
+  <data name="PowersetQueryViewModel_PowerName" xml:space="preserve">
+    <value>档位名称</value>
+  </data>
+  <data name="PowersetViewModel_ArticleNo" xml:space="preserve">
+    <value>ArticleNo</value>
+  </data>
+  <data name="PowersetViewModel_Code" xml:space="preserve">
+    <value>分档代码</value>
+  </data>
+  <data name="PowersetViewModel_IsUsed" xml:space="preserve">
+    <value>可用？</value>
+  </data>
+  <data name="PowersetViewModel_ItemNo" xml:space="preserve">
+    <value>分档项目号</value>
+  </data>
+  <data name="PowersetViewModel_MaxValue" xml:space="preserve">
+    <value>最大值</value>
+  </data>
+  <data name="PowersetViewModel_MinValue" xml:space="preserve">
+    <value>最小值</value>
+  </data>
+  <data name="PowersetViewModel_Name" xml:space="preserve">
+    <value>分档名称</value>
+  </data>
+  <data name="PowersetViewModel_PowerDifference" xml:space="preserve">
+    <value>分档方式</value>
+  </data>
+  <data name="PowersetViewModel_PowerName" xml:space="preserve">
+    <value>档位名称</value>
+  </data>
+  <data name="PowersetViewModel_StandardFuse" xml:space="preserve">
+    <value>标准填充因子</value>
+  </data>
+  <data name="PowersetViewModel_StandardIPM" xml:space="preserve">
+    <value>标准最大电流</value>
+  </data>
+  <data name="PowersetViewModel_StandardIsc" xml:space="preserve">
+    <value>标准电流</value>
+  </data>
+  <data name="PowersetViewModel_StandardPower" xml:space="preserve">
+    <value>标准功率</value>
+  </data>
+  <data name="PowersetViewModel_StandardVoc" xml:space="preserve">
+    <value>标准电压</value>
+  </data>
+  <data name="PowersetViewModel_StandardVPM" xml:space="preserve">
+    <value>标准最大电压</value>
+  </data>
+  <data name="PowersetViewModel_SubWay" xml:space="preserve">
+    <value>子分档方法</value>
+  </data>
+  <data name="Powerset_AddTitle" xml:space="preserve">
+    <value>新增分档</value>
+  </data>
+  <data name="Powerset_ConfirmDelete" xml:space="preserve">
+    <value>确认删除分档（{0}）？</value>
+  </data>
+  <data name="Powerset_Delete_Success" xml:space="preserve">
+    <value>删除分档（{0}）成功。</value>
+  </data>
+  <data name="Powerset_DetailTitle" xml:space="preserve">
+    <value>分档信息</value>
+  </data>
+  <data name="Powerset_ManagePageTitle" xml:space="preserve">
+    <value>分档管理</value>
+  </data>
+  <data name="Powerset_ModifyTitle" xml:space="preserve">
+    <value>修改分档</value>
+  </data>
+  <data name="Powerset_SaveModify_Success" xml:space="preserve">
+    <value>修改分档（{0}）成功。</value>
+  </data>
+  <data name="Powerset_Save_Success" xml:space="preserve">
+    <value>分档（{0}）保存成功。</value>
+  </data>
+  <data name="PowersetDetailQueryViewModel_Code" xml:space="preserve">
+    <value>分档代码</value>
+  </data>
+  <data name="PowersetDetailQueryViewModel_ItemNo" xml:space="preserve">
+    <value>项目号</value>
+  </data>
+  <data name="PowersetDetailQueryViewModel_SubCode" xml:space="preserve">
+    <value>子分档代码</value>
+  </data>
+  <data name="PowersetDetailViewModel_Code" xml:space="preserve">
+    <value>分档代码</value>
+  </data>
+  <data name="PowersetDetailViewModel_IsUsed" xml:space="preserve">
+    <value>可用？</value>
+  </data>
+  <data name="PowersetDetailViewModel_ItemNo" xml:space="preserve">
+    <value>分档项目号</value>
+  </data>
+  <data name="PowersetDetailViewModel_MaxValue" xml:space="preserve">
+    <value>最大值</value>
+  </data>
+  <data name="PowersetDetailViewModel_MinValue" xml:space="preserve">
+    <value>最小值</value>
+  </data>
+  <data name="PowersetDetailViewModel_SubCode" xml:space="preserve">
+    <value>子分档代码</value>
+  </data>
+  <data name="PowersetDetailViewModel_SubName" xml:space="preserve">
+    <value>子分档名称</value>
+  </data>
+  <data name="PowersetDetail_AddTitle" xml:space="preserve">
+    <value>新增子分档</value>
+  </data>
+  <data name="PowersetDetail_ConfirmDelete" xml:space="preserve">
+    <value>确认删除子分档（{0}）？</value>
+  </data>
+  <data name="PowersetDetail_Delete_Success" xml:space="preserve">
+    <value>删除子分档（{0}）成功。</value>
+  </data>
+  <data name="PowersetDetail_DetailTitle" xml:space="preserve">
+    <value>子分档信息</value>
+  </data>
+  <data name="PowersetDetail_ManagePageTitle" xml:space="preserve">
+    <value>分档（{0}）子分档管理</value>
+  </data>
+  <data name="PowersetDetail_ModifyTitle" xml:space="preserve">
+    <value>修改子分档</value>
+  </data>
+  <data name="PowersetDetail_SaveModify_Success" xml:space="preserve">
+    <value>修改子分档（{0}）成功。</value>
+  </data>
+  <data name="PowersetDetail_Save_Success" xml:space="preserve">
+    <value>子分档（{0}）保存成功。</value>
+  </data>
+  <data name="RuleQueryViewModel_Code" xml:space="preserve">
+    <value>规则代码</value>
+  </data>
+  <data name="RuleQueryViewModel_Name" xml:space="preserve">
+    <value>规则名称</value>
+  </data>
+  <data name="RuleViewModel_CalibrationCycle" xml:space="preserve">
+    <value>校准周期（分钟）</value>
+  </data>
+  <data name="RuleViewModel_CalibrationType" xml:space="preserve">
+    <value>校准板类型</value>
+  </data>
+  <data name="RuleViewModel_Code" xml:space="preserve">
+    <value>规则代码</value>
+  </data>
+  <data name="RuleViewModel_FixCycle" xml:space="preserve">
+    <value>固化周期（分钟）</value>
+  </data>
+  <data name="RuleViewModel_IsUsed" xml:space="preserve">
+    <value>可用？</value>
+  </data>
+  <data name="RuleViewModel_MaxPower" xml:space="preserve">
+    <value>最大功率</value>
+  </data>
+  <data name="RuleViewModel_MinPower" xml:space="preserve">
+    <value>最小功率</value>
+  </data>
+  <data name="RuleViewModel_Name" xml:space="preserve">
+    <value>规则名称</value>
+  </data>
+  <data name="RuleViewModel_PowerDegree" xml:space="preserve">
+    <value>功率精度</value>
+  </data>
+  <data name="RuleViewModel_PowersetCode" xml:space="preserve">
+    <value>分档代码</value>
+  </data>
+  <data name="Rule_AddTitle" xml:space="preserve">
+    <value>新增规则</value>
+  </data>
+  <data name="Rule_ConfirmDelete" xml:space="preserve">
+    <value>确认删除规则（{0}）？</value>
+  </data>
+  <data name="Rule_Delete_Success" xml:space="preserve">
+    <value>删除规则（{0}）成功。</value>
+  </data>
+  <data name="Rule_DetailTitle" xml:space="preserve">
+    <value>规则信息</value>
+  </data>
+  <data name="Rule_ManagePageTitle" xml:space="preserve">
+    <value>规则管理</value>
+  </data>
+  <data name="Rule_ModifyTitle" xml:space="preserve">
+    <value>修改规则</value>
+  </data>
+  <data name="Rule_SaveModify_Success" xml:space="preserve">
+    <value>修改规则（{0}）成功。</value>
+  </data>
+  <data name="Rule_Save_Success" xml:space="preserve">
+    <value>规则（{0}）保存成功。</value>
+  </data>
+  <data name="RuleControlObjectQueryViewModel_Code" xml:space="preserve">
+    <value>规则代码</value>
+  </data>
+  <data name="RuleControlObjectViewModel_Code" xml:space="preserve">
+    <value>规则代码</value>
+  </data>
+  <data name="RuleControlObjectViewModel_IsUsed" xml:space="preserve">
+    <value>可用？</value>
+  </data>
+  <data name="RuleControlObjectViewModel_Object" xml:space="preserve">
+    <value>控制参数</value>
+  </data>
+  <data name="RuleControlObjectViewModel_Type" xml:space="preserve">
+    <value>控制类型</value>
+  </data>
+  <data name="RuleControlObjectViewModel_Value" xml:space="preserve">
+    <value>控制值</value>
+  </data>
+  <data name="RuleControlObject_AddTitle" xml:space="preserve">
+    <value>新增控制参数</value>
+  </data>
+  <data name="RuleControlObject_ConfirmDelete" xml:space="preserve">
+    <value>确认删除控制参数（{0}）？</value>
+  </data>
+  <data name="RuleControlObject_Delete_Success" xml:space="preserve">
+    <value>删除控制参数（{0}）成功。</value>
+  </data>
+  <data name="RuleControlObject_DetailTitle" xml:space="preserve">
+    <value>控制参数信息</value>
+  </data>
+  <data name="RuleControlObject_ManagePageTitle" xml:space="preserve">
+    <value>规则（{0}）控制参数管理</value>
+  </data>
+  <data name="RuleControlObject_ModifyTitle" xml:space="preserve">
+    <value>修改控制参数</value>
+  </data>
+  <data name="RuleControlObject_SaveModify_Success" xml:space="preserve">
+    <value>修改控制参数（{0}）成功。</value>
+  </data>
+  <data name="RuleControlObject_Save_Success" xml:space="preserve">
+    <value>控制参数（{0}）保存成功。</value>
+  </data>
+  <data name="RuleDecayQueryViewModel_Code" xml:space="preserve">
+    <value>规则代码</value>
+  </data>
+  <data name="RuleDecayViewModel_Code" xml:space="preserve">
+    <value>规则代码</value>
+  </data>
+  <data name="RuleDecayViewModel_DecayCode" xml:space="preserve">
+    <value>衰减代码</value>
+  </data>
+  <data name="RuleDecayViewModel_IsUsed" xml:space="preserve">
+    <value>可用？</value>
+  </data>
+  <data name="RuleDecayViewModel_MaxPower" xml:space="preserve">
+    <value>功率下限</value>
+  </data>
+  <data name="RuleDecayViewModel_MinPower" xml:space="preserve">
+    <value>功率上限</value>
+  </data>
+  <data name="RuleDecay_AddTitle" xml:space="preserve">
+    <value>新增衰减</value>
+  </data>
+  <data name="RuleDecay_ConfirmDelete" xml:space="preserve">
+    <value>确认删除衰减（{0}）？</value>
+  </data>
+  <data name="RuleDecay_Delete_Success" xml:space="preserve">
+    <value>删除衰减（{0}）成功。</value>
+  </data>
+  <data name="RuleDecay_DetailTitle" xml:space="preserve">
+    <value>衰减信息</value>
+  </data>
+  <data name="RuleDecay_ManagePageTitle" xml:space="preserve">
+    <value>规则（{0}）衰减管理</value>
+  </data>
+  <data name="RuleDecay_ModifyTitle" xml:space="preserve">
+    <value>修改衰减</value>
+  </data>
+  <data name="RuleDecay_SaveModify_Success" xml:space="preserve">
+    <value>修改衰减（{0}）成功。</value>
+  </data>
+  <data name="RuleDecay_Save_Success" xml:space="preserve">
+    <value>衰减（{0}）保存成功。</value>
+  </data>
+  <data name="RuleGradeQueryViewModel_Code" xml:space="preserve">
+    <value>规则代码</value>
+  </data>
+  <data name="RuleGradeViewModel_Code" xml:space="preserve">
+    <value>规则代码</value>
+  </data>
+  <data name="RuleGradeViewModel_Grade" xml:space="preserve">
+    <value>等级</value>
+  </data>
+  <data name="RuleGradeViewModel_IsUsed" xml:space="preserve">
+    <value>可用？</value>
+  </data>
+  <data name="RuleGradeViewModel_ItemNo" xml:space="preserve">
+    <value>项目号</value>
+  </data>
+  <data name="RuleGradeViewModel_MixColor" xml:space="preserve">
+    <value>允许混花</value>
+  </data>
+  <data name="RuleGradeViewModel_MixPowerset" xml:space="preserve">
+    <value>允许混档</value>
+  </data>
+  <data name="RuleGradeViewModel_MixSubPowerset" xml:space="preserve">
+    <value>允许混子分档</value>
+  </data>
+  <data name="RuleGradeViewModel_PackageGroup" xml:space="preserve">
+    <value>包装组</value>
+  </data>
+  <data name="RuleGrade_AddTitle" xml:space="preserve">
+    <value>新增等级</value>
+  </data>
+  <data name="RuleGrade_ConfirmDelete" xml:space="preserve">
+    <value>确认删除等级（{0}）？</value>
+  </data>
+  <data name="RuleGrade_Delete_Success" xml:space="preserve">
+    <value>删除等级（{0}）成功。</value>
+  </data>
+  <data name="RuleGrade_DetailTitle" xml:space="preserve">
+    <value>等级信息</value>
+  </data>
+  <data name="RuleGrade_ManagePageTitle" xml:space="preserve">
+    <value>规则（{0}）等级设置</value>
+  </data>
+  <data name="RuleGrade_ModifyTitle" xml:space="preserve">
+    <value>修改等级</value>
+  </data>
+  <data name="RuleGrade_SaveModify_Success" xml:space="preserve">
+    <value>修改等级（{0}）成功。</value>
+  </data>
+  <data name="RuleGrade_Save_Success" xml:space="preserve">
+    <value>等级（{0}）保存成功。</value>
+  </data>
+  <data name="RulePrintSetQueryViewModel_Code" xml:space="preserve">
+    <value>规则代码</value>
+  </data>
+  <data name="RulePrintSetViewModel_Code" xml:space="preserve">
+    <value>规则代码</value>
+  </data>
+  <data name="RulePrintSetViewModel_IsUsed" xml:space="preserve">
+    <value>可用？</value>
+  </data>
+  <data name="RulePrintSetViewModel_ItemNo" xml:space="preserve">
+    <value>项目号</value>
+  </data>
+  <data name="RulePrintSetViewModel_LabelCode" xml:space="preserve">
+    <value>标签代码</value>
+  </data>
+  <data name="RulePrintSetViewModel_Qty" xml:space="preserve">
+    <value>数量</value>
+  </data>
+  <data name="RulePrintSet_AddTitle" xml:space="preserve">
+    <value>新增标签</value>
+  </data>
+  <data name="RulePrintSet_ConfirmDelete" xml:space="preserve">
+    <value>确认删除标签（{0}）？</value>
+  </data>
+  <data name="RulePrintSet_Delete_Success" xml:space="preserve">
+    <value>删除标签（{0}）成功。</value>
+  </data>
+  <data name="RulePrintSet_DetailTitle" xml:space="preserve">
+    <value>标签信息</value>
+  </data>
+  <data name="RulePrintSet_ManagePageTitle" xml:space="preserve">
+    <value>规则（{0}）标签管理</value>
+  </data>
+  <data name="RulePrintSet_ModifyTitle" xml:space="preserve">
+    <value>修改标签</value>
+  </data>
+  <data name="RulePrintSet_SaveModify_Success" xml:space="preserve">
+    <value>修改标签（{0}）成功。</value>
+  </data>
+  <data name="RulePrintSet_Save_Success" xml:space="preserve">
+    <value>标签（{0}）保存成功。</value>
+  </data>
+  <data name="WorkOrderRuleQueryViewModel_MaterialCode" xml:space="preserve">
+    <value>产品号</value>
+  </data>
+  <data name="WorkOrderRuleQueryViewModel_OrderNumber" xml:space="preserve">
+    <value>工单号</value>
+  </data>
+  <data name="WorkOrderRuleViewModel_CalibrationCycle" xml:space="preserve">
+    <value>校准周期（分钟）</value>
+  </data>
+  <data name="WorkOrderRuleViewModel_CalibrationType" xml:space="preserve">
+    <value>校准板类型</value>
+  </data>
+  <data name="WorkOrderRuleViewModel_FixCycle" xml:space="preserve">
+    <value>固化周期（分钟）</value>
+  </data>
+  <data name="WorkOrderRuleViewModel_IsUsed" xml:space="preserve">
+    <value>可用？</value>
+  </data>
+  <data name="WorkOrderRuleViewModel_MaterialCode" xml:space="preserve">
+    <value>产品号</value>
+  </data>
+  <data name="WorkOrderRuleViewModel_MaxPower" xml:space="preserve">
+    <value>功率上限</value>
+  </data>
+  <data name="WorkOrderRuleViewModel_MinPower" xml:space="preserve">
+    <value>功率下限</value>
+  </data>
+  <data name="WorkOrderRuleViewModel_OrderNumber" xml:space="preserve">
+    <value>工单号</value>
+  </data>
+  <data name="WorkOrderRuleViewModel_PowerDegree" xml:space="preserve">
+    <value>功率精度</value>
+  </data>
+  <data name="WorkOrderRuleViewModel_RuleCode" xml:space="preserve">
+    <value>规则代码</value>
+  </data>
+  <data name="WorkOrderRuleViewModel_RuleName" xml:space="preserve">
+    <value>规则名称</value>
+  </data>
+  <data name="WorkOrderRule_ConfirmDelete" xml:space="preserve">
+    <value>确认删除工单规则（{0}）？</value>
+  </data>
+  <data name="WorkOrderRule_Delete_Success" xml:space="preserve">
+    <value>删除工单规则（{0}）成功。</value>
+  </data>
+  <data name="WorkOrderRule_DetailTitle" xml:space="preserve">
+    <value>工单规则信息</value>
+  </data>
+  <data name="WorkOrderRule_ManagePageTitle" xml:space="preserve">
+    <value>工单规则设置</value>
+  </data>
+  <data name="WorkOrderRule_ModifyTitle" xml:space="preserve">
+    <value>修改工单规则</value>
+  </data>
+  <data name="WorkOrderRule_SaveModify_Success" xml:space="preserve">
+    <value>修改工单规则（{0}）成功。</value>
+  </data>
+  <data name="WorkOrderRule_Save_Success" xml:space="preserve">
+    <value>工单规则（{0}）保存成功。</value>
+  </data>
+  <data name="WorkOrderControlObjectQueryViewModel_MaterialCode" xml:space="preserve">
+    <value>产品号</value>
+  </data>
+  <data name="WorkOrderControlObjectQueryViewModel_OrderNumber" xml:space="preserve">
+    <value>工单号</value>
+  </data>
+  <data name="WorkOrderControlObjectViewModel_IsUsed" xml:space="preserve">
+    <value>可用？</value>
+  </data>
+  <data name="WorkOrderControlObjectViewModel_MaterialCode" xml:space="preserve">
+    <value>产品号</value>
+  </data>
+  <data name="WorkOrderControlObjectViewModel_Object" xml:space="preserve">
+    <value>控制对象</value>
+  </data>
+  <data name="WorkOrderControlObjectViewModel_OrderNumber" xml:space="preserve">
+    <value>工单号</value>
+  </data>
+  <data name="WorkOrderControlObjectViewModel_Type" xml:space="preserve">
+    <value>控制类型</value>
+  </data>
+  <data name="WorkOrderControlObjectViewModel_Value" xml:space="preserve">
+    <value>控制值</value>
+  </data>
+  <data name="WorkOrderControlObject_AddTitle" xml:space="preserve">
+    <value>新增工单控制参数</value>
+  </data>
+  <data name="WorkOrderControlObject_ConfirmDelete" xml:space="preserve">
+    <value>确认删除工单控制参数（{0}）？</value>
+  </data>
+  <data name="WorkOrderControlObject_Delete_Success" xml:space="preserve">
+    <value>删除工单控制参数（{0}）成功。</value>
+  </data>
+  <data name="WorkOrderControlObject_DetailTitle" xml:space="preserve">
+    <value>工单控制参数信息</value>
+  </data>
+  <data name="WorkOrderControlObject_ManagePageTitle" xml:space="preserve">
+    <value>工单（{0}）控制参数管理</value>
+  </data>
+  <data name="WorkOrderControlObject_ModifyTitle" xml:space="preserve">
+    <value>修改工单控制参数</value>
+  </data>
+  <data name="WorkOrderControlObject_SaveModify_Success" xml:space="preserve">
+    <value>修改工单控制参数（{0}）成功。</value>
+  </data>
+  <data name="WorkOrderControlObject_Save_Success" xml:space="preserve">
+    <value>工单控制参数（{0}）保存成功。</value>
+  </data>
+  <data name="WorkOrderDecay_AddTitle" xml:space="preserve">
+    <value>新增工单衰减设置</value>
+  </data>
+  <data name="WorkOrderDecay_ConfirmDelete" xml:space="preserve">
+    <value>确认删除工单衰减设置（{0}）？</value>
+  </data>
+  <data name="WorkOrderDecay_Delete_Success" xml:space="preserve">
+    <value>删除工单衰减设置（{0}）成功。</value>
+  </data>
+  <data name="WorkOrderDecay_DetailTitle" xml:space="preserve">
+    <value>工单衰减设置信息</value>
+  </data>
+  <data name="WorkOrderDecay_ManagePageTitle" xml:space="preserve">
+    <value>工单（{0}）衰减设置管理</value>
+  </data>
+  <data name="WorkOrderDecay_ModifyTitle" xml:space="preserve">
+    <value>修改工单衰减设置</value>
+  </data>
+  <data name="WorkOrderDecay_SaveModify_Success" xml:space="preserve">
+    <value>修改工单衰减设置（{0}）成功。</value>
+  </data>
+  <data name="WorkOrderDecay_Save_Success" xml:space="preserve">
+    <value>工单衰减设置（{0}）保存成功。</value>
+  </data>
+  <data name="WorkOrderGrade_AddTitle" xml:space="preserve">
+    <value>新增工单等级设置</value>
+  </data>
+  <data name="WorkOrderGrade_ConfirmDelete" xml:space="preserve">
+    <value>确认删除工单等级设置（{0}）？</value>
+  </data>
+  <data name="WorkOrderGrade_Delete_Success" xml:space="preserve">
+    <value>删除工单等级设置（{0}）成功。</value>
+  </data>
+  <data name="WorkOrderGrade_DetailTitle" xml:space="preserve">
+    <value>工单等级设置信息</value>
+  </data>
+  <data name="WorkOrderGrade_ManagePageTitle" xml:space="preserve">
+    <value>工单（{0}）等级设置管理</value>
+  </data>
+  <data name="WorkOrderGrade_ModifyTitle" xml:space="preserve">
+    <value>修改工单等级设置</value>
+  </data>
+  <data name="WorkOrderGrade_SaveModify_Success" xml:space="preserve">
+    <value>修改工单等级设置（{0}）成功。</value>
+  </data>
+  <data name="WorkOrderGrade_Save_Success" xml:space="preserve">
+    <value>工单等级设置（{0}）保存成功。</value>
+  </data>
+  <data name="WorkOrderPrintSet_AddTitle" xml:space="preserve">
+    <value>新增工单标签设置</value>
+  </data>
+  <data name="WorkOrderPrintSet_ConfirmDelete" xml:space="preserve">
+    <value>确认删除工单标签设置（{0}）？</value>
+  </data>
+  <data name="WorkOrderPrintSet_Delete_Success" xml:space="preserve">
+    <value>删除工单标签设置（{0}）成功。</value>
+  </data>
+  <data name="WorkOrderPrintSet_DetailTitle" xml:space="preserve">
+    <value>工单标签设置信息</value>
+  </data>
+  <data name="WorkOrderPrintSet_ManagePageTitle" xml:space="preserve">
+    <value>工单（{0}）标签设置管理</value>
+  </data>
+  <data name="WorkOrderPrintSet_ModifyTitle" xml:space="preserve">
+    <value>修改工单标签设置</value>
+  </data>
+  <data name="WorkOrderPrintSet_SaveModify_Success" xml:space="preserve">
+    <value>修改工单标签设置（{0}）成功。</value>
+  </data>
+  <data name="WorkOrderPrintSet_Save_Success" xml:space="preserve">
+    <value>工单标签设置（{0}）保存成功。</value>
+  </data>
+  <data name="WorkOrderPowerset_AddTitle" xml:space="preserve">
+    <value>新增工单分档规则</value>
+  </data>
+  <data name="WorkOrderPowerset_ConfirmDelete" xml:space="preserve">
+    <value>确认删除工单分档规则（{0}）？</value>
+  </data>
+  <data name="WorkOrderPowerset_Delete_Success" xml:space="preserve">
+    <value>删除工单分档规则（{0}）成功。</value>
+  </data>
+  <data name="WorkOrderPowerset_DetailTitle" xml:space="preserve">
+    <value>工单分档规则信息</value>
+  </data>
+  <data name="WorkOrderPowerset_ManagePageTitle" xml:space="preserve">
+    <value>工单（{0}）分档规则管理</value>
+  </data>
+  <data name="WorkOrderPowerset_ModifyTitle" xml:space="preserve">
+    <value>修改工单分档规则</value>
+  </data>
+  <data name="WorkOrderPowerset_SaveModify_Success" xml:space="preserve">
+    <value>修改工单分档规则（{0}）成功。</value>
+  </data>
+  <data name="WorkOrderPowerset_Save_Success" xml:space="preserve">
+    <value>工单分档规则（{0}）保存成功。</value>
+  </data>
+  <data name="WorkOrderPowersetDetail_AddTitle" xml:space="preserve">
+    <value>新增工单子分档设置</value>
+  </data>
+  <data name="WorkOrderPowersetDetail_ConfirmDelete" xml:space="preserve">
+    <value>确认删除工单子分档设置（{0}）？</value>
+  </data>
+  <data name="WorkOrderPowersetDetail_Delete_Success" xml:space="preserve">
+    <value>删除工单子分档设置（{0}）成功。</value>
+  </data>
+  <data name="WorkOrderPowersetDetail_DetailTitle" xml:space="preserve">
+    <value>工单子分档设置信息</value>
+  </data>
+  <data name="WorkOrderPowersetDetail_ManagePageTitle" xml:space="preserve">
+    <value>工单（{0}）子分档设置管理</value>
+  </data>
+  <data name="WorkOrderPowersetDetail_ModifyTitle" xml:space="preserve">
+    <value>修改工单子分档设置</value>
+  </data>
+  <data name="WorkOrderPowersetDetail_SaveModify_Success" xml:space="preserve">
+    <value>修改工单子分档设置（{0}）成功。</value>
+  </data>
+  <data name="WorkOrderPowersetDetail_Save_Success" xml:space="preserve">
+    <value>工单子分档设置（{0}）保存成功。</value>
+  </data>
+  <data name="PackingListPrintQueryViewModel_PackageNo" xml:space="preserve">
+    <value>包装号</value>
+  </data>
+  <data name="PackingListPrintQueryViewModel_PackageListType" xml:space="preserve">
+    <value>包装清单类型</value>
+  </data>
+  <data name="EnumPackageListType_Normal" xml:space="preserve">
+    <value>常规</value>
+  </data>
+  <data name="RuleViewModel_FullPackageQty" xml:space="preserve">
+    <value>满包数量</value>
+  </data>
+  <data name="IVTestDataQueryViewModel_EndTestTime" xml:space="preserve">
+    <value>测试时间（止）</value>
+  </data>
+  <data name="IVTestDataQueryViewModel_EquipmentCode" xml:space="preserve">
+    <value>设备</value>
+  </data>
+  <data name="IVTestDataQueryViewModel_IsDefault" xml:space="preserve">
+    <value>有效值</value>
+  </data>
+  <data name="IVTestDataQueryViewModel_IsPrint" xml:space="preserve">
+    <value>打印</value>
+  </data>
+  <data name="IVTestDataQueryViewModel_IsJZ" xml:space="preserve">
+    <value>校准板</value>
+  </data>
+  <data name="IVTestDataQueryViewModel_StartTestTime" xml:space="preserve">
+    <value>测试时间（起）</value>
+  </data>
+  <data name="IVTestDataQuery_ManagePageTitle" xml:space="preserve">
+    <value>IV测试数据查询</value>
+  </data>
+  <data name="LotNumber" xml:space="preserve">
+    <value>批次号</value>
+  </data>
+  <data name="LotPackageQueryViewModel_EndCreateTime" xml:space="preserve">
+    <value>包装时间（止）</value>
+  </data>
+  <data name="LotPackageQueryViewModel_OrderNumber" xml:space="preserve">
+    <value>工单号</value>
+  </data>
+  <data name="LotPackageQueryViewModel_StartCreateTime" xml:space="preserve">
+    <value>包装时间（起）</value>
+  </data>
+  <data name="LotPackageQuery_ManagePageTitle" xml:space="preserve">
+    <value>包装数据查询</value>
+  </data>
+  <data name="PackageNo" xml:space="preserve">
+    <value>包装号</value>
+  </data>
+  <data name="NameplatePrintViewModel_PrinterName" xml:space="preserve">
+    <value>打印机名称</value>
+  </data>
+  <data name="NameplatePrintViewModel_PrintLabelCode" xml:space="preserve">
+    <value>铭牌代码</value>
+  </data>
+  <data name="NameplatePrintViewModel_PrintQty" xml:space="preserve">
+    <value>打印数量</value>
+  </data>
+  <data name="NameplatePrint_ManagePageTitle" xml:space="preserve">
+    <value>铭牌打印</value>
+  </data>
+  <data name="EnumPackageListType_Other" xml:space="preserve">
+    <value>其他</value>
+  </data>
+  <data name="PowersetDetailViewModel_Picture" xml:space="preserve">
+    <value>图片</value>
+  </data>
+  <data name="PowersetDetailViewModel_IsDeletePicture" xml:space="preserve">
+    <value>删除图片？</value>
+  </data>
+  <data name="CheckDataQueryViewModel_EndCheckTime" xml:space="preserve">
+    <value>检验时间（止）</value>
+  </data>
+  <data name="CheckDataQueryViewModel_LineCode" xml:space="preserve">
+    <value>线别</value>
+  </data>
+  <data name="CheckDataQueryViewModel_StartCheckTime" xml:space="preserve">
+    <value>检验时间（起）</value>
+  </data>
+  <data name="NameplatePrintViewModel_IsRepeatPrint" xml:space="preserve">
+    <value>重复打印？</value>
+  </data>
+  <data name="PackingListPrintQueryViewModel_IsLotNumber" xml:space="preserve">
+    <value>批次号？</value>
+  </data>
+  <data name="PowersetViewModel_MixColor" xml:space="preserve">
+    <value>混颜色？</value>
+  </data>
+  <data name="LotOemPackageQueryViewModel_PNOM" xml:space="preserve">
+    <value>功率档</value>
+  </data>
+  <data name="LotOemPackageQueryViewModel_SN" xml:space="preserve">
+    <value>批次号</value>
+  </data>
+  <data name="LotOemPackageQueryViewModel_Type" xml:space="preserve">
+    <value>类型</value>
+  </data>
+  <data name="LotOemPackageViewModel_DL" xml:space="preserve">
+    <value>电流档</value>
+  </data>
+  <data name="LotOemPackageViewModel_FF" xml:space="preserve">
+    <value>填充因子</value>
+  </data>
+  <data name="LotOemPackageViewModel_IMP" xml:space="preserve">
+    <value>工作电流</value>
+  </data>
+  <data name="LotOemPackageViewModel_ISC" xml:space="preserve">
+    <value>短路电流</value>
+  </data>
+  <data name="LotOemPackageViewModel_No" xml:space="preserve">
+    <value>序号</value>
+  </data>
+  <data name="LotOemPackageViewModel_PackageNo" xml:space="preserve">
+    <value>包装号</value>
+  </data>
+  <data name="LotOemPackageViewModel_PMP" xml:space="preserve">
+    <value>实测功率</value>
+  </data>
+  <data name="LotOemPackageViewModel_PNOM" xml:space="preserve">
+    <value>功率档</value>
+  </data>
+  <data name="LotOemPackageViewModel_SN" xml:space="preserve">
+    <value>批次号</value>
+  </data>
+  <data name="LotOemPackageViewModel_Time" xml:space="preserve">
+    <value>时间</value>
+  </data>
+  <data name="LotOemPackageViewModel_Type" xml:space="preserve">
+    <value>类型</value>
+  </data>
+  <data name="LotOemPackageViewModel_VMP" xml:space="preserve">
+    <value>工作电压</value>
+  </data>
+  <data name="LotOemPackageViewModel_VOC" xml:space="preserve">
+    <value>开路电压</value>
+  </data>
+  <data name="LotOemPackageQueryViewModel_PackageNo" xml:space="preserve">
+    <value>包装号</value>
+  </data>
+  <data name="ProductControlObjectQueryViewModel_CellEff" xml:space="preserve">
+    <value>电池片效率</value>
+  </data>
+  <data name="ProductControlObjectQueryViewModel_ProductCode" xml:space="preserve">
+    <value>产品代码</value>
+  </data>
+  <data name="ProductControlObjectQueryViewModel_SupplierCode" xml:space="preserve">
+    <value>供应商代码</value>
+  </data>
+  <data name="ProductControlObjectViewModel_CellEff" xml:space="preserve">
+    <value>电池片效率</value>
+  </data>
+  <data name="ProductControlObjectViewModel_IsUsed" xml:space="preserve">
+    <value>是否可用</value>
+  </data>
+  <data name="ProductControlObjectViewModel_Object" xml:space="preserve">
+    <value>控制对象</value>
+  </data>
+  <data name="ProductControlObjectViewModel_ProductCode" xml:space="preserve">
+    <value>产品代码</value>
+  </data>
+  <data name="ProductControlObjectViewModel_ProductName" xml:space="preserve">
+    <value>产品名称</value>
+  </data>
+  <data name="ProductControlObjectViewModel_SupplierCode" xml:space="preserve">
+    <value>供应商代码</value>
+  </data>
+  <data name="ProductControlObjectViewModel_SupplierName" xml:space="preserve">
+    <value>供应商名称</value>
+  </data>
+  <data name="ProductControlObjectViewModel_Type" xml:space="preserve">
+    <value>控制类型</value>
+  </data>
+  <data name="ProductControlObjectViewModel_Value" xml:space="preserve">
+    <value>控制值</value>
+  </data>
+  <data name="ProductControlObject_Delete_Success" xml:space="preserve">
+    <value>删除产品规则（{0}）成功。</value>
+  </data>
+  <data name="ProductControlObject_SaveModify_Success" xml:space="preserve">
+    <value>修改产品规则（{0}）成功。</value>
+  </data>
+  <data name="ProductControlObject_Save_Success" xml:space="preserve">
+    <value>保存产品规则( {0} )成功。</value>
+  </data>
+  <data name="ProductControlObject_ConfirmDelete" xml:space="preserve">
+    <value>确认删除产品分档设置（{0}）？</value>
+  </data>
+  <data name="IVTestDataQueryForPackage_ManagePageTitle" xml:space="preserve">
+    <value>IV数据包装号导出</value>
+  </data>
+  <data name="IVTestDataQueryPackage_ManagePageTitle" xml:space="preserve">
+    <value>IV数据查询-包装号查询</value>
+  </data>
+  <data name="IVTestDataQueryViewModel_lineCode" xml:space="preserve">
+    <value>线别</value>
+  </data>
+  <data name="VIRTestDataQueryViewModel_EndTestTime" xml:space="preserve">
+    <value>结束时间</value>
+  </data>
+  <data name="VIRTestDataQueryViewModel_EquipmentCode" xml:space="preserve">
+    <value>设备代码</value>
+  </data>
+  <data name="VIRTestDataQueryViewModel_LotNumber" xml:space="preserve">
+    <value>批次号</value>
+  </data>
+  <data name="VIRTestDataQueryViewModel_StartTestTime" xml:space="preserve">
+    <value>开始时间</value>
+  </data>
+  <data name="VIRTestDataQuery_ManagePageTitle" xml:space="preserve">
+    <value>安规数据查询</value>
+  </data>
+  <data name="MaterialReplace_Save_Success" xml:space="preserve">
+    <value>物料替换规则保存成功！</value>
+  </data>
+  <data name="SupplierToManufacturer_Save_Success" xml:space="preserve">
+    <value>供应商转换生产厂商规则保存成功！</value>
+  </data>
+  <data name="LotPackageSEModules_ManagePageTitle" xml:space="preserve">
+    <value>包装数据导出XML</value>
+  </data>
+  <data name="ChestNo" xml:space="preserve">
+    <value>柜号</value>
+  </data>
+  <data name="ChestViewModel_CurrentQuantity" xml:space="preserve">
+    <value>当前数量</value>
+  </data>
+  <data name="ChestViewModel_FullQuantity" xml:space="preserve">
+    <value>满柜数量</value>
+  </data>
+  <data name="FinishPackageInChest" xml:space="preserve">
+    <value>完成入柜</value>
+  </data>
+  <data name="PackageInChest" xml:space="preserve">
+    <value>入柜</value>
+  </data>
+  <data name="PackageInChest_ManagePageTitle" xml:space="preserve">
+    <value>入柜作业</value>
+  </data>
+  <data name="ChestViewModel_IsLastestPackageInChest" xml:space="preserve">
+    <value>尾柜</value>
+  </data>
+  <data name="ChestDetail_ConfirmDelete" xml:space="preserve">
+    <value>确定删除（{0}）?</value>
+  </data>
+  <data name="ChestDetail_ManagePageTitle" xml:space="preserve">
+    <value>柜号明细查询</value>
+  </data>
+</root>

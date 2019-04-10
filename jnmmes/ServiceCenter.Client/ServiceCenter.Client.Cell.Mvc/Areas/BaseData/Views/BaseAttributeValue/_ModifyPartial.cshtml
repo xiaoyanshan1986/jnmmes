@@ -1,0 +1,47 @@
+﻿@using ServiceCenter.MES.Model.BaseData;
+@using ServiceCenter.Model;
+@using ServiceCenter.Client.Mvc.Resources;
+@{
+    IList<BaseAttribute> lst = ViewBag.BaseAttributeList;
+    IList<BaseAttributeValue> lstVal = ViewBag.List;
+
+    int itemOrder = ViewBag.ItemOrder ?? 0;
+}
+@if (ViewBag.ItemOrder != null)
+{
+    <div class="form-group">
+        @Html.Label(StringResource.ItemNo, new { @class = "col-md-3 control-label" })
+        <div class="col-md-9">
+            @Html.Hidden("ItemNo", itemOrder)
+            <p class="form-control-static">@itemOrder</p>
+        </div>
+    </div>
+    foreach (BaseAttribute attr in lst)
+    {
+        var lnqVal = from item in lstVal
+                     where item.Key.CategoryName == attr.Key.CategoryName
+                             && item.Key.AttributeName == attr.Key.AttributeName
+                             && item.Key.ItemOrder == itemOrder
+                     select item;
+        BaseAttributeValue val = lnqVal.SingleOrDefault();
+        
+        <div class="form-group">
+            @Html.Label(attr.Key.AttributeName, new { @class = "col-md-3 control-label", @title = attr.Description })
+            <div class="col-md-9">
+                @if (@attr.DataType == EnumDataType.Boolean)
+                {
+                    bool bChecked=false;
+                    if(val!=null)
+                    {
+                        bool.TryParse(val.Value, out bChecked);
+                    }
+                    @Html.CheckBox(attr.Key.AttributeName,bChecked, new { @class = "form-control" })
+                }
+                else
+                {
+                    @Html.TextBox(attr.Key.AttributeName, val!=null?val.Value:string.Empty, new { @class = "form-control" })
+                }
+            </div>
+        </div>
+    }
+}

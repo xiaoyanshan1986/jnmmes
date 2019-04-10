@@ -1,0 +1,96 @@
+﻿@using ServiceCenter.Client.Mvc.Areas.WIP.Models;
+@using ServiceCenter.Client.Mvc.Resources;
+@using WIPResources = ServiceCenter.Client.Mvc.Resources.WIP;
+@using ServiceCenter.MES.Model.WIP;
+@using ServiceCenter.MES.Model.FMM;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@using ServiceCenter.MES.Model.LSM;
+@using ServiceCenter.MES.Model.PPM;
+@{
+    PagingConfig cfg = ViewBag.PagingConfig;  
+    IList<OemData> lstOemData = ViewBag.OemDataList;
+}
+<div id="_list">
+     <table class="table table-hover table-bordered table-condensed table-responsive table-striped">
+        <thead>
+            <tr class="active">
+                <td align="center">批次号</td>
+                <td align="center">工单号</td>
+                <td align="center">产品型号</td>
+                <td align="center">功率档</td>
+                <td align="center">电流档</td>
+                <td align="center">PMAX</td>
+                <td align="center">FF</td>
+                <td align="center">VOC</td>
+                <td align="center">ISC</td>
+                <td align="center">VPM</td>
+                <td align="center">IPM</td>
+                <td align="center">等级</td>
+                <td align="center">花色</td>
+                <td align="center">包装号</td>
+                <td align="center">批次状态</td>
+                <td align="center">创建人</td>
+                <td align="center">创建时间</td>
+                <td align="center">编辑人</td>
+                <td align="center">编辑时间</td>
+            </tr>
+        </thead>
+        @if (lstOemData != null && lstOemData.Count>0)
+            {
+            <tbody>
+                @foreach (OemData oemData in lstOemData)
+                {
+                    //WorkOrder workOrder = Model.GetWorkOrder(oemData.OrderNumber);
+                <tr>                           
+                    <td align="center">@oemData.Key</td>
+                    <td align="center">@oemData.OrderNumber</td>
+                    @*<td align="center">@workOrder.MaterialCode</td>*@
+                    <td align="center">@oemData.ProductType/td>
+                    <td align="center">@oemData.PnName</td>
+                    <td align="center">@oemData.PsSubCode</td>
+                    <td align="center">@oemData.PMAX</td>
+                    <td align="center">@oemData.FF</td>
+                    <td align="center">@oemData.VOC</td>
+                    <td align="center">@oemData.ISC</td>
+                    <td align="center">@oemData.VPM</td>
+                    <td align="center">@oemData.IPM</td>
+                    <td align="center">@oemData.Grade</td>
+                    <td align="center">@oemData.Color</td>
+                    <td align="center">@oemData.PackageNo</td>
+                    <td align="center">@oemData.Status</td>
+                    <td align="center">@oemData.Creator</td>
+                    <td align="center">@oemData.CreateTime</td>
+                    <td align="center">@oemData.Editor</td>
+                    <td align="center">@oemData.EditTime</td>                 
+                 </tr>
+                 }
+            </tbody>
+            }
+        </table>
+
+        <div style="margin-top:-18px">
+            @if (cfg != null)
+            {
+            using (Ajax.BeginForm("PagingQuery", "LotPackageQuery"
+                            , new
+                            {
+                                @Where = cfg.Where,
+                                @OrderBy = cfg.OrderBy,
+                                @CurrentPageNo = cfg.PageNo,
+                                @CurrentPageSize = cfg.PageSize
+                            }
+                            , new AjaxOptions()
+                            {
+                                HttpMethod = "Post",
+                                UpdateTargetId = "_list"
+                            }
+                            , new { @class = "form-horizontal", resource = "form", id = "frmPagingQuery" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <div>@Html.Partial("_PaginationPartial")</div>
+                 }
+            }
+        </div>
+    </div>
+

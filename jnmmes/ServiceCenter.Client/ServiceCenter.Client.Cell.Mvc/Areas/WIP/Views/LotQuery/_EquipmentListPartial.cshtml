@@ -1,0 +1,57 @@
+﻿@using ServiceCenter.Client.Mvc.Areas.WIP.Models;
+@using ServiceCenter.Client.Mvc.Resources;
+@using WIPResources = ServiceCenter.Client.Mvc.Resources.WIP;
+@using ServiceCenter.MES.Model.WIP;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+<div id="_list">
+    <table class="table table-hover table-bordered table-condensed table-responsive table-striped">
+        <thead>
+            <tr class="active">
+                <td nowrap>@StringResource.ItemNo</td>
+                <td nowrap>批次号</td>
+                <td nowrap>设备代码</td>
+                <td nowrap>开始时间</td>
+                <td nowrap>结束时间</td>
+                <td nowrap>数量</td>
+                <td nowrap>创建人</td>
+                <td nowrap>创建时间</td>
+                <td nowrap>编辑人</td>
+                <td nowrap>编辑时间</td>
+            </tr>
+        </thead>
+        @if (ViewBag.EquipmentList != null)
+        {
+            <tbody>
+                @for (int i = 0; i < ViewBag.EquipmentList.Length; i++)
+                {
+                    LotTransactionEquipment obj = ViewBag.EquipmentList[i];
+                    <tr>
+                        <td nowrap>@(i+1)</td>
+                        <td nowrap>
+                            @obj.LotNumber
+                        </td>
+                        <td nowrap>
+                            @obj.EquipmentCode
+                        </td>
+                        <td nowrap>
+                            @string.Format("{0:yyyy-MM-dd HH:mm:ss}", obj.StartTime)
+                        </td>
+                        <td nowrap>
+                           @string.Format("{0:yyyy-MM-dd HH:mm:ss}", obj.EndTime)
+                        </td>
+                        <td nowrap>
+                            @obj.Quantity
+                        </td>
+                        <td nowrap>@obj.Creator</td>
+                        <td nowrap>@string.Format("{0:yyyy-MM-dd HH:mm:ss}", obj.CreateTime)</td>
+                        <td nowrap>@obj.Editor</td>
+                        <td nowrap>@string.Format("{0:yyyy-MM-dd HH:mm:ss}", obj.EditTime)</td>
+                    </tr>
+                }
+            </tbody>
+        }
+    </table>
+</div>
+
+

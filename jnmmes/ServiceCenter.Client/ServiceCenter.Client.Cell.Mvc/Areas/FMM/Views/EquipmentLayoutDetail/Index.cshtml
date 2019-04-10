@@ -1,0 +1,227 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.FMM.Models.EquipmentLayoutDetailQueryViewModel
+@using ServiceCenter.MES.Model.FMM;
+@using ServiceCenter.Model;
+@using ServiceCenter.Common;
+@using ServiceCenter.Client.Mvc.Areas.FMM.Models;
+@using FMM=ServiceCenter.Client.Mvc.Resources.FMM;
+@using ServiceCenter.Client.Mvc.Resources;
+
+@{
+    ViewBag.Title = string.Format(FMM.StringResource.EquipmentLayoutDetail_ManagePageTitle, @Model.LayoutName);
+}
+
+<h2>@ViewBag.Title</h2>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <a href="javascript:showAddModal()" class="btn btn-primary">@StringResource.Add</a>
+        @Ajax.ActionLink(StringResource.Refresh, actionName: null
+                        , routeValues: null
+                        , ajaxOptions: new AjaxOptions()
+                        {
+                            HttpMethod = "Post",
+                            UpdateTargetId = "list",
+                            Url = Url.Action("Index", new { @LayoutName=@Model.LayoutName }),
+                            OnBegin = "beginRefresh",
+                            OnComplete = "completeRefresh"
+                        }
+                        , htmlAttributes: new { @class = "btn btn-default", @id = "btnQuery" })
+    </div>
+    <div class="alert fade in hide" resource="alert" id="statusMessage" style="margin:0px">
+        <button type="button" class="close" onclick="hideStatusMessage()">
+            <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+        </button>
+        <p></p>
+    </div>
+    <div id="list">
+        @Html.Partial("_ListPartial", new EquipmentLayoutDetailViewModel() { LayoutName = @Model.LayoutName })
+    </div>
+</div>
+@*新增*@
+<div id="add" class="modal fade" tabindex="-1" resource="dialog" aria-labelledby="addHeader" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                <span aria-hidden="true">&times;</span>
+                <span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="addHeader">@FMM.StringResource.EquipmentLayoutDetail_AddTitle</h4>
+            </div>
+            <div class="modal-body" id="addContent" style="margin:0px;padding:5px">
+                @using (Ajax.BeginForm("Save", "EquipmentLayoutDetail", null
+                        , new AjaxOptions()
+                        {
+                            HttpMethod = "Post",
+                            OnSuccess = "completeSave",
+                            OnBegin = "beginSave"
+                        }
+                        , new { @class = "form-horizontal", resource = "form",id="frmAdd"}))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <input type="submit" class="btn btn-primary" value="@StringResource.Save" id="btnSave" />
+                            <input type="reset" class="btn btn-default" value="@StringResource.Reset" id="btnReset" />
+                        </div>
+                        <div class="panel-body">
+                            <div class="alert fade in hide" resource="alert" id="addStatusMessage">
+                                <button type="button" class="close" onclick="hideAddAlert()">
+                                    <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+                                </button>
+                                <p></p>
+                            </div>
+                            <div>
+                                @Html.Partial("_AddPartial", new EquipmentLayoutDetailViewModel() { LayoutName = @Model.LayoutName })
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    <script type="text/javascript" language="javascript">
+        $(function () {
+            $("#drpEquipmentCode").change(function () {
+                var val = $(this).val();
+                if (val == "") {
+                    $("#txtDescription").val("");
+                    return;
+                }
+                var url="@Url.Action("GetEquipmentName"
+                                 , "EquipmentLayoutDetail"
+                                 , new { area = "FMM" })";
+                $.getJSON(url + "?EquipmentCode=" + val, null, function (data) {
+                    $("#txtDescription").val(data);
+                });
+            });
+            registerDragdropEvent();
+        });
+        //隐藏状态消息
+        function hideStatusMessage() {
+            $("#statusMessage").addClass("hide");
+        }
+
+        //刷新列表
+        function beginRefresh() {
+            hideStatusMessage();
+        }
+
+        function completeRefresh() {
+            registerDragdropEvent();
+        }
+
+        function refreshList() {
+            $("#btnQuery").click();
+        }
+
+        function registerDragdropEvent()
+        {
+            $(".draggable").draggable({
+                containment: "parent"
+            })
+            $(".draggable").dblclick(function () {
+                var name = $(this).attr("title");
+                if (confirm("@FMM.StringResource.RouteOperationParameter_ConfirmDelete".replace("{0}", name)))
+                {
+                    $.ajax({
+                        type: "post",
+                        url: "@Url.Action("Delete", "EquipmentLayoutDetail")",
+                        data: { LayoutName: "@Model.LayoutName", EquipmentCode: name },
+                        dataType: "json",
+                        success: function (result) { completeAjax(result); refreshList(); }
+                    });
+                }
+            });
+            $(".draggable").resizable({
+                containment: "parent",
+                minHeight: 10,
+                minWidth: 15,
+                stop: function (event, ui) {
+                        var left = $(this).css("left").replace("px","");
+                        var top = $(this).css("top").replace("px", "");
+                        var name = ui.element.attr("title");
+                        var desc = ui.element.find("p").text();
+                        var width = ui.element.width();
+                        var height = ui.element.height();
+                        $.ajax({
+                            type: "post",
+                            url: "@Url.Action("SaveModify", "EquipmentLayoutDetail")",
+                            data: { LayoutName: "@Model.LayoutName", EquipmentCode: name, Description: desc, Left: left, Top: top, Width: width, Height: height },
+                        dataType: "json",
+                        success: completeAjax
+                    });
+                }
+            });
+            $("#droppable").droppable({
+                drop: function (event, ui) {
+                   
+                    var pos = ui.position;
+                    
+                    var name = ui.draggable.attr("title");
+                    var desc = ui.draggable.find("p").text();
+                    var width = ui.draggable.width();
+                    var height = ui.draggable.height();
+                   
+                    $.ajax({
+                        type: "Post",
+                        cache: false,
+                        url: "@Url.Action("SaveModify", "EquipmentLayoutDetail")",
+                        data: { LayoutName: "@Model.LayoutName", EquipmentCode: name, Description: desc, Left: Math.ceil(pos.left), Top: Math.ceil(pos.top), Width: Math.ceil(width+2), Height: Math.ceil(height+2) },
+                            dataType: "json",
+                            success: completeAjax
+                        });
+                    }
+            });
+        }
+    </script>
+    @*新增*@
+    <script type="text/javascript" language="javascript">
+        //保存
+        $(function () {
+            $('#add').on('hide.bs.modal', function (e) {
+                $("#btnReset").click();
+            })
+        })
+
+        function showAddModal() {
+            hideAddAlert();
+            hideStatusMessage();
+            $("#btnSave").removeAttr("disabled");
+            $('#add').modal('show');
+        }
+
+        function hideAddAlert() {
+            $("#addStatusMessage").addClass("hide");
+        }
+
+        function beginSave() {
+            $("#btnSave").attr("disabled", "disabled");
+        }
+
+        function completeSave(result) {
+            $("#btnSave").removeAttr("disabled");
+            $("#addStatusMessage").find("p").html(result.Message);
+            $("#addStatusMessage").removeClass("hide");
+            if (result.Code > 0) {
+                $("#addStatusMessage").removeClass("alert-success");
+                $("#addStatusMessage").addClass("alert-danger");
+            }
+            else {
+                $("#addStatusMessage").removeClass("alert-danger");
+                $("#addStatusMessage").addClass("alert-success");
+                refreshList();
+            }
+        }
+
+        function completeAjax(result) {
+            if (result.Code > 0) {
+                $("#statusMessage").find("p").html(result.Message);
+                $("#statusMessage").removeClass("hide");
+                $("#statusMessage").removeClass("alert-success");
+                $("#statusMessage").addClass("alert-danger");
+                refreshList();
+            }
+        }
+    </script>
+}

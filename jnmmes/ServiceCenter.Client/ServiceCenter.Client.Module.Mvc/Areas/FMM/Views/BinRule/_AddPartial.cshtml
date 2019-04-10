@@ -1,0 +1,77 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.FMM.Models.BinRuleViewModel
+
+@Html.ValidationSummary(true)
+
+<div class="form-group">
+    @Html.LabelFor(m => m.BinNo, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.BinNo, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.BinNo)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.PackageLine, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.DropDownListFor(m => m.PackageLine,Model.GetLineCodeList(), new { @class = "form-control" })
+        @*@Html.TextBoxFor(m => m.PackageLine, new { @class = "form-control" })*@
+        @Html.ValidationMessageFor(m => m.PackageLine)
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(m => m.WorkOrderNumber, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.WorkOrderNumber, new { @class = "form-control",@Value="*" })
+        @Html.ValidationMessageFor(m => m.WorkOrderNumber)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.PsCode, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.PsCode, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.PsCode)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.PsItemNo, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.PsItemNo, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.PsItemNo)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.PsSubCode, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.PsSubCode, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.PsSubCode)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.Color, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.DropDownListFor(m => m.Color, Model.GetColorList(), new { @class = "form-control" })
+        @*@Html.TextBoxFor(m => m.Color, new { @class = "form-control" })*@
+        @Html.ValidationMessageFor(m => m.Color)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.Grade, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.Grade, new { @class = "form-control", @Value = "A" })
+        @Html.ValidationMessageFor(m => m.Grade)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.LocationName, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.DropDownListFor(m => m.LocationName,Model.GetLocationNameList(), new { @class = "form-control" })
+        @*@Html.TextBoxFor(m => m.LocationName, new { @class = "form-control" })*@
+        @Html.ValidationMessageFor(m => m.LocationName)
+    </div>
+</div>
+
+
+
+
+
+

@@ -1,0 +1,156 @@
+2016-07-28 10:53:49,215 - ERROR - START>Application
+2016-07-28 10:58:47,532 - ERROR - START>Application
+2016-07-28 11:02:36,547 - ERROR - START>Application
+2016-07-28 11:14:20,677 - ERROR - START>Application
+2016-07-28 11:19:02,719 - ERROR - START>Application
+2016-07-28 11:29:21,265 - ERROR - START>Application
+2016-07-28 13:54:33,242 - ERROR - START>Application
+2016-07-28 14:55:38,009 - ERROR - START>Application
+2016-07-28 15:00:15,758 - ERROR - START>Application
+2016-07-28 15:05:26,008 - ERROR - START>Application
+2016-07-28 15:07:47,081 - ERROR - START>Application
+2016-07-28 15:17:23,159 - ERROR - START>Application
+2016-07-28 15:28:47,931 - ERROR - 列名 'REASON_CODE_CATEGORY_NAME' 无效。
+列名 'REASON_CODE_NAME' 无效。
+列名 'RESPONSIBLE_PERSON' 无效。
+2016-07-28 15:28:47,963 - ERROR - Could not synchronize database state with session
+NHibernate.Exceptions.GenericADOException: could not execute batch command.[SQL: SQL not available] ---> System.Data.SqlClient.SqlException: 列名 'REASON_CODE_CATEGORY_NAME' 无效。
+列名 'REASON_CODE_NAME' 无效。
+列名 'RESPONSIBLE_PERSON' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 System.Data.SqlClient.SqlCommand.ExecuteBatchRPCCommand()
+   在 System.Data.SqlClient.SqlCommandSet.ExecuteNonQuery()
+   在 NHibernate.AdoNet.SqlClientSqlCommandSet.ExecuteNonQuery() 位置 p:\nhibernate-core\src\NHibernate\AdoNet\SqlClientSqlCommandSet.cs:行号 117
+   在 NHibernate.AdoNet.SqlClientBatchingBatcher.DoExecuteBatch(IDbCommand ps) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\SqlClientBatchingBatcher.cs:行号 87
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 NHibernate.AdoNet.SqlClientBatchingBatcher.DoExecuteBatch(IDbCommand ps) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\SqlClientBatchingBatcher.cs:行号 91
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteBatchWithTiming(IDbCommand ps) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 412
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteBatch() 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 397
+   在 NHibernate.AdoNet.AbstractBatcher.OnPreparedCommand() 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 155
+   在 NHibernate.AdoNet.AbstractBatcher.PrepareCommand(CommandType type, SqlString sql, SqlType[] parameterTypes) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 142
+   在 NHibernate.AdoNet.AbstractBatcher.PrepareBatchCommand(CommandType type, SqlString sql, SqlType[] parameterTypes) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 132
+   在 NHibernate.Persister.Entity.AbstractEntityPersister.Insert(Object id, Object[] fields, Boolean[] notNull, Int32 j, SqlCommandInfo sql, Object obj, ISessionImplementor session) 位置 p:\nhibernate-core\src\NHibernate\Persister\Entity\AbstractEntityPersister.cs:行号 2626
+   在 NHibernate.Persister.Entity.AbstractEntityPersister.Insert(Object id, Object[] fields, Object obj, ISessionImplementor session) 位置 p:\nhibernate-core\src\NHibernate\Persister\Entity\AbstractEntityPersister.cs:行号 3062
+   在 NHibernate.Action.EntityInsertAction.Execute() 位置 p:\nhibernate-core\src\NHibernate\Action\EntityInsertAction.cs:行号 59
+   在 NHibernate.Engine.ActionQueue.Execute(IExecutable executable) 位置 p:\nhibernate-core\src\NHibernate\Engine\ActionQueue.cs:行号 136
+   在 NHibernate.Engine.ActionQueue.ExecuteActions(IList list) 位置 p:\nhibernate-core\src\NHibernate\Engine\ActionQueue.cs:行号 126
+   在 NHibernate.Engine.ActionQueue.ExecuteActions() 位置 p:\nhibernate-core\src\NHibernate\Engine\ActionQueue.cs:行号 169
+   在 NHibernate.Event.Default.AbstractFlushingEventListener.PerformExecutions(IEventSource session) 位置 p:\nhibernate-core\src\NHibernate\Event\Default\AbstractFlushingEventListener.cs:行号 241
+2016-07-28 15:29:25,277 - ERROR - TrackOutLot>
+NHibernate.Exceptions.GenericADOException: could not execute batch command.[SQL: SQL not available] ---> System.Data.SqlClient.SqlException: 列名 'REASON_CODE_CATEGORY_NAME' 无效。
+列名 'REASON_CODE_NAME' 无效。
+列名 'RESPONSIBLE_PERSON' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 System.Data.SqlClient.SqlCommand.ExecuteBatchRPCCommand()
+   在 System.Data.SqlClient.SqlCommandSet.ExecuteNonQuery()
+   在 NHibernate.AdoNet.SqlClientSqlCommandSet.ExecuteNonQuery() 位置 p:\nhibernate-core\src\NHibernate\AdoNet\SqlClientSqlCommandSet.cs:行号 117
+   在 NHibernate.AdoNet.SqlClientBatchingBatcher.DoExecuteBatch(IDbCommand ps) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\SqlClientBatchingBatcher.cs:行号 87
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 NHibernate.AdoNet.SqlClientBatchingBatcher.DoExecuteBatch(IDbCommand ps) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\SqlClientBatchingBatcher.cs:行号 91
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteBatchWithTiming(IDbCommand ps) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 412
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteBatch() 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 397
+   在 NHibernate.AdoNet.AbstractBatcher.OnPreparedCommand() 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 155
+   在 NHibernate.AdoNet.AbstractBatcher.PrepareCommand(CommandType type, SqlString sql, SqlType[] parameterTypes) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 142
+   在 NHibernate.AdoNet.AbstractBatcher.PrepareBatchCommand(CommandType type, SqlString sql, SqlType[] parameterTypes) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 132
+   在 NHibernate.Persister.Entity.AbstractEntityPersister.Insert(Object id, Object[] fields, Boolean[] notNull, Int32 j, SqlCommandInfo sql, Object obj, ISessionImplementor session) 位置 p:\nhibernate-core\src\NHibernate\Persister\Entity\AbstractEntityPersister.cs:行号 2626
+   在 NHibernate.Persister.Entity.AbstractEntityPersister.Insert(Object id, Object[] fields, Object obj, ISessionImplementor session) 位置 p:\nhibernate-core\src\NHibernate\Persister\Entity\AbstractEntityPersister.cs:行号 3062
+   在 NHibernate.Action.EntityInsertAction.Execute() 位置 p:\nhibernate-core\src\NHibernate\Action\EntityInsertAction.cs:行号 59
+   在 NHibernate.Engine.ActionQueue.Execute(IExecutable executable) 位置 p:\nhibernate-core\src\NHibernate\Engine\ActionQueue.cs:行号 136
+   在 NHibernate.Engine.ActionQueue.ExecuteActions(IList list) 位置 p:\nhibernate-core\src\NHibernate\Engine\ActionQueue.cs:行号 126
+   在 NHibernate.Engine.ActionQueue.ExecuteActions() 位置 p:\nhibernate-core\src\NHibernate\Engine\ActionQueue.cs:行号 169
+   在 NHibernate.Event.Default.AbstractFlushingEventListener.PerformExecutions(IEventSource session) 位置 p:\nhibernate-core\src\NHibernate\Event\Default\AbstractFlushingEventListener.cs:行号 249
+   在 NHibernate.Event.Default.DefaultFlushEventListener.OnFlush(FlushEvent event) 位置 p:\nhibernate-core\src\NHibernate\Event\Default\DefaultFlushEventListener.cs:行号 19
+   在 NHibernate.Impl.SessionImpl.Flush() 位置 p:\nhibernate-core\src\NHibernate\Impl\SessionImpl.cs:行号 1509
+   在 NHibernate.Transaction.AdoTransaction.Commit() 位置 p:\nhibernate-core\src\NHibernate\Transaction\AdoTransaction.cs:行号 190
+   在 ServiceCenter.MES.Service.WIP.WipEngineerService.TrackOutLot(TrackOutParameter p, ISession session, Boolean executedWithTransaction) 位置 e:\Workspace\Jinergy\JNMMES\trunk\src\ServiceCenter.Modules\WIP\ServiceCenter.MES.Service.WIP\WipEngineerServiceForTrack.cs:行号 1029
+2016-07-28 15:30:34,083 - ERROR - 列名 'REASON_CODE_CATEGORY_NAME' 无效。
+列名 'REASON_CODE_NAME' 无效。
+列名 'RESPONSIBLE_PERSON' 无效。
+2016-07-28 15:30:34,129 - ERROR - Could not synchronize database state with session
+NHibernate.Exceptions.GenericADOException: could not execute batch command.[SQL: SQL not available] ---> System.Data.SqlClient.SqlException: 列名 'REASON_CODE_CATEGORY_NAME' 无效。
+列名 'REASON_CODE_NAME' 无效。
+列名 'RESPONSIBLE_PERSON' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 System.Data.SqlClient.SqlCommand.ExecuteBatchRPCCommand()
+   在 System.Data.SqlClient.SqlCommandSet.ExecuteNonQuery()
+   在 NHibernate.AdoNet.SqlClientSqlCommandSet.ExecuteNonQuery() 位置 p:\nhibernate-core\src\NHibernate\AdoNet\SqlClientSqlCommandSet.cs:行号 117
+   在 NHibernate.AdoNet.SqlClientBatchingBatcher.DoExecuteBatch(IDbCommand ps) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\SqlClientBatchingBatcher.cs:行号 87
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 NHibernate.AdoNet.SqlClientBatchingBatcher.DoExecuteBatch(IDbCommand ps) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\SqlClientBatchingBatcher.cs:行号 91
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteBatchWithTiming(IDbCommand ps) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 412
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteBatch() 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 397
+   在 NHibernate.AdoNet.AbstractBatcher.OnPreparedCommand() 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 155
+   在 NHibernate.AdoNet.AbstractBatcher.PrepareCommand(CommandType type, SqlString sql, SqlType[] parameterTypes) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 142
+   在 NHibernate.AdoNet.AbstractBatcher.PrepareBatchCommand(CommandType type, SqlString sql, SqlType[] parameterTypes) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 132
+   在 NHibernate.Persister.Entity.AbstractEntityPersister.Insert(Object id, Object[] fields, Boolean[] notNull, Int32 j, SqlCommandInfo sql, Object obj, ISessionImplementor session) 位置 p:\nhibernate-core\src\NHibernate\Persister\Entity\AbstractEntityPersister.cs:行号 2626
+   在 NHibernate.Persister.Entity.AbstractEntityPersister.Insert(Object id, Object[] fields, Object obj, ISessionImplementor session) 位置 p:\nhibernate-core\src\NHibernate\Persister\Entity\AbstractEntityPersister.cs:行号 3062
+   在 NHibernate.Action.EntityInsertAction.Execute() 位置 p:\nhibernate-core\src\NHibernate\Action\EntityInsertAction.cs:行号 59
+   在 NHibernate.Engine.ActionQueue.Execute(IExecutable executable) 位置 p:\nhibernate-core\src\NHibernate\Engine\ActionQueue.cs:行号 136
+   在 NHibernate.Engine.ActionQueue.ExecuteActions(IList list) 位置 p:\nhibernate-core\src\NHibernate\Engine\ActionQueue.cs:行号 126
+   在 NHibernate.Engine.ActionQueue.ExecuteActions() 位置 p:\nhibernate-core\src\NHibernate\Engine\ActionQueue.cs:行号 169
+   在 NHibernate.Event.Default.AbstractFlushingEventListener.PerformExecutions(IEventSource session) 位置 p:\nhibernate-core\src\NHibernate\Event\Default\AbstractFlushingEventListener.cs:行号 241
+2016-07-28 15:30:36,601 - ERROR - TrackOutLot>
+NHibernate.Exceptions.GenericADOException: could not execute batch command.[SQL: SQL not available] ---> System.Data.SqlClient.SqlException: 列名 'REASON_CODE_CATEGORY_NAME' 无效。
+列名 'REASON_CODE_NAME' 无效。
+列名 'RESPONSIBLE_PERSON' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 System.Data.SqlClient.SqlCommand.ExecuteBatchRPCCommand()
+   在 System.Data.SqlClient.SqlCommandSet.ExecuteNonQuery()
+   在 NHibernate.AdoNet.SqlClientSqlCommandSet.ExecuteNonQuery() 位置 p:\nhibernate-core\src\NHibernate\AdoNet\SqlClientSqlCommandSet.cs:行号 117
+   在 NHibernate.AdoNet.SqlClientBatchingBatcher.DoExecuteBatch(IDbCommand ps) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\SqlClientBatchingBatcher.cs:行号 87
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 NHibernate.AdoNet.SqlClientBatchingBatcher.DoExecuteBatch(IDbCommand ps) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\SqlClientBatchingBatcher.cs:行号 91
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteBatchWithTiming(IDbCommand ps) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 412
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteBatch() 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 397
+   在 NHibernate.AdoNet.AbstractBatcher.OnPreparedCommand() 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 155
+   在 NHibernate.AdoNet.AbstractBatcher.PrepareCommand(CommandType type, SqlString sql, SqlType[] parameterTypes) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 142
+   在 NHibernate.AdoNet.AbstractBatcher.PrepareBatchCommand(CommandType type, SqlString sql, SqlType[] parameterTypes) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 132
+   在 NHibernate.Persister.Entity.AbstractEntityPersister.Insert(Object id, Object[] fields, Boolean[] notNull, Int32 j, SqlCommandInfo sql, Object obj, ISessionImplementor session) 位置 p:\nhibernate-core\src\NHibernate\Persister\Entity\AbstractEntityPersister.cs:行号 2626
+   在 NHibernate.Persister.Entity.AbstractEntityPersister.Insert(Object id, Object[] fields, Object obj, ISessionImplementor session) 位置 p:\nhibernate-core\src\NHibernate\Persister\Entity\AbstractEntityPersister.cs:行号 3062
+   在 NHibernate.Action.EntityInsertAction.Execute() 位置 p:\nhibernate-core\src\NHibernate\Action\EntityInsertAction.cs:行号 59
+   在 NHibernate.Engine.ActionQueue.Execute(IExecutable executable) 位置 p:\nhibernate-core\src\NHibernate\Engine\ActionQueue.cs:行号 136
+   在 NHibernate.Engine.ActionQueue.ExecuteActions(IList list) 位置 p:\nhibernate-core\src\NHibernate\Engine\ActionQueue.cs:行号 126
+   在 NHibernate.Engine.ActionQueue.ExecuteActions() 位置 p:\nhibernate-core\src\NHibernate\Engine\ActionQueue.cs:行号 169
+   在 NHibernate.Event.Default.AbstractFlushingEventListener.PerformExecutions(IEventSource session) 位置 p:\nhibernate-core\src\NHibernate\Event\Default\AbstractFlushingEventListener.cs:行号 249
+   在 NHibernate.Event.Default.DefaultFlushEventListener.OnFlush(FlushEvent event) 位置 p:\nhibernate-core\src\NHibernate\Event\Default\DefaultFlushEventListener.cs:行号 19
+   在 NHibernate.Impl.SessionImpl.Flush() 位置 p:\nhibernate-core\src\NHibernate\Impl\SessionImpl.cs:行号 1509
+   在 NHibernate.Transaction.AdoTransaction.Commit() 位置 p:\nhibernate-core\src\NHibernate\Transaction\AdoTransaction.cs:行号 190
+   在 ServiceCenter.MES.Service.WIP.WipEngineerService.TrackOutLot(TrackOutParameter p, ISession session, Boolean executedWithTransaction) 位置 e:\Workspace\Jinergy\JNMMES\trunk\src\ServiceCenter.Modules\WIP\ServiceCenter.MES.Service.WIP\WipEngineerServiceForTrack.cs:行号 1029
+2016-07-28 16:00:20,446 - ERROR - START>Application
+2016-07-28 17:01:30,646 - ERROR - START>Application
+2016-07-28 17:08:44,511 - ERROR - START>Application
+2016-07-28 17:11:31,647 - ERROR - START>Application
+2016-07-28 19:38:35,049 - ERROR - START>Application
+2016-07-28 20:54:50,804 - ERROR - START>Application

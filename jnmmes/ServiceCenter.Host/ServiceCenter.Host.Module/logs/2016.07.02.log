@@ -1,0 +1,23 @@
+2016-07-02 11:40:26,385 - ERROR - START>Application
+2016-07-02 22:19:29,781 - ERROR - START>Application
+2016-07-02 23:38:21,358 - ERROR - START>Application
+2016-07-02 23:40:57,490 - ERROR - TrackInLot>
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 ServiceCenter.MES.Service.WIP.WipEngineerService.ExecuteTrackInLot(TrackInParameter p, Equipment equipment, List`1 lstLot, ISession session, Boolean executedWithTransaction) 位置 e:\Workspace\Jinergy\JNMMES\trunk\src\ServiceCenter.Modules\WIP\ServiceCenter.MES.Service.WIP\WipEngineerServiceForTrack.cs:行号 350
+   在 ServiceCenter.MES.Service.WIP.WipEngineerService.TrackInLot(TrackInParameter p, ISession session, Boolean executedWithTransaction) 位置 e:\Workspace\Jinergy\JNMMES\trunk\src\ServiceCenter.Modules\WIP\ServiceCenter.MES.Service.WIP\WipEngineerServiceForTrack.cs:行号 290
+2016-07-02 23:41:09,570 - ERROR - TrackInLot>
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 ServiceCenter.MES.Service.WIP.WipEngineerService.ExecuteTrackInLot(TrackInParameter p, Equipment equipment, List`1 lstLot, ISession session, Boolean executedWithTransaction) 位置 e:\Workspace\Jinergy\JNMMES\trunk\src\ServiceCenter.Modules\WIP\ServiceCenter.MES.Service.WIP\WipEngineerServiceForTrack.cs:行号 350
+   在 ServiceCenter.MES.Service.WIP.WipEngineerService.TrackInLot(TrackInParameter p, ISession session, Boolean executedWithTransaction) 位置 e:\Workspace\Jinergy\JNMMES\trunk\src\ServiceCenter.Modules\WIP\ServiceCenter.MES.Service.WIP\WipEngineerServiceForTrack.cs:行号 290
+2016-07-02 23:42:35,056 - ERROR - TrackInLot>
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 ServiceCenter.MES.Service.WIP.WipEngineerService.ExecuteTrackInLot(TrackInParameter p, Equipment equipment, List`1 lstLot, ISession session, Boolean executedWithTransaction) 位置 e:\Workspace\Jinergy\JNMMES\trunk\src\ServiceCenter.Modules\WIP\ServiceCenter.MES.Service.WIP\WipEngineerServiceForTrack.cs:行号 350
+   在 ServiceCenter.MES.Service.WIP.WipEngineerService.TrackInLot(TrackInParameter p, ISession session, Boolean executedWithTransaction) 位置 e:\Workspace\Jinergy\JNMMES\trunk\src\ServiceCenter.Modules\WIP\ServiceCenter.MES.Service.WIP\WipEngineerServiceForTrack.cs:行号 290
+2016-07-02 23:52:48,295 - ERROR - TrackInLot>
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 ServiceCenter.MES.Service.WIP.WipEngineerService.ExecuteTrackInLot(TrackInParameter p, Equipment equipment, List`1 lstLot, ISession session, Boolean executedWithTransaction) 位置 e:\Workspace\Jinergy\JNMMES\trunk\src\ServiceCenter.Modules\WIP\ServiceCenter.MES.Service.WIP\WipEngineerServiceForTrack.cs:行号 350
+   在 ServiceCenter.MES.Service.WIP.WipEngineerService.TrackInLot(TrackInParameter p, ISession session, Boolean executedWithTransaction) 位置 e:\Workspace\Jinergy\JNMMES\trunk\src\ServiceCenter.Modules\WIP\ServiceCenter.MES.Service.WIP\WipEngineerServiceForTrack.cs:行号 290
+2016-07-02 23:54:03,943 - ERROR - TrackInLot>
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 ServiceCenter.MES.Service.WIP.WipEngineerService.ExecuteTrackInLot(TrackInParameter p, Equipment equipment, List`1 lstLot, ISession session, Boolean executedWithTransaction) 位置 e:\Workspace\Jinergy\JNMMES\trunk\src\ServiceCenter.Modules\WIP\ServiceCenter.MES.Service.WIP\WipEngineerServiceForTrack.cs:行号 350
+   在 ServiceCenter.MES.Service.WIP.WipEngineerService.TrackInLot(TrackInParameter p, ISession session, Boolean executedWithTransaction) 位置 e:\Workspace\Jinergy\JNMMES\trunk\src\ServiceCenter.Modules\WIP\ServiceCenter.MES.Service.WIP\WipEngineerServiceForTrack.cs:行号 290

@@ -1,0 +1,108 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.ZPVM.Models.VIRTestDataViewModel
+@using ServiceCenter.Client.Mvc.Areas.ZPVM.Models;
+@using ServiceCenter.Client.Mvc.Resources;
+@using ZPVMResources = ServiceCenter.Client.Mvc.Resources.ZPVM;
+@using ServiceCenter.MES.Model.ZPVM;
+@using ServiceCenter.MES.Model.WIP;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@using System.Data;
+@{
+    PagingConfig cfg = ViewBag.PagingConfig;
+    MethodReturnResult<DataSet> ds = new MethodReturnResult<DataSet>();
+    DataTable dtList = ViewBag.ListData;
+    ds = ViewBag.dtList;
+}
+@if (dtList != null)
+{
+    <div id="_list" style="overflow:auto">
+        <table class="table table-hover table-bordered table-condensed table-responsive table-striped">
+            <thead>
+                <tr class="active">
+                    <td nowrap>序号</td>
+                    <td nowrap>设备名称</td>
+                    <td nowrap>测试时间</td>
+                    <td nowrap>批次号</td>
+                    <td nowrap>测试类型</td>
+                    <td nowrap>测试结果</td>
+                    <td nowrap>步骤</td>
+                    <td nowrap>测试数据1</td>
+                    <td nowrap>测试数据2</td>
+                    <td nowrap>输出电压</td>
+                    <td nowrap>频率</td>
+                    <td nowrap>加载电流</td>
+                    <td nowrap>范围上限</td>
+                    <td nowrap>范围下限</td>
+                    <td nowrap>缓升时间</td>
+                    <td nowrap>延时时间</td>
+                    <td nowrap>持续时间</td>
+                    <td nowrap>最低电荷</td>
+                    <td nowrap>灵敏度</td>
+                </tr>
+            </thead>
+            <tbody>
+                @if (dtList != null)
+                {
+                    for (int i = 0; i < dtList.Rows.Count; i++)
+                    {
+                        System.Data.DataRow obj = dtList.Rows[i];
+
+                        <tr>
+                            <td nowrap>@obj["RowNumber"] </td>
+                            <td nowrap>@obj["EQUIPMENT_CODE"] </td>
+                            <td nowrap>@obj["TEST_TIME"]</td>
+                            <td nowrap>@obj["LOT_NUMBER"]</td>
+                            <td nowrap>@obj["TEST_TYPE"]</td>
+                            <td nowrap>@obj["TEST_RESULT"]</td>
+                            <td nowrap>@obj["TEST_STEP_SEQ"]</td>
+                            <td nowrap>@obj["TEST_PARAM1"]</td>
+                            <td nowrap>@obj["TEST_PARAM2"]</td>
+                            <td nowrap>@obj["VOLTAGE"]</td>
+                            <td nowrap>@obj["FREQUENCY"]</td>
+                            <td nowrap>@obj["CURRENT"]</td>
+                            <td nowrap>@obj["HILIMIT"]</td>
+                            <td nowrap>@obj["LOLIMIT"]</td>
+                            <td nowrap>@obj["RAMPUP"]</td>
+                            <td nowrap>@obj["DELAYTIME"]</td>
+                            <td nowrap>@obj["DWELLTIME"]</td>
+                            <td nowrap>@obj["CHARGELO"]</td>
+                            <td nowrap>@obj["ARCSENSE"]</td>
+
+
+                        </tr>
+
+                    }
+
+                }
+            </tbody>
+
+        </table>
+        <div style="margin-top:-18px">
+            @if (cfg != null)
+            {
+                using (Ajax.BeginForm("QueryDB", "VIRTestDataQuery"
+                                , null
+                                , new AjaxOptions()
+                                {
+                                    HttpMethod = "Post",
+                                    UpdateTargetId = "_list"
+                                }
+                                , new { @class = "form-horizontal", resource = "form", id = "frmPagingQuery" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.HiddenFor(m => m.LotNumber)
+                    @Html.HiddenFor(m => m.PageSize)
+                    <div>@Html.Partial("_PaginationPartial")</div>
+                }
+            }
+
+        </div>
+    </div>
+
+}
+else
+{
+
+}
+<p>@ViewBag.Message</p>
+

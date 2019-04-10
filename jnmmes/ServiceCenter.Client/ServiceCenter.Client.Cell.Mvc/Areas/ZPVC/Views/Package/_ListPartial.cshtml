@@ -1,0 +1,102 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.ZPVC.Models.PackageViewModel
+@using ServiceCenter.Client.Mvc.Areas.ZPVC.Models;
+@using ServiceCenter.Client.Mvc.Resources;
+@using ZPVCResources = ServiceCenter.Client.Mvc.Resources.ZPVC;
+@using ServiceCenter.MES.Model.ZPVC;
+@using ServiceCenter.MES.Model.WIP;
+@using ServiceCenter.MES.Model.FMM;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@{
+    PagingConfig cfg = ViewBag.PagingConfig;
+}
+<div id="_list">
+    <table class="table table-hover table-bordered table-condensed">
+        <thead>
+            <tr class="active">
+                <td>@StringResource.ItemNo</td>
+                <td>@Html.DisplayNameFor(m => m.PackageNo)</td>
+                <td>@Html.DisplayNameFor(m => m.Qty)</td>
+                <td>@Html.DisplayNameFor(m => m.Code)</td>
+                <td>@Html.DisplayNameFor(m => m.Name)</td>
+                <td>@Html.DisplayNameFor(m => m.Grade)</td>
+                <td>@Html.DisplayNameFor(m => m.Color)</td>
+                <td>@Html.DisplayNameFor(m => m.PNType)</td>
+                <td>@Html.DisplayNameFor(m => m.LineCode)</td>
+                <td>@Html.DisplayNameFor(m => m.OrderNumber)</td>
+                <td>@Html.DisplayNameFor(m => m.MaterialCode)</td>
+                <td>产品编号</td>
+                <td>@StringResource.Delete</td>
+            </tr>
+        </thead>
+        @if (ViewBag.List != null)
+        {
+            <tbody>
+                @for (int i = 0; i < ViewBag.List.Length; i++)
+                {
+                    PackageInfo obj = ViewBag.List[i];
+                    Package packageObj = Model.GetPackage(obj.Key);
+                    ProductionLine plObj = Model.GetProductionLine(obj.LineCode);
+                    <tr>
+                        <td>@(cfg.PageSize * cfg.PageNo+i+1)</td>
+                        <td>
+                            @obj.Key
+                        </td>
+                        <td>
+                            @(packageObj!=null?packageObj.Quantity.ToString():"")
+                        </td>
+                        <td>
+                            @obj.ConfigCode
+                        </td>
+                        <td>@obj.EfficiencyName</td>
+                        <td>@obj.Grade</td>
+                        <td>@obj.Color</td>
+                        <td>@obj.PNType</td>
+                        <td>
+                            @(plObj != null ? plObj.Name : obj.LineCode)
+                        </td>
+                        <td>@packageObj.OrderNumber</td>
+                        <td>@packageObj.MaterialCode</td>
+                        <td>@obj.ProductId</td>
+                        <td>
+                            @Ajax.ActionLink(StringResource.Delete, actionName: null
+                                            , routeValues: null
+                                            , ajaxOptions:new AjaxOptions()
+                                            {
+                                                HttpMethod = "Post",
+                                                Confirm = string.Format(ZPVCResources.StringResource.PackageViewModel_ConfirmDelete, obj.Key),
+                                                Url = Url.Action("Delete", new { @key = obj.Key }),
+                                                OnSuccess = "showErrorInfo"
+                                            })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        }
+    </table>
+    <div style="margin-top:-18px">
+        @if (cfg != null)
+        {
+            using (Ajax.BeginForm("PagingQuery", "Package"
+                            , new
+                            {
+                                @Where = cfg.Where,
+                                @OrderBy = cfg.OrderBy,
+                                @CurrentPageNo = cfg.PageNo,
+                                @CurrentPageSize = cfg.PageSize
+                            }
+                            , new AjaxOptions()
+                            {
+                                HttpMethod = "Post",
+                                UpdateTargetId = "_list"
+                            }
+                            , new { @class = "form-horizontal", resource = "form", id = "frmPagingQuery" }))
+            {
+                @Html.AntiForgeryToken()
+                <div>@Html.Partial("_PaginationPartial")</div>
+            }
+        }
+    </div>
+</div>
+
+

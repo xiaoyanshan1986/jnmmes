@@ -1,0 +1,55 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.RPT.Models.RTPEquipmentViewModels
+@using ServiceCenter.Client.Mvc.Resources;
+@using RPTResources = ServiceCenter.Client.Mvc.Resources.RPT;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@using System.Data;
+@{
+    //DataTable dtList = ViewBag.ListData;
+    DataTable dtListRate = ViewBag.ListDataRate;
+    string key = ViewBag.Key;
+}
+@*<div id="container1" style="min-width: 310px; height: 400px; margin: 0 auto"></div>*@
+@if (dtListRate != null)
+{
+    <table class="table table-hover table-bordered table-condensed">
+        <thead>
+            <tr class="active">
+                <td>序号</td>
+                @for (int i = 0; i < dtListRate.Columns.Count; i++)
+                {
+                    <td>@dtListRate.Columns[i].Caption</td>
+                }
+            </tr>
+        </thead>
+        <tbody>
+            @*@for (int row = 0; row < dtList.Rows.Count; row++)
+                {
+                    <tr>
+                        @for (int col = 0; col < dtList.Columns.Count; col++)
+                        {
+                            <td>
+                                @dtList.Rows[row][col]
+                            </td>
+                        }
+                    </tr>
+                }
+                <tr>
+                    <td colspan="@dtList.Columns.Count">比率</td>
+                </tr>*@
+            @for (int row = 1; row < dtListRate.Rows.Count; row++)
+            {
+                <tr>
+                    <td>@row</td>
+                    @for (int col = 0; col < dtListRate.Columns.Count; col++)
+                    {
+
+                        <td>
+                            @dtListRate.Rows[row][col]
+                        </td>
+                    }
+                </tr>
+            }
+        </tbody>
+    </table>
+}

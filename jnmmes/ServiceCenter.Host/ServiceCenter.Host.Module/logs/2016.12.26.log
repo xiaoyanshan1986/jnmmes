@@ -1,0 +1,19 @@
+2016-12-26 09:30:05,441 - ERROR - START>Application
+2016-12-26 11:41:17,900 - ERROR - START>Application
+2016-12-26 11:46:01,103 - ERROR - START>Application
+2016-12-26 12:00:11,715 - ERROR - START>Application
+2016-12-26 12:11:41,987 - ERROR - START>Application
+2016-12-26 12:17:44,173 - ERROR - START>Application
+2016-12-26 13:50:13,042 - ERROR - START>Application
+2016-12-26 14:22:14,472 - ERROR - START>Application
+2016-12-26 14:23:50,632 - ERROR - START>Application
+2016-12-26 14:25:45,956 - ERROR - START>Application
+2016-12-26 16:20:42,223 - ERROR - START>Application
+2016-12-26 16:42:58,525 - ERROR - 在与 SQL Server 建立连接时出现与网络相关的或特定于实例的错误。未找到或无法访问服务器。请验证实例名称是否正确并且 SQL Server 已配置为允许远程连接。 (provider: Named Pipes Provider, error: 40 - 无法打开到 SQL Server 的连接)
+2016-12-26 16:42:58,526 - ERROR - 找不到网络路径。
+2016-12-26 16:42:58,639 - ERROR - 在与 SQL Server 建立连接时出现与网络相关的或特定于实例的错误。未找到或无法访问服务器。请验证实例名称是否正确并且 SQL Server 已配置为允许远程连接。 (provider: Named Pipes Provider, error: 40 - 无法打开到 SQL Server 的连接)
+2016-12-26 16:42:58,639 - ERROR - 找不到网络路径。
+2016-12-26 16:42:58,641 - ERROR - 在与 SQL Server 建立连接时出现与网络相关的或特定于实例的错误。未找到或无法访问服务器。请验证实例名称是否正确并且 SQL Server 已配置为允许远程连接。 (provider: Named Pipes Provider, error: 40 - 无法打开到 SQL Server 的连接)
+2016-12-26 16:42:58,641 - ERROR - 找不到网络路径。
+2016-12-26 18:15:14,272 - ERROR - START>Application
+2016-12-26 20:05:06,981 - ERROR - START>Application

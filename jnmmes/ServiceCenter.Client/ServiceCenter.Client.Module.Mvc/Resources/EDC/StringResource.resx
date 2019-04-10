@@ -1,0 +1,558 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="CategoryDetailQueryViewModel_CategoryName" xml:space="preserve">
+    <value>参数组</value>
+  </data>
+  <data name="CategoryDetailQueryViewModel_ParameterName" xml:space="preserve">
+    <value>参数</value>
+  </data>
+  <data name="CategoryDetailViewModel_CategoryName" xml:space="preserve">
+    <value>参数组</value>
+  </data>
+  <data name="CategoryDetailViewModel_ItemNo" xml:space="preserve">
+    <value>项目号</value>
+  </data>
+  <data name="CategoryDetailViewModel_ParameterName" xml:space="preserve">
+    <value>参数</value>
+  </data>
+  <data name="CategoryDetail_AddTitle" xml:space="preserve">
+    <value>新增采集参数组</value>
+  </data>
+  <data name="CategoryDetail_ConfirmDelete" xml:space="preserve">
+    <value>确定删除采集参数 ( {0}） ？</value>
+  </data>
+  <data name="CategoryDetail_Delete_Success" xml:space="preserve">
+    <value>删除采集参数  {0}  成功。</value>
+  </data>
+  <data name="CategoryDetail_DetailTitle" xml:space="preserve">
+    <value>采集参数信息</value>
+  </data>
+  <data name="CategoryDetail_ManagePageTitle" xml:space="preserve">
+    <value>采集参数组（{0}）管理</value>
+  </data>
+  <data name="CategoryDetail_ModifyTitle" xml:space="preserve">
+    <value>修改采集参数</value>
+  </data>
+  <data name="CategoryDetail_SaveModify_Success" xml:space="preserve">
+    <value>修改采集参数 {0} 成功。</value>
+  </data>
+  <data name="CategoryDetail_Save_Success" xml:space="preserve">
+    <value>保存采集参数 {0} 成功。</value>
+  </data>
+  <data name="CategoryQueryViewModel_Name" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="CategoryViewModel_Name" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="Category_AddTitle" xml:space="preserve">
+    <value>新增采集参数组</value>
+  </data>
+  <data name="Category_ConfirmDelete" xml:space="preserve">
+    <value>确定删除采集参数组 ( {0}） ？</value>
+  </data>
+  <data name="Category_Delete_Success" xml:space="preserve">
+    <value>删除采集参数组  {0}  成功。</value>
+  </data>
+  <data name="Category_DetailTitle" xml:space="preserve">
+    <value>采集参数组信息</value>
+  </data>
+  <data name="Category_ManagePageTitle" xml:space="preserve">
+    <value>采集参数组管理</value>
+  </data>
+  <data name="Category_ModifyTitle" xml:space="preserve">
+    <value>修改采集参数组</value>
+  </data>
+  <data name="Category_SaveModify_Success" xml:space="preserve">
+    <value>修改采集参数组 {0} 成功。</value>
+  </data>
+  <data name="Category_Save_Success" xml:space="preserve">
+    <value>保存采集参数组 {0} 成功。</value>
+  </data>
+  <data name="DataAcquisitionItemQueryViewModel_ItemCode" xml:space="preserve">
+    <value>采集项目代码</value>
+  </data>
+  <data name="DataAcquisitionItemViewModel_CreateTime" xml:space="preserve">
+    <value>创建日期</value>
+  </data>
+  <data name="DataAcquisitionItemViewModel_Creator" xml:space="preserve">
+    <value>创建人</value>
+  </data>
+  <data name="DataAcquisitionItemViewModel_Description" xml:space="preserve">
+    <value>描述</value>
+  </data>
+  <data name="DataAcquisitionItemViewModel_Editor" xml:space="preserve">
+    <value>编辑人</value>
+  </data>
+  <data name="DataAcquisitionItemViewModel_EditTime" xml:space="preserve">
+    <value>编辑日期</value>
+  </data>
+  <data name="DataAcquisitionItemViewModel_ItemName" xml:space="preserve">
+    <value>采集项目名称</value>
+  </data>
+  <data name="DataAcquisitionItemViewModel_MaxValidateStringLength" xml:space="preserve">
+    <value>{0} 不能超过 {1} 个字符。</value>
+  </data>
+  <data name="DataAcquisitionItemViewModel_RouteStepName" xml:space="preserve">
+    <value>工序</value>
+  </data>
+  <data name="DataAcquisitionItemViewModel_ValidateStringLength" xml:space="preserve">
+    <value>{0} 必须至少包含 {2} 个字符，不能超过 {1} 个字符。</value>
+  </data>
+  <data name="DataAcquisitionItem_AddTitle" xml:space="preserve">
+    <value>新增采集项目</value>
+  </data>
+  <data name="DataAcquisitionItem_Delete_Success" xml:space="preserve">
+    <value>采集项目{0}删除成功！</value>
+  </data>
+  <data name="DataAcquisitionItem_DetailTitle" xml:space="preserve">
+    <value>采集项目信息</value>
+  </data>
+  <data name="DataAcquisitionItem_ManagePageTitle" xml:space="preserve">
+    <value>采集项目管理</value>
+  </data>
+  <data name="DataAcquisitionItem_ModifyTitle" xml:space="preserve">
+    <value>采集项目修改</value>
+  </data>
+  <data name="DataAcquisitionItem_SaveModify_Success" xml:space="preserve">
+    <value>采集项目{0}修改成功！</value>
+  </data>
+  <data name="DataAcquisitionItem_Save_Success" xml:space="preserve">
+    <value>采集项目{0}保存成功！</value>
+  </data>
+  <data name="PointDetailQueryViewModel_GroupName" xml:space="preserve">
+    <value>组名</value>
+  </data>
+  <data name="PointDetailQueryViewModel_ParameterName" xml:space="preserve">
+    <value>参数名</value>
+  </data>
+  <data name="PointDetailQueryViewModel_PointKey" xml:space="preserve">
+    <value>采集点主键</value>
+  </data>
+  <data name="PointDetailViewModel_DataType" xml:space="preserve">
+    <value>数据类型</value>
+  </data>
+  <data name="PointDetailViewModel_DerivedFormula" xml:space="preserve">
+    <value>参数公式</value>
+  </data>
+  <data name="PointDetailViewModel_DeviceType" xml:space="preserve">
+    <value>设备类型</value>
+  </data>
+  <data name="PointDetailViewModel_IsDerived" xml:space="preserve">
+    <value>运算参数</value>
+  </data>
+  <data name="PointDetailViewModel_ItemNo" xml:space="preserve">
+    <value>项目号</value>
+  </data>
+  <data name="PointDetailViewModel_LowerBoundary" xml:space="preserve">
+    <value>下范围值</value>
+  </data>
+  <data name="PointDetailViewModel_LowerControl" xml:space="preserve">
+    <value>下控制值</value>
+  </data>
+  <data name="PointDetailViewModel_LowerSpecification" xml:space="preserve">
+    <value>下规格值</value>
+  </data>
+  <data name="PointDetailViewModel_Mandatory" xml:space="preserve">
+    <value>必填？</value>
+  </data>
+  <data name="PointDetailViewModel_ParameterCount" xml:space="preserve">
+    <value>数量</value>
+  </data>
+  <data name="PointDetailViewModel_ParameterName" xml:space="preserve">
+    <value>参数名</value>
+  </data>
+  <data name="PointDetailViewModel_ParameterType" xml:space="preserve">
+    <value>类型</value>
+  </data>
+  <data name="PointDetailViewModel_Target" xml:space="preserve">
+    <value>目标值</value>
+  </data>
+  <data name="PointDetailViewModel_UpperBoundary" xml:space="preserve">
+    <value>上范围值</value>
+  </data>
+  <data name="PointDetailViewModel_UpperControl" xml:space="preserve">
+    <value>上控制值</value>
+  </data>
+  <data name="PointDetailViewModel_UpperSpecification" xml:space="preserve">
+    <value>上规格值</value>
+  </data>
+  <data name="PointDetail_DetailTitle" xml:space="preserve">
+    <value>采集参数信息</value>
+  </data>
+  <data name="PointDetail_ManagePageTitle" xml:space="preserve">
+    <value>采集设置组（{0}）参数管理</value>
+  </data>
+  <data name="PointDetail_ModifyTitle" xml:space="preserve">
+    <value>修改采集参数</value>
+  </data>
+  <data name="PointDetail_SaveModify_Success" xml:space="preserve">
+    <value>修改采集参数 {0} 成功。</value>
+  </data>
+  <data name="PointQueryViewModel_ActionName" xml:space="preserve">
+    <value>动作</value>
+  </data>
+  <data name="PointQueryViewModel_CategoryName" xml:space="preserve">
+    <value>采集参数组</value>
+  </data>
+  <data name="PointQueryViewModel_EquipmentCode" xml:space="preserve">
+    <value>设备代码</value>
+  </data>
+  <data name="PointQueryViewModel_GroupName" xml:space="preserve">
+    <value>组名</value>
+  </data>
+  <data name="PointQueryViewModel_MaterialCode" xml:space="preserve">
+    <value>物料编码</value>
+  </data>
+  <data name="PointQueryViewModel_MaterialType" xml:space="preserve">
+    <value>物料类型</value>
+  </data>
+  <data name="PointQueryViewModel_ProductionLineCode" xml:space="preserve">
+    <value>生产线</value>
+  </data>
+  <data name="PointQueryViewModel_RouteEnterpriseName" xml:space="preserve">
+    <value>工艺流程组</value>
+  </data>
+  <data name="PointQueryViewModel_RouteName" xml:space="preserve">
+    <value>工艺流程</value>
+  </data>
+  <data name="PointQueryViewModel_RouteOperationName" xml:space="preserve">
+    <value>工序</value>
+  </data>
+  <data name="PointQueryViewModel_RouteStepName" xml:space="preserve">
+    <value>工步</value>
+  </data>
+  <data name="PointQueryViewModel_SamplingPlanName" xml:space="preserve">
+    <value>采样计划</value>
+  </data>
+  <data name="PointViewModel_ActionName" xml:space="preserve">
+    <value>动作</value>
+  </data>
+  <data name="PointViewModel_CategoryName" xml:space="preserve">
+    <value>采集参数组</value>
+  </data>
+  <data name="PointViewModel_EquipmentCode" xml:space="preserve">
+    <value>设备代码</value>
+  </data>
+  <data name="PointViewModel_GroupName" xml:space="preserve">
+    <value>组名</value>
+  </data>
+  <data name="PointViewModel_MaterialCode" xml:space="preserve">
+    <value>物料编码</value>
+  </data>
+  <data name="PointViewModel_MaterialType" xml:space="preserve">
+    <value>物料类型</value>
+  </data>
+  <data name="PointViewModel_ProductionLineCode" xml:space="preserve">
+    <value>生产线</value>
+  </data>
+  <data name="PointViewModel_RouteEnterpriseName" xml:space="preserve">
+    <value>工艺流程组</value>
+  </data>
+  <data name="PointViewModel_RouteName" xml:space="preserve">
+    <value>工艺流程</value>
+  </data>
+  <data name="PointViewModel_RouteOperationName" xml:space="preserve">
+    <value>工序</value>
+  </data>
+  <data name="PointViewModel_RouteStepName" xml:space="preserve">
+    <value>工步</value>
+  </data>
+  <data name="PointViewModel_SamplingPlanName" xml:space="preserve">
+    <value>采样计划</value>
+  </data>
+  <data name="Point_AddTitle" xml:space="preserve">
+    <value>新增采集设置</value>
+  </data>
+  <data name="Point_ConfirmDelete" xml:space="preserve">
+    <value>确定删除采集设置 ( {0}） ？</value>
+  </data>
+  <data name="Point_Delete_Success" xml:space="preserve">
+    <value>删除采集设置 {0}  成功。</value>
+  </data>
+  <data name="Point_DetailTitle" xml:space="preserve">
+    <value>采集设置信息</value>
+  </data>
+  <data name="Point_ManagePageTitle" xml:space="preserve">
+    <value>采集设置管理</value>
+  </data>
+  <data name="Point_ModifyTitle" xml:space="preserve">
+    <value>修改采集设置</value>
+  </data>
+  <data name="Point_SaveModify_Success" xml:space="preserve">
+    <value>修改采集设置 {0} 成功。</value>
+  </data>
+  <data name="Point_Save_Success" xml:space="preserve">
+    <value>保存采集设置 {0} 成功。</value>
+  </data>
+  <data name="SamplingPlanQueryViewModel_Name" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="SamplingPlanViewModel_Mode" xml:space="preserve">
+    <value>策略</value>
+  </data>
+  <data name="SamplingPlanViewModel_Name" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="SamplingPlanViewModel_Size" xml:space="preserve">
+    <value>大小</value>
+  </data>
+  <data name="SamplingPlanViewModel_Type" xml:space="preserve">
+    <value>类型</value>
+  </data>
+  <data name="SamplingPlan_AddTitle" xml:space="preserve">
+    <value>新增采样计划</value>
+  </data>
+  <data name="SamplingPlan_ConfirmDelete" xml:space="preserve">
+    <value>确定删除采样计划 ( {0}） ？</value>
+  </data>
+  <data name="SamplingPlan_Delete_Success" xml:space="preserve">
+    <value>删除采样计划  {0}  成功。</value>
+  </data>
+  <data name="SamplingPlan_DetailTitle" xml:space="preserve">
+    <value>采样计划信息</value>
+  </data>
+  <data name="SamplingPlan_ManagePageTitle" xml:space="preserve">
+    <value>采样计划管理</value>
+  </data>
+  <data name="SamplingPlan_ModifyTitle" xml:space="preserve">
+    <value>修改采样计划</value>
+  </data>
+  <data name="SamplingPlan_SaveModify_Success" xml:space="preserve">
+    <value>修改采样计划 {0} 成功。</value>
+  </data>
+  <data name="SamplingPlan_Save_Success" xml:space="preserve">
+    <value>保存采样计划 {0} 成功。</value>
+  </data>
+  <data name="DataAcquisitionFieldQueryViewModel_FieldCode" xml:space="preserve">
+    <value>采集字段</value>
+  </data>
+  <data name="DataAcquisitionFieldQueryViewModel_ItemCode" xml:space="preserve">
+    <value>采集项目代码</value>
+  </data>
+  <data name="DataAcquisitionFieldViewModel_DataType" xml:space="preserve">
+    <value>数据类型</value>
+  </data>
+  <data name="DataAcquisitionFieldViewModel_FieldName" xml:space="preserve">
+    <value>字段说明</value>
+  </data>
+  <data name="DataAcquisitionFieldViewModel_IsKEY" xml:space="preserve">
+    <value>主键</value>
+  </data>
+  <data name="DataAcquisitionFieldViewModel_SerialNumber" xml:space="preserve">
+    <value>序号</value>
+  </data>
+  <data name="DataAcquisitionFieldViewModel_ValidateStringLength" xml:space="preserve">
+    <value>{0} 必须至少包含 {2} 个字符，不能超过 {1} 个字符。</value>
+  </data>
+  <data name="DataAcquisitionField_AddTitle" xml:space="preserve">
+    <value>新增采集字段</value>
+  </data>
+  <data name="DataAcquisitionField_ConfirmDelete" xml:space="preserve">
+    <value>确定删除采集字段 ( {0}）?</value>
+  </data>
+  <data name="DataAcquisitionField_Delete_Success" xml:space="preserve">
+    <value>删除采集字段 {0} 成功。</value>
+  </data>
+  <data name="DataAcquisitionField_DetailTitle" xml:space="preserve">
+    <value>采集字段信息</value>
+  </data>
+  <data name="DataAcquisitionField_ManagePageTitle" xml:space="preserve">
+    <value>采集字段管理</value>
+  </data>
+  <data name="DataAcquisitionField_ModifyTitle" xml:space="preserve">
+    <value>采集字段修改</value>
+  </data>
+  <data name="DataAcquisitionField_SaveModify_Success" xml:space="preserve">
+    <value>修改采集字段 {0} 成功。</value>
+  </data>
+  <data name="DataAcquisitionField_Save_Success" xml:space="preserve">
+    <value>保存采集字段 {0} 成功。</value>
+  </data>
+  <data name="DataAcquisitionFieldViewModel_ValidateRange" xml:space="preserve">
+    <value>{0} 需要是 {1} - {2} 整数！</value>
+  </data>
+  <data name="DataAcquisitionFieldViewModel_ValidateInt" xml:space="preserve">
+    <value>{0} 需要是整数。</value>
+  </data>
+  <data name="DataAcquisitionData_AddTitle" xml:space="preserve">
+    <value>数据采集</value>
+  </data>
+  <data name="DataAcquisitionData_DetailTitle" xml:space="preserve">
+    <value>数据采集明细</value>
+  </data>
+  <data name="DataAcquisitionData_ManagePageTitle" xml:space="preserve">
+    <value>数据采集</value>
+  </data>
+  <data name="DataAcquisitionData_ModifyTitle" xml:space="preserve">
+    <value>修改采集数据</value>
+  </data>
+  <data name="DataAcquisitionDataQueryViewModel_EDCTime" xml:space="preserve">
+    <value>采集时间</value>
+  </data>
+  <data name="DataAcquisitionDataQueryViewModel_EquipmentCode" xml:space="preserve">
+    <value>设备代码</value>
+  </data>
+  <data name="DataAcquisitionDataQueryViewModel_ItemCode" xml:space="preserve">
+    <value>项目代码</value>
+  </data>
+  <data name="DataAcquisitionDataQueryViewModel_LineCode" xml:space="preserve">
+    <value>线别</value>
+  </data>
+  <data name="DataAcquisitionDataQueryViewModel_LocationName" xml:space="preserve">
+    <value>车间</value>
+  </data>
+  <data name="DataAcquisitionDataQueryViewModel_RouteOperationName" xml:space="preserve">
+    <value>工序</value>
+  </data>
+  <data name="DataAcquisitionDataQueryViewModel_EndDate" xml:space="preserve">
+    <value>结束时间</value>
+  </data>
+  <data name="DataAcquisitionDataQueryViewModel_StartDate" xml:space="preserve">
+    <value>开始时间</value>
+  </data>
+  <data name="DataAcquisitionData_ConfirmDelete" xml:space="preserve">
+    <value>确定删除采集记录?</value>
+  </data>
+  <data name="DataAcquisitionData_Save_Success" xml:space="preserve">
+    <value>采集数据保存成功！</value>
+  </data>
+  <data name="DataAcquisitionData_Delete_Success" xml:space="preserve">
+    <value>采集数据删除成功！</value>
+  </data>
+  <data name="DataAcquisitionData_DataPageTitle" xml:space="preserve">
+    <value>({0})数据采集</value>
+  </data>
+  <data name="DataAcquisitionTrans_Save_Success" xml:space="preserve">
+    <value>采集数据事务保存成功！</value>
+  </data>
+  <data name="DataAcquisitionTrans_DataPageTitle" xml:space="preserve">
+    <value>数据采集历史纪录</value>
+  </data>
+  <data name="DataAcquisitionFieldViewModel_IsControl" xml:space="preserve">
+    <value>范围控制</value>
+  </data>
+  <data name="DataAcquisitionFieldViewModel_MaxLine" xml:space="preserve">
+    <value>控制上限</value>
+  </data>
+  <data name="DataAcquisitionFieldViewModel_MinLine" xml:space="preserve">
+    <value>控制下限</value>
+  </data>
+</root>

@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   namespace="ServiceCenter.MES.Model.ERP"
+                   assembly="ServiceCenter.MES.Model.ERP">
+  <class name="WOReport" table="ERP_WO_REPORT">
+    <id name="Key" column="BILL_CODE">
+      <generator class="assigned" />
+    </id>
+    <property name="BillType" column="BillType"/>
+    <property name="BillState" column="BILL_STATE"/>
+    <property name="BillDate" column="BILL_DATE"/>    
+    <property name="Note" column="NOTE"/>
+    <property name="BillMaker" column="BILL_MAKER"/>
+    <property name="BillMakedDate" column="BILL_MAKEDDATE"/>
+    <property name="MixType" column="MIXTYPE"/>
+    <property name="Store" column="STORE"/>    
+    <property name="OrderNumber" column="ORDER_NUMBER"/>
+    <property name="MaterialCode" column="MATERIAL_CODE"/>
+    <property name="TotalQty" column="TOTAL_QTY"/>
+    <property name="INCode" column="ERP_IN_CODE"/>
+    <property name="WRCode" column="ERP_WR_CODE"/>
+    <property name="ERPWRKey" column="ERP_WR_Key"/>
+    <property name="Creator" column="CREATOR"/>
+    <property name="CreateTime" column="CREATE_TIME" type="timestamp"/>
+    <property name="Editor" column="EDITOR"/>
+    <property name="EditTime" column="EDIT_TIME" type="timestamp"/>
+    <property name="ScrapType" column="SCRAP_TYPE"/>
+    <property name="BillCheckState" column="BillCheckState"/>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,84 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.ZPVM.Models.ChestViewModel
+@using ServiceCenter.Client.Mvc.Areas.ZPVM.Models;
+@using ServiceCenter.Client.Mvc.Resources;
+@using ZPVMResources = ServiceCenter.Client.Mvc.Resources.ZPVM;
+@using ServiceCenter.MES.Model.ZPVM;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@using WIPRsources = ServiceCenter.Client.Mvc.Resources.WIP;
+@using ServiceCenter.MES.Model.WIP;
+@using ServiceCenter.MES.Model.BaseData;
+@using System.Data;
+@{
+    PagingConfig cfg = new PagingConfig();
+    MethodReturnResult<DataSet> ds = new MethodReturnResult<DataSet>();
+    DataTable dtList = ViewBag.ListData;
+    ds = ViewBag.dtList;
+}
+<div id="_list">
+    <table class="table table-striped table-hover table-bordered table-condensed">
+        <thead>
+            <tr class="active">
+                <td align="center">行号</td>
+                <td align="center">库位</td>
+                <td align="center">@ZPVMResources.StringResource.ChestNo</td>
+                <td align="center">柜状态</td>
+                <td align="center">柜属性</td>
+                <td align="center">@StringResource.ItemNo</td>
+                <td align="center">@Html.DisplayNameFor(m => m.PackageNo)</td>
+                <td align="center">托内数量</td>
+                <td align="center">工单号</td>
+                <td align="center">产品编码</td>
+                <td align="center">等级</td>
+                <td align="center">花色</td>
+                <td align="center">分档代码</td>
+                <td align="center">分档项目号</td>
+                <td align="center">功率档</td>
+                <td align="center">子分档代码</td>
+                <td align="center">出柜</td>
+            </tr>
+        </thead>
+        @if (dtList != null)
+        {
+            <tbody>
+                @for (int i = 0; i < dtList.Rows.Count; i++)
+                {
+                    System.Data.DataRow obj = dtList.Rows[i];
+
+                    <tr>
+                        <td align="center">@(cfg.PageSize * cfg.PageNo + i + 1)</td>
+                        <td align="center">@obj["库位"]</td>
+                        <td align="center">@obj["柜号"]</td>
+                        <td align="center">@(((EnumChestState)obj["柜状态"]).GetDisplayName())</td>
+                        <td align="center">@obj["柜属性"]</td>
+                        <td align="center">@obj["项目号"]</td>
+                        <td align="center">@obj["包装号"]</td>
+                        <td align="center">@obj["托内数量"]</td>
+                        <td align="center">@obj["工单号"]</td>
+                        <td align="center">@obj["产品编码"]</td>
+                        <td align="center">@obj["等级"]</td>
+                        <td align="center">@obj["花色"]</td>
+                        <td align="center">@obj["分档代码"]</td>
+                        <td align="center">@obj["分档项目号"]</td>
+                        <td align="center">@obj["功率档"]</td>
+                        <td align="center">@obj["子分档代码"]</td>
+                        <td align="center">
+                            @Ajax.ActionLink("出柜", actionName: null
+                                            , routeValues: null
+                                            , ajaxOptions: new AjaxOptions()
+                                            {
+                                                HttpMethod = "Post",
+                                                Confirm = string.Format(ZPVMResources.StringResource.ChestDetail_ConfirmDelete, obj["柜号"] + "：" + obj["包装号"]),
+                                                Url = Url.Action("UnPackageInChest", new { @ChestNo = obj["柜号"], @ItemNo = obj == null ? 0 : obj["项目号"], @PackageNo = obj == null ? string.Empty : obj["包装号"] }),
+                                                OnSuccess = "completeDelete",
+                                                OnBegin = "beginDelete"
+                                            }, htmlAttributes: new { @class = "btn btn-warning btn-sm btn-delete" })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        }
+    </table>
+</div>
+
+

@@ -1,0 +1,205 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.PPM.Models.WorkOrderViewModel
+@using ServiceCenter.Client.Mvc.Areas.PPM.Models;
+@using ServiceCenter.Client.Mvc.Resources;
+@using PPMResources = ServiceCenter.Client.Mvc.Resources.PPM;
+@using ServiceCenter.MES.Model.PPM;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@{
+    PagingConfig cfg = ViewBag.PagingConfig;    
+}
+<div id="_list">
+    <table class="table table-striped table-bordered table-condensed">
+        <thead>
+            <tr class="active">
+                <td nowrap align="center">@StringResource.ItemNo</td>               
+                <td nowrap align="center">@Html.DisplayNameFor(m => m.OrderNumber)</td>       @* 工单号 *@                
+                <td nowrap align="center">@Html.DisplayNameFor(m => m.LocationName)</td>      @* 生产车间 *@                
+                <td nowrap align="center">@Html.DisplayNameFor(m => m.MaterialCode)</td>      @* 产品代码 *@               
+                <td nowrap align="center">@Html.DisplayNameFor(m => m.OrderQuantity)</td>     @* 计划数量 *@
+                <td nowrap align="center">@Html.DisplayNameFor(m => m.LeftQuantity)</td>      @* 剩余数量 *@                               
+                <td nowrap align="center">@Html.DisplayNameFor(m => m.PlanStartTime)</td>     @* 计划开工时间 *@                
+                <td nowrap align="center">@Html.DisplayNameFor(m => m.PlanFinishTime)</td>    @* 计划完工时间 *@  
+                <td nowrap align="center">@Html.DisplayNameFor(m => m.OrderType)</td>         @* 工单类型 *@
+                <td nowrap align="center">@Html.DisplayNameFor(m => m.OrderState)</td>        @* 工单状态 *@
+                <td nowrap align="center">@Html.DisplayNameFor(m => m.CloseType)</td>         @* 关闭类型 *@
+                <td nowrap align="center">@Html.DisplayNameFor(m => m.StartTime)</td>         @* 开工时间 *@
+                <td nowrap align="center">@Html.DisplayNameFor(m => m.FinishTime)</td>        @* 完工时间 *@
+                <td nowrap align="center">@Html.DisplayNameFor(m => m.Description)</td>       @* 描述 *@
+                <td nowrap align="center">@Html.DisplayNameFor(m => m.CreateType)</td>        @* 创建类型 *@
+                <td nowrap align="center">BOM</td>                                            @* BOM *@
+                <td nowrap align="center">@StringResource.Property</td>                       @* 属性设置 *@
+                <td nowrap align="center">@PPMResources.StringResource.WorkOrder_SettingProduct</td>
+                <td nowrap align="center">@PPMResources.StringResource.WorkOrder_SettingLine</td>
+                <td nowrap align="center">@PPMResources.StringResource.WorkOrder_SettingRoute</td>
+                @*<td nowrap align="center">@StringResource.Detail</td>*@
+                <td nowrap align="center">@StringResource.Modify</td>
+                <td nowrap align="center">@StringResource.Delete</td>
+            </tr>
+        </thead>
+        @if (ViewBag.List != null)
+        {
+            <tbody>
+                @for (int i = 0; i < ViewBag.List.Length; i++)
+                {
+                    WorkOrder obj = ViewBag.List[i];
+                    <tr>
+                        <td>@(cfg.PageSize * cfg.PageNo + i + 1)</td>
+                        <td>
+                            @Ajax.ActionLink(@obj.Key, actionName: null
+                                            , routeValues: null
+                                            , ajaxOptions: new AjaxOptions()
+                                            {
+                                                HttpMethod = "Post",
+                                                UpdateTargetId = "detailInfo",
+                                                OnSuccess = "showInfoModal",
+                                                Url = Url.Action("Detail", new { @Key = obj.Key })
+                                            })
+                        </td>
+                        <td>
+                            @obj.LocationName
+                        </td>
+                        <td>
+                            @obj.MaterialCode
+                        </td>
+                        <td align="right">
+                            @obj.OrderQuantity
+                        </td>
+                        <td align="right">
+                            @obj.LeftQuantity
+                        </td>
+                        <td>
+                            @obj.PlanStartTime.ToString("yyyy-MM-dd")
+                        </td>
+                        <td>
+                            @obj.PlanFinishTime.ToString("yyyy-MM-dd")
+                        </td>                        
+                        <td>
+                            @*@if (@obj.OrderType != "1")
+                            {*@
+                                @Model.GetOrderTypeName(@obj.OrderType)
+                            @*}*@                            
+                        </td>
+                        <td align="center">
+                            @obj.OrderState.GetDisplayName()
+                        </td>
+                        <td align="center">
+                            @obj.CloseType.GetDisplayName()
+                        </td>
+                        <td>
+                            @obj.StartTime.ToString("yyyy-MM-dd")
+                        </td>
+                        <td>
+                            @obj.FinishTime.ToString("yyyy-MM-dd")
+                        </td>
+                        <td>
+                            @obj.Description
+                        </td>
+                        <td nowrap align="center">
+                            @if (@obj.CreateType != EnumWorkOrderCreateType.MES)
+                            {
+                                @obj.CreateType.GetDisplayName()
+                            }
+                        </td>
+                        <td nowrap align="center">
+                            @Html.ActionLink(linkText: "BOM"
+                                            , actionName: "Index"
+                                            , controllerName: "WorkOrderBOM"
+                                            , routeValues: new { @OrderNumber = obj.Key }
+                                            , htmlAttributes: new { @target = "_self" })
+                        </td>
+                        <td nowrap align="center">
+                            @Html.ActionLink(linkText: StringResource.Property
+                                            , actionName: "Index"
+                                            , controllerName: "WorkOrderAttribute"
+                                            , routeValues: new { @OrderNumber = obj.Key }
+                                            , htmlAttributes: new { @target = "_self" })
+                        </td>
+                        <td nowrap align="center">
+                            @Html.ActionLink(linkText: PPMResources.StringResource.WorkOrder_SettingProduct
+                                            , actionName: "Index"
+                                            , controllerName: "WorkOrderProduct"
+                                            , routeValues: new { @OrderNumber = obj.Key }
+                                            , htmlAttributes: new { @target = "_self" })
+                        </td>
+                        <td nowrap align="center">
+                            @Html.ActionLink(linkText: PPMResources.StringResource.WorkOrder_SettingLine
+                                            , actionName: "Index"
+                                            , controllerName: "WorkOrderProductionLine"
+                                            , routeValues: new { @OrderNumber = obj.Key }
+                                            , htmlAttributes: new { @target = "_self" })
+                        </td>
+                        <td nowrap align="center">
+                            @Html.ActionLink(linkText: PPMResources.StringResource.WorkOrder_SettingRoute
+                                            , actionName: "Index"
+                                            , controllerName: "WorkOrderRoute"
+                                            , routeValues: new { @OrderNumber = obj.Key }
+                                            , htmlAttributes: new { @target = "_self" })
+                        </td>
+                        @*<td>
+                            @Ajax.ActionLink(StringResource.Detail, actionName: null
+                                            , routeValues: null
+                                            , ajaxOptions:new AjaxOptions() 
+                                            { 
+                                                HttpMethod = "Post", 
+                                                UpdateTargetId = "detailInfo",
+                                                OnSuccess = "showInfoModal",
+                                                Url = Url.Action("Detail", new { @Key = obj.Key })
+                                            })
+                        </td>*@
+                        <td nowrap align="center">
+                            @*@if (@obj.CreateType == EnumWorkOrderCreateType.MES)
+                            {*@
+                                @Ajax.ActionLink(StringResource.Modify, actionName: null
+                                            , routeValues: null
+                                            , ajaxOptions: new AjaxOptions()
+                                            {
+                                                HttpMethod = "Post",
+                                                UpdateTargetId = "modifyFormContent",
+                                                OnSuccess = "showModifyModal",
+                                                Url = Url.Action("Modify", new { @Key = obj.Key })
+                                            })
+                            @*}*@
+                        </td>
+                        <td nowrap align="center">
+                            @Ajax.ActionLink(StringResource.Delete, actionName: null
+                                            , routeValues: null
+                                            , ajaxOptions: new AjaxOptions()
+                                            {
+                                                HttpMethod = "Post",
+                                                Confirm = string.Format(PPMResources.StringResource.WorkOrder_ConfirmDelete, obj.Key),
+                                                Url = Url.Action("Delete", new { @Key = obj.Key }),
+                                                OnSuccess = "completeDelete"
+                                            })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        }
+    </table>
+    <div style="margin-top:-18px">
+        @if (cfg != null)
+        {
+            using (Ajax.BeginForm("PagingQuery", "WorkOrder"
+                            , new
+                            {
+                                @Where = cfg.Where,
+                                @OrderBy = cfg.OrderBy,
+                                @CurrentPageNo = cfg.PageNo,
+                                @CurrentPageSize = cfg.PageSize
+                            }
+                            , new AjaxOptions()
+                            {
+                                HttpMethod = "Post",
+                                UpdateTargetId = "_list"
+                            }
+                            , new { @class = "form-horizontal", resource = "form", id = "frmPagingQuery" }))
+            {
+                @Html.AntiForgeryToken()
+                <div>@Html.Partial("_PaginationPartial", Model)</div>
+            }
+        }
+    </div>
+</div>
+
+

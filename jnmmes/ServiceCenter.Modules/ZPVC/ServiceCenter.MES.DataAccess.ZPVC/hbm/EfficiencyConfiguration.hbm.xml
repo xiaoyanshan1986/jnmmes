@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   namespace="ServiceCenter.MES.Model.ZPVC" 
+                   assembly="ServiceCenter.MES.Model.ZPVC">
+  <class name="EfficiencyConfiguration" table="ZFMM_EFFICIENCY_CONFIG">
+    <composite-id  name="Key" class="EfficiencyConfigurationKey">
+      <key-property name="Group" column="CONFIG_GROUP"/>
+      <key-property name="Code" column="CONFIG_CODE"/>
+    </composite-id >
+    <property name="Code" column="EFFI_CODE"/>
+    <property name="Name" column="EFFI_NAME"/>
+    <property name="Lower" column="LOWER_EFFI"/>
+    <property name="Upper" column="UPPER_EFFI"/>
+    <property name="Grade" column="GRADE"/>
+    <property name="Color" column="COLOR"/>
+    <property name="MaterialCode" column="MATERIAL_CODE"/>
+    <property name="Description" column="DESCRIPTION"/>
+    <property name="IsUsed" column="IS_USED"/>
+    <property name="Creator" column="CREATOR"/>
+    <property name="CreateTime" column="CREATE_TIME"/>
+    <property name="Editor" column="EDITOR"/>
+    <property name="EditTime" column="EDIT_TIME"/>
+  </class>
+</hibernate-mapping>

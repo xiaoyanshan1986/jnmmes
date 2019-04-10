@@ -1,0 +1,385 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.WIP.Models.LotTrackViewModel
+@using ServiceCenter.MES.Model.WIP;
+@using ServiceCenter.Model;
+@using ServiceCenter.Common;
+@using ServiceCenter.Client.Mvc.Areas.WIP.Models;
+@using WIPRsources = ServiceCenter.Client.Mvc.Resources.WIP;
+@using ServiceCenter.Client.Mvc.Resources;
+
+@{
+    ViewBag.Title = WIPRsources.StringResource.LotTrack_ManagePageTitle;
+}
+<h2>@ViewBag.Title</h2>
+@using (Ajax.BeginForm("Save", "LotTrack", null
+                    , new AjaxOptions()
+                    {
+                        HttpMethod = "Post",
+                        OnSuccess = "completeSave",
+                        OnBegin = "beginSave"
+                    }
+                    , new { @class = "form-horizontal", resource = "form", id = "frmTrack", autocomplete = "off" }))
+{
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <input type="button" value="@WIPRsources.StringResource.Track" class="btn btn-primary" id="btnSave" />
+    </div>
+    <div class="panel-body">
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        <div class="form-group">
+            <div class="col-md-1">
+                @Html.LabelFor(m => m.LineCode, new { @class = "control-label" })
+            </div>
+            <div class="col-md-2">
+                @Html.DropDownListFor(m => m.LineCode,@Model.GetProductionLineList(), new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.LineCode)
+            </div>
+            <div class="col-md-1">
+                @Html.LabelFor(m => m.RouteOperationName, new { @class = "control-label" })
+            </div>
+            <div class="col-md-2">
+                @Html.DropDownListFor(m => m.RouteOperationName, @Model.GetRouteOperationList(), new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.RouteOperationName)
+            </div>
+            <div class="col-md-1">
+                @Html.LabelFor(m => m.EquipmentCode, new { @class = "control-label" })
+            </div>
+            <div class="col-md-2">
+                @Html.DropDownListFor(m => m.EquipmentCode, new List<SelectListItem>(), new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.EquipmentCode)
+            </div>
+            <div class="col-md-1">
+                @Html.LabelFor(m => m.EquipmentState, new { @class = "control-label" })
+            </div>
+            <div class="col-md-2">
+                @Html.TextBoxFor(m => m.EquipmentState, new { @class = "form-control", @disabled = "disabled" })
+                @Html.ValidationMessageFor(m => m.EquipmentState)
+            </div>
+        </div>
+        <div class="form-group has-success">
+            <div class="col-md-12">
+                @Html.LabelFor(m => m.LotNumber, new { @class = "control-label" })
+                @Html.TextBoxFor(m => m.LotNumber, new { @class = "form-control", @style = "height:50px;font-size:20px;text-transform:uppercase;ime-mode:disabled" })
+                @Html.ValidationMessageFor(m => m.LotNumber)
+            </div>
+        </div>
+        <div class="alert fade in hide" resource="alert" id="statusMessage" style="margin:0px;">
+            <button type="button" class="close" onclick="hideStatusMessage()">
+                <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+            </button>
+            <p></p>
+        </div>
+    </div>
+</div>
+}
+
+@*附加参数对话框*@
+<div id="modal" class="modal fade bs-example-modal-lg" tabindex="-1" resource="dialog"
+     aria-labelledby="modalHeader" aria-hidden="true">
+    <div class="modal-dialog modal-lg" style="width:100%">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="modalHeader"></h4>
+            </div>
+            <div class="modal-body" id="modalContent" style="margin:0px;padding:5px">
+                @using (Ajax.BeginForm("SaveModal", "LotTrack", null
+                        , new AjaxOptions()
+                        {
+                            HttpMethod = "Post",
+                            OnSuccess = "completeSaveModal",
+                            OnBegin = "beginSaveModal"
+                        }
+                        , new { @class = "form-horizontal", resource = "form", id = "frmModal", autocomplete = "off" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <input type="submit" class="btn btn-primary" value="@StringResource.Ok" id="btnSaveModal" />
+                            <input type="reset" class="btn btn-default" value="@StringResource.Reset" id="btnResetModal" />
+                        </div>
+                        <div class="panel-body">
+                            <div class="alert fade in hide" resource="alert" id="modalStatusMessage">
+                                <button type="button" class="close" onclick="hideModalAlert()">
+                                    <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+                                </button>
+                                <p></p>
+                            </div>
+                            <div id="modalLoadContent">
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+
+    @*显示附加参数对话框*@
+    <script type="text/javascript" language="javascript">
+        //保存
+        $(function () {
+            $('#modal').on('hidden.bs.modal', function (e) {
+                $("#LotNumber").focus().select();
+            }).on('shown.bs.modal', function (e) {
+                $("#btnResetModal").click();
+            });
+
+            $("#btnResetModal").click(function () {
+                hideModalAlert();
+                registerModalClientEvent();
+            });
+        });
+
+        function registerModalClientEvent() {
+
+            var frm = $("#frmModal");
+            $(frm).keypress(function (args) {
+                if (args.ctrlKey == true && args.keyCode == 13) {
+                    $("#btnSaveModal").click();
+                }
+            });
+
+            $(frm).removeData("validator");
+            $.validator.unobtrusive.parse(frm);
+
+            frm.find(".datetimepicker").datetimepicker({
+                changeMonth: true,
+                changeYear: true,
+                dateFormat: "yy/mm/dd",
+                timeFormat: 'HH:mm:ss'
+            }).keydown(function (args) {
+                if (args.keyCode != 13) {
+                    return false;
+                }
+                return true;
+            });
+
+            frm.find(".datepicker").datepicker({
+                changeMonth: true,
+                changeYear: true,
+                dateFormat: "yy/mm/dd"
+            }).keydown(function (args) {
+                if (args.keyCode != 13) {
+                    return false;
+                }
+                return true;
+            });
+            var texts = frm.find(":text:visible:enabled,:checkbox:visible:enabled,textarea:visible:enabled,select:visible:enabled");
+
+            texts.focus(function () {
+                $(this).select();
+            })
+            .keypress(function (args) {
+                if (args.ctrlKey == false && args.keyCode == 13) {
+
+                    var index = texts.index(this) + 1;
+                    if (index < texts.length) {
+                        texts.eq(index).focus();
+                        return false;
+                    }
+                    else {
+                        $("#btnSaveModal").click();
+                        return false;
+                    }
+                }
+            });
+            texts.eq(0).focus().select();
+        }
+
+        function showModal() {
+            $("#btnSaveModal").removeAttr("disabled");
+            $("#modal").modal({ backdrop: "static" });
+            $('#modal').modal('show');
+        }
+
+        function hideModalAlert() {
+            $("#modalStatusMessage").addClass("hide");
+        }
+
+        function beginSaveModal(obj, req) {
+            hideModalAlert();
+            var data = $("#frmTrack").serialize();
+            req.data += "&TRACK" + data;
+            $("#btnSaveModal").attr("disabled", "disabled");
+        }
+
+        function completeSaveModal(result) {
+            $("#btnSaveModal").removeAttr("disabled");
+            if (result.Code > 0) {
+                $("#modalStatusMessage").find("p").html(result.Message + "(" + result.Detail + ")");
+                $("#modalStatusMessage").removeClass("hide");
+                $("#modalStatusMessage").removeClass("alert-success");
+                $("#modalStatusMessage").addClass("alert-danger");
+            }
+            else {
+                showErrorInfo(result);
+                changeEquipmentState($("#EquipmentCode").val());
+                $('#modal').modal('hide');
+            }
+        }
+    </script>
+
+
+    <script type="text/javascript" language="javascript">
+        $(function () {
+            $("#LotNumber:first").focus();
+            
+            $("#btnSave").click(function () {
+                hideStatusMessage();
+                $("#frmTrack").submit();
+            });
+
+            $("#LotNumber").keypress(function (args) {
+                if (args.keyCode == 13) {
+                    $("#btnSave").click();
+                }
+            });
+
+            $("#frmTrack").keypress(function (args) {
+                if (args.ctrlKey == true && args.keyCode == 13) {
+                    $("#btnSave").click();
+                }
+            });
+
+            var texts = $("#frmTrack").find(":text:visible:enabled,:checkbox:visible:enabled,textarea:visible:enabled,select:visible:enabled");
+            texts.focus(function () {
+                    $(this).select();
+                })
+                .keypress(function (args) {
+                    if (args.ctrlKey == false && args.keyCode == 13) {
+                        var index = texts.index(this)+1;
+                        if (index < texts.length) {
+                            texts.eq(index).focus();
+                            return false;
+                        }
+                        else {
+                            return true;
+                        }
+                    }
+                });
+            $("#LineCode").change(function () {
+                $("#EquipmentCode").get(0).options.length = 0; //清空
+                $("#EquipmentState").val(""); //清空
+                $("#EquipmentState").removeAttr("style");
+                changeEquipmentCode($("#RouteOperationName").val(),$(this).val());
+            });
+
+            $("#RouteOperationName").change(function () {
+                $("#EquipmentCode").get(0).options.length = 0; //清空
+                $("#EquipmentState").val(""); //清空
+                $("#EquipmentState").removeAttr("style");
+                changeEquipmentCode($(this).val(), $("#LineCode").val());
+            });
+
+            $("#EquipmentCode").change(function () {
+                $("#EquipmentState").val(""); //清空
+                $("#EquipmentState").removeAttr("style");
+                changeEquipmentState($(this).val());
+            });
+
+            changeEquipmentCode($("#RouteOperationName").val(), $("#LineCode").val());
+        });
+
+
+        function changeEquipmentCode(routeOperationName, productionLineCode) {
+
+            $("#EquipmentCode").get(0).options.length = 0; //清空
+
+            if (routeOperationName == null || routeOperationName == "") {
+                return;
+            }
+            if (routeOperationName == null || productionLineCode == "") {
+                return;
+            }
+
+            var url = "@Url.Action("GetEquipments", "LotTrack", new { area = "WIP" })";
+            var reqdata = { RouteOperationName: routeOperationName, ProductionLineCode: productionLineCode };
+
+            $.getJSON(url, reqdata, function (data) {
+
+                $("#EquipmentCode").get(0).options.length = 0; //清空
+                $.each(data, function (i, item) {
+                    $("<option></option>").val(item.Key).text(item.Text).appendTo($("#EquipmentCode"));
+                });
+                changeEquipmentState($("#EquipmentCode").val())
+            });
+        }
+
+        function changeEquipmentState(equipmentCode) {
+            $("#EquipmentState").val(""); //清空
+            $("#EquipmentState").removeAttr("style");
+            if (equipmentCode == null || equipmentCode == "") {
+                return;
+            }
+
+            var url = "@Url.Action("GetEquipmentState", "LotTrack", new { area = "WIP" })";
+            var reqdata = { EquipmentCode: equipmentCode };
+
+            $.getJSON(url, reqdata, function (data) {
+                $("#EquipmentState").val(""); //清空
+                $("#EquipmentState").removeAttr("style");
+                $("#EquipmentState").val(data.StateName); 
+                $("#EquipmentState").attr("style", "color:#FFFFFF;background-color:" + data.StateColor);
+            });
+        }
+
+        //隐藏状态消息
+        function hideStatusMessage() {
+            $("#statusMessage").addClass("hide");
+        }
+
+        function beginSave() {
+            $("#btnSave").attr("disabled", "disabled");
+            $("#LotNumber").attr("readonly", "readonly");
+            $("#modalLoadContent").html("");
+            hideStatusMessage();
+        }
+
+        function completeSave(result, status, xhr) {
+            $("#btnSave").removeAttr("disabled");
+            $("#LotNumber").removeAttr("readonly");
+            if (xhr.status == 200) {
+                if (xhr.statusText == "JSON" || typeof(result)=="object") {
+                    showErrorInfo(result);
+                    if (result.Code <= 0) {
+                        changeEquipmentState($("#EquipmentCode").val());
+                    }
+                    $("#LotNumber:first").select();
+                }
+                else {
+                    $("#modalLoadContent").html(result);
+                    showModal();
+                }
+            }
+            else {
+                var rst = { Code: xhr.statusCode, Message: status + ":" + response };
+                showErrorInfo(rst);
+            }
+        }
+
+        function showErrorInfo(result) {
+            $("#statusMessage").find("p").html("");
+            var message = result.Message;
+            if (result.Detail != null) {
+                message = message + "(" + result.Detail + ")"
+            }
+            $("#statusMessage").find("p").html(message);
+            $("#statusMessage").removeClass("hide");
+            if (result.Code > 0) {
+                $("#statusMessage").removeClass("alert-success");
+                $("#statusMessage").addClass("alert-danger");
+            }
+            else {
+                $("#statusMessage").removeClass("alert-danger");
+                $("#statusMessage").addClass("alert-success");
+            }
+        }
+    </script>
+
+}

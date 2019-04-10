@@ -1,0 +1,341 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.ZPVM.Models.ProductControlObjectViewModel
+@using ServiceCenter.MES.Model.ZPVM;
+@using ServiceCenter.Model;
+@using ServiceCenter.Common;
+@using ServiceCenter.Client.Mvc.Areas.ZPVM.Models;
+@using FMM = ServiceCenter.Client.Mvc.Resources.ZPVM;
+@using ServiceCenter.Client.Mvc.Resources;
+
+@{
+    ViewBag.Title = "产品(" + Model.ProductCode + ":" + Model.ProductName + ")规则设置";
+    PagingConfig cfg = ViewBag.PagingConfig;
+
+}
+<h2>@ViewBag.Title</h2>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <a href="javascript:showAddModal()" class="btn btn-primary">@StringResource.Add</a>
+        @Ajax.ActionLink("刷新",
+                        actionName: null
+                        , routeValues: null
+                        , ajaxOptions: new AjaxOptions()
+                        {
+                            HttpMethod = "Post",
+                            UpdateTargetId = "_list",
+                            Url = Url.Action("Query", new { ProductName = ViewBag.ProductName, ProductCode = ViewBag.ProductCode })
+                        }
+                        , htmlAttributes: new { @class = "btn btn-default", @id = "refresh" })
+
+        @Html.ActionLink("返回", "Index", "ProductControlObject", null, new { @class = "btn btn-default" })
+    </div>
+</div>
+<div class="alert fade in hide" resource="alert" id="statusMessage" style="margin:0px">
+    <button type="button" class="close" onclick="hideStatusMessage()">
+        <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+    </button>
+    <p></p>
+</div>
+<div id="_list">
+    @Html.Partial("_ListPartial")
+</div>
+
+@*新增*@
+<div id="add" class="modal fade" tabindex="-1" resource="dialog" aria-labelledby="addHeader" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="addHeader">新增规则</h4>
+            </div>
+            <div class="modal-body" id="addContent" style="margin:0px;padding:5px">
+                @using (Ajax.BeginForm("Save", "ProductControlObject", null
+                        , new AjaxOptions()
+                        {
+                            HttpMethod = "Post",
+                            OnSuccess = "completeSave",
+                            OnBegin = "beginSave"
+                        }
+                        , new { @class = "form-horizontal", resource = "form", id = "frmAdd" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <input type="submit" class="btn btn-primary" value="@StringResource.Save" id="btnSave" />
+                            <input type="reset" class="btn btn-default" value="@StringResource.Reset" id="btnReset" />
+                        </div>
+                        <div class="panel-body">
+                            <div class="alert fade in hide" resource="alert" id="addStatusMessage">
+                                <button type="button" class="close" onclick="hideAddAlert()">
+                                    <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+                                </button>
+                                <p></p>
+                            </div>
+                            <div>
+                                @Html.Partial("_AddPartial", new ProductControlObjectViewModel()
+                                                                            {
+                                                                                ProductCode = Model.ProductCode,
+                                                                                ProductName = Model.ProductName
+                                                                            })
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+@*修改*@
+<div id="modify"
+     class="modal fade"
+     tabindex="-1"
+     resource="dialog"
+     aria-labelledby="modifyHeader"
+     aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="modifyHeader">修改规则</h4>
+            </div>
+            <div class="modal-body" id="modifyResourceContent" style="margin:0px;padding:5px">
+                @using (Ajax.BeginForm("SaveModify", "ProductControlObject", null
+                    , new AjaxOptions()
+                    {
+                        HttpMethod = "Post",
+                        OnSuccess = "completeSaveModify",
+                        OnBegin = "beginSaveModify"
+                    }
+                    , new { @class = "form-horizontal", resource = "form" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <input type="submit" class="btn btn-primary" value="@StringResource.Save" id="btnSaveModify" />
+                        </div>
+                        <div class="panel-body">
+                            <div class="alert fade in hide" resource="alert" id="modifyStatusMessage">
+                                <button type="button" class="close" onclick="hideModifyAlert()">
+                                    <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+                                </button>
+                                <p></p>
+                            </div>
+                            <div id="modifyFormContent">
+                                @Html.Partial("_ModifyPartial", new ProductControlObjectViewModel()
+                                                                            {
+                                                                                ProductCode = Model.ProductCode,
+                                                                                ProductName = Model.ProductName
+                                                                            })
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script type="text/javascript" language="javascript">
+        //刷新列表
+        function refreshList() {
+
+            $("#refresh").click();
+        }
+        //隐藏状态消息
+        function hideStatusMessage() {
+            $("#statusMessage").addClass("hide");
+        }
+        $("#SupplierCode").each(function () {
+            registerSupplierCodeClientEvent($(this));
+        });
+
+        $("#CellEff").each(function () {
+            registerEfficiencyClientEvent($(this));
+        });
+        
+        function registerEfficiencyClientEvent(element)
+        {
+            var url = "@Url.Action("GetEfficiency", "MaterialReceipt", new { area = "LSM" })";
+
+            $("#CellEff").autocomplete({
+                source: function (request, response) {
+                    var term = request.term.toUpperCase();
+                    var timestamp = Math.round(new Date().getTime() / 1000);
+                    var reqdata = { q: term, timestamp: timestamp };
+                    $.getJSON(url, reqdata, function (data, status, xhr) {
+                        response(data);
+                    });
+                },
+                minLength: 1,
+                autoFocus: true,
+                appendTo: "#addContent",
+                change: function () {
+                    var val = $(this).val().toUpperCase();
+                    var valid = false;
+                    var obj = $(this);
+                    var timestamp = Math.round(new Date().getTime() / 1000);
+                    var reqdata = { q: val, timestamp: timestamp };
+                    $.getJSON(url, reqdata, function (data, status, xhr) {
+                        $(data).each(function (index, item) {
+                            if (item.value.toUpperCase() == val) {
+                                valid = true;
+                                return false;
+                            }
+                        });
+                        if (valid == false) {
+                            setTimeout(function () { $(obj).val(""); $(obj).focus(); }, 0);
+                        }
+                    });
+                }
+            });
+        }
+
+        var getSupplierNameUrl = "@Url.Action("GetSupplierName", "MaterialReceipt", new { area = "LSM" })";
+
+        function registerSupplierCodeClientEvent(element)
+        {
+            $(element).autocomplete({
+                source: function (request, response) {
+                    //已缓存
+                    var term = request.term.toUpperCase();
+                    var timestamp = Math.round(new Date().getTime() / 1000);
+                    var reqdata = { q: term, timestamp: timestamp };
+                    //动态获取。
+                    $.getJSON(getSupplierNameUrl, reqdata, function (data, status, xhr) {
+                        response(data);
+                    });
+                },
+                minLength: 1,
+                autoFocus: true,
+                appendTo: "#addContent",
+                change: function () {
+                    changeSupplierName($(this));
+                }
+            });
+        }
+
+        function changeSupplierName(element) {
+            var val = $(element).val().toUpperCase();
+            var valid = false;
+            var obj = $(element);
+            var supplierName = $("#SupplierName");
+            $(supplierName).val("");
+            var timestamp = Math.round(new Date().getTime() / 1000);
+            var reqdata = { q: val, timestamp: timestamp };
+            $.getJSON(getSupplierNameUrl, reqdata, function (data, status, xhr) {
+                $(data).each(function (index, item) {
+                    if (item.value.toUpperCase() == val) {
+                        $(supplierName).val(item.SupplierName);
+                        valid = true;
+                        return false;
+                    }
+                });
+                if (valid == false) {
+                    $(obj).val("");
+                    setTimeout(function () { $(obj).focus(); }, 0);
+                }
+            });
+        }
+    </script>
+    @*新增*@
+    <script type="text/javascript" language="javascript">
+        //保存
+        $(function () {
+            $('#add').on('hide.bs.modal', function (e) {
+                $("#btnReset").click();
+            });
+            $("#add,#modify,#print").on('shown.bs.modal', function (e) {
+                var texts = $(this).find(":text:visible:enabled,:checkbox:visible:enabled,textarea:visible:enabled,select:visible:enabled");
+                texts.eq(0).focus().select();
+            });
+        })
+        function showAddModal() {
+            hideStatusMessage();
+            hideAddAlert();
+            $('#add').modal('show');
+        }
+
+        function hideAddAlert() {
+            $("#addStatusMessage").addClass("hide");
+        }
+
+        function beginSave() {
+            $("#addStatusMessage").addClass("hide");
+            $("#btnSave").attr("disabled", "disabled");
+        }
+
+        function completeSave(result) {
+            $("#btnSave").removeAttr("disabled");
+            $("#addStatusMessage").find("p").html(result.Message);
+            $("#addStatusMessage").removeClass("hide");
+            if (result.Code > 0) {
+                $("#addStatusMessage").removeClass("alert-success");
+                $("#addStatusMessage").addClass("alert-danger");
+            }
+            else {
+                $("#addStatusMessage").removeClass("alert-danger");
+                $("#addStatusMessage").addClass("alert-success");
+                refreshList();
+            }
+        }
+    </script>
+    @*修改*@
+    <script type="text/javascript" language="javascript">
+        //修改资源
+        function showModifyModal(result) {
+            hideStatusMessage();
+            hideModifyAlert();
+            $('#modify').modal('show')
+        }
+
+        function hideModifyAlert() {
+            $("#modifyStatusMessage").addClass("hide");
+        }
+
+        function beginSaveModify() {
+            $("#addStatusMessage").addClass("hide");
+            $("#btnSaveModify").attr("disabled", "disabled");
+        }
+
+        function completeSaveModify(result) {
+            $("#btnSaveModify").removeAttr("disabled");
+            $("#modifyStatusMessage").find("p").html(result.Message);
+            $("#modifyStatusMessage").removeClass("hide");
+            if (result.Code > 0) {
+                $("#modifyStatusMessage").removeClass("alert-success");
+                $("#modifyStatusMessage").addClass("alert-danger");
+            }
+            else {
+                $("#modifyStatusMessage").removeClass("alert-danger");
+                $("#modifyStatusMessage").addClass("alert-success");
+                refreshList();
+            }
+        }
+    </script>
+
+    @*删除*@
+    <script type="text/javascript" language="javascript">
+        //删除资源
+        function completeDelete(result) {
+            $("#statusMessage").addClass("hide");
+            $("#statusMessage").find("p").html(result.Message);
+            $("#statusMessage").removeClass("hide");
+            if (result.Code > 0) {
+                $("#statusMessage").removeClass("alert-success");
+                $("#statusMessage").addClass("alert-danger");
+            }
+            else {
+                $("#statusMessage").removeClass("alert-danger");
+                $("#statusMessage").addClass("alert-success");
+                refreshList();
+            }
+        }
+    </script>
+}

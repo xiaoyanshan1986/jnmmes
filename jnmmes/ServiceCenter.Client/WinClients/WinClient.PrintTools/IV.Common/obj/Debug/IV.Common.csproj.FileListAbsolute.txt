@@ -1,0 +1,13 @@
+E:\组件程序\20160405\trunk\src\ServiceCenter.Client\WinClients\WinClient.PrintTools\IV.Common\bin\Debug\IV.Common.dll
+E:\组件程序\20160405\trunk\src\ServiceCenter.Client\WinClients\WinClient.PrintTools\IV.Common\bin\Debug\IV.Common.pdb
+E:\组件程序\20160405\trunk\src\ServiceCenter.Client\WinClients\WinClient.PrintTools\IV.Common\obj\Debug\IV.Common.dll
+E:\组件程序\20160405\trunk\src\ServiceCenter.Client\WinClients\WinClient.PrintTools\IV.Common\obj\Debug\IV.Common.pdb
+E:\组件程序\20160405\trunk\src\ServiceCenter.Client\WinClients\WinClient.PrintTools\IV.Common\obj\Debug\IV.Common.csprojResolveAssemblyReference.cache
+D:\Users\ZiJing.Wu\Desktop\WinClient.PrintTools\IV.Common\bin\Debug\IV.Common.dll
+D:\Users\ZiJing.Wu\Desktop\WinClient.PrintTools\IV.Common\bin\Debug\IV.Common.pdb
+D:\Users\ZiJing.Wu\Desktop\WinClient.PrintTools\IV.Common\obj\Debug\IV.Common.dll
+D:\Users\ZiJing.Wu\Desktop\WinClient.PrintTools\IV.Common\obj\Debug\IV.Common.pdb
+E:\Workspace\Jinergy\JNMMES\trunk\src\ServiceCenter.Client\WinClients\WinClient.PrintTools\IV.Common\bin\Debug\IV.Common.dll
+E:\Workspace\Jinergy\JNMMES\trunk\src\ServiceCenter.Client\WinClients\WinClient.PrintTools\IV.Common\bin\Debug\IV.Common.pdb
+E:\Workspace\Jinergy\JNMMES\trunk\src\ServiceCenter.Client\WinClients\WinClient.PrintTools\IV.Common\obj\Debug\IV.Common.dll
+E:\Workspace\Jinergy\JNMMES\trunk\src\ServiceCenter.Client\WinClients\WinClient.PrintTools\IV.Common\obj\Debug\IV.Common.pdb

@@ -1,0 +1,137 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.WIP.Models.LotPackageCornerViewModels
+@using ServiceCenter.MES.Model.WIP;
+@using ServiceCenter.Model;
+@using ServiceCenter.Common;
+@using ServiceCenter.Client.Mvc.Areas.WIP.Models;
+@using WIPRsources = ServiceCenter.Client.Mvc.Resources.WIP;
+@using ServiceCenter.Client.Mvc.Resources;
+
+@{
+    ViewBag.Title = WIPRsources.StringResource.LotViewModel_ShowDialog;
+    
+}
+<h2>@ViewBag.Title</h2>
+@using (Ajax.BeginForm("Save", "LotPackageCorner", null
+                    , new AjaxOptions()
+                    {
+                        HttpMethod = "Post",
+                        OnSuccess = "completeSave",
+                        OnBegin = "beginSave"
+                    }
+                    , new { @class = "form-horizontal", resource = "form", id = "frmPackageCorner", autocomplete = "off" }))
+{
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <input type="button" value="@WIPRsources.StringResource.Save" class="btn btn-primary" id="btnSave" />
+    </div>
+    <div class="panel-body has-success">
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        <div class="form-group">
+            @*线别*@
+            <div class="col-md-1">
+                @Html.LabelFor(m => m.LineCode, new { @class = "control-label" })
+            </div>
+            <div class="col-md-2">
+                @Html.DropDownListFor(m => m.LineCode, @Model.GetProductionLineList(), new { @class = "form-control", @style = "height:50px;font-size:20px;text-transform:uppercase;ime-mode:disabled" })
+                @Html.ValidationMessageFor(m => m.LineCode)
+            </div>
+            @*批次号*@
+            <div class="col-md-1">
+                @Html.LabelFor(m => m.LotNumber, new { @class = "control-label" })
+            </div>
+            <div class="col-md-5">
+                @Html.TextBoxFor(m => m.LotNumber, new { @class = "form-control", @style = "height:50px;font-size:20px;text-transform:uppercase;ime-mode:disabled" })
+                @Html.ValidationMessageFor(m => m.LotNumber)
+            </div>
+            <div class="col-md-1">
+                @Html.LabelFor(m => m.UndoPackageCorner, new { @class = "control-label", @id = "labShowDialog" })
+            </div>
+            <div class="col-md-2">
+                @Html.CheckBoxFor(m => m.UndoPackageCorner, new { @class = "form-control", @style = "height:50px;font-size:20px;text-transform:uppercase;ime-mode:disabled" })
+            </div>
+        </div>
+    </div>
+    <div class="alert fade in hide" id="packageMessage" style="margin: 0px; text-align:center; height: 400px; font-size: 200px;font-weight:400;color:red">
+        <button type="button" class="close" onclick="hideStatusPackageMessage()">
+            <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+        </button>
+        <p></p>
+    </div>
+    <div class="alert fade in hide" id="packageMessageError" style="margin: 0px; text-align:center;font-size: 100px;font-weight:200;color:red">
+        <button type="button" class="close" onclick="hideStatusPackageMessageError()">
+            <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+        </button>
+        <p></p>
+    </div>
+</div>
+}
+
+
+@section Scripts {
+    <script type="text/javascript" language="javascript">
+        $(function () {
+            $("#LotNumber:first").focus();
+            $("#btnSave").click(function () {
+                hideStatusMessage();
+                $("#frmPackageCorner").submit();
+            });
+
+            $("#LotNumber").keypress(function (args) {
+                if (args.keyCode == 13) {
+                    if ($('#btnSave').attr("disabled") == "disabled") {
+
+                    }
+                    else {
+                        $("#btnSave").click();
+                    }
+
+                }
+            });
+
+            $("#frmTrack").keypress(function (args) {
+                if (args.ctrlKey == true && args.keyCode == 13) {
+                    if ($('#btnSave').attr("disabled") == "disabled") {
+
+                    }
+                    else {
+                        $("#btnSave").click();
+                    }
+
+                }
+            });
+        });
+        
+      
+
+        //隐藏状态消息
+        function hideStatusMessage() {
+            $("#packageMessage").addClass("hide");
+            $("#packageMessageError").addClass("hide");
+        }
+
+        function beginSave() {
+            $("#btnSave").attr("disabled", "disabled");
+            $("#LotNumber").attr("readonly", "readonly");
+            hideStatusMessage();
+        }
+
+        function completeSave(result) {
+            $("#btnSave").removeAttr("disabled");
+            $("#LotNumber").removeAttr("readonly");
+            $("#LotNumber:first").select();
+            if (result.Code > 0) {
+                $("#packageMessageError").find("p").html(result.Message);
+                $("#packageMessageError").removeClass("hide");
+                $("#packageMessageError").addClass("alert-success");
+            }
+            else {
+                $("#packageMessage").find("p").html(result.Message);
+                $("#packageMessage").removeClass("hide");
+                $("#packageMessage").addClass("alert-success");
+            }
+        }
+
+    </script>
+
+}

@@ -1,0 +1,55 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.FMM.Models.EquipmentLayoutViewModel
+@using ServiceCenter.Common;
+
+@Html.ValidationSummary(true)
+<div class="form-group">
+    @Html.LabelFor(m => m.Name, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        <p class="form-control-static">@Model.Name</p>
+        @Html.HiddenFor(m => m.Name)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.Width, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.Width, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Width)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.Height, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.Height, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Height)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.IsDeleteBackgroudImage, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.CheckBoxFor(m=>m.IsDeleteBackgroudImage, new { @class = "form-control" })
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.BackgroundImage, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        <input type="file" name="BackgroundImage" class="form-control-static">
+        @Html.HiddenFor(m => m.BackgroundImage)
+        @Html.ValidationMessageFor(m => m.BackgroundImage)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.Status, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.DropDownListFor(m => m.Status
+                              , @Model.GetObjectStatusList()
+                              , new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Status)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.Description, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextAreaFor(m => m.Description, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Description)
+    </div>
+</div>

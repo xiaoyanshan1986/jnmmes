@@ -1,0 +1,383 @@
+2016-05-26 08:13:44,236 - ERROR - NoViableAltException(125@[])
+2016-05-26 08:13:59,957 - ERROR - ChkBin:Start> Lot_Number:2231911213144|| Scan_IP:10.0.12.138
+2016-05-26 08:14:01,920 - ERROR - NoViableAltException(125@[])
+2016-05-26 08:14:19,422 - ERROR - ChkBin:End> Lot_Number:2231911213144|| Scan_IP:10.0.12.138||Bin_No:24||Message:引发类型为“Antlr.Runtime.NoViableAltException”的异常。 near line 1, column 99
+2016-05-26 08:14:26,833 - ERROR - ChkBin:Start> Lot_Number:2231911213144|| Scan_IP:10.0.12.138
+2016-05-26 08:17:28,610 - ERROR - NoViableAltException(125@[])
+2016-05-26 08:17:30,395 - ERROR - ChkBin:End> Lot_Number:2231911213144|| Scan_IP:10.0.12.138||Bin_No:24||Message:引发类型为“Antlr.Runtime.NoViableAltException”的异常。 near line 1, column 99
+2016-05-26 08:20:00,697 - ERROR - ChkBin:Start> Lot_Number:2231913212019|| Scan_IP:10.0.12.138
+2016-05-26 08:20:43,808 - ERROR - ChkBin:End> Lot_Number:2231913212019|| Scan_IP:10.0.12.138||Bin_No:24||Message:产品：(2231913212019)在(终检)工序，请确认。
+2016-05-26 08:20:47,440 - ERROR - ChkBin:Start> Lot_Number:2231913212019|| Scan_IP:10.0.12.138
+2016-05-26 08:23:43,781 - ERROR - ChkBin:End> Lot_Number:2231913212019|| Scan_IP:10.0.12.138||Bin_No:24||Message:产品：(2231913212019)在(终检)工序，请确认。
+2016-05-26 08:25:42,457 - ERROR - START>Application
+2016-05-26 08:25:50,000 - ERROR - ChkBin:Start> Lot_Number:2231913212019|| Scan_IP:10.0.12.138
+2016-05-26 08:25:55,565 - ERROR - ChkBin:End> Lot_Number:2231913212019|| Scan_IP:10.0.12.138||Bin_No:24||Message:产品：(2231913212019)在(终检)工序，请确认。
+2016-05-26 08:26:04,274 - ERROR - ChkBin:Start> Lot_Number:2231911213144|| Scan_IP:10.0.12.138
+2016-05-26 08:27:49,488 - ERROR - START>Application
+2016-05-26 08:27:58,072 - ERROR - ChkBin:Start> Lot_Number:2231911213144|| Scan_IP:10.0.12.138
+2016-05-26 08:29:05,878 - ERROR - NoViableAltException(125@[])
+2016-05-26 08:29:14,099 - ERROR - ChkBin:End> Lot_Number:2231911213144|| Scan_IP:10.0.12.138||Bin_No:24||Message:引发类型为“Antlr.Runtime.NoViableAltException”的异常。 near line 1, column 99
+2016-05-26 08:29:17,444 - ERROR - ChkBin:Start> Lot_Number:2231911213144|| Scan_IP:10.0.12.138
+2016-05-26 08:29:32,298 - ERROR - NoViableAltException(125@[])
+2016-05-26 08:29:32,325 - ERROR - ChkBin:End> Lot_Number:2231911213144|| Scan_IP:10.0.12.138||Bin_No:24||Message:引发类型为“Antlr.Runtime.NoViableAltException”的异常。 near line 1, column 99
+2016-05-26 08:29:41,383 - ERROR - ChkBin:Start> Lot_Number:2231911213143|| Scan_IP:10.0.12.138
+2016-05-26 08:29:41,473 - ERROR - ChkBin:End> Lot_Number:2231911213143|| Scan_IP:10.0.12.138||Bin_No:24||Message:批次（2231911213143）非当前包装线(102B-C)包装！
+2016-05-26 08:29:44,470 - ERROR - ChkBin:Start> Lot_Number:2231911213143|| Scan_IP:10.0.12.138
+2016-05-26 08:29:44,557 - ERROR - ChkBin:End> Lot_Number:2231911213143|| Scan_IP:10.0.12.138||Bin_No:24||Message:批次（2231911213143）非当前包装线(102B-C)包装！
+2016-05-26 08:29:45,357 - ERROR - ChkBin:Start> Lot_Number:2231911213143|| Scan_IP:10.0.12.138
+2016-05-26 08:29:45,441 - ERROR - ChkBin:End> Lot_Number:2231911213143|| Scan_IP:10.0.12.138||Bin_No:24||Message:批次（2231911213143）非当前包装线(102B-C)包装！
+2016-05-26 08:29:51,986 - ERROR - ChkBin:Start> Lot_Number:2231911213144|| Scan_IP:10.0.12.138
+2016-05-26 08:29:52,093 - ERROR - NoViableAltException(125@[])
+2016-05-26 08:29:52,146 - ERROR - ChkBin:End> Lot_Number:2231911213144|| Scan_IP:10.0.12.138||Bin_No:24||Message:引发类型为“Antlr.Runtime.NoViableAltException”的异常。 near line 1, column 99
+2016-05-26 08:29:54,243 - ERROR - ChkBin:Start> Lot_Number:2231911213144|| Scan_IP:10.0.12.138
+2016-05-26 08:29:54,362 - ERROR - NoViableAltException(125@[])
+2016-05-26 08:29:54,407 - ERROR - ChkBin:End> Lot_Number:2231911213144|| Scan_IP:10.0.12.138||Bin_No:24||Message:引发类型为“Antlr.Runtime.NoViableAltException”的异常。 near line 1, column 99
+2016-05-26 08:30:09,560 - ERROR - ChkBin:Start> Lot_Number:2231911213143|| Scan_IP:10.0.12.138
+2016-05-26 08:30:25,546 - ERROR - ChkBin:End> Lot_Number:2231911213143|| Scan_IP:10.0.12.138||Bin_No:24||Message:批次（2231911213143）非当前包装线(102B-C)包装！
+2016-05-26 08:30:31,375 - ERROR - ChkBin:Start> Lot_Number:2231911213143|| Scan_IP:10.0.12.138
+2016-05-26 08:30:46,109 - ERROR - ChkBin:End> Lot_Number:2231911213143|| Scan_IP:10.0.12.138||Bin_No:24||Message:批次（2231911213143）非当前包装线(102B-C)包装！
+2016-05-26 08:31:11,064 - ERROR - ChkBin:Start> Lot_Number:2231913212019|| Scan_IP:10.0.12.138
+2016-05-26 08:31:22,485 - ERROR - ChkBin:End> Lot_Number:2231913212019|| Scan_IP:10.0.12.138||Bin_No:24||Message:产品：(2231913212019)在(终检)工序，请确认。
+2016-05-26 08:31:29,511 - ERROR - ChkBin:Start> Lot_Number:2231911213144|| Scan_IP:10.0.12.138
+2016-05-26 08:32:02,260 - ERROR - NoViableAltException(125@[])
+2016-05-26 08:32:11,681 - ERROR - ChkBin:End> Lot_Number:2231911213144|| Scan_IP:10.0.12.138||Bin_No:24||Message:引发类型为“Antlr.Runtime.NoViableAltException”的异常。 near line 1, column 99
+2016-05-26 08:35:05,017 - ERROR - START>Application
+2016-05-26 08:35:15,369 - ERROR - ChkBin:Start> Lot_Number:2231911213144|| Scan_IP:10.0.12.138
+2016-05-26 08:37:24,306 - ERROR - START>Application
+2016-05-26 08:37:32,910 - ERROR - ChkBin:Start> Lot_Number:2231911213144|| Scan_IP:10.0.12.138
+2016-05-26 08:41:10,756 - ERROR - ChkBin:End> Lot_Number:2231911213144|| Scan_IP:10.0.12.138||Bin_No:24||Message:
+2016-05-26 09:23:05,687 - ERROR - START>Application
+2016-05-26 09:23:15,257 - ERROR - ChkBin:Start> Lot_Number:2231911213144|| Scan_IP:10.0.12.138
+2016-05-26 09:24:39,938 - ERROR - START>Application
+2016-05-26 09:24:54,381 - ERROR - ChkBin:Start> Lot_Number:2231911213144|| Scan_IP:10.0.12.138
+2016-05-26 09:25:14,421 - ERROR - ChkBin:End> Lot_Number:2231911213144|| Scan_IP:10.0.12.138||Bin_No:24||Message:未将对象引用设置到对象的实例。
+2016-05-26 09:28:59,059 - ERROR - START>Application
+2016-05-26 09:29:09,534 - ERROR - ChkBin:Start> Lot_Number:2231911213144|| Scan_IP:10.0.12.138
+2016-05-26 09:29:44,868 - ERROR - ChkBin:End> Lot_Number:2231911213144|| Scan_IP:10.0.12.138||Bin_No:24||Message:
+2016-05-26 09:29:52,736 - ERROR - ChkBin:Start> Lot_Number:2231911213144|| Scan_IP:10.0.12.138
+2016-05-26 09:31:08,441 - ERROR - START>Application
+2016-05-26 09:31:16,346 - ERROR - ChkBin:Start> Lot_Number:2231911213144|| Scan_IP:10.0.12.138
+2016-05-26 09:31:18,794 - ERROR - ChkBin:End> Lot_Number:2231911213144|| Scan_IP:10.0.12.138||Bin_No:1||Message:
+2016-05-26 09:31:21,932 - ERROR - ChkBin:Start> Lot_Number:2231911213144|| Scan_IP:10.0.12.138
+2016-05-26 09:31:23,786 - ERROR - ChkBin:End> Lot_Number:2231911213144|| Scan_IP:10.0.12.138||Bin_No:1||Message:
+2016-05-26 09:31:52,144 - ERROR - ChkBin:Start> Lot_Number:2231911213144|| Scan_IP:10.0.12.138
+2016-05-26 09:31:52,325 - ERROR - ChkBin:End> Lot_Number:2231911213144|| Scan_IP:10.0.12.138||Bin_No:1||Message:
+2016-05-26 09:32:03,396 - ERROR - ChkBin:Start> Lot_Number:2231911213144|| Scan_IP:10.0.12.138
+2016-05-26 09:32:03,593 - ERROR - ChkBin:End> Lot_Number:2231911213144|| Scan_IP:10.0.12.138||Bin_No:1||Message:
+2016-05-26 09:32:19,396 - ERROR - ChkBin:Start> Lot_Number:2231911213144|| Scan_IP:10.0.12.138
+2016-05-26 09:32:19,574 - ERROR - ChkBin:End> Lot_Number:2231911213144|| Scan_IP:10.0.12.138||Bin_No:1||Message:
+2016-05-26 09:32:45,264 - ERROR - ChkBin:Start> Lot_Number:2231911213144|| Scan_IP:10.0.12.135
+2016-05-26 09:32:45,337 - ERROR - ChkBin:End> Lot_Number:2231911213144|| Scan_IP:10.0.12.135||Bin_No:24||Message:批次（2231911213144）非当前包装线(102B-B)包装！
+2016-05-26 09:32:51,633 - ERROR - ChkBin:Start> Lot_Number:2231911213144|| Scan_IP:10.0.12.135
+2016-05-26 09:32:51,713 - ERROR - ChkBin:End> Lot_Number:2231911213144|| Scan_IP:10.0.12.135||Bin_No:24||Message:批次（2231911213144）非当前包装线(102B-B)包装！
+2016-05-26 09:33:05,608 - ERROR - ChkBin:Start> Lot_Number:2231911213144|| Scan_IP:10.0.12.135
+2016-05-26 09:33:05,685 - ERROR - ChkBin:End> Lot_Number:2231911213144|| Scan_IP:10.0.12.135||Bin_No:24||Message:批次（2231911213144）非当前包装线(102B-B)包装！
+2016-05-26 09:35:22,031 - ERROR - ChkBin:Start> Lot_Number:2231911213144|| Scan_IP:10.0.12.135
+2016-05-26 09:35:22,112 - ERROR - ChkBin:End> Lot_Number:2231911213144|| Scan_IP:10.0.12.135||Bin_No:24||Message:批次（2231911213144）非当前包装线(102B-B)包装！
+2016-05-26 09:35:27,714 - ERROR - ChkBin:Start> Lot_Number:2231911213144|| Scan_IP:10.0.12.135
+2016-05-26 09:35:27,780 - ERROR - ChkBin:End> Lot_Number:2231911213144|| Scan_IP:10.0.12.135||Bin_No:24||Message:批次（2231911213144）非当前包装线(102B-B)包装！
+2016-05-26 09:36:19,043 - ERROR - START>Application
+2016-05-26 09:36:26,853 - ERROR - ChkBin:Start> Lot_Number:2231911213144|| Scan_IP:10.0.12.135
+2016-05-26 09:36:26,991 - ERROR - ChkBin:End> Lot_Number:2231911213144|| Scan_IP:10.0.12.135||Bin_No:24||Message:批次（2231911213144）已包装！
+2016-05-26 09:36:36,007 - ERROR - ChkBin:Start> Lot_Number:2231911213144|| Scan_IP:10.0.12.135
+2016-05-26 09:36:36,083 - ERROR - ChkBin:End> Lot_Number:2231911213144|| Scan_IP:10.0.12.135||Bin_No:24||Message:批次（2231911213144）已包装！
+2016-05-26 09:36:38,106 - ERROR - ChkBin:Start> Lot_Number:2231911213144|| Scan_IP:10.0.12.135
+2016-05-26 09:36:38,190 - ERROR - ChkBin:End> Lot_Number:2231911213144|| Scan_IP:10.0.12.135||Bin_No:24||Message:批次（2231911213144）已包装！
+2016-05-26 09:36:39,666 - ERROR - ChkBin:Start> Lot_Number:2231911213144|| Scan_IP:10.0.12.135
+2016-05-26 09:36:39,736 - ERROR - ChkBin:End> Lot_Number:2231911213144|| Scan_IP:10.0.12.135||Bin_No:24||Message:批次（2231911213144）已包装！
+2016-05-26 09:36:41,262 - ERROR - ChkBin:Start> Lot_Number:2231911213144|| Scan_IP:10.0.12.135
+2016-05-26 09:36:41,336 - ERROR - ChkBin:End> Lot_Number:2231911213144|| Scan_IP:10.0.12.135||Bin_No:24||Message:批次（2231911213144）已包装！
+2016-05-26 09:36:42,607 - ERROR - ChkBin:Start> Lot_Number:2231911213144|| Scan_IP:10.0.12.135
+2016-05-26 09:36:42,687 - ERROR - ChkBin:End> Lot_Number:2231911213144|| Scan_IP:10.0.12.135||Bin_No:24||Message:批次（2231911213144）已包装！
+2016-05-26 09:36:43,957 - ERROR - ChkBin:Start> Lot_Number:2231911213144|| Scan_IP:10.0.12.135
+2016-05-26 09:36:44,037 - ERROR - ChkBin:End> Lot_Number:2231911213144|| Scan_IP:10.0.12.135||Bin_No:24||Message:批次（2231911213144）已包装！
+2016-05-26 09:36:49,604 - ERROR - ChkBin:Start> Lot_Number:2231911213144|| Scan_IP:10.0.12.138
+2016-05-26 09:36:49,842 - ERROR - ChkBin:End> Lot_Number:2231911213144|| Scan_IP:10.0.12.138||Bin_No:1||Message:
+2016-05-26 09:40:50,555 - ERROR - ChkBin:Start> Lot_Number:2231911213153|| Scan_IP:10.0.12.138
+2016-05-26 09:40:51,217 - ERROR - ChkBin:End> Lot_Number:2231911213153|| Scan_IP:10.0.12.138||Bin_No:1||Message:
+2016-05-26 09:40:53,112 - ERROR - ChkBin:Start> Lot_Number:2231911213153|| Scan_IP:10.0.12.138
+2016-05-26 09:40:53,818 - ERROR - ChkBin:End> Lot_Number:2231911213153|| Scan_IP:10.0.12.138||Bin_No:1||Message:
+2016-05-26 09:42:00,177 - ERROR - ChkBin:Start> Lot_Number:JN2221924210151|| Scan_IP:10.0.12.138
+2016-05-26 09:42:00,704 - ERROR - ChkBin:End> Lot_Number:JN2221924210151|| Scan_IP:10.0.12.138||Bin_No:24||Message:批次：（JN2221924210151） 无对应Bin！
+2016-05-26 09:42:04,973 - ERROR - ChkBin:Start> Lot_Number:JN2221924210151|| Scan_IP:10.0.12.138
+2016-05-26 09:42:05,545 - ERROR - ChkBin:End> Lot_Number:JN2221924210151|| Scan_IP:10.0.12.138||Bin_No:24||Message:批次：（JN2221924210151） 无对应Bin！
+2016-05-26 09:42:18,652 - ERROR - ChkBin:Start> Lot_Number:JN2221918212295|| Scan_IP:10.0.12.138
+2016-05-26 09:42:19,267 - ERROR - ChkBin:End> Lot_Number:JN2221918212295|| Scan_IP:10.0.12.138||Bin_No:24||Message:批次：（JN2221918212295） 无对应Bin！
+2016-05-26 09:47:24,396 - ERROR - ChkBin:Start> Lot_Number:JN2221918212295|| Scan_IP:10.0.12.138
+2016-05-26 09:48:07,714 - ERROR - ChkBin:End> Lot_Number:JN2221918212295|| Scan_IP:10.0.12.138||Bin_No:6||Message:
+2016-05-26 09:48:19,271 - ERROR - ChkBin:Start> Lot_Number:JN2221918212295|| Scan_IP:10.0.12.138
+2016-05-26 09:50:46,819 - ERROR - ChkBin:End> Lot_Number:JN2221918212295|| Scan_IP:10.0.12.138||Bin_No:6||Message:
+2016-05-26 09:51:44,809 - ERROR - ChkBin:Start> Lot_Number:2231911213153|| Scan_IP:10.0.12.138
+2016-05-26 09:51:45,446 - ERROR - ChkBin:End> Lot_Number:2231911213153|| Scan_IP:10.0.12.138||Bin_No:1||Message:
+2016-05-26 09:53:53,217 - ERROR - START>Application
+2016-05-26 09:54:09,311 - ERROR - ChkBin:Start> Lot_Number:2231911213153|| Scan_IP:10.0.12.138
+2016-05-26 09:54:49,983 - ERROR - ChkBin:End> Lot_Number:2231911213153|| Scan_IP:10.0.12.138||Bin_No:1||Message:
+2016-05-26 09:54:53,054 - ERROR - ChkBin:Start> Lot_Number:2231911213153|| Scan_IP:10.0.12.138
+2016-05-26 09:54:53,657 - ERROR - ChkBin:End> Lot_Number:2231911213153|| Scan_IP:10.0.12.138||Bin_No:1||Message:
+2016-05-26 09:55:19,391 - ERROR - ChkBin:Start> Lot_Number:2231911213153|| Scan_IP:10.0.12.138
+2016-05-26 09:59:58,610 - ERROR - START>Application
+2016-05-26 10:12:15,357 - ERROR - START>Application
+2016-05-26 10:35:44,173 - ERROR - START>Application
+2016-05-26 10:38:24,832 - ERROR - ChkBin:Start> Lot_Number:2231911213153|| Scan_IP:10.0.12.138
+2016-05-26 10:38:25,646 - ERROR - ChkBin:End> Lot_Number:2231911213153|| Scan_IP:10.0.12.138||Bin_No:1||Message:
+2016-05-26 10:43:50,779 - ERROR - ChkBin:Start> Lot_Number:2231911213153|| Scan_IP:10.0.12.138
+2016-05-26 10:43:50,968 - ERROR - ChkBin:End> Lot_Number:2231911213153|| Scan_IP:10.0.12.138||Bin_No:1||Message:
+2016-05-26 10:48:30,697 - ERROR - START>Application
+2016-05-26 10:48:39,691 - ERROR - ChkBin:Start> Lot_Number:2231911213157|| Scan_IP:10.0.12.138
+2016-05-26 10:48:40,495 - ERROR - ChkBin:End> Lot_Number:2231911213157|| Scan_IP:10.0.12.138||Bin_No:13||Message:
+2016-05-26 10:48:44,613 - ERROR - ChkBin:Start> Lot_Number:2231911213157|| Scan_IP:10.0.12.138
+2016-05-26 10:48:45,294 - ERROR - ChkBin:End> Lot_Number:2231911213157|| Scan_IP:10.0.12.138||Bin_No:13||Message:
+2016-05-26 10:48:46,502 - ERROR - ChkBin:Start> Lot_Number:2231911213157|| Scan_IP:10.0.12.138
+2016-05-26 10:48:47,078 - ERROR - ChkBin:End> Lot_Number:2231911213157|| Scan_IP:10.0.12.138||Bin_No:13||Message:
+2016-05-26 10:48:47,949 - ERROR - ChkBin:Start> Lot_Number:2231911213157|| Scan_IP:10.0.12.138
+2016-05-26 10:48:48,607 - ERROR - ChkBin:End> Lot_Number:2231911213157|| Scan_IP:10.0.12.138||Bin_No:13||Message:
+2016-05-26 10:48:49,200 - ERROR - ChkBin:Start> Lot_Number:2231911213157|| Scan_IP:10.0.12.138
+2016-05-26 10:48:49,877 - ERROR - ChkBin:End> Lot_Number:2231911213157|| Scan_IP:10.0.12.138||Bin_No:13||Message:
+2016-05-26 10:48:50,415 - ERROR - ChkBin:Start> Lot_Number:2231911213157|| Scan_IP:10.0.12.138
+2016-05-26 10:48:51,018 - ERROR - ChkBin:End> Lot_Number:2231911213157|| Scan_IP:10.0.12.138||Bin_No:13||Message:
+2016-05-26 10:48:53,338 - ERROR - ChkBin:Start> Lot_Number:2231911213157|| Scan_IP:10.0.12.138
+2016-05-26 10:48:53,967 - ERROR - ChkBin:End> Lot_Number:2231911213157|| Scan_IP:10.0.12.138||Bin_No:13||Message:
+2016-05-26 10:48:55,494 - ERROR - ChkBin:Start> Lot_Number:2231911213157|| Scan_IP:10.0.12.138
+2016-05-26 10:48:56,117 - ERROR - ChkBin:End> Lot_Number:2231911213157|| Scan_IP:10.0.12.138||Bin_No:13||Message:
+2016-05-26 10:48:57,915 - ERROR - ChkBin:Start> Lot_Number:2231911213157|| Scan_IP:10.0.12.138
+2016-05-26 10:48:58,629 - ERROR - ChkBin:End> Lot_Number:2231911213157|| Scan_IP:10.0.12.138||Bin_No:13||Message:
+2016-05-26 10:48:59,470 - ERROR - ChkBin:Start> Lot_Number:2231911213157|| Scan_IP:10.0.12.138
+2016-05-26 10:49:00,227 - ERROR - ChkBin:End> Lot_Number:2231911213157|| Scan_IP:10.0.12.138||Bin_No:13||Message:
+2016-05-26 10:49:25,906 - ERROR - ChkBin:Start> Lot_Number:2231911213157|| Scan_IP:10.0.12.138
+2016-05-26 10:49:26,576 - ERROR - ChkBin:End> Lot_Number:2231911213157|| Scan_IP:10.0.12.138||Bin_No:13||Message:
+2016-05-26 10:49:27,756 - ERROR - ChkBin:Start> Lot_Number:2231911213157|| Scan_IP:10.0.12.138
+2016-05-26 10:49:28,366 - ERROR - ChkBin:End> Lot_Number:2231911213157|| Scan_IP:10.0.12.138||Bin_No:13||Message:
+2016-05-26 10:49:30,185 - ERROR - ChkBin:Start> Lot_Number:2231911213157|| Scan_IP:10.0.12.138
+2016-05-26 10:49:30,782 - ERROR - ChkBin:End> Lot_Number:2231911213157|| Scan_IP:10.0.12.138||Bin_No:13||Message:
+2016-05-26 10:49:31,917 - ERROR - ChkBin:Start> Lot_Number:2231911213157|| Scan_IP:10.0.12.138
+2016-05-26 10:49:32,649 - ERROR - ChkBin:End> Lot_Number:2231911213157|| Scan_IP:10.0.12.138||Bin_No:13||Message:
+2016-05-26 10:53:57,048 - ERROR - ChkBin:Start> Lot_Number:2231911213161|| Scan_IP:10.0.12.138
+2016-05-26 10:53:57,758 - ERROR - ChkBin:End> Lot_Number:2231911213161|| Scan_IP:10.0.12.138||Bin_No:13||Message:
+2016-05-26 10:54:00,099 - ERROR - ChkBin:Start> Lot_Number:2231911213161|| Scan_IP:10.0.12.138
+2016-05-26 10:54:00,774 - ERROR - ChkBin:End> Lot_Number:2231911213161|| Scan_IP:10.0.12.138||Bin_No:13||Message:
+2016-05-26 10:57:25,520 - ERROR - ChkBin:Start> Lot_Number:2231911213176|| Scan_IP:10.0.12.138
+2016-05-26 10:57:26,151 - ERROR - ChkBin:End> Lot_Number:2231911213176|| Scan_IP:10.0.12.138||Bin_No:1||Message:
+2016-05-26 11:20:45,821 - ERROR - START>Application
+2016-05-26 11:21:17,651 - ERROR - ChkBin:Start> Lot_Number:2231911213197|| Scan_IP:10.0.12.138
+2016-05-26 11:21:18,529 - ERROR - ChkBin:End> Lot_Number:2231911213197|| Scan_IP:10.0.12.138||Bin_No:1||Message:
+2016-05-26 11:39:27,918 - ERROR - ChkBin:Start> Lot_Number:2231913212051|| Scan_IP:10.0.12.138
+2016-05-26 11:39:28,572 - ERROR - ChkBin:End> Lot_Number:2231913212051|| Scan_IP:10.0.12.138||Bin_No:13||Message:
+2016-05-26 11:39:34,440 - ERROR - ChkBin:Start> Lot_Number:2231913212051|| Scan_IP:10.0.12.138
+2016-05-26 11:39:35,011 - ERROR - ChkBin:End> Lot_Number:2231913212051|| Scan_IP:10.0.12.138||Bin_No:13||Message:
+2016-05-26 11:51:55,376 - ERROR - START>Application
+2016-05-26 11:55:45,155 - ERROR - ChkBin:Start> Lot_Number:2231911210960|| Scan_IP:10.0.12.138
+2016-05-26 11:55:45,855 - ERROR - ChkBin:End> Lot_Number:2231911210960|| Scan_IP:10.0.12.138||Bin_No:13||Message:
+2016-05-26 11:58:39,096 - ERROR - START>Application
+2016-05-26 11:59:28,709 - ERROR - ChkBin:Start> Lot_Number:2231911210960|| Scan_IP:10.0.12.138
+2016-05-26 11:59:29,379 - ERROR - ChkBin:End> Lot_Number:2231911210960|| Scan_IP:10.0.12.138||Bin_No:1||Message:
+2016-05-26 12:00:49,945 - ERROR - ChkBin:Start> Lot_Number:2231911213111|| Scan_IP:10.0.12.138
+2016-05-26 12:00:50,739 - ERROR - ChkBin:End> Lot_Number:2231911213111|| Scan_IP:10.0.12.138||Bin_No:1||Message:
+2016-05-26 12:01:38,001 - ERROR - ChkBin:Start> Lot_Number:2231911213136|| Scan_IP:10.0.12.138
+2016-05-26 12:01:38,621 - ERROR - ChkBin:End> Lot_Number:2231911213136|| Scan_IP:10.0.12.138||Bin_No:13||Message:
+2016-05-26 12:03:46,277 - ERROR - ChkBin:Start> Lot_Number:2231911213144|| Scan_IP:10.0.12.138
+2016-05-26 12:03:47,034 - ERROR - ChkBin:End> Lot_Number:2231911213144|| Scan_IP:10.0.12.138||Bin_No:13||Message:
+2016-05-26 12:05:51,116 - ERROR - ChkBin:Start> Lot_Number:2231911213144|| Scan_IP:10.0.12.138
+2016-05-26 12:05:51,314 - ERROR - ChkBin:End> Lot_Number:2231911213144|| Scan_IP:10.0.12.138||Bin_No:13||Message:
+2016-05-26 12:06:31,484 - ERROR - ChkBin:Start> Lot_Number:2231911213144|| Scan_IP:10.0.12.138
+2016-05-26 12:06:31,665 - ERROR - ChkBin:End> Lot_Number:2231911213144|| Scan_IP:10.0.12.138||Bin_No:13||Message:
+2016-05-26 12:06:35,845 - ERROR - ChkBin:Start> Lot_Number:2231911213144|| Scan_IP:10.0.12.138
+2016-05-26 12:06:36,040 - ERROR - ChkBin:End> Lot_Number:2231911213144|| Scan_IP:10.0.12.138||Bin_No:13||Message:
+2016-05-26 13:16:56,838 - ERROR - START>Application
+2016-05-26 13:34:33,528 - ERROR - START>Application
+2016-05-26 13:37:50,778 - ERROR - ChkBin:Start> Lot_Number:JN1231810213130|| Scan_IP:10.0.12.138
+2016-05-26 13:39:06,388 - ERROR - START>Application
+2016-05-26 13:39:16,617 - ERROR - ChkBin:Start> Lot_Number:JN1231810213130|| Scan_IP:10.0.12.138
+2016-05-26 13:39:22,882 - ERROR - ChkBin:End> Lot_Number:JN1231810213130|| Scan_IP:10.0.12.138||Error! Message:产品：(JN1231810213130)在(终检)工序，请确认。
+2016-05-26 13:40:49,847 - ERROR - ChkBin:Start> Lot_Number:JN1231810213130|| Scan_IP:10.0.12.138
+2016-05-26 13:40:52,400 - ERROR - ChkBin:End> Lot_Number:JN1231810213130|| Scan_IP:10.0.12.138||Error! Message:产品：(JN1231810213130)在(终检)工序，请确认。
+2016-05-26 13:52:19,243 - ERROR - ChkBin:Start> Lot_Number:2231911210960|| Scan_IP:10.0.12.138
+2016-05-26 13:52:19,824 - ERROR - ChkBin:End> Lot_Number:2231911210960|| Scan_IP:10.0.12.138||Error! Message:索引超出范围。必须为非负值并小于集合大小。
+参数名: index
+2016-05-26 13:52:42,704 - ERROR - ChkBin:Start> Lot_Number:2231911210960|| Scan_IP:10.0.12.138
+2016-05-26 13:54:27,905 - ERROR - ChkBin:End> Lot_Number:2231911210960|| Scan_IP:10.0.12.138||Error! Message:索引超出范围。必须为非负值并小于集合大小。
+参数名: index
+2016-05-26 13:56:36,811 - ERROR - START>Application
+2016-05-26 13:56:48,330 - ERROR - ChkBin:Start> Lot_Number:2231911210960|| Scan_IP:10.0.12.138
+2016-05-26 13:58:01,579 - ERROR - ChkBin:End> Lot_Number:2231911210960|| Scan_IP:10.0.12.138||Error! Message:索引超出范围。必须为非负值并小于集合大小。
+参数名: index
+2016-05-26 13:58:04,266 - ERROR - ChkBin:Start> Lot_Number:2231911210960|| Scan_IP:10.0.12.138
+2016-05-26 14:00:27,062 - ERROR - START>Application
+2016-05-26 14:00:34,499 - ERROR - ChkBin:Start> Lot_Number:2231911210960|| Scan_IP:10.0.12.138
+2016-05-26 14:01:14,575 - ERROR - ChkBin:End> Lot_Number:2231911210960|| Scan_IP:10.0.12.138||Bin_No:1||InBinOrder:1||Message:
+2016-05-26 14:03:11,234 - ERROR - ChkBin:Start> Lot_Number:2231911213111|| Scan_IP:10.0.12.138
+2016-05-26 14:03:12,043 - ERROR - ChkBin:End> Lot_Number:2231911213111|| Scan_IP:10.0.12.138||Bin_No:1||InBinOrder:2||Message:
+2016-05-26 14:03:14,546 - ERROR - ChkBin:Start> Lot_Number:2231911213111|| Scan_IP:10.0.12.138
+2016-05-26 14:03:15,431 - ERROR - ChkBin:End> Lot_Number:2231911213111|| Scan_IP:10.0.12.138||Bin_No:1||InBinOrder:2||Message:
+2016-05-26 14:03:17,197 - ERROR - ChkBin:Start> Lot_Number:2231911213111|| Scan_IP:10.0.12.138
+2016-05-26 14:03:18,208 - ERROR - ChkBin:End> Lot_Number:2231911213111|| Scan_IP:10.0.12.138||Bin_No:1||InBinOrder:2||Message:
+2016-05-26 14:03:19,710 - ERROR - ChkBin:Start> Lot_Number:2231911213111|| Scan_IP:10.0.12.138
+2016-05-26 14:03:20,450 - ERROR - ChkBin:End> Lot_Number:2231911213111|| Scan_IP:10.0.12.138||Bin_No:1||InBinOrder:2||Message:
+2016-05-26 14:03:21,539 - ERROR - ChkBin:Start> Lot_Number:2231911213111|| Scan_IP:10.0.12.138
+2016-05-26 14:03:22,490 - ERROR - ChkBin:End> Lot_Number:2231911213111|| Scan_IP:10.0.12.138||Bin_No:1||InBinOrder:2||Message:
+2016-05-26 14:03:23,408 - ERROR - ChkBin:Start> Lot_Number:2231911213111|| Scan_IP:10.0.12.138
+2016-05-26 14:03:24,157 - ERROR - ChkBin:End> Lot_Number:2231911213111|| Scan_IP:10.0.12.138||Bin_No:1||InBinOrder:2||Message:
+2016-05-26 14:03:24,882 - ERROR - ChkBin:Start> Lot_Number:2231911213111|| Scan_IP:10.0.12.138
+2016-05-26 14:03:25,675 - ERROR - ChkBin:End> Lot_Number:2231911213111|| Scan_IP:10.0.12.138||Bin_No:1||InBinOrder:2||Message:
+2016-05-26 14:03:26,261 - ERROR - ChkBin:Start> Lot_Number:2231911213111|| Scan_IP:10.0.12.138
+2016-05-26 14:03:27,096 - ERROR - ChkBin:End> Lot_Number:2231911213111|| Scan_IP:10.0.12.138||Bin_No:1||InBinOrder:2||Message:
+2016-05-26 14:03:27,808 - ERROR - ChkBin:Start> Lot_Number:2231911213111|| Scan_IP:10.0.12.138
+2016-05-26 14:03:28,657 - ERROR - ChkBin:End> Lot_Number:2231911213111|| Scan_IP:10.0.12.138||Bin_No:1||InBinOrder:2||Message:
+2016-05-26 14:03:29,418 - ERROR - ChkBin:Start> Lot_Number:2231911213111|| Scan_IP:10.0.12.138
+2016-05-26 14:03:30,043 - ERROR - ChkBin:End> Lot_Number:2231911213111|| Scan_IP:10.0.12.138||Bin_No:1||InBinOrder:2||Message:
+2016-05-26 14:03:30,678 - ERROR - ChkBin:Start> Lot_Number:2231911213111|| Scan_IP:10.0.12.138
+2016-05-26 14:03:31,458 - ERROR - ChkBin:End> Lot_Number:2231911213111|| Scan_IP:10.0.12.138||Bin_No:1||InBinOrder:2||Message:
+2016-05-26 14:03:32,273 - ERROR - ChkBin:Start> Lot_Number:2231911213111|| Scan_IP:10.0.12.138
+2016-05-26 14:03:32,936 - ERROR - ChkBin:End> Lot_Number:2231911213111|| Scan_IP:10.0.12.138||Bin_No:1||InBinOrder:2||Message:
+2016-05-26 14:04:08,226 - ERROR - ChkBin:Start> Lot_Number:2231911213136|| Scan_IP:10.0.12.138
+2016-05-26 14:04:08,868 - ERROR - ChkBin:End> Lot_Number:2231911213136|| Scan_IP:10.0.12.138||Bin_No:13||InBinOrder:1||Message:
+2016-05-26 14:05:31,119 - ERROR - ChkBin:Start> Lot_Number:2231911213143|| Scan_IP:10.0.12.138
+2016-05-26 14:05:31,952 - ERROR - ChkBin:End> Lot_Number:2231911213143|| Scan_IP:10.0.12.138||Bin_No:13||InBinOrder:2||Message:
+2016-05-26 14:06:10,728 - ERROR - ChkBin:Start> Lot_Number:2231911213144|| Scan_IP:10.0.12.138
+2016-05-26 14:06:11,524 - ERROR - ChkBin:End> Lot_Number:2231911213144|| Scan_IP:10.0.12.138||Bin_No:1||InBinOrder:1||Message:
+2016-05-26 14:09:34,997 - ERROR - ChkBin:Start> Lot_Number:2231911213144|| Scan_IP:10.0.12.138
+2016-05-26 14:09:35,798 - ERROR - ChkBin:End> Lot_Number:2231911213144|| Scan_IP:10.0.12.138||Bin_No:1||InBinOrder:1||Message:
+2016-05-26 14:12:29,446 - ERROR - ChkBin:Start> Lot_Number:2231911213136|| Scan_IP:10.0.12.138
+2016-05-26 14:13:45,425 - ERROR - ChkBin:End> Lot_Number:2231911213136|| Scan_IP:10.0.12.138||Bin_No:13||InBinOrder:2||Message:
+2016-05-26 14:13:49,007 - ERROR - ChkBin:Start> Lot_Number:2231911213136|| Scan_IP:10.0.12.138
+2016-05-26 14:13:51,702 - ERROR - ChkBin:End> Lot_Number:2231911213136|| Scan_IP:10.0.12.138||Bin_No:13||InBinOrder:2||Message:
+2016-05-26 14:26:15,103 - ERROR - ChkBin:Start> Lot_Number:2231911213136|| Scan_IP:10.0.12.138
+2016-05-26 14:26:15,355 - ERROR - ChkBin:End> Lot_Number:2231911213136|| Scan_IP:10.0.12.138||Bin_No:13||InBinOrder:2||Message:
+2016-05-26 14:26:28,623 - ERROR - ChkBin:Start> Lot_Number:2231911213143|| Scan_IP:10.0.12.138
+2016-05-26 14:26:31,184 - ERROR - ChkBin:End> Lot_Number:2231911213143|| Scan_IP:10.0.12.138||Bin_No:8||InBinOrder:1||Message:
+2016-05-26 14:28:11,719 - ERROR - ChkBin:Start> Lot_Number:2231911213152|| Scan_IP:10.0.12.138
+2016-05-26 14:29:37,816 - ERROR - ChkBin:End> Lot_Number:2231911213152|| Scan_IP:10.0.12.138||Bin_No:8||InBinOrder:2||Message:
+2016-05-26 14:39:23,576 - ERROR - START>Application
+2016-05-26 14:39:36,740 - ERROR - ChkBin:Start> Lot_Number:2231911213152|| Scan_IP:10.0.12.138
+2016-05-26 14:39:40,380 - ERROR - ChkBin:End> Lot_Number:2231911213152|| Scan_IP:10.0.12.138||Bin_No:8||InBinOrder:2||Message:
+2016-05-26 14:40:46,383 - ERROR - ChkBin:Start> Lot_Number:2231911213153|| Scan_IP:10.0.12.138
+2016-05-26 14:40:48,876 - ERROR - ChkBin:End> Lot_Number:2231911213153|| Scan_IP:10.0.12.138||Bin_No:1||InBinOrder:1||Message:
+2016-05-26 14:41:00,280 - ERROR - ChkBin:Start> Lot_Number:2231911213153|| Scan_IP:10.0.12.138
+2016-05-26 14:41:03,200 - ERROR - ChkBin:End> Lot_Number:2231911213153|| Scan_IP:10.0.12.138||Bin_No:1||InBinOrder:1||Message:
+2016-05-26 14:42:52,862 - ERROR - ChkBin:Start> Lot_Number:2231911213152|| Scan_IP:10.0.12.138
+2016-05-26 14:42:53,056 - ERROR - ChkBin:End> Lot_Number:2231911213152|| Scan_IP:10.0.12.138||Bin_No:8||InBinOrder:2||Message:
+2016-05-26 14:43:44,251 - ERROR - ChkBin:Start> Lot_Number:2231911213143|| Scan_IP:10.0.12.138
+2016-05-26 14:43:44,465 - ERROR - ChkBin:End> Lot_Number:2231911213143|| Scan_IP:10.0.12.138||Error! Message:包装(2231911213143)数据异常！
+2016-05-26 14:44:13,075 - ERROR - ChkBin:Start> Lot_Number:2231911213143|| Scan_IP:10.0.12.138
+2016-05-26 14:44:13,290 - ERROR - ChkBin:End> Lot_Number:2231911213143|| Scan_IP:10.0.12.138||Error! Message:包装(2231911213143)数据异常！
+2016-05-26 14:44:51,295 - ERROR - ChkBin:Start> Lot_Number:2231911213143|| Scan_IP:10.0.12.138
+2016-05-26 14:47:30,787 - ERROR - START>Application
+2016-05-26 14:47:39,281 - ERROR - ChkBin:Start> Lot_Number:2231911213143|| Scan_IP:10.0.12.138
+2016-05-26 14:47:41,934 - ERROR - ChkBin:End> Lot_Number:2231911213143|| Scan_IP:10.0.12.138||Error! Message:批次(2231911213143)已包装！
+2016-05-26 14:54:44,823 - ERROR - ChkBin:Start> Lot_Number:2231911213143|| Scan_IP:10.0.12.138
+2016-05-26 14:54:49,406 - ERROR - ChkBin:End> Lot_Number:2231911213143|| Scan_IP:10.0.12.138||Bin_No:1||InBinOrder:1||Message:
+2016-05-26 14:56:41,738 - ERROR - ChkBin:Start> Lot_Number:2231911210960|| Scan_IP:10.0.12.138
+2016-05-26 14:56:42,468 - ERROR - ChkBin:End> Lot_Number:2231911210960|| Scan_IP:10.0.12.138||Bin_No:1||InBinOrder:2||Message:
+2016-05-26 14:57:09,217 - ERROR - ChkBin:Start> Lot_Number:2231911213111|| Scan_IP:10.0.12.138
+2016-05-26 14:57:09,921 - ERROR - ChkBin:End> Lot_Number:2231911213111|| Scan_IP:10.0.12.138||Bin_No:1||InBinOrder:3||Message:
+2016-05-26 14:57:47,809 - ERROR - ChkBin:Start> Lot_Number:2231911213136|| Scan_IP:10.0.12.138
+2016-05-26 14:57:48,648 - ERROR - ChkBin:End> Lot_Number:2231911213136|| Scan_IP:10.0.12.138||Bin_No:13||InBinOrder:1||Message:
+2016-05-26 14:58:49,897 - ERROR - ChkBin:Start> Lot_Number:2231911213144|| Scan_IP:10.0.12.138
+2016-05-26 14:58:50,708 - ERROR - ChkBin:End> Lot_Number:2231911213144|| Scan_IP:10.0.12.138||Bin_No:13||InBinOrder:2||Message:
+2016-05-26 14:59:17,541 - ERROR - ChkBin:Start> Lot_Number:2231911213152|| Scan_IP:10.0.12.138
+2016-05-26 14:59:18,270 - ERROR - ChkBin:End> Lot_Number:2231911213152|| Scan_IP:10.0.12.138||Bin_No:13||InBinOrder:3||Message:
+2016-05-26 14:59:45,657 - ERROR - ChkBin:Start> Lot_Number:2231911213153|| Scan_IP:10.0.12.138
+2016-05-26 14:59:46,507 - ERROR - ChkBin:End> Lot_Number:2231911213153|| Scan_IP:10.0.12.138||Bin_No:8||InBinOrder:1||Message:
+2016-05-26 15:00:51,542 - ERROR - ChkBin:Start> Lot_Number:2231911213157|| Scan_IP:10.0.12.138
+2016-05-26 15:00:52,499 - ERROR - ChkBin:End> Lot_Number:2231911213157|| Scan_IP:10.0.12.138||Bin_No:8||InBinOrder:2||Message:
+2016-05-26 15:01:09,690 - ERROR - ChkBin:Start> Lot_Number:2231911213161|| Scan_IP:10.0.12.138
+2016-05-26 15:01:10,566 - ERROR - ChkBin:End> Lot_Number:2231911213161|| Scan_IP:10.0.12.138||Bin_No:8||InBinOrder:3||Message:
+2016-05-26 15:01:36,113 - ERROR - ChkBin:Start> Lot_Number:2231911213176|| Scan_IP:10.0.12.138
+2016-05-26 15:01:36,985 - ERROR - ChkBin:End> Lot_Number:2231911213176|| Scan_IP:10.0.12.138||Bin_No:1||InBinOrder:1||Message:
+2016-05-26 15:01:45,201 - ERROR - ChkBin:Start> Lot_Number:2231911213176|| Scan_IP:10.0.12.138
+2016-05-26 15:01:46,106 - ERROR - ChkBin:End> Lot_Number:2231911213176|| Scan_IP:10.0.12.138||Bin_No:1||InBinOrder:1||Message:
+2016-05-26 15:42:36,432 - ERROR - ChkBin:Start> Lot_Number:2231911213176|| Scan_IP:10.0.12.138
+2016-05-26 15:42:36,639 - ERROR - ChkBin:End> Lot_Number:2231911213176|| Scan_IP:10.0.12.138||Bin_No:1||InBinOrder:1||Message:
+2016-05-26 15:44:56,934 - ERROR - ChkBin:Start> Lot_Number:JN2231323210883|| Scan_IP:10.0.12.138
+2016-05-26 15:44:57,459 - ERROR - ChkBin:End> Lot_Number:JN2231323210883|| Scan_IP:10.0.12.138||Error! Message:批次：（JN2231323210883） 无对应Bin！
+2016-05-26 15:45:06,260 - ERROR - ChkBin:Start> Lot_Number:JN2231323210883|| Scan_IP:10.0.12.138
+2016-05-26 15:45:06,649 - ERROR - ChkBin:End> Lot_Number:JN2231323210883|| Scan_IP:10.0.12.138||Error! Message:批次：（JN2231323210883） 无对应Bin！
+2016-05-26 15:45:34,679 - ERROR - ChkBin:Start> Lot_Number:JN2231323210883|| Scan_IP:10.0.12.138
+2016-05-26 15:52:10,025 - ERROR - ChkBin:End> Lot_Number:JN2231323210883|| Scan_IP:10.0.12.138||Error! Message:批次：（JN2231323210883） 无对应Bin！
+2016-05-26 15:52:10,125 - ERROR - ChkBin:Start> Lot_Number:JN2231323210883|| Scan_IP:10.0.12.138
+2016-05-26 15:52:14,583 - ERROR - ChkBin:End> Lot_Number:JN2231323210883|| Scan_IP:10.0.12.138||Error! Message:托：（160511060020）所在工单（1MO-15110006）不允许混工单！
+2016-05-26 15:52:18,385 - ERROR - ChkBin:Start> Lot_Number:JN2231323210883|| Scan_IP:10.0.12.138
+2016-05-26 15:52:20,728 - ERROR - ChkBin:End> Lot_Number:JN2231323210883|| Scan_IP:10.0.12.138||Error! Message:托：（160511060020）所在工单（1MO-15110006）不允许混工单！
+2016-05-26 15:55:02,317 - ERROR - ChkBin:Start> Lot_Number:JN2231323210883|| Scan_IP:10.0.12.138
+2016-05-26 15:55:07,515 - ERROR - ChkBin:End> Lot_Number:JN2231323210883|| Scan_IP:10.0.12.138||Error! Message:批次：（JN2231323210883）所在工单（1MO-15050003）不允许混工单！
+2016-05-26 15:55:27,459 - ERROR - ChkBin:Start> Lot_Number:JN2231323210883|| Scan_IP:10.0.12.138
+2016-05-26 15:55:29,393 - ERROR - ChkBin:End> Lot_Number:JN2231323210883|| Scan_IP:10.0.12.138||Bin_No:1||InBinOrder:2||Message:
+2016-05-26 16:01:36,132 - ERROR - ChkBin:Start> Lot_Number:JN2231323210883|| Scan_IP:10.0.12.138
+2016-05-26 16:01:40,934 - ERROR - ChkBin:End> Lot_Number:JN2231323210883|| Scan_IP:10.0.12.138||Bin_No:1||InBinOrder:2||Message:
+2016-05-26 16:01:59,666 - ERROR - ChkBin:Start> Lot_Number:JN2231323211025|| Scan_IP:10.0.12.138
+2016-05-26 16:02:02,951 - ERROR - ChkBin:End> Lot_Number:JN2231323211025|| Scan_IP:10.0.12.138||Bin_No:1||InBinOrder:3||Message:
+2016-05-26 16:02:05,529 - ERROR - ChkBin:Start> Lot_Number:JN2231323211025|| Scan_IP:10.0.12.138
+2016-05-26 16:03:28,335 - ERROR - ChkBin:End> Lot_Number:JN2231323211025|| Scan_IP:10.0.12.138||Bin_No:1||InBinOrder:3||Message:
+2016-05-26 16:05:06,960 - ERROR - START>Application
+2016-05-26 16:05:15,116 - ERROR - ChkBin:Start> Lot_Number:JN2231323211025|| Scan_IP:10.0.12.138
+2016-05-26 16:06:34,054 - ERROR - ChkBin:End> Lot_Number:JN2231323211025|| Scan_IP:10.0.12.138||Bin_No:1||InBinOrder:3||Message:
+2016-05-26 16:06:36,694 - ERROR - ChkBin:Start> Lot_Number:JN2231323211025|| Scan_IP:10.0.12.138
+2016-05-26 16:06:39,655 - ERROR - ChkBin:End> Lot_Number:JN2231323211025|| Scan_IP:10.0.12.138||Bin_No:1||InBinOrder:3||Message:
+2016-05-26 16:09:37,308 - ERROR - ChkBin:Start> Lot_Number:JN2231323211025|| Scan_IP:10.0.12.138
+2016-05-26 16:10:08,253 - ERROR - ChkBin:End> Lot_Number:JN2231323211025|| Scan_IP:10.0.12.138||Error! Message:托（160511060020）电池片供应商（000000）与批次（JN2231323211025）电池片供应商（0000001）不一致。
+2016-05-26 16:10:47,667 - ERROR - ChkBin:Start> Lot_Number:JN2231323211025|| Scan_IP:10.0.12.138
+2016-05-26 16:13:24,932 - ERROR - ChkBin:End> Lot_Number:JN2231323211025|| Scan_IP:10.0.12.138||Error! Message:托（160511060020）电池片供应商（000000）与批次（JN2231323211025）电池片供应商（0000001）不一致。
+2016-05-26 16:15:40,482 - ERROR - START>Application
+2016-05-26 16:15:55,836 - ERROR - ChkBin:Start> Lot_Number:JN2231323211025|| Scan_IP:10.0.12.138
+2016-05-26 16:17:19,262 - ERROR - ChkBin:End> Lot_Number:JN2231323211025|| Scan_IP:10.0.12.138||Bin_No:13||InBinOrder:1||Message:托（160511060020）电池片供应商（000000）与批次（JN2231323211025）电池片供应商（0000001）不一致。
+2016-05-26 16:17:21,876 - ERROR - ChkBin:Start> Lot_Number:JN2231323211025|| Scan_IP:10.0.12.138
+2016-05-26 16:17:25,336 - ERROR - ChkBin:End> Lot_Number:JN2231323211025|| Scan_IP:10.0.12.138||Bin_No:13||InBinOrder:1||Message:托（160511060020）电池片供应商（000000）与批次（JN2231323211025）电池片供应商（0000001）不一致。
+2016-05-26 16:19:52,469 - ERROR - START>Application
+2016-05-26 16:20:00,400 - ERROR - ChkBin:Start> Lot_Number:JN2231323211025|| Scan_IP:10.0.12.138
+2016-05-26 16:20:08,644 - ERROR - ChkBin:End> Lot_Number:JN2231323211025|| Scan_IP:10.0.12.138||Bin_No:13||InBinOrder:1||Message:
+2016-05-26 16:21:33,283 - ERROR - ChkBin:Start> Lot_Number:JN2231323211026|| Scan_IP:10.0.12.138
+2016-05-26 16:21:34,111 - ERROR - ChkBin:End> Lot_Number:JN2231323211026|| Scan_IP:10.0.12.138||Bin_No:1||InBinOrder:3||Message:
+2016-05-26 16:22:23,320 - ERROR - ChkBin:Start> Lot_Number:JN2231324212702|| Scan_IP:10.0.12.138
+2016-05-26 16:22:24,296 - ERROR - ChkBin:End> Lot_Number:JN2231324212702|| Scan_IP:10.0.12.138||Bin_No:8||InBinOrder:1||Message:
+2016-05-26 16:28:00,399 - ERROR - ChkBin:Start> Lot_Number:JN2231324212702|| Scan_IP:10.0.12.138
+2016-05-26 16:28:01,263 - ERROR - ChkBin:End> Lot_Number:JN2231324212702|| Scan_IP:10.0.12.138||Bin_No:8||InBinOrder:1||Message:
+2016-05-26 16:29:52,197 - ERROR - ChkBin:Start> Lot_Number:JN2231323210883|| Scan_IP:10.0.12.138
+2016-05-26 16:29:52,395 - ERROR - ChkBin:End> Lot_Number:JN2231323210883|| Scan_IP:10.0.12.138||Error! Message:批次(JN2231323210883)已包装！
+2016-05-26 16:30:12,985 - ERROR - ChkBin:Start> Lot_Number:JN2231323211026|| Scan_IP:10.0.12.138
+2016-05-26 16:30:13,197 - ERROR - ChkBin:End> Lot_Number:JN2231323211026|| Scan_IP:10.0.12.138||Bin_No:1||InBinOrder:3||Message:
+2016-05-26 16:31:17,513 - ERROR - ChkBin:Start> Lot_Number:JN2231323211026|| Scan_IP:10.0.12.138
+2016-05-26 16:31:43,486 - ERROR - ChkBin:End> Lot_Number:JN2231323211026|| Scan_IP:10.0.12.138||Bin_No:1||InBinOrder:3||Message:
+2016-05-26 16:35:15,176 - ERROR - ChkBin:Start> Lot_Number:JN2231325211535|| Scan_IP:10.0.12.138
+2016-05-26 16:35:18,270 - ERROR - ChkBin:End> Lot_Number:JN2231325211535|| Scan_IP:10.0.12.138||Bin_No:8||InBinOrder:2||Message:
+2016-05-26 16:46:48,533 - ERROR - ChkBin:Start> Lot_Number:2231911210960|| Scan_IP:10.0.12.138
+2016-05-26 16:46:54,074 - ERROR - ChkBin:End> Lot_Number:2231911210960|| Scan_IP:10.0.12.138||Bin_No:1||InBinOrder:1||Message:
+2016-05-26 16:48:20,378 - ERROR - ChkBin:Start> Lot_Number:2231911210960|| Scan_IP:10.0.12.138
+2016-05-26 16:48:21,267 - ERROR - ChkBin:End> Lot_Number:2231911210960|| Scan_IP:10.0.12.138||Bin_No:1||InBinOrder:1||Message:
+2016-05-26 16:48:35,573 - ERROR - ChkBin:Start> Lot_Number:JN2231334212377|| Scan_IP:10.0.12.138
+2016-05-26 16:48:36,432 - ERROR - ChkBin:End> Lot_Number:JN2231334212377|| Scan_IP:10.0.12.138||Bin_No:1||InBinOrder:1||Message:
+2016-05-26 16:48:57,202 - ERROR - ChkBin:Start> Lot_Number:JN2231334212377|| Scan_IP:10.0.12.138
+2016-05-26 16:48:58,040 - ERROR - ChkBin:End> Lot_Number:JN2231334212377|| Scan_IP:10.0.12.138||Bin_No:1||InBinOrder:1||Message:
+2016-05-26 16:50:57,750 - ERROR - ChkBin:Start> Lot_Number:JN2231334212377|| Scan_IP:10.0.12.138
+2016-05-26 16:50:58,536 - ERROR - ChkBin:End> Lot_Number:JN2231334212377|| Scan_IP:10.0.12.138||Bin_No:1||InBinOrder:1||Message:
+2016-05-26 16:51:00,209 - ERROR - ChkBin:Start> Lot_Number:JN2231334212377|| Scan_IP:10.0.12.138
+2016-05-26 16:51:00,873 - ERROR - ChkBin:End> Lot_Number:JN2231334212377|| Scan_IP:10.0.12.138||Bin_No:1||InBinOrder:1||Message:
+2016-05-26 16:53:33,566 - ERROR - ChkBin:Start> Lot_Number:2231911210960|| Scan_IP:10.0.12.138
+2016-05-26 16:53:34,352 - ERROR - ChkBin:End> Lot_Number:2231911210960|| Scan_IP:10.0.12.138||Bin_No:1||InBinOrder:1||Message:
+2016-05-26 16:53:52,394 - ERROR - ChkBin:Start> Lot_Number:JN2231328212889|| Scan_IP:10.0.12.138
+2016-05-26 16:53:56,496 - ERROR - ChkBin:End> Lot_Number:JN2231328212889|| Scan_IP:10.0.12.138||Bin_No:13||InBinOrder:1||Message:
+2016-05-26 17:28:35,255 - ERROR - ChkBin:Start> Lot_Number:JN1231034210170|| Scan_IP:10.0.12.138
+2016-05-26 17:28:35,911 - ERROR - ChkBin:End> Lot_Number:JN1231034210170|| Scan_IP:10.0.12.138||Bin_No:6||InBinOrder:1||Message:
+2016-05-26 17:28:51,443 - ERROR - ChkBin:Start> Lot_Number:JN1231034210170|| Scan_IP:10.0.12.138
+2016-05-26 17:28:52,188 - ERROR - ChkBin:End> Lot_Number:JN1231034210170|| Scan_IP:10.0.12.138||Bin_No:6||InBinOrder:1||Message:
+2016-05-26 17:29:28,065 - ERROR - ChkBin:Start> Lot_Number:JN1231034210170|| Scan_IP:10.0.12.138
+2016-05-26 17:29:28,269 - ERROR - ChkBin:End> Lot_Number:JN1231034210170|| Scan_IP:10.0.12.138||Bin_No:6||InBinOrder:1||Message:
+2016-05-26 17:30:56,753 - ERROR - ChkBin:Start> Lot_Number:JN1231034210231|| Scan_IP:10.0.12.138
+2016-05-26 17:31:01,002 - ERROR - ChkBin:End> Lot_Number:JN1231034210231|| Scan_IP:10.0.12.138||Bin_No:6||InBinOrder:2||Message:
+2016-05-26 17:32:23,025 - ERROR - ChkBin:Start> Lot_Number:JN1231034210302|| Scan_IP:10.0.12.138
+2016-05-26 17:32:23,828 - ERROR - ChkBin:End> Lot_Number:JN1231034210302|| Scan_IP:10.0.12.138||Bin_No:6||InBinOrder:3||Message:
+2016-05-26 17:32:54,111 - ERROR - ChkBin:Start> Lot_Number:JN1231034210303|| Scan_IP:10.0.12.138
+2016-05-26 17:32:54,834 - ERROR - ChkBin:End> Lot_Number:JN1231034210303|| Scan_IP:10.0.12.138||Bin_No:6||InBinOrder:1||Message:
+2016-05-26 17:44:50,812 - ERROR - ChkBin:Start> Lot_Number:JN1231034210311|| Scan_IP:10.0.12.138
+2016-05-26 17:44:51,612 - ERROR - ChkBin:End> Lot_Number:JN1231034210311|| Scan_IP:10.0.12.138||Bin_No:6||InBinOrder:2||Message:
+2016-05-26 17:45:22,801 - ERROR - ChkBin:Start> Lot_Number:JN1231034210241|| Scan_IP:10.0.12.138
+2016-05-26 17:45:23,873 - ERROR - ChkBin:End> Lot_Number:JN1231034210241|| Scan_IP:10.0.12.138||Bin_No:12||InBinOrder:1||Message:
+2016-05-26 17:46:01,888 - ERROR - ChkBin:Start> Lot_Number:JN1231034210267|| Scan_IP:10.0.12.138
+2016-05-26 17:46:02,651 - ERROR - ChkBin:End> Lot_Number:JN1231034210267|| Scan_IP:10.0.12.138||Bin_No:12||InBinOrder:2||Message:
+2016-05-26 17:47:45,194 - ERROR - ChkBin:Start> Lot_Number:JN2231323210883|| Scan_IP:10.0.12.138
+2016-05-26 17:47:46,231 - ERROR - ChkBin:End> Lot_Number:JN2231323210883|| Scan_IP:10.0.12.138||Bin_No:13||InBinOrder:2||Message:
+2016-05-26 17:48:48,535 - ERROR - ChkBin:Start> Lot_Number:JN2231323210883|| Scan_IP:10.0.12.138
+2016-05-26 17:48:49,562 - ERROR - ChkBin:End> Lot_Number:JN2231323210883|| Scan_IP:10.0.12.138||Bin_No:1||InBinOrder:2||Message:
+2016-05-26 17:57:09,213 - ERROR - ChkBin:Start> Lot_Number:JN1231034210276|| Scan_IP:10.0.12.138
+2016-05-26 17:57:10,032 - ERROR - ChkBin:End> Lot_Number:JN1231034210276|| Scan_IP:10.0.12.138||Bin_No:2||InBinOrder:2||Message:
+2016-05-26 17:58:01,974 - ERROR - ChkBin:Start> Lot_Number:JN1231034210307|| Scan_IP:10.0.12.138
+2016-05-26 17:58:02,814 - ERROR - ChkBin:End> Lot_Number:JN1231034210307|| Scan_IP:10.0.12.138||Bin_No:2||InBinOrder:3||Message:
+2016-05-26 19:00:38,105 - ERROR - START>Application

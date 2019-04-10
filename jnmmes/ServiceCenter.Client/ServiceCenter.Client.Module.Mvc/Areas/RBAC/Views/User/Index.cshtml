@@ -1,0 +1,292 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.RBAC.Models.UserQueryViewModel
+@using RBAC = ServiceCenter.MES.Model.RBAC;
+@using ServiceCenter.Model;
+@using ServiceCenter.Client.Mvc.Areas.RBAC.Models;
+@using ServiceCenter.Client.Mvc.Resources.RBAC;
+
+@{
+    ViewBag.Title = StringResource.User_UserManagePageTitle;
+    PagingConfig cfg = ViewBag.PagingConfig;
+}
+<h2>@ViewBag.Title</h2>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <a href="javascript:showAddUserModal()" class="btn btn-primary">@StringResource.User_Add</a>
+    </div>
+    <div class="panel-body">
+    @using (Ajax.BeginForm("Query", "User", null
+            , new AjaxOptions()
+            {
+                HttpMethod = "Post",
+                UpdateTargetId = "userList"
+            }
+            , new { @class = "form-horizontal", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="row">
+            <div class="col-md-1">
+                @Html.LabelFor(m => m.LoginName, new { @class = "control-label" })
+            </div>
+            <div class="col-md-2">
+                @Html.TextBoxFor(m => m.LoginName, new { @class = "form-control", })
+                @Html.ValidationMessageFor(m => m.LoginName)
+            </div>
+            <div class="col-md-1">
+                @Html.LabelFor(m => m.UserName, new { @class = "control-label" })
+            </div>
+            <div class="col-md-2">
+                @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.UserName)
+            </div>
+            <div class="col-md-6">
+                <input type="submit" value="@StringResource.User_Query" class="btn btn-default" />
+            </div>
+        </div>
+    }
+    </div>
+    <div class="alert fade in hide" role="alert" id="statusMessage" style="margin:0px">
+        <button type="button" class="close" onclick="hideStatusMessage()">
+            <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+        </button>
+        <p></p>
+    </div>
+    <div id="userList">
+        @Html.Partial("_UserListPartial")
+    </div>
+</div>
+
+@*新增用户*@
+<div id="addUser" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="addUserHeader" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                <span aria-hidden="true">&times;</span>
+                <span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="addUserHeader">@StringResource.User_AddUserTitle</h4>
+            </div>
+            <div class="modal-body" id="addUserContent" style="margin:0px;padding:5px">
+                @using (Ajax.BeginForm("SaveUser", "User", null
+                        , new AjaxOptions()
+                        {
+                            HttpMethod = "Post",
+                            OnSuccess = "completeSaveUser",
+                            OnBegin = "beginSaveUser"
+                        }
+                        , new { @class = "form-horizontal", role = "form",id="frmAddUser"}))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <input type="submit" class="btn btn-primary" value="@StringResource.User_Save" id="btnSaveUser" />
+                            <input type="reset" class="btn btn-default" value="@StringResource.User_Reset" id="btnResetAddUser" />
+                        </div>
+                        <div class="panel-body">
+                            <div class="alert fade in hide" role="alert" id="addStatusMessage">
+                                <button type="button" class="close" onclick="hideAddUserAlert()">
+                                    <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+                                </button>
+                                <p></p>
+                            </div>
+                            <div>
+                                @Html.Partial("_AddUserPartial", new UserViewModel())
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+@*显示明细*@
+<div id="userInfo"
+     class="modal fade"
+     tabindex="-1"
+     role="dialog"
+     aria-labelledby="userInfoHeader"
+     aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                <span aria-hidden="true">&times;</span>
+                <span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="userInfoHeader">@StringResource.User_UserDetailTitle</h4>
+            </div>
+            <div class="modal-body" id="userInfoContent" style="margin:0px;padding:5px">
+                <form class="form-horizontal" role="form">
+                    <div class="panel panel-default">
+                        <div class="panel-body" id="userDetailInfo">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@*修改用户*@
+<div id="modifyUser"
+     class="modal fade"
+     tabindex="-1"
+     role="dialog"
+     aria-labelledby="modifyUserHeader"
+     aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                <span aria-hidden="true">&times;</span>
+                <span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="modifyUserHeader">@StringResource.User_ModifyUserTitle</h4>
+            </div>
+            <div class="modal-body" id="modifyUserContent" style="margin:0px;padding:5px">
+                @using (Ajax.BeginForm("SaveModify", "User", null
+                    , new AjaxOptions()
+                    {
+                        HttpMethod = "Post",
+                        OnSuccess = "completeSaveModify",
+                        OnBegin = "beginSaveModify"
+                    }
+                    , new { @class = "form-horizontal", role = "form" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <input type="submit" class="btn btn-primary" value="@StringResource.User_Save" id="btnSaveModify" />
+                        </div>
+                        <div class="panel-body">
+                            <div class="alert fade in hide" role="alert" id="modifyStatusMessage">
+                                <button type="button" class="close" onclick="hideModifyUserAlert()">
+                                    <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+                                </button>
+                                <p></p>
+                            </div>
+                            <div id="modifyUserFormContent">
+                                @Html.Partial("_ModifyUserPartial",new UserViewModel())
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script type="text/javascript" language="javascript">
+        //刷新用户列表
+        function refreshUserList() {
+            if ($("#frmPagingQuery").length > 0) {
+                $("#frmPagingQuery").submit();
+            }
+        }
+        //隐藏状态消息
+        function hideStatusMessage() {
+            $("#statusMessage").addClass("hide");
+        }
+    </script>
+    @*新增用户*@
+    <script type="text/javascript" language="javascript">
+        //保存用户
+        $(function () {
+            $('#addUser').on('hide.bs.modal', function (e) {
+                $("#btnResetAddUser").click();
+            });
+
+            $("#addUser,#modifyUser").on('shown.bs.modal', function (e) {
+                var texts = $(this).find(":text:visible:enabled,:checkbox:visible:enabled,textarea:visible:enabled,select:visible:enabled");
+                texts.eq(0).focus().select();
+            });
+        })
+
+        function showAddUserModal() {
+            hideStatusMessage();
+            hideAddUserAlert();
+            $("#btnSaveUser").removeAttr("disabled");
+            $('#addUser').modal('show');
+        }
+
+        function hideAddUserAlert() {
+            $("#addStatusMessage").addClass("hide");
+        }
+
+        function beginSaveUser() {
+            $("#btnSaveUser").attr("disabled", "disabled");
+        }
+
+        function completeSaveUser(result) {
+            $("#btnSaveUser").removeAttr("disabled");
+            $("#addStatusMessage").find("p").html(result.Message);
+            $("#addStatusMessage").removeClass("hide");
+            if (result.Code > 0) {
+                $("#addStatusMessage").removeClass("alert-success");
+                $("#addStatusMessage").addClass("alert-danger");
+            }
+            else {
+                $("#addStatusMessage").removeClass("alert-danger");
+                $("#addStatusMessage").addClass("alert-success");
+                refreshUserList();
+            }
+        }
+    </script>
+    @*显示明细*@
+    <script type="text/javascript" language="javascript">
+        //显示明细
+        function showUserInfoModal(result) {
+            hideStatusMessage();
+            $('#userInfo').modal('show')
+        }
+    </script>
+    @*修改用户*@
+    <script type="text/javascript" language="javascript">
+        //修改用户
+        function showModifyUserModal(result) {
+            hideStatusMessage();
+            hideModifyUserAlert();
+            $("#btnSaveModify").removeAttr("disabled");
+            $('#modifyUser').modal('show')
+        }
+
+        function hideModifyUserAlert() {
+            $("#modifyStatusMessage").addClass("hide");
+        }
+
+        function beginSaveModify() {
+            hideModifyUserAlert();
+            $("#btnSaveModify").attr("disabled", "disabled");
+        }
+
+        function completeSaveModify(result) {
+            $("#btnSaveModify").removeAttr("disabled");
+            $("#modifyStatusMessage").find("p").html(result.Message);
+            $("#modifyStatusMessage").removeClass("hide");
+            if (result.Code > 0) {
+                $("#modifyStatusMessage").removeClass("alert-success");
+                $("#modifyStatusMessage").addClass("alert-danger");
+            }
+            else {
+                $("#modifyStatusMessage").removeClass("alert-danger");
+                $("#modifyStatusMessage").addClass("alert-success");
+                refreshUserList();
+            }
+        }
+    </script>
+    @*删除用户*@
+    <script type="text/javascript" language="javascript">
+        //删除用户
+        function completeDeleteUser(result) {
+            $("#statusMessage").find("p").html(result.Message);
+            $("#statusMessage").removeClass("hide");
+            if (result.Code > 0) {
+                $("#statusMessage").removeClass("alert-success");
+                $("#statusMessage").addClass("alert-danger");
+            }
+            else {
+                $("#statusMessage").removeClass("alert-danger");
+                $("#statusMessage").addClass("alert-success");
+                refreshUserList();
+            }
+        }
+    </script>
+}

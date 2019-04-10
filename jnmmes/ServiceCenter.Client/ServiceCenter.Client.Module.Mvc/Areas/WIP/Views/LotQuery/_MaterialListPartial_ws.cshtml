@@ -1,0 +1,180 @@
+﻿@using ServiceCenter.Client.Mvc.Areas.WIP.Models;
+@using ServiceCenter.Client.Mvc.Resources;
+@using WIPResources = ServiceCenter.Client.Mvc.Resources.WIP;
+@using ServiceCenter.MES.Model.WIP;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@using ServiceCenter.MES.Service.Client.FMM;
+@using ServiceCenter.MES.Service.Client.WIP;
+@using ServiceCenter.MES.Service.Client.ZPVM;
+@using ServiceCenter.MES.Model.FMM;
+@using ServiceCenter.MES.Model.LSM;
+@using ServiceCenter.MES.Model.ZPVM;
+<div id="_list" style="overflow:auto">
+    <table class="table table-hover table-bordered table-condensed table-responsive table-striped">
+        <thead>
+            <tr class="active">
+                <td nowrap>@StringResource.ItemNo</td>
+                <td nowrap>物料编码</td>
+                <td nowrap>物料名称</td>
+                <td nowrap>物料批次号</td>
+                <td nowrap>数量</td>
+                <td nowrap>供应商名称</td>
+                <td nowrap>工艺流程组</td>
+                <td nowrap>工艺流程</td>
+                <td nowrap>工步</td>
+                <td nowrap>线边仓</td>
+                <td nowrap>线别</td>
+                <td nowrap>设备</td>
+                @*<td nowrap>编辑人</td>
+                <td nowrap>编辑时间</td>*@
+            </tr>
+        </thead>
+        @if (ViewBag.MaterialList != null)
+        {
+            Lot lot = ViewBag.Lot;
+            
+            <tbody>
+                @for (int i = 0; i < ViewBag.MaterialList.Length; i++)
+                {
+                    LotBOM obj = ViewBag.MaterialList[i];
+
+                    LotTransaction lotHis = null;
+                    using (LotQueryServiceClient client = new LotQueryServiceClient())
+                    {
+                        MethodReturnResult<LotTransaction> rst = client.GetTransaction(obj.TransactionKey);
+                        if (rst.Code <= 0)
+                        {
+                            lotHis = rst.Data;
+                        }
+                    }
+                    
+                    Material m=null;
+                    using (MaterialServiceClient client = new MaterialServiceClient())
+                    {
+                        MethodReturnResult<Material> rst = client.Get(obj.MaterialCode);
+                        if (rst.Code <= 0)
+                        {
+                            m = rst.Data;
+                        }
+                    }
+                    Supplier s = null;
+                    Manufacturer mf = null;
+                    using (SupplierServiceClient client = new SupplierServiceClient())
+                    {
+                        PagingConfig cfg = new PagingConfig()
+                        {
+                            PageNo=0,
+                            PageSize=1,
+                            Where = string.Format(@"EXISTS (FROM LineStoreMaterialDetail as p
+                                                            WHERE p.SupplierCode=self.Key
+                                                            AND p.Key.MaterialLot='{0}'
+                                                            AND p.Key.MaterialCode='{1}'
+                                                            AND p.Key.LineStoreName='{2}'
+                                                            AND p.Key.OrderNumber='{3}')"
+                                                    ,obj.Key.MaterialLot
+                                                    ,obj.MaterialCode
+                                                    ,obj.LineStoreName
+                                                    , lotHis == null ? lot.OriginalOrderNumber : lotHis.OrderNumber)
+                        };
+                        MethodReturnResult<IList<Supplier>> rst = client.Get(ref cfg);
+                        if (rst.Code <= 0 && rst.Data.Count>0)
+                        {
+                            s = rst.Data[0];
+                            using (SupplierToManufacturerServiceClient clients = new SupplierToManufacturerServiceClient())
+                            {
+                                PagingConfig cfg0 = new PagingConfig()
+                                {
+                                    Where = string.Format(@"Key.MaterialCode='{0}' AND Key.SupplierCode='{1}'"
+                                                            , obj.MaterialCode
+                                                            , s.Key)
+                                };
+                                MethodReturnResult<IList<SupplierToManufacturer>> result = clients.Gets(ref cfg0);
+                                if (result.Code <= 0 && result.Data.Count > 0)
+                                {
+                                    if (result.Data[0].Key.OrderNumber == "*")
+                                    {
+                                        using (ManufacturerServiceClient clientss = new ManufacturerServiceClient())
+                                        {
+                                            MethodReturnResult<Manufacturer> rsts = clientss.Get(result.Data[0].ManufacturerCode);
+                                            if (rsts.Data != null)
+                                            {
+                                                mf = rsts.Data;
+                                            }
+                                        }
+                                    }
+                                    else
+                                    {
+                                        PagingConfig cfg1 = new PagingConfig()
+                                        {
+                                            Where = string.Format(@"Key.MaterialCode='{0}' AND Key.OrderNumber='{1}' AND Key.SupplierCode='{2}'"
+                                                                    , obj.MaterialCode
+                                                                    , lotHis == null ? lot.OriginalOrderNumber : lotHis.OrderNumber
+                                                                    , s.Key)
+                                        };
+                                        MethodReturnResult<IList<SupplierToManufacturer>> results = clients.Gets(ref cfg1);
+                                        if (results.Code <= 0 && results.Data.Count > 0)
+                                        {
+                                            using (ManufacturerServiceClient clientss = new ManufacturerServiceClient())
+                                            {
+                                                MethodReturnResult<Manufacturer> rsts = clientss.Get(results.Data[0].ManufacturerCode);
+                                                if (rsts.Data != null)
+                                                {
+                                                    mf = rsts.Data;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }                            
+                        }
+                    }
+                    
+                    <tr>
+                        <td nowrap>@(i+1)</td>
+                        <td nowrap>
+                            @obj.MaterialCode
+                        </td>
+                        <td nowrap>
+                            @(m == null ? string.Empty : m.Name + ", " + m.Spec + ", " + m.ModelName)
+                        </td>
+                        <td nowrap>
+                            @obj.Key.MaterialLot
+                        </td>
+                        <td nowrap>
+                            @obj.Qty
+                        </td>
+                        <td nowrap>
+                            @(mf == null ? (s == null ? string.Empty : s.Name) : mf.Name)
+                        </td>
+                        @*<td nowrap>
+                            @(s == null ? string.Empty : s.Name)
+                        </td>*@
+                        <td nowrap>
+                            @obj.RouteEnterpriseName
+                        </td>
+                        <td nowrap>
+                            @obj.RouteName
+                        </td>
+                        <td nowrap>
+                            @obj.RouteStepName
+                        </td>
+                        <td nowrap>
+                            @obj.LineStoreName
+                        </td>
+                        <td nowrap>
+                            @obj.LineCode
+                        </td>
+                        <td nowrap>
+                            @obj.EquipmentCode
+                        </td>
+                        @*<td nowrap>@obj.Editor</td>
+                        <td nowrap>@string.Format("{0:yyyy-MM-dd HH:mm:ss}", obj.EditTime)</td>*@
+                    </tr>
+                }
+            </tbody>
+        }
+    </table>
+</div>
+
+

@@ -1,0 +1,36 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.ZPVM.Models.RuleControlObjectViewModel
+<div class="form-group">
+    @Html.LabelFor(m => m.Code, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        <p class="form-control-static">@Model.Code</p>
+        @Html.HiddenFor(m => m.Code)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.Object, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.DropDownListFor(m => m.Object,@Model.GetControlObjectList(), new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Object)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.Type, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+      @Html.DropDownListFor(m => m.Type, @Model.GetControlTypeList(), new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Type)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.Value, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.Value, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Value)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.IsUsed, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.CheckBoxFor(m => m.IsUsed, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.IsUsed)
+    </div>
+</div>

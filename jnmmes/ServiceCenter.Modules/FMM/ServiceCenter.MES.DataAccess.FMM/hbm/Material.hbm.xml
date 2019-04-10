@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   namespace="ServiceCenter.MES.Model.FMM" 
+                   assembly="ServiceCenter.MES.Model.FMM">
+  <class name="Material" table="FMM_MATERIAL">
+    <id name="Key" column="MATERIAL_CODE">
+      <generator class="assigned" />
+    </id>
+    <property name="Name" column="MATERIAL_NAME"/>
+    <property name="ModelName" column="MaterialModel"/>
+    <property name="Spec" column="MATERIAL_SPEC"/>
+    <property name="Unit" column="MATERIAL_UNIT"/>
+    <property name="Type" column="MATERIAL_TYPE"/>
+    <property name="Class" column="MATERIAL_CLASS"/>
+    <property name="IsRaw" column="IS_RAW"/>
+    <property name="IsProduct" column="IS_PRODUCT"/>
+    <property name="MainRawQtyPerLot" column="MAIN_RAW_QTY"/>
+    <property name="MainProductQtyPerLot" column="MAIN_PRODUCT_QTY"/>
+    <property name="Description" column="DESCRIPTION"/>
+    <property name="BarCode" column="BARCODE"/>
+    <property name="Status" column="STATUS"/>
+    <property name="Creator" column="CREATOR"/>
+    <property name="CreateTime" column="CREATE_TIME"/>
+    <property name="Editor" column="EDITOR"/>
+    <property name="EditTime" column="EDIT_TIME"/>
+  </class>
+</hibernate-mapping>

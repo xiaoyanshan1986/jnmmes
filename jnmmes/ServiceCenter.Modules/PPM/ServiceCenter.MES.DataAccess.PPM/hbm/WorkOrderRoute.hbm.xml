@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   namespace="ServiceCenter.MES.Model.PPM" 
+                   assembly="ServiceCenter.MES.Model.PPM">
+  <class name="WorkOrderRoute" table="PPM_WORK_ORDER_ROUTE">
+    <composite-id  name="Key" class="WorkOrderRouteKey">
+      <key-property name="OrderNumber" column="ORDER_NUMBER"/>
+      <key-property name="ItemNo" column="ITEM_NO"/>
+    </composite-id >
+    <property name="RouteEnterpriseName" column="ROUTE_ENTERPRISE_NAME"/>
+    <property name="RouteName" column="ROUTE_NAME"/>
+    <property name="RouteStepName" column="ROUTE_STEP_NAME"/>
+    <property name="IsRework" column="IS_REWORK"/>
+    <property name="Description" column="DESCRIPTION"/>
+    <property name="Creator" column="CREATOR"/>
+    <property name="CreateTime" column="CREATE_TIME"/>
+    <property name="Editor" column="EDITOR"/>
+    <property name="EditTime" column="EDIT_TIME"/>
+  </class>
+</hibernate-mapping>

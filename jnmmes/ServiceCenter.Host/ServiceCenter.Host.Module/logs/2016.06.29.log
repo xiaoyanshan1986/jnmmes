@@ -1,0 +1,212 @@
+2016-06-29 08:17:23,884 - ERROR - START>Application
+2016-06-29 08:31:03,399 - ERROR - START>Application
+2016-06-29 08:42:07,854 - ERROR - START>Application
+2016-06-29 09:16:59,327 - ERROR - START>Application
+2016-06-29 09:22:36,395 - ERROR - START>Application
+2016-06-29 09:48:16,380 - ERROR - START>Application
+2016-06-29 11:34:21,097 - ERROR - START>Application
+2016-06-29 11:40:39,088 - ERROR - START>Application
+2016-06-29 11:44:31,589 - ERROR - START>Application
+2016-06-29 11:56:29,591 - ERROR - START>Application
+2016-06-29 11:59:20,698 - ERROR - START>Application
+2016-06-29 12:01:42,912 - ERROR - START>Application
+2016-06-29 12:05:01,957 - ERROR - Could not execute query: select TOP (@p0)  lottransac0_.START_TRANSACTION_KEY as START1_93_, lottransac0_.END_TRANSACTION_KEY as END2_93_, lottransac0_.LOT_NUMBER as LOT3_93_, lottransac0_.EQUIPMENT_CODE as EQUIPMENT4_93_, lottransac0_.START_TIME as START5_93_, lottransac0_.END_TIME as END6_93_, lottransac0_.QUANTITY as QUANTITY93_, lottransac0_.STATE as STATE93_, lottransac0_.CREATOR as CREATOR93_, lottransac0_.CREATE_TIME as CREATE10_93_, lottransac0_.EDITOR as EDITOR93_, lottransac0_.EDIT_TIME as EDIT12_93_ from WIP_TRANSACTION_EQUIPMENT lottransac0_ where lottransac0_.EQUIPMENT_CODE='MBSLD-EVA01' and lottransac0_.STATE=0 order by lottransac0_.START_TRANSACTION_KEY
+System.Data.SqlClient.SqlException (0x80131904): Timeout 时间已到。在操作完成之前超时时间已过或服务器未响应。 ---> System.ComponentModel.Win32Exception (0x80004005): 等待的操作过时。
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParserStateObject.ReadSniError(TdsParserStateObject stateObj, UInt32 error)
+   在 System.Data.SqlClient.TdsParserStateObject.ReadSniSyncOverAsync()
+   在 System.Data.SqlClient.TdsParserStateObject.TryReadNetworkPacket()
+   在 System.Data.SqlClient.TdsParserStateObject.TryPrepareBuffer()
+   在 System.Data.SqlClient.TdsParserStateObject.TryReadByte(Byte& value)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 223
+ClientConnectionId:4efafac6-f3ac-4a59-949a-f2f019c88935
+Error Number:-2,State:0,Class:11
+2016-06-29 12:05:02,038 - ERROR - Timeout 时间已到。在操作完成之前超时时间已过或服务器未响应。
+2016-06-29 12:05:02,038 - ERROR - 等待的操作过时。
+2016-06-29 12:05:02,086 - ERROR - Timeout 时间已到。在操作完成之前超时时间已过或服务器未响应。
+2016-06-29 12:05:02,086 - ERROR - 等待的操作过时。
+2016-06-29 12:05:02,088 - ERROR - Timeout 时间已到。在操作完成之前超时时间已过或服务器未响应。
+2016-06-29 12:05:02,088 - ERROR - 等待的操作过时。
+2016-06-29 12:05:29,013 - ERROR - TrackInLot>
+NHibernate.Exceptions.GenericADOException: could not execute query
+[ select TOP (@p0)  lottransac0_.START_TRANSACTION_KEY as START1_93_, lottransac0_.END_TRANSACTION_KEY as END2_93_, lottransac0_.LOT_NUMBER as LOT3_93_, lottransac0_.EQUIPMENT_CODE as EQUIPMENT4_93_, lottransac0_.START_TIME as START5_93_, lottransac0_.END_TIME as END6_93_, lottransac0_.QUANTITY as QUANTITY93_, lottransac0_.STATE as STATE93_, lottransac0_.CREATOR as CREATOR93_, lottransac0_.CREATE_TIME as CREATE10_93_, lottransac0_.EDITOR as EDITOR93_, lottransac0_.EDIT_TIME as EDIT12_93_ from WIP_TRANSACTION_EQUIPMENT lottransac0_ where lottransac0_.EQUIPMENT_CODE='MBSLD-EVA01' and lottransac0_.STATE=0 order by lottransac0_.START_TRANSACTION_KEY ]
+[SQL: select TOP (@p0)  lottransac0_.START_TRANSACTION_KEY as START1_93_, lottransac0_.END_TRANSACTION_KEY as END2_93_, lottransac0_.LOT_NUMBER as LOT3_93_, lottransac0_.EQUIPMENT_CODE as EQUIPMENT4_93_, lottransac0_.START_TIME as START5_93_, lottransac0_.END_TIME as END6_93_, lottransac0_.QUANTITY as QUANTITY93_, lottransac0_.STATE as STATE93_, lottransac0_.CREATOR as CREATOR93_, lottransac0_.CREATE_TIME as CREATE10_93_, lottransac0_.EDITOR as EDITOR93_, lottransac0_.EDIT_TIME as EDIT12_93_ from WIP_TRANSACTION_EQUIPMENT lottransac0_ where lottransac0_.EQUIPMENT_CODE='MBSLD-EVA01' and lottransac0_.STATE=0 order by lottransac0_.START_TRANSACTION_KEY] ---> System.Data.SqlClient.SqlException: Timeout 时间已到。在操作完成之前超时时间已过或服务器未响应。 ---> System.ComponentModel.Win32Exception: 等待的操作过时。
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParserStateObject.ReadSniError(TdsParserStateObject stateObj, UInt32 error)
+   在 System.Data.SqlClient.TdsParserStateObject.ReadSniSyncOverAsync()
+   在 System.Data.SqlClient.TdsParserStateObject.TryReadNetworkPacket()
+   在 System.Data.SqlClient.TdsParserStateObject.TryPrepareBuffer()
+   在 System.Data.SqlClient.TdsParserStateObject.TryReadByte(Byte& value)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 229
+   在 NHibernate.Loader.Loader.GetResultSet(IDbCommand st, Boolean autoDiscoverTypes, Boolean callable, RowSelection selection, ISessionImplementor session) 位置 p:\nhibernate-core\src\NHibernate\Loader\Loader.cs:行号 1224
+   在 NHibernate.Loader.Loader.DoQuery(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies) 位置 p:\nhibernate-core\src\NHibernate\Loader\Loader.cs:行号 421
+   在 NHibernate.Loader.Loader.DoQueryAndInitializeNonLazyCollections(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies) 位置 p:\nhibernate-core\src\NHibernate\Loader\Loader.cs:行号 251
+   在 NHibernate.Loader.Loader.DoList(ISessionImplementor session, QueryParameters queryParameters) 位置 p:\nhibernate-core\src\NHibernate\Loader\Loader.cs:行号 1564
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 NHibernate.Loader.Loader.DoList(ISessionImplementor session, QueryParameters queryParameters) 位置 p:\nhibernate-core\src\NHibernate\Loader\Loader.cs:行号 1573
+   在 NHibernate.Loader.Loader.ListIgnoreQueryCache(ISessionImplementor session, QueryParameters queryParameters) 位置 p:\nhibernate-core\src\NHibernate\Loader\Loader.cs:行号 1472
+   在 NHibernate.Loader.Loader.List(ISessionImplementor session, QueryParameters queryParameters, ISet`1 querySpaces, IType[] resultTypes) 位置 p:\nhibernate-core\src\NHibernate\Loader\Loader.cs:行号 1467
+   在 NHibernate.Hql.Ast.ANTLR.Loader.QueryLoader.List(ISessionImplementor session, QueryParameters queryParameters) 位置 p:\nhibernate-core\src\NHibernate\Hql\Ast\ANTLR\Loader\QueryLoader.cs:行号 288
+   在 NHibernate.Hql.Ast.ANTLR.QueryTranslatorImpl.List(ISessionImplementor session, QueryParameters queryParameters) 位置 p:\nhibernate-core\src\NHibernate\Hql\Ast\ANTLR\QueryTranslatorImpl.cs:行号 112
+   在 NHibernate.Engine.Query.HQLQueryPlan.PerformList(QueryParameters queryParameters, ISessionImplementor session, IList results) 位置 p:\nhibernate-core\src\NHibernate\Engine\Query\HQLQueryPlan.cs:行号 105
+   在 NHibernate.Impl.SessionImpl.List(String query, QueryParameters queryParameters, IList results) 位置 p:\nhibernate-core\src\NHibernate\Impl\SessionImpl.cs:行号 626
+   在 NHibernate.Impl.SessionImpl.List[T](String query, QueryParameters parameters) 位置 p:\nhibernate-core\src\NHibernate\Impl\SessionImpl.cs:行号 602
+   在 NHibernate.Impl.QueryImpl.List[T]() 位置 p:\nhibernate-core\src\NHibernate\Impl\QueryImpl.cs:行号 94
+   在 ServiceCenter.Common.DataAccess.NHibernate.ISessionExtensions.GetList[T](ISession session, PagingConfig cfg) 位置 e:\Projects\11JNMMES\trunk\src\ServiceCenter.Common\DataAccess\NHibernate\ISessionExtensions.cs:行号 47
+   在 ServiceCenter.Common.DataAccess.NHibernate.DatabaseDataEngine`2.Get(PagingConfig cfg) 位置 e:\Projects\11JNMMES\trunk\src\ServiceCenter.Common\DataAccess\NHibernate\DatabaseDataEngine.cs:行号 194
+   在 ServiceCenter.MES.Service.WIP.WipEngineerService.TrackInLot(TrackInParameter p, ISession session, Boolean executedWithTransaction) 位置 e:\Workspace\Jinergy\JNMMES\trunk\src\ServiceCenter.Modules\WIP\ServiceCenter.MES.Service.WIP\WipEngineerServiceForTrack.cs:行号 277
+2016-06-29 12:06:49,902 - ERROR - START>Application
+2016-06-29 12:09:18,409 - ERROR - START>Application
+2016-06-29 12:12:02,595 - ERROR - Could not execute query: select TOP (@p0)  lottransac0_.START_TRANSACTION_KEY as START1_93_, lottransac0_.END_TRANSACTION_KEY as END2_93_, lottransac0_.LOT_NUMBER as LOT3_93_, lottransac0_.EQUIPMENT_CODE as EQUIPMENT4_93_, lottransac0_.START_TIME as START5_93_, lottransac0_.END_TIME as END6_93_, lottransac0_.QUANTITY as QUANTITY93_, lottransac0_.STATE as STATE93_, lottransac0_.CREATOR as CREATOR93_, lottransac0_.CREATE_TIME as CREATE10_93_, lottransac0_.EDITOR as EDITOR93_, lottransac0_.EDIT_TIME as EDIT12_93_ from WIP_TRANSACTION_EQUIPMENT lottransac0_ where lottransac0_.EQUIPMENT_CODE='MBSLD-EVA01' and lottransac0_.STATE=0 order by lottransac0_.START_TRANSACTION_KEY
+System.Data.SqlClient.SqlException (0x80131904): Timeout 时间已到。在操作完成之前超时时间已过或服务器未响应。 ---> System.ComponentModel.Win32Exception (0x80004005): 等待的操作过时。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 223
+ClientConnectionId:b4e9b66e-f18a-4ac0-9bc3-c268f4f3f866
+Error Number:-2,State:0,Class:11
+2016-06-29 12:12:02,650 - ERROR - Timeout 时间已到。在操作完成之前超时时间已过或服务器未响应。
+2016-06-29 12:12:02,650 - ERROR - 等待的操作过时。
+2016-06-29 12:12:02,695 - ERROR - Timeout 时间已到。在操作完成之前超时时间已过或服务器未响应。
+2016-06-29 12:12:02,695 - ERROR - 等待的操作过时。
+2016-06-29 12:12:02,696 - ERROR - Timeout 时间已到。在操作完成之前超时时间已过或服务器未响应。
+2016-06-29 12:12:02,696 - ERROR - 等待的操作过时。
+2016-06-29 12:12:11,487 - ERROR - TrackInLot>
+NHibernate.Exceptions.GenericADOException: could not execute query
+[ select TOP (@p0)  lottransac0_.START_TRANSACTION_KEY as START1_93_, lottransac0_.END_TRANSACTION_KEY as END2_93_, lottransac0_.LOT_NUMBER as LOT3_93_, lottransac0_.EQUIPMENT_CODE as EQUIPMENT4_93_, lottransac0_.START_TIME as START5_93_, lottransac0_.END_TIME as END6_93_, lottransac0_.QUANTITY as QUANTITY93_, lottransac0_.STATE as STATE93_, lottransac0_.CREATOR as CREATOR93_, lottransac0_.CREATE_TIME as CREATE10_93_, lottransac0_.EDITOR as EDITOR93_, lottransac0_.EDIT_TIME as EDIT12_93_ from WIP_TRANSACTION_EQUIPMENT lottransac0_ where lottransac0_.EQUIPMENT_CODE='MBSLD-EVA01' and lottransac0_.STATE=0 order by lottransac0_.START_TRANSACTION_KEY ]
+[SQL: select TOP (@p0)  lottransac0_.START_TRANSACTION_KEY as START1_93_, lottransac0_.END_TRANSACTION_KEY as END2_93_, lottransac0_.LOT_NUMBER as LOT3_93_, lottransac0_.EQUIPMENT_CODE as EQUIPMENT4_93_, lottransac0_.START_TIME as START5_93_, lottransac0_.END_TIME as END6_93_, lottransac0_.QUANTITY as QUANTITY93_, lottransac0_.STATE as STATE93_, lottransac0_.CREATOR as CREATOR93_, lottransac0_.CREATE_TIME as CREATE10_93_, lottransac0_.EDITOR as EDITOR93_, lottransac0_.EDIT_TIME as EDIT12_93_ from WIP_TRANSACTION_EQUIPMENT lottransac0_ where lottransac0_.EQUIPMENT_CODE='MBSLD-EVA01' and lottransac0_.STATE=0 order by lottransac0_.START_TRANSACTION_KEY] ---> System.Data.SqlClient.SqlException: Timeout 时间已到。在操作完成之前超时时间已过或服务器未响应。 ---> System.ComponentModel.Win32Exception: 等待的操作过时。
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 229
+   在 NHibernate.Loader.Loader.GetResultSet(IDbCommand st, Boolean autoDiscoverTypes, Boolean callable, RowSelection selection, ISessionImplementor session) 位置 p:\nhibernate-core\src\NHibernate\Loader\Loader.cs:行号 1224
+   在 NHibernate.Loader.Loader.DoQuery(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies) 位置 p:\nhibernate-core\src\NHibernate\Loader\Loader.cs:行号 421
+   在 NHibernate.Loader.Loader.DoQueryAndInitializeNonLazyCollections(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies) 位置 p:\nhibernate-core\src\NHibernate\Loader\Loader.cs:行号 251
+   在 NHibernate.Loader.Loader.DoList(ISessionImplementor session, QueryParameters queryParameters) 位置 p:\nhibernate-core\src\NHibernate\Loader\Loader.cs:行号 1564
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 NHibernate.Loader.Loader.DoList(ISessionImplementor session, QueryParameters queryParameters) 位置 p:\nhibernate-core\src\NHibernate\Loader\Loader.cs:行号 1573
+   在 NHibernate.Loader.Loader.ListIgnoreQueryCache(ISessionImplementor session, QueryParameters queryParameters) 位置 p:\nhibernate-core\src\NHibernate\Loader\Loader.cs:行号 1472
+   在 NHibernate.Loader.Loader.List(ISessionImplementor session, QueryParameters queryParameters, ISet`1 querySpaces, IType[] resultTypes) 位置 p:\nhibernate-core\src\NHibernate\Loader\Loader.cs:行号 1467
+   在 NHibernate.Hql.Ast.ANTLR.Loader.QueryLoader.List(ISessionImplementor session, QueryParameters queryParameters) 位置 p:\nhibernate-core\src\NHibernate\Hql\Ast\ANTLR\Loader\QueryLoader.cs:行号 288
+   在 NHibernate.Hql.Ast.ANTLR.QueryTranslatorImpl.List(ISessionImplementor session, QueryParameters queryParameters) 位置 p:\nhibernate-core\src\NHibernate\Hql\Ast\ANTLR\QueryTranslatorImpl.cs:行号 112
+   在 NHibernate.Engine.Query.HQLQueryPlan.PerformList(QueryParameters queryParameters, ISessionImplementor session, IList results) 位置 p:\nhibernate-core\src\NHibernate\Engine\Query\HQLQueryPlan.cs:行号 105
+   在 NHibernate.Impl.SessionImpl.List(String query, QueryParameters queryParameters, IList results) 位置 p:\nhibernate-core\src\NHibernate\Impl\SessionImpl.cs:行号 626
+   在 NHibernate.Impl.SessionImpl.List[T](String query, QueryParameters parameters) 位置 p:\nhibernate-core\src\NHibernate\Impl\SessionImpl.cs:行号 602
+   在 NHibernate.Impl.QueryImpl.List[T]() 位置 p:\nhibernate-core\src\NHibernate\Impl\QueryImpl.cs:行号 94
+   在 ServiceCenter.Common.DataAccess.NHibernate.ISessionExtensions.GetList[T](ISession session, PagingConfig cfg) 位置 e:\Projects\11JNMMES\trunk\src\ServiceCenter.Common\DataAccess\NHibernate\ISessionExtensions.cs:行号 47
+   在 ServiceCenter.Common.DataAccess.NHibernate.DatabaseDataEngine`2.Get(PagingConfig cfg) 位置 e:\Projects\11JNMMES\trunk\src\ServiceCenter.Common\DataAccess\NHibernate\DatabaseDataEngine.cs:行号 194
+   在 ServiceCenter.MES.Service.WIP.WipEngineerService.TrackInLot(TrackInParameter p, ISession session, Boolean executedWithTransaction) 位置 e:\Workspace\Jinergy\JNMMES\trunk\src\ServiceCenter.Modules\WIP\ServiceCenter.MES.Service.WIP\WipEngineerServiceForTrack.cs:行号 277
+2016-06-29 12:59:36,699 - ERROR - START>Application
+2016-06-29 14:16:05,673 - ERROR - START>Application
+2016-06-29 14:18:58,342 - ERROR - Could not execute query: select TOP (@p0)  lottransac0_.START_TRANSACTION_KEY as START1_93_, lottransac0_.END_TRANSACTION_KEY as END2_93_, lottransac0_.LOT_NUMBER as LOT3_93_, lottransac0_.EQUIPMENT_CODE as EQUIPMENT4_93_, lottransac0_.START_TIME as START5_93_, lottransac0_.END_TIME as END6_93_, lottransac0_.QUANTITY as QUANTITY93_, lottransac0_.STATE as STATE93_, lottransac0_.CREATOR as CREATOR93_, lottransac0_.CREATE_TIME as CREATE10_93_, lottransac0_.EDITOR as EDITOR93_, lottransac0_.EDIT_TIME as EDIT12_93_ from WIP_TRANSACTION_EQUIPMENT lottransac0_ where lottransac0_.EQUIPMENT_CODE='MBSLD-EVA01' and lottransac0_.STATE=0 order by lottransac0_.START_TRANSACTION_KEY
+System.Data.SqlClient.SqlException (0x80131904): Timeout 时间已到。在操作完成之前超时时间已过或服务器未响应。 ---> System.ComponentModel.Win32Exception (0x80004005): 等待的操作过时。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 223
+ClientConnectionId:2b893bfd-5608-452b-8fda-15dcaf95a3a2
+Error Number:-2,State:0,Class:11
+2016-06-29 14:18:58,420 - ERROR - Timeout 时间已到。在操作完成之前超时时间已过或服务器未响应。
+2016-06-29 14:18:58,420 - ERROR - 等待的操作过时。
+2016-06-29 14:18:58,476 - ERROR - Timeout 时间已到。在操作完成之前超时时间已过或服务器未响应。
+2016-06-29 14:18:58,476 - ERROR - 等待的操作过时。
+2016-06-29 14:18:58,478 - ERROR - Timeout 时间已到。在操作完成之前超时时间已过或服务器未响应。
+2016-06-29 14:18:58,478 - ERROR - 等待的操作过时。
+2016-06-29 14:19:02,768 - ERROR - TrackInLot>
+NHibernate.Exceptions.GenericADOException: could not execute query
+[ select TOP (@p0)  lottransac0_.START_TRANSACTION_KEY as START1_93_, lottransac0_.END_TRANSACTION_KEY as END2_93_, lottransac0_.LOT_NUMBER as LOT3_93_, lottransac0_.EQUIPMENT_CODE as EQUIPMENT4_93_, lottransac0_.START_TIME as START5_93_, lottransac0_.END_TIME as END6_93_, lottransac0_.QUANTITY as QUANTITY93_, lottransac0_.STATE as STATE93_, lottransac0_.CREATOR as CREATOR93_, lottransac0_.CREATE_TIME as CREATE10_93_, lottransac0_.EDITOR as EDITOR93_, lottransac0_.EDIT_TIME as EDIT12_93_ from WIP_TRANSACTION_EQUIPMENT lottransac0_ where lottransac0_.EQUIPMENT_CODE='MBSLD-EVA01' and lottransac0_.STATE=0 order by lottransac0_.START_TRANSACTION_KEY ]
+[SQL: select TOP (@p0)  lottransac0_.START_TRANSACTION_KEY as START1_93_, lottransac0_.END_TRANSACTION_KEY as END2_93_, lottransac0_.LOT_NUMBER as LOT3_93_, lottransac0_.EQUIPMENT_CODE as EQUIPMENT4_93_, lottransac0_.START_TIME as START5_93_, lottransac0_.END_TIME as END6_93_, lottransac0_.QUANTITY as QUANTITY93_, lottransac0_.STATE as STATE93_, lottransac0_.CREATOR as CREATOR93_, lottransac0_.CREATE_TIME as CREATE10_93_, lottransac0_.EDITOR as EDITOR93_, lottransac0_.EDIT_TIME as EDIT12_93_ from WIP_TRANSACTION_EQUIPMENT lottransac0_ where lottransac0_.EQUIPMENT_CODE='MBSLD-EVA01' and lottransac0_.STATE=0 order by lottransac0_.START_TRANSACTION_KEY] ---> System.Data.SqlClient.SqlException: Timeout 时间已到。在操作完成之前超时时间已过或服务器未响应。 ---> System.ComponentModel.Win32Exception: 等待的操作过时。
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 229
+   在 NHibernate.Loader.Loader.GetResultSet(IDbCommand st, Boolean autoDiscoverTypes, Boolean callable, RowSelection selection, ISessionImplementor session) 位置 p:\nhibernate-core\src\NHibernate\Loader\Loader.cs:行号 1224
+   在 NHibernate.Loader.Loader.DoQuery(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies) 位置 p:\nhibernate-core\src\NHibernate\Loader\Loader.cs:行号 421
+   在 NHibernate.Loader.Loader.DoQueryAndInitializeNonLazyCollections(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies) 位置 p:\nhibernate-core\src\NHibernate\Loader\Loader.cs:行号 251
+   在 NHibernate.Loader.Loader.DoList(ISessionImplementor session, QueryParameters queryParameters) 位置 p:\nhibernate-core\src\NHibernate\Loader\Loader.cs:行号 1564
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 NHibernate.Loader.Loader.DoList(ISessionImplementor session, QueryParameters queryParameters) 位置 p:\nhibernate-core\src\NHibernate\Loader\Loader.cs:行号 1573
+   在 NHibernate.Loader.Loader.ListIgnoreQueryCache(ISessionImplementor session, QueryParameters queryParameters) 位置 p:\nhibernate-core\src\NHibernate\Loader\Loader.cs:行号 1472
+   在 NHibernate.Loader.Loader.List(ISessionImplementor session, QueryParameters queryParameters, ISet`1 querySpaces, IType[] resultTypes) 位置 p:\nhibernate-core\src\NHibernate\Loader\Loader.cs:行号 1467
+   在 NHibernate.Hql.Ast.ANTLR.Loader.QueryLoader.List(ISessionImplementor session, QueryParameters queryParameters) 位置 p:\nhibernate-core\src\NHibernate\Hql\Ast\ANTLR\Loader\QueryLoader.cs:行号 288
+   在 NHibernate.Hql.Ast.ANTLR.QueryTranslatorImpl.List(ISessionImplementor session, QueryParameters queryParameters) 位置 p:\nhibernate-core\src\NHibernate\Hql\Ast\ANTLR\QueryTranslatorImpl.cs:行号 112
+   在 NHibernate.Engine.Query.HQLQueryPlan.PerformList(QueryParameters queryParameters, ISessionImplementor session, IList results) 位置 p:\nhibernate-core\src\NHibernate\Engine\Query\HQLQueryPlan.cs:行号 105
+   在 NHibernate.Impl.SessionImpl.List(String query, QueryParameters queryParameters, IList results) 位置 p:\nhibernate-core\src\NHibernate\Impl\SessionImpl.cs:行号 626
+   在 NHibernate.Impl.SessionImpl.List[T](String query, QueryParameters parameters) 位置 p:\nhibernate-core\src\NHibernate\Impl\SessionImpl.cs:行号 602
+   在 NHibernate.Impl.QueryImpl.List[T]() 位置 p:\nhibernate-core\src\NHibernate\Impl\QueryImpl.cs:行号 94
+   在 ServiceCenter.Common.DataAccess.NHibernate.ISessionExtensions.GetList[T](ISession session, PagingConfig cfg) 位置 e:\Projects\11JNMMES\trunk\src\ServiceCenter.Common\DataAccess\NHibernate\ISessionExtensions.cs:行号 47
+   在 ServiceCenter.Common.DataAccess.NHibernate.DatabaseDataEngine`2.Get(PagingConfig cfg) 位置 e:\Projects\11JNMMES\trunk\src\ServiceCenter.Common\DataAccess\NHibernate\DatabaseDataEngine.cs:行号 194
+   在 ServiceCenter.MES.Service.WIP.WipEngineerService.TrackInLot(TrackInParameter p, ISession session, Boolean executedWithTransaction) 位置 e:\Workspace\Jinergy\JNMMES\trunk\src\ServiceCenter.Modules\WIP\ServiceCenter.MES.Service.WIP\WipEngineerServiceForTrack.cs:行号 277
+2016-06-29 14:19:53,163 - ERROR - START>Application
+2016-06-29 14:22:28,080 - ERROR - START>Application
+2016-06-29 14:25:14,346 - ERROR - START>Application
+2016-06-29 14:34:20,614 - ERROR - START>Application
+2016-06-29 14:43:41,742 - ERROR - START>Application
+2016-06-29 14:46:39,394 - ERROR - START>Application
+2016-06-29 14:50:20,267 - ERROR - START>Application
+2016-06-29 14:52:52,648 - ERROR - START>Application

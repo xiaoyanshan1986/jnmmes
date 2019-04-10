@@ -1,0 +1,159 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.ZPVM.Models.SupplierToManufacturerViewModel
+@using ServiceCenter.Client.Mvc.Areas.ZPVM.Models;
+@using ServiceCenter.Client.Mvc.Resources;
+@using ZPVMResources = ServiceCenter.Client.Mvc.Resources.ZPVM;
+@using ServiceCenter.MES.Model.ZPVM;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@using ServiceCenter.MES.Service.Client.FMM;
+@using ServiceCenter.MES.Model.FMM;
+
+@{
+    PagingConfig cfg = ViewBag.PagingConfig;
+}
+<div id="_list">
+    <table class="table table-hover table-bordered table-condensed">
+        <thead>
+            <tr class="active">
+                <td>@StringResource.ItemNo</td>
+                <td>@Html.DisplayNameFor(m => m.MaterialCode)</td>
+                <td>@Html.DisplayNameFor(m => m.OrderNumber)</td>
+                <td>@Html.DisplayNameFor(m => m.SupplierCode)</td>
+                <td>供应商名称</td>
+                <td>@Html.DisplayNameFor(m => m.ManufacturerCode)</td>
+                <td>生产厂商名称</td>
+                <td>@Html.DisplayNameFor(m => m.Creator)</td>
+                <td>@Html.DisplayNameFor(m => m.CreateTime)</td>
+                <td>@Html.DisplayNameFor(m => m.Editor)</td>
+                <td>@Html.DisplayNameFor(m => m.EditTime)</td> 
+                <td>@StringResource.Detail</td>
+                <td>@StringResource.Modify</td>
+                <td>@StringResource.Delete</td>
+            </tr>
+        </thead>
+        @if (ViewBag.List != null)
+        {
+            SupplierServiceClient clientOfSup = new SupplierServiceClient();
+            ManufacturerServiceClient clientOfManu = new ManufacturerServiceClient();
+            Supplier supplier = new Supplier();
+            Manufacturer manufacturer = new Manufacturer();
+            
+            <tbody>
+                @for (int i = 0; i < ViewBag.List.Length; i++)
+                {
+                    SupplierToManufacturer obj = ViewBag.List[i];
+                    if (obj != null)
+                    {
+                        supplier = (clientOfSup.Get(obj.Key.SupplierCode)).Data;
+                        manufacturer = (clientOfManu.Get(obj.ManufacturerCode)).Data;
+                    }  
+                    <tr>
+                        <td>@(cfg.PageSize * cfg.PageNo + i + 1)</td>
+                        <td>
+                            @obj.Key.MaterialCode
+                        </td>
+                        <td>
+                            @obj.Key.OrderNumber
+                        </td>
+                        <td>
+                            @obj.Key.SupplierCode
+                        </td>
+                        @if (supplier != null)
+                        {
+                            <td>
+                                @supplier.Name
+                            </td>
+                        }
+                        else
+                        {
+                            <td></td>
+                        }
+                        <td>
+                            @obj.ManufacturerCode
+                        </td> 
+                        @if (manufacturer != null)
+                        {
+                            <td>
+                                @manufacturer.Name
+                            </td>
+                        }
+                        else
+                        {
+                            <td></td>
+                        }  
+                        <td>
+                            @obj.Creator
+                        </td>
+                        <td>
+                            @obj.CreateTime
+                        </td>
+                        <td>
+                            @obj.Editor
+                        </td>
+                        <td>
+                            @obj.EditTime
+                        </td>                                         
+                        <td>
+                            @Ajax.ActionLink(StringResource.Detail, actionName: null
+                                            , routeValues: null
+                                            , ajaxOptions:new AjaxOptions() 
+                                            { 
+                                                HttpMethod = "Post", 
+                                                UpdateTargetId = "detailInfo",
+                                                OnSuccess = "showInfoModal",
+                                                Url = Url.Action("Detail", new { @MaterialCode = obj.Key.MaterialCode, @OrderNumber = obj.Key.OrderNumber, @SupplierCode = obj.Key.SupplierCode })
+                                            })
+                        </td>
+                        <td>
+                            @Ajax.ActionLink(StringResource.Modify, actionName: null
+                                            ,routeValues:null
+                                            ,ajaxOptions:new AjaxOptions()
+                                            {
+                                                HttpMethod = "Post",
+                                                UpdateTargetId = "modifyFormContent",
+                                                OnSuccess = "showModifyModal",
+                                                Url = Url.Action("Modify", new { @MaterialCode = obj.Key.MaterialCode, @OrderNumber = obj.Key.OrderNumber, @SupplierCode = obj.Key.SupplierCode })
+                                            })
+                        </td>
+                        <td>
+                            @Ajax.ActionLink(StringResource.Delete, actionName: null
+                                            , routeValues: null
+                                            , ajaxOptions:new AjaxOptions()
+                                            {
+                                                HttpMethod = "Post",
+                                                Confirm = string.Format("确认删除【{0}-{1}】该转换规则？",obj.Key,obj.ManufacturerCode),
+                                                Url = Url.Action("Delete", new { @MaterialCode = obj.Key.MaterialCode, @OrderNumber = obj.Key.OrderNumber, @SupplierCode = obj.Key.SupplierCode }),
+                                                OnSuccess = "completeDelete"
+                                            })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        }
+    </table>
+    <div style="margin-top:-18px">
+        @if (cfg != null)
+        {
+            using (Ajax.BeginForm("PagingQuery", "SupplierToManufacturer"
+                            , new
+                            {
+                                @Where = cfg.Where,
+                                @OrderBy = cfg.OrderBy,
+                                @CurrentPageNo = cfg.PageNo,
+                                @CurrentPageSize = cfg.PageSize
+                            }
+                            , new AjaxOptions()
+                            {
+                                HttpMethod = "Post",
+                                UpdateTargetId = "_list"
+                            }
+                            , new { @class = "form-horizontal", resource = "form", id = "frmPagingQuery" }))
+            {
+                @Html.AntiForgeryToken()
+                <div>@Html.Partial("_PaginationPartial")</div>
+            }
+        }
+    </div>
+</div>
+
+

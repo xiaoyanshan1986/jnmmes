@@ -1,0 +1,104 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.PPM.Models.WorkOrderProductViewModel
+@using ServiceCenter.Client.Mvc.Areas.PPM.Models;
+@using ServiceCenter.Client.Mvc.Resources;
+@using PPM = ServiceCenter.Client.Mvc.Resources.PPM;
+@using ServiceCenter.MES.Model.PPM;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@{
+    PagingConfig cfg = ViewBag.PagingConfig;
+}
+<div id="_list">
+    <table class="table table-hover table-bordered table-condensed">
+        <thead>
+            <tr class="active">
+                <td>@Html.DisplayNameFor(m => m.ItemNo)</td>
+                <td>@Html.DisplayNameFor(m => m.MaterialCode)</td>
+                <td>@Html.DisplayNameFor(m => m.IsMain)</td>
+                <td>@StringResource.Detail</td>
+                <td>@StringResource.Modify</td>
+                <td>@StringResource.Delete</td>
+            </tr>
+        </thead>
+        @if (ViewBag.List != null)
+        {
+            <tbody>
+                @for (int i = 0; i < ViewBag.List.Length; i++)
+                {
+                    WorkOrderProduct obj = ViewBag.List[i];
+                    <tr>
+                        <td>@obj.ItemNo</td>
+                        <td>
+                            @obj.Key.MaterialCode
+                        </td>
+                        <td>@obj.IsMain</td>
+                        <td>
+                            @Ajax.ActionLink(StringResource.Detail, actionName: null
+                                            , routeValues: null
+                                            , ajaxOptions:new AjaxOptions() 
+                                            { 
+                                                HttpMethod = "Post", 
+                                                UpdateTargetId = "detailInfo",
+                                                OnSuccess = "showInfoModal",
+                                                Url = Url.Action("Detail", new { @OrderNumber = obj.Key.OrderNumber, @MaterialCode = obj.Key.MaterialCode })
+                                            })
+                        </td>
+                        <td>
+                            @if(obj.IsMain==false)
+                            {
+                                @Ajax.ActionLink(StringResource.Modify, actionName: null
+                                                ,routeValues:null
+                                                ,ajaxOptions:new AjaxOptions()
+                                                {
+                                                    HttpMethod = "Post",
+                                                    UpdateTargetId = "modifyFormContent",
+                                                    OnSuccess = "showModifyModal",
+                                                    Url = Url.Action("Modify", new { @OrderNumber = obj.Key.OrderNumber, @MaterialCode = obj.Key.MaterialCode })
+                                                });
+                            }
+                        </td>
+                        <td>
+                            @if(obj.IsMain==false)
+                            {
+                                @Ajax.ActionLink(StringResource.Delete, actionName: null
+                                                , routeValues: null
+                                                , ajaxOptions: new AjaxOptions()
+                                                {
+                                                    HttpMethod = "Post",
+                                                    Confirm = string.Format(PPM.StringResource.WorkOrderProduct_ConfirmDelete, obj.Key),
+                                                    Url = Url.Action("Delete", new { @OrderNumber = obj.Key.OrderNumber, @MaterialCode = obj.Key.MaterialCode }),
+                                                    OnSuccess = "completeDelete"
+                                                });
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        }
+    </table>
+    <div style="margin-top:-18px">
+        @if (cfg != null)
+        {
+            using (Ajax.BeginForm("PagingQuery", "WorkOrderProduct"
+                            , new
+                            {
+                                @Where = cfg.Where,
+                                @OrderBy = cfg.OrderBy,
+                                @CurrentPageNo = cfg.PageNo,
+                                @CurrentPageSize = cfg.PageSize
+                            }
+                            , new AjaxOptions()
+                            {
+                                HttpMethod = "Post",
+                                UpdateTargetId = "_list"
+                            }
+                            , new { @class = "form-horizontal", resource = "form", id = "frmPagingQuery" }))
+            {
+                @Html.AntiForgeryToken()
+                <div>@Html.Partial("_PaginationPartial")</div>
+            }
+        }
+    </div>
+</div>
+
+

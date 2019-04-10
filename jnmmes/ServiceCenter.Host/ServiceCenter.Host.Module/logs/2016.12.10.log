@@ -1,0 +1,10 @@
+2016-12-10 14:39:57,949 - ERROR - START>Application
+2016-12-10 14:41:55,606 - ERROR - START>Application
+2016-12-10 14:43:20,919 - ERROR - START>Application
+2016-12-10 14:48:51,651 - ERROR - START>Application
+2016-12-10 16:27:29,250 - ERROR - START>Application
+2016-12-10 19:28:20,321 - ERROR - START>Application
+2016-12-10 20:26:53,443 - ERROR - START>Application
+2016-12-10 20:27:47,315 - ERROR - MismatchedTokenException(104!=-1)
+2016-12-10 20:28:41,627 - ERROR - MismatchedTokenException(104!=-1)
+2016-12-10 23:32:57,086 - ERROR - START>Application

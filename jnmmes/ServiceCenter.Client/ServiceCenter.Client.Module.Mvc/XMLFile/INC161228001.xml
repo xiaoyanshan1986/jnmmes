@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ufinterface receiver="K01" sender="mes" roottag="" replace="Y" isexchange="Y" groupcode="001" filename="" billtype="55A4" account="01">
+  <bill id="">
+    <billhead>
+      <pk_wr>
+      </pk_wr>
+      <product />
+      <pk_group>001</pk_group>
+      <pk_org>K01</pk_org>
+      <pk_org_v>K01</pk_org_v>
+      <vbillcode>
+      </vbillcode>
+      <fbillstatus>1</fbillstatus>
+      <vdef17>INC161228001</vdef17>
+      <vtrantypeid>0001A110000000001MSI</vtrantypeid>
+      <vtrantypecode>55A4-01</vtrantypecode>
+      <fprodmode>2</fprodmode>
+      <cdeptid>
+      </cdeptid>
+      <cdeptvid>
+      </cdeptvid>
+      <dbilldate>2016/12/28 0:00:00</dbilldate>
+      <vnote>
+      </vnote>
+      <billmaker>jun.fang</billmaker>
+      <dmakedate>2016-12-28 12:12:11</dmakedate>
+      <creator>jun.fang</creator>
+      <creationtime>2016-12-28 12:58:44</creationtime>
+    </billhead>
+  </bill>
+</ufinterface>

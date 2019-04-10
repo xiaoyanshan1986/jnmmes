@@ -1,0 +1,92 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.RBAC.Models.RoleViewModel
+@using RBAC = ServiceCenter.MES.Model.RBAC;
+@using ServiceCenter.Client.Mvc.Areas.RBAC.Models;
+@using ServiceCenter.Client.Mvc.Resources.RBAC;
+@using ServiceCenter.Model;
+@{
+    PagingConfig cfg = ViewBag.PagingConfig;
+}
+<div class="panel" id="_roleList">
+    <table class="table table-hover table-bordered table-condensed">
+        <thead>
+            <tr class="active">
+                <td>@StringResource.Role_ItemNo</td>
+                <td>@Html.DisplayNameFor(m => m.RoleName)</td>
+                <td>@StringResource.Role_Detail</td>
+                <td>@StringResource.Role_Modify</td>
+                <td>@StringResource.Role_Delete</td>
+            </tr>
+        </thead>
+        @if (ViewBag.RoleList != null)
+        {
+            <tbody>
+                @for (int i = 0; i < ViewBag.RoleList.Length; i++)
+                {
+                    RBAC.Role u = ViewBag.RoleList[i];
+                    <tr>
+                        <td>@(cfg.PageSize * cfg.PageNo+i+1)</td>
+                        <td>@u.Key</td>
+                        <td>
+                            @Ajax.ActionLink(@StringResource.Role_Detail, actionName: null
+                                            , routeValues: null
+                                            , ajaxOptions:new AjaxOptions() 
+                                            { 
+                                                HttpMethod = "Post", 
+                                                UpdateTargetId = "roleDetailInfo",
+                                                OnSuccess = "showRoleInfoModal",
+                                                Url = Url.Action("Detail", new { @RoleName = u.Key })
+                                            })
+                        </td>
+                        <td>
+                            @Ajax.ActionLink(@StringResource.Role_Modify, actionName: null
+                                            ,routeValues:null
+                                            ,ajaxOptions:new AjaxOptions()
+                                            {
+                                                HttpMethod = "Post",
+                                                UpdateTargetId = "modifyRoleFormContent",
+                                                OnSuccess = "showModifyRoleModal",
+                                                Url = Url.Action("Modify", new { @RoleName = u.Key })
+                                            })
+                        </td>
+                        <td>
+                            @Ajax.ActionLink(@StringResource.Role_Delete, actionName: null
+                                            , routeValues: null
+                                            , ajaxOptions:new AjaxOptions()
+                                            {
+                                                HttpMethod = "Post",
+                                                Confirm = string.Format(@StringResource.Role_ConfirmDeleteRole, u.Key),
+                                                Url = Url.Action("Delete", new { @RoleName = u.Key }),
+                                                OnSuccess = "completeDeleteRole"
+                                            })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        }
+    </table>
+    <div>
+        @if (cfg != null)
+        {
+            using (Ajax.BeginForm("PagingQuery", "Role"
+                            , new
+                            {
+                                @Where = cfg.Where,
+                                @OrderBy = cfg.OrderBy,
+                                @CurrentPageNo = cfg.PageNo,
+                                @CurrentPageSize = cfg.PageSize
+                            }
+                            , new AjaxOptions()
+                            {
+                                HttpMethod = "Post",
+                                UpdateTargetId = "_roleList"
+                            }
+                            , new { @class = "form-horizontal", role = "form", id = "frmPagingQuery" }))
+            {
+                @Html.AntiForgeryToken()
+                <div>@Html.Partial("_PaginationPartial")</div>
+            }
+        }
+    </div>
+</div>
+
+

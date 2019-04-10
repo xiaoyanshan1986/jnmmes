@@ -1,0 +1,27 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.RPT.Models.WIPDisplayDetailQueryViewModel
+@using ServiceCenter.Model;
+@using ServiceCenter.Common;
+
+@using RPTRsources = ServiceCenter.Client.Mvc.Resources.RPT;
+@using ServiceCenter.Client.Mvc.Resources;
+@{
+    ViewBag.Title = "在制品明细";
+}
+<h2>@ViewBag.Title</h2>
+@using (Html.BeginForm("ExportToExcel", "WIPDisplay", FormMethod.Post
+            , new { @class = "form-horizontal", resource = "form", id = "frmQuery" }))
+{
+   <input type="submit"
+            value="@StringResource.ExportToExcel"
+            class="btn btn-default"
+            id="btnExportToExcel" />
+    @Html.HiddenFor(m=>m.LocationName)
+    @Html.HiddenFor(m=>m.MaterialCode)
+    @Html.HiddenFor(m=>m.OnlineTime)
+    @Html.HiddenFor(m=>m.OrderNumber)
+    @Html.HiddenFor(m=>m.RouteOperationName)
+    @Html.HiddenFor(m=>m.Status)
+}
+<div id="list" style="overflow:auto">
+    @Html.Partial("_DetailListPartial")
+</div>

@@ -1,0 +1,516 @@
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Activities.MinifyCssResult 生成存根: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.DelayedLogManager 生成存根: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.CacheFileCategories 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Activities.CssLocalizationActivity 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Activities.CssLocalizationInput 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Activities.ErrorCode 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Activities.FileTypes 生成存根: 类型是一个值类型。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Activities.JSLocalizationActivity 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Activities.JSLocalizationInput 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Activities.EverythingActivity 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Activities.LogExtendedError 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Activities.LogError 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Activities.MinifyJSActivity 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Activities.BundleActivity 生成存根: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Activities.PreprocessorActivity 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Activities.RenamedFile 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Activities.RenamedFilesLog 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Activities.RenamedFilesLogs 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Activities.ResourceDirectoryPath 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Activities.ResourcesManager 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Activities.ResourcesResolver 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Activities.ResourcesResolutionActivity 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Activities.ResourceType 生成存根: 类型是一个值类型。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Activities.AssemblerActivity 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Activities.MinifyCssActivity 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.ColorSlice 生成存根: 类型没有系列可见的构造函数。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.CssErrorCode 生成存根: 类型是一个值类型。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.CssException 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.CssErrorEventArgs 生成存根: 类型没有系列可见的构造函数。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.CssScanner 生成存根: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.CssScannerErrorEventArgs 生成存根: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.CssScannerContextChangeEventArgs 生成存根: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.CssType 生成存根: 类型是一个值类型。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.CssComment 生成存根: 类型是一个值类型。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.CssColor 生成存根: 类型是一个值类型。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.CssStrings 生成存根: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.CssToken 生成存根: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.CssContext 生成存根: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.Position 生成存根: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.TokenType 生成存根: 类型是一个值类型。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.AnalyzeNodeVisitor 生成存根: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.ArrayLiteral 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.AspNetBlockNode 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.EncloseBlockType 生成存根: 类型是一个值类型。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.AstNodeList 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.Block 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.Break 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.CallNode 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.CatchScope 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.LocalRenaming 生成存根: 类型是一个值类型。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.EvalTreatment 生成存根: 类型是一个值类型。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.JavaScriptSourceMode 生成存根: 类型是一个值类型。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.JavaScriptFormat 生成存根: 类型是一个值类型。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.TreeModifications 生成存根: 类型是一个值类型。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.Conditional 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.PrimitiveType 生成存根: 类型是一个值类型。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.ContinueNode 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.CrunchEnumerator 生成存根: 类型没有系列可见的构造函数。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.ReferenceComparer 生成存根: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.DebuggerNode 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.DetachReferences 生成存根: 类型没有系列可见的构造函数。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.DoWhile 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.EvaluateLiteralVisitor 生成存根: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.FinalPassVisitor 生成存根: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.ForNode 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.ForIn 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.FunctionObject 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.FunctionType 生成存根: 类型是一个值类型。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.FunctionScope 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.GetterSetter 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.GlobalScope 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.IfNode 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.JScript 生成存根: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.JScriptException 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.UndefinedReferenceException 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.JSError 生成存根: 类型是一个值类型。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.JSKeyword 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.JSONOutputVisitor 生成存根: 类型没有系列可见的构造函数。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.JSParser 生成存根: 类型包含会导致编译错误的过时成员。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.JSScanner 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.JSToken 生成存根: 类型是一个值类型。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.FieldType 生成存根: 类型是一个值类型。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.LabeledStatement 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.ReferenceType 生成存根: 类型是一个值类型。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.Lookup 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.Member 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.Missing 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.NewParensVisitor 生成存根: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.ObjectLiteral 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.OperatorPrecedence 生成存根: 类型是一个值类型。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.OutputVisitor 生成存根: 类型没有系列可见的构造函数。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.ParameterDeclaration 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.RegExpLiteral 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.ReorderScopeVisitor 生成存根: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.ResolutionVisitor 生成存根: 类型没有系列可见的构造函数。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.ReturnNode 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.ScriptSharpSourceMap 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.SourceMapFactory 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.Switch 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.SwitchCase 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.ThisLiteral 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.ThrowNode 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.TryNode 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.V3SourceMap 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.Var 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.VariableDeclaration 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.WhileNode 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.WithNode 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.WithScope 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.OutputMode 生成存根: 类型是一个值类型。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.BlockStart 生成存根: 类型是一个值类型。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.AjaxMinExtensions 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.JSEncoderFallbackBuffer 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.BuildWorkflowException 生成存根: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.CacheDependencyGraph 生成存根: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.CacheResult 生成存根: 类型没有系列可见的构造函数。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.CacheSection 生成存根: 类型没有系列可见的构造函数。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.CacheVaryByFile 生成存根: 类型没有系列可见的构造函数。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.NullCacheManager 生成存根: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.ReadOnlyCacheSection 生成存根: 类型没有系列可见的构造函数。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Common.FileHelper 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Configuration.ActivityMode 生成存根: 类型是一个值类型。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Configuration.ArgumentProcessor 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Configuration.CssFileSet 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Configuration.CssMinificationConfig 生成存根: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Configuration.JSFileSet 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Configuration.JsMinificationConfig 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Configuration.WebGreaseConfiguration 生成存根: 类型没有系列可见的构造函数。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Extensions.DictionaryExtensions 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Extensions.InputSpecExtensions 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Extensions.JsonExtensions 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Extensions.StringPathExtensions 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.ContentItem 生成存根: 类型没有系列可见的构造函数。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.ContentItemType 生成存根: 类型是一个值类型。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.MessageImportance 生成存根: 类型是一个值类型。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.WebGreaseSection 生成存根: 类型没有系列可见的构造函数。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.NullTimeMeasure 生成存根: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.TimeMeasureExtensions 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.SectionIdParts 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.Ast.AllowedImportData 生成存根: 类型是一个值类型。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.Ast.Animation.KeyFramesBlockNode 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.Ast.Animation.KeyFramesNode 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.Ast.Combinator 生成存根: 类型是一个值类型。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.Ast.CombinatorSimpleSelectorSequenceNode 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.Ast.DeclarationNode 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.Ast.DocumentQueryNode 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.Ast.ExprNode 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.Ast.FunctionNode 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.Ast.ImportNode 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.Ast.MediaQuery.MediaExpressionNode 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.Ast.MediaQuery.MediaNode 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.Ast.MediaQuery.MediaQueryNode 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.Ast.NamespaceNode 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.Ast.PageNode 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.Ast.RulesetNode 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.Ast.Selectors.AttribNode 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.Ast.Selectors.AttribOperatorAndValueNode 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.Ast.Selectors.AttribOperatorKind 生成存根: 类型是一个值类型。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.Ast.Selectors.FunctionalPseudoNode 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.Ast.Selectors.HashClassAtNameAttribPseudoNegationNode 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.Ast.Selectors.NegationArgNode 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.Ast.Selectors.NegationNode 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.Ast.Selectors.PseudoNode 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.Ast.Selectors.SelectorExpressionNode 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.Ast.Selectors.SelectorNamespacePrefixNode 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.Ast.Selectors.SelectorNode 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.Ast.Selectors.SelectorsGroupNode 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.Ast.Selectors.SimpleSelectorSequenceNode 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.Ast.Selectors.TypeSelectorNode 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.Ast.Selectors.UniversalSelectorNode 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.Ast.StyleSheetNode 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.Ast.TermNode 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.Ast.TermWithOperatorNode 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.CommonTreeTransformer 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.CssConstants 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.CssStrings 生成存根: 类型是编译器生成的。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.Extensions.AstNodeExtensions 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.Extensions.BackgroundAstNodeExtensions 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.Extensions.CommonTreeExtensions 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.Extensions.ListExtensions 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.Extensions.NumberExtensions 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.Extensions.OrderedDictionaryExtensions 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.ImageAssemblyAnalysis.ImageAssembleConstants 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.ImageAssemblyAnalysis.ImageAssemblyScanInput 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.ImageAssemblyAnalysis.ImageAssemblyScanOutput 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.ImageAssemblyAnalysis.LogModel.AssembledImage 生成存根: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.ImageAssemblyAnalysis.LogModel.FailureReason 生成存根: 类型是一个值类型。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.ImageAssemblyAnalysis.LogModel.ImageAssemblyAnalysis 生成存根: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.ImageAssemblyAnalysis.LogModel.ImageLog 生成存根: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.ImageAssemblyAnalysis.PropertyModel.Background 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.ImageAssemblyAnalysis.PropertyModel.BackgroundImage 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.ImageAssemblyAnalysis.PropertyModel.Source 生成存根: 类型是一个值类型。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.ImageAssemblyAnalysis.PropertyModel.BackgroundPosition 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.ImageAssemblyAnalysis.PropertyModel.Repeat 生成存根: 类型是一个值类型。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.ImageAssemblyAnalysis.PropertyModel.BackgroundRepeat 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.PrinterFormatter 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.UnicodeDecoder 生成存根: 类型没有系列可见的构造函数。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.Visitor.ColorOptimizationVisitor 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.Visitor.ExcludePropertyVisitor 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.Visitor.FloatOptimizationVisitor 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.Visitor.ImageAssemblyScanVisitor 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.Visitor.ImageAssemblyUpdateVisitor 生成存根: 类型没有系列可见的构造函数。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.Visitor.OptimizationVisitor 生成存根: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.Visitor.PrintVisitor 生成存根: 类型没有系列可见的构造函数。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.Visitor.SelectorValidationOptimizationVisitor 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.Visitor.ValidateLowercaseVisitor 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.ErrorHelper 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Extensions.StringExtensions 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.ImageAssemble.ColorQuantizer 生成存根: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.ImageAssemble.SpritePackingType 生成存根: 类型是一个值类型。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.ImageAssemble.ImageAssembleBase 生成存根: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.ImageAssemble.ImageAssembleGenerator 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.ImageAssemble.ImageType 生成存根: 类型是一个值类型。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.ImageAssemble.ImageAssembleStrings 生成存根: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.ImageAssemble.ImageMap 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.ImageAssemble.ImagePosition 生成存根: 类型是一个值类型。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.ImageAssemble.InputImage 生成存根: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.ImageAssemble.NonphotoIndexedAssemble 生成存根: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.ImageAssemble.NonphotoNonindexedAssemble 生成存根: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.ImageAssemble.NotSupportedAssemble 生成存根: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.ImageAssemble.PhotoAssemble 生成存根: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Preprocessing.PreprocessingManager 生成存根: 类型没有系列可见的构造函数。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.ResourceStrings 生成存根: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Strings 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Activities.FileHasherActivity 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 <>f__AnonymousType0`2 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 <>f__AnonymousType1`6 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 <>f__AnonymousType2`8 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 <>f__AnonymousType3`4 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 <>f__AnonymousType4`1 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 <>f__AnonymousType5`4 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 <>f__AnonymousType6`3 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 <>f__AnonymousType7`2 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 <>f__AnonymousType8`4 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 <>f__AnonymousType9`18 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 <>f__AnonymousTypea`2 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 <PrivateImplementationDetails>{6FD05D7B-8C3C-4F53-8612-47751BD441FD} 生成存根: 类型不受支持，因为存在内部限制。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 <>f__AnonymousTypeb`4 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 <>f__AnonymousTypec`2 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 <>f__AnonymousTyped`3 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 <>f__AnonymousTypee`4 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 System.Diagnostics.Contracts.__ContractsRuntime 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 System.Diagnostics.Contracts.RuntimeContractsFlags 生成存根: 类型是一个值类型。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 System.Diagnostics.Contracts.RuntimeContractsAttribute 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Activities.MinifyCssResult 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.IVisitor 生成填充码: 类型是一个接口。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Configuration.INamedConfig 生成填充码: 类型是一个接口。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.DelayedLogManager 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.CacheFileCategories 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Activities.CssLocalizationActivity 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Activities.CssLocalizationInput 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Activities.ErrorCode 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Activities.FileTypes 生成填充码: 类型是一个枚举。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Activities.JSLocalizationActivity 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Activities.JSLocalizationInput 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Activities.EverythingActivity 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Activities.LogExtendedError 生成填充码: 类型是一个委托。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Activities.LogError 生成填充码: 类型是一个委托。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Activities.MinifyJSActivity 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Activities.BundleActivity 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Activities.PreprocessorActivity 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Activities.RenamedFile 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Activities.RenamedFilesLog 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Activities.RenamedFilesLogs 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Activities.ResourceDirectoryPath 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Activities.ResourcesManager 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Activities.ResourcesResolver 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Activities.ResourcesResolutionActivity 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Activities.ResourceType 生成填充码: 类型是一个枚举。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Activities.AssemblerActivity 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Activities.MinifyCssActivity 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.ColorSlice+ColorName 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.ColorSlice+NestedAllColorNames 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.ColorSlice+NestedFactory 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.ColorSlice+NestedHexShorterThanName 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.ColorSlice+NestedNameShorterThanHex 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.ColorSlice+NestedStrictHexShorterThanNameAndAllNonStrict 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.ColorSlice+NestedStrictNameShorterThanHex 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.CssErrorCode 生成填充码: 类型是一个枚举。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.CssParser+<>c__DisplayClass6 生成填充码: 类型不受支持，因为存在内部限制。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.CssParser+Parsed 生成填充码: 类型是一个枚举。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.CssScanner 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.CssScannerErrorEventArgs 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.CssScannerContextChangeEventArgs 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.CssType 生成填充码: 类型是一个枚举。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.CssComment 生成填充码: 类型是一个枚举。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.CssColor 生成填充码: 类型是一个枚举。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.CssStrings 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.CssToken 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.CssContext 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.Position 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.TokenType 生成填充码: 类型是一个枚举。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.ActivationObject+<>c__DisplayClass5 生成填充码: 类型不受支持，因为存在内部限制。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.ActivationObject+<>c__DisplayClass9 生成填充码: 类型不受支持，因为存在内部限制。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.ActivationObject+<>c__DisplayClassc 生成填充码: 类型不受支持，因为存在内部限制。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.ActivationObject+<>c__DisplayClasse 生成填充码: 类型不受支持，因为存在内部限制。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.AnalyzeNodeVisitor 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.AstNode+<EnumerateNonNullNodes>d__0`1 生成填充码: 类型不受支持，因为存在内部限制。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.EncloseBlockType 生成填充码: 类型是一个枚举。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.LocalRenaming 生成填充码: 类型是一个枚举。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.EvalTreatment 生成填充码: 类型是一个枚举。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.JavaScriptSourceMode 生成填充码: 类型是一个枚举。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.JavaScriptFormat 生成填充码: 类型是一个枚举。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.TreeModifications 生成填充码: 类型是一个枚举。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.PrimitiveType 生成填充码: 类型是一个枚举。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.ReferenceComparer 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.EvaluateLiteralVisitor 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.FinalPassVisitor 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.INameDeclaration 生成填充码: 类型是一个接口。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.FunctionType 生成填充码: 类型是一个枚举。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.INameReference 生成填充码: 类型是一个接口。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.ISourceMap 生成填充码: 类型是一个接口。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.JScript 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.JSError 生成填充码: 类型是一个枚举。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.JSKeyword 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.JSParser+<>c__DisplayClass75 生成填充码: 类型不受支持，因为存在内部限制。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.JSParser+<>c__DisplayClass84 生成填充码: 类型不受支持，因为存在内部限制。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.JSParser+BlockType 生成填充码: 类型是一个枚举。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.JSParser+LabelInfo 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.JSParser+NoSkipTokenSet 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.JSParser+RecoveryTokenException 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.JSScanner+PPOperators 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.JSToken 生成填充码: 类型是一个枚举。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.FieldType 生成填充码: 类型是一个枚举。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.ReferenceType 生成填充码: 类型是一个枚举。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.NewParensVisitor 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.OperatorPrecedence 生成填充码: 类型是一个枚举。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.OutputVisitor+<>c__DisplayClass2 生成填充码: 类型不受支持，因为存在内部限制。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.ReorderScopeVisitor 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.ScriptSharpSourceMap+JavaScriptSymbol 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.V3SourceMap+Segment 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.WithScope+<>c__DisplayClass1 生成填充码: 类型不受支持，因为存在内部限制。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.OutputMode 生成填充码: 类型是一个枚举。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.BlockStart 生成填充码: 类型是一个枚举。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.AjaxMinExtensions+<>c__DisplayClass1`2 生成填充码: 类型不受支持，因为存在内部限制。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 Microsoft.Ajax.Utilities.JSEncoderFallbackBuffer 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.BuildWorkflowException 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.CacheDependencyGraph 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.ICacheManager 生成填充码: 类型是一个接口。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.CacheManager+<>c__DisplayClass1 生成填充码: 类型不受支持，因为存在内部限制。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.CacheManager+<>c__DisplayClass4 生成填充码: 类型不受支持，因为存在内部限制。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.ICacheSection 生成填充码: 类型是一个接口。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.CacheSection+<>c__DisplayClass6 生成填充码: 类型不受支持，因为存在内部限制。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.CacheSourceDependency+<>c__DisplayClass1 生成填充码: 类型不受支持，因为存在内部限制。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.NullCacheManager 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.ReadOnlyCacheSection+<>c__DisplayClass6 生成填充码: 类型不受支持，因为存在内部限制。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Common.FileHelper 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Configuration.ActivityMode 生成填充码: 类型是一个枚举。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Configuration.ArgumentProcessor 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Configuration.IFileSet 生成填充码: 类型是一个接口。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Configuration.CssFileSet 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Configuration.CssMinificationConfig 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Configuration.JSFileSet+<>c__DisplayClass1 生成填充码: 类型不受支持，因为存在内部限制。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Configuration.JsMinificationConfig 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Extensions.DictionaryExtensions 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Extensions.InputSpecExtensions+<>c__DisplayClass3 生成填充码: 类型不受支持，因为存在内部限制。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Extensions.JsonExtensions 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.ICachableWebGreaseSection 生成填充码: 类型是一个接口。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.IWebGreaseSection 生成填充码: 类型是一个接口。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.IWebGreaseContext 生成填充码: 类型是一个接口。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.ContentItemType 生成填充码: 类型是一个枚举。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.MessageImportance 生成填充码: 类型是一个枚举。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.TemporaryOverrides+<>c__DisplayClass10 生成填充码: 类型不受支持，因为存在内部限制。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.TemporaryOverrides+<>c__DisplayClass13 生成填充码: 类型不受支持，因为存在内部限制。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.TemporaryOverrides+<>c__DisplayClass9 生成填充码: 类型不受支持，因为存在内部限制。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.TemporaryOverrides+<>c__DisplayClassd 生成填充码: 类型不受支持，因为存在内部限制。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.WebGreaseSection+<>c__DisplayClass1 生成填充码: 类型不受支持，因为存在内部限制。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.ITimeMeasure 生成填充码: 类型是一个接口。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.NullTimeMeasure 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.TimeMeasure+<>c__DisplayClass5 生成填充码: 类型不受支持，因为存在内部限制。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.Ast.AllowedImportData 生成填充码: 类型是一个枚举。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.Ast.Combinator 生成填充码: 类型是一个枚举。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.Ast.Selectors.AttribOperatorKind 生成填充码: 类型是一个枚举。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.CommonTreeTransformer 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.CssConstants 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.CssLexer+DFA10 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.CssLexer+DFA12 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.CssLexer+DFA129 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.CssLexer+DFA14 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.CssLexer+DFA18 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.CssLexer+DFA25 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.CssLexer+DFA31 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.CssLexer+DFA46 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.CssLexer+DFA8 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.CssParser+<>c__DisplayClass3 生成填充码: 类型不受支持，因为存在内部限制。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.CssParser+DFA28 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.CssParser+DFA43 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.CssParser+Follow 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.CssParser+atname_return 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.CssParser+attrib_return 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.CssParser+beginfunc_return 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.CssParser+class_return 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.CssParser+combinator_return 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.CssParser+combinator_simple_selector_sequence_return 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.CssParser+declaration_return 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.CssParser+document_match_function_return 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.CssParser+document_return 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.CssParser+element_name_return 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.CssParser+expr_return 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.CssParser+function_return 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.CssParser+functional_pseudo_return 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.CssParser+hash_return 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.CssParser+hashclassatnameattribpseudonegation_return 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.CssParser+keyframes_block_return 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.CssParser+keyframes_return 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.CssParser+keyframes_selector_return 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.CssParser+keyframes_selectors_return 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.CssParser+media_expression_return 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.CssParser+media_feature_return 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.CssParser+media_query_list_return 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.CssParser+media_query_return 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.CssParser+media_return 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.CssParser+media_type_return 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.CssParser+namespace_prefix_return 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.CssParser+namespace_return 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.CssParser+negation_arg_return 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.CssParser+negation_return 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.CssParser+operator_return 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.CssParser+page_return 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.CssParser+prio_return 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.CssParser+property_return 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.CssParser+pseudo_page_return 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.CssParser+pseudo_return 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.CssParser+ruleset_return 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.CssParser+selector_namespace_prefix_return 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.CssParser+selector_return 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.CssParser+selectorexpression_return 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.CssParser+selectors_group_return 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.CssParser+simple_selector_sequence_return 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.CssParser+stringoruri_return 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.CssParser+styleSheet_return 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.CssParser+styleSheetrules_return 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.CssParser+styleimport_return 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.CssParser+term_return 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.CssParser+termwithoperator_return 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.CssParser+type_selector_return 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.CssParser+unary_operator_return 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.CssParser+universal_return 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.CssParser+wg_dpi_return 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.CssParser+whitespace_return 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.CssStrings 生成填充码: 类型是编译器生成的。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.Extensions.AstNodeExtensions+<>c__DisplayClass3 生成填充码: 类型不受支持，因为存在内部限制。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.Extensions.BackgroundAstNodeExtensions+<>c__DisplayClasse 生成填充码: 类型不受支持，因为存在内部限制。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.Extensions.BackgroundAstNodeExtensions+<DeclarationEnumerator>d__3 生成填充码: 类型不受支持，因为存在内部限制。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.Extensions.CommonTreeExtensions+<>c__DisplayClass2 生成填充码: 类型不受支持，因为存在内部限制。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.Extensions.CommonTreeExtensions+<Children>d__4 生成填充码: 类型不受支持，因为存在内部限制。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.Extensions.CommonTreeExtensions+<GrandChildren>d__f 生成填充码: 类型不受支持，因为存在内部限制。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.Extensions.NumberExtensions 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.ImageAssemblyAnalysis.ImageAssembleConstants 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.ImageAssemblyAnalysis.ImageAssemblyScanOutput 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.ImageAssemblyAnalysis.LogModel.AssembledImage 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.ImageAssemblyAnalysis.LogModel.FailureReason 生成填充码: 类型是一个枚举。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.ImageAssemblyAnalysis.LogModel.ImageAssemblyAnalysis 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.ImageAssemblyAnalysis.LogModel.ImageAssemblyAnalysisLog+<>c__DisplayClass4 生成填充码: 类型不受支持，因为存在内部限制。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.ImageAssemblyAnalysis.LogModel.ImageLog 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.ImageAssemblyAnalysis.PropertyModel.Background 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.ImageAssemblyAnalysis.PropertyModel.BackgroundImage 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.ImageAssemblyAnalysis.PropertyModel.Source 生成填充码: 类型是一个枚举。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.ImageAssemblyAnalysis.PropertyModel.BackgroundPosition 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.ImageAssemblyAnalysis.PropertyModel.Repeat 生成填充码: 类型是一个枚举。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.ImageAssemblyAnalysis.PropertyModel.BackgroundRepeat 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.PrinterFormatter 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.Visitor.ImageAssemblyScanVisitor+<>c__DisplayClass15 生成填充码: 类型不受支持，因为存在内部限制。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.Visitor.ImageAssemblyScanVisitor+<>c__DisplayClass4 生成填充码: 类型不受支持，因为存在内部限制。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.Visitor.ImageAssemblyScanVisitor+<>c__DisplayClassd 生成填充码: 类型不受支持，因为存在内部限制。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.Visitor.ImageAssemblyUpdateVisitor+<>c__DisplayClass3 生成填充码: 类型不受支持，因为存在内部限制。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.Visitor.ImageAssemblyUpdateVisitor+<>c__DisplayClass7 生成填充码: 类型不受支持，因为存在内部限制。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.Visitor.ImageAssemblyUpdateVisitor+<>c__DisplayClassb 生成填充码: 类型不受支持，因为存在内部限制。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.Visitor.OptimizationVisitor 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.Visitor.SelectorValidationOptimizationVisitor+<>c__DisplayClass1 生成填充码: 类型不受支持，因为存在内部限制。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.Visitor.SelectorValidationOptimizationVisitor+<>c__DisplayClass6 生成填充码: 类型不受支持，因为存在内部限制。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.Visitor.SelectorValidationOptimizationVisitor+<>c__DisplayClassa 生成填充码: 类型不受支持，因为存在内部限制。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Css.ErrorHelper 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Extensions.StringExtensions 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.ImageAssemble.ColorQuantizer 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.ImageAssemble.SpritePackingType 生成填充码: 类型是一个枚举。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.ImageAssemble.ImageAssembleBase 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.ImageAssemble.ImageAssembleGenerator 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.ImageAssemble.ImageType 生成填充码: 类型是一个枚举。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.ImageAssemble.ImageAssembleStrings 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.ImageAssemble.ImageMap 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.ImageAssemble.ImagePosition 生成填充码: 类型是一个枚举。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.ImageAssemble.InputImage 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.ImageAssemble.NonphotoIndexedAssemble 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.ImageAssemble.NonphotoNonindexedAssemble 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.ImageAssemble.NotSupportedAssemble 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.ImageAssemble.PhotoAssemble 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Preprocessing.IPreprocessingEngine 生成填充码: 类型是一个接口。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Preprocessing.PreprocessingManager+<>c__DisplayClass4 生成填充码: 类型不受支持，因为存在内部限制。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Preprocessing.PreprocessingManager+<>c__DisplayClass9 生成填充码: 类型不受支持，因为存在内部限制。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Preprocessing.PreprocessingManager+<>c__DisplayClassb 生成填充码: 类型不受支持，因为存在内部限制。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.ResourceStrings 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Strings 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.Activities.FileHasherActivity 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.WebGreaseContext+<>c__DisplayClass6 生成填充码: 类型不受支持，因为存在内部限制。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.WebGreaseContext+<>c__DisplayClass9 生成填充码: 类型不受支持，因为存在内部限制。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 WebGrease.WebGreaseContext+<>c__DisplayClassc 生成填充码: 类型不受支持，因为存在内部限制。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 <>f__AnonymousType0`2 生成填充码: 类型不受支持，因为存在内部限制。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 <>f__AnonymousType1`6 生成填充码: 类型不受支持，因为存在内部限制。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 <>f__AnonymousType2`8 生成填充码: 类型不受支持，因为存在内部限制。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 <>f__AnonymousType3`4 生成填充码: 类型不受支持，因为存在内部限制。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 <>f__AnonymousType4`1 生成填充码: 类型不受支持，因为存在内部限制。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 <>f__AnonymousType5`4 生成填充码: 类型不受支持，因为存在内部限制。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 <>f__AnonymousType6`3 生成填充码: 类型不受支持，因为存在内部限制。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 <>f__AnonymousType7`2 生成填充码: 类型不受支持，因为存在内部限制。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 <>f__AnonymousType8`4 生成填充码: 类型不受支持，因为存在内部限制。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 <>f__AnonymousType9`18 生成填充码: 类型不受支持，因为存在内部限制。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 <>f__AnonymousTypea`2 生成填充码: 类型不受支持，因为存在内部限制。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 <PrivateImplementationDetails>{6FD05D7B-8C3C-4F53-8612-47751BD441FD} 生成填充码: 类型不受支持，因为存在内部限制。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 <>f__AnonymousTypeb`4 生成填充码: 类型不受支持，因为存在内部限制。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 <>f__AnonymousTypec`2 生成填充码: 类型不受支持，因为存在内部限制。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 <>f__AnonymousTyped`3 生成填充码: 类型不受支持，因为存在内部限制。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 <>f__AnonymousTypee`4 生成填充码: 类型不受支持，因为存在内部限制。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 System.Diagnostics.Contracts.__ContractsRuntime 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 System.Diagnostics.Contracts.RuntimeContractsFlags 生成填充码: 类型是一个枚举。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\WebGrease.fakes : warning : 无法为 System.Diagnostics.Contracts.RuntimeContractsAttribute 生成填充码: 类型对 exported or assembly(WebGrease.Fakes) 不可见。

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   namespace="ServiceCenter.MES.Model.FMM" 
+                   assembly="ServiceCenter.MES.Model.FMM">
+  <class name="Bin" table="FMM_BIN">
+    <id name="Key" column="BIN_NO">
+      <generator class="assigned" />
+    </id>
+    <property name="PackageLine" column="PACKAGE_LINE"/>
+    <property name="BinScanNo" column="BIN_SCANNO"/>
+    <property name="BinPosX" column="BIN_POSX"/>
+    <property name="BinPosY" column="BIN_POSY"/>
+    <property name="BinState" column="BIN_STATE"/>
+    <property name="Creator" column="CREATOR"/>
+    <property name="CreateTime" column="CREATE_TIME"/>
+    <property name="Editor" column="EDITOR"/>
+    <property name="EditTime" column="EDIT_TIME"/>
+  </class>
+</hibernate-mapping>

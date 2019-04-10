@@ -1,0 +1,69 @@
+﻿@using ServiceCenter.Client.Mvc.Areas.WIP.Models;
+@using ServiceCenter.Client.Mvc.Resources;
+@using WIPResources = ServiceCenter.Client.Mvc.Resources.WIP;
+@using ServiceCenter.MES.Model.WIP;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+<div id="_list">
+    <table class="table table-hover table-bordered table-condensed table-responsive table-striped">
+        <thead>
+            <tr class="active">
+                <td nowrap>@StringResource.ItemNo</td>
+                <td nowrap>代码组名称</td>
+                <td nowrap>代码名称</td>
+                <td nowrap>线边仓</td>
+                <td nowrap>物料编码</td>
+                <td nowrap>物料批次</td>
+                <td nowrap>数量</td>
+                <td nowrap>责任工序</td>
+                <td nowrap>责任人</td>
+                <td nowrap>描述</td>
+                <td nowrap>编辑人</td>
+                <td nowrap>编辑时间</td>
+            </tr>
+        </thead>
+        @if (ViewBag.PatchList != null)
+        {
+            <tbody>
+                @for (int i = 0; i < ViewBag.PatchList.Length; i++)
+                {
+                    LotTransactionPatch obj = ViewBag.PatchList[i];
+                    <tr>
+                        <td nowrap>@(i+1)</td>
+                        <td nowrap>
+                            @obj.Key.ReasonCodeCategoryName
+                        </td>
+                        <td nowrap>
+                            @obj.Key.ReasonCodeName
+                        </td>
+                        <td nowrap>
+                            @obj.LineStoreName
+                        </td>
+                        <td nowrap>
+                            @obj.MaterialCode
+                        </td>
+                        <td nowrap>
+                            @obj.MaterialLot
+                        </td>
+                        <td nowrap>
+                            @obj.Quantity
+                        </td>
+                        <td nowrap>
+                            @obj.RouteOperationName
+                        </td>
+                        <td nowrap>
+                            @obj.ResponsiblePerson
+                        </td>
+                        <td nowrap>
+                            @obj.Description
+                        </td>
+                        <td nowrap>@obj.Editor</td>
+                        <td nowrap>@string.Format("{0:yyyy-MM-dd HH:mm:ss}", obj.EditTime)</td>
+                    </tr>
+                }
+            </tbody>
+        }
+    </table>
+</div>
+
+

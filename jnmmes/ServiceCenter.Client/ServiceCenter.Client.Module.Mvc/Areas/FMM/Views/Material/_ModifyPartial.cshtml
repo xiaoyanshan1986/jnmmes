@@ -1,0 +1,116 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.FMM.Models.MaterialViewModel
+@using ServiceCenter.Common;
+
+@Html.ValidationSummary(true)
+<div class="form-group">
+    @* 物料编码 *@
+    @Html.LabelFor(m => m.Code, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        <p class="form-control-static">@Model.Code</p>
+        @Html.HiddenFor(m => m.Code)
+    </div>
+</div>
+<div class="form-group">
+    @* 物料类型 *@
+    @Html.LabelFor(m => m.Type, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.DropDownListFor(m => Model.Type, @Model.GetMaterialTypeList(), new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Type)
+    </div>
+</div>
+<div class="form-group">
+    @* 物料名称 *@
+    @Html.LabelFor(m => m.Name, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Name)
+    </div>
+</div>
+<div class="form-group">
+    @* 规格 *@
+    @Html.LabelFor(m => m.Spec, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.Spec, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Spec)
+    </div>
+</div>
+<div class="form-group">
+    @* 型号 *@
+    @Html.LabelFor(m => m.ModelName, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.ModelName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.ModelName)
+    </div>
+</div>
+
+<div class="form-group">
+    @* 单位 *@
+    @Html.LabelFor(m => m.Unit, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.Unit, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Unit)
+    </div>
+</div>
+@*<div class="form-group">
+    @Html.LabelFor(m => m.Class, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.Class, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Class)
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(m => m.BarCode, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.BarCode, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.BarCode)
+    </div>
+</div>*@
+<div class="form-group">
+    @* 原材料标记 *@
+    @Html.LabelFor(m => m.IsRaw, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.CheckBoxFor(m => m.IsRaw, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.IsRaw)
+    </div>
+</div>
+<div class="form-group">
+    @* 产品标记 *@
+    @Html.LabelFor(m => m.IsProduct, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.CheckBoxFor(m => m.IsProduct, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.IsRaw)
+    </div>
+</div>
+<div class="form-group">
+    @* 批次产品数量 *@
+    @Html.LabelFor(m => m.MainProductQtyPerLot, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.MainProductQtyPerLot, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.MainProductQtyPerLot)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.MainRawQtyPerLot, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.MainRawQtyPerLot, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.MainRawQtyPerLot)
+    </div>
+</div>
+<div class="form-group">
+    @* 描述 *@
+    @Html.LabelFor(m => m.Description, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextAreaFor(m => m.Description, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Description)
+    </div>
+</div>
+<div class="form-group">
+    @* 状态 *@
+    @Html.LabelFor(m => m.Status, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.DropDownListFor(m => Model.Status, @Model.GetObjectStatusList(), new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Status)
+    </div>
+</div>
+

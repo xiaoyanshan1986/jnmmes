@@ -1,0 +1,68 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.FMM.Models.EquipmentLayoutDetailViewModel
+@using ServiceCenter.Client.Mvc.Areas.FMM.Models;
+@using ServiceCenter.Client.Mvc.Resources;
+@using FMMResources = ServiceCenter.Client.Mvc.Resources.FMM;
+@using ServiceCenter.MES.Model.FMM;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@{
+    IList<EquipmentLayoutDetail> lstEquipment = new List<EquipmentLayoutDetail>();
+    if (ViewBag.List != null)
+    {
+        lstEquipment = ViewBag.List;
+    }
+
+    IList<EquipmentState> lstState = new List<EquipmentState>();
+    if (ViewBag.StateList != null)
+    {
+        lstState = ViewBag.StateList;
+    }
+
+    EquipmentLayout objLayout = ViewBag.EquipmentLayout;
+}
+@if (objLayout != null)
+{
+    <style>
+    .draggable {
+        word-break :break-all;
+        padding:0px;
+        margin:0px;
+        font-size:26px;
+        cursor:pointer;
+        position:absolute;
+    }
+
+    #droppable {
+        position:relative;
+        width:  @(objLayout.Width)px;
+        height: @(objLayout.Height)px;
+        margin:0 auto;
+        background:url("@Url.Action("ShowBackgroudImage", "EquipmentRealtimeMonitor", new { @Key = @Model.LayoutName })") 50% 50% repeat;
+    }
+    </style>
+}
+<div id="droppable" class="ui-widget-content">
+    @if (lstEquipment != null)
+    {
+        foreach (EquipmentLayoutDetail item in lstEquipment)
+        {
+            <div class="draggable text-center" title="@item.Key.EquipmentCode"
+                 style="left:@(item.Left)px;top:@(item.Top)px;width:@(item.Width)px;height:@(item.Height)px" onmousedown="MouseClick('@item.Key.EquipmentCode')">
+                <p style="font-size:small" align="center">@item.Description</p>                
+            </div>
+        }
+    }
+    @if (lstState != null)
+    {
+        <div>
+            <table id="colorTable" align="center">
+                <tr>
+                    @foreach (var list in lstState)
+                    {
+                        <td style="background-color:@list.StateColor;border:1px solid Gray;font-size:14px;text-align:center;padding:2px 8px"><span style="font-weight:bold">@list.Key</span></td>
+                    }
+                </tr>
+            </table>
+        </div>
+    }
+</div>

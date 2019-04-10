@@ -1,0 +1,248 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.FMM.Models.MaterialViewModel
+@using ServiceCenter.Client.Mvc.Areas.FMM.Models;
+@using ServiceCenter.Client.Mvc.Resources;
+@using FMM = ServiceCenter.Client.Mvc.Resources.FMM;
+@using ServiceCenter.MES.Model.FMM;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@{
+    PagingConfig cfg = ViewBag.PagingConfig;
+}
+<div id="_list">
+    <table class="table table-striped table-bordered table-condensed">
+        <thead>
+            <tr class="active">
+                <td nowrap align="center">@StringResource.ItemNo</td>
+                <td nowrap align="center">@Html.DisplayNameFor(m => m.Code)</td>
+                <td nowrap align="center">@Html.DisplayNameFor(m => m.Name)</td>
+                <td nowrap align="center">@Html.DisplayNameFor(m => m.Type)</td>
+                @*<td>@Html.DisplayNameFor(m => m.Class)</td>*@
+                <td nowrap align="center">@Html.DisplayNameFor(m => m.Spec)</td>
+                <td nowrap align="center">@Html.DisplayNameFor(m => m.ModelName)</td>
+                <td nowrap align="center">@Html.DisplayNameFor(m => m.IsRaw)</td>
+                <td nowrap align="center">@Html.DisplayNameFor(m => m.IsProduct)</td>
+                <td nowrap align="center">@Html.DisplayNameFor(m => m.MainProductQtyPerLot)</td>
+                <td nowrap align="center">@Html.DisplayNameFor(m => m.MainRawQtyPerLot)</td>
+                <td nowrap align="center">@Html.DisplayNameFor(m => m.Description)</td>
+                <td nowrap align="center">@Html.DisplayNameFor(m => m.Status)</td>
+                <td nowrap align="center">@FMM.StringResource.Material_SettingRoute</td>
+                <td nowrap align="center">产品成柜规则</td>
+                <td nowrap align="center">BOM</td>
+                <td nowrap align="center">属性</td>
+                <td nowrap align="center">控制参数</td>
+                <td nowrap align="center">打印标签</td>
+                <td nowrap align="center">@StringResource.Detail</td>
+                <td nowrap align="center">@StringResource.Modify</td>
+                <td nowrap align="center">@StringResource.Delete</td>
+            </tr>
+        </thead>
+        @if (ViewBag.List != null)
+        {
+            <tbody>
+                @for (int i = 0; i < ViewBag.List.Length; i++)
+                {
+                    Material obj = ViewBag.List[i];
+                    <tr>
+                        <td>@(cfg.PageSize * cfg.PageNo+i+1)</td>
+                        <td>
+                            @Html.ActionLink(linkText: obj.Key
+                                            , actionName: "Index"
+                                            , controllerName: "MaterialAttribute"
+                                            , routeValues: new { @MaterialCode = obj.Key }
+                                            , htmlAttributes: new { @target = "_self" })
+                        </td>
+                        <td>
+                            @obj.Name
+                        </td>
+                        <td>
+                            @obj.Type
+                        </td>
+                        @*<td>
+                            @obj.Class
+                        </td>*@
+                        <td>
+                            @obj.Spec
+                        </td>
+                        <td>
+                            @obj.ModelName
+                        </td>
+                        <td align="center">
+                            @(obj.IsRaw ? StringResource.Yes : StringResource.No)
+                        </td>
+                        <td align="center">
+                            @(obj.IsProduct ? StringResource.Yes : StringResource.No)
+                        </td>
+                        <td align="right">
+                            @obj.MainProductQtyPerLot
+                        </td>
+                        <td align="right">
+                            @obj.MainRawQtyPerLot
+                        </td>
+                        <td>
+                            @obj.Description
+                        </td>
+                        <td align="center">
+                            @obj.Status.GetDisplayName()
+                        </td>  
+                        
+                        @* 工艺流程设置 *@                      
+                        @if (obj.IsProduct)
+                        {
+                            <td nowrap align="center">
+                                @Html.ActionLink(linkText: @FMM.StringResource.Material_SettingRoute
+                                                , actionName: "Index"
+                                                , controllerName: "MaterialRoute"
+                                                , routeValues: new { @MaterialCode = obj.Key }
+                                                , htmlAttributes: new { @target = "_self" })
+                            </td>
+                        }
+                        else
+                        {
+                            <td></td>
+                        }   
+                        
+                        @* 成柜参数设置 *@
+                        @if (obj.IsProduct)
+                        {
+                            <td nowrap align="center">
+                                @Html.ActionLink(linkText: "产品成柜规则"
+                                                , actionName: "Index"
+                                                , controllerName: "MaterialChestParameter"
+                                                , routeValues: new { @ProductCode = obj.Key }
+                                                , htmlAttributes: new { @target = "_self" })
+                            </td>
+                        }
+                        else
+                        {
+                            <td></td>
+                        }
+                             
+                        
+                        @* BOM设置 *@
+                        @if (obj.IsProduct)
+                        {
+                            <td nowrap align="center">
+                                @Html.ActionLink(linkText: "BOM"
+                                                , actionName: "Index"
+                                                , controllerName: "MaterialBOM"
+                                                , routeValues: new { @MaterialCode = obj.Key }
+                                                , htmlAttributes: new { @target = "_self" })
+                            </td>
+                        }
+                        else
+                        {
+                            <td></td>
+                        }
+
+                        @* 属性设置 *@
+                        @if (obj.IsProduct)
+                        {
+                            <td nowrap align="center">
+                                @Html.ActionLink(linkText: "属性"
+                                                , actionName: "Index"
+                                                , controllerName: "MaterialAttribute"
+                                                , routeValues: new { @MaterialCode = obj.Key }
+                                                , htmlAttributes: new { @target = "_self" })
+    </td>
+                        }
+                        else
+                        {
+                            <td></td>
+                        }
+
+                        @* 控制参数 *@
+                        @if (obj.IsProduct)
+                        {
+                            <td nowrap align="center">
+                                @Html.ActionLink(linkText: "控制参数"                                                
+                                                , actionName: "Query"
+                                                , controllerName: "ProductControlObject"
+                                                , routeValues: new { area = "ZPVM", @ProductCode = obj.Key, @ProductName = obj.Name }
+                                                , htmlAttributes: new { @target = "_self" })                                
+                            </td>
+                        }
+                        else
+                        {
+                            <td></td>
+                        }
+
+                        @* 打印标签设置 *@
+                        @if (obj.IsProduct)
+                        {
+                            <td nowrap align="center">
+                                @Html.ActionLink(linkText: "标签"
+                                                                        , actionName: "Index"
+                                                                        , controllerName: "MaterialPrintSet"
+                                                                         , routeValues: new { @MaterialCode = obj.Key, @MaterialName = obj.Name }
+                                                                        , htmlAttributes: new { @target = "_self" })
+                            </td>
+                        }
+                        else
+                        {
+                            <td></td>
+                        }
+
+                        <td align="center">
+                            @Ajax.ActionLink(StringResource.Detail, actionName: null
+                                            , routeValues: null
+                                            , ajaxOptions:new AjaxOptions() 
+                                            { 
+                                                HttpMethod = "Post", 
+                                                UpdateTargetId = "detailInfo",
+                                                OnSuccess = "showInfoModal",
+                                                Url = Url.Action("Detail", new { @Key = obj.Key })
+                                            })
+                        </td>
+                        <td align="center">
+                            @Ajax.ActionLink(StringResource.Modify, actionName: null
+                                            , routeValues: null
+                                            , ajaxOptions: new AjaxOptions()
+                                            {
+                                                HttpMethod = "Post",
+                                                UpdateTargetId = "modifyFormContent",
+                                                OnSuccess = "showModifyModal",
+                                                Url = Url.Action("Modify", new { @Key = obj.Key })
+                                            })
+                        </td>
+                        <td align="center">
+                            @Ajax.ActionLink(StringResource.Delete, actionName: null
+                                            , routeValues: null
+                                            , ajaxOptions: new AjaxOptions()
+                                            {
+                                                HttpMethod = "Post",
+                                                Confirm = string.Format(FMM.StringResource.Material_ConfirmDelete, obj.Key),
+                                                Url = Url.Action("Delete", new { @Key = obj.Key }),
+                                                OnSuccess = "completeDelete"
+                                            })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        }
+    </table>
+    <div style="margin-top:-18px">
+        @if (cfg != null)
+        {
+            using (Ajax.BeginForm("PagingQuery", "Material"
+                            , new
+                            {
+                                @Where = cfg.Where,
+                                @OrderBy = cfg.OrderBy,
+                                @CurrentPageNo = cfg.PageNo,
+                                @CurrentPageSize = cfg.PageSize
+                            }
+                            , new AjaxOptions()
+                            {
+                                HttpMethod = "Post",
+                                UpdateTargetId = "_list"
+                            }
+                            , new { @class = "form-horizontal", resource = "form", id = "frmPagingQuery" }))
+            {
+                @Html.AntiForgeryToken()
+                <div>@Html.Partial("_PaginationPartial")</div>
+            }
+        }
+    </div>
+</div>
+
+

@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   namespace="ServiceCenter.MES.Model.ZPVM" 
+                   assembly="ServiceCenter.MES.Model.ZPVM">
+  <class name="ProductControlObject" table="ZPPM_PRODUCT_CONTROL">
+    <composite-id  name="Key" class="ProductControlObjectKey">
+      <key-property name="ProductCode" column="PRODUCT_CODE"/>
+      <key-property name="CellEff" column="CELL_EFF"/>
+      <key-property name="SupplierCode" column="SUPPLIER_CODE"/>
+      <key-property name="Object" column="CONTROL_OBJ"/>
+      <key-property name="Type" column="CONTROL_TYPE"/>
+    </composite-id >
+    <property name="ProductName" column="PRODUCT_NAME"/>
+    <property name="SupplierName" column="SUPPLIER_NAME"/>
+    <property name="Value" column="CONTROL_VALUE"/>
+    <property name="IsUsed" column="IS_USED"/>
+    <property name="Creator" column="CREATOR"/>
+    <property name="CreateTime" column="CREATE_TIME"/>
+    <property name="Editor" column="EDITOR"/>
+    <property name="EditTime" column="EDIT_TIME"/>
+  </class>
+</hibernate-mapping>

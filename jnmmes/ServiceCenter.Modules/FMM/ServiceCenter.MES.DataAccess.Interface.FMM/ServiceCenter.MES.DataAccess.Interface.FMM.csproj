@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A14B36E0-C558-495A-B725-CA37F54C862C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ServiceCenter.MES.DataAccess.Interface.FMM</RootNamespace>
+    <AssemblyName>ServiceCenter.MES.DataAccess.Interface.FMM</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'CELLDebug|AnyCPU'">
+    <OutputPath>bin\CELLDebug\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'module.debug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\module.debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'module.release|AnyCPU'">
+    <OutputPath>bin\module.release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'cell.debug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\cell.debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'cell.release|AnyCPU'">
+    <OutputPath>bin\cell.release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="NHibernate, Version=3.3.1.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\libs\NHibernate\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceCenter.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\ServiceCenter.Modules.Libs\ServiceCenter.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ICalibrationPlateLineDataEngine.cs" />
+    <Compile Include="ICalibrationPlateDataEngine.cs" />
+    <Compile Include="IBinRuleDataEngine.cs" />
+    <Compile Include="IClientConfigDataEngine.cs" />
+    <Compile Include="IEquipmentConsumingDataEngine.cs" />
+    <Compile Include="IEquipmentControlObjectDataEngine.cs" />
+    <Compile Include="IManufacturerDataEngine.cs" />
+    <Compile Include="IMaterialBOMDataEngine.cs" />
+    <Compile Include="IMaterialAttributeDataEngine.cs" />
+    <Compile Include="IMaterialChestParameterDataEngine.cs" />
+    <Compile Include="IMaterialPrintSetDataEngine.cs" />
+    <Compile Include="IMaterialRouteDataEngine.cs" />
+    <Compile Include="IPrintLabelDataEngine.cs" />
+    <Compile Include="IMaterialTypeDataEngine.cs" />
+    <Compile Include="IBinDataEngine.cs" />
+    <Compile Include="IEquipmentReasonCodeDataEngine.cs" />
+    <Compile Include="IEquipmentReasonCodeCategoryDataEngine.cs" />
+    <Compile Include="IEquipmentReasonCodeCategoryDetailDataEngine.cs" />
+    <Compile Include="IScanDataEngine.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="IClientConfigAttributeDataEngine.cs" />
+    <Compile Include="IEquipmentDataEngine.cs" />
+    <Compile Include="IEquipmentChangeStateDataEngine.cs" />
+    <Compile Include="IEquipmentGroupDataEngine.cs" />
+    <Compile Include="IEquipmentLayoutDataEngine.cs" />
+    <Compile Include="IEquipmentLayoutDetailDataEngine.cs" />
+    <Compile Include="IEquipmentStateDataEngine.cs" />
+    <Compile Include="ILocationDataEngine.cs" />
+    <Compile Include="IMaterialDataEngine.cs" />
+    <Compile Include="IParameterDataEngine.cs" />
+    <Compile Include="IParameterDerivationDataEngine.cs" />
+    <Compile Include="IProductionLineDataEngine.cs" />
+    <Compile Include="IReasonCodeDataEngine.cs" />
+    <Compile Include="IReasonCodeCategoryDataEngine.cs" />
+    <Compile Include="IReasonCodeCategoryDetailDataEngine.cs" />
+    <Compile Include="IRouteEnterpriseDataEngine.cs" />
+    <Compile Include="IRouteEnterpriseDetailDataEngine.cs" />
+    <Compile Include="IRouteOperationDataEngine.cs" />
+    <Compile Include="IRouteOperationAttributeDataEngine.cs" />
+    <Compile Include="IRouteOperationEquipmentDataEngine.cs" />
+    <Compile Include="IRouteOperationParameterDataEngine.cs" />
+    <Compile Include="IRouteDataEngine.cs" />
+    <Compile Include="IMaterialTypeRouteDataEngine.cs" />
+    <Compile Include="IRouteStepDataEngine.cs" />
+    <Compile Include="IRouteStepAttributeDataEngine.cs" />
+    <Compile Include="IRouteStepParameterDataEngine.cs" />
+    <Compile Include="IScheduleDataEngine.cs" />
+    <Compile Include="IScheduleDayDataEngine.cs" />
+    <Compile Include="IScheduleMonthDataEngine.cs" />
+    <Compile Include="IScheduleDetailDataEngine.cs" />
+    <Compile Include="IShiftDataEngine.cs" />
+    <Compile Include="ISupplierDataEngine.cs" />
+    <Compile Include="ILineStoreDataEngine.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ServiceCenter.MES.Model.FMM\ServiceCenter.MES.Model.FMM.csproj">
+      <Project>{bace1677-4fc1-40a6-93cd-c78664bab941}</Project>
+      <Name>ServiceCenter.MES.Model.FMM</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

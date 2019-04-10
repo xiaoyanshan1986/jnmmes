@@ -1,0 +1,95 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.ZPVC.Models.PackageViewModel
+@using ServiceCenter.Client.Mvc.Areas.ZPVC.Models;
+@using ServiceCenter.Client.Mvc.Resources;
+@using ZPVCRsources = ServiceCenter.Client.Mvc.Resources.ZPVC;
+@using ServiceCenter.MES.Model.ZPVC;
+@using ServiceCenter.MES.Model.WIP;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@using ServiceCenter.MES.Model.BaseData;
+@{
+    PagingConfig cfg = ViewBag.PagingConfig;
+    IList<PackageDetail> lstPackageDetail = ViewBag.PackageDetailList;
+}
+<div id="_list">
+    <table class="table table-hover table-bordered table-condensed">
+        <thead>
+            <tr class="active">
+                <td>@StringResource.ItemNo</td>
+                <td>@ZPVCRsources.StringResource.BoxViewModel_BoxNo</td>
+                <td>@Html.DisplayNameFor(m => m.PackageNo)</td>
+                <td>@Html.DisplayNameFor(m => m.OrderNumber)</td>
+                <td>@Html.DisplayNameFor(m => m.MaterialCode)</td>
+                <td>产品编号</td>
+                <td>@Html.DisplayNameFor(m => m.Code)</td>
+                <td>@Html.DisplayNameFor(m => m.Qty)</td>
+                <td>@Html.DisplayNameFor(m => m.Grade)</td>
+                <td>@Html.DisplayNameFor(m => m.Color)</td>
+                <td>@Html.DisplayNameFor(m => m.PNType)</td>
+                <td>@Html.DisplayNameFor(m => m.LineCode)</td>
+                <td>@StringResource.Delete</td>
+            </tr>
+        </thead>
+        @if (lstPackageDetail != null)
+        {
+            <tbody>
+                @for (int i = 0; i < lstPackageDetail.Count; i++)
+                {
+                    PackageDetail obj = lstPackageDetail[i];
+                    Package packageObj = Model.GetPackage(obj.Key.ObjectNumber);
+                    PackageInfo packageInfoObj = Model.GetPackageInfo(obj.Key.ObjectNumber);
+                    <tr>
+                        <td>@obj.ItemNo</td>
+                        <td>
+                            @obj.Key.PackageNo
+                        </td>
+                        <td>
+                            @obj.Key.ObjectNumber
+                        </td>
+                        <td>
+                            @obj.OrderNumber
+                        </td>
+                        <td>
+                            @obj.MaterialCode
+                        </td>
+                        <td>
+                            @(packageInfoObj != null ? packageInfoObj.ProductId : string.Empty)
+                        </td>
+                        <td>
+                            @(packageInfoObj != null ? packageInfoObj.ConfigCode : string.Empty)
+                        </td>
+                        <td>
+                            @(packageObj != null ? packageObj.Quantity : 0)
+                        </td>
+                        <td>
+                            @(packageInfoObj != null ? packageInfoObj.Grade : string.Empty)
+                        </td>
+                        <td>
+                            @(packageInfoObj != null ? packageInfoObj.Color : string.Empty)
+                        </td>
+                        <td>
+                            @(packageInfoObj != null ? packageInfoObj.PNType : string.Empty)
+                        </td>
+                        <td>
+                            @(packageInfoObj != null ? packageInfoObj.LineCode : string.Empty)
+                        </td>
+                        <td>
+                            @Ajax.ActionLink("拆箱", actionName: null
+                                            , routeValues: null
+                                            , ajaxOptions: new AjaxOptions()
+                                            {
+                                                HttpMethod = "Post",
+                                                Confirm = string.Format(ZPVCRsources.StringResource.PackageDetail_ConfirmDelete, obj.Key),
+                                                Url = Url.Action("Delete", new { @BoxNo = obj.Key.PackageNo, @PackageNo = obj.Key.ObjectNumber }),
+                                                OnSuccess = "completeDelete",
+                                                OnBegin = "beginDelete"
+                                            }, htmlAttributes: new { @class = "btn btn-warning btn-sm btn-delete" })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        }
+    </table>
+</div>
+
+

@@ -1,0 +1,71 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.ERP.Models.WOReportViewModel
+@using ServiceCenter.Client.Mvc.Areas.ERP.Models;
+
+<div class="form-group">
+    @* 入库日期 *@
+    @Html.LabelFor(m => m.BillDate, new { @class = "col-md-1 control-label" })
+    <div class="col-md-2">
+        @Html.TextBoxFor(m => m.BillDate, "{0:yyyy-MM-dd}", new { @class = "form-control", @id = "txtBillDate" })
+        @Html.ValidationMessageFor(m => m.BillDate)
+    </div>
+
+    @* 入库单号 *@
+    @Html.LabelFor(m => m.BillCode, new { @class = "col-md-1 control-label" })
+    <div class="col-md-2">
+        @Html.TextBoxFor(m => m.BillCode, new { @class = "form-control", @id = "txtBillCode", @readonly = "readonly" })
+        @Html.ValidationMessageFor(m => m.BillCode)
+    </div>
+
+    @* 制单日期 *@
+    @Html.LabelFor(m => m.BillMakedDate, new { @class = "col-md-1 control-label" })
+    <div class="col-md-2">
+        @Html.TextBoxFor(m => m.BillMakedDate, "{0:yyyy-MM-dd hh:MM:ss}", new { @class = "form-control", @id = "txtBillMakedDate", @readonly = "readonly" })
+        @Html.ValidationMessageFor(m => m.BillMakedDate)
+    </div>
+   
+    @* 非报废入库单类型 *@
+    @Html.LabelFor(m => m.BillType, new { @class = "col-md-1 control-label" })
+    <div class="col-md-2">
+        @Html.DropDownListFor(m => m.BillType, @Model.GetStockInType(0), new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.BillType)
+    </div>
+
+    @*@Html.LabelFor(m => m.MixType, new { @class = "col-md-1 control-label" })
+    <div class="col-md-2">
+        @Html.DropDownListFor(m => m.MixType, @Model.GetMixtype(), new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.MixType)
+    </div>*@
+    @*@Html.LabelFor(m => m.ScrapType, new { @class = "col-md-1 control-label" })
+    <div class="col-md-2">
+        @Html.DropDownListFor(m => m.ScrapType, @Model.GetScraptype(), new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.ScrapType)
+    </div>*@
+</div>
+@*<div class="form-group">
+
+    @Html.LabelFor(m => m.BillMakedDate, new { @class = "col-md-1 control-label" })
+    <div class="col-md-2">
+        @Html.TextBoxFor(m => m.BillMakedDate, "{0:yyyy-MM-dd}", new { @class = "form-control", @id = "txtBillMakedDate" })
+        @Html.ValidationMessageFor(m => m.BillMakedDate)
+    </div>
+    @Html.LabelFor(m => m.OrderNumber, new { @class = "col-md-1 control-label" })
+    <div class="col-md-2">
+        @Html.DropDownListFor(m => m.OrderNumber, new List<SelectListItem>(), new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.OrderNumber)
+    </div>
+    @Html.LabelFor(m => m.MaterialCode, new { @class = "col-md-1 control-label" })
+    <div class="col-md-2">
+        @Html.DropDownListFor(m => m.MaterialCode, new List<SelectListItem>(), new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.MaterialCode)
+    </div>
+</div>*@
+
+<div class="form-group">
+    @Html.LabelFor(m => m.Note, new { @class = "col-md-1 control-label" })
+    <div class="col-md-11">
+        @Html.TextAreaFor(m => m.Note, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Note)
+    </div>
+
+</div>
+

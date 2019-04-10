@@ -1,0 +1,6 @@
+E:\Workspace\Jinergy\JNMMES\trunk\src\ServiceCenter.Client\WinClients\铭牌打印4.0\PrintModLabel\bin\Debug\PrintModLabel.exe.config
+E:\Workspace\Jinergy\JNMMES\trunk\src\ServiceCenter.Client\WinClients\铭牌打印4.0\PrintModLabel\obj\Debug\PrintModLabel.csproj.ResolveComReference.cache
+E:\Workspace\Jinergy\JNMMES\trunk\src\ServiceCenter.Client\WinClients\铭牌打印4.0\PrintModLabel\obj\Debug\PrintModLabel.csprojResolveAssemblyReference.cache
+E:\Workspace\Jinergy\JNMMES\trunk\src\ServiceCenter.Client\WinClients\铭牌打印4.0\PrintModLabel\obj\Debug\PrintModLabel.Form2.resources
+E:\Workspace\Jinergy\JNMMES\trunk\src\ServiceCenter.Client\WinClients\铭牌打印4.0\PrintModLabel\obj\Debug\PrintModLabel.Properties.Resources.resources
+E:\Workspace\Jinergy\JNMMES\trunk\src\ServiceCenter.Client\WinClients\铭牌打印4.0\PrintModLabel\obj\Debug\PrintModLabel.csproj.GenerateResource.Cache

@@ -1,0 +1,22 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.PPM.Models.WorkOrderAttributeViewModel
+<div class="form-group">
+    @Html.LabelFor(m => m.OrderNumber, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        <p class="form-control-static">@Model.OrderNumber</p>
+        @Html.HiddenFor(m => m.OrderNumber)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.AttributeName, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.DropDownListFor(m => Model.AttributeName, @Model.GetAttributeName(), new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.AttributeName)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.Value, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.Value, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Value)
+    </div>
+</div>

@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   namespace="ServiceCenter.MES.Model.FMM" 
+                   assembly="ServiceCenter.MES.Model.FMM">
+  <class name="RouteStep" table="FMM_ROUTE_STEP">
+    <composite-id  name="Key" class="RouteStepKey">
+      <key-property name="RouteName" column="ROUTE_NAME"/>
+      <key-property name="RouteStepName" column="ROUTE_STEP_NAME"/>
+    </composite-id >
+    <property name="Duration" column="DURATION"/>
+    <property name="ScrapReasonCodeCategoryName" column="SCRAP_REASON_CODE_CATEGORY_NAME"/>
+    <property name="DefectReasonCodeCategoryName" column="DEFECT_REASON_CODE_CATEGORY_NAME"/>
+    <property name="SortSeq" column="ROUTE_STEP_SEQ"/>
+    <property name="RouteOperationName" column="ROUTE_OPERATION_NAME"/>
+    <property name="Description" column="DESCRIPTION"/>
+    <property name="Creator" column="CREATOR"/>
+    <property name="CreateTime" column="CREATE_TIME"/>
+    <property name="Editor" column="EDITOR"/>
+    <property name="EditTime" column="EDIT_TIME"/>
+  </class>
+</hibernate-mapping>

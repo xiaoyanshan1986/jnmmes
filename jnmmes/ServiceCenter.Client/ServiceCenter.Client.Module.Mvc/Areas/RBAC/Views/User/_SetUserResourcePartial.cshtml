@@ -1,0 +1,41 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.RBAC.Models.SetUserResourceViewModel
+@using ServiceCenter.MES.Model.RBAC;
+@using ServiceCenter.Common;
+@Html.ValidationSummary(true)
+@{
+    IList<Resource> lstResouce = Model.GetResources();
+    IList<UserOwnResource> lstUserOwnResource = Model.GetUserOwnResource(@Model.LoginName);
+    IDictionary<ResourceType,string> dic=EnumExtensions.GetDisplayNameDictionary<ResourceType>();
+    var lnqResourceType=from item in dic
+                        where Convert.ToInt32(item.Key)%10==0
+                        select item;
+}
+@foreach (var resType in lnqResourceType)
+{
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            @resType.Value
+        </div>
+        <div class="panel-body row">
+        @{
+            var lnqRes=from item in lstResouce
+                       where item.Key.Type < (resType.Key + 10) && item.Key.Type >= resType.Key
+                       orderby item.Key.Code
+                       select item;
+
+            foreach (Resource r in lnqRes)
+            {
+                var lnq = from item in lstUserOwnResource
+                          where item.Key.ResourceCode == r.Key.Code && item.Key.ResourceType == r.Key.Type
+                          select item;
+                <div class="input-group col-md-12">
+                    <span class="input-group-addon">
+                        <input type="checkbox" value="@r.Key.Type$@r.Key.Code" checked="@(lnq.Count() > 0)" name="Resources">
+                    </span>
+                    <p class="form-control">@r.Key.Code-@r.Name</p>
+                </div>
+            }
+        }
+        </div>
+    </div>
+}

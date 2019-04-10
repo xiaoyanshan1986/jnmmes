@@ -1,0 +1,115 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.ZPVM.Models.ChestDetailQueryViewModel
+@using ServiceCenter.Client.Mvc.Areas.ZPVM.Models;
+@using ServiceCenter.Client.Mvc.Resources;
+@using ZPVMResources = ServiceCenter.Client.Mvc.Resources.ZPVM;
+@using ServiceCenter.MES.Model.ZPVM;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@using WIPRsources = ServiceCenter.Client.Mvc.Resources.WIP;
+@using ServiceCenter.MES.Model.WIP;
+@using ServiceCenter.MES.Model.BaseData;
+@using ServiceCenter.MES.Model.ERP;
+@using System.Data;
+@{
+    PagingConfig cfg = ViewBag.PagingConfig;
+    MethodReturnResult<DataSet> ds = new MethodReturnResult<DataSet>();
+    DataTable dtList = ViewBag.ListData;
+    ds = ViewBag.dtList;
+}
+<div id="_list">
+    <table class="table table-hover table-bordered table-condensed table-responsive table-striped">
+        <thead>
+            <tr class="active">
+                <td align="center">@StringResource.ItemNo</td>
+                <td align="center">@ZPVMResources.StringResource.ChestNo</td>
+                <td align="center">柜状态</td>
+                <td align="center">库位</td>
+                <td align="center">柜属性</td>
+                <td align="center">项目号</td>
+                <td align="center">@Html.DisplayNameFor(m => m.PackageNo)</td>
+                <td align="center">托内数量</td>
+                <td align="center">工单号</td>
+                <td align="center">产品编码</td>
+                <td align="center">等级</td>
+                <td align="center">花色</td>
+                <td align="center">功率档位</td>
+                <td align="center">电流档</td>
+                <td align="center">入柜时间</td>
+                <td align="center">托号状态</td>
+                <td align="center">入库单号</td>
+                <td align="center">入库单状态</td>
+                <td align="center">入库接收核对状态</td>
+            </tr>
+        </thead>
+        @if (dtList != null)
+        {
+            <tbody>
+                @for (int i = 0; i < dtList.Rows.Count; i++)
+                {
+                    System.Data.DataRow obj = dtList.Rows[i];
+
+                    <tr>
+                        <td align="center">@(cfg.PageSize * cfg.PageNo + i + 1)</td> 
+                        <td align="center">@obj["柜号"]</td>
+                        <td align="center">@(((EnumChestState)obj["柜状态"]).GetDisplayName())</td>
+                        <td align="center">@obj["库位"]</td>
+                        <td align="center">@obj["柜属性"]</td>
+                        <td align="center">@obj["项目号"]</td>
+                        <td align="center">@obj["包装号"]</td>
+                        <td align="center">@obj["托内数量"]</td>
+                        <td align="center">@obj["工单号"]</td>
+                        <td align="center">@obj["产品编码"]</td>
+                        <td align="center">@obj["等级"]</td>
+                        <td align="center">@obj["花色"]</td>
+                        <td align="center">@obj["功率档"]</td>
+                        <td align="center">@obj["电流档"]</td>
+                        <td align="center">@obj["入柜时间"]</td>
+                        <td align="center">@(((EnumPackageState)obj["托号状态"]).GetDisplayName())</td>
+                        <td align="center">@obj["入库单号"]</td>
+                        @if (obj["入库单状态"] == null || obj["入库单状态"].ToString() == "")
+                        {
+                            <td align="center">@obj["入库单状态"]</td>
+                        }
+                        else
+                        {                            
+                            <td align="center">@(((EnumBillState)obj["入库单状态"]).GetDisplayName())</td>
+                        }
+
+                        @if (obj["入库接收核对状态"] == null || obj["入库接收核对状态"].ToString() == "")
+                        {
+                            <td align="center">@obj["入库接收核对状态"]</td>                            
+                        }
+                        else
+                        {
+                            <td align="center">@(((EnumPackageCheckState)obj["入库接收核对状态"]).GetDisplayName())</td>
+                        }                                              
+                    </tr>
+                }
+            </tbody>
+        }
+    </table>
+    <div style="margin-top:-18px">
+        @if (cfg != null)
+        {
+            using (Ajax.BeginForm("ChestDetailQuery", "ChestQuery"
+                            , null
+                            , new AjaxOptions()
+                            {
+                                HttpMethod = "Post",
+                                UpdateTargetId = "_list"
+                            }
+                            , new { @class = "form-horizontal", resource = "form", id = "frmPagingQuery" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.HiddenFor(m => m.PackageNo)
+                @Html.HiddenFor(m => m.ChestNo)
+                @Html.HiddenFor(m => m.MaterialCode)
+                @Html.HiddenFor(m => m.OrderNumber)
+                @Html.HiddenFor(m => m.PageSize)
+                <div>@Html.Partial("_PaginationPartial")</div>
+            }
+        }
+    </div>
+</div>
+
+

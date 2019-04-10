@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   namespace="ServiceCenter.MES.Model.ZPVM" 
+                   assembly="ServiceCenter.MES.Model.ZPVM">
+  <class name="WorkOrderRule" table="ZPPM_WORK_ORDER_PRD_RULE">
+    <composite-id  name="Key" class="WorkOrderRuleKey">
+      <key-property name="OrderNumber" column="ORDER_NUMBER"/>
+      <key-property name="MaterialCode" column="MATERIAL_CODE"/>
+    </composite-id >
+    <property name="RuleCode" column="RULE_CODE"/>
+    <property name="RuleName" column="RULE_NAME"/>
+    <property name="FullPackageQty" column="FULLPACKAGE_QTY"/>
+    <property name="PowerDegree" column="POWER_DEGREE"/>
+    <property name="MinPower" column="MIN_POWER"/>
+    <property name="MaxPower" column="MAX_POWER"/>
+    <property name="CalibrationType" column="CALIBRATION_TYPE"/>
+    <property name="CalibrationCycle" column="CALIBRATION_CYCLE"/>
+    <property name="FixCycle" column="FIX_CYCLE"/>
+    <property name="Description" column="DESCRIPTION"/>
+    <property name="Creator" column="CREATOR"/>
+    <property name="CreateTime" column="CREATE_TIME"/>
+    <property name="Editor" column="EDITOR"/>
+    <property name="EditTime" column="EDIT_TIME"/>
+  </class>
+</hibernate-mapping>

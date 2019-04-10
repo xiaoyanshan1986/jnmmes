@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   namespace="ServiceCenter.MES.Model.FMM" 
+                   assembly="ServiceCenter.MES.Model.FMM">
+  <class name="RouteOperationParameter" table="FMM_ROUTE_OPERATION_PARAM">
+    <composite-id  name="Key" class="RouteOperationParameterKey">
+      <key-property name="RouteOperationName" column="ROUTE_OPERATION_NAME"/>
+      <key-property name="ParameterName" column="PARAM_NAME"/>
+    </composite-id >
+    <property name="ParamIndex" column="PARAM_INDEX"/>
+    <property name="DataType" column="DATA_TYPE"/>
+    <property name="IsMustInput" column="IS_MUSTINPUT"/>
+    <property name="DataFrom" column="DATA_FROM"/>
+    <property name="IsReadOnly" column="IS_READONLY"/>
+    <property name="DCType" column="DC_TYPE"/>
+    <property name="MaterialType" column="Material_Type"/>
+    <property name="ValidateRule" column="VALIDATE_RULE"/>
+    <property name="ValidateFailedRule" column="VALIDATE_FAILED_RULE"/>
+    <property name="ValidateFailedMessage" column="VALIDATE_FAILED_MSG"/>
+    <property name="IsDeleted" column="IS_DELETED"/>
+    <property name="IsUsePreValue" column="IS_USE_PREVALUE"/>
+    <property name="Editor" column="EDITOR"/>
+    <property name="EditTime" column="EDIT_TIME"/>
+  </class>
+</hibernate-mapping>

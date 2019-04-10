@@ -1,0 +1,111 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.ZPVM.Models.IVTestDataForPackageViewModel
+@using ServiceCenter.Client.Mvc.Areas.ZPVM.Models;
+@using ServiceCenter.Client.Mvc.Resources;
+@using ZPVMResources = ServiceCenter.Client.Mvc.Resources.ZPVM;
+@using ServiceCenter.MES.Model.ZPVM;
+@using ServiceCenter.MES.Model.WIP;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@{
+    PagingConfig cfg = ViewBag.PagingConfig;
+}
+<div id="_list">
+    <table class="table table-hover table-bordered table-condensed table-responsive table-striped">
+        <thead>
+            <tr class="active">
+                @*Number	Pallet No.	Type	S/N	Pmp [W]	Isc [A]	Voc [V]	Imp [A]	Vmp [V]	FF	Pnom (W)	Current(A)*@
+                <td nowrap>Number</td>
+                <td nowrap>Type</td>
+                <td nowrap>Pallet No.</td> 
+                <td nowrap>S/N</td>
+                <td nowrap>Pmp [W]</td>
+                <td nowrap>Isc [A]</td>
+                <td nowrap>Imp [A]</td>
+                <td nowrap>Voc [V]</td>
+                <td nowrap>Vmp [V]</td>
+                <td nowrap>FF</td>
+                <td nowrap>Pnom (W)</td>
+                <td nowrap>Current(A)</td>
+                <td nowrap>Grade</td>
+                <td nowrap>Color</td>                
+            </tr>
+            <tr class="active">
+                @*序号 型号	 托号 序 列 号	实测功率	短路电流	 工作电流   开路电压 工作电压	填充因子	功率档	电流档  等级 花色*@
+                <td nowrap>序号</td>
+                <td nowrap>型号</td>
+                <td nowrap>包装号</td>
+                <td nowrap>序列号</td>
+                <td nowrap>功率</td>
+                <td nowrap>短路电流</td>    
+                <td nowrap>工作电流</td>
+                <td nowrap>开路电压</td>
+                <td nowrap>工作电压</td>
+                <td nowrap>填充因子</td>
+                <td nowrap>功率档</td>
+                <td nowrap>电流档</td>
+                <td nowrap>等级</td>
+                <td nowrap>花色</td>                
+            </tr>
+        </thead>
+        @if (ViewBag.List != null)
+        {
+            <tbody>
+                @for (int i = 0; i < ViewBag.List.Length; i++)
+                {
+                    PackageDetail obj = ViewBag.List[i];
+                    Lot lot = Model.GetLotData(obj.Key.ObjectNumber);
+                    IVTestData ivtest = Model.GetIVTestData(obj.Key.ObjectNumber);
+
+
+                    <tr>
+                        <td nowrap>@(cfg.PageSize * cfg.PageNo + i + 1)</td>
+                        <td nowrap>@Model.GetType(obj.MaterialCode)</td>
+                        <td nowrap>@obj.Key.PackageNo </td>
+                        <td nowrap>@obj.Key.ObjectNumber</td>
+                        <td nowrap>@(ivtest != null ? ivtest.CoefPM : 0)</td>
+                        <td nowrap>@(ivtest != null ? ivtest.CoefISC : 0)</td>
+                        <td nowrap>@(ivtest != null ? ivtest.CoefIPM : 0)</td>
+                        <td nowrap>@(ivtest != null ? ivtest.CoefVOC : 0)</td>
+                        <td nowrap>@(ivtest != null ? ivtest.CoefVPM : 0)</td>
+                        <td nowrap>@(ivtest != null ? ivtest.CoefFF : 0)</td>
+                        @if (ivtest == null||string.IsNullOrEmpty(ivtest.PowersetCode) || ivtest.PowersetItemNo == null)
+                        {
+                            <td nowrap></td>
+                        }
+                        else
+                        {
+                            <td nowrap>@Model.GetPowersetName(obj.Key.ObjectNumber, ivtest.PowersetCode, ivtest.PowersetItemNo.Value)</td>
+                        }
+                        <td nowrap>@(ivtest != null ? ivtest.PowersetSubCode : null)</td>
+                        <td nowrap>@(lot != null ? lot.Grade : string.Empty)</td>
+                        <td nowrap>@(lot != null ? lot.Color : string.Empty)</td>
+                    </tr>
+                }
+            </tbody>
+        }
+    </table>
+
+    <div style="margin-top:-18px">
+        @if (cfg != null)
+        {
+            using (Ajax.BeginForm("PagingQueryPackage", "IVTestDataQueryForPackage"
+                            , new
+                            {
+                                @Where = cfg.Where,
+                                @OrderBy = cfg.OrderBy,
+                                @CurrentPageNo = cfg.PageNo,
+                                @CurrentPageSize = cfg.PageSize
+                            }
+                            , new AjaxOptions()
+                            {
+                                HttpMethod = "Post",
+                                UpdateTargetId = "_list"
+                            }
+                            , new { @class = "form-horizontal", resource = "form", id = "frmPagingQuery" }))
+            {
+                @Html.AntiForgeryToken()
+                <div>@Html.Partial("_PaginationPartial")</div>
+            }
+        }
+    </div>
+</div>

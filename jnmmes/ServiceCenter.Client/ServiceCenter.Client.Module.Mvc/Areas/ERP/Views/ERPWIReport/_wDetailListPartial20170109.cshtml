@@ -1,0 +1,87 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.ERP.Models.WOReportDetailViewModel
+@using ServiceCenter.MES.Model.ERP;
+@using ServiceCenter.Model;
+@using ServiceCenter.Common;
+@using ServiceCenter.Client.Mvc.Areas.ERP.Models;
+@using ERP = ServiceCenter.Client.Mvc.Resources.ERP;
+@using ServiceCenter.Client.Mvc.Resources;
+
+
+@{
+    PagingConfig cfg = ViewBag.PagingConfig;
+}
+<div id="_list">
+    <table class="table table-hover table-bordered table-condensed">
+        <thead>
+            <tr class="active">
+                <td>@Html.DisplayNameFor(m => m.ItemNo)</td>
+                <td>@Html.DisplayNameFor(m => m.ObjectNumber)</td>
+                <td>@Html.DisplayNameFor(m => m.MaterialCode)</td>
+                @*<td>@Html.DisplayNameFor(m => m.Color)</td>*@
+                <td>@Html.DisplayNameFor(m => m.Grade)</td>
+                <td>@Html.DisplayNameFor(m => m.EffiName)</td>
+                <td>@Html.DisplayNameFor(m => m.EffiCode)</td>
+                <td>@Html.DisplayNameFor(m => m.Qty)</td>
+            </tr>
+        </thead>
+        @if (ViewBag.List != null)
+        {
+            <tbody>
+                @for (int i = 0; i < ViewBag.List.Length; i++)
+                {
+                    WOReportDetail obj = ViewBag.List[i];
+                    <tr>
+                        @*<td>@(cfg.PageSize * cfg.PageNo + i + 1)</td>*@
+                        <td>
+                            @obj.Key.ItemNo
+                        </td>
+                        <td>
+                            @obj.ObjectNumber
+                        </td>
+                        <td>
+                            @obj.MaterialCode
+                        </td>
+                        @*<td>
+                                @obj.Color
+                            </td>*@
+                        <td>
+                            @obj.Grade
+                        </td>
+                        <td>
+                            @obj.EffiName
+                        </td>
+                        <td>
+                            @obj.EffiCode
+                        </td>
+                        <td>
+                            @obj.Qty
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        }
+    </table>
+    @*<div style="margin-top:-18px">
+            @if (cfg != null)
+            {
+                using (Ajax.BeginForm("PagingQuery", "ERPWOReport"
+                                , new
+                                {
+                                    @Where = cfg.Where,
+                                    @OrderBy = cfg.OrderBy,
+                                    @CurrentPageNo = cfg.PageNo,
+                                    @CurrentPageSize = cfg.PageSize
+                                }
+                                , new AjaxOptions()
+                                {
+                                    HttpMethod = "Post",
+                                    UpdateTargetId = "_list"
+                                }
+                                , new { @class = "form-horizontal", resource = "form", id = "frmPagingQuery" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <div>@Html.Partial("_PaginationPartial")</div>
+                }
+            }
+        </div>*@
+</div>

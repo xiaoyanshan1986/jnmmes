@@ -1,0 +1,185 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.ERP.Models.WOReportDetailQueryViewModel
+@using ServiceCenter.Model;
+@using ServiceCenter.Common;
+@using ServiceCenter.Client.Mvc.Areas.ERP.Models;
+@using ERP = ServiceCenter.Client.Mvc.Resources.ERP;
+@using ServiceCenter.Client.Mvc.Resources;
+
+@{
+    ViewBag.Title = ERP.StringResource.ERPWIReport_ManagePageTitle;
+    var StoreList = (IEnumerable<SelectListItem>)ViewBag.Store;
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        @Ajax.ActionLink(StringResource.Print
+                          , "Print"
+                         , null
+                         , new AjaxOptions()
+                         {
+                             HttpMethod = "Post"
+                         }
+                          , new { @class = "btn btn-default hidden", @id = "btnPrint" })
+        @Ajax.ActionLink(StringResource.Query, actionName: null
+                                        , routeValues: null
+                                        , ajaxOptions: new AjaxOptions()
+                                        {
+                                            HttpMethod = "Post",
+                                            UpdateTargetId = "list",
+                                            Url = Url.Action("sDetail", new { BillCode = @Model.BillCode }),
+
+                                        }
+                                        , htmlAttributes: new { @class = "btn btn-default hidden", @id = "btnQuery" })
+        @if (string.IsNullOrEmpty(Model.INCode))
+        {
+            <a href="javascript:StgIn()" class="btn btn-primary">@ERP.StringResource.StockIn</a>
+            @*@Ajax.ActionLink(ERP.StringResource.CreateXML, actionName: null
+                , routeValues: null
+                , ajaxOptions: new AjaxOptions()
+                {
+                    HttpMethod = "Post",
+                    OnComplete = "completeCreateXml",
+                    UpdateTargetId = "list",
+                    Url = Url.Action("CreateXML", new { BillCode = @Model.BillCode, Store = s }),
+
+                }
+                , htmlAttributes: new { @class = "btn btn-default" })*@
+        }
+        else
+        {
+            @*@Ajax.ActionLink(ERP.StringResource.AntiState, actionName: null
+                , routeValues: null
+                , ajaxOptions: new AjaxOptions()
+                {
+                    HttpMethod = "Post",
+                    OnComplete = "completeCreateXml",
+                    UpdateTargetId = "list",
+                    Url = Url.Action("AntiState", new { BillCode = @Model.BillCode, INCode = @Model.INCode }),
+
+                }
+                , htmlAttributes: new { @class = "btn btn-default", @onclick = "return confirm('你确定要撤销吗？')" })*@
+            <a href="javascript:AntiState()" class="btn btn-primary">@ERP.StringResource.AntiState</a>
+        }
+    </div>
+    <div class="panel-body">
+
+        <div id="headlist">
+            <div class="form-group">
+                @Html.LabelFor(m => m.BillCode, new { @class = "col-md-1 control-label" })
+                <div class="col-md-3">
+                    @Html.TextBoxFor(m => m.BillCode, new { @class = "form-control", @id = "txtBillCode", @readonly = "readonly" })
+                </div>
+                @Html.LabelFor(m => m.BillDate, new { @class = "col-md-1 control-label" })
+                <div class="col-md-3">
+                    @Html.TextBoxFor(m => m.BillDate, "{0:yyyy-MM-dd}", new { @class = "form-control", @readonly = "readonly" })
+                </div>
+                @Html.LabelFor(m => m.MixType, new { @class = "col-md-1 control-label" })
+                <div class="col-md-3">
+                    @Html.DropDownListFor(m => m.MixType, @Model.GetMixtype(), new { @class = "form-control", @readonly = "readonly" })
+                </div>
+                @*@Html.LabelFor(m => m.ScrapType, new { @class = "col-md-1 control-label" })
+                <div class="col-md-2">
+                    @Html.DropDownListFor(m => m.ScrapType, @Model.GetScraptype(), new { @class = "form-control", @readonly = "readonly" })
+                </div>*@
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.BillMakedDate, new { @class = "col-md-1 control-label" })
+                <div class="col-md-3">
+                    @Html.TextBoxFor(m => m.BillMakedDate, "{0:yyyy-MM-dd}", new { @class = "form-control", @readonly = "readonly" })
+                </div>
+                @Html.LabelFor(m => m.OrderNumber, new { @class = "col-md-1 control-label" })
+                <div class="col-md-3">
+                    @Html.TextBoxFor(m => m.OrderNumber, new { @class = "form-control", @readonly = "readonly" })
+                </div>
+                @Html.LabelFor(m => m.MaterialCode, new { @class = "col-md-1 control-label" })
+                <div class="col-md-3">
+                    @Html.TextBoxFor(m => m.MaterialCode, new { @class = "form-control", @readonly = "readonly" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Store, new { @class = "col-md-1 control-label" })
+                <div class="col-md-3">
+                    @Html.DropDownListFor(m => m.Store, StoreList, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.Store)
+                </div>
+                @Html.LabelFor(m => m.Note, new { @class = "col-md-1 control-label" })
+                <div class="col-md-7">
+                    @Html.TextAreaFor(m => m.Note, new { @class = "form-control", @readonly = "readonly" })
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="alert fade in hide" resource="alert" id="statusMessage" style="margin:0px">
+        <button type="button" class="close" onclick="hideStatusMessage()">
+            <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+        </button>
+        <p></p>
+    </div>
+
+    <div id="list">
+        @Html.Partial("_sDetailListPartial", new WOReportDetailViewModel() { BillCode = Model.BillCode })
+    </div>
+
+</div>
+
+@section Scripts {
+    <script type="text/javascript" language="javascript">
+
+        $(function () {
+
+            $('#ObjectNumber').keypress(function () {
+                $('#btnSave').click();
+            });
+        })
+        function refreshList() {
+            $('#btnQuery').click();
+        }
+
+        function hideStatusMessage() {
+            $("#statusMessage").addClass("hide");
+        }
+
+        function StgIn() {
+            var Store = $('#Store').val()
+            $.ajax({
+                type: "post",
+                url: "@Url.Action("sCreateXML", "ERPWIReport")",
+                data: { BillCode: '@Model.BillCode', Store: Store, ScrapType: '@Model.ScrapType' },
+                dataType: "json",
+                success: function (result) { completeCreateXml(result) }
+            });
+        }
+        function AntiState() {
+            $.ajax({
+                type: "post",
+                url: "@Url.Action("sAntiState", "ERPWIReport")",
+                data: { BillCode: '@Model.BillCode', INCode: '@Model.INCode' },
+                dataType: "json",
+                success: function (result) { completeCreateXml(result) }
+            });
+        }
+
+        function completeCreateXml(result) {
+            //var json = JSON.parse(result.responseText);
+            //ShowMessage(json)
+            ShowMessage(result)
+        }
+
+        function ShowMessage(result) {
+            $("#statusMessage").find("p").html(result.Message);
+            $("#statusMessage").removeClass("hide");
+            if (result.Code > 0) {
+                $("#statusMessage").removeClass("alert-success");
+                $("#statusMessage").addClass("alert-danger");
+            }
+            else {
+                $("#statusMessage").removeClass("alert-danger");
+                $("#statusMessage").addClass("alert-success");
+            }
+            refreshList();
+        }
+    </script>
+}
+

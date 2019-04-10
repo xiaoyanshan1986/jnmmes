@@ -1,0 +1,132 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.PPM.Models.WorkOrderGroupDetailViewModel
+@using ServiceCenter.Client.Mvc.Areas.PPM.Models;
+@using ServiceCenter.Client.Mvc.Resources;
+@using PPMResources = ServiceCenter.Client.Mvc.Resources.PPM;
+@using ServiceCenter.MES.Model.PPM;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@{
+    PagingConfig cfg = ViewBag.PagingConfig;
+    
+}
+<div id="_list">
+    <table class="table table-hover table-bordered table-condensed">
+        <thead>
+            <tr class="active">
+                <td>@Html.DisplayNameFor(m => m.WorkOrderGroupNo)</td>
+                <td>@Html.DisplayNameFor(m => m.OrderNumber)</td>  
+                <td>工单描述</td> 
+                <td>@Html.DisplayNameFor(m => m.ProductCode)</td>  
+                <td>@Html.DisplayNameFor(m => m.ItemNo)</td> 
+                <td>混工单组描述</td> 
+                <td>@Html.DisplayNameFor(m => m.Creator)</td>
+                <td>@Html.DisplayNameFor(m => m.CreateTime)</td> 
+                <td>@Html.DisplayNameFor(m => m.Editor)</td>    
+                <td>@Html.DisplayNameFor(m => m.EditTime)</td>                     
+                <td>@StringResource.Detail</td>
+                <td>@StringResource.Modify</td>
+                <td>@StringResource.Delete</td>
+            </tr>
+        </thead>
+        @if (ViewBag.List != null)
+        {
+            <tbody>
+                @for (int i = 0; i < ViewBag.List.Length; i++)
+                {
+                    WorkOrderGroupDetail obj = ViewBag.List[i];
+                    WorkOrder workOrder = @Model.GetWorkOrder(obj.Key.OrderNumber);
+                    <tr>
+                        <td>
+                            @obj.Key.WorkOrderGroupNo
+                        </td>
+                        <td>
+                            @obj.Key.OrderNumber
+                        </td>
+                        <td>
+                            @(workOrder != null ? workOrder.Description : string.Empty)
+                        </td>
+                        <td>
+                            @obj.Key.ProductCode
+                        </td>   
+                        <td>
+                            @obj.ItemNo
+                        </td>  
+                        <td>
+                            @obj.Description
+                        </td>
+                        <td>
+                            @obj.Creator
+                        </td>
+                        <td>
+                            @obj.CreateTime
+                        </td>                   
+                        <td>
+                            @obj.Editor
+                        </td>
+                        <td>
+                            @obj.EditTime
+                        </td>                                               
+                        <td>
+                            @Ajax.ActionLink(StringResource.Detail, actionName: null
+                                            , routeValues: null
+                                            , ajaxOptions:new AjaxOptions() 
+                                            { 
+                                                HttpMethod = "Post", 
+                                                UpdateTargetId = "detailInfo",
+                                                OnSuccess = "showInfoModal",
+                                                Url = Url.Action("Detail", new { @WorkOrderGroupNo = obj.Key.WorkOrderGroupNo, @OrderNumber = obj.Key.OrderNumber, @ProductCode = obj.Key.ProductCode})
+                                            })
+                        </td>
+                        <td>
+                            @Ajax.ActionLink(StringResource.Modify, actionName: null
+                                            ,routeValues:null
+                                            ,ajaxOptions:new AjaxOptions()
+                                            {
+                                                HttpMethod = "Post",
+                                                UpdateTargetId = "modifyFormContent",
+                                                OnSuccess = "showModifyModal",
+                                                Url = Url.Action("Modify", new { @WorkOrderGroupNo = obj.Key.WorkOrderGroupNo, @OrderNumber = obj.Key.OrderNumber, @ProductCode = obj.Key.ProductCode })
+                                            })
+                        </td>
+                        <td>
+                            @Ajax.ActionLink(StringResource.Delete, actionName: null
+                                            , routeValues: null
+                                            , ajaxOptions:new AjaxOptions()
+                                            {
+                                                HttpMethod = "Post",
+                                                Confirm = string.Format("确认删除【{0}-{1}-{2}】该混工单组规则？", obj.Key.WorkOrderGroupNo, obj.Key.OrderNumber, obj.Key.ProductCode),
+                                                Url = Url.Action("Delete", new { @WorkOrderGroupNo = obj.Key.WorkOrderGroupNo, @OrderNumber = obj.Key.OrderNumber, @ProductCode = obj.Key.ProductCode }),
+                                                OnSuccess = "completeDelete"
+                                            })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        }
+    </table>
+    <div style="margin-top:-18px">
+        @if (cfg != null)
+        {
+            using (Ajax.BeginForm("PagingQuery", "WorkOrderGroupDetail"
+                            , new
+                            {
+                                @Where = cfg.Where,
+                                @OrderBy = cfg.OrderBy,
+                                @CurrentPageNo = cfg.PageNo,
+                                @CurrentPageSize = cfg.PageSize
+                            }
+                            , new AjaxOptions()
+                            {
+                                HttpMethod = "Post",
+                                UpdateTargetId = "_list"
+                            }
+                            , new { @class = "form-horizontal", resource = "form", id = "frmPagingQuery" }))
+            {
+                @Html.AntiForgeryToken()
+                <div>@Html.Partial("_PaginationPartial")</div>
+            }
+        }
+    </div>
+</div>
+
+

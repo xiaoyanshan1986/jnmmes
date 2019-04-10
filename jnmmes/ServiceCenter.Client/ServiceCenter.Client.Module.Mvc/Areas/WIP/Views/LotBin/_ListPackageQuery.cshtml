@@ -1,0 +1,105 @@
+﻿
+@using ServiceCenter.Client.Mvc.Areas.ZPVM.Models;
+@using ServiceCenter.Client.Mvc.Resources;
+@using ZPVMResources = ServiceCenter.Client.Mvc.Resources.ZPVM;
+@using ServiceCenter.MES.Model.ZPVM;
+@using ServiceCenter.MES.Model.WIP;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@{
+    PagingConfig cfg = ViewBag.PagingConfig;
+}
+<div id="_list">
+    <table class="table table-hover table-bordered table-condensed table-responsive table-striped">
+
+
+        <thead>
+            <tr class="active">
+                <td nowrap>@StringResource.ItemNo</td>
+                <td nowrap>包装号</td>
+                <td nowrap>项目号</td>
+                <td nowrap>批次号</td>
+                <td nowrap>工单号</td>
+                <td nowrap>物料编码</td>
+                <td nowrap>等级</td>
+                <td nowrap>花色</td>
+                <td nowrap>实际功率</td>
+                <td nowrap>实际电流</td>
+                <td nowrap>实际最大电流</td>
+                <td nowrap>实际电压</td>
+                <td nowrap>实际最大电压</td>
+                <td nowrap>实际填充因子</td>
+                <td nowrap>分档名称</td>
+                <td nowrap>子分档代码</td>
+                <td nowrap>包装日期</td>
+            </tr>
+        </thead>
+            <tbody>
+               
+                @for (int i = 0; i < ViewBag.PackageDetailList.Length; i++)
+                {
+                    PackageDetail obj = ViewBag.PackageDetailList[i];
+                    Lot lot = Model.GetLotData(obj.Key.ObjectNumber);
+                    IVTestData ivtest = Model.GetIVTestData(obj.Key.ObjectNumber);
+
+                    <tr>
+                        <td nowrap>@(i + 1)</td>
+                        <td nowrap>
+                            @obj.Key.PackageNo
+                        </td>
+                        <td nowrap>@obj.ItemNo</td>
+                        <td nowrap>@obj.Key.ObjectNumber</td>
+                        <td nowrap>@obj.OrderNumber</td>
+                        <td nowrap>@obj.MaterialCode</td>
+                        <td nowrap>@(lot != null ? lot.Grade : string.Empty)</td>
+                        <td nowrap>@(lot != null ? lot.Color : string.Empty)</td>
+                        <td nowrap>@(ivtest != null ? ivtest.CoefPM : 0)</td>
+                        <td nowrap>@(ivtest != null ? ivtest.CoefISC : 0)</td>
+                        <td nowrap>@(ivtest != null ? ivtest.CoefIPM : 0)</td>
+                        <td nowrap>@(ivtest != null ? ivtest.CoefVOC : 0)</td>
+                        <td nowrap>@(ivtest != null ? ivtest.CoefVPM : 0)</td>
+                        <td nowrap>@(ivtest != null ? ivtest.CoefFF : 0)</td>
+                        @if (ivtest == null
+                            || string.IsNullOrEmpty(ivtest.PowersetCode)
+                            || ivtest.PowersetItemNo == null)
+                        {
+                            <td nowrap></td>
+                        }
+                        else
+                        {
+                            <td nowrap>@Model.GetPowersetName(ivtest.Key.LotNumber, ivtest.PowersetCode, ivtest.PowersetItemNo.Value)</td>
+                        }
+                        <td nowrap>
+                            @(ivtest != null ? ivtest.PowersetSubCode : string.Empty)
+                        </td>
+                        <td nowrap>@string.Format("{0:yyyy-MM-dd}", obj.CreateTime)</td>
+                    </tr>
+                }
+            </tbody>
+        
+    </table>
+
+    <div style="margin-top:-18px">
+        @if (cfg != null)
+        {
+            using (Ajax.BeginForm("PagingQuery", "LotPackageQuery"
+                            , new
+                            {
+                                @Where = cfg.Where,
+                                @OrderBy = cfg.OrderBy,
+                                @CurrentPageNo = cfg.PageNo,
+                                @CurrentPageSize = cfg.PageSize
+                            }
+                            , new AjaxOptions()
+                            {
+                                HttpMethod = "Post",
+                                UpdateTargetId = "_list"
+                            }
+                            , new { @class = "form-horizontal", resource = "form", id = "frmPagingQuery" }))
+            {
+                @Html.AntiForgeryToken()
+                <div>@Html.Partial("_PaginationPartial")</div>
+            }
+        }
+    </div>
+</div>

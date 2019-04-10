@@ -1,0 +1,53 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.EDC.Models.DataAcquisitionItemViewModel
+@using ServiceCenter.Common;
+
+@Html.ValidationSummary(true)
+<div class="form-group">
+    @Html.LabelFor(m => m.ItemCode, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.ItemCode</p>
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.ItemName, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.ItemName</p>
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.RouteStepName, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.RouteStepName</p>
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.Description, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.Description</p>
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(m => m.Editor, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.Editor</p>
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.EditTime, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.EditTime</p>
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.Creator, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.Creator</p>
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.CreateTime, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.CreateTime</p>
+    </div>
+</div>

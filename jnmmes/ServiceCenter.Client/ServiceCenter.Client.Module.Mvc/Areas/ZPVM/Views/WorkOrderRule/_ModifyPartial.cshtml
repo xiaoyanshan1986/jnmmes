@@ -1,0 +1,89 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.ZPVM.Models.WorkOrderRuleViewModel
+@using ServiceCenter.Common;
+@Html.ValidationSummary(true)
+<div class="form-group">
+    @Html.LabelFor(m => m.OrderNumber, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        <p class="form-control-static">@Model.OrderNumber</p>
+        @Html.HiddenFor(m => m.OrderNumber)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.MaterialCode, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        <p class="form-control-static">@Model.MaterialCode</p>
+        @Html.HiddenFor(m => m.MaterialCode)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.RuleCode, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.RuleCode, new { @class = "form-control", style = "text-transform:uppercase;ime-mode:inactive" })
+        @Html.ValidationMessageFor(m => m.RuleCode)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.RuleName, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.RuleName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.RuleName)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.FullPackageQty, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.FullPackageQty, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.FullPackageQty)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.PowerDegree, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.PowerDegree, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.PowerDegree)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.MinPower, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.MinPower, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.MinPower)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.MaxPower, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.MaxPower, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.MaxPower)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.CalibrationType, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.CalibrationType, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.CalibrationType)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.CalibrationCycle, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.CalibrationCycle, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.CalibrationCycle)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.FixCycle, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.FixCycle, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.FixCycle)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.Description, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextAreaFor(m => m.Description, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Description)
+    </div>
+    @Html.HiddenFor(m => m.CreateTime)
+    @Html.HiddenFor(m => m.Creator)
+</div>

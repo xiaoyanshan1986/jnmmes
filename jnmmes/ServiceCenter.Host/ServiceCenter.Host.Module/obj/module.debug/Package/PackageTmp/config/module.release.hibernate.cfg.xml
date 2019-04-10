@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-configuration xmlns="urn:nhibernate-configuration-2.2">
+  <session-factory>
+    <property name="connection.driver_class">NHibernate.Driver.SqlClientDriver</property>
+    <property name="connection.connection_string">
+      Server=MESSPC;uid=test;password=Test123456;initial catalog=JNMES;Pooling=true;Max Pool Size=40000;Min Pool Size=0;
+      <!--Server=.;uid=sa;password=123456;initial catalog=JNMES;Pooling=true;Max Pool Size=40000;Min Pool Size=0;-->
+      <!--Server=10.0.2.79;uid=mes;password=MApp@006;initial catalog=JNMES;Pooling=true;Max Pool Size=40000;Min Pool Size=0;-->
+      <!--Server=10.1.2.63;uid=MMES;password=Mmes123@456;initial catalog=JNMES;Pooling=true;Max Pool Size=40000;Min Pool Size=0;-->
+    </property>
+    <property name="dialect">NHibernate.Dialect.MsSql2008Dialect</property>
+    <property name="adonet.batch_size">10</property>
+    <property name="use_proxy_validator">true</property>
+    <property name="command_timeout">120</property>
+    <mapping assembly="ServiceCenter.MES.DataAccess.BaseData" />
+    <mapping assembly="ServiceCenter.MES.DataAccess.RBAC" />
+    <mapping assembly="ServiceCenter.MES.DataAccess.FMM" />
+    <mapping assembly="ServiceCenter.MES.DataAccess.PPM" />
+    <mapping assembly="ServiceCenter.MES.DataAccess.LSM" />
+    <mapping assembly="ServiceCenter.MES.DataAccess.EDC" />
+    <mapping assembly="ServiceCenter.MES.DataAccess.QAM" />
+    <mapping assembly="ServiceCenter.MES.DataAccess.EMS" />
+    <mapping assembly="ServiceCenter.MES.DataAccess.WIP" />
+    <mapping assembly="ServiceCenter.MES.DataAccess.ZPVM" />
+    <mapping assembly="ServiceCenter.MES.DataAccess.ZPVC" />
+    <mapping assembly="ServiceCenter.MES.DataAccess.ERP" />
+    <mapping assembly="ServiceCenter.MES.DataAccess.SPC" />
+  </session-factory>
+</hibernate-configuration>

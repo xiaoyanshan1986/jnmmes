@@ -1,0 +1,91 @@
+﻿@using ServiceCenter.Client.Mvc.Resources;
+@using BaseData=ServiceCenter.Client.Mvc.Resources.BaseData;
+@using ServiceCenter.MES.Model.BaseData;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@{
+    BaseAttributeCategory category = ViewBag.BaseAttributeCategory;
+    IList<BaseAttribute> lst = ViewBag.BaseAttributeList;
+    IList<BaseAttributeValue> lstVal = ViewBag.List;
+}
+
+<div id="_list">
+    <table class="table table-hover table-bordered table-condensed">
+        <thead>
+            <tr class="active">
+                <td>@StringResource.ItemNo</td>
+                @foreach(BaseAttribute attr in lst)
+                { 
+                    <td>@attr.Key.AttributeName</td>
+                }
+
+                <td>@StringResource.Detail</td>
+                <td>@StringResource.Modify</td>
+                <td>@StringResource.Delete</td>
+            </tr>
+        </thead>
+        @if (lstVal != null)
+        {
+            var lnq = from item in lstVal
+                      orderby item.Key.ItemOrder
+                      select item.Key.ItemOrder;
+            
+            <tbody>
+                
+                @foreach(int itemOrder in lnq.Distinct())
+                {
+                    <tr>
+                        <td>@itemOrder</td>
+                        @foreach (BaseAttribute attr in lst)
+                        {   
+                            var lnqVal=from item in lstVal
+                                       where item.Key.CategoryName==attr.Key.CategoryName
+                                               && item.Key.AttributeName==attr.Key.AttributeName
+                                               && item.Key.ItemOrder==itemOrder
+                                       select item;
+                            BaseAttributeValue val = lnqVal.SingleOrDefault();
+                            <td>
+                                @(val!=null?val.Value:string.Empty)
+                            </td>
+                        }
+                        <td>
+                            @Ajax.ActionLink(StringResource.Detail, actionName: null
+                                            , routeValues: null
+                                            , ajaxOptions:new AjaxOptions() 
+                                            { 
+                                                HttpMethod = "Post", 
+                                                UpdateTargetId = "detailInfo",
+                                                OnSuccess = "showInfoModal",
+                                                Url = Url.Action("Detail", new { @CategoryName = category.Key,@ItemOrder=itemOrder})
+                                            })
+                        </td>
+                        <td>
+                            @Ajax.ActionLink(StringResource.Modify, actionName: null
+                                            ,routeValues:null
+                                            ,ajaxOptions:new AjaxOptions()
+                                            {
+                                                HttpMethod = "Post",
+                                                UpdateTargetId = "modifyFormContent",
+                                                OnSuccess = "showModifyModal",
+                                                Url = Url.Action("Modify", new { @CategoryName = category.Key, @ItemOrder = itemOrder })
+                                            })
+                        </td>
+                        <td>
+                            @Ajax.ActionLink(StringResource.Delete, actionName: null
+                                            , routeValues: null
+                                            , ajaxOptions:new AjaxOptions()
+                                            {
+                                                HttpMethod = "Post",
+                                                Confirm = string.Format(BaseData.StringResource.BaseAttributeValue_ConfirmDelete, itemOrder),
+                                                Url = Url.Action("Delete", new { @CategoryName = category.Key, @ItemOrder = itemOrder }),
+                                                OnSuccess = "completeDelete"
+                                            })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        }
+    </table>
+</div>
+
+

@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   namespace="ServiceCenter.MES.Model.FMM" 
+                   assembly="ServiceCenter.MES.Model.FMM">
+  <class name="ProductionLine" table="FMM_PRODUCTION_LINE">
+    <id name="Key" column="LINE_CODE">
+      <generator class="assigned" />
+    </id>
+    <property name="Name" column="LINE_NAME"/>
+    <property name="LocationName" column="LOCATION_NAME"/>
+    <property name="Attr1" column="ATTR_1"/>
+    <property name="Attr2" column="ATTR_2"/>
+    <property name="Attr3" column="ATTR_3"/>
+    <property name="Attr4" column="ATTR_4"/>
+    <property name="Attr5" column="ATTR_5"/>
+    <property name="Description" column="DESCRIPTION"/>
+    <property name="Editor" column="EDITOR"/>
+    <property name="EditTime" column="EDIT_TIME"/>
+    <property name="Creator" column="CREATOR"/>
+    <property name="CreateTime" column="CREATE_TIME"/>
+  </class>
+</hibernate-mapping>

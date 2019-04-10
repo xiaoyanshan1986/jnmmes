@@ -1,0 +1,39 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.FMM.Models.LocationViewModel
+@using ServiceCenter.Common;
+
+@Html.ValidationSummary(true)
+<div class="form-group">
+    @Html.LabelFor(m => m.Name, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        <p class="form-control-static">@Model.Name</p>
+        @Html.HiddenFor(m=>m.Name)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.Level, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        <p class="form-control-static">@Model.Level.GetDisplayName()</p>
+        @Html.HiddenFor(m => m.Level)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.ParentLocationName, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        <p class="form-control-static">@Model.ParentLocationName</p>
+        @Html.HiddenFor(m => m.ParentLocationName)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.ERPDeptCode, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.ERPDeptCode, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.ERPDeptCode)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.Description, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextAreaFor(m => m.Description, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Description)
+    </div>
+</div>

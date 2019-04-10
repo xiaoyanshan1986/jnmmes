@@ -1,0 +1,65 @@
+﻿@using System.Data;
+@using ServiceCenter.MES.Model.WIP;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@model ServiceCenter.Client.Mvc.Areas.ZPVM.Models.PackageNoAddDesViewModel
+@{
+    DataTable dtList = new System.Data.DataTable();
+    dtList = ViewBag.List;
+
+
+}
+<div id="_list">
+    <table class="table table-hover table-bordered table-condensed">
+        <thead>
+            <tr class=" active">
+                <td nowrap>序号</td>
+                <td>@Html.DisplayNameFor(m => m.PackageNo)</td>
+                <td nowrap>工单号</td>
+                <td nowrap>物料编码</td>
+                <td nowrap>包装数量</td>
+                <td>@Html.DisplayNameFor(m => m.Description)</td>
+                <td>@Html.DisplayNameFor(m => m.Action)</td>
+                <td nowrap>编辑人</td>
+                <td nowrap>编辑时间</td>
+                <td nowrap>添加箱描述</td>
+            </tr>
+        </thead>
+        @if (dtList != null)
+        {
+            <tbody>
+                @for (int i = 0; i < dtList.Rows.Count; i++)
+                {
+                    <tr>
+                        <td nowrap>@(i + 1)</td>
+                        <td nowrap>@dtList.Rows[i]["PACKAGE_NO"].ToString()</td>
+                        <td nowrap>@dtList.Rows[i]["ORDER_NUMBER"].ToString()</td>
+                        <td nowrap>@dtList.Rows[i]["MATERIAL_CODE"].ToString()</td>
+                        <td nowrap>@dtList.Rows[i]["PACKAGE_QTY"].ToString()</td>
+                        <td>@dtList.Rows[i]["DESCRIPTION"].ToString()</td>
+                        <td nowrap>@dtList.Rows[i]["ROUTE_STEP_NAME"].ToString()</td>
+                        <td nowrap>@dtList.Rows[i]["EDITOR"].ToString()</td>
+                        <td nowrap>@dtList.Rows[i]["EDIT_TIME"].ToString()</td>
+                        <td>
+                            @Ajax.ActionLink("添加箱描述", actionName: null
+                                            , routeValues: null
+                                            , ajaxOptions: new AjaxOptions()
+                                            {
+                                                HttpMethod = "Post",
+                                                UpdateTargetId = "modifyFormContent",
+                                                OnSuccess = "showModifyModal",
+                                                Url = Url.Action("Modify", new
+                                                {
+                                                    @PackageNo = @dtList.Rows[i]["PACKAGE_NO"].ToString(),
+                                                    @Description = @dtList.Rows[i]["DESCRIPTION"].ToString(),
+                                                    @StepName = @dtList.Rows[i]["ROUTE_STEP_NAME"].ToString()
+                                                })
+                                            })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        }
+    </table>
+
+</div>

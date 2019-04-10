@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   namespace="ServiceCenter.MES.Model.WIP" 
+                   assembly="ServiceCenter.MES.Model.WIP">
+  <class name="OemData" table="OEM_DATA">
+    <id name="Key" column="LOT_NUMBER">
+      <generator class="assigned" />
+    </id>
+    <property name="OrderNumber" column="ORDER_NUMBER"/>    
+    <property name="ProductType" column="PRODUCT_TYPE"/>
+    <property name="PnName" column="PN_NAME"/>
+    <property name="PsSubCode" column="PS_SUBCODE"/>
+    <property name="PMAX" column="PMAX"/>
+    <property name="ISC" column="ISC"/>
+    <property name="IPM" column="IPM"/>
+    <property name="VOC" column="VOC"/>
+    <property name="VPM" column="VPM"/>
+    <property name="FF" column="FF"/>
+    <property name="Grade" column="GRADE"/>
+    <property name="Color" column="COLOR"/>
+    <property name="PackageNo" column="PACKAGE_NO"/>
+    <property name="Editor" column="EDITOR"/>
+    <property name="EditTime" column="EDIT_TIME"/>
+    <property name="Creator" column="CREATOR"/>
+    <property name="CreateTime" column="CREATE_TIME"/>
+    <property name="Status" column="STATUS"/>
+  </class>
+</hibernate-mapping>

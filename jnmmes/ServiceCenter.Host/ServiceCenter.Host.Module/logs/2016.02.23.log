@@ -1,0 +1,169 @@
+2016-02-23 11:08:47,113 - ERROR - START>Application
+2016-02-23 11:17:34,294 - ERROR - NoViableAltException(6@[])
+2016-02-23 11:19:42,237 - ERROR - NoViableAltException(6@[])
+2016-02-23 11:20:33,732 - ERROR - NoViableAltException(6@[])
+2016-02-23 11:22:27,389 - ERROR - NoViableAltException(6@[])
+2016-02-23 11:55:11,377 - ERROR - NoViableAltException(6@[])
+2016-02-23 11:56:40,818 - ERROR - NoViableAltException(6@[])
+2016-02-23 12:04:14,258 - ERROR - NoViableAltException(6@[])
+2016-02-23 12:07:18,858 - ERROR - NoViableAltException(6@[])
+2016-02-23 13:12:33,527 - ERROR - START>Application
+2016-02-23 13:20:07,106 - ERROR - START>Application
+2016-02-23 13:40:00,147 - ERROR - START>Application
+2016-02-23 13:40:53,600 - ERROR - NoViableAltException(6@[])
+2016-02-23 13:42:30,557 - ERROR - NoViableAltException(6@[])
+2016-02-23 13:46:46,734 - ERROR - NoViableAltException(6@[])
+2016-02-23 13:48:05,568 - ERROR - NoViableAltException(6@[])
+2016-02-23 13:49:29,015 - ERROR - NoViableAltException(6@[])
+2016-02-23 13:49:34,406 - ERROR - NoViableAltException(6@[])
+2016-02-23 13:49:54,244 - ERROR - NoViableAltException(6@[])
+2016-02-23 14:01:39,648 - ERROR - NoViableAltException(6@[])
+2016-02-23 14:01:48,112 - ERROR - NoViableAltException(6@[])
+2016-02-23 14:03:07,415 - ERROR - NoViableAltException(6@[])
+2016-02-23 14:03:29,452 - ERROR - NoViableAltException(6@[])
+2016-02-23 14:03:33,593 - ERROR - NoViableAltException(6@[])
+2016-02-23 14:20:16,104 - ERROR - NoViableAltException(6@[])
+2016-02-23 14:27:17,066 - ERROR - NoViableAltException(6@[])
+2016-02-23 14:28:52,958 - ERROR - NoViableAltException(6@[])
+2016-02-23 14:29:52,666 - ERROR - NoViableAltException(6@[])
+2016-02-23 14:31:10,137 - ERROR - NoViableAltException(6@[])
+2016-02-23 14:33:42,474 - ERROR - NoViableAltException(6@[])
+2016-02-23 14:36:09,317 - ERROR - NoViableAltException(6@[])
+2016-02-23 14:37:00,887 - ERROR - NoViableAltException(6@[])
+2016-02-23 14:38:17,657 - ERROR - NoViableAltException(6@[])
+2016-02-23 14:40:59,053 - ERROR - NoViableAltException(6@[])
+2016-02-23 14:42:56,785 - ERROR - NoViableAltException(6@[])
+2016-02-23 14:52:13,984 - ERROR - NoViableAltException(6@[])
+2016-02-23 14:53:47,467 - ERROR - NoViableAltException(6@[])
+2016-02-23 14:56:47,408 - ERROR - NoViableAltException(6@[])
+2016-02-23 14:58:47,355 - ERROR - NoViableAltException(6@[])
+2016-02-23 15:01:49,146 - ERROR - NoViableAltException(6@[])
+2016-02-23 15:26:48,660 - ERROR - NoViableAltException(6@[])
+2016-02-23 15:30:55,777 - ERROR - NoViableAltException(6@[])
+2016-02-23 15:31:23,443 - ERROR - NoViableAltException(6@[])
+2016-02-23 15:31:33,637 - ERROR - 不能将值 NULL 插入列 'CUR_DAY'，表 'JNMES.dbo.PPM_PLAN_DAY'；列不允许有 Null 值。INSERT 失败。
+语句已终止。
+2016-02-23 15:31:33,670 - ERROR - Could not synchronize database state with session
+NHibernate.Exceptions.GenericADOException: could not execute batch command.[SQL: SQL not available] ---> System.Data.SqlClient.SqlException: 不能将值 NULL 插入列 'CUR_DAY'，表 'JNMES.dbo.PPM_PLAN_DAY'；列不允许有 Null 值。INSERT 失败。
+语句已终止。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 System.Data.SqlClient.SqlCommand.ExecuteBatchRPCCommand()
+   在 System.Data.SqlClient.SqlCommandSet.ExecuteNonQuery()
+   在 NHibernate.AdoNet.SqlClientSqlCommandSet.ExecuteNonQuery() 位置 p:\nhibernate-core\src\NHibernate\AdoNet\SqlClientSqlCommandSet.cs:行号 117
+   在 NHibernate.AdoNet.SqlClientBatchingBatcher.DoExecuteBatch(IDbCommand ps) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\SqlClientBatchingBatcher.cs:行号 87
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 NHibernate.AdoNet.SqlClientBatchingBatcher.DoExecuteBatch(IDbCommand ps) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\SqlClientBatchingBatcher.cs:行号 91
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteBatchWithTiming(IDbCommand ps) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 412
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteBatch() 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 397
+   在 NHibernate.Engine.ActionQueue.ExecuteActions(IList list) 位置 p:\nhibernate-core\src\NHibernate\Engine\ActionQueue.cs:行号 129
+   在 NHibernate.Engine.ActionQueue.ExecuteActions() 位置 p:\nhibernate-core\src\NHibernate\Engine\ActionQueue.cs:行号 169
+   在 NHibernate.Event.Default.AbstractFlushingEventListener.PerformExecutions(IEventSource session) 位置 p:\nhibernate-core\src\NHibernate\Event\Default\AbstractFlushingEventListener.cs:行号 241
+2016-02-23 15:45:09,738 - ERROR - NoViableAltException(6@[])
+2016-02-23 15:45:36,286 - ERROR - NoViableAltException(6@[])
+2016-02-23 15:45:45,850 - ERROR - 不能将值 NULL 插入列 'CUR_DAY'，表 'JNMES.dbo.PPM_PLAN_DAY'；列不允许有 Null 值。INSERT 失败。
+语句已终止。
+2016-02-23 15:45:45,882 - ERROR - Could not synchronize database state with session
+NHibernate.Exceptions.GenericADOException: could not execute batch command.[SQL: SQL not available] ---> System.Data.SqlClient.SqlException: 不能将值 NULL 插入列 'CUR_DAY'，表 'JNMES.dbo.PPM_PLAN_DAY'；列不允许有 Null 值。INSERT 失败。
+语句已终止。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 System.Data.SqlClient.SqlCommand.ExecuteBatchRPCCommand()
+   在 System.Data.SqlClient.SqlCommandSet.ExecuteNonQuery()
+   在 NHibernate.AdoNet.SqlClientSqlCommandSet.ExecuteNonQuery() 位置 p:\nhibernate-core\src\NHibernate\AdoNet\SqlClientSqlCommandSet.cs:行号 117
+   在 NHibernate.AdoNet.SqlClientBatchingBatcher.DoExecuteBatch(IDbCommand ps) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\SqlClientBatchingBatcher.cs:行号 87
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 NHibernate.AdoNet.SqlClientBatchingBatcher.DoExecuteBatch(IDbCommand ps) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\SqlClientBatchingBatcher.cs:行号 91
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteBatchWithTiming(IDbCommand ps) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 412
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteBatch() 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 397
+   在 NHibernate.Engine.ActionQueue.ExecuteActions(IList list) 位置 p:\nhibernate-core\src\NHibernate\Engine\ActionQueue.cs:行号 129
+   在 NHibernate.Engine.ActionQueue.ExecuteActions() 位置 p:\nhibernate-core\src\NHibernate\Engine\ActionQueue.cs:行号 169
+   在 NHibernate.Event.Default.AbstractFlushingEventListener.PerformExecutions(IEventSource session) 位置 p:\nhibernate-core\src\NHibernate\Event\Default\AbstractFlushingEventListener.cs:行号 241
+2016-02-23 15:46:44,107 - ERROR - 不能将值 NULL 插入列 'CUR_DAY'，表 'JNMES.dbo.PPM_PLAN_DAY'；列不允许有 Null 值。INSERT 失败。
+语句已终止。
+2016-02-23 15:46:44,138 - ERROR - Could not synchronize database state with session
+NHibernate.Exceptions.GenericADOException: could not execute batch command.[SQL: SQL not available] ---> System.Data.SqlClient.SqlException: 不能将值 NULL 插入列 'CUR_DAY'，表 'JNMES.dbo.PPM_PLAN_DAY'；列不允许有 Null 值。INSERT 失败。
+语句已终止。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 System.Data.SqlClient.SqlCommand.ExecuteBatchRPCCommand()
+   在 System.Data.SqlClient.SqlCommandSet.ExecuteNonQuery()
+   在 NHibernate.AdoNet.SqlClientSqlCommandSet.ExecuteNonQuery() 位置 p:\nhibernate-core\src\NHibernate\AdoNet\SqlClientSqlCommandSet.cs:行号 117
+   在 NHibernate.AdoNet.SqlClientBatchingBatcher.DoExecuteBatch(IDbCommand ps) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\SqlClientBatchingBatcher.cs:行号 87
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 NHibernate.AdoNet.SqlClientBatchingBatcher.DoExecuteBatch(IDbCommand ps) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\SqlClientBatchingBatcher.cs:行号 91
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteBatchWithTiming(IDbCommand ps) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 412
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteBatch() 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 397
+   在 NHibernate.Engine.ActionQueue.ExecuteActions(IList list) 位置 p:\nhibernate-core\src\NHibernate\Engine\ActionQueue.cs:行号 129
+   在 NHibernate.Engine.ActionQueue.ExecuteActions() 位置 p:\nhibernate-core\src\NHibernate\Engine\ActionQueue.cs:行号 169
+   在 NHibernate.Event.Default.AbstractFlushingEventListener.PerformExecutions(IEventSource session) 位置 p:\nhibernate-core\src\NHibernate\Event\Default\AbstractFlushingEventListener.cs:行号 241
+2016-02-23 15:47:29,385 - ERROR - 不能将值 NULL 插入列 'CUR_DAY'，表 'JNMES.dbo.PPM_PLAN_DAY'；列不允许有 Null 值。INSERT 失败。
+语句已终止。
+2016-02-23 15:47:29,401 - ERROR - Could not synchronize database state with session
+NHibernate.Exceptions.GenericADOException: could not execute batch command.[SQL: SQL not available] ---> System.Data.SqlClient.SqlException: 不能将值 NULL 插入列 'CUR_DAY'，表 'JNMES.dbo.PPM_PLAN_DAY'；列不允许有 Null 值。INSERT 失败。
+语句已终止。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 System.Data.SqlClient.SqlCommand.ExecuteBatchRPCCommand()
+   在 System.Data.SqlClient.SqlCommandSet.ExecuteNonQuery()
+   在 NHibernate.AdoNet.SqlClientSqlCommandSet.ExecuteNonQuery() 位置 p:\nhibernate-core\src\NHibernate\AdoNet\SqlClientSqlCommandSet.cs:行号 117
+   在 NHibernate.AdoNet.SqlClientBatchingBatcher.DoExecuteBatch(IDbCommand ps) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\SqlClientBatchingBatcher.cs:行号 87
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 NHibernate.AdoNet.SqlClientBatchingBatcher.DoExecuteBatch(IDbCommand ps) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\SqlClientBatchingBatcher.cs:行号 91
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteBatchWithTiming(IDbCommand ps) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 412
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteBatch() 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 397
+   在 NHibernate.Engine.ActionQueue.ExecuteActions(IList list) 位置 p:\nhibernate-core\src\NHibernate\Engine\ActionQueue.cs:行号 129
+   在 NHibernate.Engine.ActionQueue.ExecuteActions() 位置 p:\nhibernate-core\src\NHibernate\Engine\ActionQueue.cs:行号 169
+   在 NHibernate.Event.Default.AbstractFlushingEventListener.PerformExecutions(IEventSource session) 位置 p:\nhibernate-core\src\NHibernate\Event\Default\AbstractFlushingEventListener.cs:行号 241
+2016-02-23 15:49:10,226 - ERROR - START>Application
+2016-02-23 15:50:15,587 - ERROR - NoViableAltException(6@[])
+2016-02-23 15:54:14,526 - ERROR - START>Application
+2016-02-23 15:55:21,919 - ERROR - NoViableAltException(6@[])
+2016-02-23 15:56:48,597 - ERROR - NoViableAltException(6@[])
+2016-02-23 15:57:40,777 - ERROR - NoViableAltException(6@[])
+2016-02-23 16:20:02,522 - ERROR - NoViableAltException(6@[])
+2016-02-23 16:27:57,215 - ERROR - NoViableAltException(6@[])
+2016-02-23 16:39:24,790 - ERROR - NoViableAltException(6@[])
+2016-02-23 16:42:55,573 - ERROR - NoViableAltException(6@[])
+2016-02-23 16:46:40,199 - ERROR - NoViableAltException(6@[])
+2016-02-23 16:54:36,841 - ERROR - NoViableAltException(6@[])
+2016-02-23 17:01:06,662 - ERROR - NoViableAltException(6@[])
+2016-02-23 17:02:48,058 - ERROR - NoViableAltException(6@[])
+2016-02-23 17:03:52,260 - ERROR - NoViableAltException(6@[])
+2016-02-23 17:09:31,007 - ERROR - NoViableAltException(6@[])
+2016-02-23 17:12:35,819 - ERROR - START>Application
+2016-02-23 17:13:26,863 - ERROR - NoViableAltException(6@[])
+2016-02-23 17:16:06,390 - ERROR - NoViableAltException(6@[])
+2016-02-23 17:30:44,646 - ERROR - NoViableAltException(6@[])
+2016-02-23 17:32:00,260 - ERROR - NoViableAltException(6@[])
+2016-02-23 17:46:27,954 - ERROR - NoViableAltException(6@[])
+2016-02-23 17:48:24,294 - ERROR - NoViableAltException(6@[])
+2016-02-23 17:56:33,513 - ERROR - NoViableAltException(6@[])

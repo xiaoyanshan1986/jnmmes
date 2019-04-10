@@ -1,0 +1,15 @@
+2016-07-31 09:13:14,787 - ERROR - START>Application
+2016-07-31 11:17:17,185 - ERROR - START>Application
+2016-07-31 11:29:02,911 - ERROR - ExecuteTrackOutBaseFounction>
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 ServiceCenter.MES.Service.WIP.WipEngineerService.DeductMaterial(EnumDataCollectionAction workModel, TrackOutParameter p, Equipment equipment, List`1 lstLot, ISession session, String transactionKey) 位置 e:\Workspace\Jinergy\JNMMES\trunk\src\ServiceCenter.Modules\WIP\ServiceCenter.MES.Service.WIP\WipEngineerServiceForTrack.cs:行号 3228
+2016-07-31 11:56:34,632 - ERROR - START>Application
+2016-07-31 12:24:16,980 - ERROR - START>Application
+2016-07-31 13:20:39,374 - ERROR - START>Application
+2016-07-31 13:28:01,082 - ERROR - START>Application
+2016-07-31 14:15:52,497 - ERROR - START>Application
+2016-07-31 14:20:58,278 - ERROR - START>Application
+2016-07-31 14:26:38,847 - ERROR - START>Application
+2016-07-31 14:30:17,646 - ERROR - START>Application
+2016-07-31 14:42:25,901 - ERROR - START>Application
+2016-07-31 15:12:35,721 - ERROR - START>Application

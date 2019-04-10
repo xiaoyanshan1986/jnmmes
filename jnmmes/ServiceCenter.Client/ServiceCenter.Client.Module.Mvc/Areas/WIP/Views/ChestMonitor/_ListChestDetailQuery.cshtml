@@ -1,0 +1,55 @@
+﻿
+@using ServiceCenter.Client.Mvc.Areas.ZPVM.Models;
+@using ServiceCenter.Client.Mvc.Resources;
+@using ZPVMResources = ServiceCenter.Client.Mvc.Resources.ZPVM;
+@using ServiceCenter.MES.Model.ZPVM;
+@using ServiceCenter.MES.Model.WIP;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@{
+    PagingConfig cfg = ViewBag.PagingConfig;
+    Chest chest = ViewBag.Chest;
+}
+<div id="_list">
+    <table class="table table-hover table-bordered table-condensed table-responsive table-striped">
+        <thead>
+            <tr class="active">
+                <td nowrap>@StringResource.ItemNo</td>
+                <td nowrap>柜号</td>
+                <td nowrap>库位</td>
+                <td nowrap>包装号</td>
+                <td nowrap>项目号</td>
+                <td nowrap>工单号</td>
+                <td nowrap>产品编码</td>
+                <td nowrap>功率档</td>
+                <td nowrap>电流档</td>
+                <td nowrap>等级</td>
+                <td nowrap>花色</td>
+                <td nowrap>入柜日期</td>
+            </tr>
+        </thead>
+            <tbody>               
+                @for (int i = 0; i < ViewBag.ChestDetailList.Length; i++)
+                {
+                    ChestDetail obj = ViewBag.ChestDetailList[i];
+                    <tr>
+                        <td nowrap>@(i + 1)</td>
+                        <td nowrap>
+                            @obj.Key.ChestNo
+                        </td>
+                        <td nowrap>@(chest != null ? chest.StoreLocation : string.Empty)</td>
+                        <td nowrap>@obj.Key.ObjectNumber</td>
+                        <td nowrap>@obj.ItemNo</td>                        
+                        <td nowrap>@(chest != null ? chest.OrderNumber : string.Empty)</td>
+                        <td nowrap>@obj.MaterialCode</td>
+                        <td nowrap>@(chest != null ? chest.PowerName : string.Empty)</td>
+                        <td nowrap>@(chest != null ? chest.PowerSubCode : string.Empty)</td>
+                        <td nowrap>@(chest != null ? chest.Grade : string.Empty)</td>
+                        <td nowrap>@(chest != null ? chest.Color : string.Empty)</td>
+                        <td nowrap>@string.Format("{0:yyyy-MM-dd}", obj.CreateTime)</td>
+                    </tr>
+                }
+            </tbody>
+        
+    </table>    
+</div>

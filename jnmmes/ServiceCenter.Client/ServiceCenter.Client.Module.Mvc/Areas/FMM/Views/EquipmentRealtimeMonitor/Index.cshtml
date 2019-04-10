@@ -1,0 +1,627 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.FMM.Models.EquipmentLayoutDetailQueryViewModel
+@using ServiceCenter.MES.Model.FMM;
+@using ServiceCenter.MES.Model.EMS;
+@using ServiceCenter.Model;
+@using ServiceCenter.Common;
+@using ServiceCenter.Client.Mvc.Areas.FMM.Models;
+@using FMM = ServiceCenter.Client.Mvc.Resources.FMM;
+@using ServiceCenter.Client.Mvc.Areas.EMS.Models;
+@using ServiceCenter.Client.Mvc.Resources;
+@using System.Data;
+
+@{
+    ViewBag.Title = FMM.StringResource.Equipment_ManagePageTitle;
+}
+<h2>@ViewBag.Title</h2>
+
+<div class="panel panel-default" id="Head">
+    <div class="panel-body">
+        @using (Ajax.BeginForm("Query", "EquipmentRealtimeMonitor", null
+        , new AjaxOptions()
+        {
+            HttpMethod = "Post",
+            OnSuccess = "completeQuery",
+            UpdateTargetId = "list"
+
+        }
+        , new { @class = "form-horizontal", resource = "form" }))
+        {
+            @Html.AntiForgeryToken()
+            <div class="row">
+                <div class="col-md-1">
+                    @Html.LabelFor(m => m.LayoutName, new { @class = "control-label" })
+                </div>
+                <div class="col-md-2">
+                    @Html.DropDownListFor(m => m.LayoutName, Model.GetLayoutList(), new { @class = "form-control" })
+                </div>
+
+                <div class="col-md-2">
+                    <input type="submit" value="@StringResource.Query" class="btn btn-default" id="btnQuery" />
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<div id="list">
+    @Html.Partial("_ListPartial", new EquipmentLayoutDetailViewModel() { LayoutName = Model.LayoutName })
+</div>
+
+@*右键菜单*@
+<div id="menu" class="skin">
+    @*<div class="menuitems" id="Eqp">*@
+        @*<a href="#" data-ajax-update="#detailInfo" data-ajax-mode="replace" data-ajax-method="Post" data-ajax="true"
+            data-ajax-success="showInfoModal">设备信息</a>*@
+        @*@Ajax.ActionLink("设备信息", actionName: null
+                                            , routeValues: null
+                                            , ajaxOptions: new AjaxOptions()
+                                            {
+                                                HttpMethod = "Post",
+                                                UpdateTargetId = "asasas",
+                                                OnSuccess = "showInfoModal"
+                                            }, htmlAttributes: new { @class = "btn btn-primary" })*@
+    @*</div>*@
+    @*<div class="menuitems" id="Issue">
+        <a href="javascript:showAddModal()" class="btn btn-primary" id="123">报修\恢复</a>
+    </div>*@
+    
+    @*<div class="menuitems" id="Eqp">
+        <a href="javascript:showInfoModal()">设备信息</a>
+    </div>*@
+
+    <div class="menuitems" id="Issue">
+        <a href="javascript:showAddModal()" >报修\恢复</a>
+    </div>
+</div>
+
+@*左键信息*@
+@*<div id="info" class="modal fade" tabindex="-1" resource="dialog" aria-labelledby="infoHeader" aria-hidden="true" style="font-size:11px">
+    <div class="modal-dialog modal-lg" style="width:50%;">
+        <div class="modal-content">
+            <div class="modal-body" id="infoContent" style="margin:0px;padding:5px;">
+                <form class="form-horizontal" resource="form"></form>
+            </div>
+        </div>
+    </div>
+</div>*@
+
+<div id="divdetail"
+     class="modal fade"
+     tabindex="-1"
+     resource="dialog"
+     aria-labelledby="infoHeader"
+     aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="infoHeader">设备信息</h4>
+            </div>
+            <div class="modal-body" id="infoContent" style="margin:0px;padding:5px">
+                <form class="form-horizontal" resource="form">
+                    <div class="panel panel-default">
+                        <div class="panel-body" id="asasas">
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*新增*@
+<div id="add" class="modal fade" tabindex="-1" resource="dialog" aria-labelledby="addHeader" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="addHeader">报修\恢复</h4>
+            </div>
+            <div class="modal-body" id="addContent" style="margin:0px;padding:5px">
+                @using (Ajax.BeginForm("Save", "EquipmentRealtimeMonitor", null
+                        , new AjaxOptions()
+                        {
+                            HttpMethod = "Post",
+                            OnSuccess = "completeSave",
+                            OnBegin = "beginSave"
+                        }
+                        , new { @class = "form-horizontal", resource = "form", id = "frmAdd" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <input type="submit" class="btn btn-primary" value="@StringResource.Save" id="btnSave" />
+                            @*<input type="reset" class="btn btn-default" value="@StringResource.Reset" id="btnReset" />*@
+                        </div>
+                        <div class="panel-body">
+                            <div class="alert fade in hide" resource="alert" id="addStatusMessage">
+                                <button type="button" class="close" onclick="hideAddAlert()">
+                                    <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+                                </button>
+                                <p></p>
+                            </div>
+                            <div>
+                                @Html.Partial("_AddPartial", new EquipmentStateEventViewModel())
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+@*设备信息*@
+<div id="info" class="modal fade" tabindex="-1" resource="dialog" aria-labelledby="addHeader" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="addHeader">设备信息</h4>
+            </div>
+            <div class="modal-body" id="addContent" style="margin:0px;padding:5px">
+                @using (Ajax.BeginForm("Save", "EquipmentRealtimeMonitor", null
+                        , new AjaxOptions()
+                        {
+                            HttpMethod = "Post",
+                            OnSuccess = "completeSave",
+                            OnBegin = "beginSave"
+                        }
+                        , new { @class = "form-horizontal", resource = "form", id = "frmAdd" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <input type="submit" class="btn btn-primary" value="@StringResource.Save" id="btnSave" />
+                            @*<input type="reset" class="btn btn-default" value="@StringResource.Reset" id="btnReset" />*@
+                        </div>
+                        <div class="panel-body">
+                            <div class="alert fade in hide" resource="alert" id="addStatusMessage">
+                                <button type="button" class="close" onclick="hideAddAlert()">
+                                    <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+                                </button>
+                                <p></p>
+                            </div>
+                            <div>
+                                @Html.Partial("_AddPartial", new EquipmentStateEventViewModel())
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script type="text/javascript" language="javascript">
+        $(function () {
+            //禁止系统的右键菜单
+            $(document).bind('contextmenu', function (e) {
+                return false;
+            });
+        })
+
+        function Query() {
+            document.getElementById("list").innerHTML = '';
+            $("#btnQuery").click();
+        }
+
+        function completeQuery() {
+            var LayoutName = $('#LayoutName').val();
+            $.ajax({
+                type: "post",
+                url: "@Url.Action("GetEQPInfo", "EquipmentRealtimeMonitor")",
+                data: { LayoutName: LayoutName },
+                dataType: "json",
+                success: function (result) {
+                    var josn = JSON.parse(result)
+                    $('.draggable').each(function () {
+                        var EQPCode = $(this).attr("title");
+                        if (EQPCode != null && josn != null) {
+                            for (var i = 0; i < josn.length; i++) {
+                                if (josn[i].EQUIPMENT_CODE == EQPCode) {
+                                    $(this).css("background-color", josn[i].STATE_COLOR);
+                                }
+                            }
+                        }
+                    });
+                }
+            });
+
+            /*一分钟自动刷新定时器*/
+            var Run = setTimeout(AutoRun, '60000');
+            $("#btnQuery").click(function () {
+                clearTimeout(Run);
+            });
+        }
+
+        function AutoRun() {
+            var LayoutName = $("#LayoutName").val();
+            if (LayoutName != '') {
+                Query();
+            }
+        }
+    </script>
+
+    @*鼠标点击事件*@
+    <script type="text/javascript" language="javascript">
+        function MouseClick(EqpCode) {
+            /*右键则执行！注：当前是IE下的菜单位置获取，谷歌需改动*/
+            if (event.button == 2 || event.button == 3) {
+                var container = document.getElementById('droppable');
+                var menu = document.getElementById('menu');
+
+                var evt = window.event || arguments[0];
+
+                /*获取当前鼠标右键按下后的位置，据此定义菜单显示的位置*/
+                var rightedge = document.documentElement.clientWidth - evt.clientX;
+                var bottomedge = document.documentElement.clientHeight - evt.clientY;
+
+                var scrollTop = document.documentElement.scrollTop;
+                var scrollLeft = document.documentElement.scrollLeft
+
+                /*如果从鼠标位置到容器右边的空间小于菜单的宽度，就定位菜单的左坐标（Left）为当前鼠标位置向左一个菜单宽度*/
+                if (rightedge < menu.offsetWidth)
+                    menu.style.left = scrollLeft + evt.clientX - menu.offsetWidth + "px";
+                else
+                    /*否则，就定位菜单的左坐标为当前鼠标位置*/
+                    menu.style.left = scrollLeft + evt.clientX + "px";
+
+                if (bottomedge < menu.offsetHeight)
+                    menu.style.top = scrollTop + evt.clientY - menu.offsetHeight + "px";
+                else
+                    menu.style.top = scrollTop + evt.clientY + "px";
+
+                /*设置菜单可见*/
+                menu.style.display = "block";
+
+                Addparameter(EqpCode);
+
+                //鼠标左键关闭右键菜单
+                container.onclick = function () {
+                    menu.style.display = "none"
+                };
+
+                //点击菜单关闭右键菜单
+                menu.onclick = function () {
+                    menu.style.display = "none"
+                };
+
+            }
+                /*左键则执行*/
+            else {
+
+
+            }
+        }
+
+        /*增加右键菜单的url*/
+        function Addparameter(EQPCode) {
+            $('.menuitems').each(function () {
+                var Id = ($(this).attr('id'));
+                if (Id == "Issue") {
+                    var url = "javascript:showAddModal('" + EQPCode + "')";
+                    $(this).find('a').attr('href', url);
+                }
+                else if (Id == "Eqp")
+                {
+                    //var url = "/FMM/EquipmentRealtimeMonitor/GetEquipmentInfo?EqpCode=" + EQPCode;
+                    //var href = "/FMM/EquipmentRealtimeMonitor";
+                    //$(this).find('a').attr('href', href);
+                    //$(this).find('a').attr('data-ajax-url', url);
+
+                    var url = "javascript:showInfoModal('" + EQPCode + "')";
+                    $(this).find('a').attr('href', url);
+                }
+
+                @*if (Id == "FT") {
+                    var url = '@basePath' + "/ProductionManage/ProductionTrack/FTTrackIndex?testerid=" + EQPName + "&headid=" + HeadId + "&areaname=" + AreaName;
+                    $(this).find('a').attr("onclick", "window.open('" + url + "')");
+                }
+                else if (Id == "PT") {
+                    var url = '@basePath' + "/ProductionManage/ProductionTrack/PTTrackIndex?testerid=" + EQPName + "&headid=" + HeadId + "&areaname=" + AreaName;
+                    $(this).find('a').attr("onclick", "window.open('" + url + "')");
+                }
+                else if (Id == "Issue") {
+                    var url = '@basePath' + "/ProductionManage/ProductionIssue/IssueIndex?testerid=" + EQPName + "&headid=" + HeadId + "&areaname=" + AreaName;
+                    $(this).find('a').attr("onclick", "window.open('" + url + "')");
+                }
+                else if (Id == "Summary") {
+                    var url = '@basePath' + "/ProductionManage/Summary/SummaryIndex?testerid=" + EQPName + "&headid=" + HeadId + "&areaname=" + AreaName;
+                    $(this).find('a').attr("onclick", "window.open('" + url + "')");
+                }
+                else if (Id == "Handover") {
+                    var url = '@basePath' + "/ProductionManage/Handover/Index?testerid=" + EQPName + "&headid=" + HeadId + "&areaname=" + AreaName;
+                    $(this).find('a').attr("onclick", "window.open('" + url + "')");
+                }*@
+                //}
+                })
+        }
+    </script>
+
+    @*/*增加设备信息的url*/*@
+    <script type="text/javascript" language="javascript">
+        //function showInfoModal(result) {
+        //    $('#divdetail').modal('show')
+        //}
+    </script>
+
+    <script type="text/javascript" language="javascript">
+        function showAddModal(EQPName) {
+            var content = $("#addContent");
+            var obj = content.find("input[name='EquipmentCode']");
+            obj.val(EQPName);
+
+            hideAddAlert();
+            hideStatusMessage();
+            $("#btnSave").removeAttr("disabled");
+            $('#add').modal('show');
+
+            //设备信息提取
+            changeEquipmentCode();
+
+            //确定设备可变更状态数据
+            changeReasonCodeName();
+        }
+
+        function showInfoModal(EQPName) {
+            //var content = $("#infoContent");
+            var content = $("#addContent");
+            var obj = content.find("input[name='EquipmentCode']");
+
+            obj.val(EQPName);
+
+            //hideAddAlert();
+            //hideStatusMessage();
+            //$("#btnSave").removeAttr("disabled");
+            $('#info').modal('show');
+            //changeEquipmentCode();
+        }
+
+        function hideAddAlert() {
+            $("#addStatusMessage").addClass("hide");
+        }
+
+        //隐藏状态消息
+        function hideStatusMessage() {
+            $("#statusMessage").addClass("hide");
+        }
+
+        $(function () {
+            //$("#btnReset").click(function () {
+            //    $("#btnSave").removeAttr("disabled");
+            //});
+            var texts = $('#add').find(":text:enabled,:checkbox:enabled,select:enabled").not("[readonly]");
+            texts.keypress(function (args) {
+
+                if (args.ctrlKey == false && args.keyCode == 13) {
+                    var index = texts.index(this) + 1;
+                    if (index < texts.length) {
+                        texts.eq(index).focus().select();
+                        return false;
+                    }
+                    else {
+                        texts.eq(0).focus().select();
+                        $("#btnSave").click();
+                        return true;
+                    }
+                }
+            });
+
+            texts.eq(0).focus().select();
+
+            var content = $("#addContent");
+            
+            content.find("select[name='ChangeStateName']").change(function () {
+                changeToStateName();
+            });
+
+            content.find("select[name='ReasonCodeCategoryName']").change(function () {
+                changeReasonCodeName();
+            });
+
+            //$("#add").on('shown.bs.modal', function (e) {
+            //    $("#btnReset").click();
+            //});
+        });
+
+        function changeReasonCodeName() {
+            var content = $("#addContent");
+            var obj = content.find("select[name='ReasonCodeName']");
+            //$(obj).each(function () {
+            //    $(this).get(0).options.length = 0;
+            //});//清空
+
+            var url = "@Url.Action("GetEquipmentReasonCode", "EquipmentRealtimeMonitor", new { area = "FMM" })";
+            var categoryName = content.find("select[name='ReasonCodeCategoryName']").val();
+            var reqdata = { ReasonCodeCategoryName: categoryName };
+
+            $.getJSON(url, reqdata, function (data) {
+
+                $(obj).each(function () {
+                    $(this).get(0).options.length = 0;
+                });//清空
+
+                $.each(data, function (i, item) {
+                    $(obj).each(function () {
+                        $("<option></option>").val(item["Value"]).text(item["Text"]).appendTo($(this));
+                    });
+                });
+                $(obj).change();
+            });
+        }
+
+        function changeEquipmentCode() {
+            var content = $("#addContent");
+            var obj = content.find("input[name='EquipmentCode']");
+            var url = "@Url.Action("GetParameByEquCode", "EquipmentRealtimeMonitor", new { area = "FMM" })";
+            var reqdata = { EqpCode: obj.val() };
+
+            $.getJSON(url, reqdata, function (data) {
+                $.each(data, function (i, item) {
+                    content.find("input[name='EquipmentCode']").val(item["EQUIPMENT_CODE"]);
+                    //content.find("input[name='ProductionLine']").val(item["LINE_CODE"]);
+                    //content.find("input[name='RouteOperationName']").val(item["ROUTE_OPERATION_NAME"]);
+                    content.find("input[name='EquipmentName']").val(item["EQUIPMENT_NAME"]);
+
+                    //设备状态数据
+                    changeEquipmentState();
+                });
+            });
+        }
+        
+        //变更设备状态
+        function changeEquipmentState() {
+            var content = $("#addContent");
+            var obj = content.find("input[name='FromStateName']");
+            var p = $(obj).parent().find("p");
+            var equipmentCode = content.find("input[name='EquipmentCode']").val();
+            obj.val(""); //清空
+            p.val("");
+            obj.removeAttr("style");
+            if (equipmentCode == null || equipmentCode == "") {
+                return;
+            }
+
+            var url = "@Url.Action("GetEquipmentState", "EquipmentStateEvent", new { area = "EMS" })";
+            var reqdata = { EquipmentCode: equipmentCode };
+
+            $.getJSON(url, reqdata, function (data) {
+                obj.val(""); //清空
+                p.val("");
+                obj.removeAttr("style");
+                obj.val(data.StateName);
+                obj.attr("style", "color:#FFFFFF;background-color:" + data.StateColor);
+                p.html(data.Description);
+
+                changeEquipmentChangeState();
+            });
+        }
+
+        function changeEquipmentChangeState() {
+            var content = $("#addContent");
+            var obj = content.find("select[name='ChangeStateName']");
+            $(obj).each(function () {
+                $(this).get(0).options.length = 0;
+            });//清空
+
+            var url = "@Url.Action("GetEquipmentChangeState", "EquipmentStateEvent", new { area = "EMS" })";
+            var stateName = content.find("input[name='FromStateName']").val();
+            var reqdata = { StateName: stateName };
+
+            $.getJSON(url, reqdata, function (data) {
+
+                $(obj).each(function () {
+                    $(this).get(0).options.length = 0;
+                });//清空
+
+                $.each(data, function (i, item) {
+                    $(obj).each(function () {
+                        var option = $("<option></option>");
+                        option.attr("ToStateName", item.ToStateName);
+                        option.val(item["Key"]).text(item["Text"]).appendTo($(this));
+                    });
+                });
+                $(obj).change();
+            });
+        }
+
+
+        function changeToStateName() {
+            var content = $("#addContent");
+            var obj = content.find("input[name='ToStateName']");
+            var p = $(obj).parent().find("p");
+
+            var objChangeStateName = content.find("select[name='ChangeStateName']")[0];
+            var selectedIndex = objChangeStateName.selectedIndex;
+            var objSelected = objChangeStateName[selectedIndex];
+            var stateName = $(objSelected).attr("ToStateName");
+            obj.val(stateName);
+            p.val("");
+            obj.removeAttr("style");
+            var url = "@Url.Action("GetEquipmentStateColor", "EquipmentStateEvent", new { area = "EMS" })";
+            var reqdata = { StateName: stateName };
+
+            $.getJSON(url, reqdata, function (data) {
+                obj.removeAttr("style");
+                p.val("");
+                obj.attr("style", "color:#FFFFFF;background-color:" + data.StateColor);
+                p.html(data.Description);
+            });
+        }
+
+        function beginSave() {
+            $("#btnSave").attr("disabled", "disabled");
+        }
+        function completeSave(result) {
+            $("#btnSave").removeAttr("disabled");
+            $("#addStatusMessage").find("p").html(result.Message);
+            $("#addStatusMessage").removeClass("hide");
+            if (result.Code > 0) {
+                $("#addStatusMessage").removeClass("alert-success");
+                $("#addStatusMessage").addClass("alert-danger");
+            }
+            else {
+                $("#addStatusMessage").removeClass("alert-danger");
+                $("#addStatusMessage").addClass("alert-success");
+
+                var content = $("#addContent");
+                var obj = content.find("select[name='EquipmentCode']");
+                $(obj).change();
+                refreshList();
+            }
+        }
+    </script>
+    
+    @*右键菜单的样式*@
+    <style type="text/css">
+        .skin {
+            width: 100px;
+            padding-top: 2px;
+            padding-bottom: 2px;
+            font: menutext;
+            position: absolute;
+            text-align: left;
+            border: 1px solid rgb(153, 153, 153);
+            font-size: 10pt;
+            background-color: #FFFFFF; /*菜单背景颜色*/
+            display: none; /*初始时，设置为不可见*/
+            backface-visibility:visible;
+            
+        }
+
+        div.menuitems {
+            padding-left: 8%;
+        }
+
+        div.menuitems a {
+            color: #000000;                         /*字体颜色*/
+            display: block;
+            padding-top: 3px;
+            padding-bottom: 3px;
+            text-decoration: none;
+            background-color: white;
+        }
+
+            div.menuitems:hover {
+                /*background-color: #4281F4;*/ /*菜单鼠标选择颜色*/
+                /*background-color: #adadad;*/
+                background-color: #ffff00;
+                text-emphasis-color: #adadad;
+                color: #ffff00; /*字体颜色*/
+            }
+
+            
+    </style>
+}

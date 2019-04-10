@@ -1,0 +1,99 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.FMM.Models.BinRuleViewModel
+@using ServiceCenter.Client.Mvc.Areas.FMM.Models;
+@using ServiceCenter.Client.Mvc.Resources;
+@using FMM = ServiceCenter.Client.Mvc.Resources.FMM;
+@using ServiceCenter.MES.Model.FMM;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@{
+    Layout = null;
+    PagingConfig cfg = ViewBag.PagingConfig;
+}
+<div id="_list">
+    <table class="table table-hover table-bordered table-condensed">
+        <thead>
+            <tr class="active">
+                <td>@StringResource.ItemNo</td>
+                <td>@Html.DisplayNameFor(m => m.BinNo)</td>
+                <td>@Html.DisplayNameFor(m => m.PackageLine)</td>
+                <td>@Html.DisplayNameFor(m => m.WorkOrderNumber)</td>
+                <td>@Html.DisplayNameFor(m => m.PsCode)</td>
+                <td>@Html.DisplayNameFor(m => m.PsItemNo)</td>
+                <td>@Html.DisplayNameFor(m => m.PsSubCode)</td>
+                <td>@Html.DisplayNameFor(m => m.Color)</td>
+                <td>@Html.DisplayNameFor(m => m.Grade)</td>
+                <td>@Html.DisplayNameFor(m => m.LocationName)</td>
+                <td>@Html.DisplayNameFor(m => m.Creator)</td>
+                <td>@Html.DisplayNameFor(m => m.CreateTime)</td>
+                <td>@Html.DisplayNameFor(m => m.Editor)</td>
+                <td>@Html.DisplayNameFor(m => m.EditTime)</td>
+                <td>删除</td>
+            </tr>
+        </thead>
+        @if (ViewBag.List != null)
+        {
+            <tbody>
+                @for (int i = 0; i < ViewBag.List.Length; i++)
+                {
+                    BinRule obj = ViewBag.List[i];
+                    if (obj != null)
+                    {
+                        <tr>
+                            <td>@(i + 1)</td>
+                            <td>
+                                @obj.Key.BinNo
+                            </td>
+                            <td>
+                                @obj.Key.PackageLine
+                            </td>
+                            <td>
+                                @obj.Key.WorkOrderNumber
+                            </td>
+                            <td>
+                                @obj.Key.PsCode
+                            </td>
+                            <td>
+                                @obj.Key.PsItemNo
+                            </td>
+                            <td>
+                                @obj.Key.PsSubCode
+                            </td>
+                            <td>
+                                @obj.Key.Color
+                            </td>
+                            <td>
+                                @obj.Key.Grade
+                            </td>
+                            <td>
+                                @obj.LocationName
+                            </td>
+                            <td>
+                                @obj.Creator
+                            </td>
+                            <td>
+                                @obj.CreateTime
+                            </td>
+                            <td>
+                                @obj.Editor
+                            </td>
+                            <td>@obj.EditTime</td>
+                            <td>
+                                @Ajax.ActionLink(StringResource.Delete, actionName: null
+                                            , routeValues: null
+                                            , ajaxOptions: new AjaxOptions()
+                                            {
+                                                HttpMethod = "Post",
+                                                Confirm = string.Format("确定删除规则 ( {0}） ？", obj.Key),
+                                                Url = Url.Action("Delete", new { @BinNo = obj.Key.BinNo, @Color = obj.Key.Color, @Grade = obj.Key.Grade, @PackageLine = obj.Key.PackageLine, @PsCode = obj.Key.PsCode, @PsSubCode = obj.Key.PsSubCode, @PsItemNo = obj.Key.PsItemNo, @WorkOrderNumber = obj.Key.WorkOrderNumber }),
+                                                OnSuccess = "completeDelete"
+                                            })
+                            </td>
+
+
+                        </tr>
+                    }
+                }
+            </tbody>
+        }
+    </table>
+</div>

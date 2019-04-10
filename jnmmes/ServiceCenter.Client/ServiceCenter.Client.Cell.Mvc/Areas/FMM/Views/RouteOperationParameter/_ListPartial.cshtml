@@ -1,0 +1,114 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.FMM.Models.RouteOperationParameterViewModel
+@using ServiceCenter.Client.Mvc.Areas.FMM.Models;
+@using ServiceCenter.Client.Mvc.Resources;
+@using FMM = ServiceCenter.Client.Mvc.Resources.FMM;
+@using ServiceCenter.MES.Model.FMM;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@{
+    PagingConfig cfg = ViewBag.PagingConfig;
+}
+<div id="_list">
+    <table class="table table-hover table-bordered table-condensed">
+        <thead>
+            <tr class="active">
+                <td>@Html.DisplayNameFor(m => m.ParamIndex)</td>
+                <td>@Html.DisplayNameFor(m => m.ParameterName)</td>
+                <td>@Html.DisplayNameFor(m => m.DataFrom)</td>
+                <td>@Html.DisplayNameFor(m => m.DataType)</td>
+                <td>@Html.DisplayNameFor(m => m.DCType)</td>
+                <td>@Html.DisplayNameFor(m => m.MaterialType)</td>
+                <td>@Html.DisplayNameFor(m => m.IsMustInput)</td>
+                <td>@Html.DisplayNameFor(m => m.IsReadOnly)</td>
+                <td>@Html.DisplayNameFor(m => m.IsUsePreValue)</td>
+                <td>@Html.DisplayNameFor(m => m.ValidateRule)</td>
+                <td>@Html.DisplayNameFor(m => m.IsDeleted)</td>
+                <td>@StringResource.Detail</td>
+                <td>@StringResource.Modify</td>
+                <td>@StringResource.Delete</td>
+            </tr>
+        </thead>
+        @if (ViewBag.List != null)
+        {
+            <tbody>
+                @for (int i = 0; i < ViewBag.List.Length; i++)
+                {
+                    RouteOperationParameter obj = ViewBag.List[i];
+                    <tr>
+                        <td>@obj.ParamIndex</td>
+                        <td>
+                            @obj.Key.ParameterName
+                        </td>
+                        <td>@obj.DataFrom.GetDisplayName()</td>
+                        <td>@obj.DataType.GetDisplayName()</td>
+                        <td>@obj.DCType.GetDisplayName()</td>
+                        <td>@obj.MaterialType</td>
+                        <td>@obj.IsMustInput</td>
+                        <td>@obj.IsReadOnly</td>
+                        <td>@obj.IsUsePreValue</td>
+                        <td>@obj.ValidateRule.GetDisplayName()</td>
+                        <td>@obj.IsDeleted</td>
+                        <td>
+                            @Ajax.ActionLink(StringResource.Detail, actionName: null
+                                            , routeValues: null
+                                            , ajaxOptions:new AjaxOptions() 
+                                            { 
+                                                HttpMethod = "Post", 
+                                                UpdateTargetId = "detailInfo",
+                                                OnSuccess = "showInfoModal",
+                                                Url = Url.Action("Detail", new { @RouteOperationName = obj.Key.RouteOperationName, @ParameterName = obj.Key.ParameterName })
+                                            })
+                        </td>
+                        <td>
+                            @Ajax.ActionLink(StringResource.Modify, actionName: null
+                                            ,routeValues:null
+                                            ,ajaxOptions:new AjaxOptions()
+                                            {
+                                                HttpMethod = "Post",
+                                                UpdateTargetId = "modifyFormContent",
+                                                OnSuccess = "showModifyModal",
+                                                Url = Url.Action("Modify", new { @RouteOperationName = obj.Key.RouteOperationName, @ParameterName = obj.Key.ParameterName })
+                                            })
+                        </td>
+                        <td>
+                            @Ajax.ActionLink(StringResource.Delete, actionName: null
+                                            , routeValues: null
+                                            , ajaxOptions:new AjaxOptions()
+                                            {
+                                                HttpMethod = "Post",
+                                                Confirm = string.Format(FMM.StringResource.RouteOperationParameter_ConfirmDelete, obj.Key),
+                                                Url = Url.Action("Delete", new { @RouteOperationName = obj.Key.RouteOperationName, @ParameterName = obj.Key.ParameterName }),
+                                                OnSuccess = "completeDelete"
+                                            })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        }
+    </table>
+    <div style="margin-top:-18px">
+        @if (cfg != null)
+        {
+            using (Ajax.BeginForm("PagingQuery", "RouteOperationParameter"
+                            , new
+                            {
+                                @Where = cfg.Where,
+                                @OrderBy = cfg.OrderBy,
+                                @CurrentPageNo = cfg.PageNo,
+                                @CurrentPageSize = cfg.PageSize
+                            }
+                            , new AjaxOptions()
+                            {
+                                HttpMethod = "Post",
+                                UpdateTargetId = "_list"
+                            }
+                            , new { @class = "form-horizontal", resource = "form", id = "frmPagingQuery" }))
+            {
+                @Html.AntiForgeryToken()
+                <div>@Html.Partial("_PaginationPartial")</div>
+            }
+        }
+    </div>
+</div>
+
+

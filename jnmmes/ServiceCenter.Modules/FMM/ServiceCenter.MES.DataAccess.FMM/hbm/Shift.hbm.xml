@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   namespace="ServiceCenter.MES.Model.FMM" 
+                   assembly="ServiceCenter.MES.Model.FMM">
+  <class name="Shift" table="FMM_SHIFT">
+    <id name="Key" column="SHIFT_NAME">
+      <generator class="assigned" />
+    </id>
+    <property name="StartTime" column="START_TIME"/>
+    <property name="EndTime" column="END_TIME"/>
+    <property name="IsOverDay" column="OVER_DAY"/>
+    <property name="Description" column="DESCRIPTION"/>
+    <property name="Creator" column="CREATOR"/>
+    <property name="CreateTime" column="CREATE_TIME"/>
+    <property name="Editor" column="EDITOR"/>
+    <property name="EditTime" column="EDIT_TIME"/>
+  </class>
+</hibernate-mapping>

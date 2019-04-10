@@ -1,0 +1,68 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.PPM.Models.WorkOrderBOMViewModel
+@using ServiceCenter.Common;
+
+@Html.ValidationSummary(true)
+<div class="form-group">
+    @Html.LabelFor(m => m.OrderNumber, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        <p class="form-control-static">@Model.OrderNumber</p>
+        @Html.HiddenFor(m => m.OrderNumber)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.ItemNo, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        <p class="form-control-static">@Model.ItemNo</p>
+        @Html.HiddenFor(m => m.ItemNo)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.MaterialCode, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.MaterialCode, new { @class = "form-control", @id = "txtModifyMaterialCode" })
+        @Html.ValidationMessageFor(m => m.MaterialCode)
+    </div>
+</div>
+<div class="form-group">
+    @* 物料名称 *@
+    @Html.LabelFor(m => m.MaterialName, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.MaterialName, new { @class = "form-control", @id = "txtAddMaterialName", @readonly = "readonly" })
+        @Html.ValidationMessageFor(m => m.MaterialName)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.Qty, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.Qty, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Qty)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.MaterialUnit, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.MaterialUnit, new { @class = "form-control", @id = "txtModifyMaterialUnit", @readonly = "readonly" })
+        @Html.ValidationMessageFor(m => m.MaterialUnit)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.MinUnit, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.MinUnit, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.MinUnit)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.ReplaceMaterial, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.ReplaceMaterial, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.ReplaceMaterial)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.Description, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.Description, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Description)
+    </div>
+</div>

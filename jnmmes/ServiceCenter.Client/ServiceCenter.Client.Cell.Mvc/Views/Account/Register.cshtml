@@ -1,0 +1,71 @@
+﻿@model ServiceCenter.Client.Mvc.Models.RegisterViewModel
+
+@{
+    ViewBag.Title = "注册";
+}
+
+<h2>@ViewBag.Title。</h2>
+
+@using (Html.BeginForm("Register", "Account",new { LoginName = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    <h4>创建新帐户。</h4>
+    <hr />
+    @Html.ValidationSummary(true)
+    <div class="form-group">
+        @Html.LabelFor(m => m.LoginName, new { @class = "col-md-2 control-label" })
+        <div class="col-md-4">
+            @Html.TextBoxFor(m => m.LoginName, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.LoginName)
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.UserName, new { @class = "col-md-2 control-label" })
+        <div class="col-md-4">
+            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.UserName)
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+        <div class="col-md-4">
+            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Password)
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
+        <div class="col-md-4">
+            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.ConfirmPassword)
+        </div>
+    </div>
+    <hr/>
+   <div class="form-group">
+        @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+        <div class="col-md-4">
+            @Html.PasswordFor(m => m.Email, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Email)
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.OfficePhone, new { @class = "col-md-2 control-label" })
+        <div class="col-md-4">
+            @Html.PasswordFor(m => m.OfficePhone, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.OfficePhone)
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.MobilePhone, new { @class = "col-md-2 control-label" })
+        <div class="col-md-4">
+            @Html.PasswordFor(m => m.MobilePhone, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.MobilePhone)
+        </div>
+    </div>
+     <hr/>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-4">
+            <input type="submit" class="btn btn-primary" value="注册" />
+        </div>
+    </div>
+}

@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.jinchensolar.com/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://www.jinchensolar.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.jinchensolar.com/">
+      <s:element name="SetTradLevel">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="m_workShopId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="m_flowId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="m_tradId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="m_Level" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetTradLevelResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SetTradLevelResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearhModulePosition">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="m_tradId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearhModulePositionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SearhModulePositionResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetLineState">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="m_workShopId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="m_flowId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="m_flowSubId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="m_State" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetLineStateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SetLineStateResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="SetTradLevelSoapIn">
+    <wsdl:part name="parameters" element="tns:SetTradLevel" />
+  </wsdl:message>
+  <wsdl:message name="SetTradLevelSoapOut">
+    <wsdl:part name="parameters" element="tns:SetTradLevelResponse" />
+  </wsdl:message>
+  <wsdl:message name="SearhModulePositionSoapIn">
+    <wsdl:part name="parameters" element="tns:SearhModulePosition" />
+  </wsdl:message>
+  <wsdl:message name="SearhModulePositionSoapOut">
+    <wsdl:part name="parameters" element="tns:SearhModulePositionResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetLineStateSoapIn">
+    <wsdl:part name="parameters" element="tns:SetLineState" />
+  </wsdl:message>
+  <wsdl:message name="SetLineStateSoapOut">
+    <wsdl:part name="parameters" element="tns:SetLineStateResponse" />
+  </wsdl:message>
+  <wsdl:portType name="TradLevelSoap">
+    <wsdl:operation name="SetTradLevel">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">设置组件等级</wsdl:documentation>
+      <wsdl:input message="tns:SetTradLevelSoapIn" />
+      <wsdl:output message="tns:SetTradLevelSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SearhModulePosition">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">组件条码查询</wsdl:documentation>
+      <wsdl:input message="tns:SearhModulePositionSoapIn" />
+      <wsdl:output message="tns:SearhModulePositionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetLineState">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">设置产线工作状态m_State值为1 停线，m_State值为0 运行</wsdl:documentation>
+      <wsdl:input message="tns:SetLineStateSoapIn" />
+      <wsdl:output message="tns:SetLineStateSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="TradLevelSoap" type="tns:TradLevelSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SetTradLevel">
+      <soap:operation soapAction="http://www.jinchensolar.com/SetTradLevel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearhModulePosition">
+      <soap:operation soapAction="http://www.jinchensolar.com/SearhModulePosition" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetLineState">
+      <soap:operation soapAction="http://www.jinchensolar.com/SetLineState" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="TradLevelSoap12" type="tns:TradLevelSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SetTradLevel">
+      <soap12:operation soapAction="http://www.jinchensolar.com/SetTradLevel" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearhModulePosition">
+      <soap12:operation soapAction="http://www.jinchensolar.com/SearhModulePosition" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetLineState">
+      <soap12:operation soapAction="http://www.jinchensolar.com/SetLineState" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TradLevel">
+    <wsdl:port name="TradLevelSoap" binding="tns:TradLevelSoap">
+      <soap:address location="http://10.0.2.78/TradLevel.asmx" />
+    </wsdl:port>
+    <wsdl:port name="TradLevelSoap12" binding="tns:TradLevelSoap12">
+      <soap12:address location="http://10.0.2.78/TradLevel.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

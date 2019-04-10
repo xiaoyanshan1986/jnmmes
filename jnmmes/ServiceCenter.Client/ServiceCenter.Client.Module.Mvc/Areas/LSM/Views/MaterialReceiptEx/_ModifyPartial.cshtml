@@ -1,0 +1,35 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.LSM.Models.MaterialReceiptExViewModel
+@using ServiceCenter.Client.Mvc.Areas.LSM.Models;
+
+<div class="form-group">
+    @Html.LabelFor(m => m.ReceiptNo, new { @class = "col-md-1 control-label" })
+    <div class="col-md-3">
+        @Html.TextBoxFor(m => m.ReceiptNo, new { @class = "form-control", @id = "txtReceiptNo", @readonly = "readonly" })
+        @Html.ValidationMessageFor(m => m.ReceiptNo)
+    </div>
+    @Html.LabelFor(m => m.ReceiptDate, new { @class = "col-md-1 control-label" })
+    <div class="col-md-3">
+        @Html.TextBoxFor(m => m.ReceiptDate, "{0:yyyy-MM-dd}", new { @class = "form-control", @id = "txtBillMakedDate" })
+        @Html.ValidationMessageFor(m => m.ReceiptDate)
+    </div>
+    @Html.LabelFor(m => m.OrderNumber, new { @class = "col-md-1 control-label" })
+    <div class="col-md-3">
+        @Html.DropDownListFor(m => m.OrderNumber, @Model.GetOrderNumbers(), new { @class = "form-control", @id = "OrderNumber2" })
+        @Html.ValidationMessageFor(m => m.OrderNumber)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.LineStore, new { @class = "col-md-1 control-label" })
+    <div class="col-md-3">
+        @Html.DropDownListFor(m => m.LineStore, @Model.GetLineStoreList(), new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.LineStore)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.Description, new { @class = "col-md-1 control-label" })
+    <div class="col-md-11">
+        @Html.TextBoxFor(m => m.Description, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Description)
+    </div>
+</div>
+

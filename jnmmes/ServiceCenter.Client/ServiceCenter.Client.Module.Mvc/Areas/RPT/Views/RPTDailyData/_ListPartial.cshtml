@@ -1,0 +1,102 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.RPT.Models.RPTDailyDataViewModel
+@using ServiceCenter.Client.Mvc.Resources;
+@using RPTResources = ServiceCenter.Client.Mvc.Resources.RPT;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@using System.Data;
+@{
+    
+    DataTable dtList = ViewBag.ListData;
+
+    string strProductID = "";                //产品类型
+}
+@if (dtList != null)
+{
+    <table class="table table-striped table-bordered table-hover table-full-width" id="sample_1" >
+        <thead>
+            <tr class=" active">
+                @for (int i = 0; i < dtList.Columns.Count; i++)
+                {
+                    if (@dtList.Columns[i].Caption == "HIDE")   //隐藏列
+                    {
+                        <td hidden>@dtList.Columns[i].Caption</td>
+                    }
+                    else
+                    {
+                        <td nowrap align="center">@dtList.Columns[i].Caption</td>
+                    }
+                }
+            </tr>
+        </thead>
+        <tbody>
+            @for (int row = 0; row < dtList.Rows.Count; row++)
+            {
+                <tr id="@row" style="background-color:lightblue">
+                    @for (int col = 0; col < dtList.Columns.Count; col++)
+                    {
+                        if (@dtList.Columns[col].Caption == "HIDE")
+                        {
+                            <td hidden></td>
+                        }
+                        else
+                        {
+                            if ((@dtList.Rows[row]["DataType"].ToString() == "int" || @dtList.Rows[row]["DataType"].ToString() == "dec")
+                                 && (@dtList.Columns[col].ColumnName.StartsWith("{D") || @dtList.Columns[col].ColumnName.Equals("SUM")))
+                            {
+                                if (@dtList.Columns[col].ColumnName == "SUM")
+                                {
+                                    if (dtList.Rows[row]["LINK"] != "")
+                                    {
+                                        if (dtList.Rows[row]["ProductID"] != "")    //产品代码不为空，需要在建立链接时已该产品代码为准
+                                        {
+                                            strProductID = dtList.Rows[row]["ProductID"].ToString();
+                                        }
+                                        else
+                                        {
+                                            strProductID = Model.ProductID;
+                                        }
+                            
+                                        string link = dtList.Rows[row]["LINK"] +
+                                            "?ReportCode=" + dtList.Rows[row]["ChildRPCode"] +
+                                            "&ReportName=" + dtList.Rows[row]["ChildRPName"] +
+                                            "&StartDate=" + Model.StartDate +
+                                            "&EndDate=" + Model.EndDate +
+                                            "&LocationName=" + Model.LocationName +
+                                            "&LineCode=" + Model.LineCode +
+                                            "&OrderNumber=" + Model.OrderNumber +
+                                            "&ProductID=" + strProductID +                              //产品类型
+                                            "&MonthDataNumber=" + Model.MonthDataNumber.ToString() +    //月数据显示数量
+                                            "&YearDataNumber=" + Model.YearDataNumber.ToString();       //年数据显示数量
+
+                                        <td align="right">
+                                            <a href="@link" target="_blank">@dtList.Rows[row][col].ToString()</a>
+                                        </td>
+                                    }
+                                    else
+                                    {
+                                        <td align="right">
+                                            @dtList.Rows[row][col]
+                                        </td>
+                                    }
+
+                                }
+                                else
+                                {
+                                    <td align="right">
+                                        @dtList.Rows[row][col]
+                                    </td>
+                                }
+                            }
+                            else
+                            {
+                                <td>
+                                    @dtList.Rows[row][col]
+                                </td>
+                            }
+                        }
+                    }
+                </tr>
+            }
+        </tbody>
+    </table>
+}

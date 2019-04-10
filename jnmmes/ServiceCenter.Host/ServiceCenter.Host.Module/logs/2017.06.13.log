@@ -1,0 +1,64 @@
+2017-06-13 09:52:15,414 - ERROR - START>Application
+2017-06-13 14:51:44,286 - ERROR - START>Application
+2017-06-13 14:54:57,325 - ERROR - Could not execute query: select count(*) as col_0_0_ from RBAC_RESOURCE resource0_ where resource0_.RESOURCE_TYPE>='10' and resource0_.RESOURCE_TYPE<'20' and resource0_.RESOURCE_DATA='/EDC/DataAcquisitionItem/Index'
+System.Data.SqlClient.SqlException (0x80131904): 在从服务器接收结果时发生传输级错误。 (provider: TCP Provider, error: 0 - 信号灯超时时间已到) ---> System.ComponentModel.Win32Exception (0x80004005): 信号灯超时时间已到
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParserStateObject.ReadSniError(TdsParserStateObject stateObj, UInt32 error)
+   在 System.Data.SqlClient.TdsParserStateObject.ReadSniSyncOverAsync()
+   在 System.Data.SqlClient.TdsParserStateObject.TryReadNetworkPacket()
+   在 System.Data.SqlClient.TdsParserStateObject.TryPrepareBuffer()
+   在 System.Data.SqlClient.TdsParserStateObject.TryReadByte(Byte& value)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 223
+ClientConnectionId:127dad04-6292-4e0f-a0cb-65ef92f92907
+Error Number:121,State:0,Class:20
+2017-06-13 14:54:57,426 - ERROR - 在从服务器接收结果时发生传输级错误。 (provider: TCP Provider, error: 0 - 信号灯超时时间已到)
+2017-06-13 14:54:57,426 - ERROR - 信号灯超时时间已到
+2017-06-13 14:54:57,503 - ERROR - 在从服务器接收结果时发生传输级错误。 (provider: TCP Provider, error: 0 - 信号灯超时时间已到)
+2017-06-13 14:54:57,503 - ERROR - 信号灯超时时间已到
+2017-06-13 14:54:57,505 - ERROR - 在从服务器接收结果时发生传输级错误。 (provider: TCP Provider, error: 0 - 信号灯超时时间已到)
+2017-06-13 14:54:57,505 - ERROR - 信号灯超时时间已到
+2017-06-13 16:52:39,861 - ERROR - Could not execute query: select count(*) as col_0_0_ from EDC_DataAcquisition_Item dataacquis0_ where dataacquis0_.ROUTE_STEP_NAME=上料
+System.Data.SqlClient.SqlException (0x80131904): 列名 '上料' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 223
+ClientConnectionId:fd8c6e46-6733-4cd4-b523-6ae0de3cd0fc
+Error Number:207,State:1,Class:16
+2017-06-13 16:52:39,937 - ERROR - 列名 '上料' 无效。
+2017-06-13 16:52:40,007 - ERROR - 列名 '上料' 无效。
+2017-06-13 16:52:40,007 - ERROR - 列名 '上料' 无效。
+2017-06-13 16:52:54,433 - ERROR - Could not execute query: select count(*) as col_0_0_ from EDC_DataAcquisition_Item dataacquis0_ where dataacquis0_.ROUTE_STEP_NAME=焊接
+System.Data.SqlClient.SqlException (0x80131904): 列名 '焊接' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 223
+ClientConnectionId:fd8c6e46-6733-4cd4-b523-6ae0de3cd0fc
+Error Number:207,State:1,Class:16
+2017-06-13 16:52:54,502 - ERROR - 列名 '焊接' 无效。
+2017-06-13 16:52:54,570 - ERROR - 列名 '焊接' 无效。
+2017-06-13 16:52:54,571 - ERROR - 列名 '焊接' 无效。

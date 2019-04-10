@@ -1,0 +1,209 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.RPT.Models.RPTDailyDataViewModel
+@using ServiceCenter.Model;
+@using ServiceCenter.Common;
+@using ServiceCenter.Client.Mvc.Areas.RPT.Models;
+@using RPTResources = ServiceCenter.Client.Mvc.Resources.RPT;
+@using ServiceCenter.Client.Mvc.Resources;
+
+@{
+    
+}
+
+<h2>@Model.ReportName</h2>
+@using (Ajax.BeginForm("ExpertToExcel", "RPTDailyData", null
+        , new AjaxOptions()
+        {
+            HttpMethod = "Post",
+            OnBegin = "beginQuery",
+            UpdateTargetId = "list",
+            OnSuccess = "completeQuery"
+        }
+        , new { @class = "form-horizontal", resource = "form", id = "frmQuery" }))
+{
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <button type="button" class="btn btn-primary" onclick="Query();" id="btnQuery">查询</button>
+    </div>
+    <div class="panel-body">
+        @Html.AntiForgeryToken()
+        <div class="form-group">
+            @*开始日期*@
+            <div class="col-md-1">
+                @Html.LabelFor(m => m.StartDate, new { @class = "control-label" })
+            </div>
+            <div class="col-md-2">
+                @Html.TextBoxFor(m => m.StartDate, "{0:yyyy-MM-dd}", new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.StartDate)
+            </div>
+            @*结束日期*@
+            <div class="col-md-1">
+                @Html.LabelFor(m => m.EndDate, new { @class = "control-label" })
+            </div>
+            <div class="col-md-2">
+                @Html.TextBoxFor(m => m.EndDate, "{0:yyyy-MM-dd}", new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.EndDate)
+            </div>
+            @*车间*@
+            <div class="col-md-1">
+                @Html.LabelFor(m => m.LocationName, new { @class = "control-label" })
+            </div>
+            <div class="col-md-2">
+                @Html.DropDownListFor(m => m.LocationName, @Model.GetLocations(), string.Empty, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @*线别*@
+            <div class="col-md-1">
+                @Html.LabelFor(m => m.LineCode, new { @class = "control-label" })
+            </div>
+            <div class="col-md-2">
+                @Html.DropDownListFor(m => m.LineCode, @Model.GetProductionLineList(), string.Empty, new { @class = "form-control" })
+            </div>
+            @*工单*@
+            <div class="col-md-1">
+                @Html.LabelFor(m => m.OrderNumber, new { @class = "control-label" })
+            </div>
+            <div class="col-md-2">
+                @Html.TextBoxFor(m => m.OrderNumber, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.OrderNumber)
+            </div>
+            @*产品类型*@
+            @*<div class="col-md-1">
+                @Html.LabelFor(m => m.ProductID, new { @class = "control-label" })
+            </div>
+            <div class="col-md-2">
+                @Html.TextBoxFor(m => m.ProductID, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.ProductID)
+            </div>*@
+
+            @*<div class="alert fade in hide" resource="alert" id="statusMessage" style="margin:0px">
+                <button type="button" class="close" onclick="hideStatusMessage()">
+                    <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+                </button>
+                <p></p>
+            </div>*@
+
+            @*报表代码*@
+            @Html.HiddenFor(m => m.ReportCode)
+
+            @*报表名称*@
+            @Html.HiddenFor(m => m.ReportName)
+
+            @*数据页码*@
+            @Html.HiddenFor(m => m.PageNo)
+
+            @*单页面数据显示*@
+            @Html.HiddenFor(m => m.PageSize)
+        </div>
+        <div class="form-group">
+            @*错误信息显示*@
+            <div class="alert fade in hide" resource="alert" id="statusMessage" style="margin:0px">
+                <button type="button" class="close" onclick="hideStatusMessage()">
+                    <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+                </button>
+            <p></p>
+            </div>
+        </div>
+    </div> 
+    @*查询事件*@
+    @Ajax.ActionLink("刷新", "QueryModuleList", null, new AjaxOptions()
+            {
+                HttpMethod = "Post",
+                OnBegin = "beginRefresh",
+                UpdateTargetId = "list"
+            }, new { @id = "btnRefresh", @class = "btn btn-default hidden" })
+    <div id="list" style="overflow:auto">
+        @Html.Partial("_DetailListPartial", Model)
+    </div>
+</div>
+}
+@section Scripts {
+    @*<script src="~/Scripts/Highstock-2.1.5/highstock.js"></script>
+    <script src="~/Scripts/Highcharts-4.0.3/modules/exporting.js"></script>*@
+    @*初始化*@
+    <script type="text/javascript" language="javascript">
+        @*初始化函数*@
+        $(function ()
+        {
+            //开始日期
+            $("#StartDate").datepicker({
+                changeMonth: true,
+                changeYear: true,
+                dateFormat: "yy-mm-dd"
+            });
+
+            //结束日期
+            $("#EndDate").datepicker({
+                changeMonth: true,
+                changeYear: true,
+                dateFormat: "yy-mm-dd"
+            });
+
+            //查询数据
+            Query();
+        });
+               
+        @*查询事件*@
+        function Query()
+        {            
+            //数据刷新
+            refreshList();                
+        }
+
+        function beginRefresh(obj, req)
+        {
+            var StartDate = $('#StartDate').val();
+            var EndDate = $('#EndDate').val();
+            var LocationName = $("#LocationName").val();
+            var LineCode = $("#LineCode").val();
+            var OrderNumber = $("#OrderNumber").val();
+            var ReportCode = $("#ReportCode").val();
+            var PageNo = $("#PageNo").val();
+            var PageSize = $("#PageSize").val();
+            req.data += "&StartDate=" + StartDate;
+            req.data += "&EndDate=" + EndDate;
+            req.data += "&LocationName=" + LocationName;
+            req.data += "&LineCode=" + LineCode;
+            req.data += "&OrderNumber=" + OrderNumber;
+            req.data += "&ReportCode=" + ReportCode;
+            req.data += "&PageNo=" + PageNo;
+            req.data += "&PageSize=" + PageSize;
+        }
+
+        function completeRefresh(result)
+        {
+            if (result.Code > 0)
+            {
+                //显示错误信息
+                showErrorInfo(result);
+                return;
+            }                              
+        }
+        
+        //数据刷新
+        function refreshList() {
+            if ($("#btnRefresh").length > 0) {
+                $("#btnRefresh").click();
+            }
+        }
+
+        //显示错误信息
+        function showErrorInfo(result)
+        {
+            $("#statusMessage").find("p").html(result.Message);
+            $("#statusMessage").removeClass("hide");
+            if (result.Code > 0)
+            {
+                $("#statusMessage").removeClass("alert-success");
+                $("#statusMessage").addClass("alert-danger");
+            }
+            else
+            {
+                $("#statusMessage").removeClass("alert-danger");
+                $("#statusMessage").addClass("alert-success");
+            }
+        }
+        
+    </script>
+
+}

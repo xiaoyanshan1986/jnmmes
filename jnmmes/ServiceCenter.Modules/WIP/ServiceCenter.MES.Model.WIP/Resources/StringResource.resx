@@ -1,0 +1,269 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="EnumCloseType_Manual" xml:space="preserve">
+    <value>异常关闭</value>
+  </data>
+  <data name="EnumCloseType_None" xml:space="preserve">
+    <value>未关闭</value>
+  </data>
+  <data name="EnumCloseType_Normal" xml:space="preserve">
+    <value>正常关闭</value>
+  </data>
+  <data name="EnumJobType_AutoTrackIn" xml:space="preserve">
+    <value>定时进站</value>
+  </data>
+  <data name="EnumJobType_AutoTrackOut" xml:space="preserve">
+    <value>定时出站</value>
+  </data>
+  <data name="EnumLotActivity_Change" xml:space="preserve">
+    <value>转工单</value>
+  </data>
+  <data name="EnumLotActivity_Create" xml:space="preserve">
+    <value>创建</value>
+    <comment>0</comment>
+  </data>
+  <data name="EnumLotActivity_Defect" xml:space="preserve">
+    <value>不良</value>
+    <comment>6</comment>
+  </data>
+  <data name="EnumLotActivity_Hold" xml:space="preserve">
+    <value>暂停</value>
+    <comment>3</comment>
+  </data>
+  <data name="EnumLotActivity_Merge" xml:space="preserve">
+    <value>合批</value>
+    <comment>12</comment>
+  </data>
+  <data name="EnumLotActivity_Merged" xml:space="preserve">
+    <value>被合批</value>
+    <comment>13</comment>
+  </data>
+  <data name="EnumLotActivity_Package" xml:space="preserve">
+    <value>包装</value>
+    <comment>9</comment>
+  </data>
+  <data name="EnumLotActivity_Patch" xml:space="preserve">
+    <value>补料</value>
+    <comment>7</comment>
+  </data>
+  <data name="EnumLotActivity_Release" xml:space="preserve">
+    <value>释放</value>
+    <comment>4</comment>
+  </data>
+  <data name="EnumLotActivity_Repair" xml:space="preserve">
+    <value>返修</value>
+    <comment>8</comment>
+  </data>
+  <data name="EnumLotActivity_Rework" xml:space="preserve">
+    <value>返工</value>
+    <comment>14</comment>
+  </data>
+  <data name="EnumLotActivity_Scrap" xml:space="preserve">
+    <value>报废</value>
+    <comment>5</comment>
+  </data>
+  <data name="EnumLotActivity_SplitCreate" xml:space="preserve">
+    <value>拆创批</value>
+    <comment>11</comment>
+  </data>
+  <data name="EnumLotActivity_Splited" xml:space="preserve">
+    <value>拆批</value>
+    <comment>10</comment>
+  </data>
+  <data name="EnumLotActivity_Terminal" xml:space="preserve">
+    <value>结束</value>
+    <comment>15</comment>
+  </data>
+  <data name="EnumLotActivity_TrackIn" xml:space="preserve">
+    <value>进站</value>
+    <comment>1</comment>
+  </data>
+  <data name="EnumLotActivity_TrackOut" xml:space="preserve">
+    <value>出站</value>
+    <comment>2</comment>
+  </data>
+  <data name="EnumLotActivity_Undo" xml:space="preserve">
+    <value>撤销</value>
+    <comment>-1</comment>
+  </data>
+  <data name="EnumLotActivity_UnPackage" xml:space="preserve">
+    <value>拆包</value>
+  </data>
+  <data name="EnumLotPriority_High" xml:space="preserve">
+    <value>高</value>
+  </data>
+  <data name="EnumLotPriority_Low" xml:space="preserve">
+    <value>低</value>
+  </data>
+  <data name="EnumLotPriority_Normal" xml:space="preserve">
+    <value>中</value>
+  </data>
+  <data name="EnumLotState_Finished" xml:space="preserve">
+    <value>已完成</value>
+  </data>
+  <data name="EnumLotState_ToWarehouse" xml:space="preserve">
+    <value>已入库</value>
+  </data>
+  <data name="EnumLotState_WaitCheck" xml:space="preserve">
+    <value>等待检验</value>
+  </data>
+  <data name="EnumLotState_WaitEDC" xml:space="preserve">
+    <value>等待数据采集</value>
+  </data>
+  <data name="EnumLotState_WaitTrackIn" xml:space="preserve">
+    <value>等待进站</value>
+  </data>
+  <data name="EnumLotState_WaitTrackOut" xml:space="preserve">
+    <value>等待出站</value>
+  </data>
+  <data name="EnumLotType_Experiment" xml:space="preserve">
+    <value>实验批次</value>
+  </data>
+  <data name="EnumLotType_Normal" xml:space="preserve">
+    <value>正常批次</value>
+  </data>
+  <data name="EnumLotType_Rework" xml:space="preserve">
+    <value>返工批次</value>
+  </data>
+  <data name="EnumPackageState_Checked" xml:space="preserve">
+    <value>已检验</value>
+  </data>
+  <data name="EnumPackageState_Packaged" xml:space="preserve">
+    <value>已包装</value>
+  </data>
+  <data name="EnumPackageState_Packaging" xml:space="preserve">
+    <value>包装中</value>
+  </data>
+  <data name="EnumPackageState_Shipped" xml:space="preserve">
+    <value>已出货</value>
+  </data>
+  <data name="EnumPackageState_ToWarehouse" xml:space="preserve">
+    <value>已入库</value>
+  </data>
+  <data name="EnumPackageState_Apply" xml:space="preserve">
+    <value>完成入库申请</value>
+  </data>
+  <data name="EnumPackageState_InStoragelist" xml:space="preserve">
+    <value>入库单中未申请</value>
+  </data>
+  <data name="EnumPackageState_InFabStore" xml:space="preserve">
+    <value>线边仓</value>
+  </data>
+</root>

@@ -1,0 +1,28 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.FMM.Models.ReasonCodeCategoryDetailViewModel
+@using ServiceCenter.MES.Model.FMM;
+@{
+    ReasonCodeCategory category = ViewBag.ReasonCodeCategory;
+}
+<div class="form-group">
+    @Html.LabelFor(m => m.ReasonCodeCategoryName, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        <p class="form-control-static">@Model.ReasonCodeCategoryName</p>
+        @Html.HiddenFor(m => m.ReasonCodeCategoryName)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.ReasonCodeName, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.DropDownListFor(m => Model.ReasonCodeName
+                              , Model.GetReasonCodeName(category.Type)
+                              , new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.ReasonCodeName)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.ItemNo, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.ItemNo, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.ItemNo)
+    </div>
+</div>

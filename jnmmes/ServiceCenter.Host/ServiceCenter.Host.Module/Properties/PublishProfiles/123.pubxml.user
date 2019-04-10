@@ -1,0 +1,514 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+您 Web 项目的发布/打包进程将使用此文件。您可以通过编辑此 MSBuild 文件
+来自定义该进程的行为。若要了解与此相关的详细信息，请访问 http://go.microsoft.com/fwlink/?LinkID=208121。
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>F:\123\WCF</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="bin/Iesi.Collections.dll">
+      <publishTime>01/25/2016 17:09:13</publishTime>
+    </File>
+    <File Include="bin/Iesi.Collections.pdb">
+      <publishTime>01/25/2016 17:09:13</publishTime>
+    </File>
+    <File Include="bin/Interop.LabelManager2.dll">
+      <publishTime>02/04/2015 19:05:25</publishTime>
+    </File>
+    <File Include="bin/log4net.config">
+      <publishTime>01/25/2016 17:05:41</publishTime>
+    </File>
+    <File Include="bin/log4net.dll">
+      <publishTime>01/25/2016 17:08:23</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Practices.EnterpriseLibrary.Common.dll">
+      <publishTime>01/25/2016 17:09:29</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Practices.EnterpriseLibrary.Data.dll">
+      <publishTime>01/25/2016 17:09:29</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Practices.Unity.Configuration.dll">
+      <publishTime>01/25/2016 17:09:27</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Practices.Unity.dll">
+      <publishTime>01/25/2016 17:09:26</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Practices.Unity.Interception.Configuration.dll">
+      <publishTime>01/25/2016 17:09:26</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Practices.Unity.Interception.dll">
+      <publishTime>01/25/2016 17:09:30</publishTime>
+    </File>
+    <File Include="bin/NHibernate.dll">
+      <publishTime>01/25/2016 17:09:13</publishTime>
+    </File>
+    <File Include="bin/NHibernate.pdb">
+      <publishTime>01/25/2016 17:09:13</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.Common.dll">
+      <publishTime>01/25/2016 17:08:22</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.Common.pdb">
+      <publishTime>01/25/2016 17:08:22</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.Host.Module.dll">
+      <publishTime>10/26/2017 11:51:46</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.Host.Module.pdb">
+      <publishTime>10/26/2017 11:51:46</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.DataAccess.BaseData.dll">
+      <publishTime>10/26/2017 11:51:40</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.DataAccess.BaseData.pdb">
+      <publishTime>10/26/2017 11:51:40</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.DataAccess.EDC.dll">
+      <publishTime>10/26/2017 11:51:43</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.DataAccess.EDC.pdb">
+      <publishTime>10/26/2017 11:51:43</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.DataAccess.EMS.dll">
+      <publishTime>10/26/2017 11:51:35</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.DataAccess.EMS.pdb">
+      <publishTime>10/26/2017 11:51:35</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.DataAccess.ERP.dll">
+      <publishTime>10/26/2017 11:51:42</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.DataAccess.ERP.pdb">
+      <publishTime>10/26/2017 11:51:42</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.DataAccess.FMM.dll">
+      <publishTime>10/26/2017 11:51:40</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.DataAccess.FMM.pdb">
+      <publishTime>10/26/2017 11:51:40</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.DataAccess.Interface.BaseData.dll">
+      <publishTime>10/26/2017 11:51:25</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.DataAccess.Interface.BaseData.pdb">
+      <publishTime>10/26/2017 11:51:25</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.DataAccess.Interface.EDC.dll">
+      <publishTime>10/26/2017 11:51:31</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.DataAccess.Interface.EDC.pdb">
+      <publishTime>10/26/2017 11:51:31</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.DataAccess.Interface.EMS.dll">
+      <publishTime>10/26/2017 11:51:28</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.DataAccess.Interface.EMS.pdb">
+      <publishTime>10/26/2017 11:51:28</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.DataAccess.Interface.ERP.dll">
+      <publishTime>10/26/2017 11:51:26</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.DataAccess.Interface.ERP.pdb">
+      <publishTime>10/26/2017 11:51:26</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.DataAccess.Interface.FMM.dll">
+      <publishTime>10/26/2017 11:51:26</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.DataAccess.Interface.FMM.pdb">
+      <publishTime>10/26/2017 11:51:26</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.DataAccess.Interface.LSM.dll">
+      <publishTime>10/26/2017 11:51:27</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.DataAccess.Interface.LSM.pdb">
+      <publishTime>10/26/2017 11:51:27</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.DataAccess.Interface.PPM.dll">
+      <publishTime>10/26/2017 11:51:28</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.DataAccess.Interface.PPM.pdb">
+      <publishTime>10/26/2017 11:51:28</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.DataAccess.Interface.QAM.dll">
+      <publishTime>10/26/2017 11:51:32</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.DataAccess.Interface.QAM.pdb">
+      <publishTime>10/26/2017 11:51:32</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.DataAccess.Interface.RBAC.dll">
+      <publishTime>10/26/2017 11:51:26</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.DataAccess.Interface.RBAC.pdb">
+      <publishTime>10/26/2017 11:51:26</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.DataAccess.Interface.SPC.dll">
+      <publishTime>10/26/2017 11:51:34</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.DataAccess.Interface.SPC.pdb">
+      <publishTime>10/26/2017 11:51:34</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.DataAccess.Interface.WIP.dll">
+      <publishTime>10/26/2017 11:51:27</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.DataAccess.Interface.WIP.pdb">
+      <publishTime>10/26/2017 11:51:27</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.DataAccess.Interface.ZPVC.dll">
+      <publishTime>10/26/2017 11:51:31</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.DataAccess.Interface.ZPVC.pdb">
+      <publishTime>10/26/2017 11:51:31</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.DataAccess.Interface.ZPVM.dll">
+      <publishTime>10/26/2017 11:51:28</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.DataAccess.Interface.ZPVM.pdb">
+      <publishTime>10/26/2017 11:51:28</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.DataAccess.LSM.dll">
+      <publishTime>10/26/2017 11:51:37</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.DataAccess.LSM.pdb">
+      <publishTime>10/26/2017 11:51:37</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.DataAccess.PPM.dll">
+      <publishTime>10/26/2017 11:51:43</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.DataAccess.PPM.pdb">
+      <publishTime>10/26/2017 11:51:43</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.DataAccess.QAM.dll">
+      <publishTime>10/26/2017 11:51:37</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.DataAccess.QAM.pdb">
+      <publishTime>10/26/2017 11:51:37</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.DataAccess.RBAC.dll">
+      <publishTime>10/26/2017 11:51:41</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.DataAccess.RBAC.pdb">
+      <publishTime>10/26/2017 11:51:41</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.DataAccess.RPT.dll">
+      <publishTime>10/26/2017 11:51:42</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.DataAccess.RPT.pdb">
+      <publishTime>10/26/2017 11:51:42</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.DataAccess.SPC.dll">
+      <publishTime>10/26/2017 11:51:43</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.DataAccess.SPC.pdb">
+      <publishTime>10/26/2017 11:51:43</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.DataAccess.WIP.dll">
+      <publishTime>10/26/2017 11:51:42</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.DataAccess.WIP.pdb">
+      <publishTime>10/26/2017 11:51:42</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.DataAccess.ZPVC.dll">
+      <publishTime>10/26/2017 11:51:40</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.DataAccess.ZPVC.pdb">
+      <publishTime>10/26/2017 11:51:40</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.DataAccess.ZPVM.dll">
+      <publishTime>10/26/2017 11:51:37</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.DataAccess.ZPVM.pdb">
+      <publishTime>10/26/2017 11:51:37</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Model.BaseData.dll">
+      <publishTime>10/26/2017 11:51:24</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Model.BaseData.pdb">
+      <publishTime>10/26/2017 11:51:24</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Model.EDC.dll">
+      <publishTime>10/26/2017 11:51:30</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Model.EDC.pdb">
+      <publishTime>10/26/2017 11:51:30</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Model.EMS.dll">
+      <publishTime>10/26/2017 11:51:24</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Model.EMS.pdb">
+      <publishTime>10/26/2017 11:51:24</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Model.ERP.dll">
+      <publishTime>10/26/2017 11:51:23</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Model.ERP.pdb">
+      <publishTime>10/26/2017 11:51:23</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Model.FMM.dll">
+      <publishTime>10/26/2017 11:51:25</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Model.FMM.pdb">
+      <publishTime>10/26/2017 11:51:25</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Model.LSM.dll">
+      <publishTime>10/26/2017 11:51:24</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Model.LSM.pdb">
+      <publishTime>10/26/2017 11:51:24</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Model.PPM.dll">
+      <publishTime>10/26/2017 11:51:25</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Model.PPM.pdb">
+      <publishTime>10/26/2017 11:51:25</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Model.QAM.dll">
+      <publishTime>10/26/2017 11:51:29</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Model.QAM.pdb">
+      <publishTime>10/26/2017 11:51:29</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Model.RBAC.dll">
+      <publishTime>10/26/2017 11:51:24</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Model.RBAC.pdb">
+      <publishTime>10/26/2017 11:51:24</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Model.SPC.dll">
+      <publishTime>10/26/2017 11:51:26</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Model.SPC.pdb">
+      <publishTime>10/26/2017 11:51:26</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Model.WIP.dll">
+      <publishTime>10/26/2017 11:51:23</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Model.WIP.pdb">
+      <publishTime>10/26/2017 11:51:23</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Model.ZPVC.dll">
+      <publishTime>10/26/2017 11:51:28</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Model.ZPVC.pdb">
+      <publishTime>10/26/2017 11:51:28</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Model.ZPVM.dll">
+      <publishTime>10/26/2017 11:51:24</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Model.ZPVM.pdb">
+      <publishTime>10/26/2017 11:51:24</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.BaseData.dll">
+      <publishTime>10/26/2017 11:51:27</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.BaseData.pdb">
+      <publishTime>10/26/2017 11:51:27</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.Client.COMMON.dll">
+      <publishTime>07/23/2015 16:40:07</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.Client.COMMON.pdb">
+      <publishTime>07/23/2015 16:40:07</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.COMMON.dll">
+      <publishTime>10/26/2017 11:51:41</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.COMMON.pdb">
+      <publishTime>10/26/2017 11:51:41</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.Contract.BaseData.dll">
+      <publishTime>10/26/2017 11:51:25</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.Contract.BaseData.pdb">
+      <publishTime>10/26/2017 11:51:25</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.Contract.COMMON.dll">
+      <publishTime>10/26/2017 11:51:23</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.Contract.COMMON.pdb">
+      <publishTime>10/26/2017 11:51:23</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.Contract.EDC.dll">
+      <publishTime>10/26/2017 11:51:30</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.Contract.EDC.pdb">
+      <publishTime>10/26/2017 11:51:30</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.Contract.EMS.dll">
+      <publishTime>10/26/2017 11:51:31</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.Contract.EMS.pdb">
+      <publishTime>10/26/2017 11:51:31</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.Contract.ERP.dll">
+      <publishTime>10/26/2017 11:51:29</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.Contract.ERP.pdb">
+      <publishTime>10/26/2017 11:51:29</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.Contract.FMM.dll">
+      <publishTime>10/26/2017 11:51:27</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.Contract.FMM.pdb">
+      <publishTime>10/26/2017 11:51:26</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.Contract.LSM.dll">
+      <publishTime>10/26/2017 11:51:34</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.Contract.LSM.pdb">
+      <publishTime>10/26/2017 11:51:33</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.Contract.PPM.dll">
+      <publishTime>10/26/2017 11:51:28</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.Contract.PPM.pdb">
+      <publishTime>10/26/2017 11:51:28</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.Contract.QAM.dll">
+      <publishTime>10/26/2017 11:51:32</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.Contract.QAM.pdb">
+      <publishTime>10/26/2017 11:51:32</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.Contract.RBAC.dll">
+      <publishTime>10/26/2017 11:51:27</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.Contract.RBAC.pdb">
+      <publishTime>10/26/2017 11:51:27</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.Contract.RPT.dll">
+      <publishTime>10/26/2017 11:51:30</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.Contract.RPT.pdb">
+      <publishTime>10/26/2017 11:51:30</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.Contract.SPC.dll">
+      <publishTime>10/26/2017 11:51:35</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.Contract.SPC.pdb">
+      <publishTime>10/26/2017 11:51:35</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.Contract.WIP.dll">
+      <publishTime>10/26/2017 11:51:28</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.Contract.WIP.pdb">
+      <publishTime>10/26/2017 11:51:28</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.Contract.ZPVC.dll">
+      <publishTime>10/26/2017 11:51:30</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.Contract.ZPVC.pdb">
+      <publishTime>10/26/2017 11:51:30</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.Contract.ZPVM.dll">
+      <publishTime>10/26/2017 11:51:34</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.Contract.ZPVM.pdb">
+      <publishTime>10/26/2017 11:51:33</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.EDC.dll">
+      <publishTime>10/26/2017 11:51:36</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.EDC.pdb">
+      <publishTime>10/26/2017 11:51:36</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.EMS.dll">
+      <publishTime>10/26/2017 11:51:37</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.EMS.pdb">
+      <publishTime>10/26/2017 11:51:37</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.ERP.dll">
+      <publishTime>10/26/2017 11:51:41</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.ERP.pdb">
+      <publishTime>10/26/2017 11:51:41</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.FMM.dll">
+      <publishTime>10/26/2017 11:51:35</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.FMM.pdb">
+      <publishTime>10/26/2017 11:51:35</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.LSM.dll">
+      <publishTime>10/26/2017 11:51:38</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.LSM.pdb">
+      <publishTime>10/26/2017 11:51:38</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.PPM.dll">
+      <publishTime>10/26/2017 11:51:43</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.PPM.pdb">
+      <publishTime>10/26/2017 11:51:43</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.QAM.dll">
+      <publishTime>10/26/2017 11:51:37</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.QAM.pdb">
+      <publishTime>10/26/2017 11:51:37</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.RBAC.dll">
+      <publishTime>10/26/2017 11:51:32</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.RBAC.pdb">
+      <publishTime>10/26/2017 11:51:32</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.RPT.dll">
+      <publishTime>10/26/2017 11:51:40</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.RPT.pdb">
+      <publishTime>10/26/2017 11:51:40</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.SPC.dll">
+      <publishTime>10/26/2017 11:51:44</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.SPC.pdb">
+      <publishTime>10/26/2017 11:51:44</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.WIP.dll">
+      <publishTime>10/26/2017 11:51:35</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.WIP.pdb">
+      <publishTime>10/26/2017 11:51:34</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.ZPVC.dll">
+      <publishTime>10/26/2017 11:51:41</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.ZPVC.pdb">
+      <publishTime>10/26/2017 11:51:41</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.ZPVM.dll">
+      <publishTime>10/26/2017 11:51:39</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.ZPVM.pdb">
+      <publishTime>10/26/2017 11:51:39</publishTime>
+    </File>
+    <File Include="ClassDiagram1.cd">
+      <publishTime>01/16/2016 14:14:54</publishTime>
+    </File>
+    <File Include="config/module.debug.container.config">
+      <publishTime>09/20/2017 17:05:34</publishTime>
+    </File>
+    <File Include="config/module.debug.hibernate.cfg.xml">
+      <publishTime>10/13/2017 13:49:44</publishTime>
+    </File>
+    <File Include="config/module.release.container.config">
+      <publishTime>09/20/2017 17:05:23</publishTime>
+    </File>
+    <File Include="config/module.release.hibernate.cfg.xml">
+      <publishTime>10/12/2017 14:20:52</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>01/25/2016 17:05:41</publishTime>
+    </File>
+    <File Include="log4net.config">
+      <publishTime>01/25/2016 17:05:41</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>10/13/2017 14:03:57</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   namespace="ServiceCenter.MES.Model.WIP" 
+                   assembly="ServiceCenter.MES.Model.WIP">
+  <class name="Package" table="WIP_PACKAGE">
+    <id name="Key" column="PACKAGE_NO">
+      <generator class="assigned" />
+    </id>
+    <property name="ContainerNo" column="CONTAINER_NO"/>
+    <property name="OrderNumber" column="ORDER_NUMBER"/>
+    <property name="PackageState" column="PACKAGE_STATE"/>
+    <property name="InOrder" column="IN_ORDER"/>
+    <property name="InStg" column="IN_STG"/>
+    <property name="PackageType" column="PACKAGE_TYPE"/>
+    <property name="MaterialCode" column="MATERIAL_CODE"/>
+    <property name="IsLastPackage" column="LAST_PACKAGE"/>
+    <property name="Quantity" column="PACKAGE_QTY"/>
+    <property name="Description" column="DESCRIPTION"/>
+    <property name="Checker" column="CHECKER"/>
+    <property name="CheckTime" column="CHECK_TIME"/>
+    <property name="ToWarehousePerson" column="TO_WH"/>
+    <property name="ToWarehouseTime" column="TO_WH_TIME"/>
+    <property name="ShipmentPerson" column="OUT_WH"/>
+    <property name="ShipmentTime" column="OUT_WH_TIME"/>
+    <property name="Editor" column="EDITOR"/>
+    <property name="EditTime" column="EDIT_TIME"/>
+    <property name="Creator" column="CREATOR"/>
+    <property name="CreateTime" column="CREATE_TIME"/>
+    <property name="SupplierCode" column="SUPPLIER_CODE"/>
+    <property name="PackageMixedType" column="PACKAGE_MIXTYPE"/>
+    <property name="LineCode" column="LINE_CODE"/>
+    <property name="Grade" column="GRADE"/>
+    <property name="Color" column="COLOR"/>
+    <property name="PowerName" column="POWER_NAME"/>
+    <property name="PowerSubCode" column="POWER_SUBCODE"/>
+    <property name="Location" column="LOCATION"/>
+    <!--<one-to-one name="ChestDetail" cascade="all"></one-to-one>-->
+  </class>
+</hibernate-mapping>

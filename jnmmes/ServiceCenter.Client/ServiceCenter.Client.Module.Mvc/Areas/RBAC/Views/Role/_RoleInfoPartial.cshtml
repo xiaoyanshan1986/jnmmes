@@ -1,0 +1,15 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.RBAC.Models.RoleViewModel
+
+@Html.ValidationSummary(true)
+<div class="form-group">
+    @Html.LabelFor(m => m.RoleName, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.RoleName</p>
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.Description, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.Description</p>
+    </div>
+</div>

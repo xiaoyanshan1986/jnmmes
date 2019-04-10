@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   namespace="ServiceCenter.MES.Model.LSM" 
+                   assembly="ServiceCenter.MES.Model.LSM">
+  <class name="MaterialReceiptDetail" table="LSM_MATERIAL_RECEIPT_DETAIL">
+    <composite-id  name="Key" class="MaterialReceiptDetailKey">
+      <key-property name="ReceiptNo" column="RECEIPT_NO"/>
+      <key-property name="ItemNo" column="ITEM_NO"/>
+    </composite-id>
+    <property name="LineStoreName" column="STORE_NAME"/>
+    <property name="MaterialCode" column="MATERIAL_CODE"/>
+    <property name="MaterialLot" column="MATERIAL_LOT"/>
+    <property name="Qty" column="QTY"/>
+    <property name="Attr1" column="ATTR_1"/>
+    <property name="Attr2" column="ATTR_2"/>
+    <property name="Attr3" column="ATTR_3"/>
+    <property name="Attr4" column="ATTR_4"/>
+    <property name="Attr5" column="ATTR_5"/>
+    <property name="SupplierCode" column="MATERIAL_SUPPLIER"/>
+    <property name="SupplierMaterialLot" column="MATERIAL_SUPPLIER_LOT"/>
+    <property name="Description" column="DESCRIPTION"/>
+    <property name="Creator" column="CREATOR"/>
+    <property name="CreateTime" column="CREATE_TIME"/>
+    <property name="Editor" column="EDITOR"/>
+    <property name="EditTime" column="EDIT_TIME"/>
+  </class>
+</hibernate-mapping>

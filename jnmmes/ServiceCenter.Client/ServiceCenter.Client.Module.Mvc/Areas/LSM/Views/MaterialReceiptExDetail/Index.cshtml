@@ -1,0 +1,178 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.LSM.Models.MaterialReceiptExDetailQueryViewModel
+@using ServiceCenter.Model;
+@using ServiceCenter.Common;
+@using ServiceCenter.Client.Mvc.Areas.LSM.Models;
+@using LSM = ServiceCenter.Client.Mvc.Resources.LSM;
+@using ServiceCenter.Client.Mvc.Resources;
+
+@{
+    ViewBag.Title = "领料单明细";
+}
+
+<h2>@ViewBag.Title</h2>
+@Ajax.ActionLink(StringResource.Query, actionName: null
+                        , routeValues: null
+                        , ajaxOptions: new AjaxOptions()
+                        {
+                            HttpMethod = "Post",
+                            UpdateTargetId = "list",
+                            Url = Url.Action("Index", new { ReceiptNo = @Model.ReceiptNo }),
+
+                        }
+                        , htmlAttributes: new { @class = "btn btn-default hidden", @id = "btnQuery" }
+            )
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        @if (ViewBag.State != null && ViewBag.State != ServiceCenter.MES.Model.LSM.EnumReceiptState.Approved)
+        { @Ajax.ActionLink("申报", actionName: null
+                                        , routeValues: null
+                                        , ajaxOptions: new AjaxOptions()
+                                        {
+                                            HttpMethod = "Post",
+                                            OnComplete = "completeApprove",
+                                            UpdateTargetId = "list",
+                                            Url = Url.Action("Approve", new { ReceiptNo = @Model.ReceiptNo }),
+
+                                        }
+                                        , htmlAttributes: new { @class = "btn btn-default", @id = "shenbao" })}
+        @Html.ActionLink("返回"
+                         , "Index"
+                         , "MaterialReceiptEx"
+                         , null
+                         , new { @class = "btn btn-primary", @id = "btnQuery" })
+    </div>
+    <div class="panel-body">
+        <div id="headlist" class="row">
+            <div class="form-group">
+                <div class="col-md-1">
+                    @Html.LabelFor(m => m.ReceiptNo, new { @class = "control-label" })
+                </div>
+                <div class="col-md-2">
+                    @Html.TextBoxFor(m => m.ReceiptNo, new { @class = "form-control", @id = "txtReceiptNo", @readonly = "readonly" })
+                    @Html.ValidationMessageFor(m => m.ReceiptNo)
+                </div>
+                <div class="col-md-1">
+                    @Html.LabelFor(m => m.ReceiptDate, new { @class = "control-label" })
+                </div>
+                <div class="col-md-2">
+                    @Html.TextBoxFor(m => m.ReceiptDate, "{0:yyyy-MM-dd}", new { @class = "form-control", @readonly = "readonly" })
+                    @Html.ValidationMessageFor(m => m.ReceiptDate)
+                </div>
+                <div class="col-md-1">
+                    @Html.LabelFor(m => m.LineStoreName, new { @class = "control-label" })
+                </div>
+                <div class="col-md-2">
+                    @Html.TextBoxFor(m => m.LineStoreName, new { @class = "form-control", @readonly = "readonly" })
+                    @Html.ValidationMessageFor(m => m.LineStoreName)
+                </div>
+                <div class="col-md-1">
+                    @Html.LabelFor(m => m.OrderNumber, new { @class = "control-label" })
+                </div>
+                <div class="col-md-2">
+                    @Html.TextBoxFor(m => m.OrderNumber, new { @class = "form-control", @readonly = "readonly" })
+                    @Html.ValidationMessageFor(m => m.OrderNumber)
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row"></div>
+
+    @if (ViewBag.State != null && ViewBag.State != ServiceCenter.MES.Model.LSM.EnumReceiptState.Approved)
+    {
+        <div class="panel-body">
+            @using (Ajax.BeginForm("Save", "MaterialReceiptExDetail", null
+            , new AjaxOptions()
+            {
+                HttpMethod = "Post",
+                OnSuccess = "completeSave",
+                OnBegin = "beginSave"
+            }
+            , new { @class = "form-horizontal", resource = "form", }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.HiddenFor(m => m.ReceiptNo)
+                <div class="row">
+                    <div class="col-md-1">
+                        @Html.LabelFor(m => m.MaterialLot, new { @class = "control-label" })
+                    </div>
+                    <div class="col-md-2">
+                        @Html.TextBoxFor(m => m.MaterialLot, new { @class = "form-control" })
+                    </div>
+                    <div class="col-md-9">
+                        @if (string.IsNullOrEmpty(Model.MaterialLot))
+                        {
+                            <input type="submit" value="@StringResource.Add" class="btn btn-default" />
+                        }
+                    </div>
+                </div>
+            }
+        </div>
+    }
+
+    <div class="alert fade in hide" resource="alert" id="statusMessage" style="margin:0px">
+        <button type="button" class="close" onclick="hideStatusMessage()">
+            <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+        </button>
+        <p></p>
+    </div>
+
+    <div id="list">
+        @Html.Partial("_ListPartial", new MaterialReceiptExDetailViewModel() { ReceiptNo = Model.ReceiptNo })
+    </div>
+
+</div>
+
+@section Scripts {
+    <script type="text/javascript" language="javascript">
+
+        $(function () {
+
+            $('#MaterialLot').keypress(function () {
+                $('#btnSave').click();
+            });
+        })
+        function refreshList() {
+            $('#btnQuery').click();
+        }
+
+        function hideStatusMessage() {
+            $("#statusMessage").addClass("hide");
+        }
+
+        function beginSave() {
+            $("#btnSave").attr("disabled", "disabled");
+            hideStatusMessage();
+        }
+
+        function completeSave(result) {
+            $("#btnSave").removeAttr("disabled");
+            ShowMessage(result);
+            $("#MaterialLot").focus().select();
+        }
+
+        function completeDelete(result) {
+            ShowMessage(result)
+        }
+        function completeApprove(result) {
+            var json = JSON.parse(result.responseText);
+            ShowMessage(json);
+            $("#shenbao").remove();
+
+        }
+        function ShowMessage(result) {
+            $("#statusMessage").find("p").html(result.Message);
+            $("#statusMessage").removeClass("hide");
+            if (result.Code > 0) {
+                $("#statusMessage").removeClass("alert-success");
+                $("#statusMessage").addClass("alert-danger");
+            }
+            else {
+                $("#statusMessage").removeClass("alert-danger");
+                $("#statusMessage").addClass("alert-success");
+            }
+            refreshList();
+        }
+    </script>
+}
+

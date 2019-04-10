@@ -1,0 +1,138 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.ZPVM.Models.ZPVMLotViewModel
+@using ServiceCenter.Client.Mvc.Resources;
+@using WIPRsources = ServiceCenter.Client.Mvc.Resources.WIP;
+@using ServiceCenter.MES.Model.WIP;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@using ServiceCenter.MES.Model.BaseData;
+@using ServiceCenter.MES.Model.ZPVM;
+
+@{
+    PagingConfig cfg = ViewBag.PagingConfig;
+    IList<PackageDetail> lstPackageDetail = ViewBag.PackageDetailList;
+    IList<BaseAttribute> lstAttribute = ViewBag.AttributeList;
+    Package package = ViewBag.Package;
+}
+<div id="_list">
+    <table class="table table-striped table-hover table-bordered table-condensed">
+        <thead>
+            <tr class="active">
+                <td align="center">@StringResource.ItemNo</td>
+                <td align="center">@WIPRsources.StringResource.PackageNo</td>
+                <td align="center">@Html.DisplayNameFor(m => m.LotNumber)</td>
+                <td align="center">@Html.DisplayNameFor(m => m.OrderNumber)</td>
+                <td align="center">@Html.DisplayNameFor(m => m.MaterialCode)</td>
+                <td align="center">@Html.DisplayNameFor(m => m.Grade)</td>
+                <td align="center">@Html.DisplayNameFor(m => m.Color)</td>
+                <td align="center">功率</td>
+                <td align="center">分档代码</td>
+                <td align="center">分档项目号</td>
+                <td align="center">功率档位</td>
+                <td align="center">子分档代码</td>
+                @if (lstAttribute != null)
+                    {
+                        for (int k = 0; k < lstAttribute.Count; k++)
+                        {
+                            <td align="center">
+                                @lstAttribute[k].Description
+                            </td>
+                        }
+                    }
+                <td align="center">出托</td>
+            </tr>
+        </thead>
+        @if (lstPackageDetail != null)
+        {
+            <tbody>
+                @for (int i = 0; i < lstPackageDetail.Count; i++)
+                {
+                    Lot lotObj = null;
+                    IVTestData testData = null;
+                    List<string> dic = null;
+                    PackageDetail obj = lstPackageDetail[i];
+                    OemData oemData = Model.GetOemData(obj.Key.ObjectNumber);
+                    if (oemData != null)
+                    {
+                        dic = Model.GetCodeAndItemNo(oemData);
+                    }
+                    else
+                    {
+                        lotObj = Model.GetLot(obj.Key.ObjectNumber);
+                        testData = Model.GetIVTestData(obj.Key.ObjectNumber);
+                    }                  
+                    <tr>  
+                        <td align="center">@obj.ItemNo</td>
+                        <td align="center">
+                            @obj.Key.PackageNo
+                        </td>
+                        <td align="center">
+                            @obj.Key.ObjectNumber
+                        </td>
+                        <td align="center">
+                            @obj.OrderNumber
+                        </td>
+                        <td align="center">
+                            @obj.MaterialCode
+                        </td>
+                        @if (oemData != null)
+                        {
+                            <td align="center">@oemData.Grade</td>
+                            <td align="center">@oemData.Color</td>
+                            <td align="center">@oemData.PMAX</td>
+                            <td align="center">@dic[0]</td>
+                            <td align="center">@dic[1]</td>
+                            <td align="center">@(oemData.PnName == null? string.Empty :oemData.PnName)</td>
+                            <td align="center">@oemData.PsSubCode</td>
+                        }
+                        else
+                        {
+                            <td align="center">@(lotObj == null ? string.Empty : lotObj.Grade)</td>
+                            <td align="center">@(lotObj == null ? string.Empty : lotObj.Color)</td>
+                            <td align="center">@(testData == null ? string.Empty : Convert.ToString(testData.CoefPM))</td>
+                            <td align="center">@(testData == null ? string.Empty : Convert.ToString(testData.PowersetCode))</td>
+                            <td align="center">@(testData == null ? string.Empty : Convert.ToString(testData.PowersetItemNo))</td>
+                            if (testData.PowersetCode != null && testData.PowersetCode != "")
+                            {
+                            <td align="center">@(testData == null ? string.Empty : Model.GetPowersetName(testData.PowersetCode, testData.PowersetItemNo.Value))</td>
+                            }
+                            else
+                            {
+                                <td align ="center">@(string.Format("批次号 < {0} > 功率档位为空!", obj.Key.ObjectNumber))</td>
+                            } 
+                            <td align="center">@(testData == null ? string.Empty : Convert.ToString(testData.PowersetSubCode))</td>
+                        }                                             
+                        @if (lstAttribute != null)
+                        {
+                            IList<LotAttribute> lstAttributeValue = Model.GetLotAttributes(obj.Key.ObjectNumber);
+                            for (int k = 0; k < lstAttribute.Count; k++)
+                            {
+                                string attributeName = lstAttribute[k].Key.AttributeName;
+                                var lnq = from item in lstAttributeValue
+                                          where item.Key.AttributeName == attributeName
+                                          select item.AttributeValue;
+                                <td align="center">
+                                    @lnq.FirstOrDefault()
+                                </td>
+                            }
+                        }                        
+                        <td align="center">
+                            @Ajax.ActionLink("出托", actionName: null
+                                            , routeValues: null
+                                            , ajaxOptions: new AjaxOptions()
+                                            {
+                                                HttpMethod = "Post",
+                                                Confirm = string.Format(WIPRsources.StringResource.PackageDetail_ConfirmDelete, obj.Key),
+                                                Url = Url.Action("UnPackage", new { @PackageNo = obj.Key.PackageNo, @ItemNo = obj.ItemNo, @LotNumber = obj.Key.ObjectNumber }),
+                                                OnSuccess = "completeDelete",
+                                                OnBegin = "beginDelete"
+                                            }, htmlAttributes: new { @class = "btn btn-warning btn-sm btn-delete" })
+                        </td>
+                        
+                    </tr>
+                }
+            </tbody>
+        }
+    </table>
+</div>
+
+

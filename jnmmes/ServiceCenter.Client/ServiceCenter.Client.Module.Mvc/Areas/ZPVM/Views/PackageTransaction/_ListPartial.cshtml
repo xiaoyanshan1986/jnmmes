@@ -1,0 +1,89 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.ZPVM.Models.PackageTransactionViewModel
+@using ServiceCenter.Client.Mvc.Resources;
+@using RPTResources = ServiceCenter.Client.Mvc.Resources.ZPVM;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@using System.Data;
+@{
+    PagingConfig cfg = ViewBag.PagingConfig;
+    MethodReturnResult<DataSet> ds = new MethodReturnResult<DataSet>();
+    DataTable dtList = ViewBag.ListData;
+    ds = ViewBag.dtList;
+}
+
+@if (dtList != null)
+{
+    <div id="_list" style="overflow:auto">
+        <table class="table table-hover table-bordered table-condensed table-responsive table-striped">
+            <thead>
+                <tr class="active">
+                    <td nowrap>序号</td>
+                    <td nowrap>包装号</td>
+                    <td nowrap>工单号</td>
+                    <td nowrap>物料编码</td>
+                    <td nowrap>包装数量</td>
+                    <td nowrap>批次号</td>
+                    <td nowrap>工艺流程</td>
+                    <td nowrap>动作</td>
+                    <td nowrap>编辑人</td>
+                    <td nowrap>编辑时间</td>
+                </tr>
+            </thead>
+            <tbody>
+                @if (dtList != null)
+                {
+                    for (int i = 0; i < dtList.Rows.Count; i++)
+                    {
+                        System.Data.DataRow obj = dtList.Rows[i];
+
+                        <tr>
+                            <td nowrap>@obj["RowNumber"] </td>
+                            <td nowrap>@obj["PACKAGE_NO"] </td>
+                            <td nowrap>@obj["ORDER_NUMBER"] </td>
+                            <td nowrap>@obj["MATERIAL_CODE"]</td>
+                            <td nowrap>@obj["PACKAGE_QTY"]</td>
+                            <td nowrap>@obj["LOT_NUMBER"]</td>
+                            <td nowrap>@obj["ROUTE_NAME"]</td>
+                            <td nowrap>@obj["ACTIVITY"]</td>
+                            <td nowrap>@obj["EDITOR"]</td>
+                            <td nowrap>@obj["EDIT_TIME"]</td>
+                        </tr>
+
+                    }
+
+                }
+            </tbody>
+
+        </table>
+        <div style="margin-top:-18px">
+            @if (cfg != null)
+            {
+                using (Ajax.BeginForm("GetPackageTransaction", "PackageTransaction"
+                                , null
+                                , new AjaxOptions()
+                                {
+                                    HttpMethod = "Post",
+                                    UpdateTargetId = "_list"
+                                }
+                                , new { @class = "form-horizontal", resource = "form", id = "frmPagingQuery" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.HiddenFor(m => m.PackageNo)
+                    @Html.HiddenFor(m => m.PageSize)
+                    <div>@Html.Partial("_PaginationPartial")</div>
+                }
+            }
+
+        </div>
+    </div>
+
+}
+else
+{
+
+}
+<p>@ViewBag.Message</p>
+
+
+
+

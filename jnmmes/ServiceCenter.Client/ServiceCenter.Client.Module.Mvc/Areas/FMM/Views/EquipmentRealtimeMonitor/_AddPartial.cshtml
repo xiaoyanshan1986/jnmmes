@@ -1,0 +1,115 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.EMS.Models.EquipmentStateEventViewModel
+
+@*设备代码*@
+<div class="form-group">   
+    @Html.LabelFor(m => m.EquipmentCode, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => Model.EquipmentCode, new { @class = "form-control", @readonly = "readonly" })
+        @Html.ValidationMessageFor(m => m.EquipmentCode)
+    </div>
+</div>
+
+@*设备名称*@
+<div class="form-group">
+    @Html.LabelFor(m => m.EquipmentName, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => Model.EquipmentName, new { @class = "form-control", @readonly = "readonly" })
+        @Html.ValidationMessageFor(m => m.EquipmentName)
+    </div>
+</div>
+
+@*设备状态*@
+<div class="form-group">
+    @Html.LabelFor(m => m.FromStateName, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.FromStateName, new { @class = "form-control", @readonly = "readonly" })
+        @Html.ValidationMessageFor(m => m.FromStateName)
+        <p></p>
+    </div>
+</div>
+
+@*设备状态名称*@
+<div class="form-group">
+    @Html.LabelFor(m => m.ChangeStateName, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.DropDownListFor(m => m.ChangeStateName, new List<SelectListItem>(), new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.ChangeStateName)
+    </div>
+</div>
+
+@*可转换目标状态列表*@
+<div class="form-group">
+    @Html.LabelFor(m => m.ToStateName, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.ToStateName, new { @class = "form-control", @readonly = "readonly" })
+        @Html.ValidationMessageFor(m => m.ToStateName)
+        <p></p>
+    </div>
+</div>
+
+@*不良组*@
+<div class="form-group">
+    @Html.LabelFor(m => m.ReasonCodeCategoryName, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.DropDownListFor(m => m.ReasonCodeCategoryName, @Model.GetEquipmentReasonCodeCategoryName(), new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.ReasonCodeCategoryName)
+    </div>
+</div>
+
+@*不良原因*@
+<div class="form-group">
+    @Html.LabelFor(m => m.ReasonCodeName, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.DropDownListFor(m => Model.ReasonCodeName, new List<SelectListItem>(), new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.ReasonCodeName)
+    </div>
+    @*<div class="col-md-4">
+        @Html.DropDownListFor(m => m.ReasonCodeName, @Model.GetEquipmentReasonCodeName(0), new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.ReasonCodeName)
+    </div>*@
+</div>
+
+@*备注*@
+<div class="form-group">
+    @Html.LabelFor(m => m.Description, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextAreaFor(m => Model.Description, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Description)
+    </div>
+</div>
+
+
+@*@section Scripts {
+    <script type="text/javascript" language="javascript">
+        content.find("select[name='ReasonCodeCategoryName']").change(function () {
+            changeReasonCodeName();
+        });
+
+             function changeReasonCodeName() {
+
+            var content = $("#addContent");
+            var obj = content.find("select[name='ReasonCodeName']");
+            //$(obj).each(function () {
+            //    $(this).get(0).options.length = 0;
+            //});//清空
+
+            var url = "@Url.Action("GetEquipmentReasonCode", "EquipmentRealtimeMonitor", new { area = "FMM" })";
+            var categoryName = content.find("select[name='ReasonCodeCategoryName']").val();
+            var reqdata = { ReasonCodeCategoryName: categoryName };
+
+            $.getJSON(url, reqdata, function (data) {
+
+                $(obj).each(function () {
+                    $(this).get(0).options.length = 0;
+                });//清空
+
+                $.each(data, function (i, item) {
+                    $(obj).each(function () {
+                        $("<option></option>").val(item["Key"]).text(item["Text"]).appendTo($(this));
+                    });
+                });
+                $(obj).change();
+            });
+        }
+    </script>
+    }*@

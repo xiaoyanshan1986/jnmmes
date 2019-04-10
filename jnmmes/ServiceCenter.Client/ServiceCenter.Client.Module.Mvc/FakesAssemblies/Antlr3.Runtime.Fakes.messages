@@ -1,0 +1,44 @@
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\Antlr3.Runtime.fakes : warning : 无法为 Antlr.Runtime.BitSet 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\Antlr3.Runtime.fakes : warning : 无法为 Antlr.Runtime.CharStreamConstants 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\Antlr3.Runtime.fakes : warning : 无法为 Antlr.Runtime.SpecialStateTransitionHandler 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\Antlr3.Runtime.fakes : warning : 无法为 Antlr.Runtime.GrammarRuleAttribute 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\Antlr3.Runtime.fakes : warning : 无法为 Antlr.Runtime.Misc.Action 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\Antlr3.Runtime.fakes : warning : 无法为 Antlr.Runtime.Misc.Func`1 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\Antlr3.Runtime.fakes : warning : 无法为 Antlr.Runtime.Misc.Func`2 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\Antlr3.Runtime.fakes : warning : 无法为 Antlr.Runtime.TokenChannels 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\Antlr3.Runtime.fakes : warning : 无法为 Antlr.Runtime.Tokens 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\Antlr3.Runtime.fakes : warning : 无法为 Antlr.Runtime.TokenTypes 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\Antlr3.Runtime.fakes : warning : 无法为 Antlr.Runtime.Tree.AntlrRuntime_BaseTreeDebugView 生成存根: 类型已密封。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\Antlr3.Runtime.fakes : warning : 无法为 Antlr.Runtime.IIntStream 生成填充码: 类型是一个接口。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\Antlr3.Runtime.fakes : warning : 无法为 Antlr.Runtime.ICharStream 生成填充码: 类型是一个接口。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\Antlr3.Runtime.fakes : warning : 无法为 Antlr.Runtime.IRuleReturnScope 生成填充码: 类型是一个接口。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\Antlr3.Runtime.fakes : warning : 无法为 Antlr.Runtime.IRuleReturnScope`1 生成填充码: 类型是一个接口。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\Antlr3.Runtime.fakes : warning : 无法为 Antlr.Runtime.IAstRuleReturnScope 生成填充码: 类型是一个接口。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\Antlr3.Runtime.fakes : warning : 无法为 Antlr.Runtime.IAstRuleReturnScope`1 生成填充码: 类型是一个接口。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\Antlr3.Runtime.fakes : warning : 无法为 Antlr.Runtime.ITokenStream 生成填充码: 类型是一个接口。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\Antlr3.Runtime.fakes : warning : 无法为 Antlr.Runtime.ITokenStreamInformation 生成填充码: 类型是一个接口。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\Antlr3.Runtime.fakes : warning : 无法为 Antlr.Runtime.IToken 生成填充码: 类型是一个接口。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\Antlr3.Runtime.fakes : warning : 无法为 Antlr.Runtime.Debug.IDebugEventListener 生成填充码: 类型是一个接口。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\Antlr3.Runtime.fakes : warning : 无法为 Antlr.Runtime.SpecialStateTransitionHandler 生成填充码: 类型是一个委托。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\Antlr3.Runtime.fakes : warning : 无法为 Antlr.Runtime.ITemplateRuleReturnScope 生成填充码: 类型是一个接口。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\Antlr3.Runtime.fakes : warning : 无法为 Antlr.Runtime.ITemplateRuleReturnScope`1 生成填充码: 类型是一个接口。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\Antlr3.Runtime.fakes : warning : 无法为 Antlr.Runtime.ITokenSource 生成填充码: 类型是一个接口。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\Antlr3.Runtime.fakes : warning : 无法为 Antlr.Runtime.Misc.Action 生成填充码: 类型是一个委托。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\Antlr3.Runtime.fakes : warning : 无法为 Antlr.Runtime.Misc.Func`1 生成填充码: 类型是一个委托。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\Antlr3.Runtime.fakes : warning : 无法为 Antlr.Runtime.Misc.Func`2 生成填充码: 类型是一个委托。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\Antlr3.Runtime.fakes : warning : 无法为 Antlr.Runtime.TokenRewriteStream+InsertBeforeOp 生成填充码: 类型对 exported or assembly(Antlr3.Runtime.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\Antlr3.Runtime.fakes : warning : 无法为 Antlr.Runtime.TokenRewriteStream+ReplaceOp 生成填充码: 类型对 exported or assembly(Antlr3.Runtime.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\Antlr3.Runtime.fakes : warning : 无法为 Antlr.Runtime.TokenRewriteStream+RewriteOperation 生成填充码: 类型对 exported or assembly(Antlr3.Runtime.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\Antlr3.Runtime.fakes : warning : 无法为 Antlr.Runtime.Tree.ITree 生成填充码: 类型是一个接口。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\Antlr3.Runtime.fakes : warning : 无法为 Antlr.Runtime.Tree.ITreeAdaptor 生成填充码: 类型是一个接口。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\Antlr3.Runtime.fakes : warning : 无法为 Antlr.Runtime.Tree.AntlrRuntime_BaseTreeDebugView 生成填充码: 类型对 exported or assembly(Antlr3.Runtime.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\Antlr3.Runtime.fakes : warning : 无法为 Antlr.Runtime.Tree.ITreeNodeStream 生成填充码: 类型是一个接口。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\Antlr3.Runtime.fakes : warning : 无法为 Antlr.Runtime.Tree.BufferedTreeNodeStream+StreamIterator 生成填充码: 类型对 exported or assembly(Antlr3.Runtime.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\Antlr3.Runtime.fakes : warning : 无法为 Antlr.Runtime.Tree.DotTreeGenerator+<DefineEdges>d__9 生成填充码: 类型不受支持，因为存在内部限制。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\Antlr3.Runtime.fakes : warning : 无法为 Antlr.Runtime.Tree.DotTreeGenerator+<DefineNodes>d__0 生成填充码: 类型不受支持，因为存在内部限制。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\Antlr3.Runtime.fakes : warning : 无法为 Antlr.Runtime.Tree.ITreeVisitorAction 生成填充码: 类型是一个接口。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\Antlr3.Runtime.fakes : warning : 无法为 Antlr.Runtime.Tree.TreeWizard+ActionVisitor 生成填充码: 类型对 exported or assembly(Antlr3.Runtime.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\Antlr3.Runtime.fakes : warning : 无法为 Antlr.Runtime.Tree.TreeWizard+FindTreeWizardContextVisitor 生成填充码: 类型对 exported or assembly(Antlr3.Runtime.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\Antlr3.Runtime.fakes : warning : 无法为 Antlr.Runtime.Tree.TreeWizard+FindTreeWizardVisitor 生成填充码: 类型对 exported or assembly(Antlr3.Runtime.Fakes) 不可见。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\Antlr3.Runtime.fakes : warning : 无法为 Antlr.Runtime.Tree.TreeWizard+IContextVisitor 生成填充码: 类型是一个接口。
+E:\project\ServiceCenter\trunk\src\ServiceCenter.Client\ServiceCenter.Client.Mvc\Fakes\Antlr3.Runtime.fakes : warning : 无法为 Antlr.Runtime.Tree.TreeWizard+VisitTreeWizardContextVisitor 生成填充码: 类型对 exported or assembly(Antlr3.Runtime.Fakes) 不可见。

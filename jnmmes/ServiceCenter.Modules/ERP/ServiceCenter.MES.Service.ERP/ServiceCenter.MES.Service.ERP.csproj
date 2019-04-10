@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E7D2DCE0-D46D-47EC-8A7D-8ADD45B84027}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ServiceCenter.MES.Service.ERP</RootNamespace>
+    <AssemblyName>ServiceCenter.MES.Service.ERP</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=4.1.0.0, Culture=neutral, PublicKeyToken=e44a2bc38ed2c13c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\libs\entlib\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Data">
+      <HintPath>..\..\..\libs\entlib\Microsoft.Practices.EnterpriseLibrary.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate">
+      <HintPath>..\..\..\libs\NHibernate\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceCenter.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\ServiceCenter.Modules.Libs\ServiceCenter.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceCenter.MES.DataAccess.Interface.FMM, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\ServiceCenter.Host\ServiceCenter.Host.Module\bin\ServiceCenter.MES.DataAccess.Interface.FMM.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceCenter.MES.DataAccess.Interface.ZPVM, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\ServiceCenter.Host\ServiceCenter.Host.Module\bin\ServiceCenter.MES.DataAccess.Interface.ZPVM.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceCenter.MES.Model.ZPVM, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\ServiceCenter.Host\ServiceCenter.Host.Module\bin\ServiceCenter.MES.Model.ZPVM.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ERPService.cs" />
+    <Compile Include="WOReportService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\BASE\ServiceCenter.MES.DataAccess.Interface.BaseData\ServiceCenter.MES.DataAccess.Interface.BaseData.csproj">
+      <Project>{57d3cf03-07a8-4750-89b1-482b7e99cab6}</Project>
+      <Name>ServiceCenter.MES.DataAccess.Interface.BaseData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\BASE\ServiceCenter.MES.Model.Base\ServiceCenter.MES.Model.BaseData.csproj">
+      <Project>{e71fc045-1359-445f-8006-9babb4b28c34}</Project>
+      <Name>ServiceCenter.MES.Model.BaseData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FMM\ServiceCenter.MES.Model.FMM\ServiceCenter.MES.Model.FMM.csproj">
+      <Project>{bace1677-4fc1-40a6-93cd-c78664bab941}</Project>
+      <Name>ServiceCenter.MES.Model.FMM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\LSM\ServiceCenter.MES.DataAccess.Interface.LSM\ServiceCenter.MES.DataAccess.Interface.LSM.csproj">
+      <Project>{24d7605f-18ea-433f-8b64-0a6dd9d731ce}</Project>
+      <Name>ServiceCenter.MES.DataAccess.Interface.LSM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\LSM\ServiceCenter.MES.Model.LSM\ServiceCenter.MES.Model.LSM.csproj">
+      <Project>{799263c7-bde1-4ad4-b579-e18db87d37b5}</Project>
+      <Name>ServiceCenter.MES.Model.LSM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\PPM\ServiceCenter.MES.DataAccess.Interface.PPM\ServiceCenter.MES.DataAccess.Interface.PPM.csproj">
+      <Project>{9878c82b-f370-441f-b8e7-1b7c84c220e3}</Project>
+      <Name>ServiceCenter.MES.DataAccess.Interface.PPM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\PPM\ServiceCenter.MES.Model.PPM\ServiceCenter.MES.Model.PPM.csproj">
+      <Project>{a79db951-5da3-4668-aeea-7dbd667724aa}</Project>
+      <Name>ServiceCenter.MES.Model.PPM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\PPM\ServiceCenter.MES.Service.Contract.PPM\ServiceCenter.MES.Service.Contract.PPM.csproj">
+      <Project>{c11dfda4-7b55-478e-9271-146325f4ef33}</Project>
+      <Name>ServiceCenter.MES.Service.Contract.PPM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\WIP\ServiceCenter.MES.DataAccess.Interface.WIP\ServiceCenter.MES.DataAccess.Interface.WIP.csproj">
+      <Project>{fc479902-1e4e-4e84-9056-90a87043bfa0}</Project>
+      <Name>ServiceCenter.MES.DataAccess.Interface.WIP</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\WIP\ServiceCenter.MES.Model.WIP\ServiceCenter.MES.Model.WIP.csproj">
+      <Project>{9d2471c5-93c8-45b4-be45-7bba88025fa6}</Project>
+      <Name>ServiceCenter.MES.Model.WIP</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\WIP\ServiceCenter.MES.Service.Contract.WIP\ServiceCenter.MES.Service.Contract.WIP.csproj">
+      <Project>{59109d57-5fb5-41e7-bbde-a22cfba26f6c}</Project>
+      <Name>ServiceCenter.MES.Service.Contract.WIP</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ServiceCenter.MES.DataAccess.Interface.ERP\ServiceCenter.MES.DataAccess.Interface.ERP.csproj">
+      <Project>{dbc1f353-6250-4259-836a-cc4d91679f2a}</Project>
+      <Name>ServiceCenter.MES.DataAccess.Interface.ERP</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ServiceCenter.MES.Model.ERP\ServiceCenter.MES.Model.ERP.csproj">
+      <Project>{c8c3e543-5479-4912-9c67-923693bf5e7a}</Project>
+      <Name>ServiceCenter.MES.Model.ERP</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ServiceCenter.MES.Service.Contract.ERP\ServiceCenter.MES.Service.Contract.ERP.csproj">
+      <Project>{6b8ac20f-6d4c-43c2-a0b2-dffc8b48ae39}</Project>
+      <Name>ServiceCenter.MES.Service.Contract.ERP</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

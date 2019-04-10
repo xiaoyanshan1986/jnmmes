@@ -1,0 +1,52 @@
+2017-01-21 08:45:07,852 - ERROR - START>Application
+2017-01-21 09:04:28,365 - ERROR - START>Application
+2017-01-21 09:36:37,363 - ERROR - START>Application
+2017-01-21 09:58:26,445 - ERROR - START>Application
+2017-01-21 10:03:46,934 - ERROR - START>Application
+2017-01-21 10:08:27,758 - ERROR - START>Application
+2017-01-21 11:31:24,074 - ERROR - START>Application
+2017-01-21 11:36:55,003 - ERROR - START>Application
+2017-01-21 11:40:21,731 - ERROR - START>Application
+2017-01-21 13:10:04,403 - ERROR - START>Application
+2017-01-21 13:12:49,153 - ERROR - ExecuteTrackOutBaseFounction>
+System.Collections.Generic.KeyNotFoundException: 给定关键字不在字典中。
+   在 System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   在 ServiceCenter.MES.Service.WIP.WipEngineerService.DeductMaterial(EnumDataCollectionAction workModel, TrackOutParameter p, Equipment equipment, List`1 lstLot, ISession session, String transactionKey) 位置 e:\Workspace\Jinergy\JNMMES\trunk\src\ServiceCenter.Modules\WIP\ServiceCenter.MES.Service.WIP\WipEngineerServiceForTrack.cs:行号 3818
+2017-01-21 13:13:37,008 - ERROR - ExecuteTrackOutBaseFounction>
+System.Collections.Generic.KeyNotFoundException: 给定关键字不在字典中。
+   在 System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   在 ServiceCenter.MES.Service.WIP.WipEngineerService.DeductMaterial(EnumDataCollectionAction workModel, TrackOutParameter p, Equipment equipment, List`1 lstLot, ISession session, String transactionKey) 位置 e:\Workspace\Jinergy\JNMMES\trunk\src\ServiceCenter.Modules\WIP\ServiceCenter.MES.Service.WIP\WipEngineerServiceForTrack.cs:行号 3818
+2017-01-21 13:15:51,199 - ERROR - ExecuteTrackOutBaseFounction>
+System.Collections.Generic.KeyNotFoundException: 给定关键字不在字典中。
+   在 System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   在 ServiceCenter.MES.Service.WIP.WipEngineerService.DeductMaterial(EnumDataCollectionAction workModel, TrackOutParameter p, Equipment equipment, List`1 lstLot, ISession session, String transactionKey) 位置 e:\Workspace\Jinergy\JNMMES\trunk\src\ServiceCenter.Modules\WIP\ServiceCenter.MES.Service.WIP\WipEngineerServiceForTrack.cs:行号 3818
+2017-01-21 13:16:53,300 - ERROR - ExecuteTrackOutBaseFounction>
+System.Collections.Generic.KeyNotFoundException: 给定关键字不在字典中。
+   在 System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   在 ServiceCenter.MES.Service.WIP.WipEngineerService.DeductMaterial(EnumDataCollectionAction workModel, TrackOutParameter p, Equipment equipment, List`1 lstLot, ISession session, String transactionKey) 位置 e:\Workspace\Jinergy\JNMMES\trunk\src\ServiceCenter.Modules\WIP\ServiceCenter.MES.Service.WIP\WipEngineerServiceForTrack.cs:行号 3818
+2017-01-21 13:18:47,329 - ERROR - ExecuteTrackOutBaseFounction>
+System.Collections.Generic.KeyNotFoundException: 给定关键字不在字典中。
+   在 System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   在 ServiceCenter.MES.Service.WIP.WipEngineerService.DeductMaterial(EnumDataCollectionAction workModel, TrackOutParameter p, Equipment equipment, List`1 lstLot, ISession session, String transactionKey) 位置 e:\Workspace\Jinergy\JNMMES\trunk\src\ServiceCenter.Modules\WIP\ServiceCenter.MES.Service.WIP\WipEngineerServiceForTrack.cs:行号 3818
+2017-01-21 13:23:14,556 - ERROR - ExecuteTrackOutBaseFounction>
+System.Collections.Generic.KeyNotFoundException: 给定关键字不在字典中。
+   在 System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   在 ServiceCenter.MES.Service.WIP.WipEngineerService.DeductMaterial(EnumDataCollectionAction workModel, TrackOutParameter p, Equipment equipment, List`1 lstLot, ISession session, String transactionKey) 位置 e:\Workspace\Jinergy\JNMMES\trunk\src\ServiceCenter.Modules\WIP\ServiceCenter.MES.Service.WIP\WipEngineerServiceForTrack.cs:行号 3818
+2017-01-21 13:44:11,977 - ERROR - ExecuteTrackOutBaseFounction>
+System.Collections.Generic.KeyNotFoundException: 给定关键字不在字典中。
+   在 System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   在 ServiceCenter.MES.Service.WIP.WipEngineerService.DeductMaterial(EnumDataCollectionAction workModel, TrackOutParameter p, Equipment equipment, List`1 lstLot, ISession session, String transactionKey) 位置 e:\Workspace\Jinergy\JNMMES\trunk\src\ServiceCenter.Modules\WIP\ServiceCenter.MES.Service.WIP\WipEngineerServiceForTrack.cs:行号 3818
+2017-01-21 13:46:18,212 - ERROR - ExecuteTrackOutBaseFounction>
+System.Collections.Generic.KeyNotFoundException: 给定关键字不在字典中。
+   在 System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   在 ServiceCenter.MES.Service.WIP.WipEngineerService.DeductMaterial(EnumDataCollectionAction workModel, TrackOutParameter p, Equipment equipment, List`1 lstLot, ISession session, String transactionKey) 位置 e:\Workspace\Jinergy\JNMMES\trunk\src\ServiceCenter.Modules\WIP\ServiceCenter.MES.Service.WIP\WipEngineerServiceForTrack.cs:行号 3818
+2017-01-21 14:13:52,317 - ERROR - START>Application
+2017-01-21 14:47:13,803 - ERROR - START>Application
+2017-01-21 15:00:21,846 - ERROR - START>Application
+2017-01-21 15:18:11,300 - ERROR - ExecuteTrackOutBaseFounction>
+System.Collections.Generic.KeyNotFoundException: 给定关键字不在字典中。
+   在 System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   在 ServiceCenter.MES.Service.WIP.WipEngineerService.DeductMaterial(EnumDataCollectionAction workModel, TrackOutParameter p, Equipment equipment, List`1 lstLot, ISession session, String transactionKey) 位置 e:\Workspace\Jinergy\JNMMES\trunk\src\ServiceCenter.Modules\WIP\ServiceCenter.MES.Service.WIP\WipEngineerServiceForTrack.cs:行号 3818
+2017-01-21 15:53:38,473 - ERROR - START>Application
+2017-01-21 16:11:49,971 - ERROR - START>Application
+2017-01-21 16:15:51,402 - ERROR - START>Application

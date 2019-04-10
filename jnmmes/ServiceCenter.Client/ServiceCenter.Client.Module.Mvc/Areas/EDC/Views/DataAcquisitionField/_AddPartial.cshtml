@@ -1,0 +1,65 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.EDC.Models.DataAcquisitionFieldViewModel
+
+@Html.HiddenFor(m => m.ItemCode)
+<div class="form-group">
+    @Html.LabelFor(m => m.FieldCode, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.FieldCode, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.FieldCode)
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(m => m.FieldName, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.FieldName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.FieldName)
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(m => m.SerialNumber, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.SerialNumber, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.SerialNumber)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.DataType, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.DropDownListFor(m => m.DataType, @Model.GetDataTypeList(), new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.DataType)
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(m => m.IsKEY, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.CheckBoxFor(m => m.IsKEY, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.IsKEY)
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(m => m.IsControl, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.CheckBoxFor(m => m.IsControl, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.IsControl)
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(m => m.MaxLine, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.MaxLine, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.MaxLine)
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(m => m.MinLine, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.MinLine, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.MinLine)
+    </div>
+</div>

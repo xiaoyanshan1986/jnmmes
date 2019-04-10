@@ -1,0 +1,94 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.PPM.Models.PlanMonthViewModel
+@using ServiceCenter.Client.Mvc.Areas.PPM.Models;
+@using ServiceCenter.Client.Mvc.Resources;
+@using PPM = ServiceCenter.Client.Mvc.Resources.PPM;
+@using ServiceCenter.MES.Model.PPM;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@{
+    PagingConfig cfg = ViewBag.PagingConfig;
+}
+<div id="_list">
+    <table class="table table-hover table-bordered table-condensed">
+        <thead>
+            <tr class="active">
+                <td nowrap align="center">@StringResource.ItemNo</td>
+                <td nowrap align="center">@Html.DisplayNameFor(m => m.Year)</td>
+                <td nowrap align="center">@Html.DisplayNameFor(m => m.Month)</td>
+                <td nowrap align="center">@Html.DisplayNameFor(m => m.LocationName)</td>
+                <td nowrap align="center">@StringResource.Detail</td>
+                <td nowrap align="center">@StringResource.Delete</td>
+            </tr>
+        </thead>
+        @if (ViewBag.List != null)
+        {
+            <tbody>
+                @for (int i = 0; i < ViewBag.List.Length; i++)
+                {
+                    PlanMonth obj = ViewBag.List[i];
+                    <tr>
+                        <td>@(cfg.PageSize * cfg.PageNo+i+1)</td>
+                        <td>
+                            @obj.Key.Year
+                        </td>
+                        <td>
+                            @obj.Key.Month
+                        </td>
+                        <td>
+                            @obj.Key.LocationName
+                        </td>
+                        <td>
+                            @Html.ActionLink(linkText: StringResource.Detail
+                                            , actionName: "Index"
+                                            , controllerName: "PlanDay"
+                                            , routeValues: new {  @Year = obj.Key.Year,
+                                                                  @Month = obj.Key.Month,
+                                                                  @LocationName = obj.Key.LocationName
+                                                                }
+                                            , htmlAttributes: new { @target = "_self" })
+                        </td>
+                        <td>
+                            @Ajax.ActionLink(StringResource.Delete, actionName: null
+                                            , routeValues: null
+                                            , ajaxOptions:new AjaxOptions()
+                                            {
+                                                HttpMethod = "Post",
+                                                Confirm = string.Format(PPM.StringResource.PlanMonth_ConfirmDelete, obj.Key),
+                                                Url = Url.Action("Delete", new { @Year = obj.Key.Year,
+                                                                                 @Month = obj.Key.Month,
+                                                                                 @LocationName = obj.Key.LocationName
+                                                                               }),
+                                                OnSuccess = "completeDelete"
+                                            })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        }
+    </table>
+    <div style="margin-top:-18px">
+        @if (cfg != null)
+        {
+            using (Ajax.BeginForm("PagingQuery", "PlanMonth"
+                            , new
+                            {
+                                @Where = cfg.Where,
+                                @OrderBy = cfg.OrderBy,
+                                @CurrentPageNo = cfg.PageNo,
+                                @CurrentPageSize = cfg.PageSize
+                            }
+                            , new AjaxOptions()
+                            {
+                                HttpMethod = "Post",
+                                UpdateTargetId = "_list"
+                            }
+                            , new { @class = "form-horizontal", resource = "form", id = "frmPagingQuery" }))
+            {
+                @Html.AntiForgeryToken()
+                <div>@Html.Partial("_PaginationPartial")</div>
+            }
+        }
+    </div>
+</div>
+
+

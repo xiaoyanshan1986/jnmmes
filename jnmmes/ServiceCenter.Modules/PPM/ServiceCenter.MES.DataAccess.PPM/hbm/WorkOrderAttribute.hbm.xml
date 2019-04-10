@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   namespace="ServiceCenter.MES.Model.PPM" 
+                   assembly="ServiceCenter.MES.Model.PPM">
+  <class name="WorkOrderAttribute" table="PPM_WORK_ORDER_ATTR">
+    <composite-id  name="Key" class="WorkOrderAttributeKey">
+      <key-property name="OrderNumber" column="ORDER_NUMBER"/>
+      <key-property name="AttributeName" column="ATTRIBUTE_NAME"/>
+    </composite-id >
+    <property name="AttributeValue" column="ATTRIBUTE_VALUE"/>
+    <property name="Editor" column="EDITOR"/>
+    <property name="EditTime" column="EDIT_TIME"/>
+  </class>
+</hibernate-mapping>

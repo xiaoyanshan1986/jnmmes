@@ -1,0 +1,96 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.LSM.Models.MaterialLoadingViewModel
+@using ServiceCenter.Client.Mvc.Areas.LSM.Models;
+@using ServiceCenter.Client.Mvc.Resources;
+@using LSMResources = ServiceCenter.Client.Mvc.Resources.LSM;
+@using ServiceCenter.MES.Model.LSM;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@{
+    PagingConfig cfg = ViewBag.PagingConfig;
+}
+<div id="_list">
+    <table class="table table-hover table-bordered table-condensed">
+        <thead>
+            <tr class="active">
+                <td>@StringResource.ItemNo</td>
+                <td>@Html.DisplayNameFor(m => m.LoadingNo)</td>
+                <td>@Html.DisplayNameFor(m => m.LoadingTime)</td>
+                <td>@Html.DisplayNameFor(m => m.RouteOperationName)</td>
+                <td>@Html.DisplayNameFor(m => m.ProductionLineCode)</td>
+                <td>@Html.DisplayNameFor(m => m.EquipmentCode)</td>
+                <td>@Html.DisplayNameFor(m => m.Description)</td>
+                <td>@Html.DisplayNameFor(m => m.Editor)</td>
+                <td>@Html.DisplayNameFor(m => m.EditTime)</td>
+                <td>@StringResource.Detail</td>
+            </tr>
+        </thead>
+        @if (ViewBag.List != null)
+        {
+            <tbody>
+                @for (int i = 0; i < ViewBag.List.Length; i++)
+                {
+                    MaterialLoading obj = ViewBag.List[i];
+                    <tr>
+                        <td>@(cfg.PageSize * cfg.PageNo+i+1)</td>
+                        <td>
+                            @obj.Key
+                        </td>
+                        <td>
+                            @string.Format("{0:yyyy-MM-dd HH:mm:ss}", obj.LoadingTime)
+                        </td>
+                        <td>
+                            @obj.RouteOperationName
+                        </td>
+                        <td>
+                            @obj.ProductionLineCode
+                        </td>
+                        <td>
+                            @obj.EquipmentCode
+                        </td>
+                        <td>
+                            @obj.Description
+                        </td>
+                        <td>
+                            @obj.Editor
+                        </td>
+                        <td>
+                            @string.Format("{0:yyyy-MM-dd HH:mm:ss}", obj.EditTime)
+                        </td>
+                        <td>
+                            @Html.ActionLink(linkText: StringResource.Detail
+                                            , actionName: "Detail"
+                                            , controllerName: "MaterialLoading"
+                                            , routeValues: new { @LoadingNo = obj.Key }
+                                            , htmlAttributes: new { @target = "_self" })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        }
+    </table>
+    <div style="margin-top:-18px">
+        @if (cfg != null)
+        {
+            using (Ajax.BeginForm("PagingQuery", "MaterialLoading"
+                            , new
+                            {
+                                @Where = cfg.Where,
+                                @OrderBy = cfg.OrderBy,
+                                @CurrentPageNo = cfg.PageNo,
+                                @CurrentPageSize = cfg.PageSize
+                            }
+                            , new AjaxOptions()
+                            {
+                                HttpMethod = "Post",
+                                UpdateTargetId = "_list"
+                            }
+                            , new { @class = "form-horizontal", resource = "form", id = "frmPagingQuery" }))
+            {
+                @Html.AntiForgeryToken()
+                <div>@Html.Partial("_PaginationPartial")</div>
+            }
+        }
+    </div>
+</div>
+
+

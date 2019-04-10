@@ -1,0 +1,173 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.RPT.Models.WIPMoveForStepDataViewModel
+@using ServiceCenter.Model;
+@using ServiceCenter.Common;
+@using ServiceCenter.Client.Mvc.Areas.RPT.Models;
+@using ServiceCenter.Client.Mvc.Resources;
+
+@{
+    ViewBag.Title = "工序MOVE量";
+}
+<h2>@ViewBag.Title</h2>
+<div class="panel panel-default">
+    <div class="panel-body">
+        @using (Ajax.BeginForm("ExportExcel", "WIPMoveForStep", null
+                    , new AjaxOptions()
+                    {
+                        HttpMethod = "Post",
+                        UpdateTargetId = "list"
+                    }
+                    , new { @class = "form-horizontal", resource = "form", id = "frmData", name = "frmData" }))
+        {
+            @Html.AntiForgeryToken()
+            <div class="form-group">
+                <div class="col-md-2">
+                    @Html.LabelFor(m => m.StartTime, new { @class = "control-label" })
+                </div>
+                <div class="col-md-2">
+                    @Html.TextBoxFor(m => m.StartTime, "{0:yyyy-MM-dd HH:mm:ss}", new { @class = "form-control" })
+                </div>
+                <div class="col-md-2">
+                    @Html.LabelFor(m => m.EndTime, new { @class = "control-label" })
+                </div>
+                <div class="col-md-2">
+                    @Html.TextBoxFor(m => m.EndTime, "{0:yyyy-MM-dd HH:mm:ss}", new { @class = "form-control" })
+                </div>
+                <div class="col-md-2">
+                    @Html.LabelFor(m => m.OrderNumber, new { @class = "control-label" })
+                </div>
+                <div class="col-md-2">
+                    @Html.TextBoxFor(m => m.OrderNumber, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-2">
+                    @Html.LabelFor(m => m.StepName, new { @class = "control-label" })
+                </div>
+                <div class="col-md-2">
+                    @Html.DropDownListFor(m => m.StepName, @Model.GetRouteOperationNameList(), new { @class = "form-control" })
+                </div>
+                <div class="col-md-2">
+                    <input type="button" value="@StringResource.Query" class="btn btn-default" id="btnQuery" />
+                </div>
+            </div>
+        }
+    </div>
+    <div id="container1" style="min-width: 310px; height: 400px; margin: 0 auto;"></div>
+</div>
+
+@section Scripts {
+    @*<script src="~/Scripts/Highstock-2.1.5/highstock.js"></script>
+    <script src="~/Scripts/Highcharts-4.0.3/modules/exporting.js"></script>*@
+    <script src="~/Scripts/Highstock-5.0.12/code/highstock.js"></script>
+    <script src="~/Scripts/Highcharts-5.0.12/code/modules/exporting.js"></script>
+    <script type="text/javascript" language="javascript">
+        $(function () {
+            $("#StartTime,#EndTime").datetimepicker({
+                changeMonth: true,
+                changeYear: true,
+                dateFormat: "yy-mm-dd",
+                timeFormat: 'HH:mm:ss'
+
+            });
+
+            $("#btnQuery").bind("click", function () {
+                Query();
+            });
+            Query();
+            //refreshList();
+        });
+    </script>
+    <script language="javascript">
+       @*查询事件*@
+        function Query() {
+            var StartTime = $('#StartTime').val();
+            var EndTime = $('#EndTime').val();
+            var StepName = $('#StepName').val();
+            var OrderNumber = $('#OrderNumber').val();
+            $.ajax({
+                type: "post",
+                url: "@Url.Action("GetHighchartsResult", "WIPMoveForStep")",
+                data: { StartTime: StartTime, EndTime: EndTime, OrderNumber: OrderNumber, StepName: StepName},
+                async: false,
+                dataType: "json",
+                success: function (result) {
+                    if (result != null) {
+                        var xAxis = result.mAxis;
+                        var yAxis = result.nAxis;
+                        highchartsInit(xAxis, yAxis);
+                    }
+                }
+            });
+            //refreshList();
+        }
+        //根据获取的json数据画charts
+        function highchartsInit(xAxisData, yAxisData) {
+            $('#container1').highcharts({
+                chart: {
+                    zoomType: 'xy'
+                },
+                title: {
+                    text: ''
+                },
+                credits: { enabled: false },
+                scrollbar: {
+                    enabled: false
+                },
+                xAxis: [{
+                    categories: eval(xAxisData), labels: { rotation: -45 }
+                }],
+                yAxis: [{ // Primary yAxis
+                    min: 0,
+                    tickInterval: 0.5,
+                    lineWidth: 1,
+                    labels: {
+                        format: '',
+                        //style: {
+                        //    color: '#89A54E'
+                        //}
+                    },
+                    title: {
+                        text: '工序MOVE量',
+                    }
+                }],
+                tooltip: {
+                    shared: true
+                },
+                plotOptions: {
+                    series: {
+                        connectNulls: false //连接数据为null的前后点
+                    },
+                    column:{
+                        dataLabels:{
+                            enabled:true //是否显示数据标签
+                        }
+                    }
+                },
+                legend: {
+                    layout: 'vertical', align: 'right', verticalAlign: 'middle'
+                    //backgroundColor: '#FFFFFF'
+                },
+                series: eval(yAxisData)
+            });
+        }
+
+
+
+
+        function beginRefresh(obj, req) {
+            var title = $("#title").val();
+            var TestTIme = $("#TestTime").val();
+            req.title += "&title=" + title;
+            req.TestTime += "&TestTime=" + TestTIme;
+        }
+        function refreshList() {
+            if ($("#btnRefresh").length > 0) {
+                $("#btnRefresh").click();
+            }
+        }
+    </script>
+}
+
+
+
+

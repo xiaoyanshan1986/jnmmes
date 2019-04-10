@@ -1,0 +1,63 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.RPT.Models.LotMaterialListViewModel
+@using ServiceCenter.Client.Mvc.Resources;
+@using RPTResources = ServiceCenter.Client.Mvc.Resources.RPT;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@using System.Data;
+@{
+    DataTable dtList = ViewBag.ListData;
+    PagingConfig cfg = ViewBag.PagingConfig;
+}
+@if (dtList != null)
+{
+    <div id="_list">
+        <table class="table table-hover table-bordered table-condensed">
+            <thead>
+                <tr class="active">
+                    @for (int i = 0; i < dtList.Columns.Count; i++)
+                    {
+                        <td nowrap>@dtList.Columns[i].Caption</td>
+                    }
+                </tr>
+            </thead>
+            <tbody>
+                @for (int row = 0; row < dtList.Rows.Count; row++)
+                {
+                    <tr>
+                        @for (int col = 0; col < dtList.Columns.Count; col++)
+                        {
+                            <td nowrap>@dtList.Rows[row][col]</td>
+                        }
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <div style="margin-top:-18px">
+        @using (Ajax.BeginForm("Query", "LotMaterialList"
+                        , null
+                        , new AjaxOptions()
+                        {
+                            HttpMethod = "Post",
+                            UpdateTargetId = "_list"
+                        }
+                        , new { @class = "form-horizontal", resource = "form", id = "frmPagingQuery" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.HiddenFor(m => m.OrderNumber)
+            @Html.HiddenFor(m => m.LocationName)
+            @Html.HiddenFor(m => m.StartCreateTime)
+            @Html.HiddenFor(m => m.EndCreateTime)
+            @Html.HiddenFor(m => m.LotNumber)
+            @Html.HiddenFor(m => m.LotNumber1)
+            @Html.HiddenFor(m => m.TotalRecords)
+            @Html.HiddenFor(m=>m.PageSize)
+            <div>@Html.Partial("_PaginationPartial")</div>
+        }
+        </div>
+    </div>
+    
+}
+else
+{
+    <p>@ViewBag.Message</p>
+}

@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   namespace="ServiceCenter.MES.Model.LSM" 
+                   assembly="ServiceCenter.MES.Model.LSM">
+  <class name="LineStoreMaterial" table="LSM_STORE_MATERIAL">
+    <composite-id  name="Key" class="LineStoreMaterialKey">
+      <key-property name="LineStoreName" column="STORE_NAME"/>
+      <key-property name="MaterialCode" column="MATERIAL_CODE"/>
+    </composite-id >
+    <property name="Creator" column="CREATOR"/>
+    <property name="CreateTime" column="CREATE_TIME"/>
+    <property name="Editor" column="EDITOR"/>
+    <property name="EditTime" column="EDIT_TIME"/>
+  </class>
+</hibernate-mapping>

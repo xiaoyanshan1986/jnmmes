@@ -1,0 +1,35 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.RBAC.Models.RoleViewModel
+@using ServiceCenter.Client.Mvc.Areas.RBAC.Models;
+
+@Html.ValidationSummary(true)
+<!-- Nav tabs -->
+<ul class="nav nav-tabs" role="tablist">
+    <li class="active"><a href="#base" role="tab" data-toggle="tab" onfocus="this.blur()">基本信息</a></li>
+    <li><a href="#user" role="tab" data-toggle="tab" onfocus="this.blur()">用户</a></li>
+    <li><a href="#resource" role="tab" data-toggle="tab" onfocus="this.blur()">资源</a></li>
+</ul>
+<!-- Tab panes -->
+<div class="tab-content">
+    <div class="tab-pane active" id="base" style="padding-top:10px">
+        <div class="form-group">
+            @Html.LabelFor(m => m.RoleName, new { @class = "col-md-3 control-label" })
+            <div class="col-md-9">
+                @Html.TextBoxFor(m => m.RoleName, new { @class = "form-control", @readonly = "readonly" })
+                @Html.ValidationMessageFor(m => m.RoleName)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Description, new { @class = "col-md-3 control-label" })
+            <div class="col-md-9">
+                @Html.TextAreaFor(m => m.Description, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Description)
+            </div>
+        </div>
+    </div>
+    <div class="tab-pane" style="padding-top:10px" id="user">
+        @Html.Partial("_SetRoleUserPartial", new SetRoleUserViewModel() { RoleName = Model.RoleName })
+    </div>
+    <div class="tab-pane" style="padding-top:10px" id="resource">
+        @Html.Partial("_SetRoleResourcePartial", new SetRoleResourceViewModel() { RoleName = Model.RoleName })
+    </div>
+</div>

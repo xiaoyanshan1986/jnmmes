@@ -1,0 +1,13 @@
+E:\组件程序\20160405\trunk\src\ServiceCenter.Client\WinClients\WinClient.PrintTools\IV.SQLServerDAL\bin\Debug\IV.SQLServerDAL.dll
+E:\组件程序\20160405\trunk\src\ServiceCenter.Client\WinClients\WinClient.PrintTools\IV.SQLServerDAL\bin\Debug\IV.SQLServerDAL.pdb
+E:\组件程序\20160405\trunk\src\ServiceCenter.Client\WinClients\WinClient.PrintTools\IV.SQLServerDAL\obj\Debug\IV.SQLServerDAL.csprojResolveAssemblyReference.cache
+E:\组件程序\20160405\trunk\src\ServiceCenter.Client\WinClients\WinClient.PrintTools\IV.SQLServerDAL\obj\Debug\IV.SQLServerDAL.dll
+E:\组件程序\20160405\trunk\src\ServiceCenter.Client\WinClients\WinClient.PrintTools\IV.SQLServerDAL\obj\Debug\IV.SQLServerDAL.pdb
+D:\Users\ZiJing.Wu\Desktop\WinClient.PrintTools\IV.SQLServerDAL\bin\Debug\IV.SQLServerDAL.dll
+D:\Users\ZiJing.Wu\Desktop\WinClient.PrintTools\IV.SQLServerDAL\bin\Debug\IV.SQLServerDAL.pdb
+D:\Users\ZiJing.Wu\Desktop\WinClient.PrintTools\IV.SQLServerDAL\obj\Debug\IV.SQLServerDAL.dll
+D:\Users\ZiJing.Wu\Desktop\WinClient.PrintTools\IV.SQLServerDAL\obj\Debug\IV.SQLServerDAL.pdb
+E:\Workspace\Jinergy\JNMMES\trunk\src\ServiceCenter.Client\WinClients\WinClient.PrintTools\IV.SQLServerDAL\bin\Debug\IV.SQLServerDAL.dll
+E:\Workspace\Jinergy\JNMMES\trunk\src\ServiceCenter.Client\WinClients\WinClient.PrintTools\IV.SQLServerDAL\bin\Debug\IV.SQLServerDAL.pdb
+E:\Workspace\Jinergy\JNMMES\trunk\src\ServiceCenter.Client\WinClients\WinClient.PrintTools\IV.SQLServerDAL\obj\Debug\IV.SQLServerDAL.dll
+E:\Workspace\Jinergy\JNMMES\trunk\src\ServiceCenter.Client\WinClients\WinClient.PrintTools\IV.SQLServerDAL\obj\Debug\IV.SQLServerDAL.pdb

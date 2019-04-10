@@ -1,0 +1,38 @@
+2016-12-21 08:27:19,089 - ERROR - START>Application
+2016-12-21 08:46:18,065 - ERROR - START>Application
+2016-12-21 09:49:41,004 - ERROR - START>Application
+2016-12-21 09:51:44,069 - ERROR - START>Application
+2016-12-21 10:01:38,790 - ERROR - START>Application
+2016-12-21 12:01:26,474 - ERROR - START>Application
+2016-12-21 13:10:28,756 - ERROR - START>Application
+2016-12-21 13:34:10,019 - ERROR - START>Application
+2016-12-21 15:11:58,768 - ERROR - START>Application
+2016-12-21 20:16:38,369 - ERROR - START>Application
+2016-12-21 20:28:29,901 - ERROR - START>Application
+2016-12-21 20:31:23,941 - ERROR - START>Application
+2016-12-21 20:36:40,471 - ERROR - START>Application
+2016-12-21 20:42:34,454 - ERROR - START>Application
+2016-12-21 20:44:08,353 - ERROR - START>Application
+2016-12-21 21:49:48,583 - ERROR - START>Application
+2016-12-21 22:26:07,897 - ERROR - Could not execute query: select woreportde0_.BILL_CODE as BILL1_142_, woreportde0_.OBJECT_NUMBER as OBJECT2_142_, woreportde0_.ORDER_NUMBER as ORDER3_142_, woreportde0_.EFFI_NAME as EFFI4_142_, woreportde0_.COLOR as COLOR142_, woreportde0_.PS_SUBCODE as PS6_142_, woreportde0_.MATERIAL_CODE as MATERIAL7_142_, woreportde0_.GRADE as GRADE142_, woreportde0_.EFFI_CODE as EFFI9_142_, woreportde0_.QUANTITY as QUANTITY142_, woreportde0_.SumCOEF_PMAX as SumCOEF11_142_, woreportde0_.CREATOR as CREATOR142_, woreportde0_.CREATE_TIME as CREATE13_142_, woreportde0_.EDITOR as EDITOR142_, woreportde0_.EDIT_TIME as EDIT15_142_ from ERP_GoDownEntry_DETAIL woreportde0_ where woreportde0_.BILL_CODE='INC161127001' order by ItemNo
+System.Data.SqlClient.SqlException (0x80131904): 列名 'ItemNo' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 223
+ClientConnectionId:52fcb5d2-c029-4ddf-b52e-1ddd4265eee3
+Error Number:207,State:1,Class:16
+2016-12-21 22:26:08,006 - ERROR - 列名 'ItemNo' 无效。
+2016-12-21 22:26:08,077 - ERROR - 列名 'ItemNo' 无效。
+2016-12-21 22:26:08,079 - ERROR - 列名 'ItemNo' 无效。
+2016-12-21 23:04:31,971 - ERROR - START>Application
+2016-12-21 23:15:49,057 - ERROR - START>Application
+2016-12-21 23:17:50,289 - ERROR - START>Application
+2016-12-21 23:23:56,527 - ERROR - START>Application

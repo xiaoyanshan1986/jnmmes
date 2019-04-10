@@ -1,0 +1,425 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.ZPVM.Models.IVTestDataQueryViewModel
+@using ServiceCenter.Client.Mvc.Resources;
+@using RPTResources = ServiceCenter.Client.Mvc.Resources.ZPVM;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@using System.Data;
+@using ServiceCenter.MES.Service.Client.FMM;
+@using ServiceCenter.MES.Service.Client.WIP;
+@using ServiceCenter.MES.Service.Client.ZPVM;
+@using ServiceCenter.MES.Model.FMM;
+@using ServiceCenter.MES.Model.ZPVM;
+@{
+    PagingConfig cfg = ViewBag.PagingConfig;
+    MethodReturnResult<DataSet> ds = new MethodReturnResult<DataSet>();
+    DataTable dtList = ViewBag.ListData;
+    ds = ViewBag.dtList;
+}
+
+@if (dtList != null)
+{
+    <div id="_list" style="overflow:auto">
+        <table class="table table-hover table-bordered table-condensed table-responsive table-striped">
+            <thead>
+                <tr class="active">
+                    <td nowrap>序号</td>
+                    <td nowrap>批次号</td>
+                    <td nowrap>工单号</td>
+                    <td nowrap>测试时间</td>
+                    <td nowrap>设备代码</td>
+                    <td nowrap>线别</td>
+                    <td nowrap>层压机编号</td>
+                    <td nowrap>实际功率</td>
+                    <td nowrap>实际电流</td>
+                    <td nowrap>实际最大电流</td>
+                    <td nowrap>实际电压</td>
+                    <td nowrap>实际最大电压</td>
+                    <td nowrap>实际填充因子</td>
+                    <td nowrap>转换效率</td>
+                    <td nowrap>串联电阻</td>
+                    <td nowrap>并联电阻</td>
+                    <td nowrap>测试温度</td>
+                    <td nowrap>环境温度</td>
+                    <td nowrap>光强</td>
+                    <td nowrap>衰减功率</td>
+                    <td nowrap>电流</td>
+                    <td nowrap>最大电流</td>
+                    <td nowrap>衰减电压</td>
+                    <td nowrap>衰减最大电压</td>
+                    <td nowrap>填充因子</td>
+                    <td nowrap>CTM</td>
+                    <td nowrap>标准电流1</td>
+                    <td nowrap>标准电流2</td>
+                    <td nowrap>标准光强1</td>
+                    <td nowrap>标准光强2</td>
+                    <td nowrap>电池片效率</td>
+                    <td nowrap>分档代码</td>
+                    <td nowrap>分档项目号</td>
+                    <td nowrap>分档名称</td>
+                    <td nowrap>子分档代码</td>
+                    <td nowrap>有效值？</td>
+                    <td nowrap>打印？</td>
+                    <td nowrap>打印时间</td>
+                    <td nowrap>打印次数</td>
+                    <td nowrap>校准时间</td>
+                    <td nowrap>校准板编号</td>
+                    <td nowrap>电池片供应商</td>
+                    <td nowrap>玻璃供应商</td>
+                    <td nowrap>Eva供应商</td>
+                    <td nowrap>背板供应商</td>
+                    <td nowrap>互联条供应商</td>
+                </tr>
+            </thead>
+            <tbody>
+                @if (dtList != null)
+                {
+                    for (int i = 0; i < dtList.Rows.Count; i++)
+                    {
+                        System.Data.DataRow obj = dtList.Rows[i];
+
+                        Manufacturer mfCell = null;
+                        using (SupplierToManufacturerServiceClient clients = new SupplierToManufacturerServiceClient())
+                        {
+                            PagingConfig cfg0 = new PagingConfig()
+                            {
+                                Where = string.Format(@"Key.MaterialCode='{0}' AND Key.SupplierCode='{1}'"
+                                                        , obj["CellMATERIALCODE"]
+                                                        , obj["CellSUPPLIERCODE"])
+                            };
+                            MethodReturnResult<IList<SupplierToManufacturer>> result = clients.Gets(ref cfg0);
+                            if (result.Code <= 0 && result.Data.Count > 0)
+                            {
+                                if (result.Data[0].Key.OrderNumber == "*")
+                                {
+                                    using (ManufacturerServiceClient clientss = new ManufacturerServiceClient())
+                                    {
+                                        MethodReturnResult<Manufacturer> rsts = clientss.Get(result.Data[0].ManufacturerCode);
+                                        if (rsts.Data != null)
+                                        {
+                                            mfCell = rsts.Data;
+                                        }
+                                    }
+                                }
+                                else
+                                {
+                                    PagingConfig cfg1 = new PagingConfig()
+                                    {
+                                        Where = string.Format(@"Key.MaterialCode='{0}' AND Key.OrderNumber='{1}' AND Key.SupplierCode='{2}'"
+                                                                , obj["CellMATERIALCODE"]
+                                                                , obj["ORDER_NUMBER"]
+                                                                , obj["CellSUPPLIERCODE"])
+                                    };
+                                    MethodReturnResult<IList<SupplierToManufacturer>> results = clients.Gets(ref cfg1);
+                                    if (results.Code <= 0 && results.Data.Count > 0)
+                                    {
+                                        using (ManufacturerServiceClient clientss = new ManufacturerServiceClient())
+                                        {
+                                            MethodReturnResult<Manufacturer> rsts = clientss.Get(results.Data[0].ManufacturerCode);
+                                            if (rsts.Data != null)
+                                            {
+                                                mfCell = rsts.Data;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        Manufacturer mfGlass = null;
+                        using (SupplierToManufacturerServiceClient clients = new SupplierToManufacturerServiceClient())
+                        {
+                            PagingConfig cfg0 = new PagingConfig()
+                            {
+                                Where = string.Format(@"Key.MaterialCode='{0}' AND Key.SupplierCode='{1}'"
+                                                        , obj["GlassMATERIALCODE"]
+                                                        , obj["GlassSUPPLIERCODE"])
+                            };
+                            MethodReturnResult<IList<SupplierToManufacturer>> result = clients.Gets(ref cfg0);
+                            if (result.Code <= 0 && result.Data.Count > 0)
+                            {
+                                if (result.Data[0].Key.OrderNumber == "*")
+                                {
+                                    using (ManufacturerServiceClient clientss = new ManufacturerServiceClient())
+                                    {
+                                        MethodReturnResult<Manufacturer> rsts = clientss.Get(result.Data[0].ManufacturerCode);
+                                        if (rsts.Data != null)
+                                        {
+                                            mfGlass = rsts.Data;
+                                        }
+                                    }
+                                }
+                                else
+                                {
+                                    PagingConfig cfg1 = new PagingConfig()
+                                    {
+                                        Where = string.Format(@"Key.MaterialCode='{0}' AND Key.OrderNumber='{1}' AND Key.SupplierCode='{2}'"
+                                                                , obj["GlassMATERIALCODE"]
+                                                                , obj["ORDER_NUMBER"]
+                                                                , obj["GlassSUPPLIERCODE"])
+                                    };
+                                    MethodReturnResult<IList<SupplierToManufacturer>> results = clients.Gets(ref cfg1);
+                                    if (results.Code <= 0 && results.Data.Count > 0)
+                                    {
+                                        using (ManufacturerServiceClient clientss = new ManufacturerServiceClient())
+                                        {
+                                            MethodReturnResult<Manufacturer> rsts = clientss.Get(results.Data[0].ManufacturerCode);
+                                            if (rsts.Data != null)
+                                            {
+                                                mfGlass = rsts.Data;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        Manufacturer mfEva = null;
+                        using (SupplierToManufacturerServiceClient clients = new SupplierToManufacturerServiceClient())
+                        {
+                            PagingConfig cfg0 = new PagingConfig()
+                            {
+                                Where = string.Format(@"Key.MaterialCode='{0}' AND Key.SupplierCode='{1}'"
+                                                        , obj["EVAMATERIALCODE"]
+                                                        , obj["EVASUPPLIERCODE"])
+                            };
+                            MethodReturnResult<IList<SupplierToManufacturer>> result = clients.Gets(ref cfg0);
+                            if (result.Code <= 0 && result.Data.Count > 0)
+                            {
+                                if (result.Data[0].Key.OrderNumber == "*")
+                                {
+                                    using (ManufacturerServiceClient clientss = new ManufacturerServiceClient())
+                                    {
+                                        MethodReturnResult<Manufacturer> rsts = clientss.Get(result.Data[0].ManufacturerCode);
+                                        if (rsts.Data != null)
+                                        {
+                                            mfEva = rsts.Data;
+                                        }
+                                    }
+                                }
+                                else
+                                {
+                                    PagingConfig cfg1 = new PagingConfig()
+                                    {
+                                        Where = string.Format(@"Key.MaterialCode='{0}' AND Key.OrderNumber='{1}' AND Key.SupplierCode='{2}'"
+                                                                , obj["EVAMATERIALCODE"]
+                                                                , obj["ORDER_NUMBER"]
+                                                                , obj["EVASUPPLIERCODE"])
+                                    };
+                                    MethodReturnResult<IList<SupplierToManufacturer>> results = clients.Gets(ref cfg1);
+                                    if (results.Code <= 0 && results.Data.Count > 0)
+                                    {
+                                        using (ManufacturerServiceClient clientss = new ManufacturerServiceClient())
+                                        {
+                                            MethodReturnResult<Manufacturer> rsts = clientss.Get(results.Data[0].ManufacturerCode);
+                                            if (rsts.Data != null)
+                                            {
+                                                mfEva = rsts.Data;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        Manufacturer mfBackplane = null;
+                        using (SupplierToManufacturerServiceClient clients = new SupplierToManufacturerServiceClient())
+                        {
+                            PagingConfig cfg0 = new PagingConfig()
+                            {
+                                Where = string.Format(@"Key.MaterialCode='{0}' AND Key.SupplierCode='{1}'"
+                                                        , obj["BackplaneMATERIALCODE"]
+                                                        , obj["BackplaneSUPPLIERCODE"])
+                            };
+                            MethodReturnResult<IList<SupplierToManufacturer>> result = clients.Gets(ref cfg0);
+                            if (result.Code <= 0 && result.Data.Count > 0)
+                            {
+                                if (result.Data[0].Key.OrderNumber == "*")
+                                {
+                                    using (ManufacturerServiceClient clientss = new ManufacturerServiceClient())
+                                    {
+                                        MethodReturnResult<Manufacturer> rsts = clientss.Get(result.Data[0].ManufacturerCode);
+                                        if (rsts.Data != null)
+                                        {
+                                            mfBackplane = rsts.Data;
+                                        }
+                                    }
+                                }
+                                else
+                                {
+                                    PagingConfig cfg1 = new PagingConfig()
+                                    {
+                                        Where = string.Format(@"Key.MaterialCode='{0}' AND Key.OrderNumber='{1}' AND Key.SupplierCode='{2}'"
+                                                                , obj["BackplaneMATERIALCODE"]
+                                                                , obj["ORDER_NUMBER"]
+                                                                , obj["BackplaneSUPPLIERCODE"])
+                                    };
+                                    MethodReturnResult<IList<SupplierToManufacturer>> results = clients.Gets(ref cfg1);
+                                    if (results.Code <= 0 && results.Data.Count > 0)
+                                    {
+                                        using (ManufacturerServiceClient clientss = new ManufacturerServiceClient())
+                                        {
+                                            MethodReturnResult<Manufacturer> rsts = clientss.Get(results.Data[0].ManufacturerCode);
+                                            if (rsts.Data != null)
+                                            {
+                                                mfBackplane = rsts.Data;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        Manufacturer mfHlt = null;
+                        using (SupplierToManufacturerServiceClient clients = new SupplierToManufacturerServiceClient())
+                        {
+                            PagingConfig cfg0 = new PagingConfig()
+                            {
+                                Where = string.Format(@"Key.MaterialCode='{0}' AND Key.SupplierCode='{1}'"
+                                                        , obj["HLTMATERIALCODE"]
+                                                        , obj["HLTSUPPLIERCODE"])
+                            };
+                            MethodReturnResult<IList<SupplierToManufacturer>> result = clients.Gets(ref cfg0);
+                            if (result.Code <= 0 && result.Data.Count > 0)
+                            {
+                                if (result.Data[0].Key.OrderNumber == "*")
+                                {
+                                    using (ManufacturerServiceClient clientss = new ManufacturerServiceClient())
+                                    {
+                                        MethodReturnResult<Manufacturer> rsts = clientss.Get(result.Data[0].ManufacturerCode);
+                                        if (rsts.Data != null)
+                                        {
+                                            mfHlt = rsts.Data;
+                                        }
+                                    }
+                                }
+                                else
+                                {
+                                    PagingConfig cfg1 = new PagingConfig()
+                                    {
+                                        Where = string.Format(@"Key.MaterialCode='{0}' AND Key.OrderNumber='{1}' AND Key.SupplierCode='{2}'"
+                                                                , obj["HLTMATERIALCODE"]
+                                                                , obj["ORDER_NUMBER"]
+                                                                , obj["HLTSUPPLIERCODE"])
+                                    };
+                                    MethodReturnResult<IList<SupplierToManufacturer>> results = clients.Gets(ref cfg1);
+                                    if (results.Code <= 0 && results.Data.Count > 0)
+                                    {
+                                        using (ManufacturerServiceClient clientss = new ManufacturerServiceClient())
+                                        {
+                                            MethodReturnResult<Manufacturer> rsts = clientss.Get(results.Data[0].ManufacturerCode);
+                                            if (rsts.Data != null)
+                                            {
+                                                mfHlt = rsts.Data;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        <tr>
+                            <td nowrap>@obj["RowNumber"] </td>
+                            <td nowrap>@obj["LOT_NUMBER"] </td>
+                            <td nowrap>@obj["ORDER_NUMBER"]</td>
+                            <td nowrap>@obj["TEST_TIME"]</td>
+                            <td nowrap>@obj["EQUIPMENT_CODE"]</td>
+                            <td nowrap>@obj["LINE_CODE"]</td>
+                            <td nowrap>@obj["ATTRIBUTE_VALUE"]</td>
+                            <td nowrap>@obj["PM"]</td>
+                            <td nowrap>@obj["ISC"]</td>
+                            <td nowrap>@obj["IPM"]</td>
+                            <td nowrap>@obj["VOC"]</td>
+                            <td nowrap>@obj["VPM"]</td>
+                            <td nowrap>@obj["FF"]</td>
+                            <td nowrap>@obj["EFF"]</td>
+                            <td nowrap>@obj["RS"]</td>
+                            <td nowrap>@obj["RSH"]</td>
+                            <td nowrap>@obj["AMBIENTTEMP"]</td>
+                            <td nowrap>@obj["SENSORTEMP"] </td>
+                            <td nowrap>@obj["INTENSITY"] </td>
+                            <td nowrap>@obj["COEF_PMAX"]</td>
+                            <td nowrap>@obj["COEF_ISC"]</td>
+                            <td nowrap>@obj["COEF_IMAX"]</td>
+                            <td nowrap>@obj["COEF_VOC"]</td>
+                            <td nowrap>@obj["COEF_VMAX"]</td>
+                            <td nowrap>@obj["COEF_FF"]</td>
+                            <td nowrap>@obj["DEC_CTM"]</td>
+                            <td nowrap>@obj["STDISC1"]</td>
+                            <td nowrap>@obj["STDISC2"]</td>
+                            <td nowrap>@obj["STDSUN1"]</td>
+                            <td nowrap>@obj["STDSUN2"]</td>
+                            <td nowrap>@obj["ATTR_1"]</td>
+                            <td nowrap>@obj["PS_CODE"]</td>
+                            <td nowrap>@obj["PS_ITEM_NO"]</td>
+                            <td nowrap>@obj["PM_NAME"]</td>
+                            <td nowrap>@obj["PS_SUBCODE"]</td>
+                            <td nowrap>@obj["IS_DEFAULT"]</td>
+                            <td nowrap>@obj["IS_PRINT"]</td>
+                            <td nowrap>@obj["PRINT_TIME"]</td>
+                            <td nowrap>@obj["PRINT_COUNT"]</td>
+                            <td nowrap>@obj["CALIBRATE_TIME"]</td>
+                            <td nowrap>@obj["CALIBRATION_NO"]</td>
+                            @*<td nowrap>@obj["CellSUPPLIER"]</td>
+                                <td nowrap>@obj["GlassSUPPLIER"]</td>
+                                <td nowrap>@obj["EVASUPPLIER"]</td>
+                                <td nowrap>@obj["BackPlaneSUPPLIER"]</td>
+                                <td nowrap>@obj["HLTSUPPLIER"]</td>*@
+                            <td nowrap>
+                                @(mfCell == null ? obj["CellSUPPLIER"] : mfCell.Name)
+                            </td>
+                            <td nowrap>
+                                @(mfGlass == null ? obj["GlassSUPPLIER"] : mfGlass.Name)
+                            </td>
+                            <td nowrap>
+                                @(mfEva == null ? @obj["EVASUPPLIER"] : mfEva.Name)
+                            </td>
+                            <td nowrap>
+                                @(mfBackplane == null ? obj["BackPlaneSUPPLIER"] : mfBackplane.Name)
+                            </td>
+                            <td nowrap>
+                                @(mfHlt == null ? obj["HLTSUPPLIER"] : mfHlt.Name)
+                            </td>
+
+                        </tr>
+
+                    }
+
+                }
+            </tbody>
+
+        </table>
+        <div style="margin-top:-18px">
+            @if (cfg != null)
+            {
+                using (Ajax.BeginForm("QueryIVdata", "IVTestDataQueryAll"
+                                , null
+                                , new AjaxOptions()
+                                {
+                                    HttpMethod = "Post",
+                                    UpdateTargetId = "_list"
+                                }
+                                , new { @class = "form-horizontal", resource = "form", id = "frmPagingQuery" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.HiddenFor(m => m.LotNumber)
+                    @Html.HiddenFor(m => m.lineCode)
+                    @Html.HiddenFor(m => m.IsPrint)
+                    @Html.HiddenFor(m => m.IsDefault)
+                    @Html.HiddenFor(m => m.StartTestTime)
+                    @Html.HiddenFor(m => m.EndTestTime)
+                    @Html.HiddenFor(m => m.PageSize)
+                    <div>@Html.Partial("_PaginationPartial")</div>
+                }
+            }
+
+        </div>
+    </div>
+
+}
+else
+{
+    <p>@ViewBag.Message</p>
+}
+
+
+

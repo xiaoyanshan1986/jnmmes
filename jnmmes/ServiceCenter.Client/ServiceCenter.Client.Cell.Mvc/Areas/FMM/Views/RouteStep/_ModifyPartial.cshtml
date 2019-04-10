@@ -1,0 +1,64 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.FMM.Models.RouteStepViewModel
+@using ServiceCenter.Common;
+@using ServiceCenter.MES.Model.FMM;
+@Html.ValidationSummary(true)
+<div class="form-group">
+    @Html.LabelFor(m => m.RouteName, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        <p class="form-control-static">@Model.RouteName</p>
+        @Html.HiddenFor(m => m.RouteName)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.RouteStepName, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        <p class="form-control-static">@Model.RouteStepName</p>
+        @Html.HiddenFor(m => m.RouteStepName)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.SortSeq, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.SortSeq, new { @class = "form-control", @id = "txtSortSeq" })
+        @Html.ValidationMessageFor(m => m.SortSeq)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.Duration, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.Duration, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Duration)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.DefectReasonCodeCategoryName, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.DropDownListFor(m => m.DefectReasonCodeCategoryName
+                              , @Model.GetReasonCodeCategoryName(EnumReasonCodeType.Defect)
+                              , new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.DefectReasonCodeCategoryName)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.ScrapReasonCodeCategoryName, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.DropDownListFor(m => m.ScrapReasonCodeCategoryName
+                              , @Model.GetReasonCodeCategoryName(EnumReasonCodeType.Scrap)
+                              , new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.ScrapReasonCodeCategoryName)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.Description, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextAreaFor(m => m.Description, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Description)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.RouteOperationName, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        <p class="form-control-static">@Model.RouteOperationName</p>
+        @Html.HiddenFor(m => m.RouteOperationName)
+    </div>
+</div>

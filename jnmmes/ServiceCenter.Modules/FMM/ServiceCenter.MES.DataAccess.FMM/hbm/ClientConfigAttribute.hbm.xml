@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   namespace="ServiceCenter.MES.Model.FMM" 
+                   assembly="ServiceCenter.MES.Model.FMM">
+  <class name="ClientConfigAttribute" table="FMM_CLIENT_CONFIG_ATTR">
+    <composite-id  name="Key" class="ClientConfigAttributeKey">
+      <key-property name="ClientName" column="CLIENT_NAME"/>
+      <key-property name="AttributeName" column="ATTRIBUTE_NAME"/>
+      <key-property name="ItemNo" column="ITEM_NO"/>
+    </composite-id >
+    <property name="Value" column="ATTRIBUTE_VALUE"/>
+    <property name="Editor" column="EDITOR"/>
+    <property name="EditTime" column="EDIT_TIME"/>
+  </class>
+</hibernate-mapping>

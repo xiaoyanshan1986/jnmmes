@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   namespace="ServiceCenter.MES.Model.LSM" 
+                   assembly="ServiceCenter.MES.Model.LSM">
+  <class name="MaterialLoadingDetail" table="LSM_MATERIAL_LOADING_DETAIL">
+    <composite-id  name="Key" class="MaterialLoadingDetailKey">
+      <key-property name="LoadingKey" column="LOADING_KEY"/>
+      <key-property name="ItemNo" column="ITEM_NO"/>
+    </composite-id>
+    <property name="LineStoreName" column="STORE_NAME"/>
+    <property name="OrderNumber" column="ORDER_NUMBER"/>
+    <property name="MaterialCode" column="MATERILA_CODE"/>
+    <property name="MaterialLot" column="MATERIAL_LOT"/>
+    <property name="LoadingQty" column="LOADING_QTY"/>
+    <property name="UnloadingQty" column="UNLOADING_QTY"/>
+    <property name="SurplusQty" column="SURPLUS_QTY"/>
+    <property name="CurrentQty" column="CURRENT_QTY"/>
+    <property name="Creator" column="CREATOR"/>
+    <property name="CreateTime" column="CREATE_TIME"/>
+    <property name="Editor" column="EDITOR"/>
+    <property name="EditTime" column="EDIT_TIME"/>
+  </class>
+</hibernate-mapping>

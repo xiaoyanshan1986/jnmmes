@@ -1,0 +1,406 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.ZPVM.Models.RuleQueryViewModel
+@using ServiceCenter.MES.Model.ZPVM;
+@using ServiceCenter.Model;
+@using ServiceCenter.Common;
+@using ServiceCenter.Client.Mvc.Areas.ZPVM.Models;
+@using ZPVM=ServiceCenter.Client.Mvc.Resources.ZPVM;
+@using ServiceCenter.Client.Mvc.Resources;
+
+@{
+    ViewBag.Title = ZPVM.StringResource.Rule_ManagePageTitle;
+    PagingConfig cfg = ViewBag.PagingConfig;
+
+}
+<h2>@ViewBag.Title</h2>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <a href="javascript:showAddModal()" class="btn btn-primary">@StringResource.Add</a>
+    </div>
+    <div class="panel-body">
+    @using (Ajax.BeginForm("Query", "Rule", null
+            , new AjaxOptions()
+            {
+                HttpMethod = "Post",
+                OnBegin="beginQuery",
+                UpdateTargetId = "list"
+            }
+            , new { @class = "form-horizontal", resource = "form" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-group">
+            <div class="col-md-1">
+                @Html.LabelFor(m => m.Code, new { @class = "control-label" })
+            </div>
+            <div class="col-md-2">
+                @Html.TextBoxFor(m => m.Code, new { @class = "form-control" })
+            </div>
+            <div class="col-md-1">
+                @Html.LabelFor(m => m.Name, new { @class = "control-label" })
+            </div>
+            <div class="col-md-2">
+                @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+            </div>
+            <div class="col-md-6">
+                <input type="submit" value="@StringResource.Query" class="btn btn-default" />
+            </div>
+        </div>
+    }
+    </div>
+    <div class="alert fade in hide" resource="alert" id="statusMessage" style="margin:0px">
+        <button type="button" class="close" onclick="hideStatusMessage()">
+            <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+        </button>
+        <p></p>
+    </div>
+    <div id="list">
+        @Html.Partial("_ListPartial",new RuleViewModel())
+    </div>
+</div>
+
+@*新增*@
+<div id="add" class="modal fade" tabindex="-1" resource="dialog" aria-labelledby="addHeader" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="addHeader">@ZPVM.StringResource.Rule_AddTitle</h4>
+            </div>
+            <div class="modal-body" id="addContent" style="margin:0px;padding:5px">
+                @using (Ajax.BeginForm("Save", "Rule", null
+                        , new AjaxOptions()
+                        {
+                            HttpMethod = "Post",
+                            OnSuccess = "completeSave",
+                            OnBegin = "beginSave"
+                        }
+                        , new { @class = "form-horizontal", resource = "form", id = "frmAdd" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <input type="submit" class="btn btn-primary" value="@StringResource.Save" id="btnSave" />
+                            <input type="reset" class="btn btn-default" value="@StringResource.Reset" id="btnReset" />
+                        </div>
+                        <div class="panel-body">
+                            <div class="alert fade in hide" resource="alert" id="addStatusMessage">
+                                <button type="button" class="close" onclick="hideAddAlert()">
+                                    <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+                                </button>
+                                <p></p>
+                            </div>
+                            <div>
+                                @Html.Partial("_AddPartial",new RuleViewModel())
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+@*显示明细*@
+<div id="info"
+     class="modal fade"
+     tabindex="-1"
+     resource="dialog"
+     aria-labelledby="infoHeader"
+     aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                <span aria-hidden="true">&times;</span>
+                <span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="infoHeader">@ZPVM.StringResource.Rule_DetailTitle</h4>
+            </div>
+            <div class="modal-body" id="infoContent" style="margin:0px;padding:5px">
+                <form class="form-horizontal" resource="form">
+                    <div class="panel panel-default">
+                        <div class="panel-body" id="detailInfo">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@*修改*@
+<div id="modify"
+     class="modal fade"
+     tabindex="-1"
+     resource="dialog"
+     aria-labelledby="modifyHeader"
+     aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                <span aria-hidden="true">&times;</span>
+                <span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="modifyHeader">@ZPVM.StringResource.Rule_ModifyTitle</h4>
+            </div>
+            <div class="modal-body" id="modifyResourceContent" style="margin:0px;padding:5px">
+                @using (Ajax.BeginForm("SaveModify", "Rule", null
+                    , new AjaxOptions()
+                    {
+                        HttpMethod = "Post",
+                        OnSuccess = "completeSaveModify",
+                        OnBegin = "beginSaveModify"
+                    }
+                    , new { @class = "form-horizontal", resource = "form" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <input type="submit" class="btn btn-primary" value="@StringResource.Save" id="btnSaveModify" />
+                        </div>
+                        <div class="panel-body">
+                            <div class="alert fade in hide" resource="alert" id="modifyStatusMessage">
+                                <button type="button" class="close" onclick="hideModifyAlert()">
+                                    <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+                                </button>
+                                <p></p>
+                            </div>
+                            <div id="modifyFormContent">
+                                @Html.Partial("_ModifyPartial", new RuleViewModel())
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+
+
+    <script type="text/javascript" language="javascript">
+        //刷新列表
+        function refreshList() {
+            if ($("#frmPagingQuery").length > 0) {
+                $("#frmPagingQuery").submit();
+            }
+        }
+        //隐藏状态消息
+        function hideStatusMessage() {
+            $("#statusMessage").addClass("hide");
+        }
+
+        var cache = {};
+
+        function registerPowersetCodeClientEvent(element,parentElement) {
+
+            var getUrl = "@Url.Action("GetPowersetCode", "Rule", new { area = "ZPVM" })";
+            $(element).autocomplete({
+                source: function (request, response) {
+                    //已缓存
+                    var term = request.term.toUpperCase();
+                    if (term in cache) {
+                        response(cache[term]);
+                        return;
+                    }
+                    //动态获取。
+                    $.getJSON(getUrl + "?q=" + term, null, function (data, status, xhr) {
+                        response(data);
+                        cache[term] = data;
+                    });
+                },
+                minLength: 1,
+                autoFocus: true,
+                appendTo: parentElement,
+                change: function () {
+                    var val = $(this).val().toUpperCase();
+                    var valid = false;
+                    var obj = $(this);
+                    //已缓存。
+                    if (val in cache) {
+                        $(cache[val]).each(function (index, item) {
+                            if (item.value.toUpperCase() == val) {
+                                valid = true;
+                                return false;
+                            }
+                        });
+                        if (valid == false) {
+                            setTimeout(function () { $(obj).val(""); $(obj).focus(); }, 0);
+                        }
+                    }
+                    else {
+                        $.getJSON(getUrl + "?q=" + val, null, function (data, status, xhr) {
+                            $(data).each(function (index, item) {
+                                if (item.value.toUpperCase() == val) {
+                                    valid = true;
+                                    return false;
+                                }
+                            });
+                            cache[val] = data;
+                            if (valid == false) {
+                                setTimeout(function () { $(obj).val(""); $(obj).focus(); }, 0);
+                            }
+                        });
+                    }
+                }
+            });
+        }
+    </script>
+    @*查询*@
+    <script type="text/javascript" language="javascript">
+        //刷新列表
+        function beginQuery() {
+            hideStatusMessage();
+        }
+    </script>
+
+    @*新增*@
+    <script type="text/javascript" language="javascript">
+        //保存
+        $(function () {
+
+            var texts = $('#add').find(":text:enabled,:checkbox:enabled,select:enabled")
+            texts.keypress(function (args) {
+                if (args.ctrlKey == false && args.keyCode == 13) {
+                    var index = texts.index(this) + 1;
+                    if (index < texts.length) {
+                        texts.eq(index).focus().select();
+                        return false;
+                    }
+                    else {
+                        texts.eq(0).focus().select();
+                        return true;
+                    }
+                }
+            }).focus(function () {
+                $(this).select();
+            });
+
+            $('#add').on('shown.bs.modal', function (e) {
+                $("#btnReset").click();
+            });
+
+            $("#btnReset").click(function () {
+                texts.eq(0).focus().select();
+            });
+
+            registerPowersetCodeClientEvent($("#txtAddPowersetCode"), $("#frmAdd"));
+        })
+
+        function showAddModal() {
+            hideAddAlert();
+            hideStatusMessage();
+            $("#btnSave").removeAttr("disabled");
+            $('#add').modal('show');
+        }
+
+        function hideAddAlert() {
+            $("#addStatusMessage").addClass("hide");
+        }
+
+        function beginSave() {
+            $("#btnSave").attr("disabled", "disabled");
+        }
+        
+        function completeSave(result) {
+            $("#btnSave").removeAttr("disabled");
+            $("#addStatusMessage").find("p").html(result.Message);
+            $("#addStatusMessage").removeClass("hide");
+            if (result.Code > 0) {
+                $("#addStatusMessage").removeClass("alert-success");
+                $("#addStatusMessage").addClass("alert-danger");
+            }
+            else {
+                $("#addStatusMessage").removeClass("alert-danger");
+                $("#addStatusMessage").addClass("alert-success");
+                refreshList();
+            }
+        }
+    </script>
+    @*显示明细*@
+    <script type="text/javascript" language="javascript">
+        //显示明细
+        function showInfoModal(result) {
+            $('#info').modal('show')
+        }
+    </script>
+    @*修改*@
+    <script type="text/javascript" language="javascript">
+        //修改资源
+        $(function () {
+            $('#modify').on('shown.bs.modal', function (e) {
+                registerModifyClientEvent();
+                registerPowersetCodeClientEvent($("#txtModifyPowersetCode"), $("#modifyFormContent"));
+            });
+        });
+
+        function showModifyModal(result) {
+            hideModifyAlert();
+            hideStatusMessage();
+            $("#btnSaveModify").removeAttr("disabled");
+            $('#modify').modal('show')
+        }
+
+        function registerModifyClientEvent() {
+            var texts = $('#modify').find(":text:enabled,:checkbox:enabled,select:enabled")
+            texts.keypress(function (args) {
+                if (args.ctrlKey == false && args.keyCode == 13) {
+                    var index = texts.index(this) + 1;
+                    if (index < texts.length) {
+                        texts.eq(index).focus().select();
+                        return false;
+                    }
+                    else {
+                        texts.eq(0).focus().select();
+                        return true;
+                    }
+                }
+            }).focus(function () {
+                $(this).select();
+            });
+
+            texts.eq(0).focus().select();
+        }
+
+        function hideModifyAlert() {
+            $("#modifyStatusMessage").addClass("hide");
+        }
+
+        function beginSaveModify() {
+            $("#btnSaveModify").attr("disabled", "disabled");
+        }
+
+        function completeSaveModify(result) {
+            $("#btnSaveModify").removeAttr("disabled");
+            $("#modifyStatusMessage").find("p").html(result.Message);
+            $("#modifyStatusMessage").removeClass("hide");
+            if (result.Code > 0) {
+                $("#modifyStatusMessage").removeClass("alert-success");
+                $("#modifyStatusMessage").addClass("alert-danger");
+            }
+            else {
+                $("#modifyStatusMessage").removeClass("alert-danger");
+                $("#modifyStatusMessage").addClass("alert-success");
+                refreshList();
+            }
+        }
+    </script>
+    @*删除*@
+    <script type="text/javascript" language="javascript">
+        //删除资源
+        function completeDelete(result) {
+            $("#statusMessage").find("p").html(result.Message);
+            $("#statusMessage").removeClass("hide");
+            if (result.Code > 0) {
+                $("#statusMessage").removeClass("alert-success");
+                $("#statusMessage").addClass("alert-danger");
+            }
+            else {
+                $("#statusMessage").removeClass("alert-danger");
+                $("#statusMessage").addClass("alert-success");
+                refreshList();
+            }
+        }
+    </script>
+}

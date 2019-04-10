@@ -1,0 +1,80 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.LSM.Models.MaterialScrapTypeViewModels
+@using ServiceCenter.MES.Model.LSM;
+@using ServiceCenter.Model;
+@using ServiceCenter.Common;
+@using ServiceCenter.Client.Mvc.Areas.LSM.Models;
+@using LSM = ServiceCenter.Client.Mvc.Resources.LSM;
+@using ServiceCenter.Client.Mvc.Resources;
+
+
+@{
+    PagingConfig cfg = ViewBag.PagingConfig;
+}
+<div id="_list">
+    <table class="table table-hover table-bordered table-condensed">
+        <thead>
+            <tr class="active">
+                <td>@StringResource.ItemNo</td>
+                <td>@Html.DisplayNameFor(m => m.BillCode)</td>
+                <td>@Html.DisplayNameFor(m => m.ScrapDate)</td>
+                <td>@Html.DisplayNameFor(m => m.OrderNumber)</td>
+                <td>@Html.DisplayNameFor(m => m.MaterialCode)</td>
+                <td>@Html.DisplayNameFor(m => m.MaterialLot)</td>
+                <td>@Html.DisplayNameFor(m => m.Qty)</td>
+                <td>@Html.DisplayNameFor(m => m.Description)</td>
+            </tr>
+        </thead>
+        @if (ViewBag.List != null)
+        {
+            <tbody>
+                @for (int i = 0; i < ViewBag.List.Count; i++)
+                {
+                    MaterialScrapTypeViewModels obj = ViewBag.List[i];
+                    <tr>
+                        <td>@(cfg.PageSize * cfg.PageNo + i + 1)</td>
+                        <td>
+                            @obj.BillCode
+                        </td>
+                        <td>
+                            @obj.ScrapDate
+                        </td>
+                        <td>
+                            @obj.OrderNumber
+                        </td>
+                        <td>
+                            @obj.MaterialCode
+                        </td>
+                        <td>
+                            @obj.MaterialLot
+                        </td>
+                        <td>@obj.Qty</td>
+                        <td>@obj.Description</td>
+                    </tr>
+                }
+            </tbody>
+        }
+    </table>
+    <div style="margin-top:-18px">
+        @if (cfg != null)
+        {
+            using (Ajax.BeginForm("PagingQuery", "MaterialScrapType"
+                            , new
+                            {
+                                @Where = cfg.Where,
+                                @OrderBy = cfg.OrderBy,
+                                @CurrentPageNo = cfg.PageNo,
+                                @CurrentPageSize = cfg.PageSize
+                            }
+                            , new AjaxOptions()
+                            {
+                                HttpMethod = "Post",
+                                UpdateTargetId = "_list"
+                            }
+                            , new { @class = "form-horizontal", resource = "form", id = "frmPagingQuery" }))
+            {
+                @Html.AntiForgeryToken()
+                <div>@Html.Partial("_PaginationPartial")</div>
+            }
+        }
+    </div>
+</div>

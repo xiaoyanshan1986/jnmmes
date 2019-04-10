@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   namespace="ServiceCenter.MES.Model.PPM" 
+                   assembly="ServiceCenter.MES.Model.PPM">
+  <class name="WorkOrderProduct" table="PPM_WORK_ORDER_PRD">
+    <composite-id  name="Key" class="WorkOrderProductKey">
+      <key-property name="OrderNumber" column="ORDER_NUMBER"/>
+      <key-property name="MaterialCode" column="MATERIAL_CODE"/>
+    </composite-id >
+    <property name="ItemNo" column="ITEM_NO"/>
+    <property name="IsMain" column="IS_MAIN"/>
+    <property name="Creator" column="CREATOR"/>
+    <property name="CreateTime" column="CREATE_TIME"/>
+    <property name="Editor" column="EDITOR"/>
+    <property name="EditTime" column="EDIT_TIME"/>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   namespace="ServiceCenter.MES.Model.FMM" 
+                   assembly="ServiceCenter.MES.Model.FMM">
+  <class name="ClientConfig" table="FMM_CLIENT_CONFIG">
+    <id name="Key" column="CLIENT_NAME">
+      <generator class="assigned" />
+    </id>
+    <property name="ClientType" column="CLIENT_TYPE"/>
+    <property name="IPAddress" column="CLIENT_IP"/>
+    <property name="LocationName" column="LOCATION_NAME"/>
+    <property name="Description" column="DESCRIPTION"/>
+    <property name="Creator" column="CREATOR"/>
+    <property name="CreateTime" column="CREATE_TIME"/>
+    <property name="Editor" column="EDITOR"/>
+    <property name="EditTime" column="EDIT_TIME"/>
+  </class>
+</hibernate-mapping>

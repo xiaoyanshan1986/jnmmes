@@ -1,0 +1,415 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AbnormalBin_IsExists" xml:space="preserve">
+    <value>线别【{0}】BIN（{1}）已设置为异常BIN</value>
+  </data>
+  <data name="BinRuleService_IsExists" xml:space="preserve">
+    <value>Bin属性（{0}）已存在。</value>
+  </data>
+  <data name="BinRuleService_IsNotExists" xml:space="preserve">
+    <value>Bin属性（{0}）不存在。</value>
+  </data>
+  <data name="CalibrationPlateLineService_IsExists" xml:space="preserve">
+    <value>校准板线别属性（{0}）已存在。</value>
+  </data>
+  <data name="CalibrationPlateLineService_IsNotExists" xml:space="preserve">
+    <value>校准板线别属性（{0}）不存在。</value>
+  </data>
+  <data name="CalibrationPlateService_IsExists" xml:space="preserve">
+    <value>校准板属性（{0}）已存在。</value>
+  </data>
+  <data name="CalibrationPlateService_IsNotExists" xml:space="preserve">
+    <value>校准板属性（{0}）不存在。</value>
+  </data>
+  <data name="ClientConfigAttributeService_IsExists" xml:space="preserve">
+    <value>客户端属性（{0}）已存在。</value>
+  </data>
+  <data name="ClientConfigAttributeService_IsNotExists" xml:space="preserve">
+    <value>客户端属性（{0}）不存在。</value>
+  </data>
+  <data name="ClientConfigService_IsExists" xml:space="preserve">
+    <value>客户端（{0}）已存在。</value>
+  </data>
+  <data name="ClientConfigService_IsNotExists" xml:space="preserve">
+    <value>客户端（{0}）不存在。</value>
+  </data>
+  <data name="EquipmentChangeStateService_IsExists" xml:space="preserve">
+    <value>设备可切换状态（{0}）已存在。</value>
+  </data>
+  <data name="EquipmentChangeStateService_IsNotExists" xml:space="preserve">
+    <value>设备可切换状态（{0}）不存在。</value>
+  </data>
+  <data name="EquipmentConsumingService_IsNotExists" xml:space="preserve">
+    <value>设备异常耗时（{0}）不存在。</value>
+  </data>
+  <data name="EquipmentControlObjectService_IsExists" xml:space="preserve">
+    <value>设备控制参数（{0}）已存在。</value>
+  </data>
+  <data name="EquipmentControlObjectService_IsNotExists" xml:space="preserve">
+    <value>设备控制参数（{0}）不存在。</value>
+  </data>
+  <data name="EquipmentGroupService_IsExists" xml:space="preserve">
+    <value>设备组（{0}）已存在。</value>
+  </data>
+  <data name="EquipmentGroupService_IsNotExists" xml:space="preserve">
+    <value>设备组（{0}）不存在。</value>
+  </data>
+  <data name="EquipmentLayoutDetailService_IsExists" xml:space="preserve">
+    <value>设备布局明细（{0}）已存在。</value>
+  </data>
+  <data name="EquipmentLayoutDetailService_IsNotExists" xml:space="preserve">
+    <value>设备布局明细（{0}）不存在。</value>
+  </data>
+  <data name="EquipmentLayoutService_IsExists" xml:space="preserve">
+    <value>设备布局（{0}）已存在。</value>
+  </data>
+  <data name="EquipmentLayoutService_IsNotExists" xml:space="preserve">
+    <value>设备布局（{0}）不存在。</value>
+  </data>
+  <data name="EquipmentService_IsExists" xml:space="preserve">
+    <value>设备（{0}）已存在。</value>
+  </data>
+  <data name="EquipmentService_IsNotExists" xml:space="preserve">
+    <value>设备（{0}）不存在。</value>
+  </data>
+  <data name="EquipmentStateService_IsExists" xml:space="preserve">
+    <value>设备状态（{0}）已存在。</value>
+  </data>
+  <data name="EquipmentStateService_IsNotExists" xml:space="preserve">
+    <value>设备状态（{0}）不存在。</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>错误</value>
+  </data>
+  <data name="LineStoreService_IsExists" xml:space="preserve">
+    <value>线边仓（{0}）已存在。</value>
+  </data>
+  <data name="LineStoreService_IsNotExists" xml:space="preserve">
+    <value>线边仓（{0}）不存在。</value>
+  </data>
+  <data name="LocationService_IsExists" xml:space="preserve">
+    <value>区域（{0}）已存在。</value>
+  </data>
+  <data name="LocationService_IsNotExists" xml:space="preserve">
+    <value>区域（{0}）不存在。</value>
+  </data>
+  <data name="ManufacturerService_IsExists" xml:space="preserve">
+    <value>生产厂商（{0}）已存在。</value>
+    <comment>1001</comment>
+  </data>
+  <data name="ManufacturerService_IsNotExists" xml:space="preserve">
+    <value>生产厂商（{0}）不存在。</value>
+    <comment>1002</comment>
+  </data>
+  <data name="MaterialAttributeService_IsExists" xml:space="preserve">
+    <value>物料属性（{0}）已存在。</value>
+  </data>
+  <data name="MaterialAttributeService_IsNotExists" xml:space="preserve">
+    <value>物料属性（{0}）不存在。</value>
+  </data>
+  <data name="MaterialBOMService_IsExists" xml:space="preserve">
+    <value>物料BOM（{0}）已存在。</value>
+    <comment>1001</comment>
+  </data>
+  <data name="MaterialBOMService_IsNotExists" xml:space="preserve">
+    <value>物料BOM（{0}）已存在。</value>
+    <comment>1002</comment>
+  </data>
+  <data name="MaterialChestParameterService_IsExists" xml:space="preserve">
+    <value>产品编码（{0}）成柜规则已存在。</value>
+  </data>
+  <data name="MaterialChestParameterService_IsNotExists" xml:space="preserve">
+    <value>产品编码（{0}）成柜规则不存在。</value>
+  </data>
+  <data name="MaterialPrintSetService_IsExists" xml:space="preserve">
+    <value>产品标签（{0}）已存在。</value>
+  </data>
+  <data name="MaterialPrintSetService_IsNotExists" xml:space="preserve">
+    <value>产品标签（{0}）不存在。</value>
+  </data>
+  <data name="MaterialRouteService_IsExists" xml:space="preserve">
+    <value>产品工艺流程（{0}）已存在。</value>
+  </data>
+  <data name="MaterialRouteService_IsNotExists" xml:space="preserve">
+    <value>产品工艺流程（{0}）不存在。</value>
+  </data>
+  <data name="MaterialService_IsExists" xml:space="preserve">
+    <value>物料（{0}）已存在。</value>
+  </data>
+  <data name="MaterialService_IsNotExists" xml:space="preserve">
+    <value>物料（{0}）不存在。</value>
+  </data>
+  <data name="MaterialTypeRouteService_IsExists" xml:space="preserve">
+    <value>工艺流程（{0}）已存在。</value>
+  </data>
+  <data name="MaterialTypeRouteService_IsNotExists" xml:space="preserve">
+    <value>工艺流程（{0}）不存在。</value>
+  </data>
+  <data name="MaterialTypeService_IsExists" xml:space="preserve">
+    <value>物料类型（{0}）已存在。</value>
+  </data>
+  <data name="MaterialTypeService_IsNotExists" xml:space="preserve">
+    <value>物料类型（{0}）不存在。</value>
+  </data>
+  <data name="OtherError" xml:space="preserve">
+    <value>其他错误（{0}）。</value>
+    <comment>1000</comment>
+  </data>
+  <data name="ParameterDerivationService_IsExists" xml:space="preserve">
+    <value>参数（{0}）已存在。</value>
+  </data>
+  <data name="ParameterDerivationService_IsNotExists" xml:space="preserve">
+    <value>参数（{0}）不存在。</value>
+  </data>
+  <data name="ParameterService_IsExists" xml:space="preserve">
+    <value>参数（{0}）已存在。</value>
+  </data>
+  <data name="ParameterService_IsNotExists" xml:space="preserve">
+    <value>参数（{0}）不存在。</value>
+  </data>
+  <data name="PrintLabelService_IsExists" xml:space="preserve">
+    <value>打印标签（{0}）已存在。</value>
+  </data>
+  <data name="PrintLabelService_IsNotExists" xml:space="preserve">
+    <value>打印标签（{0}）不存在。</value>
+  </data>
+  <data name="ProductionLineService_IsExists" xml:space="preserve">
+    <value>生产线（{0}）已存在。</value>
+  </data>
+  <data name="ProductionLineService_IsNotExists" xml:space="preserve">
+    <value>生产线（{0}）不存在。</value>
+  </data>
+  <data name="ReasonCodeCategoryDetailService_IsExists" xml:space="preserve">
+    <value>代码（{0}）已存在。</value>
+  </data>
+  <data name="ReasonCodeCategoryDetailService_IsNotExists" xml:space="preserve">
+    <value>代码（{0}）不存在。</value>
+  </data>
+  <data name="ReasonCodeCategoryService_IsExists" xml:space="preserve">
+    <value>代码组（{0}）已存在。</value>
+  </data>
+  <data name="ReasonCodeCategoryService_IsNotExists" xml:space="preserve">
+    <value>代码组（{0}）不存在。</value>
+  </data>
+  <data name="ReasonCodeService_IsExists" xml:space="preserve">
+    <value>代码（{0}）已存在。</value>
+  </data>
+  <data name="ReasonCodeService_IsNotExists" xml:space="preserve">
+    <value>代码（{0}）不存在。</value>
+  </data>
+  <data name="RouteEnterpriseDetailService_IsExists" xml:space="preserve">
+    <value>工艺流程（{0}）已存在。</value>
+  </data>
+  <data name="RouteEnterpriseDetailService_IsNotExists" xml:space="preserve">
+    <value>工艺流程（{0}）不存在。</value>
+  </data>
+  <data name="RouteEnterpriseService_IsExists" xml:space="preserve">
+    <value>工艺流程组（{0}）已存在。</value>
+  </data>
+  <data name="RouteEnterpriseService_IsNotExists" xml:space="preserve">
+    <value>工艺流程组（{0}）不存在。</value>
+  </data>
+  <data name="RouteOperationAttributeService_IsExists" xml:space="preserve">
+    <value>工序属性（{0}）已存在。</value>
+  </data>
+  <data name="RouteOperationAttributeService_IsNotExists" xml:space="preserve">
+    <value>工序属性（{0}）不存在。</value>
+  </data>
+  <data name="RouteOperationEquipmentService_IsExists" xml:space="preserve">
+    <value>工序设备（{0}）已存在。</value>
+  </data>
+  <data name="RouteOperationEquipmentService_IsNotExists" xml:space="preserve">
+    <value>工序设备（{0}）不存在。</value>
+  </data>
+  <data name="RouteOperationParameterService_IsExists" xml:space="preserve">
+    <value>工序参数（{0}）已存在。</value>
+  </data>
+  <data name="RouteOperationParameterService_IsNotExists" xml:space="preserve">
+    <value>工序参数（{0}）不存在。</value>
+  </data>
+  <data name="RouteOperationService_IsExists" xml:space="preserve">
+    <value>工序（{0}）已存在。</value>
+  </data>
+  <data name="RouteOperationService_IsNotExists" xml:space="preserve">
+    <value>工序（{0}）不存在。</value>
+  </data>
+  <data name="RouteService_IsExists" xml:space="preserve">
+    <value>工艺流程（{0}）已存在。</value>
+  </data>
+  <data name="RouteService_IsNotExists" xml:space="preserve">
+    <value>工艺流程（{0}）不存在。</value>
+  </data>
+  <data name="RouteStepAttributeService_IsExists" xml:space="preserve">
+    <value>工艺流程工步属性（{0}）已存在。</value>
+  </data>
+  <data name="RouteStepAttributeService_IsNotExists" xml:space="preserve">
+    <value>工艺流程工步属性（{0}）不存在。</value>
+  </data>
+  <data name="RouteStepParameterService_IsExists" xml:space="preserve">
+    <value>工艺流程工步参数（{0}）已存在。</value>
+  </data>
+  <data name="RouteStepParameterService_IsNotExists" xml:space="preserve">
+    <value>工艺流程工步参数（{0}）不存在。</value>
+  </data>
+  <data name="RouteStepService_IsExists" xml:space="preserve">
+    <value>工艺流程工步（{0}）已存在。</value>
+  </data>
+  <data name="RouteStepService_IsNotExists" xml:space="preserve">
+    <value>工艺流程工步（{0}）不存在。</value>
+  </data>
+  <data name="ScheduleDayService_IsExists" xml:space="preserve">
+    <value>日排班（{0:yyyy-MM-dd}）已存在。</value>
+  </data>
+  <data name="ScheduleDayService_IsNotExists" xml:space="preserve">
+    <value>日排班（{0:yyyy-MM-dd}）不存在。</value>
+  </data>
+  <data name="ScheduleDetailService_IsExists" xml:space="preserve">
+    <value>排班计划明细（{0}）已存在。</value>
+  </data>
+  <data name="ScheduleDetailService_IsNotExists" xml:space="preserve">
+    <value>排班计划明细（{0}）不存在。</value>
+  </data>
+  <data name="ScheduleMonthService_IsExists" xml:space="preserve">
+    <value>月排班（{0}）已存在。</value>
+  </data>
+  <data name="ScheduleMonthService_IsNotExists" xml:space="preserve">
+    <value>月排班（{0}）不存在。</value>
+  </data>
+  <data name="ScheduleService_IsExists" xml:space="preserve">
+    <value>排班计划（{0}）已存在。</value>
+  </data>
+  <data name="ScheduleService_IsNotExists" xml:space="preserve">
+    <value>排班计划（{0}）不存在。</value>
+  </data>
+  <data name="ShiftService_IsExists" xml:space="preserve">
+    <value>班别（{0}）已存在。</value>
+  </data>
+  <data name="ShiftService_IsNotExists" xml:space="preserve">
+    <value>班别（{0}）不存在。</value>
+  </data>
+  <data name="SupplierService_IsExists" xml:space="preserve">
+    <value>供应商（{0}）已存在。</value>
+    <comment>1001</comment>
+  </data>
+  <data name="SupplierService_IsNotExists" xml:space="preserve">
+    <value>供应商（{0}）不存在。</value>
+    <comment>1002</comment>
+  </data>
+</root>

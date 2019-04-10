@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   namespace="ServiceCenter.MES.Model.WIP" 
+                   assembly="ServiceCenter.MES.Model.WIP">
+  <class name="LotTransactionHoldRelease" table="WIP_TRANSACTION_HOLD_RELEASE">
+    <id name="Key" column="TRANSACTION_KEY">
+      <generator class="assigned" />
+    </id>
+    <property name="ReasonCodeCategoryName" column="REASON_CODE_CATEGORY_NAME"/>
+    <property name="ReasonCodeName" column="REASON_CODE_NAME"/>
+    <property name="HoldOperator" column="HOLD_OPERATOR"/>
+    <property name="HoldTime" column="HOLD_TIME"/>
+    <property name="HoldDescription" column="HOLD_DESCRIPTION"/>
+    <property name="HoldPassword" column="HOLD_PASSWORD"/>
+    <property name="IsRelease" column="IS_RELEASE"/>
+    <property name="ReleaseTransactionKey" column="RELEASE_TRANSACTION_KEY"/>
+    <property name="ReleaseOperator" column="RELEASE_OPERATOR"/>
+    <property name="ReleaseTime" column="RELEASE_TIME"/>
+    <property name="ReleaseDescription" column="RELEASE_DESCRIPTION"/>
+    <property name="Editor" column="EDITOR"/>
+    <property name="EditTime" column="EDIT_TIME"/>
+  </class>
+</hibernate-mapping>

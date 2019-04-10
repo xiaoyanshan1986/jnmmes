@@ -1,0 +1,94 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.WIP.Models.SerialNumberDataViewModel
+@using ServiceCenter.Client.Mvc.Areas.WIP.Models;
+@using ServiceCenter.Client.Mvc.Resources;
+@using WIPResources = ServiceCenter.Client.Mvc.Resources.WIP;
+@using ServiceCenter.MES.Model.WIP;
+@using ServiceCenter.MES.Model.WIP;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@using System.Data;
+@{
+    PagingConfig cfg = ViewBag.PagingConfig;
+    MethodReturnResult<DataSet> ds = new MethodReturnResult<DataSet>();
+    DataTable dtList = ViewBag.ListData;
+    ds = ViewBag.dtList;
+}
+@if (dtList != null)
+{
+    <div id="_list" style="overflow:auto">
+        <table class="table table-hover table-bordered table-condensed table-responsive table-striped">
+            <thead>
+                <tr class="active">
+                    <td nowrap>@StringResource.ItemNo</td>
+                    <td nowrap>SN码</td>
+                    <td nowrap>标签条码</td>
+                    <td nowrap>标签条码位数</td>
+                    <td nowrap>标签条码格式</td>
+                    <td nowrap>工单号</td>
+                    <td nowrap>包装号</td>
+                    <td nowrap>产品编码</td>
+                    <td nowrap>工步</td>
+                    <td nowrap>订单编号</td>
+                </tr>
+            </thead>
+            <tbody>
+                @if (dtList != null)
+                {
+                    for (int i = 0; i < dtList.Rows.Count; i++)
+                    {
+                        System.Data.DataRow obj = dtList.Rows[i];
+
+                        <tr>
+                            <td nowrap>@obj["RowNumber"] </td>
+                            <td nowrap>@obj["SN码"] </td>
+                            <td nowrap>@obj["标签条码"]</td>
+                            <td nowrap>@obj["标签条码位数"]</td>
+                            <td nowrap>@obj["标签条码格式"]</td>
+                            <td nowrap>@obj["工单号"]</td>
+                            <td nowrap>@obj["包装号"]</td>
+                            <td nowrap>@obj["产品编码"]</td>
+                            <td nowrap>@obj["工步"]</td>
+                            <td nowrap>@obj["订单编号"]</td>
+                        </tr>
+                    }
+                }
+            </tbody>
+
+        </table>
+        <div style="margin-top:-18px">
+            @if (cfg != null)
+            {
+                using (Ajax.BeginForm("Query", "SerialNumberData"
+                                , null
+                                , new AjaxOptions()
+                                {
+                                    HttpMethod = "Post",
+                                    UpdateTargetId = "_list"
+                                }
+                                , new { @class = "form-horizontal", resource = "form", id = "frmPagingQuery" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.HiddenFor(m => m.OrderNumber)
+                    @Html.HiddenFor(m => m.MaterialCode)
+                    @Html.HiddenFor(m => m.RouteStepName)
+                    @Html.HiddenFor(m => m.MapType)
+                    @Html.HiddenFor(m => m.LotNumber)
+                    @Html.HiddenFor(m => m.PackageNo)
+                    @Html.HiddenFor(m => m.PageSize)
+                    <div>@Html.Partial("_PaginationPartial")</div>
+                }
+            }
+
+        </div>
+    </div>
+
+}
+else
+{
+
+}
+<p>@ViewBag.Message</p>
+
+
+
+

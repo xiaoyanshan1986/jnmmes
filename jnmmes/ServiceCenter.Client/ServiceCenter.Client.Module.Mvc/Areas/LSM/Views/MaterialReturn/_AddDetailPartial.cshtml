@@ -1,0 +1,63 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.LSM.Models.MaterialReturnDetailViewModel
+@using ServiceCenter.Client.Mvc.Areas.LSM.Models;
+@using ServiceCenter.Client.Mvc.Resources;
+@using LSMResources = ServiceCenter.Client.Mvc.Resources.LSM;
+@using ServiceCenter.MES.Model.LSM;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+
+<table class="table table-hover table-bordered table-condensed" id="tblDetail">
+    <thead>
+        <tr class="active">
+            <td style="width:60px">@Html.DisplayNameFor(m => m.ItemNo)
+             <div>@Html.ValidationMessageFor(m => m.ItemNo)</div>
+            </td>
+            <td style="width:130px">
+                @Html.DisplayNameFor(m => m.LineStoreName)
+            <div>@Html.ValidationMessageFor(m => m.LineStoreName)</div>
+        </td>
+            <td>@Html.DisplayNameFor(m => m.MaterialCode)
+                <div>@Html.ValidationMessageFor(m => m.MaterialCode)</div>
+            </td>
+            <td>@Html.DisplayNameFor(m => m.MaterialLot)
+                <div>@Html.ValidationMessageFor(m => m.MaterialLot)</div>
+            </td>
+            <td>@Html.DisplayNameFor(m => m.Qty)
+                <div>@Html.ValidationMessageFor(m => m.Qty)</div>
+            </td>
+            <td>@Html.DisplayNameFor(m => m.DetailDescription)
+                <div>@Html.ValidationMessageFor(m => m.DetailDescription)</div>
+            </td>
+            <td>@StringResource.Delete</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                <p>1</p>
+                @Html.HiddenFor(m => m.ItemNo, new { @class = "form-control" })
+                
+            </td>
+            <td>
+                @Html.DropDownListFor(m => m.LineStoreName, new List<SelectListItem>(), new { @class = "form-control" })
+
+            </td>
+            <td>
+                @Html.TextBoxFor(m => m.MaterialCode, new { @class = "form-control", @style = "text-transform:uppercase" })
+                <p></p>
+            </td>
+            <td>
+                @Html.TextBoxFor(m => m.MaterialLot, new { @class = "form-control", @style = "text-transform:uppercase" })
+            </td>
+            <td>
+                @Html.TextBoxFor(m => m.Qty, new { @class = "form-control" })
+            </td>
+            <td>
+                @Html.TextBoxFor(m => m.DetailDescription, new { @class = "form-control" })
+            </td>
+            <td>
+                <input type="button" class="btn btn-default" value="@StringResource.Delete" id="btnDeleteDetailRow" onclick="removeDetailRow($(this))" />
+            </td>
+        </tr>
+    </tbody>
+</table>

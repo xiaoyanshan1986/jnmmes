@@ -1,0 +1,140 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.ERP.Models.MaterialReceiptViewModel
+@using ServiceCenter.Model;
+@using ServiceCenter.Common;
+@using ServiceCenter.Client.Mvc.Areas.ERP.Models;
+@using ERP = ServiceCenter.Client.Mvc.Resources.ERP;
+@using ServiceCenter.Client.Mvc.Resources;
+@{
+    PagingConfig cfg = ViewBag.PagingConfig;
+
+    MaterialReceiptViewModel list = ViewBag.MaterialReceipt;
+    var LineStoreList = (IEnumerable<SelectListItem>)ViewBag.LineStore;
+    ViewBag.Title = ERP.StringResource.ERPMaterialReceiptQuery_ManagePageTitle + "(" + list.ReceiptNo + ")";
+}
+<h2>@ViewBag.Title</h2>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <a href="javascript:Save()" class="btn btn-primary">@ERP.StringResource.ERPMaterialReceipt_Create</a>
+        <a href="javascript:javascript:history.go(-1)" class="btn btn-primary">@ERP.StringResource.Back</a>
+    </div>
+    <div class="alert fade in hide" resource="alert" id="statusMessage" style="margin:0px">
+        <button type="button" class="close" onclick="hideStatusMessage()">
+            <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+        </button>
+        <p></p>
+    </div>
+    <div class="panel-body">
+        @Html.ValidationSummary(true)
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist">
+        @*<ul class="nav nav-pills" role="tablist">*@
+            <li class="active"><a href="#base" role="tab" data-toggle="tab" onfocus="this.blur()">基本信息</a></li>
+            <li><a href="#detail" role="tab" data-toggle="tab" onfocus="this.blur()">领料明细</a></li>
+        </ul>
+
+        <div class="tab-content">
+            <div class="tab-pane active" id="base" style="padding-top:10px">
+                <div class="form-group">
+                    <div class="col-md-1">
+                        @Html.LabelFor(m => m.ReceiptNo, new { @class = "control-label" })
+                    </div>
+                    <div class="col-md-3">
+                        <p class="form-control">@list.ReceiptNo</p>
+                    </div>
+
+                    <div class="col-md-1">
+                        @Html.LabelFor(m => m.OrderNumber, new { @class = "control-label" })
+                    </div>
+                    <div class="col-md-3">
+                        <p class="form-control">@list.OrderNumber</p>
+                    </div>
+
+                    <div class="col-md-1">
+                        @Html.LabelFor(m => m.ReceiptDate, new { @class = "control-label" })
+                    </div>
+                    <div class="col-md-3">
+                        <p class="form-control">@list.ReceiptDate</p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-1">
+                        @Html.LabelFor(m => m.LineStoreName, new { @class = "control-label" })
+                    </div>
+                    @*<div class="col-md-3">
+                        @Html.DropDownListFor(m => m.LineStoreName, LineStoreList, new { @class = "form-control" })
+                    </div>*@
+                    <div class="col-md-3">
+                        @Html.TextAreaFor(m => m.LineStoreName, new { @class = "form-control",@readonly = "readonly" })
+                   </div>
+                    
+
+                    <div class="col-md-1">
+                        @Html.LabelFor(m => m.Description, new { @class = "control-label" })
+                    </div>
+                    <div class="col-sm-7">
+                        @Html.TextAreaFor(m => m.Description, new { @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-pane" style="padding-top:10px" id="detail">
+
+            </div>
+        </div>
+    </div>
+
+
+</div>
+@section Scripts {
+    <script type="text/javascript" language="javascript">
+    $(function () {
+        $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
+            if ($(e.target).attr("href") == "#detail") {
+                var url = "@Url.Action("GetMaterialReceiptDetail", "ERPMaterialReceipt", new { ReceiptNo = list.ReceiptNo })";
+                $("#detail").load(url);}
+            })
+        })
+    </script>
+
+    <script type="text/javascript" language="javascript">
+        function Save() {
+            $("#statusMessage").addClass("hide");
+            var LineStore = $('#LineStoreName').val();
+            if (LineStore != "select") {
+                if (confirm("@ERP.StringResource.ERPMaterialReceipt_ConfirmSave".replace("{0}", '@list.ReceiptNo'))) {
+                    $.ajax({
+                        type: "post",
+                        url: "@Url.Action("Save", "ERPMaterialReceipt")",
+                        data: { ReceiptNo: '@list.ReceiptNo', LineStore: LineStore, Description: '@Model.Description' },
+                        dataType: "json",
+                        success: function (result) { completeSave(result) }
+                    });
+                }
+            }
+            else {
+                $("#statusMessage").find("p").html("请选择线边仓！");
+                $("#statusMessage").removeClass("hide");
+                $("#statusMessage").removeClass("alert-success");
+                $("#statusMessage").addClass("alert-danger");
+            }
+        }
+        function hideStatusMessage() {
+            $("#statusMessage").addClass("hide");
+        }
+
+        function completeSave(result) {
+            $("#statusMessage").find("p").html(result.Message);
+            $("#statusMessage").removeClass("hide");
+            if (result.Code > 0) {
+                $("#statusMessage").removeClass("alert-success");
+                $("#statusMessage").addClass("alert-danger");
+            }
+            else {
+                $("#statusMessage").removeClass("alert-danger");
+                $("#statusMessage").addClass("alert-success");
+            }
+        }
+    </script>
+}

@@ -1,0 +1,123 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.EDC.Models.DataAcquisitionItemViewModel
+@using ServiceCenter.Client.Mvc.Areas.EDC.Models;
+@using ServiceCenter.Client.Mvc.Resources;
+@using EDC = ServiceCenter.Client.Mvc.Resources.EDC;
+@using ServiceCenter.MES.Model.EDC;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@{
+    PagingConfig cfg = ViewBag.PagingConfig;
+}
+<div id="_list">
+    <table class="table table-striped table-hover table-bordered table-condensed">
+        <thead>
+            <tr class="active">                
+                <td align="center">@Html.DisplayNameFor(m => m.ItemCode)</td>
+                <td align="center">@Html.DisplayNameFor(m => m.ItemName)</td>
+                <td align="center">@Html.DisplayNameFor(m => m.Description)</td>
+                <td align="center">@Html.DisplayNameFor(m => m.RouteStepName)</td>
+                <td align="center">@Html.DisplayNameFor(m => m.Creator)</td>
+                <td align="center">@Html.DisplayNameFor(m => m.CreateTime)</td>
+                <td align="center">@Html.DisplayNameFor(m => m.Editor)</td>
+                <td align="center">@Html.DisplayNameFor(m => m.EditTime)</td>
+                <td align="center">@StringResource.Field</td>
+                <td align="center">@StringResource.Detail</td>
+                <td align="center">@StringResource.Modify</td>
+                <td align="center">@StringResource.Delete</td>
+            </tr>
+        </thead>
+        @if (ViewBag.List != null)
+        {
+            <tbody>
+                @for (int i = 0; i < ViewBag.List.Length; i++)
+                {
+                    DataAcquisitionItem obj = ViewBag.List[i];
+                    
+                    <tr>
+                        @*<td>@(cfg.PageSize * cfg.PageNo+i+1)</td>*@
+                        @*<td>
+                            @Html.ActionLink(linkText: obj.Key,
+                                            actionName: "Index",
+                                            controllerName: "BaseAttributeValue"
+                                            , routeValues: new { @CategoryName = obj.Key }
+                                            , htmlAttributes: new { @target="blank"})
+                        </td>*@
+                        <td>@obj.Key</td>
+                        <td>@obj.ItemName</td>
+                        <td>@obj.Description</td>
+                        <td>@obj.RouteStepName</td>
+                        <td>@obj.Creator</td>
+                        <td>@obj.CreateTime</td>
+                        <td>@obj.Editor</td>
+                        <td>@obj.EditTime</td>
+                        <td align="center">
+                            @Html.ActionLink(linkText: StringResource.Field
+                                        , actionName: "Index"
+                                        , controllerName: "DataAcquisitionField"
+                                        , routeValues: new { @ItemCode = obj.Key }
+                                        , htmlAttributes: new { @target = "blank" })
+                        </td>
+                        <td align="center">
+                            @Ajax.ActionLink(StringResource.Detail, actionName: null
+                                        , routeValues: null
+                                        , ajaxOptions: new AjaxOptions()
+                                        {
+                                            HttpMethod = "Post",
+                                            UpdateTargetId = "detailInfo",
+                                            OnSuccess = "showInfoModal",
+                                            Url = Url.Action("Detail", new { @ItemCode = obj.Key })
+                                        })
+                        </td>
+                        <td align="center">
+                            @Ajax.ActionLink(StringResource.Modify, actionName: null
+                                        , routeValues: null
+                                        , ajaxOptions: new AjaxOptions()
+                                        {
+                                            HttpMethod = "Post",
+                                            UpdateTargetId = "modifyFormContent",
+                                            OnSuccess = "showModifyModal",
+                                            Url = Url.Action("Modify", new { @ItemCode = obj.Key })
+                                        })
+                        </td>
+                        <td align="center">
+                            @Ajax.ActionLink(StringResource.Delete, actionName: null
+                                        , routeValues: null
+                                        , ajaxOptions: new AjaxOptions()
+                                        {
+                                            HttpMethod = "Post",
+                                            Confirm = string.Format(StringResource.Delete, obj.Key),
+                                            Url = Url.Action("Delete", new { @ItemCode = obj.Key }),
+                                            OnSuccess = "completeDelete"
+                                        })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        }
+    </table>
+    <div style="margin-top:-18px">
+        @if (cfg != null)
+        {
+            using (Ajax.BeginForm("PagingQuery", "DataAcquisitionItem"
+                            , new
+                            {
+                                @Where = cfg.Where,
+                                @OrderBy = cfg.OrderBy,
+                                @CurrentPageNo = cfg.PageNo,
+                                @CurrentPageSize = cfg.PageSize
+                            }
+                            , new AjaxOptions()
+                            {
+                                HttpMethod = "Post",
+                                UpdateTargetId = "_list"
+                            }
+                            , new { @class = "form-horizontal", resource = "form", id = "frmPagingQuery" }))
+            {
+                @Html.AntiForgeryToken()
+                <div>@Html.Partial("_PaginationPartial")</div>
+            }
+        }
+    </div>
+</div>
+
+

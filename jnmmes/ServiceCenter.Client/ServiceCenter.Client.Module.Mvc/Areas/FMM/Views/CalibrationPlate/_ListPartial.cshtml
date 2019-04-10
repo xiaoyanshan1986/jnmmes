@@ -1,0 +1,154 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.FMM.Models.CalibrationPlateViewModel
+@using ServiceCenter.Client.Mvc.Areas.FMM.Models;
+@using ServiceCenter.Client.Mvc.Resources;
+@using FMM = ServiceCenter.Client.Mvc.Resources.FMM;
+@using ServiceCenter.MES.Model.FMM;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@{
+    Layout = null;
+    PagingConfig cfg = ViewBag.PagingConfig;
+}
+<div id="_list">
+    <table class="table table-hover table-bordered table-condensed">
+        <thead>
+            <tr class="active">
+                <td>@StringResource.ItemNo</td>
+                <td>@Html.DisplayNameFor(m => m.CalibrationPlateID)</td>
+                <td>@Html.DisplayNameFor(m => m.CalibrationPlateName)</td>
+                <td>@Html.DisplayNameFor(m => m.CalibrationPlateType)</td>
+                <td>@Html.DisplayNameFor(m => m.PM)</td>
+                <td>@Html.DisplayNameFor(m => m.ISC)</td>
+                <td>@Html.DisplayNameFor(m => m.VOC)</td>
+                <td>@Html.DisplayNameFor(m => m.MaxPM)</td>
+                <td>@Html.DisplayNameFor(m => m.MinPM)</td>
+                <td>@Html.DisplayNameFor(m => m.MaxISC)</td>
+                <td>@Html.DisplayNameFor(m => m.MinISC)</td>
+                <td>@Html.DisplayNameFor(m => m.MaxVOC)</td>
+                <td>@Html.DisplayNameFor(m => m.MinVOC)</td>
+                <td>@Html.DisplayNameFor(m => m.StdIsc1)</td>
+                <td>@Html.DisplayNameFor(m => m.StdIsc2)</td>
+                <td>@Html.DisplayNameFor(m => m.Stdsun1)</td>
+                <td>@Html.DisplayNameFor(m => m.Stdsun2)</td>
+                <td>@Html.DisplayNameFor(m => m.Explain)</td>
+                <td>@Html.DisplayNameFor(m => m.Creator)</td>
+                <td>@Html.DisplayNameFor(m => m.CreateTime)</td>
+                <td>@Html.DisplayNameFor(m => m.Editor)</td>
+                <td>@Html.DisplayNameFor(m => m.EditTime)</td>
+                <td>线别维护</td>
+                <td>修改</td>
+                <td>删除</td>
+            </tr>
+        </thead>
+        @if (ViewBag.List != null)
+        {
+            <tbody>
+                @for (int i = 0; i < ViewBag.List.Length; i++)
+                {
+                    CalibrationPlate obj = ViewBag.List[i];
+                    if (obj != null)
+                    {
+                        <tr>
+                            <td>@(i + 1)</td>
+                            <td>
+                                @obj.Key
+                            </td>
+                            <td>
+                                @obj.CalibrationPlateName
+                            </td>
+                            <td>
+                                @{EnumPlateType eType = (EnumPlateType)obj.CalibrationPlateType;}
+                                @eType.GetDisplayName()
+                            </td>
+                            <td>
+                                @obj.PM
+                            </td>
+                            <td>
+                                @obj.ISC
+                            </td>
+                            <td>
+                                @obj.VOC
+                            </td>
+                            <td>
+                                @obj.MaxPM
+                            </td>
+                            <td>
+                                @obj.MinPM
+                            </td>
+                            <td>
+                                @obj.MaxISC
+                            </td>
+                            <td>
+                                @obj.MinISC
+                            </td>
+                            <td>
+                                @obj.MaxVOC
+                            </td>
+                            <td>
+                                @obj.MinVOC
+                            </td>
+                            <td>
+                                @obj.StdIsc1
+                            </td>
+                            <td>
+                                @obj.StdIsc2
+                            </td>
+                            <td>
+                                @obj.Stdsun1
+                            </td>
+                            <td>
+                                @obj.Stdsun2
+                            </td>
+                            <td>
+                                @obj.Explain
+                            </td>
+                            <td>
+                                @obj.Creator
+                            </td>
+                            <td>
+                                @obj.CreateTime
+                            </td>
+                            <td>
+                                @obj.Editor
+                            </td>
+                            <td>@obj.EditTime</td>
+                            <td>
+                                @Html.ActionLink("线别信息维护"
+                                                , actionName: "Query"
+                                                , controllerName: "CalibrationPlateLine"
+                                                , routeValues: new { @CalibrationPlateID = obj.Key }
+                                                , htmlAttributes: null
+                                                
+                                                )
+                            </td>
+                            <td>
+                                @Ajax.ActionLink(StringResource.Modify, actionName: null
+                                            , routeValues: null
+                                            , ajaxOptions: new AjaxOptions()
+                                            {
+                                                HttpMethod = "Post",
+                                                UpdateTargetId = "modifyFormContent",
+                                                OnSuccess = "showModifyModal",
+                                                Url = Url.Action("Modify", new { @CalibrationPlateID = obj.Key })
+                                            })
+                            </td>
+                            <td>
+                                @Ajax.ActionLink(StringResource.Delete, actionName: null
+                                            , routeValues: null
+                                            , ajaxOptions: new AjaxOptions()
+                                            {
+                                                HttpMethod = "Post",
+                                                Confirm = string.Format("确定删除规则 ( {0}） ？", obj.Key),
+                                                Url = Url.Action("Delete", new { @Key = obj.Key }),
+                                                OnSuccess = "completeDelete"
+                                            })
+                            </td>
+
+
+                        </tr>
+                    }
+                }
+            </tbody>
+        }
+    </table>
+</div>

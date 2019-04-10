@@ -1,0 +1,1003 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.WIP.Models.LotTrackViewModel
+@using ServiceCenter.MES.Model.FMM;
+@using ServiceCenter.MES.Model.WIP;
+@using ServiceCenter.MES.Model.ZPVM;
+@using ServiceCenter.Model;
+@using ServiceCenter.Common;
+@using WIPRsources = ServiceCenter.Client.Mvc.Resources.WIP;
+@{
+    Lot obj = ViewBag.Lot;
+    IList<RouteStepParameter> lstParameter = ViewBag.ParameterList;
+    IList<ReasonCodeCategoryDetail> lstDefectReasonCodes = ViewBag.DefectReasonCodeList;
+    IList<ReasonCodeCategoryDetail> lstScrapReasonCodes = ViewBag.ScrapReasonCodeList;
+    IVTestData ivtest = null;
+    
+    string colmd = "col-md-6";
+    if (lstDefectReasonCodes==null || lstDefectReasonCodes.Count==0)
+    {
+        colmd = "col-md-12";
+    }
+    
+    if (lstScrapReasonCodes == null || lstScrapReasonCodes.Count == 0)
+    {
+        colmd = "col-md-12";
+    }
+
+    bool isCheckBarCode = false;
+    if (ViewBag.IsCheckBarCode != null)
+    {
+        isCheckBarCode = ViewBag.IsCheckBarCode;
+    }
+    
+    bool isInputColor=false;
+    if(ViewBag.IsInputColor!=null){
+        isInputColor=ViewBag.IsInputColor;
+    }
+    
+    bool isInputGrade=false;
+    if(ViewBag.IsInputGrade!=null){
+        isInputGrade = ViewBag.IsInputGrade;
+    }
+
+    bool isShowELImage = false;
+    if (ViewBag.IsShowELImage != null)
+    {
+        isShowELImage = ViewBag.IsShowELImage;
+    }
+
+    bool isShowIVImage = false;
+    if (ViewBag.IsShowIVImage != null)
+    {
+        isShowIVImage = ViewBag.IsShowIVImage;
+    }
+
+    bool isShowLotPath = false;
+    if (ViewBag.isShowLotPath != null)
+    {
+        isShowLotPath = ViewBag.isShowLotPath;
+    }
+
+    bool isGetLayerEquipment = false;
+    if( ViewBag.IsGetLayerEquipment!=null)
+    {
+        isGetLayerEquipment = ViewBag.IsGetLayerEquipment;
+    }
+    bool isShowDefect = false;
+    if (ViewBag.isShowDefect != null)
+    {
+        isShowDefect = ViewBag.isShowDefect;
+    }
+    
+    if (isShowELImage == true ||isShowIVImage == true)
+    {
+        ivtest = Model.GetIVTestData(obj.Key);
+    }
+    
+}
+
+@if( isGetLayerEquipment)
+{ 
+    @Html.HiddenFor(m => m.LotLayerEquipmentNo)
+}
+<div class="panel panel-default">
+    <div class="panel-body">
+        <div class="form-group">
+            <div class="col-md-1">
+                @WIPRsources.StringResource.LotNumber：
+            </div>
+            <div class="col-md-2">
+                @obj.Key
+            </div>
+            <div class="col-md-1">
+                @WIPRsources.StringResource.LotViewModel_OrderNumber：
+            </div>
+            <div class="col-md-2">
+                @obj.OrderNumber
+            </div>
+            <div class="col-md-1">
+                @WIPRsources.StringResource.LotViewModel_MaterialCode：
+            </div>
+            <div class="col-md-2">
+                @obj.MaterialCode
+            </div>
+            <div class="col-md-1">
+                @WIPRsources.StringResource.LotViewModel_StateFlag：
+            </div>
+            <div class="col-md-2">
+                @obj.StateFlag.GetDisplayName()
+            </div>
+        </div>
+        @if (ivtest != null)
+        {
+        <div class="form-group">
+            <div class="col-md-1">
+                功率：
+            </div>
+            <div class="col-md-2">
+                @ivtest.CoefPM
+            </div>
+            <div class="col-md-1">
+               分档名称：
+            </div>
+            @if (ivtest == null
+                || string.IsNullOrEmpty(ivtest.PowersetCode)
+                || ivtest.PowersetItemNo == null)
+            {
+                <div class="col-md-2">
+                </div>
+            }
+            else
+            {
+                <div class="col-md-2">
+                    @Model.GetPowersetName(ivtest.Key.LotNumber, ivtest.PowersetCode, ivtest.PowersetItemNo.Value)
+                </div>
+            }
+            <div class="col-md-1">
+                子分档：
+            </div>
+            <div class="col-md-2">
+                @ivtest.PowersetSubCode
+            </div>
+        </div>
+        }
+        @if (isInputGrade || isInputColor || isCheckBarCode)
+        {
+            <div class="form-group">
+                @if (isCheckBarCode)
+                {
+                    <div class="col-md-1">
+                        @Html.LabelFor(m => m.Barcode1, new { @class = "control-label" })
+                    </div>
+                    <div class="col-md-2">
+                        @Html.TextBoxFor(m => m.Barcode1, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Barcode1)
+                    </div>
+                    <div class="col-md-1">
+                        @Html.LabelFor(m => m.Barcode2, new { @class = "control-label" })
+                    </div>
+                    <div class="col-md-2">
+                        @Html.TextBoxFor(m => m.Barcode2, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Barcode2)
+                    </div>
+                }
+                
+                @if (isInputGrade)
+                {
+                    <div class="col-md-1">
+                        @Html.LabelFor(m => m.Grade, new { @class = "control-label" })
+                    </div>
+                    <div class="col-md-2">
+                        @Html.DropDownListFor(m => m.Grade, @Model.GetGradeList(@obj.Grade), new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Grade)
+                    </div>
+                }
+                
+                @if (isInputColor)
+                {
+                    string strColor = string.Empty;
+                    if(string.IsNullOrEmpty(obj.Attr2)==false)
+                    {
+                        strColor=obj.Attr2;
+                    }
+                    <div class="col-md-1">
+                        @Html.LabelFor(m => m.Color, new { @class = "control-label" })
+                    </div>
+                    <div class="col-md-2">
+                        @Html.DropDownListFor(m => m.Color, @Model.GetColorList(obj.Key),@Model.GetColorOfModule(@strColor), new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Color)
+                    </div>
+                }
+            </div>
+        }
+        <div class="form-group">
+            <div class="col-md-1">
+                @Html.LabelFor(m => m.Description, new { @class = "control-label" })
+            </div>
+            <div class="col-md-11">
+                @Html.TextBoxFor(m => m.Description, new { @class = "form-control" })
+            </div>
+        </div>
+        @if (ivtest != null || isShowLotPath)
+        {
+            <div class="form-group">
+                @if (ivtest != null)
+                {
+                    if ( string.IsNullOrEmpty(ivtest.PowersetCode)==false && ivtest.PowersetItemNo != null)
+                    {
+                    string strImage = string.Format("/ZPVM/WorkOrderPowersetDetail/ShowPicture?OrderNumber={0}&MaterialCode={1}&Code={2}&ItemNo={3}&SubCode={4}&TimeStamp={5}'"
+                        , obj.OrderNumber
+                        , obj.MaterialCode
+                        , ivtest.PowersetCode
+                        , ivtest.PowersetItemNo
+                        , ivtest.PowersetSubCode
+                        , DateTime.Now.Ticks);
+
+                        <div class="col-md-1">
+                            &nbsp;
+                        </div>
+                        <div class="col-md-5">
+                            <img src='@strImage' width='150px' />
+                        </div>
+                    }
+                }
+                @if (isShowLotPath)
+                {
+                    <div class="col-md-1">
+                        组件路径:
+                    </div>
+                    <div class="col-md-5">
+                       
+                        <img src='/content/images/@Model.GetLotPath(ivtest.Key.LotNumber)' width='150px' />
+                    </div>
+                }
+                @if (isShowDefect&&obj.RepairFlag>0)
+                {
+                    <div class="col-md-1">
+                        <p style="color:red;font-size:25px;">返修<p>
+                    </div>
+                    <div class="col-md-4">
+                        @if (Model.GetLotDefect(obj.Key).Count > 0)
+                              {
+                                  foreach (var item in Model.GetLotDefect(obj.Key))
+                                  {
+                                    <div>
+                                        <p style="color:red">@item<p>
+                                    </div>
+                                  }
+                              }
+
+                    </div>
+                }
+
+
+            </div>
+        }
+
+    </div>
+</div>
+@if (lstParameter != null && lstParameter.Count > 0)
+{
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            参数
+        </div>
+        <div class="panel-body">
+            @foreach (RouteStepParameter item in lstParameter)
+            {
+                string required = string.Empty;
+                string defaultValue = string.Empty;
+                string hashcode = string.Format("{0}{1}{2}", item.Key.RouteName, item.Key.RouteStepName, item.Key.ParameterName)
+                                        .GetHashCode()
+                                        .ToString()
+                                        .Replace('-', '_');
+                string paramName = string.Format("PARAM_{0}", hashcode);
+                string paramValue = "0";
+                    
+                if (item.IsUsePreValue && Request.Cookies.Get(paramName) != null)
+                {
+                    defaultValue = Request.Cookies.Get(paramName).Value;
+                }
+
+                if (item.IsMustInput)
+                {
+                    required = "data-val-required= " + item.Key.ParameterName + "是必需的。";
+                }
+                <div class="form-group">
+                    <div class="col-md-2">
+                        @item.Key.ParameterName
+                    </div>
+
+                    <div class="col-md-10">
+                        @if (item.DataType == EnumDataType.Boolean)
+                        {
+                            string isChecked = defaultValue == "on" ? "checked" : string.Empty;
+
+                            <input type="checkbox"
+                                    name="@paramName"
+                                    class="form-control"
+                                    @isChecked />
+                        }
+                        else if (item.DataType == EnumDataType.Date)
+                        {
+
+                            <input type="text"
+                                    name="@paramName"
+                                    value="@defaultValue"
+                                    data-val="true"
+                                    data-val-date="字段  @item.Key.ParameterName 必须是日期。"
+                                    style="ime-mode:disabled"
+                                    @required
+                                    class="form-control datepicker" />
+                        }
+                        else if (item.DataType == EnumDataType.DateTime)
+                        {
+                            <input type="text"
+                                    name="@paramName"
+                                    value="@defaultValue"
+                                    data-val="true"
+                                    data-val-date="字段  @item.Key.ParameterName 必须是日期。"
+                                    style="ime-mode:disabled"
+                                    @required
+                                    class="form-control datetimepicker" />
+                        }
+                        else if (item.DataType == EnumDataType.Float)
+                        {
+                            <input type="text"
+                                   name="@paramName"
+                                   value="@defaultValue"
+                                   style="ime-mode:disabled"
+                                   data-val="true"
+                                   data-val-number="字段  @item.Key.ParameterName 必须是数字。"
+                                   @required
+                                   maxlength="18"
+                                   class="form-control" />
+                        }
+                        else if (item.DataType == EnumDataType.Integer)
+                        {
+                            <input type="text"
+                                   name="@paramName"
+                                   value="@defaultValue"
+                                   style="ime-mode:disabled"
+                                   data-val="true"
+                                   data-val-number="字段  @item.Key.ParameterName 必须是数字。"
+                                   data-val-regex="字段  @item.Key.ParameterName 需要是整数。"
+                                   data-val-regex-pattern="[0-9]+"
+                                   @required
+                                   maxlength="10"
+                                   class="form-control" />
+                        }
+                        else
+                        {
+                            <input type="text"
+                                   name="@paramName"
+                                   value="@defaultValue"
+                                   style="ime-mode:inactive"
+                                   data-val="true"
+                                   @required
+                                   maxlength="50"
+                                   class="form-control" />
+                        }
+                        <span class="field-validation-valid" data-valmsg-for="@paramName" data-valmsg-replace="true"></span>
+                    </div>
+
+                </div>
+            }
+        </div>
+    </div>
+}
+
+@if (isShowELImage == true || isShowIVImage == true)
+{
+    string navactive = "active";
+    string contentActive = "active";
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs" role="tablist">
+                @if (isShowELImage) { 
+                    <li class="@navactive"><a href="#el" role="tab" data-toggle="tab" onfocus="this.blur()">EL图片</a></li>
+                    navactive=string.Empty;
+                }
+                @if (isShowIVImage)
+                {
+                    <li class="@navactive"><a href="#iv" role="tab" data-toggle="tab" onfocus="this.blur()">IV图片</a></li>
+                    navactive = string.Empty;
+                }
+            </ul>
+            <!-- Tab panes -->
+            <div id="gallery" class="tab-content">
+                @if (isShowELImage)
+                {
+                    <div class="tab-pane @contentActive" style="padding-top: 10px; overflow: auto" id="el">
+                        @if(!string.IsNullOrEmpty(ViewBag.ELImagePath))
+                        {
+                        <a href="@ViewBag.ELImagePath" title='EL Image' data-gallery=''>EL Image</a>
+                        }
+                        else
+                        {
+                        <p style="color:red;font-size:20px">EL 图片不存在，请注意。</p>
+                        }
+                    </div>
+                    contentActive = "";
+                }
+                @if (isShowIVImage)
+                {
+                    <div class="tab-pane @contentActive" style="padding-top:10px;overflow:auto" id="iv">
+                        @if (!string.IsNullOrEmpty(ViewBag.IVImagePath))
+                        {
+                        <a href="@ViewBag.IVImagePath" title='IV Image' data-gallery=''>IV Image</a>
+                        }
+                        else
+                        {
+                        <p style="color:red;font-size:20px">IV 图片不存在，请注意。</p>
+                        }
+                    </div>
+                    contentActive = "";
+                }
+            </div>
+        </div>
+    </div>
+}
+
+<div class="form-group">
+    @if (lstDefectReasonCodes != null && lstDefectReasonCodes.Count > 0)
+    {
+        var lnq = from item in lstDefectReasonCodes orderby item.ItemNo select item;
+        <div class="@colmd">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    不良
+                </div>
+                <div class="panel-body">
+                    @foreach (ReasonCodeCategoryDetail item in lnq)
+                    {
+                        string hashcode = string.Format("{0}{1}", item.Key.ReasonCodeCategoryName, item.Key.ReasonCodeName)
+                                            .GetHashCode()
+                                            .ToString()
+                                            .Replace('-', '_');
+                        string inputControlName = string.Format("DefectReasonCode_{0}", hashcode);
+                        <div class="form-group">
+                            <div class="col-md-2">
+                                @item.Key.ReasonCodeName
+                            </div>
+                            <div class="col-md-10">
+                                <input type="text"
+                                       name="@inputControlName"
+                                       value=""
+                                       style="ime-mode:disabled"
+                                       data-val="true"
+                                       data-val-number="字段  @item.Key.ReasonCodeName 必须是数字。"
+                                       data-val-regex="字段  @item.Key.ReasonCodeName 需要是整数。"
+                                       data-val-regex-pattern="[0-9]+"
+                                       maxlength="10"
+                                       class="form-control" />
+                                <span class="field-validation-valid" data-valmsg-for="@inputControlName" data-valmsg-replace="true"></span>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    }
+
+    @if (lstScrapReasonCodes != null && lstScrapReasonCodes.Count > 0)
+    {
+        var lnq = from item in lstScrapReasonCodes
+                    orderby item.ItemNo
+                    select item;
+        <div class="@colmd">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    报废
+                </div>
+                <div class="panel-body">
+                    @foreach (ReasonCodeCategoryDetail item in lnq)
+                    {
+                        string hashcode = string.Format("{0}{1}", item.Key.ReasonCodeCategoryName, item.Key.ReasonCodeName)
+                                            .GetHashCode()
+                                            .ToString()
+                                            .Replace('-', '_');
+                        string inputControlName = string.Format("ScrapReasonCode_{0}", hashcode);
+                        <div class="form-group">
+                            <div class="col-md-2">
+                                @item.Key.ReasonCodeName
+                            </div>
+                            <div class="col-md-10">
+                                <input type="text"
+                                       name="@inputControlName"
+                                       value=""
+                                       style="ime-mode:disabled"
+                                       data-val="true"
+                                       data-val-number="字段  @item.Key.ReasonCodeName 必须是数字。"
+                                       data-val-regex="字段  @item.Key.ReasonCodeName 需要是整数。"
+                                       data-val-regex-pattern="[0-9]+"
+                                       maxlength="10"
+                                       class="form-control" />
+                                <span class="field-validation-valid" data-valmsg-for="@inputControlName" data-valmsg-replace="true"></span>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+@*@model ServiceCenter.Client.Mvc.Areas.WIP.Models.LotTrackViewModel
+@using ServiceCenter.MES.Model.FMM;
+@using ServiceCenter.MES.Model.WIP;
+@using ServiceCenter.MES.Model.ZPVM;
+@using ServiceCenter.Model;
+@using ServiceCenter.Common;
+@using WIPRsources = ServiceCenter.Client.Mvc.Resources.WIP;
+@{
+    Lot obj = ViewBag.Lot;
+    IList<RouteStepParameter> lstParameter = ViewBag.ParameterList;
+    IList<ReasonCodeCategoryDetail> lstDefectReasonCodes = ViewBag.DefectReasonCodeList;
+    IList<ReasonCodeCategoryDetail> lstScrapReasonCodes = ViewBag.ScrapReasonCodeList;
+    string colmd = "col-md-6";
+    if (lstDefectReasonCodes == null || lstDefectReasonCodes.Count == 0)
+    {
+        colmd = "col-md-12";
+    }
+
+    if (lstScrapReasonCodes == null || lstScrapReasonCodes.Count == 0)
+    {
+        colmd = "col-md-12";
+    }
+
+    bool isCheckBarCode = false;
+    if (ViewBag.IsCheckBarCode != null)
+    {
+        isCheckBarCode = ViewBag.IsCheckBarCode;
+    }
+
+    bool isInputColor = false;
+    if (ViewBag.IsInputColor != null)
+    {
+        isInputColor = ViewBag.IsInputColor;
+    }
+
+    bool isInputGrade = false;
+    if (ViewBag.IsInputGrade != null)
+    {
+        isInputGrade = ViewBag.IsInputGrade;
+    }
+
+    bool isShowELImage = false;
+    if (ViewBag.IsShowELImage != null)
+    {
+        isShowELImage = ViewBag.IsShowELImage;
+    }
+
+    bool isShowIVImage = false;
+    if (ViewBag.IsShowIVImage != null)
+    {
+        isShowIVImage = ViewBag.IsShowIVImage;
+    }
+
+    bool isShowLotPath = false;
+    if (ViewBag.isShowLotPath != null)
+    {
+        isShowLotPath = ViewBag.isShowLotPath;
+    }
+
+    bool isGetLayerEquipment = false;
+    if (ViewBag.IsGetLayerEquipment != null)
+    {
+        isGetLayerEquipment = ViewBag.IsGetLayerEquipment;
+    }
+    bool isShowDefect = false;
+    if (ViewBag.isShowDefect != null)
+    {
+        isShowDefect = ViewBag.isShowDefect;
+    }
+
+    IVTestData ivtest = Model.GetIVTestData(obj.Key);
+}
+
+@if (isGetLayerEquipment)
+{
+    @Html.HiddenFor(m => m.LotLayerEquipmentNo)
+}
+<div class="panel panel-default">
+    <div class="panel-body">
+        <div class="form-group">
+            <div class="col-md-1">
+                @WIPRsources.StringResource.LotNumber：
+            </div>
+            <div class="col-md-2">
+                @obj.Key
+            </div>
+            <div class="col-md-1">
+                @WIPRsources.StringResource.LotViewModel_OrderNumber：
+            </div>
+            <div class="col-md-2">
+                @obj.OrderNumber
+            </div>
+            <div class="col-md-1">
+                @WIPRsources.StringResource.LotViewModel_MaterialCode：
+            </div>
+            <div class="col-md-2">
+                @obj.MaterialCode
+            </div>
+            <div class="col-md-1">
+                @WIPRsources.StringResource.LotViewModel_StateFlag：
+            </div>
+            <div class="col-md-2">
+                @obj.StateFlag.GetDisplayName()
+            </div>
+        </div>
+        @if (ivtest != null)
+        {
+            <div class="form-group">
+                <div class="col-md-1">
+                    功率：
+                </div>
+                <div class="col-md-2">
+                    @ivtest.CoefPM
+                </div>
+                <div class="col-md-1">
+                    分档名称：
+                </div>
+                @if (ivtest == null
+                || string.IsNullOrEmpty(ivtest.PowersetCode)
+                || ivtest.PowersetItemNo == null)
+                {
+                    <div class="col-md-2">
+                    </div>
+                }
+                else
+                {
+                    <div class="col-md-2">
+                        @Model.GetPowersetName(ivtest.Key.LotNumber, ivtest.PowersetCode, ivtest.PowersetItemNo.Value)
+                    </div>
+                }
+                <div class="col-md-1">
+                    子分档：
+                </div>
+                <div class="col-md-2">
+                    @ivtest.PowersetSubCode
+                </div>
+            </div>
+        }
+        @if (isInputGrade || isInputColor || isCheckBarCode)
+        {
+            <div class="form-group">
+                @if (isCheckBarCode)
+                {
+                    <div class="col-md-1">
+                        @Html.LabelFor(m => m.Barcode1, new { @class = "control-label" })
+                    </div>
+                    <div class="col-md-2">
+                        @Html.TextBoxFor(m => m.Barcode1, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Barcode1)
+                    </div>
+                    <div class="col-md-1">
+                        @Html.LabelFor(m => m.Barcode2, new { @class = "control-label" })
+                    </div>
+                    <div class="col-md-2">
+                        @Html.TextBoxFor(m => m.Barcode2, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Barcode2)
+                    </div>
+                }
+
+                @if (isInputGrade)
+                {
+                    <div class="col-md-1">
+                        @Html.LabelFor(m => m.Grade, new { @class = "control-label" })
+                    </div>
+                    <div class="col-md-2">
+                        @Html.DropDownListFor(m => m.Grade, @Model.GetGradeList(@obj.Grade), new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Grade)
+                    </div>
+                }
+
+                @if (isInputColor)
+                {
+                    string strColor = string.Empty;
+                    if (string.IsNullOrEmpty(obj.Attr2) == false)
+                    {
+                        strColor = obj.Attr2;
+                    }
+                    <div class="col-md-1">
+                        @Html.LabelFor(m => m.Color, new { @class = "control-label" })
+                    </div>
+                    <div class="col-md-2">
+                        @Html.DropDownListFor(m => m.Color, @Model.GetColorList(obj.Key), @Model.GetColorOfModule(@strColor), new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Color)
+                    </div>
+                }
+            </div>
+        }
+        <div class="form-group">
+            <div class="col-md-1">
+                @Html.LabelFor(m => m.Description, new { @class = "control-label" })
+            </div>
+            <div class="col-md-11">
+                @Html.TextBoxFor(m => m.Description, new { @class = "form-control" })
+            </div>
+        </div>
+        @if (ivtest != null || isShowLotPath)
+        {
+            <div class="form-group">
+                @if (ivtest != null)
+                {
+                    if (string.IsNullOrEmpty(ivtest.PowersetCode) == false && ivtest.PowersetItemNo != null)
+                    {
+                        string strImage = string.Format("/ZPVM/WorkOrderPowersetDetail/ShowPicture?OrderNumber={0}&MaterialCode={1}&Code={2}&ItemNo={3}&SubCode={4}&TimeStamp={5}'"
+                            , obj.OrderNumber
+                            , obj.MaterialCode
+                            , ivtest.PowersetCode
+                            , ivtest.PowersetItemNo
+                            , ivtest.PowersetSubCode
+                            , DateTime.Now.Ticks);
+
+                        <div class="col-md-1">
+                            &nbsp;
+                        </div>
+                        <div class="col-md-5">
+                            <img src='@strImage' width='150px' />
+                        </div>
+                    }
+                }
+                @if (isShowLotPath)
+                {
+                    <div class="col-md-1">
+                        组件路径:
+                    </div>
+                    <div class="col-md-5">
+
+                        <img src='/content/images/@Model.GetLotPath(ivtest.Key.LotNumber)' width='150px' />
+                    </div>
+                }
+                @if (isShowDefect && obj.RepairFlag > 0)
+                {
+                    <div class="col-md-1">
+                        <p style="color:red;font-size:25px;">返修<p>
+                    </div>
+                    <div class="col-md-4">
+                        @if (Model.GetLotDefect(obj.Key).Count > 0)
+                        {
+                            foreach (var item in Model.GetLotDefect(obj.Key))
+                            {
+                                <div>
+                                    <p style="color:red">@item<p>
+                                </div>
+                            }
+                        }
+
+                    </div>
+                }
+
+
+            </div>
+        }
+
+    </div>
+</div>
+@if (lstParameter != null && lstParameter.Count > 0)
+{
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            参数
+        </div>
+        <div class="panel-body">
+            @foreach (RouteStepParameter item in lstParameter)
+            {
+                string required = string.Empty;
+                string defaultValue = string.Empty;
+                string hashcode = string.Format("{0}{1}{2}", item.Key.RouteName, item.Key.RouteStepName, item.Key.ParameterName)
+                                        .GetHashCode()
+                                        .ToString()
+                                        .Replace('-', '_');
+                string paramName = string.Format("PARAM_{0}", hashcode);
+
+                if (item.IsUsePreValue && Request.Cookies.Get(paramName) != null)
+                {
+                    defaultValue = Request.Cookies.Get(paramName).Value;
+                }
+
+                if (item.IsMustInput)
+                {
+                    required = "data-val-required= 字段" + item.Key.ParameterName + "是必需的。";
+                }
+                <div class="form-group">
+                    <div class="col-md-2">
+                        @item.Key.ParameterName
+                    </div>
+                    <div class="col-md-10">
+                        @if (item.DataType == EnumDataType.Boolean)
+                        {
+                            string isChecked = defaultValue == "on" ? "checked" : string.Empty;
+
+                            <input type="checkbox"
+                                   name="@paramName"
+                                   class="form-control"
+                                   @isChecked />
+                        }
+                        else if (item.DataType == EnumDataType.Date)
+                        {
+
+                            <input type="text"
+                                   name="@paramName"
+                                   value="@defaultValue"
+                                   data-val="true"
+                                   data-val-date="字段  @item.Key.ParameterName 必须是日期。"
+                                   style="ime-mode:disabled"
+                                   @required
+                                   class="form-control datepicker" />
+                        }
+                        else if (item.DataType == EnumDataType.DateTime)
+                        {
+                            <input type="text"
+                                   name="@paramName"
+                                   value="@defaultValue"
+                                   data-val="true"
+                                   data-val-date="字段  @item.Key.ParameterName 必须是日期。"
+                                   style="ime-mode:disabled"
+                                   @required
+                                   class="form-control datetimepicker" />
+                        }
+                        else if (item.DataType == EnumDataType.Float)
+                        {
+                            <input type="text"
+                                   name="@paramName"
+                                   value="@defaultValue"
+                                   style="ime-mode:disabled"
+                                   data-val="true"
+                                   data-val-number="字段  @item.Key.ParameterName 必须是数字。"
+                                   @required
+                                   maxlength="18"
+                                   class="form-control" />
+                        }
+                        else if (item.DataType == EnumDataType.Integer)
+                        {
+                            <input type="text"
+                                   name="@paramName"
+                                   value="@defaultValue"
+                                   style="ime-mode:disabled"
+                                   data-val="true"
+                                   data-val-number="字段  @item.Key.ParameterName 必须是数字。"
+                                   data-val-regex="字段  @item.Key.ParameterName 需要是整数。"
+                                   data-val-regex-pattern="[0-9]+"
+                                   @required
+                                   maxlength="10"
+                                   class="form-control" />
+                        }
+                        else
+                        {
+                            <input type="text"
+                                   name="@paramName"
+                                   value="@defaultValue"
+                                   style="ime-mode:inactive"
+                                   data-val="true"
+                                   @required
+                                   maxlength="50"
+                                   class="form-control" />
+                        }
+                        <span class="field-validation-valid" data-valmsg-for="@paramName" data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+}
+
+@if (isShowELImage == true || isShowIVImage == true)
+{
+    string navactive = "active";
+    string contentActive = "active";
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs" role="tablist">
+                @if (isShowELImage)
+                {
+                    <li class="@navactive"><a href="#el" role="tab" data-toggle="tab" onfocus="this.blur()">EL图片</a></li>
+                    navactive = string.Empty;
+                }
+                @if (isShowIVImage)
+                {
+                    <li class="@navactive"><a href="#iv" role="tab" data-toggle="tab" onfocus="this.blur()">IV图片</a></li>
+                    navactive = string.Empty;
+                }
+            </ul>
+            <!-- Tab panes -->
+            <div id="gallery" class="tab-content">
+                @if (isShowELImage)
+                {
+                    <div class="tab-pane @contentActive" style="padding-top: 10px; overflow: auto" id="el">
+                        @if (!string.IsNullOrEmpty(ViewBag.ELImagePath))
+                        {
+                            <a href="@ViewBag.ELImagePath" title='EL Image' data-gallery=''>EL Image</a>
+                        }
+                        else
+                        {
+                            <p style="color:red;font-size:20px">EL 图片不存在，请注意。</p>
+                        }
+                    </div>
+                        contentActive = "";
+                }
+                @if (isShowIVImage)
+                {
+                    <div class="tab-pane @contentActive" style="padding-top:10px;overflow:auto" id="iv">
+                        @if (!string.IsNullOrEmpty(ViewBag.IVImagePath))
+                        {
+                            <a href="@ViewBag.IVImagePath" title='IV Image' data-gallery=''>IV Image</a>
+                        }
+                        else
+                        {
+                            <p style="color:red;font-size:20px">IV 图片不存在，请注意。</p>
+                        }
+                    </div>
+                        contentActive = "";
+                }
+            </div>
+        </div>
+    </div>
+}
+
+<div class="form-group">
+    @if (lstDefectReasonCodes != null && lstDefectReasonCodes.Count > 0)
+    {
+        var lnq = from item in lstDefectReasonCodes orderby item.ItemNo select item;
+        <div class="@colmd">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    不良
+                </div>
+                <div class="panel-body">
+                    @foreach (ReasonCodeCategoryDetail item in lnq)
+                    {
+                        string hashcode = string.Format("{0}{1}", item.Key.ReasonCodeCategoryName, item.Key.ReasonCodeName)
+                                            .GetHashCode()
+                                            .ToString()
+                                            .Replace('-', '_');
+                        string inputControlName = string.Format("DefectReasonCode_{0}", hashcode);
+                        <div class="form-group">
+                            <div class="col-md-2">
+                                @item.Key.ReasonCodeName
+                            </div>
+                            <div class="col-md-10">
+                                <input type="text"
+                                       name="@inputControlName"
+                                       value=""
+                                       style="ime-mode:disabled"
+                                       data-val="true"
+                                       data-val-number="字段  @item.Key.ReasonCodeName 必须是数字。"
+                                       data-val-regex="字段  @item.Key.ReasonCodeName 需要是整数。"
+                                       data-val-regex-pattern="[0-9]+"
+                                       maxlength="10"
+                                       class="form-control" />
+                                <span class="field-validation-valid" data-valmsg-for="@inputControlName" data-valmsg-replace="true"></span>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    }
+
+    @if (lstScrapReasonCodes != null && lstScrapReasonCodes.Count > 0)
+    {
+        var lnq = from item in lstScrapReasonCodes
+                  orderby item.ItemNo
+                  select item;
+        <div class="@colmd">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    报废
+                </div>
+                <div class="panel-body">
+                    @foreach (ReasonCodeCategoryDetail item in lnq)
+                    {
+                        string hashcode = string.Format("{0}{1}", item.Key.ReasonCodeCategoryName, item.Key.ReasonCodeName)
+                                            .GetHashCode()
+                                            .ToString()
+                                            .Replace('-', '_');
+                        string inputControlName = string.Format("ScrapReasonCode_{0}", hashcode);
+                        <div class="form-group">
+                            <div class="col-md-2">
+                                @item.Key.ReasonCodeName
+                            </div>
+                            <div class="col-md-10">
+                                <input type="text"
+                                       name="@inputControlName"
+                                       value=""
+                                       style="ime-mode:disabled"
+                                       data-val="true"
+                                       data-val-number="字段  @item.Key.ReasonCodeName 必须是数字。"
+                                       data-val-regex="字段  @item.Key.ReasonCodeName 需要是整数。"
+                                       data-val-regex-pattern="[0-9]+"
+                                       maxlength="10"
+                                       class="form-control" />
+                                <span class="field-validation-valid" data-valmsg-for="@inputControlName" data-valmsg-replace="true"></span>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    }
+</div>*@

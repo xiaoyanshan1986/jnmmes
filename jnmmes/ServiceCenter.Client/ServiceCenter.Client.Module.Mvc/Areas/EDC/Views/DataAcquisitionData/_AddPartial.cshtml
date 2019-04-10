@@ -1,0 +1,76 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.EDC.Models.DataAcquisitionDataViewModel
+@using ServiceCenter.MES.Model.EDC;
+@using ServiceCenter.Model;
+@using ServiceCenter.Client.Mvc.Resources;
+@using System.Data;
+@{
+    IList<DataAcquisitionField> lst = ViewBag.DataAcquisitionFieldList;
+}
+
+@Html.HiddenFor(m => m.ItemCode)
+
+@* 工序 *@
+@Html.HiddenFor(m => m.ViewRouteOperationName, new { @class = "form-control" })
+
+@* 采集时间 *@
+<div class="form-group">
+    @Html.LabelFor(m => m.EDCTime, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.EDCTime, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.EDCTime)
+    </div>
+</div>
+
+@* 线别 *@
+<div class="form-group">
+    @Html.LabelFor(m => m.ViewLineCode, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.DropDownListFor(m => m.ViewLineCode, @Model.GetLineList(), new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.EDCTime)
+    </div>
+</div>
+
+@* 设备 *@
+<div class="form-group">
+    @Html.LabelFor(m => m.ViewEquipmentCode, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.DropDownListFor(m => m.ViewEquipmentCode, new List<SelectListItem>(), new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.ViewEquipmentCode)
+    </div>
+</div>
+
+@if(lst!=null)
+{
+     @*<div class="form-group">
+         @Html.Label(StringResource.ItemNo, new { @class = "col-md-3 control-label" })
+        <div class="col-md-9">
+            @Html.TextBox("ItemNo", string.Empty, null,
+                         new { @class = "form-control", 
+                               @data_val = "true",
+                               @data_val_number="字段 序号 必须是一个数字。" ,
+                               @data_val_range="序号 需要是 1 - 65536 整数。" ,
+                               @data_val_range_max="65536" ,
+                               @data_val_range_min="1" ,
+                               @data_val_regex="序号 需要是整数。" ,
+                               @data_val_regex_pattern = "[0-9]+",
+                               @data_val_required="序号 字段是必需的。"  })
+            @Html.ValidationMessage("ItemNo")
+        </div>
+    </div>*@
+    foreach(DataAcquisitionField field in lst)
+    { 
+        <div class="form-group">
+            @Html.Label(field.FieldName, new { @class = "col-md-3 control-label", @title = field.Key.FieldCode })
+            <div class="col-md-9">
+                @if (@field.DataType == EnumDataType.Boolean)
+                {
+                     @Html.CheckBox(field.Key.FieldCode, new { @class = "form-control" })
+                }
+                else
+                {
+                     @Html.TextBox(field.Key.FieldCode, string.Empty, "", new { @class = "form-control" })
+                }
+            </div>
+        </div>
+    }
+}

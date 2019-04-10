@@ -1,0 +1,98 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.WIP.Models.LotViewModel
+@using ServiceCenter.Client.Mvc.Areas.WIP.Models;
+@using ServiceCenter.Client.Mvc.Resources;
+@using WIPRsources = ServiceCenter.Client.Mvc.Resources.WIP;
+@using ServiceCenter.MES.Model.WIP;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@using ServiceCenter.MES.Model.BaseData;
+@{
+    PagingConfig cfg = ViewBag.PagingConfig;
+    MethodReturnResult<System.Data.DataSet> ds = new MethodReturnResult<System.Data.DataSet>();
+    System.Data.DataTable dtList = ViewBag.ListData;
+    ds = ViewBag.dtList;
+}
+
+@if (dtList != null)
+{
+    <div id="_list" style="overflow:auto">
+        <table class="table table-hover table-bordered table-condensed table-responsive table-striped">
+            <thead>
+                <tr class="active">
+                    @*<td nowrap>@StringResource.ItemNo</td>*@
+                    <td nowrap>批次号</td>
+                    <td nowrap>操作名称</td>
+                    <td nowrap>工艺流程组</td>
+                    <td nowrap>工艺流程</td>
+                    <td nowrap>工序</td>
+                    <td nowrap>操作时间</td>
+                    <td nowrap>操作人</td>
+                    <td nowrap>客户端</td>
+                </tr>
+            </thead>
+            <tbody>
+                @if (dtList != null)
+                {
+                    for (int i = 0; i < dtList.Rows.Count; i++)
+                    {
+                        System.Data.DataRow obj = dtList.Rows[i];
+
+                        <tr>
+                            @*<td nowrap>@obj["RowNumber"] </td>*@
+                            <td nowrap>@obj["LOT_NUMBER"] </td>
+                            <td nowrap>@obj["ACTIVITY"]</td>
+                            <td nowrap>@obj["ROUTE_ENTERPRISE_NAME"]</td>
+                            <td nowrap>@obj["ROUTE_NAME"]</td>
+                            <td nowrap>@obj["ROUTE_STEP_NAME"]</td>
+                            <td nowrap>@obj["CREATE_TIME"]</td>
+                            <td nowrap>@obj["CREATOR"]</td>
+                            <td nowrap>@obj["OPR_COMPUTER"]</td>
+                            
+                        </tr>
+
+                    }
+
+                }
+            </tbody>
+
+        </table>
+        
+    </div>
+
+}
+else
+{
+    <p>@ViewBag.Message</p>
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

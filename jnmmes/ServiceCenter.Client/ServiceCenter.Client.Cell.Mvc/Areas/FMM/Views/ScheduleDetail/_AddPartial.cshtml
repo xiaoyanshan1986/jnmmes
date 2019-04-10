@@ -1,0 +1,15 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.FMM.Models.ScheduleDetailViewModel
+<div class="form-group">
+    @Html.LabelFor(m => m.ScheduleName, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        <p class="form-control-static">@Model.ScheduleName</p>
+        @Html.HiddenFor(m => m.ScheduleName)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.ShiftName, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.DropDownListFor(m => Model.ShiftName, @Model.GetShiftName(), new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.ShiftName)
+    </div>
+</div>

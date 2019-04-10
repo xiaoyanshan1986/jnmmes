@@ -1,0 +1,58 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.ZPVM.Models.RulePrintSetViewModel
+@using ServiceCenter.Common;
+@using ServiceCenter.Client.Mvc.Resources;
+@Html.ValidationSummary(true)
+<div class="form-group">
+    @Html.LabelFor(m => m.Code, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.Code</p>
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.LabelCode, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.LabelCode</p>
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.ItemNo, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.ItemNo</p>
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.Qty, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.Qty</p>
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.IsUsed, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@(Model.IsUsed ? StringResource.Yes : StringResource.No)</p>
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.Editor, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.Editor</p>
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.EditTime, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.EditTime</p>
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.Creator, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.Creator</p>
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.CreateTime, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.CreateTime</p>
+    </div>
+</div>

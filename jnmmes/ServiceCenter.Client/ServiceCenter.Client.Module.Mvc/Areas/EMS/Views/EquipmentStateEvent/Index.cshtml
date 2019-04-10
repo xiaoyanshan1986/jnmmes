@@ -1,0 +1,384 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.EMS.Models.EquipmentStateEventQueryViewModel
+@using ServiceCenter.MES.Model.EMS;
+@using ServiceCenter.Model;
+@using ServiceCenter.Common;
+@using ServiceCenter.Client.Mvc.Areas.EMS.Models;
+@using EMSResources = ServiceCenter.Client.Mvc.Resources.EMS;
+@using ServiceCenter.Client.Mvc.Resources;
+
+@{
+    ViewBag.Title = EMSResources.StringResource.EquipmentStateEvent_ManagePageTitle;
+    PagingConfig cfg = ViewBag.PagingConfig;
+
+}
+<h2>@ViewBag.Title</h2>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <a href="javascript:showAddModal()" class="btn btn-primary">@EMSResources.StringResource.EquipmentStateEvent_AddTitle</a>
+    </div>
+    <div class="panel-body">
+    @using (Ajax.BeginForm("Query", "EquipmentStateEvent", null
+            , new AjaxOptions()
+            {
+                HttpMethod = "Post",
+                OnBegin="beginQuery",
+                UpdateTargetId = "list"
+            }
+            , new { @class = "form-horizontal", resource = "form" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-group">
+            <div class="col-md-1">
+                @Html.LabelFor(m => m.EquipmentCode, new { @class = "control-label" })
+            </div>
+            <div class="col-md-2">
+                @Html.TextBoxFor(m => m.EquipmentCode, new { @class = "form-control" })
+            </div>
+            <div class="col-md-1">
+                @Html.LabelFor(m => m.ChangeStateName, new { @class = "control-label" })
+            </div>
+            <div class="col-md-2">
+                @Html.TextBoxFor(m => m.ChangeStateName, new { @class = "form-control" })
+            </div>
+            <div class="col-md-1">
+                @Html.LabelFor(m => m.FromStateName, new { @class = "control-label" })
+            </div>
+            <div class="col-md-2">
+                @Html.TextBoxFor(m => m.FromStateName, new { @class = "form-control" })
+            </div>
+            <div class="col-md-1">
+                @Html.LabelFor(m => m.ToStateName, new { @class = "control-label" })
+            </div>
+            <div class="col-md-2">
+                @Html.TextBoxFor(m => m.ToStateName, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-1">
+                @Html.LabelFor(m => m.StartCreateTime, new { @class = "control-label" })
+            </div>
+            <div class="col-md-2">
+                @Html.TextBoxFor(m => m.StartCreateTime, new { @class = "form-control" })
+            </div>
+            <div class="col-md-1">
+                @Html.LabelFor(m => m.EndCreateTime, new { @class = "control-label" })
+            </div>
+            <div class="col-md-2">
+                @Html.TextBoxFor(m => m.EndCreateTime, new { @class = "form-control" })
+            </div>
+            <div class="col-md-6">
+                <input type="submit" value="@StringResource.Query" class="btn btn-default" />
+            </div>
+        </div>
+    }
+    </div>
+    <div class="alert fade in hide" resource="alert" id="statusMessage" style="margin:0px">
+        <button type="button" class="close" onclick="hideStatusMessage()">
+            <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+        </button>
+        <p></p>
+    </div>
+    <div id="list">
+        @Html.Partial("_ListPartial",new EquipmentStateEventViewModel())
+    </div>
+</div>
+
+@*新增*@
+<div id="add" class="modal fade" tabindex="-1" resource="dialog" aria-labelledby="addHeader" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                <span aria-hidden="true">&times;</span>
+                <span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="addHeader">@EMSResources.StringResource.EquipmentStateEvent_AddTitle</h4>
+            </div>
+            <div class="modal-body" id="addContent" style="margin:0px;padding:5px">
+                @using (Ajax.BeginForm("Save", "EquipmentStateEvent", null
+                        , new AjaxOptions()
+                        {
+                            HttpMethod = "Post",
+                            OnSuccess = "completeSave",
+                            OnBegin = "beginSave"
+                        }
+                        , new { @class = "form-horizontal", resource = "form",id="frmAdd"}))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <input type="submit" class="btn btn-primary" value="@StringResource.Save" id="btnSave" />
+                            <input type="reset" class="btn btn-default" value="@StringResource.Reset" id="btnReset" />
+                        </div>
+                        <div class="panel-body">
+                            <div class="alert fade in hide" resource="alert" id="addStatusMessage">
+                                <button type="button" class="close" onclick="hideAddAlert()">
+                                    <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+                                </button>
+                                <p></p>
+                            </div>
+                            <div>
+                                @Html.Partial("_AddPartial", new EquipmentStateEventViewModel())
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script type="text/javascript" language="javascript">
+        $(function () {
+            $("#StartCreateTime,#EndCreateTime").datetimepicker({
+                changeMonth: true,
+                changeYear: true,
+                dateFormat: "yy/mm/dd",
+                timeFormat: 'HH:mm:ss'
+            });
+
+        })
+        //刷新列表
+        function refreshList() {
+            if ($("#frmPagingQuery").length > 0) {
+                $("#frmPagingQuery").submit();
+            }
+        }
+        //隐藏状态消息
+        function hideStatusMessage() {
+            $("#statusMessage").addClass("hide");
+        }
+    </script>
+    @*查询*@
+    <script type="text/javascript" language="javascript">
+        //刷新列表
+        function beginQuery() {
+            hideStatusMessage();
+        }
+    </script>
+
+    @*新增*@
+    <script type="text/javascript" language="javascript">
+    //保存
+    $(function () {
+
+        $("#btnReset").click(function () {
+            $("#btnSave").removeAttr("disabled");
+            changeEquipmentCode();
+        });
+
+        var texts = $('#add').find(":text:enabled,:checkbox:enabled,select:enabled").not("[readonly]");
+        texts.keypress(function (args) {
+            if (args.ctrlKey == false && args.keyCode == 13) {
+                var index = texts.index(this) + 1;
+                if (index < texts.length) {
+                    texts.eq(index).focus().select();
+                    return false;
+                }
+                else {
+                    texts.eq(0).focus().select();
+                    $("#btnSave").click();
+                    return true;
+                }
+            }
+        });
+        texts.eq(0).focus().select();
+
+        var content = $("#addContent");
+        content.find("select[name='RouteOperationName'],select[name='ProductionLine']").change(function () {
+            changeEquipmentCode();
+        });
+
+        content.find("select[name='EquipmentCode']").change(function () {
+            changeEquipmentState();
+        });
+
+        content.find("select[name='ChangeStateName']").change(function () {
+            changeToStateName();
+        });
+        content.find("select[name='ReasonCodeCategoryName']").change(function () {
+            changeReasonCodeName();
+        });
+
+        $("#add").on('shown.bs.modal', function (e) {
+            $("#btnReset").click();
+        });
+    });
+
+
+    function changeEquipmentCode()
+    {
+        var content = $("#addContent");
+        var obj = content.find("select[name='EquipmentCode']");
+        $(obj).each(function () {
+            $(this).get(0).options.length = 0;
+        });//清空
+
+        var url = "@Url.Action("GetEquipmentCodes", "EquipmentStateEvent", new { area = "EMS" })";
+        var routeOperationName = content.find("select[name='RouteOperationName']").val();
+        var productionLineCode = content.find("select[name='ProductionLine']").val();
+        var reqdata = { RouteOperationName: routeOperationName, ProductionLineCode: productionLineCode };
+
+        $.getJSON(url, reqdata, function (data) {
+
+            $(obj).each(function () {
+                $(this).get(0).options.length = 0;
+            });//清空
+
+            $.each(data, function (i, item) {
+                $(obj).each(function () {
+                    $("<option></option>").val(item["Value"]).text(item["Text"]).appendTo($(this));
+                });
+            });
+            $(obj).change();
+        });
+    }
+
+
+    function changeEquipmentState() {
+        var content = $("#addContent");
+        var obj = content.find("input[name='FromStateName']");
+        var p = $(obj).parent().find("p");
+        var equipmentCode = content.find("select[name='EquipmentCode']").val();
+        obj.val(""); //清空
+        p.val("");
+        obj.removeAttr("style");
+        if (equipmentCode == null || equipmentCode == "") {
+            return;
+        }
+
+        var url = "@Url.Action("GetEquipmentState", "EquipmentStateEvent", new { area = "EMS" })";
+        var reqdata = { EquipmentCode: equipmentCode };
+
+        $.getJSON(url, reqdata, function (data) {
+            obj.val(""); //清空
+            p.val("");
+            obj.removeAttr("style");
+            obj.val(data.StateName);
+            obj.attr("style", "color:#FFFFFF;background-color:" + data.StateColor);
+            p.html(data.Description);
+
+            changeEquipmentChangeState();
+        });
+    }
+
+    function changeEquipmentChangeState() {
+
+        var content = $("#addContent");
+        var obj = content.find("select[name='ChangeStateName']");
+        $(obj).each(function () {
+            $(this).get(0).options.length = 0;
+        });//清空
+
+        var url = "@Url.Action("GetEquipmentChangeState", "EquipmentStateEvent", new { area = "EMS" })";
+        var stateName = content.find("input[name='FromStateName']").val();
+        var reqdata = { StateName: stateName };
+
+        $.getJSON(url, reqdata, function (data) {
+
+            $(obj).each(function () {
+                $(this).get(0).options.length = 0;
+            });//清空
+
+            $.each(data, function (i, item) {
+                $(obj).each(function () {
+                    var option = $("<option></option>");
+                    option.attr("ToStateName", item.ToStateName);
+                    option.val(item["Key"]).text(item["Text"]).appendTo($(this));
+                });
+            });
+            $(obj).change();
+        });
+    }
+
+
+    function changeToStateName() {
+
+        var content = $("#addContent");
+        var obj = content.find("input[name='ToStateName']");
+        var p = $(obj).parent().find("p");
+
+        var objChangeStateName=content.find("select[name='ChangeStateName']")[0];
+        var selectedIndex = objChangeStateName.selectedIndex;
+        var objSelected = objChangeStateName[selectedIndex];
+        var stateName = $(objSelected).attr("ToStateName");
+        obj.val(stateName);
+        p.val("");
+        obj.removeAttr("style");
+        var url = "@Url.Action("GetEquipmentStateColor", "EquipmentStateEvent", new { area = "EMS" })";
+            var reqdata = { StateName: stateName };
+
+            $.getJSON(url, reqdata, function (data) {
+                obj.removeAttr("style");
+                p.val("");
+                obj.attr("style", "color:#FFFFFF;background-color:" + data.StateColor);
+                p.html(data.Description);
+            });
+        }
+        function changeReasonCodeName() {
+
+            var content = $("#addContent");
+            var obj = content.find("select[name='ReasonCodeName']");
+            $(obj).each(function () {
+                $(this).get(0).options.length = 0;
+            });//清空
+
+            var url = "@Url.Action("GetEquipmentReasonCode", "EquipmentStateEvent", new { area = "EMS" })";
+            var ReasonCodeCategoryName = content.find("select[name='ReasonCodeCategoryName']").val();
+            var reqdata = { ReasonCodeCategoryName: ReasonCodeCategoryName };
+            $.getJSON(url, reqdata, function (data) {
+
+                $(obj).each(function () {
+                    $(this).get(0).options.length = 0;
+                });//清空
+
+                $.each(data, function (i, item) {
+                    $(obj).each(function () {
+                        $("<option></option>").val(item["Key"]).text(item["Text"]).appendTo($(this));
+                    });
+                });
+                $(obj).change();
+            });
+        }
+
+        function showAddModal() {
+            hideAddAlert();
+            hideStatusMessage();
+            $("#btnSave").removeAttr("disabled");
+            $('#add').modal('show');
+        }
+
+        function hideAddAlert() {
+            $("#addStatusMessage").addClass("hide");
+        }
+
+        function beginSave() {
+            $("#btnSave").attr("disabled", "disabled");
+        }
+
+        function completeSave(result) {
+            $("#btnSave").removeAttr("disabled");
+            $("#addStatusMessage").find("p").html(result.Message);
+            $("#addStatusMessage").removeClass("hide");
+            if (result.Code > 0) {
+                $("#addStatusMessage").removeClass("alert-success");
+                $("#addStatusMessage").addClass("alert-danger");
+            }
+            else {
+                $("#addStatusMessage").removeClass("alert-danger");
+                $("#addStatusMessage").addClass("alert-success");
+                var content = $("#addContent");
+
+                var obj = content.find("select[name='EquipmentCode']");
+                var obj = content.find("select[name='ReasonCodeCategoryName']");
+                //alert(obj);
+                $(obj).get(0).options.length = 0;
+                $(obj).val = ""; //清空
+
+                refreshList();
+                $('#add').modal('hide');
+            }
+        }
+    </script>
+}

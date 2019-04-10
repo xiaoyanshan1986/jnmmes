@@ -1,0 +1,458 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.RPT.Models.DailyMeetingRPTViewModel
+@using ServiceCenter.Model;
+@using ServiceCenter.Common;
+@using ServiceCenter.Client.Mvc.Areas.RPT.Models;
+@using RPTResources = ServiceCenter.Client.Mvc.Resources.RPT;
+@using ServiceCenter.Client.Mvc.Resources;
+@using System.Data;
+
+@{
+    ViewBag.Title = RPTResources.StringResource.RPTDailyMeetingPageTitle;
+
+}
+@*<h2>@ViewBag.Title</h2>*@
+@using (Ajax.BeginForm("Query", "DailyMeetingRPT", null
+        , new AjaxOptions()
+        {
+            HttpMethod = "Post",
+            OnBegin = "beginRefresh",
+            UpdateTargetId = "list",
+            OnSuccess = "completeRefresh"
+        }
+        , new { @class = "form-horizontal", resource = "form", id = "frmQuery" }))
+{
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            @*<button type="submit" class="btn btn-primary" id="btnQuery">查询</button>*@
+            <button type="button" class="btn btn-primary"  onclick="QueryFoucsReport()" id="btnQuery">查询</button>
+        </div>
+        <div class="panel-body">
+            @Html.AntiForgeryToken()
+            <div class="form-group">
+                <div class="col-md-1">
+                    @Html.LabelFor(m => m.StartDate, new { @class = "control-label" })
+                </div>
+                <div class="col-md-2">
+                    @Html.TextBoxFor(m => m.StartDate, "{0:yyyy-MM-dd}", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.StartDate)
+                </div>
+
+                <div class="col-md-1">
+                    @Html.LabelFor(m => m.EndDate, new { @class = "control-label" })
+                </div>
+                <div class="col-md-2">
+                    @Html.TextBoxFor(m => m.EndDate, "{0:yyyy-MM-dd}", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.EndDate)
+                </div>
+                
+                <div class="col-md-1">
+                    @Html.LabelFor(m => m.ProductID, new { @class = "control-label" })
+                </div>
+                <div class="col-md-2">
+                    @Html.DropDownListFor(m => m.ProductID, @Model.GetProductName(), string.Empty, new { @class = "form-control" })
+                </div>
+
+                <div class="col-md-1">
+                    @Html.LabelFor(m => m.MonthDataNumber, new { @class = "control-label" })
+                </div>
+                <div class="col-md-1">
+                    @Html.TextBoxFor(m => m.MonthDataNumber, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.MonthDataNumber)
+                </div>
+            </div>
+            <div  class="form-group">
+                
+                @*<div class="col-md-1">
+                    @Html.LabelFor(m => m.OrderNumber, new { @class = "control-label" })
+                </div>
+                <div class="col-md-2">
+                    @Html.TextBoxFor(m => m.OrderNumber, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.OrderNumber)
+                </div>*@
+
+                <div class="col-md-1">
+                    @Html.LabelFor(m => m.LocationName, new { @class = "control-label" })
+                </div>
+                <div class="col-md-2">
+                    @Html.DropDownListFor(m => m.LocationName, @Model.GetLocations(), string.Empty, new { @class = "form-control" })
+                </div>
+
+                <div class="col-md-1">
+                    @Html.LabelFor(m => m.LineCode, new { @class = "control-label" })
+                </div>
+                <div class="col-md-2">
+                    @Html.DropDownListFor(m => m.LineCode, @Model.GetProductionLineList(), string.Empty, new { @class = "form-control" })
+                </div>
+
+                <div class="col-md-1">
+                    @Html.LabelFor(m => m.YearDataNumber, new { @class = "control-label" })
+                </div>
+                <div class="col-md-1">
+                    @Html.TextBoxFor(m => m.YearDataNumber, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.YearDataNumber)
+                </div>
+                    
+                @*
+                @Html.HiddenFor(m => m.ReportCode)
+
+                @Html.HiddenFor(m => m.ReportName)*@
+            </div>
+
+            @*开始日期*@
+            @*@Html.HiddenFor(m => m.StartDate)*@
+
+            @*结束日期*@
+            @*@Html.HiddenFor(m => m.EndDate)*@
+
+            @*车间*@
+            @*@Html.HiddenFor(m => m.LocationName)*@
+
+            @*线别*@
+            @Html.HiddenFor(m => m.LineCode)
+
+            @*工单*@
+            @Html.HiddenFor(m => m.OrderNumber)
+
+            @*显示月份数*@
+            @*@Html.HiddenFor(m => m.MonthDataNumber)*@
+
+            @*显示年份数*@
+            @*@Html.HiddenFor(m => m.YearDataNumber)*@
+
+            @*报表代码*@
+            @Html.HiddenFor(m => m.ReportCode)
+
+            @*报表名称*@
+            @Html.HiddenFor(m => m.ReportName)
+
+            <div class="form-group">
+                @*错误信息显示*@
+                <div class="alert fade in hide" resource="alert" id="statusMessage" style="margin:0px">
+                    <button type="button" class="close" onclick="hideStatusMessage()">
+                        <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+                    </button>
+                    <p></p>
+                </div>
+            </div>
+        </div>
+        <ul class="nav nav-tabs" role="tablist">
+            <li class="active"><a href="#DAY0201" role="tab" data-toggle="tab" onfocus="this.blur()">产出</a></li>
+            <li><a href="#DAY0202" role="tab" data-toggle="tab" onfocus="this.blur()">WIP量</a></li>
+            <li><a href="#DAY0203" role="tab" data-toggle="tab" onfocus="this.blur()">MOVE量</a></li>
+            <li><a href="#DAY0204" role="tab" data-toggle="tab" onfocus="this.blur()">碎片率</a></li>
+            <li><a href="#DAY0205" role="tab" data-toggle="tab" onfocus="this.blur()">人均产出</a></li>
+            <li><a href="#DAY0206" role="tab" data-toggle="tab" onfocus="this.blur()">层前合格率</a></li>
+            @*<li><a href="#DAY0207" role="tab" data-toggle="tab" onfocus="this.blur()">层前不良率</a></li>*@
+            <li><a href="#DAY0208" role="tab" data-toggle="tab" onfocus="this.blur()">半成品A级品率</a></li>
+            <li><a href="#DAY0209" role="tab" data-toggle="tab" onfocus="this.blur()">A级品率</a></li>
+            <li><a href="#DAY0210" role="tab" data-toggle="tab" onfocus="this.blur()">CTM推移</a></li>            
+            <li><a href="#DAY0212" role="tab" data-toggle="tab" onfocus="this.blur()">电池片效率分布</a></li>
+            <li><a href="#DAY0211" role="tab" data-toggle="tab" onfocus="this.blur()">平均功率</a></li>
+        </ul>
+        <!-- Tab panes -->
+        <div class="tab-content" id="tablist">
+            <div class="tab-pane active" id="DAY0201" style="padding-top:10px">
+                <div id="DAY0201container" style="min-width: inherit; height: 400px; margin: 0 auto; width:auto"></div>
+                <div id="DAY0201list" style="overflow:auto"></div>
+            </div>
+            <div class="tab-pane" style="padding-top:10px; overflow:auto" id="DAY0202">
+                <div id="DAY0202container" style="min-width: inherit; height: 400px; margin: 0 auto; width:auto"></div>
+                <div id="DAY0202list" style="overflow:auto"></div>
+            </div>
+            <div class="tab-pane" style="padding-top:10px; overflow:auto" id="DAY0203">
+                <div id="DAY0203container" style="min-width: inherit; height: 400px; margin: 0 auto; width:auto"></div>
+                <div id="DAY0203list" style="overflow:auto"></div>
+            </div>
+            <div class="tab-pane" style="padding-top:10px; overflow:auto" id="DAY0204">
+                <div id="DAY0204container" style="min-width: inherit; height: 400px; margin: 0 auto; width:auto"></div>
+                <div id="DAY0204list" style="overflow:auto"></div>
+            </div>
+            <div class="tab-pane" style="padding-top:10px; overflow:auto" id="DAY0205">
+                <div id="DAY0205container" style="min-width: inherit; height: 400px; margin: 0 auto; width:auto"></div>
+                <div id="DAY0205list" style="overflow:auto"></div>
+            </div>
+            <div class="tab-pane" style="padding-top:10px; overflow:auto" id="DAY0206">
+                <div id="DAY0206container" style="min-width: inherit; height: 400px; margin: 0 auto; width:auto"></div>
+                <div id="DAY0206list" style="overflow:auto"></div>
+            </div>
+            @*<div class="tab-pane" style="padding-top:10px; overflow:auto" id="DAY0207">
+                <div id="DAY0207container" style="min-width: inherit; height: 400px; margin: 0 auto; width:auto"></div>
+                <div id="DAY0207list" style="overflow:auto"></div>
+            </div>*@
+            <div class="tab-pane" style="padding-top:10px; overflow:auto" id="DAY0208">
+                <div id="DAY0208container" style="min-width: inherit; height: 400px; margin: 0 auto; width:auto"></div>
+                <div id="DAY0208list" style="overflow:auto"></div>
+            </div>
+            <div class="tab-pane" style="padding-top:10px; overflow:auto" id="DAY0209">
+                <div id="DAY0209container" style="min-width: inherit; height: 400px; margin: 0 auto; width:auto"></div>
+                <div id="DAY0209list" style="overflow:auto"></div>
+            </div>
+            <div class="tab-pane" style="padding-top:10px; overflow:auto" id="DAY0210">
+                <div id="DAY0210container" style="min-width: inherit; height: 400px; margin: 0 auto; width:auto"></div>
+                <div id="DAY0210list" style="overflow:auto"></div>
+            </div>            
+            <div class="tab-pane" style="padding-top:10px; overflow:auto" id="DAY0212">
+                <div id="DAY0212container" style="min-width: inherit; height: 400px; margin: 0 auto; width:auto"></div>
+                <div id="DAY0212list" style="overflow:auto"></div>
+            </div>
+            <div class="tab-pane" style="padding-top:10px; overflow:auto" id="DAY0211">
+                <div id="DAY0211container" style="min-width: inherit; height: 400px; margin: 0 auto; width:auto"></div>
+                <div id="DAY0211list" style="overflow:auto"></div>
+            </div>
+        </div>
+        @*<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>*@
+        @*<div id="list" style="overflow:auto"></div>*@
+    </div>
+}
+@section Scripts {
+    <script src="~/Scripts/Highstock-5.0.12/code/highstock.js"></script>
+    <script src="~/Scripts/Highcharts-5.0.12/code/modules/exporting.js"></script>
+    @*查询*@
+    <script type="text/javascript" language="javascript">
+        @*日期格式*@
+    $(function () {
+        $("#StartDate,#EndDate").datepicker({
+            changeMonth: true,
+            changeYear: true,
+            dateFormat: "yy-mm-dd"
+        });
+        
+        $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
+            var TableName = $(e.target).attr("href");            
+            TableName = TableName.substr(1, TableName.length - 1);
+
+            $("#ReportCode").val(TableName);    //设置报表代码
+
+            //数据查询
+            Query(TableName);            
+        })
+    });
+
+    function QueryFoucsReport() {
+        var i = 0;        
+        var TableName = "";
+
+        var tablist = document.getElementById("tablist");
+        
+        while (i < tablist.childNodes.length) {
+            if (tablist.childNodes[i].className == "tab-pane active")
+            {
+                TableName = tablist.childNodes[i].id;
+
+                break;
+            }
+
+            i++;
+        }
+
+        $("#ReportCode").val(TableName);    //设置报表代码
+
+        //数据查询
+        Query(TableName);
+
+    }
+
+    function beginRefresh(obj, req) {
+        var StartDate = $('#StartDate').val();
+        var EndDate = $("#EndDate").val();
+        req.data += "&StartDate=" + StartDate;
+        req.data += "&EndDate=" + EndDate;
+
+    }
+
+    function completeRefresh(result) {
+        if (result.Code > 0) {
+            //显示错误信息
+            showErrorInfo(result);
+            return;
+        }
+    }
+
+    function showErrorInfo(result) {
+        $("#statusMessage").find("p").html(result.Message);
+        $("#statusMessage").removeClass("hide");
+        if (result.Code > 0) {
+            $("#statusMessage").removeClass("alert-success");
+            $("#statusMessage").addClass("alert-danger");
+        }
+        else {
+            $("#statusMessage").removeClass("alert-danger");
+            $("#statusMessage").addClass("alert-success");
+        }
+    }
+
+    function Query(ModelCode) {
+        var StartDate = $('#StartDate').val();          //开始日期
+        var EndDate = $('#EndDate').val();              //结束日期
+        var LocationName = $("#LocationName").val();    //车间代码
+        var LineCode = $("#LineCode").val();            //线别代码
+        var OrderNumber = $("#OrderNumber").val();      //工单代码
+        var ReportCode = $("#ReportCode").val();        //报表代码
+        var ReportName = $("#ReportName").val();        //报表名称
+        var ProductID = $("#ProductID").val();          //产品代码
+        var MonthDataNumber = $("#MonthDataNumber").val();  //月数据显示数量（当前月向前）
+        var YearDataNumber = $("#YearDataNumber").val();    //年数据显示数量（当前月向前）
+
+        $.ajax(
+            {
+                type: "post",
+                url: "@Url.Action("QueryModuleDetailForCharts", "DailyMeetingRPT")",
+                data: {
+                    StartDate: StartDate,
+                    EndDate: EndDate,
+                    LocationName: LocationName,
+                    LineCode: LineCode,
+                    OrderNumber: OrderNumber,
+                    ReportCode: ReportCode,
+                    ReportName: ReportName,
+                    ProductID: ProductID,
+                    MonthDataNumber: MonthDataNumber,
+                    YearDataNumber: YearDataNumber
+                },
+                async: false,
+                dataType: "json",
+                success: function (result) {
+                    if (result != null) {
+                        var title = result.ReportName;
+                        var ColumnText = result.ColumnText;
+                        var SplineText = result.SplineText;
+                        var ColumnFormat = result.ColumnFormat;
+                        var SplineFormat = result.SplineFormat;
+                        var ShowColumnLabels = result.ShowColumnLabels;
+                        var ShowSplineLabels = result.ShowSplineLabels;
+                        var ColumnLabelsFormat = result.ColumnLabelsFormat;
+                        var SplineLabelsFormat = result.SplineLabelsFormat;
+                        var mAxis = eval("(" + result.mAxis + ")");
+                        var nAxis = eval("(" + result.nAxis + ")");
+                        var ColumnStacking = result.ColumnStacking;
+                        var PlotLinesValue = result.PlotLinesValue;
+                        var PlotLinesText = result.PlotLinesText;
+                        
+                        if (result.ShowSplineLabels == "true")
+                            ShowSplineLabels = true;
+                        else
+                            ShowSplineLabels = false;
+
+                        //列表数据刷新
+                        refreshList(ModelCode, ReportCode, StartDate, EndDate, LocationName, LineCode, OrderNumber, ProductID, MonthDataNumber, YearDataNumber);
+
+                        //图形装载
+                        highchartsInit(ModelCode, title, mAxis, nAxis, ColumnText, SplineText, ColumnFormat, SplineFormat, ShowColumnLabels, ShowSplineLabels, ColumnLabelsFormat, SplineLabelsFormat, ColumnStacking, PlotLinesValue, PlotLinesText);
+
+                        //PlotLinesValue = "16.8";
+                        //PlotLinesText = "庆祝吧value:16.8";
+
+                        //AddPlotLine(ModelCode, PlotLinesValue, PlotLinesText)
+
+                        //处理装载后图形大小不能自动变化的问题
+                        var withs = $(document).width();
+
+                        $("#" + ModelCode + "container").width(withs - 20);
+                        $(document).resize();
+                        document.getElementById(ModelCode + "container").style.width = "auto";
+                    }
+                }
+            });
+    }
+
+    //数据刷新
+        function refreshList(ModelCode, ReportCode, StartDate, EndDate, LocationName, LineCode, OrderNumber, ProductID, MonthDataNumber, YearDataNumber) {
+        var url = "@Url.Action("QueryTimeDetail", "DailyMeetingRPT", new { area = "RPT" })";
+
+        url = url + "?ReportCode=" + ReportCode;
+        url = url + "&StartDate=" + StartDate;
+        url = url + "&EndDate=" + EndDate;
+        url = url + "&LocationName=" + LocationName;
+        url = url + "&LineCode=" + LineCode;
+        url = url + "&OrderNumber=" + OrderNumber;
+        url = url + "&ProductID=" + ProductID;
+        url = url + "&MonthDataNumber=" + MonthDataNumber;
+        url = url + "&YearDataNumber=" + YearDataNumber;
+
+        $("#" + ModelCode + "list").load(url);
+    }
+         function highchartsInit(ModelCode, TitleValue, xAxisData, yAxisData, ColumnText, SplineText, ColumnFormat, SplineFormat, ShowColumnLabels, ShowSplineLabels, ColumnLabelsFormat, SplineLabelsFormat, ColumnStacking, PlotLinesValue, PlotLinesText) {
+
+            var tbl = $("#" + ModelCode);
+            var container = tbl.find("#" + ModelCode + "container");
+
+            var chart = container.highcharts({
+                title:
+                    {
+                        text: TitleValue
+                    },
+                xAxis: {
+                    categories: xAxisData
+                },
+                yAxis: [{
+                    lineWidth: 1,
+                    title: {
+                        text: ColumnText,
+                    },
+                    plotLines: [{
+                        value: PlotLinesValue,
+                        color: 'green',
+                        dashStyle: 'shortdash',
+                        width: 2,
+                        label: {
+                            text: PlotLinesText
+                        }
+                    }],
+                    labels: {
+                        format: ColumnFormat,
+                    },
+                    tooltip: {
+                        enabled: true,
+                    }
+                },
+                {
+                    lineWidth: 1,
+                    labels: {
+                        format: SplineFormat,
+                    },
+                    title: {
+                        text: SplineText,
+                    },
+                    tooltip: {
+                        enabled: true,
+                    },
+                    opposite: true
+                }],
+                plotOptions: {
+                    line: {
+                        dataLabels: {
+                            enabled: ShowSplineLabels, //是否显示数据标签
+                            format: SplineLabelsFormat,
+                        }
+                    },
+                    column: {
+                        stacking: ColumnStacking,
+                        dataLabels: {
+                            enabled: ShowColumnLabels, //是否显示数据标签
+                            format: ColumnLabelsFormat,
+                        }
+                    }
+                },
+                series: yAxisData
+            });
+        }
+
+        function AddPlotLine(ModelCode, PlotLinesValue, PlotLinesText) {
+            var tbl = $("#" + ModelCode);
+            var container = tbl.find("#" + ModelCode + "container");
+
+            var chart = container.highcharts();     // Highcharts构造函数
+            chart.yAxis[0].addPlotLine({            //在x轴上增加
+                value: PlotLinesValue,              //在值为2的地方
+                width: 2,                           //标示线的宽度为2px
+                color: 'blue',                      //标示线的颜色
+                dashStyle: 'shortdash',
+                id: 'plot-line-1',                  //标示线的id，在删除该标示线的时候需要该id标示
+                label: {
+                            text: PlotLinesText
+                       }
+            });
+        }
+
+    </script>
+}

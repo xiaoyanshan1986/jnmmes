@@ -1,0 +1,100 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.ERP.Models.WOReportViewModel
+@using ServiceCenter.MES.Model.ERP;
+@using ServiceCenter.Model;
+@using ServiceCenter.Common;
+@using ServiceCenter.Client.Mvc.Areas.ERP.Models;
+@using ERP = ServiceCenter.Client.Mvc.Resources.ERP;
+@using ServiceCenter.Client.Mvc.Resources;
+
+@{
+    PagingConfig cfg = ViewBag.PagingConfig;
+}
+<div id="_list">
+    <table class="table table-striped table-bordered table-condensed">
+        <thead>
+            <tr class="active">
+                <td align="center">@StringResource.ItemNo</td>
+                <td align="center">@Html.DisplayNameFor(m => m.BillCode)</td>
+                <td nowrap align="center">@Html.DisplayNameFor(m => m.BillDate)</td>
+                <td nowrap align="center">@Html.DisplayNameFor(m => m.WRCode)</td>
+                @*<td nowrap align="center">@Html.DisplayNameFor(m => m.ERPWRKey)</td>*@
+                <td nowrap align="center">@Html.DisplayNameFor(m => m.BillState)</td>
+                <td nowrap align="center">@Html.DisplayNameFor(m => m.BillCheckState)</td>
+                <td nowrap align="center">@Html.DisplayNameFor(m => m.Creator)</td>
+                <td nowrap align="center">@Html.DisplayNameFor(m => m.CreateTime)</td>
+                <td nowrap align="center">@Html.DisplayNameFor(m => m.Editor)</td>
+                <td nowrap align="center">@Html.DisplayNameFor(m => m.EditTime)</td>
+
+            </tr>
+        </thead>
+        @if (ViewBag.List != null)
+        {
+            <tbody>
+                @for (int i = 0; i < ViewBag.List.Length; i++)
+                {
+                    WOReport obj = ViewBag.List[i];
+                    <tr>
+                        <td nowrap align="center">@(cfg.PageSize * cfg.PageNo + i + 1)</td>
+                        <td nowrap align="center">
+                            @Html.ActionLink(linkText: obj.Key
+                                         , actionName: "Detail"
+                                         , controllerName: "ERPWIReport"
+                                      , routeValues: new { @BillCode = obj.Key }
+                                            , htmlAttributes: new { @target = "_self" })
+                        </td>
+                        <td nowrap align="center">
+                            @string.Format("{0:yyyy-MM-dd}", obj.BillDate)
+                        </td>
+                        <td nowrap align="center">
+                            @obj.WRCode
+                        </td>
+                        @*<td>
+                            @obj.ERPWRKey
+                        </td>*@
+                        <td nowrap align="center">
+                            @obj.BillState.GetDisplayName()
+                        </td>
+                        <td nowrap align="center">
+                            @obj.BillCheckState.GetDisplayName()
+                        </td>
+                        <td nowrap align="center">
+                            @obj.Creator
+                        </td>
+                        <td nowrap align="center">
+                            @obj.CreateTime
+                        </td>
+                        <td nowrap align="center">
+                            @obj.Editor
+                        </td>
+                        <td nowrap align="center">
+                            @obj.EditTime
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        }
+    </table>
+    <div style="margin-top:-18px">
+        @if (cfg != null)
+        {
+            using (Ajax.BeginForm("PagingQuery", "ERPWIReport"
+                            , new
+                            {
+                                @Where = cfg.Where,
+                                @OrderBy = cfg.OrderBy,
+                                @CurrentPageNo = cfg.PageNo,
+                                @CurrentPageSize = cfg.PageSize
+                            }
+                            , new AjaxOptions()
+                            {
+                                HttpMethod = "Post",
+                                UpdateTargetId = "_list"
+                            }
+                            , new { @class = "form-horizontal", resource = "form", id = "frmPagingQuery" }))
+            {
+                @Html.AntiForgeryToken()
+                <div>@Html.Partial("_PaginationPartial")</div>
+            }
+        }
+    </div>
+</div>

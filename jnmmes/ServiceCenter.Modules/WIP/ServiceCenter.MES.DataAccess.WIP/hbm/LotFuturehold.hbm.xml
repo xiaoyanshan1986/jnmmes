@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   namespace="ServiceCenter.MES.Model.WIP" 
+                   assembly="ServiceCenter.MES.Model.WIP">
+  <class name="LotFuturehold" table="WIP_LOT_FUTUREHOLD">
+    <id name="Key" column="FUTUREHOLD_KEY">
+      <generator class="assigned" />
+    </id>
+    <property name="LotNumber" column="LOT_NUMBER"/>
+    <property name="OrderNumber" column="ORDER_NUMBER"/>
+    <property name="Password" column="HOLD_PASSWORD"/>
+    <property name="ActionName" column="ACTION_NAME"/>
+    <property name="RouteEnterpriseName" column="ROUTE_ENTERPRISE_NAME"/>
+    <property name="RouteName" column="ROUTE_NAME"/>
+    <property name="RouteStepName" column="ROUTE_STEP_NAME"/>
+    <property name="SetRouteEnterpriseName" column="SET_ROUTE_ENTERPRISE_NAME"/>
+    <property name="SetRouteName" column="SET_ROUTE_NAME"/>
+    <property name="SetRouteStepName" column="SET_ROUTE_STEP_NAME"/>
+    <property name="RouteOperationName" column="ROUTE_OPERATION_NAME"/>
+    <property name="ReasonCodeCategoryName" column="REASON_CODE_CATEGORY_NAME"/>
+    <property name="ReasonCodeName" column="REASON_CODE_NAME"/>
+    <property name="Description" column="DESCRIPTION"/>
+    <property name="Status" column="STATUS"/>
+    <property name="Editor" column="EDITOR"/>
+    <property name="EditTime" column="EDIT_TIME"/>
+    <property name="Creator" column="CREATOR"/>
+    <property name="CreateTime" column="CREATE_TIME"/>
+  </class>
+</hibernate-mapping>

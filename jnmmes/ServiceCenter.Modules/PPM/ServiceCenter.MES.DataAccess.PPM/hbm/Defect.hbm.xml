@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   namespace="ServiceCenter.MES.Model.PPM" 
+                   assembly="ServiceCenter.MES.Model.PPM">
+  <class name="Defect" table="PPM_Defect_DAY">
+    <composite-id  name="Key" class="DefectKey">
+      <key-property name="Year" column="CUR_YEAR"/>
+      <key-property name="Month" column="CUR_MONTH"/>
+      <key-property name="Day" column="CUR_DAY"/>
+      <key-property name="LocationName" column="LOCATION_NAME"/>
+      <key-property name="ShiftName" column="SHIFT_NAME"/>
+      <key-property name="ReasonCodeCategoryName" column="Reason_Code_Category_Name"/>
+      <key-property name="ReasonCodeName" column="Reason_Code_Name"/>
+    </composite-id >
+    <property name="Qty" column="QTY"/>
+    <property name="Creator" column="CREATOR"/>
+    <property name="CreateTime" column="CREATE_TIME"/>
+    <property name="Editor" column="EDITOR"/>
+    <property name="EditTime" column="EDIT_TIME"/>
+  </class>
+</hibernate-mapping>

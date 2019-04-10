@@ -1,0 +1,188 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.FMM.Models.EquipmentViewModel
+@using ServiceCenter.MES.Model.FMM;
+<div class="form-group">
+    @Html.LabelFor(m => m.Code, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.Code</p>
+        @Html.HiddenFor(m=>m.Code)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.Name, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Name)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.Type, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        @Html.DropDownListFor(m => m.Type
+                            , @Model.GetEquipmentTypeList()
+                            , new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Type)
+    </div>
+</div>
+@*<div class="form-group">
+    @Html.LabelFor(m => m.No, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        @Html.TextBoxFor(m => m.No, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.No)
+    </div>
+</div>*@
+@*<div class="form-group">
+    @Html.LabelFor(m => m.AssetsNo, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        @Html.TextBoxFor(m => m.AssetsNo, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.AssetsNo)
+    </div>
+</div>*@
+
+<div class="form-group" ref="Type" style="display:@(Model.Type==EnumEquipmentType.Physical?"none":"block")">
+    @Html.LabelFor(m => m.RealEquipmentCode, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        @Html.TextBoxFor(m => m.RealEquipmentCode, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.RealEquipmentCode)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.GroupName, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        @Html.DropDownListFor(m => m.GroupName
+                            , @Model.GetEquipmentGroupList()
+                            , new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.GroupName)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.StateName, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        @Html.DropDownListFor(m => m.StateName
+                            , @Model.GetEquipmentStateList()
+                            , new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.StateName)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.LocationName, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        @Html.DropDownListFor(m => m.LocationName
+                            , @Model.GetLocationList()
+                            , new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.LocationName)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.LineCode, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        @Html.DropDownListFor(m => m.LineCode
+                            , @Model.GetProductionLineList()
+                            , new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.LineCode)
+    </div>
+</div>
+@*<div class="form-group">
+    @Html.LabelFor(m => m.RunRate, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        @Html.TextBoxFor(m => m.RunRate, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.RunRate)
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(m => m.AvTime, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        @Html.TextBoxFor(m => m.AvTime, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.AvTime)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.WPH, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        @Html.TextBoxFor(m => m.WPH, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.WPH)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.TactTime, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        @Html.TextBoxFor(m => m.TactTime, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.TactTime)
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(m => m.IsBatch, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        @Html.CheckBoxFor(m => m.IsBatch, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.IsBatch)
+    </div>
+</div>*@
+<div ref="IsBatchYes" style="display:@(Model.IsBatch ? "block" : "none")">
+    <div class="form-group">
+        @Html.LabelFor(m => m.MinQuantity, new { @class = "col-md-4 control-label" })
+        <div class="col-md-8">
+            @Html.TextBoxFor(m => m.MinQuantity, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.MinQuantity)
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.MaxQuantity, new { @class = "col-md-4 control-label" })
+        <div class="col-md-8">
+            @Html.TextBoxFor(m => m.MaxQuantity, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.MaxQuantity)
+        </div>
+    </div>
+</div>
+
+@*<div class="form-group">
+    @Html.LabelFor(m => m.IsMultiChamber, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        @Html.CheckBoxFor(m => m.IsMultiChamber, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.IsMultiChamber)
+    </div>
+</div>
+
+<div ref="IsMultiChamberYes" style="display:@(Model.IsMultiChamber ? "block" : "none")">
+    <div class="form-group">
+        @Html.LabelFor(m => m.TotalChamber, new { @class = "col-md-4 control-label" })
+        <div class="col-md-8">
+            @Html.TextBoxFor(m => m.TotalChamber, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.TotalChamber)
+        </div>
+    </div>
+</div>
+
+<div ref="IsMultiChamberNo" style="display:@(Model.IsMultiChamber ? "none" : "block")">
+    <div class="form-group">
+        @Html.LabelFor(m => m.IsChamber, new { @class = "col-md-4 control-label" })
+        <div class="col-md-8">
+            @Html.CheckBoxFor(m => m.IsChamber, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.IsChamber)
+        </div>
+    </div>
+
+    <div class="form-group" ref="IsChamberYes" style="display:@(Model.IsChamber ? "block" : "none")">
+        @Html.LabelFor(m => m.ChamberIndex, new { @class = "col-md-4 control-label" })
+        <div class="col-md-8">
+            @Html.TextBoxFor(m => m.ChamberIndex, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.ChamberIndex)
+        </div>
+    </div>
+
+    <div class="form-group" ref="IsChamberYes" style="display:@(Model.IsChamber ? "block" : "none")">
+        @Html.LabelFor(m => m.ParentEquipmentCode, new { @class = "col-md-4 control-label" })
+        <div class="col-md-8">
+            @Html.TextBoxFor(m => m.ParentEquipmentCode, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.ParentEquipmentCode)
+        </div>
+    </div>
+</div>*@
+
+<div class="form-group">
+    @Html.LabelFor(m => m.Description, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        @Html.TextAreaFor(m => m.Description, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Description)
+    </div>
+</div>

@@ -1,0 +1,55 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.WIP.Models.LotAttributeViewModel
+@using ServiceCenter.Client.Mvc.Areas.WIP.Models;
+@using ServiceCenter.Client.Mvc.Resources;
+@using WIPResources = ServiceCenter.Client.Mvc.Resources.WIP;
+@using ServiceCenter.MES.Model.WIP;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+<div id="_list">
+    <table class="table table-hover table-bordered table-condensed table-responsive table-striped">
+        <thead>
+            <tr class="active">
+                <td nowrap>@StringResource.ItemNo</td>
+                <td nowrap>@Html.DisplayNameFor(m => m.LotNumber)</td>
+                <td nowrap>@Html.DisplayNameFor(m => m.AttributeName)</td>
+                <td nowrap>@Html.DisplayNameFor(m => m.AttributeValue)</td>
+                <td nowrap>@Html.DisplayNameFor(m => m.EditTime)</td>
+                <td nowrap>@Html.DisplayNameFor(m => m.Editor)</td>
+            </tr>
+        </thead>
+        @if (ViewBag.AttributeList != null)
+        {
+            <tbody>
+                @for (int i = 0; i < ViewBag.AttributeList.Length; i++)
+                {
+                    LotAttribute obj = ViewBag.AttributeList[i];
+                    <tr>
+                        <td nowrap>@(i+1)</td>
+                        <td nowrap>
+                            @obj.Key.LotNumber
+                        </td>
+                        <td nowrap>
+                            @obj.Key.AttributeName
+                        </td>
+                        @if(obj.AttributeValue.ToLower().StartsWith("http://"))
+                        {
+                        <td nowrap>
+                            <a href="@obj.AttributeValue" target="_blank">@obj.AttributeValue</a>
+                        </td>
+                        }
+                        else
+                        {
+                        <td nowrap>
+                            @obj.AttributeValue
+                        </td>
+                        }
+                        <td nowrap>@string.Format("{0:yyyy-MM-dd HH:mm:ss}", obj.EditTime)</td>
+                        <td nowrap>@obj.Editor</td>
+                    </tr>
+                }
+            </tbody>
+        }
+    </table>
+</div>
+
+

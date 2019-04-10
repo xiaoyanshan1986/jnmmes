@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   namespace="ServiceCenter.MES.Model.ZPVM"
+                   assembly="ServiceCenter.MES.Model.ZPVM">
+  <class name="ColorTestData" table="ZWIP_COROL_TEST">
+    <composite-id  name="Key" class="ColorTestDataKey">
+      <key-property name="LotNumber" column="LOT_NUMBER"/>
+      <key-property name="InspectTime" column="INSPECTTIME"/>     
+    </composite-id >    
+    <property name="InspctResult" column="INSPCTRESULT"/>
+    <property name="LocalIp" column="LOCALIP"/>
+    <!--<property name="Opetator" column="Opetator"/>
+    <property name="Shift" column="Shift"/>
+    <property name="RcpName" column="RcpName"/>
+    <property name="DeviceID" column="DeviceID"/>
+    <property name="DataTime" column="DataTime"/>
+    <property name="InspectValue" column="InspectValue"/>
+    <property name="BlueValue" column="BlueValue"/>-->
+  </class>
+</hibernate-mapping>

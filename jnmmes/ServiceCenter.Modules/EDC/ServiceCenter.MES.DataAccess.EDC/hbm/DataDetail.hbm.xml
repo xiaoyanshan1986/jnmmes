@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   namespace="ServiceCenter.MES.Model.EDC" 
+                   assembly="ServiceCenter.MES.Model.EDC">
+  <class name="DataDetail" table="EDC_DATA_DETAIL">
+    <composite-id  name="Key" class="DataDetailKey">
+      <key-property name="DataKey" column="DATA_KEY"/>
+      <key-property name="ParameterName" column="PARAM_NAME"/>
+      <key-property name="SequenceNo" column="SEQNO"/>
+    </composite-id >
+    <property name="ItemNo" column="ITEM_NO"/>
+    <property name="ParameterValue" column="PARAM_VALUE"/>
+    <property name="DeletedFlag" column="DELETED_FLAG"/>
+    <property name="Editor" column="EDITOR"/>
+    <property name="EditTime" column="EDIT_TIME"/>
+  </class>
+</hibernate-mapping>

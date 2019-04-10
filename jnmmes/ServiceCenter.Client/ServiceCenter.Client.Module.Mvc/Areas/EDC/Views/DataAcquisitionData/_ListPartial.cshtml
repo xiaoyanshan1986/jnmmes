@@ -1,0 +1,214 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.EDC.Models.DataAcquisitionDataQueryViewModel
+@using ServiceCenter.Client.Mvc.Resources;
+@using EDC=ServiceCenter.Client.Mvc.Resources.EDC;
+@using ServiceCenter.MES.Model.EDC;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@using System.Data;
+@using ServiceCenter.Client.Mvc.Areas.EDC.Models;
+@{    
+    DataTable dtList = ViewBag.ListData;
+    PagingConfig cfg = ViewBag.PagingConfig;
+}
+
+<div id="_list">
+    <table class="table table-striped table-hover table-bordered table-condensed">
+        @if (dtList != null)
+        {
+            <thead>
+                <tr class="active">
+                    @for (int i = 0; i < dtList.Columns.Count; i++)
+                    {
+                        if (@dtList.Columns[i].Caption == "HIDE")   //隐藏列
+                        {
+                            <td hidden>@dtList.Columns[i].Caption</td>
+                        }
+                        else
+                        {
+                            <td nowrap align="center">@dtList.Columns[i].Caption</td>
+                        }
+                    }
+
+                    <td align="center">@StringResource.Audit</td>
+                    <td align="center">@StringResource.Detail</td>
+                    <td align="center">@StringResource.Modify</td>
+                    <td align="center">@StringResource.Delete</td>
+                    <td align="center">@StringResource.HistoryRecord</td>
+                    @*@Html.HiddenFor(m => m.ItemCode, new { @class = "form-control" })
+                    @Html.HiddenFor(m => m.StartDate, new { @class = "form-control" })
+                    @Html.HiddenFor(m => m.EndDate, new { @class = "form-control" })
+                    @Html.HiddenFor(m => m.LineCode, new { @class = "form-control" })
+                    @Html.HiddenFor(m => m.EquipmentCode, new { @class = "form-control" })
+                    @Html.HiddenFor(m => m.RouteOperationName, new { @class = "form-control" })
+                    @Html.HiddenFor(m => m.PageNo, new { @class = "form-control" })
+                    @Html.HiddenFor(m => m.PageSize, new { @class = "form-control" })
+                    @Html.HiddenFor(m => m.Records, new { @class = "form-control" })*@
+                </tr>
+            </thead>
+            
+            <tbody>
+                @for (int row = 0; row < dtList.Rows.Count; row++)
+                {
+                    <tr id="@row">
+                        @for (int col = 0; col < dtList.Columns.Count; col++)
+                        {
+                            if (@dtList.Columns[col].Caption == "HIDE")
+                            {
+                                <td hidden></td>
+                            }
+                            else
+                            {
+                                if (@dtList.Columns[col].ColumnName == "RowsNumber")
+                                {
+                                    <td align="center">
+                                        @dtList.Rows[row][col]
+                                    </td>
+                                }
+                                else
+                                {
+                                    <td align="right">
+                                        @dtList.Rows[row][col]
+                                    </td> 
+                                }                                
+                            }
+
+                            if (col == dtList.Columns.Count - 1 && @dtList.Rows[row]["DataState"] == "")
+                            {
+                                <td align="center">
+                                    @Ajax.ActionLink(StringResource.Audit, actionName: null
+                                                    , routeValues: null
+                                                    , ajaxOptions: new AjaxOptions()
+                                                    {
+                                                        HttpMethod = "Post",
+                                                        UpdateTargetId = "AuditInfo",
+                                                        OnSuccess = "completeAudit",
+                                                        Url = Url.Action("Audit", new
+                                                        {
+                                                            @ItemCode = dtList.Rows[row]["ItemCode"],           //项目代码
+                                                            @EDCTime = dtList.Rows[row]["EDCTime"],             //采集时间
+                                                            @LineCode = dtList.Rows[row]["LineCode"],           //线别
+                                                            @EquipmentCode = dtList.Rows[row]["EquipmentCode"]  //设备代码
+                                                        })
+                                                    })
+                                </td>
+                                
+                            }
+                        }
+                        
+
+                        <td align="center">
+                            @Ajax.ActionLink(StringResource.Detail, actionName: null
+                                                    , routeValues: null
+                                                    , ajaxOptions: new AjaxOptions()
+                                                    {
+                                                        HttpMethod = "Post",
+                                                        UpdateTargetId = "detailInfo",
+                                                        OnSuccess = "showInfoModal",
+                                                        Url = Url.Action("Detail", new
+                                                        {
+                                                            @ItemCode = dtList.Rows[row]["ItemCode"],           //项目代码
+                                                            @EDCTime = dtList.Rows[row]["EDCTime"],             //采集时间
+                                                            @LineCode = dtList.Rows[row]["LineCode"],           //线别
+                                                            @EquipmentCode = dtList.Rows[row]["EquipmentCode"]  //设备代码
+                                                        })
+                                                    })
+                        </td>
+                        <td align="center">
+                            @Ajax.ActionLink(StringResource.Modify, actionName: null
+                                                    , routeValues: null
+                                                    , ajaxOptions: new AjaxOptions()
+                                                    {
+                                                        HttpMethod = "Post",
+                                                        UpdateTargetId = "modifyFormContent",
+                                                        OnSuccess = "showModifyModal",
+                                                        Url = Url.Action("Modify", new
+                                                        {
+                                                            @ItemCode = dtList.Rows[row]["ItemCode"],           //项目代码
+                                                            @EDCTime = dtList.Rows[row]["EDCTime"],             //采集时间
+                                                            @LineCode = dtList.Rows[row]["LineCode"],           //线别
+                                                            @EquipmentCode = dtList.Rows[row]["EquipmentCode"]  //设备代码
+                                                        })
+                                                    })
+                        </td>
+                        <td align="center">
+                            @Ajax.ActionLink(StringResource.Delete, actionName: null
+                                                    , routeValues: null
+                                                    , ajaxOptions: new AjaxOptions()
+                                                    {
+                                                        HttpMethod = "Post",
+                                                        Confirm = string.Format(EDC.StringResource.DataAcquisitionData_ConfirmDelete),
+                                                        Url = Url.Action("Delete", new
+                                                        {
+                                                            @ItemCode = dtList.Rows[row]["ItemCode"],           //项目代码
+                                                            @EDCTime = dtList.Rows[row]["EDCTime"],             //采集时间
+                                                            @LineCode = dtList.Rows[row]["LineCode"],           //线别
+                                                            @EquipmentCode = dtList.Rows[row]["EquipmentCode"]  //设备代码
+                                                        }),
+                                                        OnSuccess = "completeDelete"
+                                                    })
+                        </td>
+                        @*<td align="center">
+                            @Ajax.ActionLink(StringResource.HistoryRecord, actionName: null
+                                                    , routeValues: null
+                                                    , ajaxOptions: new AjaxOptions()
+                                                    {
+                                                        HttpMethod = "Post",
+                                                        UpdateTargetId = "modifyFormContent",
+                                                        OnSuccess = "showModifyModal",
+                                                        Url = Url.Action("Modify", new
+                                                        {
+                                                            @EDCTime = dtList.Rows[row]["EDCTime"],             //采集时间
+                                                            @ItemCode = dtList.Rows[row]["ItemCode"],           //项目代码                                                            
+                                                            @LineCode = dtList.Rows[row]["LineCode"],           //线别
+                                                            @EquipmentCode = dtList.Rows[row]["EquipmentCode"], //设备代码
+                                                            @LocationName = dtList.Rows[row]["LocationName"]    //车间代码
+                                                        })
+                                                    })
+                        </td>*@
+                        
+                        <td align="center">
+                            @Html.ActionLink(StringResource.HistoryRecord
+                                         , "Index"
+                                         , "DataAcquisitionTrans"
+                                         , new
+                                            {
+                                                area = "EDC",
+                                                @EDCTime = dtList.Rows[row]["EDCTime"],             //采集时间
+                                                @ItemCode = dtList.Rows[row]["ItemCode"],           //项目代码
+                                                @LineCode = dtList.Rows[row]["LineCode"],           //线别
+                                                @EquipmentCode = dtList.Rows[row]["EquipmentCode"], //设备代码
+                                                @LocationName = dtList.Rows[row]["LocationName"]    //车间代码
+                                            }
+                                         , new { @target = "_blank" })
+                        </td>                        
+                    </tr>    
+                }                
+            </tbody>
+        } 
+    </table>
+    <div style="margin-top:-18px">
+        @if (cfg != null)
+        {
+            using (Ajax.BeginForm("PagingQuery", "DataAcquisitionData"
+                            , new
+                            {
+                                @Where = cfg.Where,
+                                @OrderBy = cfg.OrderBy,
+                                @CurrentPageNo = cfg.PageNo,
+                                @CurrentPageSize = cfg.PageSize
+                            }
+                            , new AjaxOptions()
+                            {
+                                HttpMethod = "Post",
+                                OnBegin = "beginQuery",
+                                UpdateTargetId = "_list"
+                            }
+                            , new { @class = "form-horizontal", resource = "form", id = "frmPagingQuery" }))
+            {
+                @Html.AntiForgeryToken()
+                <div>@Html.Partial("_PaginationPartial")</div>
+            }
+        } 
+    </div>
+</div>
+

@@ -1,0 +1,1337 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{967CA653-0A56-40D9-840C-2395B7D4DFF7}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ServiceCenter.Client.Mvc</RootNamespace>
+    <AssemblyName>ServiceCenter.Client.Cell.Mvc</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime">
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NPOI">
+      <HintPath>..\..\libs\NPOI\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OOXML">
+      <HintPath>..\..\libs\NPOI\NPOI.OOXML.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net">
+      <HintPath>..\..\libs\NPOI\NPOI.OpenXml4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats">
+      <HintPath>..\..\libs\NPOI\NPOI.OpenXmlFormats.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.0.0\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.1\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.0.0\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <Private>True</Private>
+      <HintPath>..\packages\Newtonsoft.Json.5.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\BaseData\BaseDataAreaRegistration.cs" />
+    <Compile Include="Areas\BaseData\Controllers\BaseAttributeController.cs" />
+    <Compile Include="Areas\BaseData\Controllers\BaseAttributeCategoryController.cs" />
+    <Compile Include="Areas\BaseData\Controllers\BaseAttributeValueController.cs" />
+    <Compile Include="Areas\BaseData\Models\BaseAttributeModels.cs" />
+    <Compile Include="Areas\BaseData\Models\BaseAttributeCategoryModels.cs" />
+    <Compile Include="Areas\EDC\Controllers\DataController.cs" />
+    <Compile Include="Areas\EDC\Controllers\PointDetailController.cs" />
+    <Compile Include="Areas\EDC\Controllers\PointController.cs" />
+    <Compile Include="Areas\EDC\Controllers\SamplingPlanController.cs" />
+    <Compile Include="Areas\EDC\Controllers\CategoryController.cs" />
+    <Compile Include="Areas\EDC\Controllers\CategoryDetailController.cs" />
+    <Compile Include="Areas\EDC\EDCAreaRegistration.cs" />
+    <Compile Include="Areas\EDC\Models\CategoryDetailViewModels.cs" />
+    <Compile Include="Areas\EDC\Models\PointDetailViewModels.cs" />
+    <Compile Include="Areas\EDC\Models\PointViewModels.cs" />
+    <Compile Include="Areas\EDC\Models\SamplingPlanViewModels.cs" />
+    <Compile Include="Areas\EDC\Models\CategoryViewModels.cs" />
+    <Compile Include="Areas\EDC\Models\DataViewModels.cs" />
+    <Compile Include="Areas\EMS\Controllers\EquipmentStateEventController.cs" />
+    <Compile Include="Areas\EMS\EMSAreaRegistration.cs" />
+    <Compile Include="Areas\EMS\Models\EquipmentStateEventViewModels.cs" />
+    <Compile Include="Areas\FMM\Controllers\EquipmentLayoutController.cs" />
+    <Compile Include="Areas\FMM\Controllers\EquipmentLayoutDetailController.cs" />
+    <Compile Include="Areas\FMM\Controllers\PrintLabelController.cs" />
+    <Compile Include="Areas\FMM\Controllers\RouteStepParameterController.cs" />
+    <Compile Include="Areas\FMM\Controllers\RouteStepAttributeController.cs" />
+    <Compile Include="Areas\FMM\Controllers\RouteOperationEquipmentController.cs" />
+    <Compile Include="Areas\FMM\Controllers\RouteOperationAttributeController.cs" />
+    <Compile Include="Areas\FMM\Controllers\MaterialTypeRouteController.cs" />
+    <Compile Include="Areas\FMM\Controllers\ReasonCodeCategoryDetailController.cs" />
+    <Compile Include="Areas\FMM\Controllers\ParameterDerivationController.cs" />
+    <Compile Include="Areas\FMM\Controllers\EquipmentChangeStateController.cs" />
+    <Compile Include="Areas\FMM\Controllers\EquipmentController.cs" />
+    <Compile Include="Areas\FMM\Controllers\EquipmentGroupController.cs" />
+    <Compile Include="Areas\FMM\Controllers\EquipmentStateController.cs" />
+    <Compile Include="Areas\FMM\Controllers\MaterialAttributeController.cs" />
+    <Compile Include="Areas\FMM\Controllers\ClientConfigAttributeController.cs" />
+    <Compile Include="Areas\FMM\Controllers\ClientConfigController.cs" />
+    <Compile Include="Areas\FMM\Controllers\LineStoreController.cs" />
+    <Compile Include="Areas\FMM\Controllers\MaterialController.cs" />
+    <Compile Include="Areas\FMM\Controllers\ParameterController.cs" />
+    <Compile Include="Areas\FMM\Controllers\ReasonCodeCategoryController.cs" />
+    <Compile Include="Areas\FMM\Controllers\ReasonCodeController.cs" />
+    <Compile Include="Areas\FMM\Controllers\RouteEnterpriseDetailController.cs" />
+    <Compile Include="Areas\FMM\Controllers\RouteOperationController.cs" />
+    <Compile Include="Areas\FMM\Controllers\RouteEnterpriseController.cs" />
+    <Compile Include="Areas\FMM\Controllers\RouteController.cs" />
+    <Compile Include="Areas\FMM\Controllers\RouteOperationParameterController.cs" />
+    <Compile Include="Areas\FMM\Controllers\RouteStepController.cs" />
+    <Compile Include="Areas\FMM\Controllers\ScheduleController.cs" />
+    <Compile Include="Areas\FMM\Controllers\ScheduleDayController.cs" />
+    <Compile Include="Areas\FMM\Controllers\ScheduleDetailController.cs" />
+    <Compile Include="Areas\FMM\Controllers\ScheduleMonthController.cs" />
+    <Compile Include="Areas\FMM\Controllers\ShiftController.cs" />
+    <Compile Include="Areas\FMM\Controllers\SupplierController.cs" />
+    <Compile Include="Areas\FMM\Controllers\MaterialTypeController.cs" />
+    <Compile Include="Areas\FMM\Controllers\ProductionLineController.cs" />
+    <Compile Include="Areas\FMM\Controllers\MaterialBOMController.cs" />
+    <Compile Include="Areas\FMM\FMMAreaRegistration.cs" />
+    <Compile Include="Areas\FMM\Controllers\LocationController.cs" />
+    <Compile Include="Areas\FMM\Models\EquipmentLayoutViewModels.cs" />
+    <Compile Include="Areas\FMM\Models\EquipmentLayoutDetailViewModels.cs" />
+    <Compile Include="Areas\FMM\Models\PrintLabelViewModels.cs" />
+    <Compile Include="Areas\FMM\Models\RouteStepParameterViewModels.cs" />
+    <Compile Include="Areas\FMM\Models\RouteStepAttributeModels.cs" />
+    <Compile Include="Areas\FMM\Models\RouteOperationParameterViewModels.cs" />
+    <Compile Include="Areas\FMM\Models\RouteOperationEquipmentViewModels.cs" />
+    <Compile Include="Areas\FMM\Models\RouteOperationAttributeModels.cs" />
+    <Compile Include="Areas\FMM\Models\MaterialTypeRouteViewModels.cs" />
+    <Compile Include="Areas\FMM\Models\RouteEnterpriseDetailViewModels.cs" />
+    <Compile Include="Areas\FMM\Models\RouteStepViewModels.cs" />
+    <Compile Include="Areas\FMM\Models\RouteOperationViewModels.cs" />
+    <Compile Include="Areas\FMM\Models\RouteEnterpriseViewModels.cs" />
+    <Compile Include="Areas\FMM\Models\RouteViewModels.cs" />
+    <Compile Include="Areas\FMM\Models\ScheduleDetailViewModels.cs" />
+    <Compile Include="Areas\FMM\Models\ScheduleDayViewModels.cs" />
+    <Compile Include="Areas\FMM\Models\ScheduleMonthViewModels.cs" />
+    <Compile Include="Areas\FMM\Models\ScheduleViewModels.cs" />
+    <Compile Include="Areas\FMM\Models\ReasonCodeCategoryDetailViewModels.cs" />
+    <Compile Include="Areas\FMM\Models\ParameterDerivationViewModels.cs" />
+    <Compile Include="Areas\FMM\Models\EquipmentViewModels.cs" />
+    <Compile Include="Areas\FMM\Models\EquipmentStateViewModels.cs" />
+    <Compile Include="Areas\FMM\Models\MaterialAttributeViewModels.cs" />
+    <Compile Include="Areas\FMM\Models\ClientConfigAttributeViewModels.cs" />
+    <Compile Include="Areas\FMM\Models\ClientConfigViewModels.cs" />
+    <Compile Include="Areas\FMM\Models\EquipmentGroupViewModels.cs" />
+    <Compile Include="Areas\FMM\Models\ReasonCodeCategoryViewModels.cs" />
+    <Compile Include="Areas\FMM\Models\ReasonCodeViewModels.cs" />
+    <Compile Include="Areas\FMM\Models\ShiftViewModels.cs" />
+    <Compile Include="Areas\FMM\Models\ParameterViewModels.cs" />
+    <Compile Include="Areas\FMM\Models\SupplierViewModels.cs" />
+    <Compile Include="Areas\FMM\Models\MaterialViewModels.cs" />
+    <Compile Include="Areas\FMM\Models\MaterialTypeViewModels.cs" />
+    <Compile Include="Areas\FMM\Models\LineStoreViewModels.cs" />
+    <Compile Include="Areas\FMM\Models\ProductionLineViewModels.cs" />
+    <Compile Include="Areas\FMM\Models\LocationViewModels.cs" />
+    <Compile Include="Areas\FMM\Models\MaterialBOMViewModels.cs" />
+    <Compile Include="Areas\LSM\Controllers\LineStoreMaterialController.cs" />
+    <Compile Include="Areas\LSM\Controllers\MaterialLoadingController.cs" />
+    <Compile Include="Areas\LSM\Controllers\MaterialReceiptController.cs" />
+    <Compile Include="Areas\LSM\Controllers\MaterialReturnController.cs" />
+    <Compile Include="Areas\LSM\LSMAreaRegistration.cs" />
+    <Compile Include="Areas\LSM\Controllers\MaterialUnloadingController.cs" />
+    <Compile Include="Areas\LSM\Models\MaterialUnloadingViewModels.cs" />
+    <Compile Include="Areas\LSM\Models\MaterialReturnViewModels.cs" />
+    <Compile Include="Areas\LSM\Models\MaterialReceiptViewModels.cs" />
+    <Compile Include="Areas\LSM\Models\MaterialLoadingViewModels.cs" />
+    <Compile Include="Areas\LSM\Models\LineStoreMaterialViewModels.cs" />
+    <Compile Include="Areas\PPM\Controllers\WorkOrderProductController.cs" />
+    <Compile Include="Areas\PPM\Controllers\WorkOrderProductionLineController.cs" />
+    <Compile Include="Areas\PPM\Controllers\WorkOrderAttributeController.cs" />
+    <Compile Include="Areas\PPM\Controllers\WorkOrderBOMController.cs" />
+    <Compile Include="Areas\PPM\Controllers\WorkOrderController.cs" />
+    <Compile Include="Areas\PPM\Controllers\WorkOrderRouteController.cs" />
+    <Compile Include="Areas\PPM\Models\WorkOrderProductViewModels.cs" />
+    <Compile Include="Areas\PPM\Models\WorkOrderRouteViewModels.cs" />
+    <Compile Include="Areas\PPM\Models\WorkOrderProductionLineViewModels.cs" />
+    <Compile Include="Areas\PPM\Models\WorkOrderBOMViewModels.cs" />
+    <Compile Include="Areas\PPM\Models\WorkOrderAttributeViewModels.cs" />
+    <Compile Include="Areas\PPM\PPMAreaRegistration.cs" />
+    <Compile Include="Areas\PPM\Models\WorkOrderViewModels.cs" />
+    <Compile Include="Areas\QAM\Controllers\CheckCategoryController.cs" />
+    <Compile Include="Areas\QAM\Controllers\CheckSettingPointController.cs" />
+    <Compile Include="Areas\QAM\Controllers\CheckCategoryDetailController.cs" />
+    <Compile Include="Areas\QAM\Controllers\CheckPlanController.cs" />
+    <Compile Include="Areas\QAM\Controllers\CheckSettingController.cs" />
+    <Compile Include="Areas\QAM\Controllers\CheckSettingPointDetailController.cs" />
+    <Compile Include="Areas\QAM\Models\CheckSettingPointViewModels.cs" />
+    <Compile Include="Areas\QAM\Models\CheckCategoryDetailViewModels.cs" />
+    <Compile Include="Areas\QAM\Models\CheckCategoryViewModels.cs" />
+    <Compile Include="Areas\QAM\Models\CheckPlanViewModels.cs" />
+    <Compile Include="Areas\QAM\Models\CheckSettingViewModels.cs" />
+    <Compile Include="Areas\QAM\Models\CheckSettingPointDetailViewModels.cs" />
+    <Compile Include="Areas\QAM\QAMAreaRegistration.cs" />
+    <Compile Include="Areas\RBAC\Controllers\ResourceController.cs" />
+    <Compile Include="Areas\RBAC\Controllers\RoleController.cs" />
+    <Compile Include="Areas\RBAC\Controllers\UserController.cs" />
+    <Compile Include="Areas\RBAC\Models\ResourceViewModels.cs" />
+    <Compile Include="Areas\RBAC\Models\RoleViewModels.cs" />
+    <Compile Include="Areas\RBAC\Models\UserViewModels.cs" />
+    <Compile Include="Areas\RBAC\RBACAreaRegistration.cs" />
+    <Compile Include="Areas\RPT\Controllers\WIPMoveController.cs" />
+    <Compile Include="Areas\RPT\Controllers\WIPDisplayController.cs" />
+    <Compile Include="Areas\RPT\Models\WIPMoveViewModels.cs" />
+    <Compile Include="Areas\RPT\Models\WIPDisplayViewModels.cs" />
+    <Compile Include="Areas\RPT\RPTAreaRegistration.cs" />
+    <Compile Include="Areas\WIP\Controllers\PackagePrintController.cs" />
+    <Compile Include="Areas\WIP\Controllers\LotReworkController.cs" />
+    <Compile Include="Areas\WIP\Controllers\LotPrintController.cs" />
+    <Compile Include="Areas\WIP\Controllers\LotChangeController.cs" />
+    <Compile Include="Areas\WIP\Controllers\LotUndoController.cs" />
+    <Compile Include="Areas\WIP\Controllers\LotPackageController.cs" />
+    <Compile Include="Areas\WIP\Controllers\LotTrackController.cs" />
+    <Compile Include="Areas\WIP\Controllers\LotRepairController.cs" />
+    <Compile Include="Areas\WIP\Controllers\LotQueryController.cs" />
+    <Compile Include="Areas\WIP\Controllers\LotPatchController.cs" />
+    <Compile Include="Areas\WIP\Controllers\LotScrapController.cs" />
+    <Compile Include="Areas\WIP\Controllers\LotDefectController.cs" />
+    <Compile Include="Areas\WIP\Controllers\LotTerminalController.cs" />
+    <Compile Include="Areas\WIP\Controllers\LotReleaseController.cs" />
+    <Compile Include="Areas\WIP\Controllers\LotHoldController.cs" />
+    <Compile Include="Areas\WIP\Controllers\LotCreateController.cs" />
+    <Compile Include="Areas\WIP\Models\PackagePrintViewModels.cs" />
+    <Compile Include="Areas\WIP\Models\LotReworkViewModels.cs" />
+    <Compile Include="Areas\WIP\Models\LotPrintViewModels.cs" />
+    <Compile Include="Areas\WIP\Models\LotChangeViewModels.cs" />
+    <Compile Include="Areas\WIP\Models\LotUndoViewModels.cs" />
+    <Compile Include="Areas\WIP\Models\LotPackageViewModels.cs" />
+    <Compile Include="Areas\WIP\Models\LotTrackViewModels.cs" />
+    <Compile Include="Areas\WIP\Models\LotRepairViewModels.cs" />
+    <Compile Include="Areas\WIP\Models\LotPatchViewModels.cs" />
+    <Compile Include="Areas\WIP\Models\LotScrapViewModels.cs" />
+    <Compile Include="Areas\WIP\Models\LotDefectViewModels.cs" />
+    <Compile Include="Areas\WIP\Models\LotTerminalViewModels.cs" />
+    <Compile Include="Areas\WIP\Models\LotReleaseViewModels.cs" />
+    <Compile Include="Areas\WIP\Models\LotViewModels.cs" />
+    <Compile Include="Areas\WIP\Models\LotHoldViewModels.cs" />
+    <Compile Include="Areas\WIP\Models\LotCreateViewModels.cs" />
+    <Compile Include="Areas\WIP\WIPAreaRegistration.cs" />
+    <Compile Include="Areas\ZPVC\Controllers\EfficiencyConfigurationController.cs" />
+    <Compile Include="Areas\ZPVC\Controllers\BoxController.cs" />
+    <Compile Include="Areas\ZPVC\Controllers\PackageController.cs" />
+    <Compile Include="Areas\ZPVC\Controllers\BoxPrintController.cs" />
+    <Compile Include="Areas\ZPVC\Controllers\PackagePrintController.cs" />
+    <Compile Include="Areas\ZPVC\Controllers\BoxQueryController.cs" />
+    <Compile Include="Areas\ZPVC\Controllers\PackageQueryController.cs" />
+    <Compile Include="Areas\ZPVC\Models\BoxViewModels.cs" />
+    <Compile Include="Areas\ZPVC\Models\BoxPrintViewModels.cs" />
+    <Compile Include="Areas\ZPVC\Models\PackagePrintViewModels.cs" />
+    <Compile Include="Areas\ZPVC\Models\BoxQueryViewModels.cs" />
+    <Compile Include="Areas\ZPVC\Models\PackageQueryViewModels.cs" />
+    <Compile Include="Areas\ZPVC\Models\PackageViewModels.cs" />
+    <Compile Include="Areas\ZPVC\Models\EfficiencyConfigurationViewModels.cs" />
+    <Compile Include="Areas\ZPVC\ZPVCAreaRegistration.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RDLC\PackageListDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PackageListDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\BaseData\StringResource.Designer.cs">
+      <DependentUpon>StringResource.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\EMS\StringResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StringResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\QAM\StringResource.Designer.cs">
+      <DependentUpon>StringResource.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\EDC\StringResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StringResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\FMM\StringResource.Designer.cs">
+      <DependentUpon>StringResource.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\LSM\StringResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StringResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\PPM\StringResource.Designer.cs">
+      <DependentUpon>StringResource.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\RBAC\StringResource.en.Designer.cs">
+      <DependentUpon>StringResource.en.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\RBAC\StringResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StringResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\RPT\StringResource.Designer.cs">
+      <DependentUpon>StringResource.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\StringResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StringResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\WIP\StringResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StringResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\ZPVC\StringResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StringResource.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\evol.colorpicker.css" />
+    <Content Include="Content\evol.colorpicker.min.css" />
+    <Content Include="Content\images\ui-bg_diagonals-small_40_db4865_40x40.png" />
+    <Content Include="Content\images\ui-bg_diagonals-small_50_93c3cd_40x40.png" />
+    <Content Include="Content\images\ui-bg_diagonals-small_50_ff3853_40x40.png" />
+    <Content Include="Content\images\ui-bg_diagonals-small_75_ccd232_40x40.png" />
+    <Content Include="Content\images\ui-bg_dots-medium_80_ffff38_4x4.png" />
+    <Content Include="Content\images\ui-bg_dots-small_35_35414f_2x2.png" />
+    <Content Include="Content\images\ui-bg_flat_75_ba9217_40x100.png" />
+    <Content Include="Content\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\images\ui-bg_white-lines_85_f7f7ba_40x100.png" />
+    <Content Include="Content\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\images\ui-icons_88a206_256x240.png" />
+    <Content Include="Content\images\ui-icons_c02669_256x240.png" />
+    <Content Include="Content\images\ui-icons_e1e463_256x240.png" />
+    <Content Include="Content\images\ui-icons_ffeb33_256x240.png" />
+    <Content Include="Content\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\jquery-ui.css" />
+    <Content Include="Content\jquery-ui.min.css" />
+    <Content Include="Content\ui.jqgrid.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="logo.png" />
+    <Content Include="Scripts\bootstrap.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\bootstrap.min.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Areas\FMM\Views\web.config" />
+    <Content Include="Areas\FMM\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\BaseData\Views\web.config" />
+    <Content Include="Areas\RBAC\Views\web.config" />
+    <Content Include="Areas\RBAC\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\RBAC\Views\User\Index.cshtml" />
+    <Content Include="Areas\RBAC\Views\User\_ModifyUserPartial.cshtml" />
+    <Content Include="Areas\RBAC\Views\User\_AddUserPartial.cshtml" />
+    <Content Include="Areas\RBAC\Views\User\_UserListPartial.cshtml" />
+    <Content Include="Areas\RBAC\Views\User\_UserInfoPartial.cshtml" />
+    <Content Include="Areas\RBAC\Views\Role\Index.cshtml" />
+    <Content Include="Areas\RBAC\Views\Role\_AddRolePartial.cshtml" />
+    <Content Include="Areas\RBAC\Views\Role\_ModifyRolePartial.cshtml" />
+    <Content Include="Areas\RBAC\Views\Role\_RoleInfoPartial.cshtml" />
+    <Content Include="Areas\RBAC\Views\Role\_RoleListPartial.cshtml" />
+    <Content Include="Areas\RBAC\Views\Resource\Index.cshtml" />
+    <Content Include="Areas\RBAC\Views\Resource\_AddResourcePartial.cshtml" />
+    <Content Include="Areas\RBAC\Views\Resource\_ModifyResourcePartial.cshtml" />
+    <Content Include="Areas\RBAC\Views\Resource\_ResourceInfoPartial.cshtml" />
+    <Content Include="Areas\RBAC\Views\Resource\_ResourceListPartial.cshtml" />
+    <Content Include="Areas\RBAC\Views\User\_SetUserRolePartial.cshtml" />
+    <Content Include="Areas\RBAC\Views\User\_SetUserResourcePartial.cshtml" />
+    <Content Include="Areas\RBAC\Views\Role\_SetRoleResourcePartial.cshtml" />
+    <Content Include="Areas\RBAC\Views\Role\_SetRoleUserPartial.cshtml" />
+    <Content Include="Areas\BaseData\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\BaseData\Views\BaseAttributeCategory\_AddPartial.cshtml" />
+    <Content Include="Areas\BaseData\Views\BaseAttributeCategory\_ModifyPartial.cshtml" />
+    <Content Include="Areas\BaseData\Views\BaseAttributeCategory\_InfoPartial.cshtml" />
+    <Content Include="Areas\BaseData\Views\BaseAttributeCategory\_ListPartial.cshtml" />
+    <Content Include="Areas\BaseData\Views\BaseAttributeCategory\Index.cshtml" />
+    <Content Include="Areas\BaseData\Views\BaseAttribute\_AddPartial.cshtml" />
+    <Content Include="Areas\BaseData\Views\BaseAttribute\_InfoPartial.cshtml" />
+    <Content Include="Areas\BaseData\Views\BaseAttribute\_ListPartial.cshtml" />
+    <Content Include="Areas\BaseData\Views\BaseAttribute\_ModifyPartial.cshtml" />
+    <Content Include="Areas\BaseData\Views\BaseAttribute\Index.cshtml" />
+    <Content Include="Areas\BaseData\Views\BaseAttributeValue\_AddPartial.cshtml" />
+    <Content Include="Areas\BaseData\Views\BaseAttributeValue\_InfoPartial.cshtml" />
+    <Content Include="Areas\BaseData\Views\BaseAttributeValue\_ListPartial.cshtml" />
+    <Content Include="Areas\BaseData\Views\BaseAttributeValue\_ModifyPartial.cshtml" />
+    <Content Include="Areas\BaseData\Views\BaseAttributeValue\Index.cshtml" />
+    <Content Include="Areas\FMM\Views\Location\_AddPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\Location\_InfoPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\Location\_ListPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\Location\_ModifyPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\Location\Index.cshtml" />
+    <Content Include="Areas\FMM\Views\ProductionLine\_AddPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\ProductionLine\_InfoPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\ProductionLine\_ListPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\ProductionLine\_ModifyPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\ProductionLine\Index.cshtml" />
+    <Content Include="Areas\FMM\Views\LineStore\_AddPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\LineStore\_InfoPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\LineStore\_ListPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\LineStore\_ModifyPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\LineStore\Index.cshtml" />
+    <Content Include="Areas\FMM\Views\MaterialType\_AddPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\MaterialType\_InfoPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\MaterialType\_ListPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\MaterialType\_ModifyPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\MaterialType\Index.cshtml" />
+    <Content Include="Areas\FMM\Views\ClientConfig\_AddPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\ClientConfig\_InfoPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\ClientConfig\_ListPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\ClientConfig\_ModifyPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\ClientConfig\Index.cshtml" />
+    <Content Include="Areas\FMM\Views\ClientConfigAttribute\_AddPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\ClientConfigAttribute\_InfoPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\ClientConfigAttribute\_ListPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\ClientConfigAttribute\_ModifyPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\ClientConfigAttribute\Index.cshtml" />
+    <Content Include="Areas\FMM\Views\Material\Index.cshtml" />
+    <Content Include="Areas\FMM\Views\Material\_AddPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\Material\_InfoPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\Material\_ListPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\Material\_ModifyPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\MaterialAttribute\_AddPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\MaterialAttribute\_InfoPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\MaterialAttribute\_ListPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\MaterialAttribute\_ModifyPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\MaterialAttribute\Index.cshtml" />
+    <Content Include="Areas\FMM\Views\Supplier\_AddPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\Supplier\_InfoPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\Supplier\_ListPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\Supplier\_ModifyPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\Supplier\Index.cshtml" />
+    <Content Include="Areas\FMM\Views\Shift\_AddPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\Shift\_InfoPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\Shift\_ListPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\Shift\_ModifyPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\Shift\Index.cshtml" />
+    <Content Include="Areas\FMM\Views\EquipmentGroup\_AddPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\EquipmentGroup\_InfoPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\EquipmentGroup\_ListPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\EquipmentGroup\_ModifyPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\EquipmentGroup\Index.cshtml" />
+    <Content Include="Areas\FMM\Views\EquipmentState\_AddPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\EquipmentState\_InfoPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\EquipmentState\_ListPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\EquipmentState\_ModifyPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\EquipmentState\Index.cshtml" />
+    <Content Include="Areas\FMM\Views\EquipmentChangeState\Index.cshtml" />
+    <Content Include="Areas\FMM\Views\EquipmentChangeState\_ListPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\Equipment\_AddPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\Equipment\_InfoPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\Equipment\_ListPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\Equipment\_ModifyPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\Equipment\Index.cshtml" />
+    <Content Include="Areas\FMM\Views\Parameter\_AddPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\Parameter\_InfoPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\Parameter\_ListPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\Parameter\_ModifyPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\Parameter\Index.cshtml" />
+    <Content Include="Areas\FMM\Views\ParameterDerivation\_AddPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\ParameterDerivation\_ListPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\ParameterDerivation\Index.cshtml" />
+    <Content Include="Areas\FMM\Views\ReasonCode\_AddPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\ReasonCode\_InfoPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\ReasonCode\_ListPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\ReasonCode\_ModifyPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\ReasonCode\Index.cshtml" />
+    <Content Include="Areas\FMM\Views\ReasonCodeCategory\_AddPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\ReasonCodeCategory\_InfoPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\ReasonCodeCategory\_ListPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\ReasonCodeCategory\_ModifyPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\ReasonCodeCategory\Index.cshtml" />
+    <Content Include="Areas\FMM\Views\ReasonCodeCategoryDetail\_AddPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\ReasonCodeCategoryDetail\_InfoPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\ReasonCodeCategoryDetail\_ListPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\ReasonCodeCategoryDetail\_ModifyPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\ReasonCodeCategoryDetail\Index.cshtml" />
+    <Content Include="Areas\FMM\Views\Schedule\_AddPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\Schedule\_InfoPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\Schedule\_ListPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\Schedule\_ModifyPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\Schedule\Index.cshtml" />
+    <Content Include="Areas\FMM\Views\ScheduleDetail\_AddPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\ScheduleDetail\_ListPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\ScheduleDetail\Index.cshtml" />
+    <Content Include="Areas\FMM\Views\ScheduleMonth\_AddPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\ScheduleMonth\_ListPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\ScheduleMonth\Index.cshtml" />
+    <Content Include="Areas\FMM\Views\ScheduleDay\_ListPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\ScheduleDay\Index.cshtml" />
+    <Content Include="Areas\FMM\Views\Route\_AddPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\Route\_InfoPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\Route\_ListPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\Route\_ModifyPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\Route\Index.cshtml" />
+    <Content Include="Areas\FMM\Views\RouteEnterprise\_AddPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\RouteEnterprise\_InfoPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\RouteEnterprise\_ListPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\RouteEnterprise\_ModifyPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\RouteEnterprise\Index.cshtml" />
+    <Content Include="Areas\FMM\Views\RouteOperation\_AddPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\RouteOperation\_InfoPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\RouteOperation\_ListPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\RouteOperation\_ModifyPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\RouteOperation\Index.cshtml" />
+    <Content Include="Areas\FMM\Views\RouteEnterpriseDetail\_AddPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\RouteEnterpriseDetail\_InfoPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\RouteEnterpriseDetail\_ListPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\RouteEnterpriseDetail\_ModifyPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\RouteEnterpriseDetail\Index.cshtml" />
+    <Content Include="Areas\FMM\Views\MaterialTypeRoute\_AddPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\MaterialTypeRoute\_ListPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\MaterialTypeRoute\Index.cshtml" />
+    <Content Include="Areas\FMM\Views\RouteOperationAttribute\_AddPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\RouteOperationAttribute\_InfoPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\RouteOperationAttribute\_ListPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\RouteOperationAttribute\_ModifyPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\RouteOperationAttribute\Index.cshtml" />
+    <Content Include="Areas\FMM\Views\RouteOperationEquipment\_AddPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\RouteOperationEquipment\_ListPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\RouteOperationEquipment\Index.cshtml" />
+    <Content Include="Areas\FMM\Views\RouteOperationParameter\_AddPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\RouteOperationParameter\_InfoPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\RouteOperationParameter\_ListPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\RouteOperationParameter\_ModifyPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\RouteOperationParameter\Index.cshtml" />
+    <Content Include="Areas\FMM\Views\RouteStep\_AddPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\RouteStep\_InfoPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\RouteStep\_ListPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\RouteStep\_ModifyPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\RouteStep\Index.cshtml" />
+    <Content Include="Areas\FMM\Views\RouteStepAttribute\_AddPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\RouteStepAttribute\_InfoPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\RouteStepAttribute\_ListPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\RouteStepAttribute\_ModifyPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\RouteStepAttribute\Index.cshtml" />
+    <Content Include="Areas\FMM\Views\RouteStepParameter\_AddPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\RouteStepParameter\_InfoPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\RouteStepParameter\_ListPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\RouteStepParameter\_ModifyPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\RouteStepParameter\Index.cshtml" />
+    <Content Include="Areas\FMM\Views\EquipmentLayout\_AddPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\EquipmentLayout\_InfoPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\EquipmentLayout\_ListPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\EquipmentLayout\_ModifyPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\EquipmentLayout\Index.cshtml" />
+    <Content Include="Areas\FMM\Views\EquipmentLayoutDetail\_AddPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\EquipmentLayoutDetail\_ListPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\EquipmentLayoutDetail\Index.cshtml" />
+    <Content Include="Areas\PPM\Views\web.config" />
+    <Content Include="Areas\PPM\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\PPM\Views\WorkOrder\Index.cshtml" />
+    <Content Include="Areas\PPM\Views\WorkOrder\_ListPartial.cshtml" />
+    <Content Include="Areas\PPM\Views\WorkOrder\_ModifyPartial.cshtml" />
+    <Content Include="Areas\PPM\Views\WorkOrder\_InfoPartial.cshtml" />
+    <Content Include="Areas\PPM\Views\WorkOrder\_AddPartial.cshtml" />
+    <Content Include="Areas\PPM\Views\WorkOrderAttribute\_AddPartial.cshtml" />
+    <Content Include="Areas\PPM\Views\WorkOrderAttribute\_InfoPartial.cshtml" />
+    <Content Include="Areas\PPM\Views\WorkOrderAttribute\_ListPartial.cshtml" />
+    <Content Include="Areas\PPM\Views\WorkOrderAttribute\_ModifyPartial.cshtml" />
+    <Content Include="Areas\PPM\Views\WorkOrderAttribute\Index.cshtml" />
+    <Content Include="Areas\PPM\Views\WorkOrderBOM\_AddPartial.cshtml" />
+    <Content Include="Areas\PPM\Views\WorkOrderBOM\_InfoPartial.cshtml" />
+    <Content Include="Areas\PPM\Views\WorkOrderBOM\_ListPartial.cshtml" />
+    <Content Include="Areas\PPM\Views\WorkOrderBOM\_ModifyPartial.cshtml" />
+    <Content Include="Areas\PPM\Views\WorkOrderBOM\Index.cshtml" />
+    <Content Include="Areas\PPM\Views\WorkOrderProductionLine\_AddPartial.cshtml" />
+    <Content Include="Areas\PPM\Views\WorkOrderProductionLine\_ListPartial.cshtml" />
+    <Content Include="Areas\PPM\Views\WorkOrderProductionLine\Index.cshtml" />
+    <Content Include="Areas\PPM\Views\WorkOrderRoute\_AddPartial.cshtml" />
+    <Content Include="Areas\PPM\Views\WorkOrderRoute\_ListPartial.cshtml" />
+    <Content Include="Areas\PPM\Views\WorkOrderRoute\Index.cshtml" />
+    <Content Include="Areas\PPM\Views\WorkOrderProduct\_AddPartial.cshtml" />
+    <Content Include="Areas\PPM\Views\WorkOrderProduct\_InfoPartial.cshtml" />
+    <Content Include="Areas\PPM\Views\WorkOrderProduct\_ListPartial.cshtml" />
+    <Content Include="Areas\PPM\Views\WorkOrderProduct\_ModifyPartial.cshtml" />
+    <Content Include="Areas\PPM\Views\WorkOrderProduct\Index.cshtml" />
+    <Content Include="Areas\LSM\Views\web.config" />
+    <Content Include="Areas\LSM\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\LSM\Views\LineStoreMaterial\_ListPartial.cshtml" />
+    <Content Include="Areas\LSM\Views\LineStoreMaterial\Index.cshtml" />
+    <Content Include="Areas\LSM\Views\LineStoreMaterial\_DetailListPartial.cshtml" />
+    <Content Include="Areas\LSM\Views\LineStoreMaterial\Detail.cshtml" />
+    <Content Include="Areas\LSM\Views\MaterialReceipt\_DetailListPartial.cshtml" />
+    <Content Include="Areas\LSM\Views\MaterialReceipt\_ListPartial.cshtml" />
+    <Content Include="Areas\LSM\Views\MaterialReceipt\Detail.cshtml" />
+    <Content Include="Areas\LSM\Views\MaterialReceipt\Index.cshtml" />
+    <Content Include="Areas\LSM\Views\MaterialReceipt\_AddPartial.cshtml" />
+    <Content Include="Areas\LSM\Views\MaterialReceipt\_AddDetailPartial.cshtml" />
+    <Content Include="Areas\LSM\Views\MaterialReturn\_AddDetailPartial.cshtml" />
+    <Content Include="Areas\LSM\Views\MaterialReturn\_AddPartial.cshtml" />
+    <Content Include="Areas\LSM\Views\MaterialReturn\_DetailListPartial.cshtml" />
+    <Content Include="Areas\LSM\Views\MaterialReturn\_ListPartial.cshtml" />
+    <Content Include="Areas\LSM\Views\MaterialReturn\Detail.cshtml" />
+    <Content Include="Areas\LSM\Views\MaterialReturn\Index.cshtml" />
+    <Content Include="Areas\LSM\Views\MaterialLoading\_AddDetailPartial.cshtml" />
+    <Content Include="Areas\LSM\Views\MaterialLoading\_AddPartial.cshtml" />
+    <Content Include="Areas\LSM\Views\MaterialLoading\_DetailListPartial.cshtml" />
+    <Content Include="Areas\LSM\Views\MaterialLoading\_ListPartial.cshtml" />
+    <Content Include="Areas\LSM\Views\MaterialLoading\Detail.cshtml" />
+    <Content Include="Areas\LSM\Views\MaterialLoading\Index.cshtml" />
+    <Content Include="Areas\LSM\Views\MaterialUnloading\_AddDetailPartial.cshtml" />
+    <Content Include="Areas\LSM\Views\MaterialUnloading\_AddPartial.cshtml" />
+    <Content Include="Areas\LSM\Views\MaterialUnloading\_DetailListPartial.cshtml" />
+    <Content Include="Areas\LSM\Views\MaterialUnloading\_ListPartial.cshtml" />
+    <Content Include="Areas\LSM\Views\MaterialUnloading\Detail.cshtml" />
+    <Content Include="Areas\LSM\Views\MaterialUnloading\Index.cshtml" />
+    <Content Include="Areas\EDC\Views\web.config" />
+    <Content Include="Areas\EDC\Views\Category\_AddPartial.cshtml" />
+    <Content Include="Areas\EDC\Views\Category\_InfoPartial.cshtml" />
+    <Content Include="Areas\EDC\Views\Category\_ListPartial.cshtml" />
+    <Content Include="Areas\EDC\Views\Category\_ModifyPartial.cshtml" />
+    <Content Include="Areas\EDC\Views\Category\Index.cshtml" />
+    <Content Include="Areas\EDC\Views\CategoryDetail\_AddPartial.cshtml" />
+    <Content Include="Areas\EDC\Views\CategoryDetail\_InfoPartial.cshtml" />
+    <Content Include="Areas\EDC\Views\CategoryDetail\_ListPartial.cshtml" />
+    <Content Include="Areas\EDC\Views\CategoryDetail\_ModifyPartial.cshtml" />
+    <Content Include="Areas\EDC\Views\CategoryDetail\Index.cshtml" />
+    <Content Include="Areas\EDC\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\EDC\Views\SamplingPlan\_AddPartial.cshtml" />
+    <Content Include="Areas\EDC\Views\SamplingPlan\_InfoPartial.cshtml" />
+    <Content Include="Areas\EDC\Views\SamplingPlan\_ListPartial.cshtml" />
+    <Content Include="Areas\EDC\Views\SamplingPlan\_ModifyPartial.cshtml" />
+    <Content Include="Areas\EDC\Views\SamplingPlan\Index.cshtml" />
+    <Content Include="Areas\EDC\Views\Point\_AddPartial.cshtml" />
+    <Content Include="Areas\EDC\Views\Point\_InfoPartial.cshtml" />
+    <Content Include="Areas\EDC\Views\Point\_ListPartial.cshtml" />
+    <Content Include="Areas\EDC\Views\Point\_ModifyPartial.cshtml" />
+    <Content Include="Areas\EDC\Views\Point\Index.cshtml" />
+    <Content Include="Areas\EDC\Views\PointDetail\_InfoPartial.cshtml" />
+    <Content Include="Areas\EDC\Views\PointDetail\_ListPartial.cshtml" />
+    <Content Include="Areas\EDC\Views\PointDetail\_ModifyPartial.cshtml" />
+    <Content Include="Areas\EDC\Views\PointDetail\Index.cshtml" />
+    <Content Include="Areas\QAM\Views\web.config" />
+    <Content Include="Areas\QAM\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\QAM\Views\CheckCategory\_AddPartial.cshtml" />
+    <Content Include="Areas\QAM\Views\CheckCategory\_InfoPartial.cshtml" />
+    <Content Include="Areas\QAM\Views\CheckCategory\_ListPartial.cshtml" />
+    <Content Include="Areas\QAM\Views\CheckCategory\_ModifyPartial.cshtml" />
+    <Content Include="Areas\QAM\Views\CheckCategory\Index.cshtml" />
+    <Content Include="Areas\QAM\Views\CheckCategoryDetail\_AddPartial.cshtml" />
+    <Content Include="Areas\QAM\Views\CheckCategoryDetail\_InfoPartial.cshtml" />
+    <Content Include="Areas\QAM\Views\CheckCategoryDetail\_ListPartial.cshtml" />
+    <Content Include="Areas\QAM\Views\CheckCategoryDetail\_ModifyPartial.cshtml" />
+    <Content Include="Areas\QAM\Views\CheckCategoryDetail\Index.cshtml" />
+    <Content Include="Areas\QAM\Views\CheckPlan\_AddPartial.cshtml" />
+    <Content Include="Areas\QAM\Views\CheckPlan\_InfoPartial.cshtml" />
+    <Content Include="Areas\QAM\Views\CheckPlan\_ListPartial.cshtml" />
+    <Content Include="Areas\QAM\Views\CheckPlan\_ModifyPartial.cshtml" />
+    <Content Include="Areas\QAM\Views\CheckPlan\Index.cshtml" />
+    <Content Include="Areas\QAM\Views\CheckSetting\_AddPartial.cshtml" />
+    <Content Include="Areas\QAM\Views\CheckSetting\_InfoPartial.cshtml" />
+    <Content Include="Areas\QAM\Views\CheckSetting\_ListPartial.cshtml" />
+    <Content Include="Areas\QAM\Views\CheckSetting\_ModifyPartial.cshtml" />
+    <Content Include="Areas\QAM\Views\CheckSetting\Index.cshtml" />
+    <Content Include="Areas\QAM\Views\CheckSettingPoint\_AddPartial.cshtml" />
+    <Content Include="Areas\QAM\Views\CheckSettingPoint\_InfoPartial.cshtml" />
+    <Content Include="Areas\QAM\Views\CheckSettingPoint\_ListPartial.cshtml" />
+    <Content Include="Areas\QAM\Views\CheckSettingPoint\_ModifyPartial.cshtml" />
+    <Content Include="Areas\QAM\Views\CheckSettingPoint\Index.cshtml" />
+    <Content Include="Areas\QAM\Views\CheckSettingPointDetail\_InfoPartial.cshtml" />
+    <Content Include="Areas\QAM\Views\CheckSettingPointDetail\_ListPartial.cshtml" />
+    <Content Include="Areas\QAM\Views\CheckSettingPointDetail\_ModifyPartial.cshtml" />
+    <Content Include="Areas\QAM\Views\CheckSettingPointDetail\Index.cshtml" />
+    <Content Include="Areas\WIP\Views\web.config" />
+    <Content Include="Areas\WIP\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\WIP\Views\LotCreate\Index.cshtml" />
+    <Content Include="Areas\WIP\Views\LotCreate\Detail.cshtml" />
+    <Content Include="Areas\WIP\Views\LotCreate\_ListPartial.cshtml" />
+    <Content Include="Areas\WIP\Views\LotHold\Index.cshtml" />
+    <Content Include="Areas\WIP\Views\LotRelease\Index.cshtml" />
+    <Content Include="Areas\WIP\Views\LotTerminal\Index.cshtml" />
+    <Content Include="Areas\WIP\Views\LotDefect\Index.cshtml" />
+    <Content Include="Areas\WIP\Views\LotScrap\Index.cshtml" />
+    <Content Include="Areas\WIP\Views\LotPatch\Index.cshtml" />
+    <Content Include="Areas\WIP\Views\LotQuery\_ListPartial.cshtml" />
+    <Content Include="Areas\WIP\Views\LotQuery\Index.cshtml" />
+    <Content Include="Areas\WIP\Views\LotRepair\Index.cshtml" />
+    <Content Include="Areas\WIP\Views\LotTrack\Index.cshtml" />
+    <Content Include="Areas\WIP\Views\LotTrack\_ModalContentPartial.cshtml" />
+    <Content Include="Areas\WIP\Views\LotPackage\Index.cshtml" />
+    <Content Include="Areas\WIP\Views\LotPackage\_ListPartial.cshtml" />
+    <Content Include="Areas\WIP\Views\LotUndo\_ListPartial.cshtml" />
+    <Content Include="Areas\WIP\Views\LotUndo\Index.cshtml" />
+    <Content Include="Areas\FMM\Views\PrintLabel\_AddPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\PrintLabel\_InfoPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\PrintLabel\_ListPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\PrintLabel\_ModifyPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\PrintLabel\Index.cshtml" />
+    <Content Include="Areas\FMM\Views\PrintLabel\PrintTest.cshtml" />
+    <Content Include="Areas\WIP\Views\LotQuery\Detail.cshtml" />
+    <Content Include="Areas\WIP\Views\LotQuery\_AttributeListPartial.cshtml" />
+    <Content Include="Areas\WIP\Views\LotQuery\_TransactionListPartial.cshtml" />
+    <Content Include="Areas\WIP\Views\LotQuery\_EquipmentListPartial.cshtml" />
+    <Content Include="Areas\WIP\Views\LotQuery\_DefectListPartial.cshtml" />
+    <Content Include="Areas\WIP\Views\LotQuery\_ScrapListPartial.cshtml" />
+    <Content Include="Areas\WIP\Views\LotQuery\_PatchListPartial.cshtml" />
+    <Content Include="Areas\WIP\Views\LotQuery\_ParamListPartial.cshtml" />
+    <Content Include="Areas\WIP\Views\LotQuery\_MaterialListPartial.cshtml" />
+    <Content Include="Areas\WIP\Views\LotChange\Index.cshtml" />
+    <Content Include="Areas\WIP\Views\LotPrint\Index.cshtml" />
+    <Content Include="Areas\WIP\Views\LotQuery\_JobListPartial.cshtml" />
+    <Content Include="Areas\WIP\Views\LotRework\Index.cshtml" />
+    <Content Include="Areas\WIP\Views\PackagePrint\Index.cshtml" />
+    <Content Include="Labels\JCL-0001.Lab">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Areas\FMM\Views\MaterialBOM\_AddPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\MaterialBOM\_InfoPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\MaterialBOM\_ListPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\MaterialBOM\_ModifyPartial.cshtml" />
+    <Content Include="Areas\FMM\Views\MaterialBOM\Index.cshtml" />
+    <Content Include="Areas\RPT\Views\web.config" />
+    <Content Include="Areas\RPT\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\RPT\Views\WIPDisplay\Index.cshtml" />
+    <Content Include="Areas\RPT\Views\WIPDisplay\_ListPartial.cshtml" />
+    <Content Include="Areas\RPT\Views\WIPDisplay\ShowChartImage.cshtml" />
+    <Content Include="Areas\RPT\Views\WIPMove\_ListPartial.cshtml" />
+    <Content Include="Areas\RPT\Views\WIPMove\Index.cshtml" />
+    <Content Include="Areas\RPT\Views\WIPMove\ShowChartImage.cshtml" />
+    <Content Include="Areas\WIP\Views\LotPatch\Query.cshtml" />
+    <Content Include="Areas\WIP\Views\LotPatch\_ListPartial.cshtml" />
+    <Content Include="Areas\EMS\Views\web.config" />
+    <Content Include="Areas\EMS\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\EMS\Views\EquipmentStateEvent\Index.cshtml" />
+    <Content Include="Areas\EMS\Views\EquipmentStateEvent\_ListPartial.cshtml" />
+    <Content Include="Areas\EMS\Views\EquipmentStateEvent\_AddPartial.cshtml" />
+    <Content Include="RDLC\PackageListDataSet.xsc">
+      <DependentUpon>PackageListDataSet.xsd</DependentUpon>
+    </Content>
+    <Content Include="Areas\ZPVC\Views\web.config" />
+    <Content Include="Areas\ZPVC\Views\EfficiencyConfiguration\Index.cshtml" />
+    <Content Include="Areas\ZPVC\Views\EfficiencyConfiguration\_AddPartial.cshtml" />
+    <Content Include="Areas\ZPVC\Views\EfficiencyConfiguration\_InfoPartial.cshtml" />
+    <Content Include="Areas\ZPVC\Views\EfficiencyConfiguration\_ListPartial.cshtml" />
+    <Content Include="Areas\ZPVC\Views\EfficiencyConfiguration\_ModifyPartial.cshtml" />
+    <Content Include="Areas\ZPVC\Views\Package\Index.cshtml" />
+    <Content Include="Areas\ZPVC\Views\Package\_ListPartial.cshtml" />
+    <Content Include="Areas\ZPVC\Views\PackageQuery\Index.cshtml" />
+    <Content Include="Areas\ZPVC\Views\PackageQuery\_ListPartial.cshtml" />
+    <Content Include="Areas\ZPVC\Views\PackagePrint\Index.cshtml" />
+    <Content Include="Areas\WIP\Views\LotDefect\Query.cshtml" />
+    <Content Include="Areas\WIP\Views\LotDefect\_ListPartial.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Areas\WIP\Views\LotScrap\Query.cshtml" />
+    <Content Include="Areas\WIP\Views\LotScrap\_ListPartial.cshtml" />
+    <Content Include="Areas\ZPVC\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\ZPVC\Views\Box\_ListPartial.cshtml" />
+    <Content Include="Areas\ZPVC\Views\Box\Index.cshtml" />
+    <Content Include="Areas\ZPVC\Views\BoxQuery\_ListPartial.cshtml" />
+    <Content Include="Areas\ZPVC\Views\BoxQuery\Index.cshtml" />
+    <Content Include="Areas\ZPVC\Views\BoxPrint\Index.cshtml" />
+    <Content Include="Labels\JCB-0001.Lab" />
+    <Content Include="Labels\JCP-0001.Lab" />
+    <Content Include="Areas\RPT\Views\WIPDisplay\_DetailListPartial.cshtml" />
+    <Content Include="Areas\RPT\Views\WIPDisplay\Detail.cshtml" />
+    <Content Include="Areas\RPT\Views\WIPMove\Detail.cshtml" />
+    <Content Include="Areas\RPT\Views\WIPMove\_DetailListPartial.cshtml" />
+    <None Include="Properties\PublishProfiles\cellmes_test.pubxml" />
+    <None Include="Properties\PublishProfiles\jncmes_release_119.pubxml" />
+    <None Include="Properties\PublishProfiles\jncmes_release_121.pubxml" />
+    <None Include="RDLC\PackageListDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PackageListDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="RDLC\PackageListDataSet.xss">
+      <DependentUpon>PackageListDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="Scripts\jquery-1.10.2.intellisense.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <Content Include="Scripts\evol.colorpicker.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\evol.colorpicker.min.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\i18n\grid.locale-ar.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\i18n\grid.locale-bg.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\i18n\grid.locale-bg1251.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\i18n\grid.locale-cat.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\i18n\grid.locale-cn.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\i18n\grid.locale-cs.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\i18n\grid.locale-da.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\i18n\grid.locale-de.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\i18n\grid.locale-dk.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\i18n\grid.locale-el.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\i18n\grid.locale-en.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\i18n\grid.locale-es.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\i18n\grid.locale-fa.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\i18n\grid.locale-fi.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\i18n\grid.locale-fr.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\i18n\grid.locale-gl.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\i18n\grid.locale-he.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\i18n\grid.locale-hr.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\i18n\grid.locale-hr1250.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\i18n\grid.locale-hu.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\i18n\grid.locale-id.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\i18n\grid.locale-is.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\i18n\grid.locale-it.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\i18n\grid.locale-ja.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\i18n\grid.locale-kr.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\i18n\grid.locale-lt.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\i18n\grid.locale-mne.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\i18n\grid.locale-nl.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\i18n\grid.locale-no.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\i18n\grid.locale-pl.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\i18n\grid.locale-pt-br.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\i18n\grid.locale-pt.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\i18n\grid.locale-ro.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\i18n\grid.locale-ru.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\i18n\grid.locale-sk.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\i18n\grid.locale-sr-latin.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\i18n\grid.locale-sr.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\i18n\grid.locale-sv.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\i18n\grid.locale-th.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\i18n\grid.locale-tr.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\i18n\grid.locale-tw.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\i18n\grid.locale-ua.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\i18n\grid.locale-vi.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\jquery-1.10.2.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\jquery-1.10.2.min.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\jquery-ui-addon-timepicker.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\jquery-ui.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\jquery-ui.min.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\jquery.form.min.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\jquery.form.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\jquery.jqGrid.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\jquery.jqGrid.min.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Scripts\jquery.validate-vsdoc.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <Content Include="Scripts\jquery.validate.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\jquery.validate.min.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\jquery.validate.unobtrusive.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\modernizr-2.6.2.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\respond.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\respond.min.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\_references.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Scripts\jquery-1.10.2.min.map">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\ModifyPassword.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Shared\_MenuPartial.cshtml" />
+    <Content Include="Views\Shared\_PaginationPartial.cshtml" />
+    <Content Include="Views\Account\ModifyInfo.cshtml" />
+    <Content Include="Views\Shared\Unauthorized.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Areas\BaseData\Views\Shared\" />
+    <Folder Include="Areas\EDC\Views\Data\" />
+    <Folder Include="Areas\EDC\Views\Shared\" />
+    <Folder Include="Areas\EMS\Views\Shared\" />
+    <Folder Include="Areas\FMM\Views\Shared\" />
+    <Folder Include="Areas\LSM\Views\Shared\" />
+    <Folder Include="Areas\PPM\Views\Shared\" />
+    <Folder Include="Areas\QAM\Views\Shared\" />
+    <Folder Include="Areas\RBAC\Views\Shared\" />
+    <Folder Include="Areas\RPT\Views\Shared\" />
+    <Folder Include="Areas\WIP\Views\Shared\" />
+    <Folder Include="Areas\ZPVC\Views\Shared\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\ServiceCenter.Common\ServiceCenter.Common.csproj">
+      <Project>{c83d4a4f-7907-4221-8421-ff9f3616d901}</Project>
+      <Name>ServiceCenter.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ServiceCenter.Modules\BASE\ServiceCenter.MES.Model.Base\ServiceCenter.MES.Model.BaseData.csproj">
+      <Project>{e71fc045-1359-445f-8006-9babb4b28c34}</Project>
+      <Name>ServiceCenter.MES.Model.BaseData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ServiceCenter.Modules\BASE\ServiceCenter.MES.Service.Client.BaseData\ServiceCenter.MES.Service.Client.BaseData.csproj">
+      <Project>{e2e67a45-5ec1-402b-a276-e3e7065a3841}</Project>
+      <Name>ServiceCenter.MES.Service.Client.BaseData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ServiceCenter.Modules\BASE\ServiceCenter.MES.Service.Contract.BaseData\ServiceCenter.MES.Service.Contract.BaseData.csproj">
+      <Project>{12667a93-dc84-41a9-8589-907154adcc43}</Project>
+      <Name>ServiceCenter.MES.Service.Contract.BaseData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ServiceCenter.Modules\EDC\ServiceCenter.MES.Model.EDC\ServiceCenter.MES.Model.EDC.csproj">
+      <Project>{a87d4cdb-727a-474d-ac01-5d631c610630}</Project>
+      <Name>ServiceCenter.MES.Model.EDC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ServiceCenter.Modules\EDC\ServiceCenter.MES.Service.Client.EDC\ServiceCenter.MES.Service.Client.EDC.csproj">
+      <Project>{4337f67d-29bf-4aca-bfb2-4c49935fc637}</Project>
+      <Name>ServiceCenter.MES.Service.Client.EDC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ServiceCenter.Modules\EDC\ServiceCenter.MES.Service.Contract.EDC\ServiceCenter.MES.Service.Contract.EDC.csproj">
+      <Project>{e52d9f4e-308a-421e-bf71-9957a10d3558}</Project>
+      <Name>ServiceCenter.MES.Service.Contract.EDC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ServiceCenter.Modules\EMS\ServiceCenter.MES.Model.EMS\ServiceCenter.MES.Model.EMS.csproj">
+      <Project>{59b973d5-3d92-441b-aec5-1c1d09908dc2}</Project>
+      <Name>ServiceCenter.MES.Model.EMS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ServiceCenter.Modules\EMS\ServiceCenter.MES.Service.Client.EMS\ServiceCenter.MES.Service.Client.EMS.csproj">
+      <Project>{83743e69-bd05-4711-ba8b-a69164f9e9fd}</Project>
+      <Name>ServiceCenter.MES.Service.Client.EMS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ServiceCenter.Modules\EMS\ServiceCenter.MES.Service.Contract.EMS\ServiceCenter.MES.Service.Contract.EMS.csproj">
+      <Project>{403f7134-4b50-4e75-adaf-52493f4f3955}</Project>
+      <Name>ServiceCenter.MES.Service.Contract.EMS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ServiceCenter.Modules\FMM\ServiceCenter.MES.Model.FMM\ServiceCenter.MES.Model.FMM.csproj">
+      <Project>{bace1677-4fc1-40a6-93cd-c78664bab941}</Project>
+      <Name>ServiceCenter.MES.Model.FMM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ServiceCenter.Modules\FMM\ServiceCenter.MES.Service.Client.FMM\ServiceCenter.MES.Service.Client.FMM.csproj">
+      <Project>{dbbd88f0-5c74-466f-bd19-c5a1d5ed78d3}</Project>
+      <Name>ServiceCenter.MES.Service.Client.FMM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ServiceCenter.Modules\FMM\ServiceCenter.MES.Service.Contract.FMM\ServiceCenter.MES.Service.Contract.FMM.csproj">
+      <Project>{ac3655eb-9b09-491d-b817-16941f318a4f}</Project>
+      <Name>ServiceCenter.MES.Service.Contract.FMM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ServiceCenter.Modules\LSM\ServiceCenter.MES.Model.LSM\ServiceCenter.MES.Model.LSM.csproj">
+      <Project>{799263c7-bde1-4ad4-b579-e18db87d37b5}</Project>
+      <Name>ServiceCenter.MES.Model.LSM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ServiceCenter.Modules\LSM\ServiceCenter.MES.Service.Client.LSM\ServiceCenter.MES.Service.Client.LSM.csproj">
+      <Project>{da6a1451-e63a-41ab-a922-c71b18a03844}</Project>
+      <Name>ServiceCenter.MES.Service.Client.LSM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ServiceCenter.Modules\LSM\ServiceCenter.MES.Service.Contract.LSM\ServiceCenter.MES.Service.Contract.LSM.csproj">
+      <Project>{9f80ae00-3c0b-412a-b935-daf9281d766d}</Project>
+      <Name>ServiceCenter.MES.Service.Contract.LSM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ServiceCenter.Modules\PPM\ServiceCenter.MES.Model.PPM\ServiceCenter.MES.Model.PPM.csproj">
+      <Project>{a79db951-5da3-4668-aeea-7dbd667724aa}</Project>
+      <Name>ServiceCenter.MES.Model.PPM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ServiceCenter.Modules\PPM\ServiceCenter.MES.Service.Client.PPM\ServiceCenter.MES.Service.Client.PPM.csproj">
+      <Project>{fdfbd765-cffe-4073-b96d-2f9f01d2580e}</Project>
+      <Name>ServiceCenter.MES.Service.Client.PPM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ServiceCenter.Modules\PPM\ServiceCenter.MES.Service.Contract.PPM\ServiceCenter.MES.Service.Contract.PPM.csproj">
+      <Project>{c11dfda4-7b55-478e-9271-146325f4ef33}</Project>
+      <Name>ServiceCenter.MES.Service.Contract.PPM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ServiceCenter.Modules\QAM\ServiceCenter.MES.Model.QAM\ServiceCenter.MES.Model.QAM.csproj">
+      <Project>{415e6fa3-00c2-465e-9ace-cee2733bbc9a}</Project>
+      <Name>ServiceCenter.MES.Model.QAM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ServiceCenter.Modules\QAM\ServiceCenter.MES.Service.Client.QAM\ServiceCenter.MES.Service.Client.QAM.csproj">
+      <Project>{4c8de562-74a4-4c6f-9da4-82ea8e364728}</Project>
+      <Name>ServiceCenter.MES.Service.Client.QAM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ServiceCenter.Modules\QAM\ServiceCenter.MES.Service.Contract.QAM\ServiceCenter.MES.Service.Contract.QAM.csproj">
+      <Project>{f9dd84ee-c901-4bfe-acb8-6575ae4d0418}</Project>
+      <Name>ServiceCenter.MES.Service.Contract.QAM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ServiceCenter.Modules\RBAC\ServiceCenter.MES.Model.RBAC\ServiceCenter.MES.Model.RBAC.csproj">
+      <Project>{8af67964-d4d9-4bdb-b3d3-ce337e196b6d}</Project>
+      <Name>ServiceCenter.MES.Model.RBAC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ServiceCenter.Modules\RBAC\ServiceCenter.MES.Service.Client.RBAC\ServiceCenter.MES.Service.Client.RBAC.csproj">
+      <Project>{0d6a6c7e-3a6d-477a-a293-d2b55152908d}</Project>
+      <Name>ServiceCenter.MES.Service.Client.RBAC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ServiceCenter.Modules\RBAC\ServiceCenter.MES.Service.Contract.RBAC\ServiceCenter.MES.Service.Contract.RBAC.csproj">
+      <Project>{beb3dac5-b668-42bc-87cf-ea12b6010771}</Project>
+      <Name>ServiceCenter.MES.Service.Contract.RBAC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ServiceCenter.Modules\RPT\ServiceCenter.MES.Model.RPT\ServiceCenter.MES.Model.RPT.csproj">
+      <Project>{12bed22a-fba8-4e8f-8408-9b02dbc7ad4c}</Project>
+      <Name>ServiceCenter.MES.Model.RPT</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ServiceCenter.Modules\RPT\ServiceCenter.MES.Service.Client.RPT\ServiceCenter.MES.Service.Client.RPT.csproj">
+      <Project>{0d4cf8f1-749c-49dd-ad01-c6bdef410fa3}</Project>
+      <Name>ServiceCenter.MES.Service.Client.RPT</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ServiceCenter.Modules\RPT\ServiceCenter.MES.Service.Contract.RPT\ServiceCenter.MES.Service.Contract.RPT.csproj">
+      <Project>{1a5e6952-6ef0-4d7f-bb93-87fde885fee7}</Project>
+      <Name>ServiceCenter.MES.Service.Contract.RPT</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ServiceCenter.Modules\WIP\ServiceCenter.MES.Model.WIP\ServiceCenter.MES.Model.WIP.csproj">
+      <Project>{9d2471c5-93c8-45b4-be45-7bba88025fa6}</Project>
+      <Name>ServiceCenter.MES.Model.WIP</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ServiceCenter.Modules\WIP\ServiceCenter.MES.Service.Client.WIP\ServiceCenter.MES.Service.Client.WIP.csproj">
+      <Project>{7699f44c-4f24-4fee-894c-d7850db4c811}</Project>
+      <Name>ServiceCenter.MES.Service.Client.WIP</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ServiceCenter.Modules\WIP\ServiceCenter.MES.Service.Contract.WIP\ServiceCenter.MES.Service.Contract.WIP.csproj">
+      <Project>{59109d57-5fb5-41e7-bbde-a22cfba26f6c}</Project>
+      <Name>ServiceCenter.MES.Service.Contract.WIP</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ServiceCenter.Modules\ZPVC\ServiceCenter.MES.Model.ZPVC\ServiceCenter.MES.Model.ZPVC.csproj">
+      <Project>{c3e05026-741e-4235-b322-76d0607db57a}</Project>
+      <Name>ServiceCenter.MES.Model.ZPVC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ServiceCenter.Modules\ZPVC\ServiceCenter.MES.Service.Client.ZPVC\ServiceCenter.MES.Service.Client.ZPVC.csproj">
+      <Project>{3b7e08c0-ea16-4cde-acb6-1eddf33f76c3}</Project>
+      <Name>ServiceCenter.MES.Service.Client.ZPVC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ServiceCenter.Modules\ZPVC\ServiceCenter.MES.Service.Contract.ZPVC\ServiceCenter.MES.Service.Contract.ZPVC.csproj">
+      <Project>{a3b0280e-d98a-4ea3-b435-a4d97f0216d7}</Project>
+      <Name>ServiceCenter.MES.Service.Contract.ZPVC</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="RDLC\PackageList.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RDLC\PackageList_P.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <EmbeddedResource Include="Resources\BaseData\StringResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>StringResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\EMS\StringResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>StringResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\QAM\StringResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>StringResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\EDC\StringResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>StringResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\FMM\StringResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>StringResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\LSM\StringResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>StringResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\PPM\StringResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>StringResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\RBAC\StringResource.en.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>StringResource.en.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\RBAC\StringResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>StringResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\RPT\StringResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>StringResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\StringResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>StringResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\WIP\StringResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>StringResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\ZPVC\StringResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>StringResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>24357</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:6101/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

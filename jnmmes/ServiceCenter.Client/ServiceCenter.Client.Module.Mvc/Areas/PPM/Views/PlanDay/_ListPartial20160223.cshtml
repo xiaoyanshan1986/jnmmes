@@ -1,0 +1,119 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.PPM.Models.PlanDayViewModel
+@using ServiceCenter.Client.Mvc.Areas.PPM.Models;
+@using ServiceCenter.Client.Mvc.Resources;
+@using PPM = ServiceCenter.Client.Mvc.Resources.PPM;
+@using ServiceCenter.MES.Model.PPM;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@{
+    IList<PlanDay> lstPlanDay = new List<PlanDay>();
+
+    if (ViewBag.PagingConfig != null)
+    {
+        lstPlanDay = ViewBag.PagingConfig;
+    }
+   
+}
+<p></p>
+@Html.ValidationSummary(true)
+<table class="table table-hover table-bordered table-condensed">
+    <thead>
+        @*设置表头*@
+        <tr class="active">
+            @*年*@
+            <td nowrap align="center">@Html.DisplayNameFor(m => m.Year)</td>
+            @*月*@
+            <td nowrap align="center">@Html.DisplayNameFor(m => m.Month)</td>
+            @*车间*@
+            <td nowrap align="center">@Html.DisplayNameFor(m => m.LocationName)</td>
+            @*产品类型*@
+            <td nowrap align="center">@Html.DisplayNameFor(m => m.ProductCode)</td>
+            @*计划产量*@
+            <td nowrap align="center">@Html.DisplayNameFor(m => m.PlanQty)</td>
+            <td nowrap align="center">@StringResource.Detail</td>
+            <td nowrap align="center">@StringResource.Delete</td>
+        </tr>
+    </thead>
+    @if (ViewBag.List != null)
+    {
+        <tbody>
+            @for (int i = 0; i < ViewBag.List.Length; i++)
+            {
+                PlanDay obj = ViewBag.List[i];
+                <tr>
+                    <td>@obj.Key.Year</td>
+                    <td>@obj.Key.Month</td>
+                    <td>@obj.Key.LocationName</td>
+                    <td>@obj.Key.ProductCode</td>
+                    <td>@obj.PlanQty</td>
+                    <td>
+                        @*@Html.ActionLink(linkText: StringResource.Detail
+                                            , actionName: "Index"
+                                            , controllerName: "PlanDay"
+                                            , routeValues: new
+                                            {
+                                                @Year = obj.Key.Year,
+                                                @Month = obj.Key.Month,
+                                                @LocationName = obj.Key.LocationName
+                                            }
+                                            , htmlAttributes: new { @target = "_self" })*@
+                    </td>
+                    <td>
+                        @*@Ajax.ActionLink(StringResource.Delete, actionName: null
+                                            , routeValues: null
+                                            , ajaxOptions: new AjaxOptions()
+                                            {
+                                                HttpMethod = "Post",
+                                                Confirm = string.Format(PPM.StringResource.PlanMonth_ConfirmDelete, obj.Key),
+                                                Url = Url.Action("Delete", new
+                                                {
+                                                    @Year = obj.Key.Year,
+                                                    @Month = obj.Key.Month,
+                                                    @LocationName = obj.Key.LocationName
+                                                }),
+                                                OnSuccess = "completeDelete"
+                                            })*@
+                    </td>
+                </tr>
+            }
+        </tbody>
+    }
+    @*<tbody>
+    @{
+        var  itemNo = 1;
+        for (DateTime d = startDate; d <= endDate; d = d.AddDays(1) )
+        {
+  
+                string day = d.ToString("yyyy-MM-dd");
+                string startTime = string.Format("{0}", day);
+                string endTime = string.Format("{0}", d.AddDays(1).ToString("yyyy-MM-dd"));
+
+                <tr>
+                    <td>
+                        @itemNo
+                        @Html.Hidden("SeqNo", itemNo)
+                    </td>
+                    <td>
+                        @day
+                        @Html.Hidden("Day",day)
+                    </td>
+                    <td>
+                        @startTime
+                        @Html.Hidden("StartTime", startTime)
+                    </td>
+                    <td>
+                        @endTime
+                        @Html.Hidden("EndTime", endTime)
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(m => m.PlanQty, new { @class = "form-control input-sm" })
+                        @Html.ValidationMessageFor(m => m.PlanQty)
+                    </td>
+                </tr>
+                itemNo = itemNo + 1;
+        }
+    }
+    </tbody>*@
+</table>
+
+

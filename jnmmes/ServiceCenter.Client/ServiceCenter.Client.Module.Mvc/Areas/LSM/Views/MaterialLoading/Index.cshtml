@@ -1,0 +1,703 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.LSM.Models.MaterialLoadingQueryViewModel
+@using ServiceCenter.MES.Model.LSM;
+@using ServiceCenter.Model;
+@using ServiceCenter.Common;
+@using ServiceCenter.Client.Mvc.Areas.LSM.Models;
+@using LSMRsources = ServiceCenter.Client.Mvc.Resources.LSM;
+@using ServiceCenter.Client.Mvc.Resources;
+
+@{
+    ViewBag.Title = LSMRsources.StringResource.MaterialLoading_ManagePageTitle;
+}
+<h2>@ViewBag.Title</h2>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <a href="javascript:showAddModal()" class="btn btn-primary">@StringResource.Add</a>
+        <a href="javascript:showAddCellModal()" class="btn btn-default" >@LSMRsources.StringResource.CellLoading_Add</a>
+    </div>
+    <div class="panel-body">
+        @using (Ajax.BeginForm("Query", "MaterialLoading", null
+            , new AjaxOptions()
+            {
+                HttpMethod = "Post",
+                OnBegin = "beginQuery",
+                UpdateTargetId = "list"
+            }
+            , new { @class = "form-horizontal", resource = "form" }))
+        {
+            @Html.AntiForgeryToken()
+            <div class="form-group">
+                <div class="col-md-1">
+                    @Html.LabelFor(m => m.LoadingNo, new { @class = "control-label" })
+                </div>
+                <div class="col-md-2">
+                    @Html.TextBoxFor(m => m.LoadingNo, new { @class = "form-control" })
+                </div>
+                <div class="col-md-1">
+                    @Html.LabelFor(m => m.RouteOperationName, new { @class = "control-label" })
+                </div>
+                <div class="col-md-2">
+                    @Html.TextBoxFor(m => m.RouteOperationName, new { @class = "form-control" })
+                </div>
+                <div class="col-md-1">
+                    @Html.LabelFor(m => m.ProductionLineCode, new { @class = "control-label" })
+                </div>
+                <div class="col-md-2">
+                    @Html.TextBoxFor(m => m.ProductionLineCode, new { @class = "form-control" })
+                </div>
+                <div class="col-md-1">
+                    @Html.LabelFor(m => m.EquipmentCode, new { @class = "control-label" })
+                </div>
+                <div class="col-md-2">
+                    @Html.TextBoxFor(m => m.EquipmentCode, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-1">
+                    @Html.LabelFor(m => m.StartLoadingTime, new { @class = "control-label" })
+                </div>
+                <div class="col-md-2">
+                    @Html.TextBoxFor(m => m.StartLoadingTime, new { @class = "form-control" })
+                </div>
+                <div class="col-md-1">
+                    @Html.LabelFor(m => m.EndLoadingTime, new { @class = "control-label" })
+                </div>
+                <div class="col-md-2">
+                    @Html.TextBoxFor(m => m.EndLoadingTime, new { @class = "form-control" })
+                </div>
+                <div class="col-md-6">
+                    <input type="submit" value="@StringResource.Query" class="btn btn-default" />
+                </div>
+            </div>
+        }
+    </div>
+    <div class="alert fade in hide" resource="alert" id="statusMessage" style="margin:0px">
+        <button type="button" class="close" onclick="hideStatusMessage()">
+            <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+        </button>
+        <p></p>
+    </div>
+    <div id="list" style="overflow:auto">
+        @Html.Partial("_ListPartial", new MaterialLoadingViewModel())
+    </div>
+</div>
+
+@*新增*@
+<div id="add" class="modal fade bs-example-modal-lg"
+     tabindex="-1"
+     resource="dialog"
+     aria-labelledby="addHeader" aria-hidden="true">
+    <div class="modal-dialog modal-lg"  id="addDialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="addHeader">@LSMRsources.StringResource.MaterialLoading_AddTitle</h4>
+            </div>
+            <div class="modal-body" id="addContent" style="margin:0px;padding:5px">
+                @using (Ajax.BeginForm("Save", "MaterialLoading", null
+                        , new AjaxOptions()
+                        {
+                            HttpMethod = "Post",
+                            OnSuccess = "completeSave",
+                            OnBegin = "beginSave"
+                        }
+                        , new { @class = "form-horizontal", resource = "form", id = "frmAdd" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <input type="submit" class="btn btn-primary" value="@StringResource.Save" id="btnSave" />
+                            <input type="reset" class="btn btn-default" value="@StringResource.Reset" id="btnReset" />
+                        </div>
+                        <div class="panel-body">
+                            <div class="alert fade in hide" resource="alert" id="addStatusMessage">
+                                <button type="button" class="close" onclick="hideAddAlert()">
+                                    <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+                                </button>
+                                <p></p>
+                            </div>
+                            <div>
+                                @Html.Partial("_AddPartial", new MaterialLoadingViewModel())
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+@*电池片上料*@
+<div id="addCell" class="modal fade bs-example-modal-lg" tabindex="-1" resource="dialog" aria-labelledby="addHeader" aria-hidden="true">
+    <div class="modal-dialog modal-lg" id="addCellDialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="addCellHeader">@LSMRsources.StringResource.CellLoading_Add</h4>
+            </div>
+            <div class="modal-body" id="addCellContent" style="margin:0px;padding:5px">
+                @using (Ajax.BeginForm("SaveCell", "MaterialLoading", null
+                        , new AjaxOptions()
+                        {
+                            HttpMethod = "Post",
+                            OnSuccess = "completeSaveCell",
+                            OnBegin = "beginSaveCell"
+                        }
+                        , new { @class = "form-horizontal", resource = "form", id = "frmAddCell" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <input type="submit" class="btn btn-primary" value="@StringResource.Save" id="btnSaveCell" />
+                            <input type="reset" class="btn btn-default" value="@StringResource.Reset" id="btnResetCell" />
+                        </div>
+                        <div class="panel-body">
+                            <div class="alert fade in hide" resource="alert" id="addCellStatusMessage">
+                                <button type="button" class="close" onclick="hideAddCellAlert()">
+                                    <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+                                </button>
+                                <p></p>
+                            </div>
+                            <div>
+                                @Html.Partial("_AddCellPartial", new MaterialLoadingViewModel())
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    <script type="text/javascript" language="javascript">
+
+    /*初始化注册所有事件*/
+    $(function () {
+        $("#StartLoadingTime,#EndLoadingTime,#LoadingTime").datetimepicker({
+            changeMonth: true,
+            changeYear: true,
+            dateFormat: "yy/mm/dd",
+            timeFormat: 'HH:mm:ss'
+        });
+        var content = $("#addContent");
+        var contentCell = $("#addCellContent");
+
+        /*调用上料重置按钮事件*/
+        $("#btnReset").click(function () { resetClickEvent(content) });
+        $("#btnResetCell").click(function () { resetClickEventCell(contentCell) });
+        $("#btnSave").click(function () { saveClickEvent() });
+        $("#btnSaveCell").click(function () { saveClickEvent() });
+
+        /*调用上料工单变化事件*/
+        registerOrderNumberChangeEvent(content);
+        registerOrderNumberChangeEvent(contentCell);
+
+        /*注册上料窗体弹出事件*/
+        $('#add').on('shown.bs.modal', function (e) {
+            $("#btnReset").click();
+        });
+
+        $('#addCell').on('shown.bs.modal', function (e) {
+            $("#btnResetCell").click();
+        });
+
+        /*调用上料工序、产线变化事件*/
+        registerEquipmentEvent(content);
+        registerEquipmentEventCell(contentCell);
+
+        /*调用注册物料批号事件*/
+        registerMaterialLot(content,'P');
+        registerMaterialLot(contentCell,'C');
+        //registerOrderNumber(contentCell);
+
+        /*调用注册线别仓事件*/
+        registerLineStore(content);
+        registerLineStore(contentCell);
+
+        /*调用上料回车事件*/
+        registerKeypressEvent(content);
+        registerKeypressEvent(contentCell);
+    });
+
+
+    /*注册线别仓改变事件*/
+    function registerLineStore(element) {
+        element.find("select[name='LineStoreName']").each(function () {
+            registerLineStoreClientEvent($(this));
+        });
+    };
+    /*注册物料批号事件*/
+    function registerMaterialLot(element,materialType) {
+        element.find("input[name='MaterialLot']").each(function () {
+            registerMaterialLotClientEvent($(this), element, materialType);
+        });
+    };
+
+    /*注册回车事件*/
+    function registerKeypressEvent(element) {
+        var texts = element.find(":text:enabled,:checkbox:enabled,select:enabled")
+        texts.keypress(function (args) {
+            if (args.ctrlKey == false && args.keyCode == 13) {
+                var index = texts.index(this) + 1;
+                if (index < texts.length) {
+                    texts.eq(index).focus().select();
+                    return false;
+                }
+                else {
+                    return true;
+                }
+            }
+        });
+    }
+
+    /*保存事件*/
+    function saveClickEvent() {
+        var valid = true;
+        var tbl = $("#tblDetail");
+        var tbody = tbl.find("tbody");
+        var master = $("#divAddMaster");
+        master.find("input,select").each(function () {
+            valid = valid && $(this).valid();
+            if (valid == false) {
+                $(this).focus();
+                $(this).select();
+                return false;
+            }
+        })
+        if (valid == false) {
+            return valid;
+        }
+        tbody.find("tr").each(function (index) {
+            $(this).find("input,select").each(function () {
+                valid = valid && $(this).valid();
+                if (valid == false) {
+                    $(this).focus();
+                    $(this).select();
+                    return false;
+                }
+            });
+            if (valid == false) {
+                return false;
+            }
+        });
+        return valid;
+    };
+
+    /*上料重置按钮事件*/
+    function resetClickEvent(content) {
+        var tbl = $("#tblDetail");
+        var tbody = tbl.find("tbody");
+        tbody.find("tr").each(function (index) {
+            if (index > 0) {
+                $(this).remove();
+            }
+        });
+        tbody.find("select[name='LineStoreName']").each(function () {
+            $(this).get(0).options.length = 0;
+        });//清空
+        changeEquipmentCode(content);
+        changeLineStore(content);
+        setLoadingNo(content);
+        content.find("input[name='LoadingNo']").focus().select();
+    };
+
+    /*电池片上料重置按钮事件*/
+    function resetClickEventCell(content) {
+        var tbl = $("#tblDetail");
+        var tbody = tbl.find("tbody");
+        tbody.find("tr").each(function (index) {
+            if (index > 0) {
+                $(this).remove();
+            }
+        });
+        tbody.find("select[name='LineStoreName']").each(function () {
+            $(this).get(0).options.length = 0;
+        });//清空
+        changeEquipmentCode(content);
+        changeLineStore(content);
+        setCellLoadingNo(content);
+        content.find("input[name='LoadingNo']").focus().select();
+    };
+
+
+    /*新增上料编号*/
+    function setLoadingNo(element) {
+        var url = "@Url.Action("GetLoadingNo", "MaterialLoading", new { area = "LSM" })";
+        var timestamp = Math.round(new Date().getTime() / 1000);
+        var reqdata = { key: timestamp };
+        $.getJSON(url, reqdata, function (data) {
+            element.find("input[name='LoadingNo']").val(data);
+        });
+    }
+
+    /*新增电池片上料编号*/
+    function setCellLoadingNo(element) {
+        var url = "@Url.Action("GetCellLoadingNo", "MaterialLoading", new { area = "LSM" })";
+        var productionLineCode = element.find("select[name='ProductionLineCode']").val();
+        var reqdata = { ProductionLineCode: productionLineCode};
+        $.getJSON(url, reqdata, function (data) {
+            element.find("input[name='LoadingNo']").val(data);
+        });
+    }
+
+    /*注册工单号变化事件*/
+    function registerOrderNumberChangeEvent(element) {
+        var getOrderNumberUrl = "@Url.Action("GetOrderNumber", "MaterialReceipt", new { area = "LSM" })";
+        element.find("input[name='OrderNumber']").autocomplete({
+            source: function (request, response) {
+                var term = request.term.toUpperCase();
+                var lineCode = element.find("select[name='ProductionLineCode']").val();
+                var reqdata = { q: term, LineCode: lineCode };
+                $.getJSON(getOrderNumberUrl, reqdata, function (data, status, xhr) {
+                    response(data);
+                });
+            },
+            minLength: 1,
+            autoFocus: true,
+            appendTo: element,
+            select: function () {
+                element.find("input[name='MaterialLot']").each(function () {
+                    $(this).val("");
+                });
+            }
+        });
+    }
+
+    /*选择线别，工序时改变设备代码和线别仓*/
+    function registerEquipmentEvent(element) {
+        element.find("select[name='RouteOperationName'],select[name='ProductionLineCode']").change(function () {
+            changeEquipmentCode(element);
+            changeLineStore(element);
+            //setCellLoadingNo(element);
+        });
+    }
+
+    function registerEquipmentEventCell(element) {
+        element.find("select[name='RouteOperationName'],select[name='ProductionLineCode']").change(function () {
+            changeEquipmentCode(element);
+            changeLineStore(element);
+            setCellLoadingNo(element);
+        });
+    }
+
+    /*通过线别定义设备编号*/
+    function changeEquipmentCode(content)
+    {
+        content.find("select[name='EquipmentCode']").each(function () {
+            $(this).get(0).options.length = 0;
+        });//清空
+
+        var url = "@Url.Action("GetEquipmentCodes", "MaterialLoading", new { area = "LSM" })";
+        var routeOperationName = content.find("select[name='RouteOperationName']").val();
+        var productionLineCode = content.find("select[name='ProductionLineCode']").val();
+        var timestamp = Math.round(new Date().getTime() / 1000);
+        var reqdata = { RouteOperationName: routeOperationName, ProductionLineCode: productionLineCode, timestamp: timestamp };
+
+        $.getJSON(url, reqdata, function (data) {
+            $.each(data, function (i, item) {
+                content.find("select[name='EquipmentCode']").each(function () {
+                    $("<option></option>").val(item["Key"]).text(item["Text"]).appendTo($(this));
+                });
+            });
+        });
+    }
+
+    /*获取线边仓*/
+    function changeLineStore(content) {
+        content.find("select[name='LineStoreName']").each(function () {
+            $(this).get(0).options.length = 0;
+            $(this).change();
+        });//清空
+
+        var url = "@Url.Action("GetLineStoreNames", "MaterialLoading" , new { area = "LSM" })";
+        var routeOperationName = content.find("select[name='RouteOperationName']").val();
+        var productionLineCode = content.find("select[name='ProductionLineCode']").val();
+        var timestamp = Math.round(new Date().getTime() / 1000);
+        var reqdata = { RouteOperationName: routeOperationName, ProductionLineCode: productionLineCode, timestamp: timestamp };
+        $.getJSON(url, reqdata, function (data) {
+            $.each(data, function (i, item) {
+                content.find("select[name='LineStoreName']").each(function () {
+                    $("<option></option>").val(item["Key"]).text(item["Key"]).appendTo($(this));
+                });
+            });
+        });
+    }
+
+
+    /*线边仓变更时信息更新*/
+    function registerLineStoreClientEvent(element) {
+        $(element).change(function () {
+            var qty = $(this).parent().parent().find("input[name='LoadingQty']");
+            var materialCode = $(this).parent().parent().find("input[name='MaterialCode']");
+            var materialDesc = $(materialCode).parent().find("p");
+            var materialLot = $(this).parent().parent().find("input[name='MaterialLot']");
+            var supplierCode = $(this).parent().parent().find("input[name='SupplierCode']");
+            var supplierDesc = $(supplierCode).parent().find("p");
+
+            $(qty).val("");
+            $(materialCode).val("");
+            $(materialLot).val("");
+            $(materialDesc).text("");
+            $(supplierCode).val("");
+            $(supplierDesc).text("");
+        });
+    }
+
+    /*获取该工单，线边仓下的物料批号*/
+    function registerMaterialLotClientEvent(element, content, materialType)
+    {
+        
+            var getMaterialLotUrl = "@Url.Action("GetMaterialLot", "MaterialLoading", new { area = "LSM" })";
+            $(element).autocomplete({
+                source: function (request, response) {
+                    //已缓存。
+                    var term = request.term.toUpperCase();
+                    var tr = $(this.element).parent().parent();
+                    if (materialType == 'C')
+                        var orderNumber = $("#txtCellOrderNumber").val();
+                    else
+                        var orderNumber = $("#txtOrderNumber").val();
+                    var lineStoreName = tr.find("select[name='LineStoreName']").val();
+                    var timestamp = Math.round(new Date().getTime() / 1000);
+                    var reqdata = { MaterialLot: term, OrderNumber: orderNumber, LineStoreName: lineStoreName,moduleType:materialType, timestamp: timestamp };
+                    //动态获取。
+                    $.getJSON(getMaterialLotUrl, reqdata, function (data, status, xhr) {
+                        response(data);
+                    });
+                },
+                minLength: 1,
+                autoFocus: true,
+                appendTo: content,
+                change: function () {
+                    var val = $(this).val().toUpperCase();
+                    var valid = false;
+                    var obj = $(this);
+                    var qty = $(this).parent().parent().find("input[name='LoadingQty']");
+                    var materialCode = $(this).parent().parent().find("input[name='MaterialCode']");
+                    var materialDesc = $(materialCode).parent().find("p");
+                    var supplierCode = $(this).parent().parent().find("input[name='SupplierCode']");
+                    var supplierDesc = $(supplierCode).parent().find("p");
+
+                    $(qty).val("");
+                    $(materialCode).val("");
+                    $(materialDesc).text("");
+                    $(supplierCode).val("");
+                    $(supplierDesc).text("");
+                    if (materialType == 'C')
+                        var orderNumber = $("#txtCellOrderNumber").val();
+                    else
+                        var orderNumber = $("#txtOrderNumber").val();
+                    var lineStoreName = $(this).parent().parent().find("select[name='LineStoreName']").val();
+                    var timestamp = Math.round(new Date().getTime() / 1000);
+                    var reqdata = { MaterialLot: val, OrderNumber: orderNumber, LineStoreName: lineStoreName, moduleType: materialType, timestamp: timestamp };
+                    $.getJSON(getMaterialLotUrl, reqdata, function (data, status, xhr) {
+                        $(data).each(function (index, item) {
+                            if (item.value.toUpperCase() == val) {
+                                valid = true;
+                                $(qty).val(item.qty);
+                                $(materialCode).val(item.materialCode);
+                                $(materialDesc).text(item.desc);
+                                $(supplierCode).val(item.supplierCode);
+                                $(supplierDesc).text(item.supplierName);
+
+                                return false;
+                            }
+                        });
+                        if (valid == false) {
+                            setTimeout(function () { $(obj).val(""); $(obj).focus(); }, 0);
+                        }
+                    });
+                }
+            });
+        }
+
+    /*新增上料行数据*/
+    function addDetailRow() {
+        var tbl = $("#tblDetail");
+        var tbody = tbl.find("tbody");
+        var length = tbody.find("tr").length;
+        var lastestTr = tbody.find("tr")[length - 1];
+        var content = $("#addContent");
+        var tr = lastestTr.cloneNode(true);
+        var itemNo = $(lastestTr).find("td").eq(0).find("p").text();
+        var newItemNo = parseInt(itemNo, 10) + 1;
+        $(tr).find("td").eq(0).find("p").text(newItemNo);
+        $(tr).find("input[name='ItemNo']").val(newItemNo);
+        $(tr).find("input[name='MaterialLot']").each(function () {
+            registerMaterialLotClientEvent($(this), content,'P');
+        });
+        
+        var lastestLineStoreName = $(lastestTr).find("select[name='LineStoreName']").val();
+        $(tr).find("select[name='LineStoreName']").each(function () {
+            registerLineStoreClientEvent($(this));
+            $(this).val(lastestLineStoreName);
+        });
+        tbody.append(tr);
+        
+        registerKeypressEvent(content);
+    }
+
+
+        /*新增电池片上料行数据*/
+    function addCellDetailRow() {
+        var tbl = $("#tblCellDetail");
+        var tbody = tbl.find("tbody");
+        var length = tbody.find("tr").length;
+        var lastestTr = tbody.find("tr")[length - 1];
+        var contentCell = $("#addCellContent");
+        var tr = lastestTr.cloneNode(true);
+        var itemNo = $(lastestTr).find("td").eq(0).find("p").text();
+        var newItemNo = parseInt(itemNo, 10) + 1;
+        $(tr).find("td").eq(0).find("p").text(newItemNo);
+        $(tr).find("input[name='ItemNo']").val(newItemNo);
+        $(tr).find("input[name='MaterialLot']").each(function () {
+            registerMaterialLotClientEvent($(this), contentCell,'C');
+        });
+        
+        var lastestLineStoreName = $(lastestTr).find("select[name='LineStoreName']").val();
+        $(tr).find("select[name='LineStoreName']").each(function () {
+            registerLineStoreClientEvent($(this));
+            $(this).val(lastestLineStoreName);
+        });
+        tbody.append(tr);
+    
+        registerKeypressEvent(contentCell);
+    }
+
+     /*删除上料行数据*/
+    function removeDetailRow(btn) {
+        var tbl = $("#tblDetail");
+        var tbody = tbl.find("tbody");
+        var length = tbody.find("tr").length;
+        if (length > 1) {
+            var tr = btn.parent().parent();
+            tr.remove();
+        }
+        tbody.find("tr").each(function (index) {
+            $(this).find("td").eq(0).find("p").text(index + 1);
+            $(this).find("input[name='ItemNo']").val(index + 1);
+        });
+    }
+
+
+    function removeCellDetailRow(btn) {
+        var tbl = $("#tblCellDetail");
+        var tbody = tbl.find("tbody");
+        var length = tbody.find("tr").length;
+        if (length > 1) {
+            var tr = btn.parent().parent();
+            tr.remove();
+        }
+        tbody.find("tr").each(function (index) {
+            $(this).find("td").eq(0).find("p").text(index + 1);
+            $(this).find("input[name='ItemNo']").val(index + 1);
+        });
+    }
+
+    //刷新列表
+    function refreshList() {
+        if ($("#frmPagingQuery").length > 0) {
+            $("#frmPagingQuery").submit();
+        }
+    }
+    //隐藏状态消息
+    function hideStatusMessage() {
+        $("#statusMessage").addClass("hide");
+    }
+    </script>
+    @*查询*@
+    <script type="text/javascript" language="javascript">
+        //刷新列表
+        function beginQuery() {
+            hideStatusMessage();
+        }
+    </script>
+
+   
+    <script type="text/javascript" language="javascript">
+
+
+        function showAddModal() {
+            hideAddAlert();
+            hideStatusMessage();
+            var width = $("body").width();
+            if (width != undefined) {
+                $('#addDialog').width(width - 35);
+            }
+            $("#btnSave").removeAttr("disabled");
+            $('#add').modal({ backdrop: "static" });
+            $('#add').modal('show');
+        }
+
+        function hideAddAlert() {
+            $("#addStatusMessage").addClass("hide");
+        }
+
+        function beginSave() {
+            $("#btnSave").attr("disabled", "disabled");
+        }
+
+        function completeSave(result) {
+            $("#btnSave").removeAttr("disabled");
+            $("#addStatusMessage").find("p").html(result.Message);
+            $("#addStatusMessage").removeClass("hide");
+            if (result.Code > 0) {
+                $("#addStatusMessage").removeClass("alert-success");
+                $("#addStatusMessage").addClass("alert-danger");
+            }
+            else {
+                $("#addStatusMessage").removeClass("alert-danger");
+                $("#addStatusMessage").addClass("alert-success");
+                refreshList();
+                $("#btnReset").click();
+            }
+        }
+
+
+
+        function showAddCellModal() {
+            hideAddCellAlert();
+            hideStatusMessage();
+            var width = $("body").width();
+            if (width != undefined) {
+                $('#addCellDialog').width(width - 35);
+            }
+            $("#btnSaveCell").removeAttr("disabled");
+            $('#addCell').modal({ backdrop: "static" });
+            $('#addCell').modal('show');
+        }
+
+
+        function hideAddCellAlert() {
+            $("#addCellStatusMessage").addClass("hide");
+        }
+
+        function beginSaveCell() {
+            $("#btnSaveCell").attr("disabled", "disabled");
+        }
+
+        function completeSaveCell(result) {
+            $("#btnSaveCell").removeAttr("disabled");
+            $("#addCellStatusMessage").find("p").html(result.Message);
+            $("#addCellStatusMessage").removeClass("hide");
+            if (result.Code > 0) {
+                $("#addCellStatusMessage").removeClass("alert-success");
+                $("#addCellStatusMessage").addClass("alert-danger");
+            }
+            else {
+                $("#addCellStatusMessage").removeClass("alert-danger");
+                $("#addCellStatusMessage").addClass("alert-success");
+                refreshList();
+                $("#btnResetCell").click();
+            }
+        }
+    </script>
+
+}

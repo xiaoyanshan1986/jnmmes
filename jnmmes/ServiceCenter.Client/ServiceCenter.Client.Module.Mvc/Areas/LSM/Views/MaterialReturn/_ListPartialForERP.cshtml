@@ -1,0 +1,90 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.LSM.Models.MaterialReturnViewModel
+@using ServiceCenter.Client.Mvc.Areas.LSM.Models;
+@using ServiceCenter.Client.Mvc.Resources;
+@using LSMResources = ServiceCenter.Client.Mvc.Resources.LSM;
+@using ServiceCenter.MES.Model.LSM;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@{
+    PagingConfig cfg = ViewBag.PagingConfig;
+}
+<div id="_list">
+    <table class="table table-hover table-bordered table-condensed">
+        <thead>
+            <tr class="active">
+                <td>@StringResource.ItemNo</td>
+                <td>@Html.DisplayNameFor(m => m.ReturnNo)</td>
+                <td>@Html.DisplayNameFor(m => m.ReturnDate)</td>
+                <td>@Html.DisplayNameFor(m => m.OrderNumber)</td>
+                <td>ERP回执</td>
+                <td>@Html.DisplayNameFor(m => m.Description)</td>
+                <td>@Html.DisplayNameFor(m => m.Editor)</td>
+                <td>@Html.DisplayNameFor(m => m.EditTime)</td>
+                <td>@StringResource.Detail</td>
+            </tr>
+        </thead>
+        @if (ViewBag.List != null)
+        {
+            <tbody>
+                @for (int i = 0; i < ViewBag.List.Length; i++)
+                {
+                    MaterialReturn obj = ViewBag.List[i];
+                    <tr>
+                        <td>@(cfg.PageSize * cfg.PageNo + i + 1)</td>
+                        <td>
+                            @obj.Key
+                        </td>
+                        <td>
+                            @string.Format("{0:yyyy-MM-dd}", obj.ReturnDate)
+                        </td>
+                        <td>
+                            @obj.OrderNumber
+                        </td>
+                        <td>
+                            @obj.ErpCode
+                        </td>
+                        <td>
+                            @obj.Description
+                        </td>
+                        <td>
+                            @obj.Editor
+                        </td>
+                        <td>
+                            @string.Format("{0:yyyy-MM-dd HH:mm:ss}", obj.EditTime)
+                        </td>
+                        <td>
+                            @Html.ActionLink(linkText: StringResource.Detail
+                                         , actionName: "DetailForERP"
+                                            , controllerName: "MaterialReturn"
+                                            , routeValues: new { @ReturnNo = obj.Key }
+                                            , htmlAttributes: new { @target = "_self" })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        }
+    </table>
+    <div style="margin-top:-18px">
+        @if (cfg != null)
+        {
+            using (Ajax.BeginForm("PagingQueryForERP", "MaterialReturn"
+                            , new
+                            {
+                                @Where = cfg.Where,
+                                @OrderBy = cfg.OrderBy,
+                                @CurrentPageNo = cfg.PageNo,
+                                @CurrentPageSize = cfg.PageSize
+                            }
+                            , new AjaxOptions()
+                            {
+                                HttpMethod = "Post",
+                                UpdateTargetId = "_list"
+                            }
+                            , new { @class = "form-horizontal", resource = "form", id = "frmPagingQuery" }))
+            {
+                @Html.AntiForgeryToken()
+                <div>@Html.Partial("_PaginationPartial")</div>
+            }
+        }
+    </div>
+</div>

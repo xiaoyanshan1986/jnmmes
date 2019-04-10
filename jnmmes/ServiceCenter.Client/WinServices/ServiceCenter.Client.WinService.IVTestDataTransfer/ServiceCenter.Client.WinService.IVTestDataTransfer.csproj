@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2C61A49A-1CBB-4651-B0D8-F650566E9427}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ServiceCenter.Client.WinService.IVTestDataTransfer</RootNamespace>
+    <AssemblyName>ServiceCenter.Client.WinService.IVTestDataTransfer</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>\\192.168.20.14\WinService\</PublishUrl>
+    <Install>false</Install>
+    <InstallFrom>Unc</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
+    <WebPage>publish.htm</WebPage>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>B5E102B0B0CDBFD64B00DE5CF4830FB758068A2F</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>ServiceCenter.Client.WinService_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Configuration\IVTestConfigurationSection.cs" />
+    <Compile Include="Transfer\IVTestDataTransferAction.cs" />
+    <Compile Include="IVTestDataTransferService.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="IVTestDataTransferService.Designer.cs">
+      <DependentUpon>IVTestDataTransferService.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="ProjectInstaller.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ProjectInstaller.Designer.cs">
+      <DependentUpon>ProjectInstaller.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Install.bat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Uninstall.bat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="IVTestDataTransferService.resx">
+      <DependentUpon>IVTestDataTransferService.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProjectInstaller.resx">
+      <DependentUpon>ProjectInstaller.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\ServiceCenter.Common\ServiceCenter.Common.csproj">
+      <Project>{c83d4a4f-7907-4221-8421-ff9f3616d901}</Project>
+      <Name>ServiceCenter.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\ServiceCenter.Modules\FMM\ServiceCenter.MES.Model.FMM\ServiceCenter.MES.Model.FMM.csproj">
+      <Project>{bace1677-4fc1-40a6-93cd-c78664bab941}</Project>
+      <Name>ServiceCenter.MES.Model.FMM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\ServiceCenter.Modules\FMM\ServiceCenter.MES.Service.Client.FMM\ServiceCenter.MES.Service.Client.FMM.csproj">
+      <Project>{dbbd88f0-5c74-466f-bd19-c5a1d5ed78d3}</Project>
+      <Name>ServiceCenter.MES.Service.Client.FMM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\ServiceCenter.Modules\FMM\ServiceCenter.MES.Service.Contract.FMM\ServiceCenter.MES.Service.Contract.FMM.csproj">
+      <Project>{ac3655eb-9b09-491d-b817-16941f318a4f}</Project>
+      <Name>ServiceCenter.MES.Service.Contract.FMM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\ServiceCenter.Modules\WIP\ServiceCenter.MES.Model.WIP\ServiceCenter.MES.Model.WIP.csproj">
+      <Project>{9d2471c5-93c8-45b4-be45-7bba88025fa6}</Project>
+      <Name>ServiceCenter.MES.Model.WIP</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\ServiceCenter.Modules\WIP\ServiceCenter.MES.Service.Client.WIP\ServiceCenter.MES.Service.Client.WIP.csproj">
+      <Project>{7699f44c-4f24-4fee-894c-d7850db4c811}</Project>
+      <Name>ServiceCenter.MES.Service.Client.WIP</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\ServiceCenter.Modules\WIP\ServiceCenter.MES.Service.Contract.WIP\ServiceCenter.MES.Service.Contract.WIP.csproj">
+      <Project>{59109d57-5fb5-41e7-bbde-a22cfba26f6c}</Project>
+      <Name>ServiceCenter.MES.Service.Contract.WIP</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\ServiceCenter.Modules\ZPVM\ServiceCenter.MES.Model.ZPVM\ServiceCenter.MES.Model.ZPVM.csproj">
+      <Project>{0c089113-7e7f-4768-a505-f88c5360ee6d}</Project>
+      <Name>ServiceCenter.MES.Model.ZPVM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\ServiceCenter.Modules\ZPVM\ServiceCenter.MES.Service.Client.ZPVM\ServiceCenter.MES.Service.Client.ZPVM.csproj">
+      <Project>{d5760dae-3b98-4e34-b19f-edbc9236490c}</Project>
+      <Name>ServiceCenter.MES.Service.Client.ZPVM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\ServiceCenter.Modules\ZPVM\ServiceCenter.MES.Service.Contract.ZPVM\ServiceCenter.MES.Service.Contract.ZPVM.csproj">
+      <Project>{23410278-f525-43dc-af6c-2078a6177a09}</Project>
+      <Name>ServiceCenter.MES.Service.Contract.ZPVM</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 和 x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   namespace="ServiceCenter.MES.Model.WIP" 
+                   assembly="ServiceCenter.MES.Model.WIP">
+  <class name="LotTransactionParameter" table="WIP_TRANSACTION_PARAM">
+    <composite-id  name="Key" class="LotTransactionParameterKey">
+      <key-property name="TransactionKey" column="TRANSACTION_KEY"/>
+      <key-property name="ParameterName" column="PARAM_NAME"/>
+      <key-property name="ItemNo" column="ITEM_NO"/>
+    </composite-id >
+    <property name="ParameterValue" column="PARAM_VALUE"/>
+    <property name="Editor" column="EDITOR"/>
+    <property name="EditTime" column="EDIT_TIME"/>
+  </class>
+</hibernate-mapping>

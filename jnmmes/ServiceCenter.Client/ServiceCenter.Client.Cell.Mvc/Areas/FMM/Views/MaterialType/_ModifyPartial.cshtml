@@ -1,0 +1,32 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.FMM.Models.MaterialTypeViewModel
+@using ServiceCenter.Common;
+
+@Html.ValidationSummary(true)
+<div class="form-group">
+    @Html.LabelFor(m => m.Name, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        <p class="form-control-static">@Model.Name</p>
+        @Html.HiddenFor(m => m.Name)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.MainProductQtyPerLot, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.MainProductQtyPerLot, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.MainProductQtyPerLot)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.MainRawQtyPerLot, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.MainRawQtyPerLot, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.MainRawQtyPerLot)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.Description, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextAreaFor(m => m.Description, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Description)
+    </div>
+</div>

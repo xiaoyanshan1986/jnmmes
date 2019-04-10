@@ -1,0 +1,46 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.PPM.Models.WorkOrderRouteViewModel
+<div class="form-group">
+    @Html.LabelFor(m => m.OrderNumber, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        <p class="form-control-static">@Model.OrderNumber</p>
+        @Html.HiddenFor(m => m.OrderNumber)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.ItemNo, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => Model.ItemNo, new { @class = "form-control", @readonly = "readonly", @id = "txtAddItemNo" })
+        @Html.ValidationMessageFor(m => m.ItemNo)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.RouteEnterpriseName, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.DropDownListFor(m => Model.RouteEnterpriseName, @Model.GetRouteEnterpriseNameList(),string.Empty
+                                , new { @class = "form-control",@id="drpRouteEnterpriseName" })
+        @Html.ValidationMessageFor(m => m.RouteEnterpriseName)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.RouteName, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.DropDownListFor(m => Model.RouteName, @Model.GetRouteNameList()
+                                      , new { @class = "form-control", @id = "drpRouteName" })
+        @Html.ValidationMessageFor(m => m.RouteName)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.RouteStepName, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.DropDownListFor(m => Model.RouteStepName , @Model.GetRouteStepNameList()
+                              , new { @class = "form-control", @id = "drpRouteStepName" })
+        @Html.ValidationMessageFor(m => m.RouteStepName)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.IsRework, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.CheckBoxFor(m => m.IsRework, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.IsRework)
+    </div>
+</div>

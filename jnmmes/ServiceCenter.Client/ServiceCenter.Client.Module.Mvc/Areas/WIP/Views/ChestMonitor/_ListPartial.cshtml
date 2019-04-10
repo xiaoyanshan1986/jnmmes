@@ -1,0 +1,129 @@
+﻿
+@using ServiceCenter.Client.Mvc.Areas.WIP.Models;
+@using ServiceCenter.Client.Mvc.Resources;
+@using WIPResources = ServiceCenter.Client.Mvc.Resources.WIP;
+@using ServiceCenter.MES.Model.WIP;
+@using ServiceCenter.MES.Model.FMM;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@using ServiceCenter.MES.Model.LSM;
+@using ServiceCenter.MES.Model.ZPVM;
+@{
+    PagingConfig cfg = ViewBag.PagingConfig;
+    IList<Chest> lstChest = null;
+    if (ViewBag.List != null)
+    {
+        lstChest = ViewBag.List;       
+    }   
+    
+}
+<div id="_list">
+ @if (lstChest != null && lstChest.Count > 0)
+ {
+     var lstData = from e1 in lstChest orderby e1.EditTime select e1;
+     
+    <table class="table table-hover table-bordered table-condensed table-responsive table-striped">
+        <tr>          
+            <td class="active">柜号</td>
+            @foreach (Chest obj in lstData)
+            {
+                <td nowrap>@obj.Key</td>
+            }
+        </tr>
+        <tr>
+            <td class="active">柜状态</td>
+            @foreach (Chest obj in lstData)
+            {
+                <td nowrap>@obj.ChestState.GetDisplayName()</td>
+            }
+        </tr>
+        <tr>
+            <td class="active">库位</td>
+            @foreach (Chest obj in lstData)
+            {
+                <td nowrap>@obj.StoreLocation</td>
+            }
+        </tr>
+        <tr>
+            <td class="active">产品编码</td>
+            @foreach (Chest obj in lstData)
+            {
+                <td nowrap>@obj.MaterialCode</td>
+            }           
+        </tr>
+        <tr>
+            <td class="active">柜内首托工单号</td>
+            @foreach (Chest obj in lstData)
+            {
+                <td nowrap>@obj.OrderNumber</td>
+            }  
+        </tr>
+        <tr>
+            <td class="active">功率档</td>
+            @foreach (Chest obj in lstData)
+            {
+                <td nowrap>@obj.PowerName</td>
+            }  
+        </tr>
+        <tr>
+            <td class="active">电流档</td>
+            @foreach (Chest obj in lstData)
+            {
+                <td nowrap>@obj.PowerSubCode</td>
+            } 
+        </tr>
+        <tr>
+            <td class="active">等级</td>
+            @foreach (Chest obj in lstData)
+            {
+                <td nowrap>@obj.Grade</td>
+            }
+        </tr>
+        <tr>
+            <td class="active">颜色</td>
+            @foreach (Chest obj in lstData)
+            {
+                <td nowrap>@obj.Color</td>
+            }
+        </tr>
+        <tr>
+            <td class="active">柜属性</td>
+            @foreach (Chest obj in lstData)
+            {
+                if (obj.IsLastPackage)
+                {
+                    <td nowrap>尾柜</td>
+                }
+                else
+                {
+                    <td nowrap>常规</td>
+                }               
+            }
+        </tr>
+        <tr>
+            <td class="active">柜内托数量</td>
+            @foreach (Chest obj in lstData)
+            {
+                <td nowrap>
+                    @if (!String.IsNullOrEmpty(obj.Key))
+                    {
+                        @Ajax.ActionLink(obj.Quantity.ToString(), "QueryChestDetail", "ChestMonitor", new { chestNo = obj.Key },
+                        new AjaxOptions()
+                        {
+                            HttpMethod = "POST",
+                            UpdateTargetId = "listPack"
+                        })
+                    }
+                </td>
+            }
+        </tr>
+    </table>
+    }    
+
+    
+    <div style="margin-top:-18px">
+       
+    </div>
+</div>
+
+

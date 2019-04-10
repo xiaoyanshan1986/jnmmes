@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   namespace="ServiceCenter.MES.Model.LSM" 
+                   assembly="ServiceCenter.MES.Model.LSM">
+  <class name="MaterialUnloading" table="LSM_MATERIAL_UNLOADING">
+    <id name="Key" column="UNLOADING_KEY">
+      <generator class="assigned" />
+    </id>
+    <property name="RouteOperationName" column="ROUTE_OPERATION_NAME"/>
+    <property name="ProductionLineCode" column="LINE_CODE"/>
+    <property name="EquipmentCode" column="EQUIPMENT_CODE"/>
+    <property name="UnloadingTime" column="UNLOADING_TIME"/>
+    <property name="Operator" column="OPERATOR"/>
+    <property name="Description" column="DESCRIPTION"/>
+    <property name="Creator" column="CREATOR"/>
+    <property name="CreateTime" column="CREATE_TIME"/>
+    <property name="Editor" column="EDITOR"/>
+    <property name="EditTime" column="EDIT_TIME"/>
+  </class>
+</hibernate-mapping>

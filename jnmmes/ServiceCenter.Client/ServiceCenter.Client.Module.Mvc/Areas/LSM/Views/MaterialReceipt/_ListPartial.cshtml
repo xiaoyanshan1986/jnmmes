@@ -1,0 +1,88 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.LSM.Models.MaterialReceiptViewModel
+@using ServiceCenter.Client.Mvc.Areas.LSM.Models;
+@using ServiceCenter.Client.Mvc.Resources;
+@using LSMResources = ServiceCenter.Client.Mvc.Resources.LSM;
+@using ServiceCenter.MES.Model.LSM;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@{
+    PagingConfig cfg = ViewBag.PagingConfig;
+}
+<div id="_list">
+    <table class="table table-hover table-bordered table-condensed">
+        <thead>
+            <tr class="active">
+                <td nowrap>@StringResource.ItemNo</td>
+                <td nowrap>@Html.DisplayNameFor(m => m.ReceiptNo)</td>
+                <td nowrap>@Html.DisplayNameFor(m => m.ReceiptDate)</td>
+                <td nowrap>@Html.DisplayNameFor(m => m.OrderNumber)</td>
+                <td nowrap>@Html.DisplayNameFor(m => m.Description)</td>
+                <td nowrap>@Html.DisplayNameFor(m => m.Editor)</td>
+                <td nowrap>@Html.DisplayNameFor(m => m.EditTime)</td>
+                <td nowrap>@StringResource.Detail</td>
+            </tr>
+        </thead>
+        @if (ViewBag.List != null)
+        {
+            <tbody>
+                @for (int i = 0; i < ViewBag.List.Length; i++)
+                {
+                    MaterialReceipt obj = ViewBag.List[i];
+                    <tr>
+                        <td nowrap>@(cfg.PageSize * cfg.PageNo + i + 1)</td>
+                        <td nowrap>
+                            @obj.Key
+                        </td>
+                        <td nowrap>
+                            @string.Format("{0:yyyy-MM-dd}", obj.ReceiptDate)
+                        </td>
+                        <td nowrap>
+                            @obj.OrderNumber
+                        </td>
+                        <td nowrap>
+                            @obj.Description
+                        </td>
+                        <td nowrap>
+                            @obj.Editor
+                        </td>
+                        <td nowrap>
+                            @string.Format("{0:yyyy-MM-dd HH:mm:ss}", obj.EditTime)
+                        </td>
+                        <td nowrap>
+                            @Html.ActionLink(linkText: StringResource.Detail
+                                            , actionName: "Detail"
+                                            , controllerName: "MaterialReceipt"
+                                            , routeValues: new { @ReceiptNo = obj.Key }
+                                            , htmlAttributes: new { @target = "_self" })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        }
+    </table>
+    <div style="margin-top:-18px">
+        @if (cfg != null)
+        {
+            using (Ajax.BeginForm("PagingQuery", "MaterialReceipt"
+                            , new
+                            {
+                                @Where = cfg.Where,
+                                @OrderBy = cfg.OrderBy,
+                                @CurrentPageNo = cfg.PageNo,
+                                @CurrentPageSize = cfg.PageSize
+                            }
+                            , new AjaxOptions()
+                            {
+                                HttpMethod = "Post",
+                                UpdateTargetId = "_list"
+                            }
+                            , new { @class = "form-horizontal", resource = "form", id = "frmPagingQuery" }))
+            {
+                @Html.AntiForgeryToken()
+                <div>@Html.Partial("_PaginationPartial")</div>
+            }
+        }
+    </div>
+</div>
+
+

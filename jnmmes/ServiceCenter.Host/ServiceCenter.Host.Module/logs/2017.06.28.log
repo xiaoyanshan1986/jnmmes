@@ -1,0 +1,60 @@
+2017-06-28 08:39:25,476 - ERROR - START>Application
+2017-06-28 09:32:00,674 - ERROR - START>Application
+2017-06-28 09:34:34,020 - ERROR - START>Application
+2017-06-28 12:01:21,335 - ERROR - START>Application
+2017-06-28 12:13:39,139 - ERROR - START>Application
+2017-06-28 13:30:27,856 - ERROR - START>Application
+2017-06-28 14:31:09,012 - ERROR - START>Application
+2017-06-28 14:41:59,532 - ERROR - START>Application
+2017-06-28 16:14:41,886 - ERROR - START>Application
+2017-06-28 16:18:29,193 - ERROR - START>Application
+2017-06-28 17:42:37,047 - ERROR - Could not execute query: select count(*) as col_0_0_ from EDC_DataAcquisition_Data dataacquis0_ where dataacquis0_.EDCTime='2017/6/28 11:00:00' and dataacquis0_.ItemCode='001' and dataacquis0_.LINE_CODE='102A-A' and EquipmentCode='MASLD-EVA01' and LocationName=''
+System.Data.SqlClient.SqlException (0x80131904): 列名 'EquipmentCode' 无效。
+列名 'LocationName' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 223
+ClientConnectionId:f2807d70-4c20-4066-b46b-b04cb91013f4
+Error Number:207,State:1,Class:16
+2017-06-28 17:42:37,128 - ERROR - 列名 'EquipmentCode' 无效。
+列名 'LocationName' 无效。
+2017-06-28 17:42:37,170 - ERROR - 列名 'EquipmentCode' 无效。
+列名 'LocationName' 无效。
+2017-06-28 17:42:37,171 - ERROR - 列名 'EquipmentCode' 无效。
+列名 'LocationName' 无效。
+2017-06-28 17:43:24,132 - ERROR - Could not execute query: select count(*) as col_0_0_ from EDC_DataAcquisition_Data dataacquis0_ where dataacquis0_.EDCTime='2017/6/28 11:00:00' and dataacquis0_.ItemCode='001' and dataacquis0_.LINE_CODE='102A-A' and EquipmentCode='MASLD-EVA01' and LocationName=''
+System.Data.SqlClient.SqlException (0x80131904): 列名 'EquipmentCode' 无效。
+列名 'LocationName' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 223
+ClientConnectionId:f2807d70-4c20-4066-b46b-b04cb91013f4
+Error Number:207,State:1,Class:16
+2017-06-28 17:43:24,172 - ERROR - 列名 'EquipmentCode' 无效。
+列名 'LocationName' 无效。
+2017-06-28 17:43:24,208 - ERROR - 列名 'EquipmentCode' 无效。
+列名 'LocationName' 无效。
+2017-06-28 17:43:24,208 - ERROR - 列名 'EquipmentCode' 无效。
+列名 'LocationName' 无效。

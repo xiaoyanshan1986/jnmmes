@@ -1,0 +1,23 @@
+﻿@model System.Web.Mvc.HandleErrorInfo
+@using ServiceCenter.Client.Mvc.Resources;
+@{
+    ViewBag.Title = StringResource.ErrorPage_Title;
+}
+<p></p>
+<div class="panel panel-danger">
+    <div class="panel-heading">
+        <h1>@ViewBag.Title</h1>
+        <h2 class="text-danger">@StringResource.ErrorPage_Text。</h2>
+    </div>
+    <div class="panel-body">
+        
+        @if (Model != null)
+        {
+        <div>
+            @Model.ControllerName/@Model.ActionName <br />
+            @Model.Exception.Message<br />
+            @Model.Exception.ToString()<br />
+        </div>
+        }
+    </div>
+</div>

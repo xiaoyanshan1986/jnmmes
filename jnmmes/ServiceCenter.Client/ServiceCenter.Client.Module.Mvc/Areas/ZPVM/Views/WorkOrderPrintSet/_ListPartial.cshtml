@@ -1,0 +1,131 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.ZPVM.Models.WorkOrderPrintSetViewModel
+@using ServiceCenter.Client.Mvc.Areas.ZPVM.Models;
+@using ServiceCenter.Client.Mvc.Resources;
+@using ZPVM = ServiceCenter.Client.Mvc.Resources.ZPVM;
+@using ServiceCenter.MES.Model.ZPVM;
+@using ServiceCenter.MES.Model.FMM;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@{
+    PagingConfig cfg = ViewBag.PagingConfig;
+}
+<div id="_list">
+    <table class="table table-hover table-bordered table-condensed">
+        <thead>
+            <tr class="active">
+                <td>@Html.DisplayNameFor(m => m.OrderNumber)</td>
+                <td>@Html.DisplayNameFor(m => m.MaterialCode)</td>
+                <td>@Html.DisplayNameFor(m => m.LabelCode)</td>
+                <td>@Html.DisplayNameFor(m => m.LabelName)</td>
+                <td>@Html.DisplayNameFor(m => m.ItemNo)</td>
+                <td>@Html.DisplayNameFor(m => m.Qty)</td>
+                <td>@Html.DisplayNameFor(m => m.IsUsed)</td>
+                <td>预览</td>
+                <td>@StringResource.Detail</td>
+                <td>@StringResource.Modify</td>
+                <td>@StringResource.Delete</td>
+            </tr>
+        </thead>
+        @if (ViewBag.List != null)
+        {
+            <tbody>
+                @for (int i = 0; i < ViewBag.List.Length; i++)
+                {
+                    WorkOrderPrintSet obj = ViewBag.List[i];
+                    PrintLabel label = @Model.GetLabel(obj.Key.LabelCode);
+                    <tr>
+                        <td>@obj.Key.OrderNumber</td>
+                        <td>
+                            @obj.Key.MaterialCode
+                        </td>
+                        <td>
+                            @obj.Key.LabelCode
+                        </td>
+                        <td>
+                            @label.Name
+                        </td>
+                        <td>@obj.ItemNo</td>
+                        <td>@obj.Qty</td>
+                        
+                        <td>
+                            @(obj.IsUsed ? StringResource.Yes : StringResource.No)
+                        </td>
+                        <td align="center">
+                            @using (Html.BeginForm("ShowPackageListReport", "WorkOrderPrintSet"
+                                       , new { orderNumber = obj.Key.OrderNumber, labelCode = obj.Key.LabelCode, materialCode = obj.Key.MaterialCode }
+                                       , FormMethod.Post
+                                       , new {
+                                           //@class = "form-horizontal",
+                                           resource = "form", 
+                                           target = "printViewDetail" }))
+                            {
+                                @Html.AntiForgeryToken()
+                                <div>
+                                    <input type="submit" value="预览" class="btn btn-default" />
+                                </div>
+                            }
+                        </td>
+                        <td>
+                            @Ajax.ActionLink(StringResource.Detail, actionName: null
+                                            , routeValues: null
+                                            , ajaxOptions:new AjaxOptions() 
+                                            { 
+                                                HttpMethod = "Post", 
+                                                UpdateTargetId = "detailInfo",
+                                                OnSuccess = "showInfoModal",
+                                                Url = Url.Action("Detail", new { @OrderNumber = obj.Key.OrderNumber, @MaterialCode = obj.Key.MaterialCode, @LabelCode = obj.Key.LabelCode })
+                                            })
+                        </td>
+                        <td>
+                            @Ajax.ActionLink(StringResource.Modify, actionName: null
+                                            ,routeValues:null
+                                            ,ajaxOptions:new AjaxOptions()
+                                            {
+                                                HttpMethod = "Post",
+                                                UpdateTargetId = "modifyFormContent",
+                                                OnSuccess = "showModifyModal",
+                                                Url = Url.Action("Modify", new { @OrderNumber = obj.Key.OrderNumber, @MaterialCode = obj.Key.MaterialCode, @LabelCode = obj.Key.LabelCode })
+                                            })
+                        </td>
+                        <td>
+                            @Ajax.ActionLink(StringResource.Delete, actionName: null
+                                            , routeValues: null
+                                            , ajaxOptions:new AjaxOptions()
+                                            {
+                                                HttpMethod = "Post",
+                                                Confirm = string.Format(ZPVM.StringResource.WorkOrderPrintSet_ConfirmDelete, obj.Key),
+                                                Url = Url.Action("Delete", new { @OrderNumber = obj.Key.OrderNumber, @MaterialCode = obj.Key.MaterialCode, @LabelCode = obj.Key.LabelCode }),
+                                                OnSuccess = "completeDelete"
+                                            })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        }
+    </table>
+    <div style="margin-top:-18px">
+        @if (cfg != null)
+        {
+            using (Ajax.BeginForm("PagingQuery", "WorkOrderPrintSet"
+                            , new
+                            {
+                                @Where = cfg.Where,
+                                @OrderBy = cfg.OrderBy,
+                                @CurrentPageNo = cfg.PageNo,
+                                @CurrentPageSize = cfg.PageSize
+                            }
+                            , new AjaxOptions()
+                            {
+                                HttpMethod = "Post",
+                                UpdateTargetId = "_list"
+                            }
+                            , new { @class = "form-horizontal", resource = "form", id = "frmPagingQuery" }))
+            {
+                @Html.AntiForgeryToken()
+                <div>@Html.Partial("_PaginationPartial")</div>
+            }
+        }
+    </div>
+</div>
+
+

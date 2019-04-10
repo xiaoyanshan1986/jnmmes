@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   namespace="ServiceCenter.MES.Model.PPM" 
+                   assembly="ServiceCenter.MES.Model.PPM">
+  <class name="WorkOrderGroupDetail" table="PPM_WORK_ORDER_GROUP_DETAIL">
+    <composite-id  name="Key" class="WorkOrderGroupDetailKey">
+      <key-property name="WorkOrderGroupNo" column="WORK_ORDER_GROUP_NO"/>
+      <key-property name="OrderNumber" column="ORDER_NUMBER"/>
+      <key-property name="ProductCode" column="PRODUCT_CODE"/>      
+    </composite-id >
+    <property name="Nums" column="NUMS"/>
+    <property name="ItemNo" column="ITEM_NO"/>
+    <property name="Creator" column="CREATOR"/>
+    <property name="CreateTime" column="CREATE_TIME"/>
+    <property name="Editor" column="EDITOR"/>
+    <property name="EditTime" column="EDIT_TIME"/>
+    <property name="Description" column="DESCRIPTION"/>
+  </class>
+</hibernate-mapping>

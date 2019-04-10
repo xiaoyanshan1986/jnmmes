@@ -1,0 +1,100 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.FMM.Models.ScheduleMonthViewModel
+@using ServiceCenter.Client.Mvc.Areas.FMM.Models;
+@using ServiceCenter.Client.Mvc.Resources;
+@using FMM = ServiceCenter.Client.Mvc.Resources.FMM;
+@using ServiceCenter.MES.Model.FMM;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@{
+    PagingConfig cfg = ViewBag.PagingConfig;
+}
+<div id="_list">
+    <table class="table table-hover table-bordered table-condensed">
+        <thead>
+            <tr class="active">
+                <td>@StringResource.ItemNo</td>
+                <td>@Html.DisplayNameFor(m => m.LocationName)</td>
+                <td>@Html.DisplayNameFor(m => m.RouteOperationName)</td>
+                <td>@Html.DisplayNameFor(m => m.Year)</td>
+                <td>@Html.DisplayNameFor(m => m.Month)</td>
+                <td>@StringResource.Detail</td>
+                <td>@StringResource.Delete</td>
+            </tr>
+        </thead>
+        @if (ViewBag.List != null)
+        {
+            <tbody>
+                @for (int i = 0; i < ViewBag.List.Length; i++)
+                {
+                    ScheduleMonth obj = ViewBag.List[i];
+                    <tr>
+                        <td>@(cfg.PageSize * cfg.PageNo+i+1)</td>
+                        <td>
+                            @obj.Key.LocationName
+                        </td>
+                        <td>
+                            @obj.Key.RouteOperationName
+                        </td>
+                        <td>
+                            @obj.Key.Year
+                        </td>
+                        <td>
+                            @obj.Key.Month
+                        </td>
+                        <td>
+                            @Html.ActionLink(linkText: StringResource.Detail
+                                            , actionName: "Index"
+                                            , controllerName: "ScheduleDay"
+                                            , routeValues: new {  @LocationName=obj.Key.LocationName,
+                                                                  @RouteOperationName = obj.Key.RouteOperationName,
+                                                                  @Year = obj.Key.Year,
+                                                                  @Month = obj.Key.Month
+                                                                }
+                                            , htmlAttributes: new { @target = "_self" })
+                        </td>
+                        <td>
+                            @Ajax.ActionLink(StringResource.Delete, actionName: null
+                                            , routeValues: null
+                                            , ajaxOptions:new AjaxOptions()
+                                            {
+                                                HttpMethod = "Post",
+                                                Confirm = string.Format(FMM.StringResource.ScheduleMonth_ConfirmDelete, obj.Key),
+                                                Url = Url.Action("Delete", new { @LocationName = obj.Key.LocationName,
+                                                                                @RouteOperationName = obj.Key.RouteOperationName,
+                                                                                @Year = obj.Key.Year,
+                                                                                @Month = obj.Key.Month
+                                                                               }),
+                                                OnSuccess = "completeDelete"
+                                            })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        }
+    </table>
+    <div style="margin-top:-18px">
+        @if (cfg != null)
+        {
+            using (Ajax.BeginForm("PagingQuery", "ScheduleMonth"
+                            , new
+                            {
+                                @Where = cfg.Where,
+                                @OrderBy = cfg.OrderBy,
+                                @CurrentPageNo = cfg.PageNo,
+                                @CurrentPageSize = cfg.PageSize
+                            }
+                            , new AjaxOptions()
+                            {
+                                HttpMethod = "Post",
+                                UpdateTargetId = "_list"
+                            }
+                            , new { @class = "form-horizontal", resource = "form", id = "frmPagingQuery" }))
+            {
+                @Html.AntiForgeryToken()
+                <div>@Html.Partial("_PaginationPartial")</div>
+            }
+        }
+    </div>
+</div>
+
+

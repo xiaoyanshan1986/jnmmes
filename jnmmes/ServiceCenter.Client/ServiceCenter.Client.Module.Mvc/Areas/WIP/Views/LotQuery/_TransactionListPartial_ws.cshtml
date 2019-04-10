@@ -1,0 +1,74 @@
+﻿@using ServiceCenter.Client.Mvc.Areas.WIP.Models;
+@using ServiceCenter.Client.Mvc.Resources;
+@using WIPResources = ServiceCenter.Client.Mvc.Resources.WIP;
+@using ServiceCenter.MES.Model.WIP;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+<div id="_list">
+    <table class="table table-hover table-bordered table-condensed table-responsive table-striped">
+        <thead>
+            <tr class="active">
+                <td nowrap>@StringResource.ItemNo</td>
+                <td nowrap>批次号</td>
+                <td nowrap>工单号</td>
+                <td nowrap>动作</td>
+                <td nowrap>工艺流程组</td>
+                <td nowrap>工艺流程</td>
+                <td nowrap>工步</td>
+                <td nowrap>操作客户端</td>
+                <td nowrap>描述</td>
+                <td nowrap>撤销?</td>
+                @*<td nowrap>创建人</td>
+                <td nowrap>创建时间</td>
+                <td nowrap>编辑人</td>
+                <td nowrap>编辑时间</td>*@
+            </tr>
+        </thead>
+        @if (ViewBag.TransactionList != null)
+        {
+            <tbody>
+                @for (int i = 0; i < ViewBag.TransactionList.Length; i++)
+                {
+                    LotTransaction obj = ViewBag.TransactionList[i];
+                    string undoClass = obj.UndoFlag ? "class=danger" : string.Empty;
+                    <tr>
+                        <td nowrap @undoClass>@(i + 1)</td>
+                        <td nowrap @undoClass>
+                            @obj.LotNumber
+                        </td>
+                        <td nowrap @undoClass>
+                            @obj.OrderNumber
+                        </td>
+                        <td nowrap @undoClass>
+                            @obj.Activity.GetDisplayName()
+                        </td>
+                        <td nowrap @undoClass>
+                            @obj.RouteEnterpriseName
+                        </td>
+                        <td nowrap @undoClass>
+                            @obj.RouteName
+                        </td>
+                        <td nowrap @undoClass>
+                            @obj.RouteStepName
+                        </td>
+                        <td nowrap @undoClass>
+                            @obj.OperateComputer
+                        </td>
+                        <td nowrap @undoClass>
+                            @obj.Description
+                        </td>
+                        <td nowrap @undoClass>
+                            @(obj.UndoFlag ? StringResource.Yes : StringResource.No)
+                        </td>
+                        @*<td nowrap @undoClass>@obj.Creator</td>
+                        <td nowrap @undoClass>@string.Format("{0:yyyy-MM-dd HH:mm:ss}", obj.CreateTime)</td>
+                        <td nowrap @undoClass>@obj.Editor</td>
+                        <td nowrap @undoClass>@string.Format("{0:yyyy-MM-dd HH:mm:ss}", obj.EditTime)</td>*@
+                    </tr>
+                }
+            </tbody>
+        }
+    </table>
+</div>
+
+

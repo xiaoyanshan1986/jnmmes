@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   namespace="ServiceCenter.MES.Model.FMM" 
+                   assembly="ServiceCenter.MES.Model.FMM">
+  <class name="MaterialPrintSet" table="FMM_MATERIAL_PRINTSET">
+    <composite-id  name="Key" class="MaterialPrintSetKey">
+      <key-property name="MaterialCode" column="MATERIAL_CODE"/>
+      <key-property name="LabelCode" column="LABEL_CODE"/>
+    </composite-id >
+    <property name="Qty" column="PRINT_QTY"/>    
+    <property name="Creator" column="CREATOR"/>
+    <property name="CreateTime" column="CREATE_TIME" type="timestamp"/>
+    <property name="Editor" column="EDITOR"/>
+    <property name="EditTime" column="EDIT_TIME" type="timestamp"/>
+  </class>
+</hibernate-mapping>

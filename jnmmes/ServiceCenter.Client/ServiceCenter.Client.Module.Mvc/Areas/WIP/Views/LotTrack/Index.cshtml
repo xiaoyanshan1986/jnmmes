@@ -1,0 +1,812 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.WIP.Models.LotTrackViewModel
+@using ServiceCenter.MES.Model.WIP;
+@using ServiceCenter.Model;
+@using ServiceCenter.Common;
+@using ServiceCenter.Client.Mvc.Areas.WIP.Models;
+@using WIPRsources = ServiceCenter.Client.Mvc.Resources.WIP;
+@using ServiceCenter.Client.Mvc.Resources;
+
+@{
+    ViewBag.Title = WIPRsources.StringResource.LotTrack_ManagePageTitle;
+    Lot obj= ViewBag.Lot;
+    
+}
+<h2>@ViewBag.Title</h2>
+@using (Ajax.BeginForm("Save", "LotTrack", null
+                    , new AjaxOptions()
+                    {
+                        HttpMethod = "Post",
+                        OnSuccess = "completeSave",
+                        OnBegin = "beginSave"
+                    }
+                    , new { @class = "form-horizontal", resource = "form", id = "frmTrack", autocomplete = "off" }))
+{
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <input type="button" value="@WIPRsources.StringResource.Track" class="btn btn-primary" id="btnSave" />
+        @Ajax.ActionLink(StringResource.Print
+         , "Prints"
+        , null
+        , new AjaxOptions()
+        {
+            HttpMethod = "Post",
+            OnBegin = "beginPrint",
+            OnSuccess = "completePrint"
+        }
+         , new { @class = "btn btn-default", @id = "btnPrint" })
+    </div>
+    <div class="panel-body">
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        <div class="form-group">
+            @*线别*@
+            <div class="col-md-1">
+                @Html.LabelFor(m => m.LineCode, new { @class = "control-label" })
+            </div>
+            <div class="col-md-2">
+                @Html.DropDownListFor(m => m.LineCode,@Model.GetProductionLineList(), new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.LineCode)
+            </div>
+
+            @*工序代码*@
+            <div class="col-md-1">
+                @Html.LabelFor(m => m.RouteOperationName, new { @class = "control-label" })
+            </div>
+            <div class="col-md-2">
+                @Html.DropDownListFor(m => m.RouteOperationName, @Model.GetRouteOperationList(), new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.RouteOperationName)
+            </div>
+
+            @*设备代码*@
+            <div class="col-md-1">
+                @Html.LabelFor(m => m.EquipmentCode, new { @class = "control-label" })
+            </div>
+            <div class="col-md-2">
+                @Html.DropDownListFor(m => m.EquipmentCode, new List<SelectListItem>(), new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.EquipmentCode)
+            </div>
+
+            @*设备状态*@
+            <div class="col-md-1">
+                @Html.LabelFor(m => m.EquipmentState, new { @class = "control-label" })
+            </div>
+            <div class="col-md-2">
+                @Html.TextBoxFor(m => m.EquipmentState, new { @class = "form-control", @disabled = "disabled" })
+                @Html.ValidationMessageFor(m => m.EquipmentState)
+            </div>
+        </div>
+        <div class="form-group has-success"></div>
+        <div class="form-group has-success"></div>
+        <div class="form-group has-success">
+            @*批次号*@
+            <div class="col-md-1">
+                @Html.LabelFor(m => m.LotNumber, new { @class = "control-label" })
+                @*@Html.TextBoxFor(m => m.LotNumber, new { @class = "form-control", @style = "height:50px;font-size:20px;text-transform:uppercase;ime-mode:disabled" })
+                @Html.ValidationMessageFor(m => m.LotNumber)*@
+            </div>
+            <div class="col-md-5">
+                @Html.TextBoxFor(m => m.LotNumber, new { @class = "form-control", @style = "height:50px;font-size:20px;text-transform:uppercase;ime-mode:disabled" })
+                @Html.ValidationMessageFor(m => m.LotNumber)
+            </div>
+
+            <div class="col-md-1">
+                @Html.LabelFor(m => m.IsShowDialog, new { @class = "control-label",@id="labShowDialog"})
+            </div>
+            <div class="col-md-2">
+                @Html.CheckBoxFor(m => m.IsShowDialog, new { @class = "form-control", @style = "height:50px;font-size:20px;text-transform:uppercase;ime-mode:disabled" })
+            </div>
+            <div class="col-md-1">
+                @Html.LabelFor(m => m.IsAutoToBin, new { @class = "control-label", @id = "autoToBinDialog" })
+            </div>
+            <div class="col-md-2">
+                @Html.CheckBoxFor(m => m.IsAutoToBin, new { @class = "form-control", @style = "height:50px;font-size:20px;text-transform:uppercase;ime-mode:disabled" })
+            </div>
+        </div>
+        <div class="form-group" id="showIVImage">
+            <div class="col-md-1">
+                &nbsp;
+            </div>
+            <div class="col-md-5">
+                <img src='' id="imgIV" width='150px' />
+            </div>
+        </div>
+
+        <div class="alert fade in hide" resource="alert" id="statusMessage" style="margin: 0px;" >
+            <button type="button" class="close" onclick="hideStatusMessage()">
+                <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+            </button>
+            <p></p>
+        </div>
+    </div>
+
+</div>
+}
+<audio id="audioPlay">
+    <source type="audio/wav" />
+</audio>
+
+
+
+@*附加参数对话框*@
+<div id="modal" class="modal fade bs-example-modal-lg" tabindex="-1" resource="dialog"
+     aria-labelledby="modalHeader" aria-hidden="true">
+    <div class="modal-dialog modal-lg" style="width:100%">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="modalHeader"></h4>
+            </div>
+            <div class="modal-body" id="modalContent" style="margin:0px;padding:5px">
+                @using (Ajax.BeginForm("SaveModal", "LotTrack", null
+                        , new AjaxOptions()
+                        {
+                            HttpMethod = "Post",
+                            OnSuccess = "completeSaveModal",
+                            OnBegin = "beginSaveModal"
+                        }
+                        , new { @class = "form-horizontal", resource = "form", id = "frmModal", autocomplete = "off" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <input type="submit" class="btn btn-primary" value="@StringResource.Ok" id="btnSaveModal" />
+                            <input type="reset" class="btn btn-default" value="@StringResource.Reset" id="btnResetModal" />
+                        </div>
+                        <div class="panel-body">
+                            <div class="alert fade in hide" resource="alert" id="modalStatusMessage">
+                                <button type="button" class="close" onclick="hideModalAlert()">
+                                    <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+                                </button>
+                                <p></p>
+                            </div>
+                            <div id="modalLoadContent">
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- The Bootstrap Image Gallery lightbox, should be a child element of the document body -->
+<div id="blueimp-gallery" class="blueimp-gallery">
+    <!-- The container for the modal slides -->
+    <div class="slides"></div>
+    <!-- Controls for the borderless lightbox -->
+    <h3 class="title"></h3>
+    <a class="prev">‹</a>
+    <a class="next">›</a>
+    <a class="close">×</a>
+    <a class="play-pause"></a>
+    <ol class="indicator"></ol>
+    <!-- The modal dialog, which will be used to wrap the lightbox content -->
+    <div class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title"></h4>
+                </div>
+                <div class="modal-body next"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default pull-left prev">
+                        <i class="glyphicon glyphicon-chevron-left"></i>
+                        Previous
+                    </button>
+                    <button type="button" class="btn btn-primary next">
+                        Next
+                        <i class="glyphicon glyphicon-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Styles.Render("~/Content/css/blueimpgallery")
+    @Styles.Render("~/Content/css/imagegallery")
+    @Scripts.Render("~/bundles/jquery-blueimpgallery")
+    @*显示附加参数对话框*@
+    <script type="text/javascript" language="javascript">
+        var firstGallery = false;
+        $("#showIVImage").addClass("hide");
+        if ($("#RouteOperationName").val() == "终检") {
+            $("#labShowDialog").show();
+            $("#IsShowDialog").show();
+            if (($("#LineCode").val().indexOf("103") >= 0)) {
+                $("#autoToBinDialog").show();
+                $("#IsAutoToBin").show();
+            }
+            else {
+                $("#autoToBinDialog").hide();
+                $("#IsAutoToBin").hide();
+            }
+        }
+        else {
+            $("#labShowDialog").hide();
+            $("#IsShowDialog").hide();
+            $("#autoToBinDialog").hide();
+            $("#IsAutoToBin").hide();
+        }        
+
+        //保存
+        $(function () {
+            $('#modal').on('hidden.bs.modal', function (e) {
+                $("#LotNumber").focus().select();
+            }).on('shown.bs.modal', function (e) {
+                $("#btnResetModal").click();
+
+                if ($("#gallery").length > 0) {
+                    $('#blueimp-gallery').data('useBootstrapModal', !true);
+                    $('#blueimp-gallery').toggleClass('blueimp-gallery-controls', true);
+                    $('#blueimp-gallery').data('fullScreen', true);
+                    blueimp.Gallery($('#gallery a'), {
+                        onopen: function () {
+                            // Callback function executed when the Gallery is initialized.
+                        },
+                        onopened: function () {
+                            // Callback function executed when the Gallery has been initialized
+                            // and the initialization transition has been completed.
+                            
+                        },
+                        onslide: function (index, slide) {
+                            // Callback function executed on slide change.
+                            var bindclick = $(slide).prop("bindclick");
+                            if (bindclick != true) {
+                                $(slide).find("img").on("click", function () {
+                                    var src = $(this).attr("src");
+                                    var sheight = screen.height;
+                                    var swidth = screen.width;
+                                    var winoption = "dialogHeight:" + sheight + "px;dialogWidth:" + swidth + "px;status:yes;scroll:yes;resizable:yes;center:yes";
+                                    window.showModalDialog(src, window, winoption);
+                                });
+                                $(slide).prop("bindclick", true);
+                            }
+                        },
+                        onslideend: function (index, slide) {
+                            // Callback function executed after the slide change transition.
+                           
+                        },
+                        onslidecomplete: function (index, slide) {
+                            // Callback function executed on slide content load.
+                            
+                        },
+                        onclose: function () {
+                            // Callback function executed when the Gallery is about to be closed.
+                        },
+                        onclosed: function () {
+                            // Callback function executed when the Gallery has been closed
+                            // and the closing transition has been completed.
+                            //$(".slide").each(function (index, element) {
+                            //    $(this).find("img").unbind("click");
+                            //});
+
+                            var texts = $("#frmModal").find(":text:visible:enabled,:checkbox:visible:enabled,select:visible:enabled")
+                                                      .not("[readonly]");
+                            texts.eq(0).focus();
+                        }
+                    },$('#blueimp-gallery').data());
+                }
+            });
+
+            $("#btnResetModal").click(function () {
+                hideModalAlert();
+                registerModalClientEvent();
+            });
+
+            $("#drpMaterialCode").change(function () {
+                changedrpMaterialCode($(this).val(),modal.recordNumber);
+            });
+        });
+
+        function registerModalClientEvent() {
+
+            var frm = $("#frmModal");
+            $(frm).keypress(function (args) {
+                if (args.ctrlKey == true && args.keyCode == 13) {
+                    if ($('#btnSaveModal').attr("disabled") == "disabled") {
+
+                    }
+                    else {
+                        $("#btnSaveModal").click();
+                    }
+                }
+            });
+
+            $(frm).removeData("validator");
+            $.validator.unobtrusive.parse(frm);
+
+            frm.find(".datetimepicker").datetimepicker({
+                changeMonth: true,
+                changeYear: true,
+                dateFormat: "yy/mm/dd",
+                timeFormat: 'HH:mm:ss'
+            }).keydown(function (args) {
+                if (args.keyCode != 13) {
+                    return false;
+                }
+                return true;
+            });
+
+            frm.find(".datepicker").datepicker({
+                changeMonth: true,
+                changeYear: true,
+                dateFormat: "yy/mm/dd"
+            }).keydown(function (args) {
+                if (args.keyCode != 13) {
+                    return false;
+                }
+                return true;
+            });
+            var texts = frm.find(":text:visible:enabled,:checkbox:visible:enabled,select:visible:enabled")
+                           .not("[readonly]");
+            texts.focus(function () {
+                $(this).select();
+            })
+            .keypress(function (args)  {
+                if (args.ctrlKey == false && args.keyCode == 13) {
+                    //$("#btnSaveModal").click();
+                    //var index = texts.index(this) + 1;
+                    //if (index < texts.length) {
+                    //    texts.eq(index).focus();
+                    //    return false;
+                    //}
+                    //else {
+                        if ($('#btnSaveModal').attr("disabled") == "disabled") {
+
+                        }
+                        else {
+                            $("#btnSaveModal").click();
+                        }
+
+                        return false;
+                    //}
+                }
+            });
+            texts.eq(0).focus().select();
+        }
+
+        function showModal() {
+            $("#btnSaveModal").removeAttr("disabled");
+            $("#modal").modal({ backdrop: "static", keyboard: false });
+            $('#modal').modal('show');
+        }
+
+        function hideModalAlert() {
+            $("#modalStatusMessage").addClass("hide");
+            $("#packageMessage").addClass("hide");
+            $("#packageMessageError").addClass("hide");
+        }
+
+        function beginSaveModal(obj, req) {
+            hideModalAlert();
+            var data = $("#frmTrack").serialize();
+            req.data += "&TRACK" + data;
+            $("#btnSaveModal").attr("disabled", "disabled");
+        }
+
+
+        function play(callText) {
+            var audioPlay = document.getElementById("audioPlay");
+            audioPlay.src = "/wip/lottrack/ProcessRequest?voice=" + callText;
+            audioPlay.play();
+        }
+
+        function showPackageMessage() {
+
+            if ($("#RouteOperationName").val() == "终检")
+            {
+                var url = "@Url.Action("PackageMessage", "LotTrack", new { area = "WIP" })";
+                var timestamp = Math.round(new Date().getTime() / 1000);
+                var lotNumber = $("#LotNumber").val();
+                var reqdata = { LotNumber: lotNumber, timestamp: timestamp };
+                $.getJSON(url, reqdata, function (data) {
+                    if (data.Code > 0) {
+                        $("#packageMessageError").find("p").html(data.Message);
+                        $("#packageMessageError").removeClass("hide");
+                        $("#packageMessageError").addClass("alert-success");
+                    }
+                    else
+                    {
+                        $("#packageMessage").find("p").html(data.Message);
+                        $("#packageMessage").removeClass("hide");
+                        $("#packageMessage").addClass("alert-success");
+                    }        
+                });
+            }
+        }
+
+        function completeSaveModal(result) {
+            $("#btnSaveModal").removeAttr("disabled");
+            if (result.Code > 0) {                
+                var message = result.Message;
+                if (result.Detail != null) {
+                    message = message + "(" + result.Detail + ")"
+                }
+                $("#modalStatusMessage").find("p").html(message);
+                $("#modalStatusMessage").removeClass("hide");
+                $("#modalStatusMessage").removeClass("alert-success");
+                $("#modalStatusMessage").addClass("alert-danger");
+
+                if (result.Code == 3001) {
+                    $("#Barcode1").focus().select();
+                }
+                //else if(result.Code == 3002){
+                //    $("#Barcode2").focus().select();
+                //}
+            }
+            else {
+                //alert(result.Message);
+                showErrorInfo(result);
+                //if (result.HelpLink == "True")
+                //{
+                //    showPackageMessage();
+                //}
+               
+                changeEquipmentState($("#EquipmentCode").val());
+                $('#modal').modal('hide');
+            }
+        }
+
+        //删除物料扣料行记录
+        function removeDetailRow(btn) {
+            var tbl = $("#tblDetail");
+            var tbody = tbl.find("tbody");
+            var length = tbody.find("tr").length;
+
+            //if (length > 1) {
+            //    var tr = btn.parent().parent();
+            //    tr.remove();
+            //}
+
+            
+            var tr = btn.parent().parent();
+            tr.remove();
+            
+
+            //tbody.find("tr").each(function (index) {
+            //    $(this).find("td").eq(0).find("p").text(index + 1);
+            //    $(this).find("input[name='ItemNo']").val(index + 1);
+            //});
+        }
+
+        //增加物料扣料行记录
+        function addMaterialDetailRow() {
+
+            var tbl = $("#tblDetail");
+            var tbody = tbl.find("tbody");
+            var length = tbody.find("tr").length;
+            var lastestTr = tbody.find("tr")[length - 1];
+
+            var tr = lastestTr.cloneNode(true);
+
+            //var itemNo = $(lastestTr).find("td").eq(0).find("p").text();
+            //var newItemNo = parseInt(itemNo, 10) + 1;
+            //$(tr).find("td").eq(0).find("p").text(newItemNo);
+            //$(tr).find("input[name='ItemNo']").val(newItemNo);
+            //$(tr).find("input[name='MaterialLot']").each(function () {
+            //    registerMaterialLotClientEvent($(this));
+            //});
+
+            //var lastestLineStoreName = $(lastestTr).find("select[name='LineStoreName']").val();
+            //$(tr).find("select[name='LineStoreName']").each(function () {
+            //    registerLineStoreClientEvent($(this));
+            //    $(this).val(lastestLineStoreName);
+            //});
+            tbody.append(tr);
+
+            //registerKeypressEvent();
+        }
+    </script>
+
+
+    <script type="text/javascript" language="javascript">
+        $(function () {
+            $("#LotNumber:first").focus();
+            
+            $("#btnSave").click(function () {
+                hideStatusMessage();
+                $("#frmTrack").submit();
+            });
+
+            $("#LotNumber").keypress(function (args) {
+                if (args.keyCode == 13) {
+                    if ($('#btnSave').attr("disabled") == "disabled") {
+
+                    }
+                    else {
+                        $("#btnSave").click();
+                    }
+
+                }
+            });
+
+            $("#frmTrack").keypress(function (args) {
+                if (args.ctrlKey == true && args.keyCode == 13) {
+                    if ($('#btnSave').attr("disabled") == "disabled") {
+
+                    }
+                    else {
+                        $("#btnSave").click();
+                    }
+
+                }
+            });
+
+            var texts = $("#frmTrack").find(":text:visible:enabled,:checkbox:visible:enabled,select:visible:enabled")
+                                      .not("[readonly]");
+            texts.focus(function () {
+                    $(this).select();
+                })
+                .keypress(function (args) {
+                    if (args.ctrlKey == false && args.keyCode == 13) {
+                        var index = texts.index(this)+1;
+                        if (index < texts.length) {
+                            texts.eq(index).focus();
+                            return false;
+                        }
+                        else {
+                            return true;
+                        }
+                    }
+                });
+            $("#LineCode").change(function () {
+                $("#EquipmentCode").get(0).options.length = 0; //清空
+                $("#EquipmentState").val(""); //清空
+                $("#EquipmentState").removeAttr("style");
+                changeEquipmentCode($("#RouteOperationName").val(),$(this).val());
+            });
+
+            $("#RouteOperationName").change(function () {
+               
+                $("#EquipmentCode").get(0).options.length = 0; //清空
+                $("#EquipmentState").val(""); //清空
+                $("#EquipmentState").removeAttr("style");
+                changeEquipmentCode($(this).val(), $("#LineCode").val());
+               
+            });
+
+            $("#EquipmentCode").change(function () {
+                $("#EquipmentState").val(""); //清空
+                $("#EquipmentState").removeAttr("style");
+                changeEquipmentState($(this).val());
+            });
+
+            changeEquipmentCode($("#RouteOperationName").val(), $("#LineCode").val());
+        });
+        
+        function changeEquipmentCode(routeOperationName, productionLineCode) {
+        
+            $("#EquipmentCode").get(0).options.length = 0; //清空
+            if (routeOperationName == null || routeOperationName == "") {
+                return;
+            }
+            if (routeOperationName == null || productionLineCode == "") {
+                return;
+            }
+           
+            if ($("#RouteOperationName").val() == "终检") {
+                $("#labShowDialog").show();
+                $("#IsShowDialog").show();
+                if (($("#LineCode").val().indexOf("103")>=0)){
+                    $("#autoToBinDialog").show();
+                    $("#IsAutoToBin").show();
+                }
+                else {
+                    $("#autoToBinDialog").hide();
+                    $("#IsAutoToBin").hide();
+                }
+            }
+            else {
+                $("#labShowDialog").hide();
+                $("#IsShowDialog").hide();
+                $("#autoToBinDialog").hide();
+                $("#IsAutoToBin").hide();
+            }
+
+            var url = "@Url.Action("GetEquipments", "LotTrack", new { area = "WIP" })";
+            var timestamp = Math.round(new Date().getTime() / 1000);
+            var reqdata = { RouteOperationName: routeOperationName, ProductionLineCode: productionLineCode,timestamp:timestamp };
+
+            $.getJSON(url, reqdata, function (data) {
+                $("#EquipmentCode").get(0).options.length = 0; //清空
+                $.each(data, function (i, item) {
+                    $("<option></option>").val(item.Key).text(item.Text).appendTo($("#EquipmentCode"));
+                });
+                changeEquipmentState($("#EquipmentCode").val())
+            });
+        }
+
+        function changeEquipmentState(equipmentCode) {
+            $("#EquipmentState").val(""); //清空
+            $("#EquipmentState").removeAttr("style");
+            if (equipmentCode == null || equipmentCode == "") {
+                return;
+            }
+
+            var url = "@Url.Action("GetEquipmentState", "LotTrack", new { area = "WIP" })";
+            var timestamp = Math.round(new Date().getTime() / 1000);
+            var reqdata = { EquipmentCode: equipmentCode,timestamp:timestamp };
+
+            $.getJSON(url, reqdata, function (data) {
+                $("#EquipmentState").val(""); //清空
+                $("#EquipmentState").removeAttr("style");
+                $("#EquipmentState").val(data.StateName); 
+                $("#EquipmentState").attr("style", "color:#FFFFFF;background-color:" + data.StateColor);
+            });
+        }
+
+        //隐藏状态消息
+        function hideStatusMessage() {
+            $("#packageMessage").addClass("hide");
+            $("#statusMessage").addClass("hide");
+            $("#statusMessageError").addClass("hide");
+        }
+
+        //显示电流档表示，当在功率测试（PowersetDetail设置为true）
+        function showIVImage()
+        {
+            var url = "@Url.Action("GetIVTestData", "LotTrack", new { area = "WIP" })";
+            var urlLot="@Url.Action("GetLotObj", "LotTrack", new { area = "WIP" })";
+            var timestamp = Math.round(new Date().getTime() / 1000);
+            var lotNumber = $("#LotNumber").val();
+            var reqdata = { lotNumber: lotNumber, timestamp: timestamp };
+            var strImage = "/ZPVM/WorkOrderPowersetDetail/ShowPicture?";
+            $.getJSON(urlLot, reqdata, function (data) {
+                var OrderNumber = data.OrderNumber;
+                var MaterialCode = data.MaterialCode;
+                strImage = strImage + "OrderNumber="+ OrderNumber + "&MaterialCode=" + MaterialCode;
+            });
+            $.getJSON(url, reqdata, function (data) {
+                var Code = data.PowersetCode;
+                var ItemNo = data.PowersetItemNo;
+                var SubCode = data.PowersetSubCode;
+                var TimeStamp = "@DateTime.Now.Ticks";
+                strImage = strImage + "&Code=" + Code + "&ItemNo=" + ItemNo + "&SubCode=" + SubCode + "&TimeStamp=" + TimeStamp;
+                if (data.PowersetCode != "")
+                {
+                    $("#showIVImage").removeClass("hide");
+                    $("#imgIV").attr("src", strImage);
+                }
+            });
+        }
+
+        function beginSave() {
+            $("#imgIV").removeAttr("src");
+            $("#showIVImage").addClass("hide");
+            $("#btnSave").attr("disabled", "disabled");
+            $("#LotNumber").attr("readonly", "readonly");
+            $("#modalLoadContent").html("");
+            hideStatusMessage();
+        }
+
+        function completeSave(result, status, xhr) {
+            $("#btnSave").removeAttr("disabled");
+            $("#LotNumber").removeAttr("readonly");
+            var timestamp = Math.round(new Date().getTime() / 1000);
+            var lotNumber = $("#LotNumber").val();
+            var reqdata = { lotNumber: lotNumber, timestamp: timestamp };
+            var urlIsPowersetDetail = "@Url.Action("ReturnIsPowersetDetail", "LotTrack", new { area = "WIP" })";
+            if (xhr.status == 200) {
+                if (xhr.statusText == "JSON" || typeof(result)=="object") {
+                    showErrorInfo(result);
+                    if (result.Code <= 0) {
+                        changeEquipmentState($("#EquipmentCode").val());
+                        //$.getJSON(urlIsPowersetDetail, reqdata, function (data)//判断是否显示电流档
+                        //{
+                        //    alert(data);
+                        //    if (data) {
+                        //        showIVImage();
+                        //    }
+                        //});
+                        
+                        if (result.HelpLink == "True")//判断是否显示电流档
+                        {
+                            showIVImage();
+                        }
+                       
+                    }
+                    $("#LotNumber:first").select();
+                }
+                else {
+                    $("#modalLoadContent").html(result);
+                    showModal();
+                }
+            }
+            else {
+                var rst = { Code: xhr.statusCode, Message: status + ":" + response };
+                showErrorInfo(rst);
+            }
+        }
+
+        function showErrorInfo(result) {
+         
+            $("#statusMessage").find("p").html("");
+            //var message = result.Message;
+            //if (message.indexOf("<font size='100' color='red' >") >= 0)
+            //{
+            //    var newmessage = message.replace(/<font size='100' color='red' >/g, '分割').replace('</font>', '');
+            //    var strs = new Array();
+            //    strs = newmessage.split("分割");
+            //    var packageMessage = strs[strs.length - 1];
+               
+            //    if (packageMessage == "包" || packageMessage == "不包") {
+            //        play(packageMessage);
+            //    }
+            //    else {
+            //        play("异常组件");
+            //    }
+            //}
+            var message = result.Message;
+            if (message.indexOf("【") >= 0 && message.indexOf("】") >= 0) {
+                var startIndex = message.indexOf("【") + 1;
+                var endIndex = message.indexOf("】");
+                var packageMessage = message.substring(startIndex, endIndex);
+                play(packageMessage);
+            }
+        
+          
+            
+            if (result.Detail != null) {
+                message = message + "(" + result.Detail + ")"
+            }
+          
+            $("#statusMessage").find("p").html(message);
+            $("#statusMessage").removeClass("hide");
+            if (result.Code > 0 || result.Code==-1) {
+                $("#statusMessage").removeClass("alert-success");
+                $("#statusMessage").addClass("alert-danger");
+            }
+            else {
+                $("#statusMessage").removeClass("alert-danger");
+                $("#statusMessage").addClass("alert-success");
+            }
+        }
+
+        function changedrpMaterialCode(materialcode, orderNumber) {
+            var url = "@Url.Action("GetEquipments", "LotTrack", new { area = "WIP" })";
+            var timestamp = Math.round(new Date().getTime() / 1000);
+            var reqdata = { RouteOperationName: routeOperationName, ProductionLineCode: productionLineCode,timestamp:timestamp };
+
+            $.getJSON(url, reqdata, function (data) {
+
+                $("#EquipmentCode").get(0).options.length = 0; //清空
+                $.each(data, function (i, item) {
+                    $("<option></option>").val(item.Key).text(item.Text).appendTo($("#EquipmentCode"));
+                });
+                changeEquipmentState($("#EquipmentCode").val())
+            });
+        }
+    </script>
+
+    <script type="text/javascript" language="javascript">
+        //刷新列表
+        function beginPrint(obj, req) {
+            var data = $("#frmTrack").serialize();
+            req.data += "&" + data;
+            $("#btnPrint").attr("disabled", "disabled");
+            $("#btnSave").attr("disabled", "disabled");
+        }
+
+        function completePrint(result) {
+            $("#btnPrint").removeAttr("disabled");
+            $("#btnSave").removeAttr("disabled");
+            $("#statusMessage").find("p").html(result.Message);
+            $("#statusMessage").removeClass("hide");
+            if (result.Code > 0) {
+                $("#statusMessage").removeClass("alert-success");
+                $("#statusMessage").addClass("alert-danger");
+            }
+            else {
+                $("#statusMessage").removeClass("alert-danger");
+                $("#statusMessage").addClass("alert-success");
+            }
+        }
+    </script>
+
+}

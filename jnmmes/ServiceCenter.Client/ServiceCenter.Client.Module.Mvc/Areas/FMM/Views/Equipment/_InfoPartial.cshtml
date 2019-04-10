@@ -1,0 +1,182 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.FMM.Models.EquipmentViewModel
+@using ServiceCenter.MES.Model.FMM;
+@using ServiceCenter.Common;
+<div class="form-group">
+    @Html.LabelFor(m => m.Code, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.Code</p>
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.Name, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.Name</p>
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.Type, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.Type.GetDisplayName()</p>
+    </div>
+</div>
+@*<div class="form-group">
+    @Html.LabelFor(m => m.No, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.No</p>
+    </div>
+</div>*@
+@*<div class="form-group">
+    @Html.LabelFor(m => m.AssetsNo, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.AssetsNo</p>
+    </div>
+</div>*@
+
+<div class="form-group" ref="Type" style="display:@(Model.Type==EnumEquipmentType.Physical?"none":"block")">
+    @Html.LabelFor(m => m.RealEquipmentCode, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.RealEquipmentCode</p>
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.GroupName, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.GroupName</p>
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.StateName, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.StateName</p>
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.LocationName, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.LocationName</p>
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.LineCode, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.LineCode</p>
+    </div>
+</div>
+
+@*<div class="form-group">
+    @Html.LabelFor(m => m.RunRate, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.RunRate</p>
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(m => m.AvTime, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.AvTime</p>
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.WPH, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.WPH</p>
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.TactTime, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.TactTime</p>
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(m => m.IsBatch, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.IsBatch</p>
+    </div>
+</div>*@
+<div ref="IsBatchYes" style="display:@(Model.IsBatch ? "block" : "none")">
+    <div class="form-group">
+        @Html.LabelFor(m => m.MinQuantity, new { @class = "col-md-4 control-label" })
+        <div class="col-md-8">
+            <p class="form-control-static">@Model.MinQuantity</p>
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.MaxQuantity, new { @class = "col-md-4 control-label" })
+        <div class="col-md-8">
+            <p class="form-control-static">@Model.MaxQuantity</p>
+        </div>
+    </div>
+</div>
+
+@*<div class="form-group">
+    @Html.LabelFor(m => m.IsMultiChamber, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.IsMultiChamber</p>
+    </div>
+</div>
+
+<div ref="IsMultiChamberYes" style="display:@(Model.IsMultiChamber ? "block" : "none")">
+    <div class="form-group">
+        @Html.LabelFor(m => m.TotalChamber, new { @class = "col-md-4 control-label" })
+        <div class="col-md-8">
+            <p class="form-control-static">@Model.TotalChamber</p>
+        </div>
+    </div>
+</div>
+
+<div ref="IsMultiChamberNo" style="display:@(Model.IsMultiChamber ? "none" : "block")">
+    <div class="form-group">
+        @Html.LabelFor(m => m.IsChamber, new { @class = "col-md-4 control-label" })
+        <div class="col-md-8">
+            <p class="form-control-static">@Model.IsChamber</p>
+        </div>
+    </div>
+
+    <div class="form-group" ref="IsChamberYes" style="display:@(Model.IsChamber ? "block" : "none")">
+        @Html.LabelFor(m => m.ChamberIndex, new { @class = "col-md-4 control-label" })
+        <div class="col-md-8">
+            <p class="form-control-static">@Model.ChamberIndex</p>
+        </div>
+    </div>
+
+    <div class="form-group" ref="IsChamberYes" style="display:@(Model.IsChamber ? "block" : "none")">
+        @Html.LabelFor(m => m.ParentEquipmentCode, new { @class = "col-md-4 control-label" })
+        <div class="col-md-8">
+            <p class="form-control-static">@Model.ParentEquipmentCode</p>
+        </div>
+    </div>
+</div>*@
+
+<div class="form-group">
+    @Html.LabelFor(m => m.Description, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.Description</p>
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(m => m.Editor, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.Editor</p>
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.EditTime, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.EditTime</p>
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.Creator, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.Creator</p>
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.CreateTime, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.CreateTime</p>
+    </div>
+</div>

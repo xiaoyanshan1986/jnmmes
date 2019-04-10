@@ -1,0 +1,168 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.ZPVM.Models.RuleViewModel
+@using ServiceCenter.Client.Mvc.Areas.ZPVM.Models;
+@using ServiceCenter.Client.Mvc.Resources;
+@using ZPVMResources = ServiceCenter.Client.Mvc.Resources.ZPVM;
+@using ServiceCenter.MES.Model.ZPVM;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@{
+    PagingConfig cfg = ViewBag.PagingConfig;
+}
+<div id="_list">
+    <table class="table table-hover table-bordered table-condensed">
+        <thead>
+            <tr class="active">
+                <td>@Html.DisplayNameFor(m => m.Code)</td>
+                <td>@Html.DisplayNameFor(m => m.Name)</td>
+                <td>@Html.DisplayNameFor(m => m.PowersetCode)</td>
+                <td>@Html.DisplayNameFor(m => m.FullPackageQty)</td>
+                <td>@Html.DisplayNameFor(m => m.PowerDegree)</td>
+                <td>@Html.DisplayNameFor(m => m.MinPower)</td>
+                <td>@Html.DisplayNameFor(m => m.MaxPower)</td>
+                <td>@Html.DisplayNameFor(m => m.CalibrationType)</td>
+                <td>@Html.DisplayNameFor(m => m.CalibrationCycle)</td>
+                <td>@Html.DisplayNameFor(m => m.FixCycle)</td>
+                <td>@Html.DisplayNameFor(m => m.IsUsed)</td>
+                <td>@Html.DisplayNameFor(m => m.Editor)</td>
+                <td>@Html.DisplayNameFor(m => m.EditTime)</td>
+                <td>控制参数</td>
+                <td>衰减设置</td>
+                <td>等级设置</td>
+                <td>标签设置</td>
+                <td>@StringResource.Detail</td>
+                <td>@StringResource.Modify</td>
+                <td>@StringResource.Delete</td>
+            </tr>
+        </thead>
+        @if (ViewBag.List != null)
+        {
+            <tbody>
+                @for (int i = 0; i < ViewBag.List.Length; i++)
+                {
+                    Rule obj = ViewBag.List[i];
+                    <tr>
+                        <td>@obj.Key</td>
+                        <td>
+                            @obj.Name
+                        </td>
+                        <td>
+                            @obj.PowersetCode
+                        </td>
+                        <td>
+                            @obj.FullPackageQty
+                        </td>
+                        <td>
+                            @obj.PowerDegree
+                        </td>
+                        <td>
+                            @obj.MinPower
+                        </td>
+                        <td>
+                            @obj.MaxPower
+                        </td>
+                        <td>
+                            @obj.CalibrationType
+                        </td>
+                        <td>
+                            @obj.CalibrationCycle
+                        </td>
+                        <td>
+                            @obj.FixCycle
+                        </td>
+                        <td>
+                            @(obj.IsUsed ? StringResource.Yes : StringResource.No)
+                        </td>
+                        <td>@obj.Editor</td>
+                        <td>@string.Format("{0:yyyy-MM-dd HH:mm:ss}",obj.EditTime)</td>
+                        <td>
+                            @Html.ActionLink(linkText: "控制参数"
+                                            , actionName: "Index"
+                                             , controllerName: "RuleControlObject"
+                                             , routeValues: new { @Code = obj.Key }
+                                            , htmlAttributes: new { @target = "_self" })
+                        </td>
+                        <td>
+                            @Html.ActionLink(linkText: "衰减设置"
+                                            , actionName: "Index"
+                                            , controllerName: "RuleDecay"
+                                            , routeValues: new { @Code = obj.Key }
+                                            , htmlAttributes: new { @target = "_self" })
+                        </td>
+                        <td>
+                            @Html.ActionLink(linkText: "等级设置"
+                                            , actionName: "Index"
+                                            , controllerName: "RuleGrade"
+                                            , routeValues: new { @Code = obj.Key }
+                                            , htmlAttributes: new { @target = "_self" })
+                        </td>
+                        <td>
+                            @Html.ActionLink(linkText: "标签设置"
+                                            , actionName: "Index"
+                                            , controllerName: "RulePrintSet"
+                                            , routeValues: new { @Code = obj.Key }
+                                            , htmlAttributes: new { @target = "_self" })
+                        </td>
+                        <td>
+                            @Ajax.ActionLink(StringResource.Detail, actionName: null
+                                            , routeValues: null
+                                            , ajaxOptions:new AjaxOptions() 
+                                            { 
+                                                HttpMethod = "Post", 
+                                                UpdateTargetId = "detailInfo",
+                                                OnSuccess = "showInfoModal",
+                                                Url = Url.Action("Detail", new { @Code = obj.Key })
+                                            })
+                        </td>
+                        <td>
+                            @Ajax.ActionLink(StringResource.Modify, actionName: null
+                                            ,routeValues:null
+                                            ,ajaxOptions:new AjaxOptions()
+                                            {
+                                                HttpMethod = "Post",
+                                                UpdateTargetId = "modifyFormContent",
+                                                OnSuccess = "showModifyModal",
+                                                Url = Url.Action("Modify", new { @Code = obj.Key })
+                                            })
+                        </td>
+                        <td>
+                            @Ajax.ActionLink(StringResource.Delete, actionName: null
+                                            , routeValues: null
+                                            , ajaxOptions:new AjaxOptions()
+                                            {
+                                                HttpMethod = "Post",
+                                                Confirm = string.Format(ZPVMResources.StringResource.Rule_ConfirmDelete, obj.Key),
+                                                Url = Url.Action("Delete", new { @Code = obj.Key }),
+                                                OnSuccess = "completeDelete"
+                                            })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        }
+    </table>
+    <div style="margin-top:-18px">
+        @if (cfg != null)
+        {
+            using (Ajax.BeginForm("PagingQuery", "Rule"
+                            , new
+                            {
+                                @Where = cfg.Where,
+                                @OrderBy = cfg.OrderBy,
+                                @CurrentPageNo = cfg.PageNo,
+                                @CurrentPageSize = cfg.PageSize
+                            }
+                            , new AjaxOptions()
+                            {
+                                HttpMethod = "Post",
+                                UpdateTargetId = "_list"
+                            }
+                            , new { @class = "form-horizontal", resource = "form", id = "frmPagingQuery" }))
+            {
+                @Html.AntiForgeryToken()
+                <div>@Html.Partial("_PaginationPartial")</div>
+            }
+        }
+    </div>
+</div>
+
+

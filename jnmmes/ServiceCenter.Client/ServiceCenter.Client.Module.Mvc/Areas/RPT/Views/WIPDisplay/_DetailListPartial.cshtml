@@ -1,0 +1,110 @@
+﻿@using ServiceCenter.Client.Mvc.Resources;
+@using RPTResources = ServiceCenter.Client.Mvc.Resources.RPT;
+@using ServiceCenter.Common;
+@using ServiceCenter.MES.Model.WIP;
+@using ServiceCenter.Model;
+@using System.Data;
+@{
+    PagingConfig cfg = ViewBag.PagingConfig;
+}
+<div id="_list">
+    <table class="table table-hover table-bordered table-condensed table-responsive table-striped">
+        <thead>
+            <tr class="active">
+                <td nowrap>@StringResource.ItemNo</td>
+                <td nowrap>批次号(组件序列号)</td>
+                <td nowrap>工单号</td>
+                <td nowrap>物料编码</td>
+                <td nowrap>数量</td>
+                <td nowrap>效率档</td>
+                <td nowrap>等级</td>
+                <td nowrap>电池片颜色</td>
+                <td nowrap>花色</td>
+                <td nowrap>线别</td>
+                <td nowrap>设备代码</td>
+                <td nowrap>车间名称</td>
+                <td nowrap>工艺流程</td>
+                <td nowrap>工序</td>
+                <td nowrap>状态</td>
+                <td nowrap>批次类型</td>
+                <td nowrap>暂停？</td>
+                <td nowrap>包装号</td>
+                <td nowrap>返修？</td>
+                <td nowrap>返工？</td>
+                <td nowrap>返工时间</td>
+                <td nowrap>返工操作人</td>
+                <td nowrap>创建时间</td>
+                <td nowrap>创建人</td>
+                <td nowrap>编辑时间</td>
+                <td nowrap>编辑人</td>
+            </tr>
+        </thead>
+        @if (ViewBag.List != null)
+        {
+            <tbody>
+                @for (int i = 0; i < ViewBag.List.Length; i++)
+                {
+                    Lot obj = ViewBag.List[i];
+                    <tr>
+                        <td nowrap>@(cfg.PageSize * cfg.PageNo + i + 1)</td>
+                        <td nowrap>
+                            @Html.ActionLink(obj.Key
+                                            , "Detail"
+                                            ,"LotQuery"
+                                            , new { LotNumber = obj.Key,area = "WIP" }
+                                            , null)
+                        </td>
+                        <td nowrap>@obj.OrderNumber</td>
+                        <td nowrap>@obj.MaterialCode</td>
+                        <td nowrap>@obj.Quantity</td>
+                        <td nowrap>@obj.Attr1</td>
+                        <td nowrap>@obj.Grade</td>
+                        <td nowrap>@obj.Attr2</td>
+                        <td nowrap>@obj.Color</td>
+                        <td nowrap>@obj.LineCode</td>
+                        <td nowrap>@obj.EquipmentCode</td>
+                        <td nowrap>@obj.LocationName</td>
+                        <td nowrap>@obj.RouteName</td>
+                        <td nowrap>@obj.RouteStepName</td>
+                        <td nowrap>@obj.StateFlag.GetDisplayName()</td>
+                        <td nowrap>@obj.LotType.GetDisplayName()</td>
+                        <td nowrap>@(obj.HoldFlag ? StringResource.Yes : StringResource.No)</td>
+                        <td nowrap>@obj.PackageNo</td>
+                        <td nowrap>@obj.RepairFlag</td>
+                        <td nowrap>@obj.ReworkFlag</td>
+                        <td nowrap>@obj.ReworkTime</td>
+                        <td nowrap>@obj.Reworker</td>
+                        <td nowrap>@string.Format("{0:yyyy-MM-dd HH:mm:ss}", obj.CreateTime)</td>
+                        <td nowrap>@obj.Creator</td>
+                        <td nowrap>@string.Format("{0:yyyy-MM-dd HH:mm:ss}", obj.EditTime)</td>
+                        <td nowrap>@obj.Editor</td>
+                    </tr>
+                }
+            </tbody>
+        }
+    </table>
+
+    <div style="margin-top:-18px">
+        @if (cfg != null)
+        {
+            using (Ajax.BeginForm("DetailPagingQuery", "WIPDisplay"
+                            , new
+                            {
+                                @Where = cfg.Where,
+                                @OrderBy = cfg.OrderBy,
+                                @CurrentPageNo = cfg.PageNo,
+                                @CurrentPageSize = cfg.PageSize
+                            }
+                            , new AjaxOptions()
+                            {
+                                HttpMethod = "Post",
+                                UpdateTargetId = "_list"
+                            }
+                            , new { @class = "form-horizontal", resource = "form", id = "frmPagingQuery" }))
+            {
+                @Html.AntiForgeryToken()
+                <div>@Html.Partial("_PaginationPartial")</div>
+            }
+        }
+    </div>
+</div>

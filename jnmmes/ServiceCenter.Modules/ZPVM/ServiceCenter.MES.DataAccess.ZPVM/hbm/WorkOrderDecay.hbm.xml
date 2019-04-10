@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   namespace="ServiceCenter.MES.Model.ZPVM" 
+                   assembly="ServiceCenter.MES.Model.ZPVM">
+  <class name="WorkOrderDecay" table="ZPPM_WORK_ORDER_PRD_DECAY">
+    <composite-id  name="Key" class="WorkOrderDecayKey">
+      <key-property name="OrderNumber" column="ORDER_NUMBER"/>
+      <key-property name="MaterialCode" column="MATERIAL_CODE"/>
+      <key-property name="MinPower" column="MIN_POWER"/>
+      <key-property name="MaxPower" column="MAX_POWER"/>
+    </composite-id >
+    <property name="DecayCode" column="DECAY_CODE"/>
+    <property name="IsUsed" column="IS_USED"/>
+    <property name="Creator" column="CREATOR"/>
+    <property name="CreateTime" column="CREATE_TIME"/>
+    <property name="Editor" column="EDITOR"/>
+    <property name="EditTime" column="EDIT_TIME"/>
+  </class>
+</hibernate-mapping>

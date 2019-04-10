@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   namespace="ServiceCenter.MES.Model.RBAC" 
+                   assembly="ServiceCenter.MES.Model.RBAC">
+  <class name="Resource" table="RBAC_RESOURCE">
+    <composite-id  name="Key" class="ResourceKey">
+      <key-property name="Type" column="RESOURCE_TYPE"/>
+      <key-property name="Code" column="RESOURCE_CODE"/>
+    </composite-id >
+    <property name="Name" column="RESOURCE_NAME"/>
+    <property name="Data" column="RESOURCE_DATA"/>
+    <property name="Description" column="DESCRIPTION"/>
+    <property name="Creator" column="CREATOR"/>
+    <property name="CreateTime" column="CREATE_TIME"/>
+    <property name="Editor" column="EDITOR"/>
+    <property name="EditTime" column="EDIT_TIME"/>
+  </class>
+</hibernate-mapping>

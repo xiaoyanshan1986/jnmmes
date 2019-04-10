@@ -1,0 +1,92 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.EMS.Models.EquipmentStateEventViewModel
+@using ServiceCenter.Client.Mvc.Areas.EMS.Models;
+@using ServiceCenter.Client.Mvc.Resources;
+@using EMSResources = ServiceCenter.Client.Mvc.Resources.EMS;
+@using ServiceCenter.MES.Model.EMS;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@{
+    PagingConfig cfg = ViewBag.PagingConfig;
+}
+<div id="_list">
+    <table class="table table-hover table-bordered table-condensed">
+        <thead>
+            <tr class="active">
+                <td>@StringResource.ItemNo</td>
+                <td>@Html.DisplayNameFor(m => m.EquipmentCode)</td>
+                <td>@Html.DisplayNameFor(m => m.ChangeStateName)</td>
+                <td>@Html.DisplayNameFor(m => m.FromStateName)</td>
+                <td>@Html.DisplayNameFor(m => m.ToStateName)</td>
+                <td>@Html.DisplayNameFor(m => m.ReasonCodeCategoryName)</td>
+                <td>@Html.DisplayNameFor(m => m.ReasonCodeName)</td>
+                <td>@Html.DisplayNameFor(m => m.Description)</td>
+                <td>@Html.DisplayNameFor(m => m.Creator)</td>
+                <td>@Html.DisplayNameFor(m => m.CreateTime)</td>
+            </tr>
+        </thead>
+        @if (ViewBag.List != null)
+        {
+            <tbody>
+                @for (int i = 0; i < ViewBag.List.Length; i++)
+                {
+                    EquipmentStateEvent obj = ViewBag.List[i];
+                    <tr>
+                        <td>@(cfg.PageSize * cfg.PageNo+i+1)</td>
+                        <td>
+                            @obj.EquipmentCode
+                        </td>
+                        <td>
+                            @obj.EquipmentChangeStateName
+                        </td>
+                        <td>
+                            @obj.EquipmentFromStateName
+                        </td>
+                        <td>
+                            @obj.EquipmentToStateName
+                        </td>
+                        <td>
+                            @obj.ReasonCodeCategoryName
+                        </td>
+                        <td>
+                            @obj.ReasonCodeName
+                        </td>
+                        <td>
+                            @obj.Description
+                        </td>
+                        <td>
+                            @obj.Creator
+                        </td>
+                        <td>
+                            @string.Format("{0:yyyy-MM-dd HH:mm:ss}",obj.CreateTime)
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        }
+    </table>
+    <div style="margin-top:-18px">
+        @if (cfg != null)
+        {
+            using (Ajax.BeginForm("PagingQuery", "EquipmentStateEvent"
+                            , new
+                            {
+                                @Where = cfg.Where,
+                                @OrderBy = cfg.OrderBy,
+                                @CurrentPageNo = cfg.PageNo,
+                                @CurrentPageSize = cfg.PageSize
+                            }
+                            , new AjaxOptions()
+                            {
+                                HttpMethod = "Post",
+                                UpdateTargetId = "_list"
+                            }
+                            , new { @class = "form-horizontal", resource = "form", id = "frmPagingQuery" }))
+            {
+                @Html.AntiForgeryToken()
+                <div>@Html.Partial("_PaginationPartial")</div>
+            }
+        }
+    </div>
+</div>
+
+

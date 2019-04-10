@@ -1,0 +1,7 @@
+E:\Workspace\Jinergy\JNMMES\trunk\src\ServiceCenter.Client\WinClients\铭牌打印4.0\PrintCellNo\obj\Debug\PrintCellNo.csprojResolveAssemblyReference.cache
+E:\Workspace\Jinergy\JNMMES\trunk\src\ServiceCenter.Client\WinClients\铭牌打印4.0\PrintCellNo\obj\Debug\PrintCellNo.csproj.ResolveComReference.cache
+E:\Workspace\Jinergy\JNMMES\trunk\src\ServiceCenter.Client\WinClients\铭牌打印4.0\PrintCellNo\obj\Debug\WindowsFormsApplication2.Form1.resources
+E:\Workspace\Jinergy\JNMMES\trunk\src\ServiceCenter.Client\WinClients\铭牌打印4.0\PrintCellNo\obj\Debug\WindowsFormsApplication2.Form2.resources
+E:\Workspace\Jinergy\JNMMES\trunk\src\ServiceCenter.Client\WinClients\铭牌打印4.0\PrintCellNo\obj\Debug\WindowsFormsApplication2.Form3.resources
+E:\Workspace\Jinergy\JNMMES\trunk\src\ServiceCenter.Client\WinClients\铭牌打印4.0\PrintCellNo\obj\Debug\WindowsFormsApplication2.Properties.Resources.resources
+E:\Workspace\Jinergy\JNMMES\trunk\src\ServiceCenter.Client\WinClients\铭牌打印4.0\PrintCellNo\obj\Debug\PrintCellNo.csproj.GenerateResource.Cache

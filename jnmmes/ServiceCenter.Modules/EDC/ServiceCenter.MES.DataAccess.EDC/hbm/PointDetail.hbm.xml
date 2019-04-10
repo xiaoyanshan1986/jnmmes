@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   namespace="ServiceCenter.MES.Model.EDC" 
+                   assembly="ServiceCenter.MES.Model.EDC">
+  <class name="PointDetail" table="EDC_POINT_DETAIL">
+    <composite-id  name="Key" class="PointDetailKey">
+      <key-property name="PointKey" column="POINT_KEY"/>
+      <key-property name="ParameterName" column="PARAMTER_NAME"/>
+    </composite-id >
+    <property name="ItemNo" column="ITEM_NO"/>
+    <property name="ParameterCount" column="PARAM_COUNT"/>
+    <property name="ParameterType" column="PARAM_TYPE"/>
+    <property name="DataType" column="DATA_TYPE"/>
+    <property name="DeviceType" column="DEVICE_TYPE"/>
+    <property name="Mandatory" column="MANDATORY"/>
+    <property name="IsDerived" column="ISDERIVED"/>
+    <property name="DerivedFormula" column="DERIVED_FORMULA"/>
+    <property name="UpperBoundary" column="UPPER_BOUNDARY"/>
+    <property name="UpperSpecification" column="UPPER_SPEC"/>
+    <property name="UpperControl" column="UPPER_CONTROL"/>
+    <property name="Target" column="TARGET"/>
+    <property name="LowerControl" column="LOWER_CONTROL"/>
+    <property name="LowerSpecification" column="LOWER_SPEC"/>
+    <property name="LowerBoundary" column="LOWER_BOUNDARY"/>
+    <property name="Creator" column="CREATOR"/>
+    <property name="CreateTime" column="CREATE_TIME"/>
+    <property name="Editor" column="EDITOR"/>
+    <property name="EditTime" column="EDIT_TIME"/>
+  </class>
+</hibernate-mapping>

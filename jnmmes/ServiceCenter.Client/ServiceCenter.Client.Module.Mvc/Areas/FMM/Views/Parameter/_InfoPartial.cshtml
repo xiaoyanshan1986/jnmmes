@@ -1,0 +1,77 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.FMM.Models.ParameterViewModel
+@using ServiceCenter.Common;
+
+@Html.ValidationSummary(true)
+
+<div class="form-group">
+    @Html.LabelFor(m => m.Name, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.Name</p>
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.Type, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.Type.GetDisplayName()</p>
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.DataType, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.DataType.GetDisplayName()</p>
+    </div>
+</div>
+@*<div class="form-group">
+    @Html.LabelFor(m => m.DeviceType, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.DeviceType.GetDisplayName()</p>
+    </div>
+</div>*@
+<div class="form-group">
+    @Html.LabelFor(m => m.Mandatory, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.Mandatory</p>
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.IsDerived, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.IsDerived</p>
+    </div>
+</div>
+<div class="form-group" style="display: @(Model.IsDerived?"block":"none")">
+    @Html.LabelFor(m => m.DerivedFormula, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.DerivedFormula</p>
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.Description, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.Description</p>
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.Editor, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.Editor</p>
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.EditTime, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.EditTime</p>
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.Creator, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.Creator</p>
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.CreateTime, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        <p class="form-control-static">@Model.CreateTime</p>
+    </div>
+</div>

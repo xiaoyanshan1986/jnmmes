@@ -1,0 +1,252 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.RPT.Models.OEEDailyDataViewModel
+@using ServiceCenter.Client.Mvc.Resources;
+@using RPTResources = ServiceCenter.Client.Mvc.Resources.RPT;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@using System.Data;
+@{
+    DataTable dtList = ViewBag.ListData;
+    //string CurDay = ViewBag.CurDay;
+    //int forwardMonths = ViewBag.ForwardMonths == null ? 0 : ViewBag.ForwardMonths;
+    //string LineCode = ViewBag.LineCode;
+
+    string StartDateTime = ViewBag.StartDateTime;
+    string EndDateTime = ViewBag.EndDateTime;
+    string StepName = ViewBag.StepName;
+    int AimLine = ViewBag.AimLine == null ? 10 : ViewBag.AimLine;
+    
+    int icount = 0;
+}
+@if (dtList != null)
+{
+    <table class="table table-striped table-bordered table-hover table-full-width" id="sample_1">
+        <thead>
+            <tr class=" active">
+                @for (int i = 0; i < dtList.Columns.Count; i++)
+                {
+                    if (i == 1)
+                    {
+                        <td hidden>@dtList.Columns[i].Caption</td>
+                    }
+                    else
+                    {
+                        if (dtList.Columns[i].Caption.Contains("累计"))
+                        {
+                            icount = i;
+                        }
+                        <td nowrap>@dtList.Columns[i].Caption</td>
+                    }
+                }
+            </tr>
+        </thead>
+        <tbody>
+            @for (int row = 0; row < dtList.Rows.Count; row++)
+            {
+                <tr id="@row" style="background-color:lightblue">
+                    @for (int col = 0; col < dtList.Columns.Count; col++)
+                    {
+                        if (col == 0)
+                        {
+                            <td nowrap>
+                                @if (dtList.Rows[row][col].ToString().Equals("&nbsp;&nbsp;设备稼动率"))
+                                {
+                                    <a style="float:left;cursor:pointer" id="shebei" onclick="HiddenOrShow_shebei();">+</a>
+                                }
+                                @if (dtList.Rows[row][col].ToString().Equals("&nbsp;&nbsp;性能稼动率"))
+                                {
+                                    <a style="float:left;cursor:pointer" id="xingneng" onclick="HiddenOrShow_xingneng();">+</a>
+                                }
+                                @if (dtList.Rows[row][col].ToString().Equals("&nbsp;&nbsp;&nbsp;白班"))
+                                {
+                                    <a style="float:left;cursor:pointer" id="baiban" onclick="HiddenOrShow_baiban();">+</a>
+                                }
+                                @if (dtList.Rows[row][col].ToString().Equals("&nbsp;&nbsp;&nbsp;夜班"))
+                                {
+                                    <a style="float:left;cursor:pointer" id="yeban" onclick="HiddenOrShow_yeban();">+</a>
+                                }
+                                @if (dtList.Rows[row][col].ToString().Equals("&nbsp;&nbsp;&nbsp;白班1A稼动率"))
+                                {
+                                    <a style="float:left;cursor:pointer" id="1a" onclick="HiddenOrShow_1a();">+</a>
+                                }
+                                @if (dtList.Rows[row][col].ToString().Equals("&nbsp;&nbsp;&nbsp;白班1B稼动率"))
+                                {
+                                    <a style="float:left;cursor:pointer" id="1b" onclick="HiddenOrShow_1b();">+</a>
+                                }
+                                @if (dtList.Rows[row][col].ToString().Equals("&nbsp;&nbsp;&nbsp;白班2A稼动率"))
+                                {
+                                    <a style="float:left;cursor:pointer" id="2a" onclick="HiddenOrShow_2a();">+</a>
+                                }
+                                @if (dtList.Rows[row][col].ToString().Equals("&nbsp;&nbsp;&nbsp;白班2B稼动率"))
+                                {
+                                    <a style="float:left;cursor:pointer" id="2b" onclick="HiddenOrShow_2b();">+</a>
+                                }
+                                @if (dtList.Rows[row][col].ToString().Equals("&nbsp;&nbsp;&nbsp;白班3A稼动率"))
+                                {
+                                    <a style="float:left;cursor:pointer" id="3a" onclick="HiddenOrShow_3a();">+</a>
+                                }
+                                @if (dtList.Rows[row][col].ToString().Equals("&nbsp;&nbsp;&nbsp;白班3B稼动率"))
+                                {
+                                    <a style="float:left;cursor:pointer" id="3b" onclick="HiddenOrShow_3b();">+</a>
+                                }
+                                @if (dtList.Rows[row][col].ToString().Equals("&nbsp;&nbsp;&nbsp;白班4A稼动率"))
+                                {
+                                    <a style="float:left;cursor:pointer" id="4a" onclick="HiddenOrShow_4a();">+</a>
+                                }
+                                @if (dtList.Rows[row][col].ToString().Equals("&nbsp;&nbsp;&nbsp;白班4B稼动率"))
+                                {
+                                    <a style="float:left;cursor:pointer" id="4b" onclick="HiddenOrShow_4b();">+</a>
+                                }
+                                @if (dtList.Rows[row][col].ToString().Equals("&nbsp;&nbsp;&nbsp;白班5A稼动率"))
+                                {
+                                    <a style="float:left;cursor:pointer" id="5a" onclick="HiddenOrShow_5a();">+</a>
+                                }
+                                @if (dtList.Rows[row][col].ToString().Equals("&nbsp;&nbsp;&nbsp;白班5B稼动率"))
+                                {
+                                    <a style="float:left;cursor:pointer" id="5b" onclick="HiddenOrShow_5b();">+</a>
+                                }
+                                @if (dtList.Rows[row][col].ToString().Equals("&nbsp;&nbsp;&nbsp;白班6A稼动率"))
+                                {
+                                    <a style="float:left;cursor:pointer" id="6a" onclick="HiddenOrShow_6a();">+</a>
+                                }
+                                @if (dtList.Rows[row][col].ToString().Equals("&nbsp;&nbsp;&nbsp;白班6B稼动率"))
+                                {
+                                    <a style="float:left;cursor:pointer" id="6b" onclick="HiddenOrShow_6b();">+</a>
+                                }
+                                @if (dtList.Rows[row][col].ToString().Equals("&nbsp;&nbsp;&nbsp;夜班1A稼动率"))
+                                {
+                                    <a style="float:left;cursor:pointer" id="y1a" onclick="HiddenOrShow_y1a();">+</a>
+                                }
+                                @if (dtList.Rows[row][col].ToString().Equals("&nbsp;&nbsp;&nbsp;夜班1B稼动率"))
+                                {
+                                    <a style="float:left;cursor:pointer" id="y1b" onclick="HiddenOrShow_y1b();">+</a>
+                                }
+                                @if (dtList.Rows[row][col].ToString().Equals("&nbsp;&nbsp;&nbsp;夜班2A稼动率"))
+                                {
+                                    <a style="float:left;cursor:pointer" id="y2a" onclick="HiddenOrShow_y2a();">+</a>
+                                }
+                                @if (dtList.Rows[row][col].ToString().Equals("&nbsp;&nbsp;&nbsp;夜班2B稼动率"))
+                                {
+                                    <a style="float:left;cursor:pointer" id="y2b" onclick="HiddenOrShow_y2b();">+</a>
+                                }
+                                @if (dtList.Rows[row][col].ToString().Equals("&nbsp;&nbsp;&nbsp;夜班3A稼动率"))
+                                {
+                                    <a style="float:left;cursor:pointer" id="y3a" onclick="HiddenOrShow_y3a();">+</a>
+                                }
+                                @if (dtList.Rows[row][col].ToString().Equals("&nbsp;&nbsp;&nbsp;夜班3B稼动率"))
+                                {
+                                    <a style="float:left;cursor:pointer" id="y3b" onclick="HiddenOrShow_y3b();">+</a>
+                                }
+                                @if (dtList.Rows[row][col].ToString().Equals("&nbsp;&nbsp;&nbsp;夜班4A稼动率"))
+                                {
+                                    <a style="float:left;cursor:pointer" id="y4a" onclick="HiddenOrShow_y4a();">+</a>
+                                }
+                                @if (dtList.Rows[row][col].ToString().Equals("&nbsp;&nbsp;&nbsp;夜班4B稼动率"))
+                                {
+                                    <a style="float:left;cursor:pointer" id="y4b" onclick="HiddenOrShow_y4b();">+</a>
+                                }
+                                @if (dtList.Rows[row][col].ToString().Equals("&nbsp;&nbsp;&nbsp;夜班5A稼动率"))
+                                {
+                                    <a style="float:left;cursor:pointer" id="y5a" onclick="HiddenOrShow_y5a();">+</a>
+                                }
+                                @if (dtList.Rows[row][col].ToString().Equals("&nbsp;&nbsp;&nbsp;夜班5B稼动率"))
+                                {
+                                    <a style="float:left;cursor:pointer" id="y5b" onclick="HiddenOrShow_y5b();">+</a>
+                                }
+                                @if (dtList.Rows[row][col].ToString().Equals("&nbsp;&nbsp;&nbsp;夜班6A稼动率"))
+                                {
+                                    <a style="float:left;cursor:pointer" id="y6a" onclick="HiddenOrShow_y6a();">+</a>
+                                }
+                                @if (dtList.Rows[row][col].ToString().Equals("&nbsp;&nbsp;&nbsp;夜班6B稼动率"))
+                                {
+                                    <a style="float:left;cursor:pointer" id="y6b" onclick="HiddenOrShow_y6b();">+</a>
+                                }
+                                @if (dtList.Rows[row][col].ToString().Equals("&nbsp;&nbsp;&nbsp;白班01稼动率"))
+                                {
+                                    <a style="float:left;cursor:pointer" id="01" onclick="HiddenOrShow_01();">+</a>
+                                }
+                                @if (dtList.Rows[row][col].ToString().Equals("&nbsp;&nbsp;&nbsp;白班02稼动率"))
+                                {
+                                    <a style="float:left;cursor:pointer" id="02" onclick="HiddenOrShow_02();">+</a>
+                                }
+                                @if (dtList.Rows[row][col].ToString().Equals("&nbsp;&nbsp;&nbsp;白班03稼动率"))
+                                {
+                                    <a style="float:left;cursor:pointer" id="03" onclick="HiddenOrShow_03();">+</a>
+                                }
+
+                               @if (dtList.Rows[row][col].ToString().Equals("&nbsp;&nbsp;&nbsp;白班04稼动率"))
+                               {
+                                   <a style="float:left;cursor:pointer" id="04" onclick="HiddenOrShow_04();">+</a>
+                               }
+                               @if (dtList.Rows[row][col].ToString().Equals("&nbsp;&nbsp;&nbsp;白班05稼动率"))
+                              {
+                                  <a style="float:left;cursor:pointer" id="05" onclick="HiddenOrShow_05();">+</a>
+                              }
+                              
+                              @if (dtList.Rows[row][col].ToString().Equals("&nbsp;&nbsp;&nbsp;白班06稼动率"))
+                              {
+                                  <a style="float:left;cursor:pointer" id="06" onclick="HiddenOrShow_06();">+</a>
+                              }
+                                @if (dtList.Rows[row][col].ToString().Equals("&nbsp;&nbsp;&nbsp;夜班01稼动率"))
+                                {
+                                    <a style="float:left;cursor:pointer" id="4a" onclick="HiddenOrShow_4a();">+</a>
+                                }
+                                @if (dtList.Rows[row][col].ToString().Equals("&nbsp;&nbsp;&nbsp;夜班02稼动率"))
+                                {
+                                    <a style="float:left;cursor:pointer" id="4b" onclick="HiddenOrShow_4b();">+</a>
+                                }
+                                @if (dtList.Rows[row][col].ToString().Equals("&nbsp;&nbsp;&nbsp;夜班03稼动率"))
+                                {
+                                    <a style="float:left;cursor:pointer" id="5a" onclick="HiddenOrShow_5a();">+</a>
+                                }
+
+                                @if (dtList.Rows[row][col].ToString().Equals("&nbsp;&nbsp;&nbsp;夜班04稼动率"))
+                                {
+                                    <a style="float:left;cursor:pointer" id="5b" onclick="HiddenOrShow_5b();">+</a>
+                                }
+                                @if (dtList.Rows[row][col].ToString().Equals("&nbsp;&nbsp;&nbsp;夜班05稼动率"))
+                                {
+                                    <a style="float:left;cursor:pointer" id="6a" onclick="HiddenOrShow_6a();">+</a>
+                                }
+
+                                @if (dtList.Rows[row][col].ToString().Equals("&nbsp;&nbsp;&nbsp;夜班06稼动率"))
+                                {
+                                    <a style="float:left;cursor:pointer" id="6b" onclick="HiddenOrShow_6b();">+</a>
+                                }
+                                @Html.Raw(dtList.Rows[row][col])
+                            </td>
+                        }
+                        else if (col == 1)
+                        {
+                            <td hidden></td>
+                        }
+                        else
+                        {
+                            if (col == icount)
+                            {
+                                string value = string.Empty;
+                                string link = dtList.Rows[row][1] + "?StartDateTime=" + StartDateTime + "&EndDateTime=" + EndDateTime + "&StepName=" + StepName + "&AimLine=" + AimLine;
+                                if (dtList.Rows[row][col] == null || dtList.Rows[row][col] == "" || dtList.Rows[row][col] == DBNull.Value)
+                                {
+                                    value = "0";
+                                }
+                                else
+                                {
+                                    value = dtList.Rows[row][col].ToString();
+                                }
+                                <td>
+                                    <a href="@link" target="_self">@value</a>
+                                </td>
+                            }
+                            else
+                            {
+                                <td>
+                                    @dtList.Rows[row][col]
+                                </td>
+                            }
+                        }
+                    }
+                </tr>
+            }
+        </tbody>
+    </table>
+}

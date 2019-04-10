@@ -1,0 +1,83 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.ERP.Models.MaterialReceiptQueryViewModel
+@using ServiceCenter.Model;
+@using ServiceCenter.Common;
+@using ServiceCenter.Client.Mvc.Areas.ERP.Models;
+@using ERP = ServiceCenter.Client.Mvc.Resources.ERP;
+@using ServiceCenter.Client.Mvc.Resources;
+
+@{
+    ViewBag.Title = ERP.StringResource.ERPMaterialReceiptQuery_ManagePageTitle;
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        &nbsp;
+    </div>
+    <div class="panel-body">
+        @using (Ajax.BeginForm("Query", "ERPMaterialReceipt", null
+            , new AjaxOptions()
+            {
+                HttpMethod = "Post",
+                OnBegin = "beginQuery",
+                OnComplete = "completeQuery"
+            }
+            , new { @class = "form-horizontal", resource = "form" }))
+        {
+            @Html.AntiForgeryToken()
+            <div class="row">
+                <div class="col-md-1">
+                    @Html.LabelFor(m => m.ReceiptNo, new { @class = "control-label" })
+                </div>
+                <div class="col-md-2">
+                    @Html.TextBoxFor(m => m.ReceiptNo, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.ReceiptNo)
+                </div>
+                <div class="col-md-3">
+                    <input type="submit" value="@StringResource.Query" class="btn btn-default" id="btnQuery" />
+                </div>
+            </div>
+        }
+    </div>
+    <div class="alert fade in hide" resource="alert" id="statusMessage" style="margin:0px">
+        <button type="button" class="close" onclick="hideStatusMessage()">
+            <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+        </button>
+        <p></p>
+    </div>
+</div>
+
+
+@section Scripts {
+    <script type="text/javascript" language="javascript">
+        function hideStatusMessage() {
+            $("#statusMessage").addClass("hide");
+        }
+
+        $("#ReceiptNo").keypress(function (args) {
+            if (args.keyCode == 13) {
+                $("#btnQuery").click();
+            }
+        });
+
+        function beginQuery() {
+            $("#btnQuery").attr("disabled", "disabled");
+            hideStatusMessage();
+        }
+
+        function completeQuery(result) {
+            $("#btnQuery").removeAttr("disabled");
+            var json = JSON.parse(result.responseText);
+            if (json.Code > 0) {
+                $("#statusMessage").removeClass("hide");
+                $("#statusMessage").removeClass("alert-success");
+                $("#statusMessage").addClass("alert-danger");
+                $("#statusMessage").find("p").html(json.Message);
+            }
+            else {
+                location.href = "/ERP/ERPMaterialReceipt/Detail?ReceiptNo=" + $("#ReceiptNo").val();
+            }
+        }
+    </script>
+}

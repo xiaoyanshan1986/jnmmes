@@ -1,0 +1,133 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.WIP.Models.LotCreateDetailViewModel
+@using ServiceCenter.Client.Mvc.Areas.WIP.Models;
+@using ServiceCenter.Client.Mvc.Resources;
+@using WIPResources = ServiceCenter.Client.Mvc.Resources.WIP;
+@using ServiceCenter.MES.Model.WIP;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@using ServiceCenter.MES.Model.BaseData;
+@{
+    PagingConfig cfg = ViewBag.PagingConfig;
+    IList<string> lstLot = ViewBag.LotList;
+    IList<BaseAttribute> lstAttribute = ViewBag.AttributeList;
+}
+ <!--序列号信息-->
+<table class="table table-hover table-bordered table-condensed" id="tblDetail">
+    <thead>
+        <tr class="active">
+            <td style="width:60px">@StringResource.ItemNo</td>
+            <td>
+                @Html.DisplayNameFor(m => m.LotNumber)
+            </td>
+            @if (lstAttribute != null)
+            {
+                for (int k = 0; k < lstAttribute.Count; k++)
+                {
+                    <td>
+                        @lstAttribute[k].Description
+                    </td>
+                }
+            }
+        </tr>
+    </thead>
+    @if (lstLot != null)
+    {
+        <tbody>
+            @for (int i = 0; i < lstLot.Count; i++)
+            {
+                string lotNumber = lstLot[i];
+                Model.LotNumber = lotNumber;
+                <tr>
+                    <td>@(i+1)</td>
+                    <td>
+                        @Html.TextBoxFor(m => m.LotNumber
+                                             , new { @class = "form-control", @onfocus = "this.select()",style = "text-transform:uppercase;ime-mode:disabled" })
+                        <span class="text-danger"></span>
+                    </td>
+                    @if (lstAttribute != null)
+                    {
+                        for (int k = 0; k < lstAttribute.Count; k++)
+                        {
+                            string required = string.Empty;
+                            if (lstAttribute[k].IsPrimaryKey)
+                            {
+                                required = "data-val-required= 字段" + lstAttribute[k].Description + "是必需的。";
+                            }
+                            <td>
+                                @if (lstAttribute[k].DataType == EnumDataType.Boolean)
+                                {
+                                    <input type="checkbox"
+                                           name="ATTR_@lstAttribute[k].Key.AttributeName"
+                                           class="form-control" />
+                                }
+                                else if (lstAttribute[k].DataType == EnumDataType.Date)
+                                {
+
+                                    <input type="text"
+                                           name="ATTR_@lstAttribute[k].Key.AttributeName"
+                                           value=""
+                                           data-val="true"
+                                           data-val-date="字段 @lstAttribute[k].Description 必须是日期。"
+                                           @required
+                                           class="form-control datepicker" />
+                                }
+                                else if (lstAttribute[k].DataType == EnumDataType.DateTime)
+                                {
+                                    <input type="text"
+                                           name="ATTR_@lstAttribute[k].Key.AttributeName"
+                                           value=""
+                                           data-val="true"
+                                           data-val-date="字段 @lstAttribute[k].Description 必须是日期。"
+                                           @required
+                                           class="form-control datetimepicker" />
+                                }
+                                else if (lstAttribute[k].DataType == EnumDataType.Float)
+                                {
+                                    <input type="text"
+                                           name="ATTR_@lstAttribute[k].Key.AttributeName"
+                                           value=""
+                                           data-val="true"
+                                           data-val-number="字段 @lstAttribute[k].Description 必须是数字。"
+                                           @required
+                                           maxlength="18"
+                                           class="form-control" />
+                                }
+                                else if (lstAttribute[k].DataType == EnumDataType.Integer)
+                                {
+                                    <input type="text"
+                                           name="ATTR_@lstAttribute[k].Key.AttributeName"
+                                           value=""
+                                           data-val="true"
+                                           data-val-number="字段 @lstAttribute[k].Description 必须是数字。"
+                                           data-val-regex="字段 @lstAttribute[k].Description 需要是整数。"
+                                           data-val-regex-pattern="[0-9]+"
+                                           @required
+                                           maxlength="10"
+                                           class="form-control" />
+                                }
+                                else
+                                {
+                                    <input type="text"
+                                           name="@lstAttribute[k].Key.AttributeName"
+                                           value=""
+                                           data-val="true"
+                                           data-val-regex="字段 @lstAttribute[k].Description 包含非法字符。"
+                                           data-val-regex-pattern="[^,]+"
+                                           @required
+                                           maxlength="50"
+                                           class="form-control" />
+                                }
+                                <span class="text-danger"></span>
+                            </td>
+                        }
+                    }
+                </tr>
+            }
+        </tbody>
+    }
+</table>
+
+
+
+
+

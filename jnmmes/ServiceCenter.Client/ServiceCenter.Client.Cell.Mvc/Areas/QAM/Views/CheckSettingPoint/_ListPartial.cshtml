@@ -1,0 +1,108 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.QAM.Models.CheckSettingPointViewModel
+@using ServiceCenter.Client.Mvc.Areas.QAM.Models;
+@using ServiceCenter.Client.Mvc.Resources;
+@using QAMResources = ServiceCenter.Client.Mvc.Resources.QAM;
+@using ServiceCenter.MES.Model.QAM;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@{
+    PagingConfig cfg = ViewBag.PagingConfig;
+}
+<div id="_list">
+    <table class="table table-hover table-bordered table-condensed">
+        <thead>
+            <tr class="active">
+                <td>@Html.DisplayNameFor(m => m.ItemNo)</td>
+                <td>@Html.DisplayNameFor(m => m.CategoryName)</td>
+                <td>@Html.DisplayNameFor(m => m.CheckPlanName)</td>
+                <td>@Html.DisplayNameFor(m => m.Status)</td>
+                <td>@StringResource.Detail</td>
+                <td>@StringResource.Modify</td>
+                <td>@StringResource.Delete</td>
+            </tr>
+        </thead>
+        @if (ViewBag.List != null)
+        {
+            <tbody>
+                @for (int i = 0; i < ViewBag.List.Length; i++)
+                {
+                    CheckSettingPoint obj = ViewBag.List[i];
+                    <tr>
+                        <td>@obj.Key.ItemNo</td>
+                        <td>
+                            @Html.ActionLink(linkText: obj.CategoryName
+                                            , actionName: "Index"
+                                            , controllerName: "CheckSettingPointDetail"
+                                            , routeValues: new {  @CheckSettingKey = obj.Key.CheckSettingKey,@ItemNo=obj.Key.ItemNo }
+                                            , htmlAttributes: new { @target = "_self" })
+                        </td>
+                        <td>
+                            @obj.CheckPlanName
+                        </td>
+                        <td>
+                            @obj.Status.GetDisplayName()
+                        </td>
+                        <td>
+                            @Ajax.ActionLink(StringResource.Detail, actionName: null
+                                            , routeValues: null
+                                            , ajaxOptions:new AjaxOptions() 
+                                            { 
+                                                HttpMethod = "Post", 
+                                                UpdateTargetId = "detailInfo",
+                                                OnSuccess = "showInfoModal",
+                                                Url = Url.Action("Detail", new { @CheckSettingKey = obj.Key.CheckSettingKey, @ItemNo = obj.Key.ItemNo })
+                                            })
+                        </td>
+                        <td>
+                            @Ajax.ActionLink(StringResource.Modify, actionName: null
+                                            ,routeValues:null
+                                            ,ajaxOptions:new AjaxOptions()
+                                            {
+                                                HttpMethod = "Post",
+                                                UpdateTargetId = "modifyFormContent",
+                                                OnSuccess = "showModifyModal",
+                                                Url = Url.Action("Modify", new { @CheckSettingKey = obj.Key.CheckSettingKey, @ItemNo = obj.Key.ItemNo })
+                                            })
+                        </td>
+                        <td>
+                            @Ajax.ActionLink(StringResource.Delete, actionName: null
+                                            , routeValues: null
+                                            , ajaxOptions:new AjaxOptions()
+                                            {
+                                                HttpMethod = "Post",
+                                                Confirm = string.Format(QAMResources.StringResource.CheckSettingPoint_ConfirmDelete,obj.Key.ItemNo),
+                                                Url = Url.Action("Delete", new { @CheckSettingKey = obj.Key.CheckSettingKey, @ItemNo = obj.Key.ItemNo }),
+                                                OnSuccess = "completeDelete"
+                                            })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        }
+    </table>
+    <div style="margin-top:-18px">
+        @if (cfg != null)
+        {
+            using (Ajax.BeginForm("PagingQuery", "CheckSettingPoint"
+                            , new
+                            {
+                                @Where = cfg.Where,
+                                @OrderBy = cfg.OrderBy,
+                                @CurrentPageNo = cfg.PageNo,
+                                @CurrentPageSize = cfg.PageSize
+                            }
+                            , new AjaxOptions()
+                            {
+                                HttpMethod = "Post",
+                                UpdateTargetId = "_list"
+                            }
+                            , new { @class = "form-horizontal", resource = "form", id = "frmPagingQuery" }))
+            {
+                @Html.AntiForgeryToken()
+                <div>@Html.Partial("_PaginationPartial")</div>
+            }
+        }
+    </div>
+</div>
+
+

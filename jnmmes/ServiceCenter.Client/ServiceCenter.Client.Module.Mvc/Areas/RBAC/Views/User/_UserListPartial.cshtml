@@ -1,0 +1,107 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.RBAC.Models.UserViewModel
+@using RBAC = ServiceCenter.MES.Model.RBAC;
+@using ServiceCenter.Client.Mvc.Areas.RBAC.Models;
+@using ServiceCenter.Client.Mvc.Resources.RBAC;
+@using ServiceCenter.Model;
+@{
+    PagingConfig cfg = ViewBag.PagingConfig;
+}
+<div class="panel" id="_userList">
+    <table class="table table-hover table-bordered table-condensed">
+        <thead>
+            <tr class="active">
+                <td>@StringResource.User_ItemNo</td>
+                <td>@Html.DisplayNameFor(m => m.LoginName)</td>
+                <td>@Html.DisplayNameFor(m => m.UserName)</td>
+                <td>@Html.DisplayNameFor(m => m.Email)</td>
+                <td>@Html.DisplayNameFor(m => m.OfficePhone)</td>
+                <td>@Html.DisplayNameFor(m => m.MobilePhone)</td>
+                <td>@Html.DisplayNameFor(m => m.IsActive)</td>
+                <td>@Html.DisplayNameFor(m => m.IsLocked)</td>
+                <td>@StringResource.User_Detail</td>
+                <td>@StringResource.User_Modify</td>
+                <td>@StringResource.User_Delete</td>
+            </tr>
+        </thead>
+        @if (ViewBag.UserList != null)
+        {
+            <tbody>
+                @for (int i = 0; i < ViewBag.UserList.Length; i++)
+                {
+                    RBAC.User u = ViewBag.UserList[i];
+                    <tr>
+                        <td>@(cfg.PageSize * cfg.PageNo+i+1)</td>
+                        <td>@u.Key</td>
+                        <td>@u.UserName</td>
+                        <td>@u.Email</td>
+                        <td>@u.OfficePhone</td>
+                        <td>@u.MobilePhone</td>
+                        <td>@Html.CheckBox(string.Format("{0}_IsActive", u.Key), u.IsActive, new { @disabled = "disabled" })</td>
+                        <td>@Html.CheckBox(string.Format("{0}_IsLocked", u.Key), u.IsLocked, new { @disabled = "disabled" })</td>
+                        <td>
+                            @Ajax.ActionLink(@StringResource.User_Detail, actionName: null
+                                            , routeValues: null
+                                            , ajaxOptions:new AjaxOptions() 
+                                            { 
+                                                HttpMethod = "Post", 
+                                                UpdateTargetId = "userDetailInfo",
+                                                OnSuccess = "showUserInfoModal",
+                                                Url = Url.Action("Detail", new { @LoginName = u.Key })
+                                            })
+                        </td>
+                        <td>
+                            @Ajax.ActionLink(@StringResource.User_Modify, actionName: null
+                                            ,routeValues:null
+                                            ,ajaxOptions:new AjaxOptions()
+                                            {
+                                                HttpMethod = "Post",
+                                                UpdateTargetId = "modifyUserFormContent",
+                                                OnSuccess = "showModifyUserModal",
+                                                Url = Url.Action("Modify",new { @LoginName = u.Key })
+                                            })
+                        </td>
+                        <td>
+                            @if (u.Key != "admin")//超级管理员禁止删除。
+                            { 
+                                @Ajax.ActionLink(@StringResource.User_Delete, actionName: null
+                                                , routeValues: null
+                                                , ajaxOptions:new AjaxOptions()
+                                                {
+                                                    HttpMethod = "Post",
+                                                    Confirm = string.Format(@StringResource.User_ConfirmDeleteUser, u.Key),
+                                                    Url = Url.Action("Delete", new { @LoginName = u.Key }),
+                                                    OnSuccess = "completeDeleteUser"
+                                                })
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        }
+    </table>
+    <div>
+        @if (cfg != null)
+        {
+            using (Ajax.BeginForm("PagingQuery", "User"
+                            , new
+                            {
+                                @Where = cfg.Where,
+                                @OrderBy = cfg.OrderBy,
+                                @CurrentPageNo = cfg.PageNo,
+                                @CurrentPageSize = cfg.PageSize
+                            }
+                            , new AjaxOptions()
+                            {
+                                HttpMethod = "Post",
+                                UpdateTargetId = "_userList"
+                            }
+                            , new { @class = "form-horizontal", role = "form", id = "frmPagingQuery" }))
+            {
+                @Html.AntiForgeryToken()
+                <div>@Html.Partial("_PaginationPartial")</div>
+            }
+        }
+    </div>
+</div>
+
+

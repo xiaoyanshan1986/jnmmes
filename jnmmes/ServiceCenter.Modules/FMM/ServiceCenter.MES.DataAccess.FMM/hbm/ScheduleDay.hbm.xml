@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   namespace="ServiceCenter.MES.Model.FMM" 
+                   assembly="ServiceCenter.MES.Model.FMM">
+  <class name="ScheduleDay" table="FMM_SCHEDULE_DAY">
+    <composite-id  name="Key" class="ScheduleDayKey">
+      <key-property name="LocationName" column="LOCATION_NAME"/>
+      <key-property name="RouteOperationName" column="ROUTE_OPERATION_NAME"/>
+      <key-property name="Day" column="CUR_DAY"/>
+      <key-property name="ShiftName" column="SHIFT_NAME"/>
+    </composite-id >
+    <property name="ShiftValue" column="SHIFT_VALUE"/>
+    <property name="SeqNo" column="SEQNO"/>
+    <property name="StartTime" column="STARTTIME"/>
+    <property name="EndTime" column="ENDTIME"/>
+    <property name="Creator" column="CREATOR"/>
+    <property name="CreateTime" column="CREATE_TIME"/>
+    <property name="Editor" column="EDITOR"/>
+    <property name="EditTime" column="EDIT_TIME"/>
+
+  </class>
+</hibernate-mapping>

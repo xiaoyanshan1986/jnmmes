@@ -1,0 +1,114 @@
+﻿
+@using ServiceCenter.Client.Mvc.Areas.WIP.Models;
+@using ServiceCenter.Client.Mvc.Resources;
+@using WIPResources = ServiceCenter.Client.Mvc.Resources.WIP;
+@using ServiceCenter.MES.Model.WIP;
+@using ServiceCenter.MES.Model.FMM;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@using ServiceCenter.MES.Model.LSM;
+@{
+    PagingConfig cfg = ViewBag.PagingConfig;
+    IList<PackageBin> lstPackageBin = null;
+    BinRule binrule = null;
+    if (ViewBag.List != null)
+    {
+        lstPackageBin = ViewBag.List;
+        int nIndex=0;
+        foreach(PackageBin b in lstPackageBin)
+        {
+            nIndex = 0;
+            if (Int32.TryParse(b.Key.BinNo, out nIndex))
+            { 
+                b.BinIndex = nIndex;
+            }else
+            {
+                b.BinIndex = 0;
+            }
+        }
+        
+    }   
+    
+}
+<div id="_list">
+ @if (lstPackageBin !=null && lstPackageBin.Count>0)
+ {
+    var lstData = from e1 in lstPackageBin orderby e1.BinIndex select e1;
+     
+    <table class="table table-hover table-bordered table-condensed table-responsive table-striped">
+        <tr>
+            
+            <td class="active">Bin号</td>
+              @foreach (PackageBin obj in lstData)
+            {
+                <td nowrap>@obj.Key.BinNo</td>
+                binrule = Model.GetBinRule(obj.Key.BinNo, obj.Key.PackageLine); 
+             }
+        </tr>
+        <tr>
+            <td class="active">分档代码</td>
+            @foreach (PackageBin obj in lstData)
+            {
+                binrule = Model.GetBinRule(obj.Key.BinNo, obj.Key.PackageLine);
+               <td nowrap>@binrule.Key.PsCode</td>
+            }
+           
+        </tr>
+        <tr>
+            <td class="active">分档项目号</td>
+            @foreach (PackageBin obj in lstData)
+            {
+                binrule = Model.GetBinRule(obj.Key.BinNo, obj.Key.PackageLine);
+                ServiceCenter.MES.Model.ZPVM.Powerset PsName = Model.GetPsName(binrule.Key.PsCode, binrule.Key.PsItemNo);
+                <td nowrap>@PsName.PowerName</td>
+            }
+
+        </tr>
+        <tr>
+            <td class="active">子分档代码</td>
+            @foreach (PackageBin obj in lstData)
+            {
+                
+                binrule = Model.GetBinRule(obj.Key.BinNo, obj.Key.PackageLine);
+                <td nowrap>@binrule.Key.PsSubCode</td>
+            }
+
+        </tr>
+        <tr>
+            <td class="active">颜色</td>
+            @foreach (PackageBin obj in lstData)
+            {
+                
+                binrule = Model.GetBinRule(obj.Key.BinNo, obj.Key.PackageLine);
+                <td nowrap>@binrule.Key.Color</td>
+            }
+
+        </tr>
+ <tr>
+            <td class="active">个数</td>
+            @foreach (PackageBin obj in lstData)
+            {
+                <td nowrap>
+                    @if (!String.IsNullOrEmpty(obj.Key.PackageNo))
+                    {
+                        @Ajax.ActionLink(obj.BinQty.ToString(), "QueryPackageNo", "LotBin", new { packageNo = obj.Key.PackageNo },
+                        new AjaxOptions()
+                        {
+                            HttpMethod = "POST",
+                            UpdateTargetId = "listPack"
+                        })
+
+                    }
+                </td>
+            }
+        </tr>
+    </table>
+    }    
+
+    
+    <div style="margin-top:-18px">
+       
+    </div>
+</div>
+
+

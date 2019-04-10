@@ -1,0 +1,37 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.QAM.Models.CheckSettingPointViewModel
+@using ServiceCenter.MES.Model.QAM;
+@Html.HiddenFor(m => m.CheckSettingKey)
+<div class="form-group">
+    @Html.LabelFor(m => m.ItemNo, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.ItemNo, new { @class = "form-control", @id = "txtItemNo" })
+        @Html.ValidationMessageFor(m => m.ItemNo)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.CategoryName, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.DropDownListFor(m => Model.CategoryName
+                              , Model.GetCategoryList()
+                              , new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.CategoryName)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.CheckPlanName, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.DropDownListFor(m => Model.CheckPlanName
+                              , Model.GetCheckPlanList()
+                              , new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.CheckPlanName)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.Status, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.DropDownListFor(m => Model.Status
+                              , Model.GetObjectStatusList()
+                              , new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Status)
+    </div>
+</div>

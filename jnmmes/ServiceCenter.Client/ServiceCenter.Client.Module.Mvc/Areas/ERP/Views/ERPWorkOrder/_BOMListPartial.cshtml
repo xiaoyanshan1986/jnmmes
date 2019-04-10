@@ -1,0 +1,40 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.ERP.Models.WorkOrderBOMViewModel
+@using ServiceCenter.Client.Mvc.Areas.ERP.Models;
+@using ServiceCenter.Client.Mvc.Resources;
+@using ERP = ServiceCenter.Client.Mvc.Resources.ERP;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+<div id="_list">
+    <table class="table table-hover table-bordered table-condensed table-responsive table-striped">
+        <thead>
+            <tr class="active">
+                <td nowrap align="center">@Html.DisplayNameFor(m => m.RowNo)</td>
+                <td nowrap align="center">@Html.DisplayNameFor(m => m.ItemNo)</td>
+                <td nowrap align="center">@Html.DisplayNameFor(m => m.MaterialCode)</td>
+                <td nowrap align="center">@ERP.StringResource.ERPWorkOrder_MaterialName</td>
+                <td nowrap align="center">@Html.DisplayNameFor(m => m.Qty)</td>
+                <td nowrap align="center">@Html.DisplayNameFor(m => m.MaterialUnit)</td>
+                <td nowrap align="center">@Html.DisplayNameFor(m => m.MinUnit)</td>
+            </tr>
+        </thead>
+        @if (ViewBag.BOMList != null)
+        {
+            <tbody>
+                @foreach (WorkOrderBOMViewModel item in ViewBag.BOMList)
+                {
+                    <tr>
+                        <td>@item.RowNo</td>
+                        <td>@item.ItemNo</td>
+                        <td>@item.MaterialCode</td>
+                        <td>@item.MaterialName</td>
+                        <td nowrap align="right">@item.Qty</td>
+                        <td>@item.MaterialUnit</td>
+                        <td nowrap align="right">@item.MinUnit</td>
+                    </tr>
+                }
+            </tbody>
+        }
+    </table>
+</div>
+
+

@@ -1,0 +1,119 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.ZPVM.Models.ProductControlObjectViewModel
+@using ServiceCenter.Client.Mvc.Areas.ZPVM.Models;
+@using ServiceCenter.Client.Mvc.Resources;
+@using ZPVM = ServiceCenter.Client.Mvc.Resources.ZPVM;
+@using ServiceCenter.MES.Model.ZPVM;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@{
+    PagingConfig cfg = ViewBag.PagingConfig;
+}
+<div id="_list">
+    <table class="table table-hover table-bordered table-condensed">
+        <thead>
+            <tr class="active">
+                <td nowrap>@StringResource.ItemNo</td>
+                @*<td>@Html.DisplayNameFor(m => m.ProductCode)</td>
+                <td>@Html.DisplayNameFor(m => m.ProductName)</td>*@
+                <td>@Html.DisplayNameFor(m => m.CellEff)</td>
+                <td>@Html.DisplayNameFor(m => m.SupplierCode)</td>
+                <td>@Html.DisplayNameFor(m => m.SupplierName)</td>
+                <td>@Html.DisplayNameFor(m => m.Object)</td>
+                <td>@Html.DisplayNameFor(m => m.Type)</td>
+                <td>@Html.DisplayNameFor(m => m.Value)</td>
+                <td>@Html.DisplayNameFor(m => m.IsUsed)</td>
+                <td>@Html.DisplayNameFor(m => m.Editor)</td>
+                <td>@Html.DisplayNameFor(m => m.EditTime)</td>
+                <td>@StringResource.Modify</td>
+                <td>@StringResource.Delete</td>
+            </tr>
+        </thead>
+        @if (ViewBag.List != null)
+        {
+            <tbody>
+                @for (int i = 0; i < ViewBag.List.Length; i++)
+                {
+                    ProductControlObject obj = ViewBag.List[i];
+                    <tr>
+                        <td nowrap>@(cfg.PageSize * cfg.PageNo + i + 1)</td>
+                        @*<td>@obj.Key.ProductCode</td>
+                        <td>@obj.ProductName</td>*@
+                        <td>@obj.Key.CellEff</td>
+                        <td>@obj.Key.SupplierCode</td>
+                        <td>@obj.SupplierName</td>
+                        <td>
+                            @obj.Key.Object.GetDisplayName()
+                        </td>
+                        <td>@obj.Key.Type</td>
+                        <td>@obj.Value</td>
+                        <td>
+                            @(obj.IsUsed ? StringResource.Yes : StringResource.No)
+                        </td>
+                        <td>@obj.Editor</td>
+                        <td>@obj.EditTime</td>
+                        <td>
+                            @Ajax.ActionLink(StringResource.Modify, actionName: null
+                                            ,routeValues:null
+                                            ,ajaxOptions:new AjaxOptions()
+                                            {
+                                                HttpMethod = "Post",
+                                                UpdateTargetId = "modifyFormContent",
+                                                OnSuccess = "showModifyModal",
+                                                Url = Url.Action("Modify", new
+                                                {
+                                                    @ProductCode = obj.Key.ProductCode,
+                                                    @SupplierCode = obj.Key.SupplierCode,
+                                                    @CellEff = obj.Key.CellEff,
+                                                    @Obj = obj.Key.Object,
+                                                    @Type = obj.Key.Type
+                                                })
+                                            })
+                        </td>
+                        <td>
+                            @Ajax.ActionLink(StringResource.Delete, actionName: null
+                                            , routeValues: null
+                                            , ajaxOptions:new AjaxOptions()
+                                            {
+                                                HttpMethod = "Post",
+                                                Confirm = string.Format(ZPVM.StringResource.ProductControlObject_ConfirmDelete, obj.Key),
+                                                Url = Url.Action("Delete", new {
+                                                    @ProductCode = obj.Key.ProductCode,
+                                                    @SupplierCode = obj.Key.SupplierCode,
+                                                    @CellEff = obj.Key.CellEff,
+                                                    @Obj = obj.Key.Object,
+                                                    @Type = obj.Key.Type
+                                                }),
+                                                OnSuccess = "completeDelete"
+                                            })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        }
+    </table>
+    <div style="margin-top:-18px">
+        @if (cfg != null)
+        {
+            using (Ajax.BeginForm("PagingQuery", "ProductControlObject"
+                            , new
+                            {
+                                @Where = cfg.Where,
+                                @OrderBy = cfg.OrderBy,
+                                @CurrentPageNo = cfg.PageNo,
+                                @CurrentPageSize = cfg.PageSize
+                            }
+                            , new AjaxOptions()
+                            {
+                                HttpMethod = "Post",
+                                UpdateTargetId = "_list"
+                            }
+                            , new { @class = "form-horizontal", resource = "form", id = "frmPagingQuery" }))
+            {
+                @Html.AntiForgeryToken()
+                <div>@Html.Partial("_PaginationPartial")</div>
+            }
+        }
+    </div>
+</div>
+
+

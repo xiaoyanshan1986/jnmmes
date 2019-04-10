@@ -1,0 +1,37 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.FMM.Models.PrintLabelViewModel
+
+<div class="form-group">
+    @Html.LabelFor(m => m.Code, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.Code, new { @class = "form-control", style = "text-transform:uppercase" })
+        @Html.ValidationMessageFor(m => m.Code)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.Name, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.Name, new { @class = "form-control", style = "text-transform:uppercase" })
+        @Html.ValidationMessageFor(m => m.Name)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.Type, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.DropDownListFor(m => m.Type,@Model.GetPrinterTypeList(), new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Type)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.Content, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextAreaFor(m => m.Content, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Content)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.IsUsed, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.CheckBoxFor(m => m.IsUsed, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.IsUsed)
+    </div>
+</div>

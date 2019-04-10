@@ -1,0 +1,138 @@
+2016-07-06 11:40:33,601 - ERROR - START>Application
+2016-07-06 12:04:20,295 - ERROR - START>Application
+2016-07-06 13:06:22,523 - ERROR - ExecuteTrackOutBaseFounction>
+NHibernate.QueryException: could not resolve property: OrderNumber of: ServiceCenter.MES.Model.PPM.WorkOrderBOM [SELECT COUNT(*) FROM ServiceCenter.MES.Model.LSM.MaterialLoadingDetail as self WHERE OrderNumber = '1MO-16030003'
+                                                        AND ( MaterialCode = '1303030005'
+                                                            OR EXISTS(SELECT MaterialCode
+                                                                        FROM WorkOrderBOM as wbom
+                                                                        WHERE wbom.OrderNumber = '1MO-16030003'
+                                                                        AND wbom.ReplaceMaterial = '1303030005'))
+                                                        AND CurrentQty > 0
+                                                        AND EXISTS(SELECT Key
+                                                                    FROM MaterialLoading as p
+                                                                    WHERE p.RouteOperationName = '上料'
+                                                                    AND p.EquipmentCode = 'MASLD-GRG01'
+                                                                    AND p.Key = self.Key.LoadingKey) ]
+   在 NHibernate.Persister.Entity.AbstractPropertyMapping.ToType(String propertyName) 位置 p:\nhibernate-core\src\NHibernate\Persister\Entity\AbstractPropertyMapping.cs:行号 37
+   在 NHibernate.Persister.Entity.AbstractEntityPersister.ToType(String propertyName) 位置 p:\nhibernate-core\src\NHibernate\Persister\Entity\AbstractEntityPersister.cs:行号 1752
+   在 NHibernate.Hql.Ast.ANTLR.Tree.FromElementType.GetPropertyType(String propertyName, String propertyPath) 位置 p:\nhibernate-core\src\NHibernate\Hql\Ast\ANTLR\Tree\FromElementType.cs:行号 343
+   在 NHibernate.Hql.Ast.ANTLR.Tree.FromElement.GetPropertyType(String propertyName, String propertyPath) 位置 p:\nhibernate-core\src\NHibernate\Hql\Ast\ANTLR\Tree\FromElement.cs:行号 469
+   在 NHibernate.Hql.Ast.ANTLR.Tree.DotNode.GetDataType() 位置 p:\nhibernate-core\src\NHibernate\Hql\Ast\ANTLR\Tree\DotNode.cs:行号 268
+   在 NHibernate.Hql.Ast.ANTLR.Tree.DotNode.PrepareLhs() 位置 p:\nhibernate-core\src\NHibernate\Hql\Ast\ANTLR\Tree\DotNode.cs:行号 626
+   在 NHibernate.Hql.Ast.ANTLR.Tree.DotNode.Resolve(Boolean generateJoin, Boolean implicitJoin, String classAlias, IASTNode parent) 位置 p:\nhibernate-core\src\NHibernate\Hql\Ast\ANTLR\Tree\DotNode.cs:行号 196
+   在 NHibernate.Hql.Ast.ANTLR.Tree.FromReferenceNode.Resolve(Boolean generateJoin, Boolean implicitJoin, String classAlias) 位置 p:\nhibernate-core\src\NHibernate\Hql\Ast\ANTLR\Tree\FromReferenceNode.cs:行号 57
+   在 NHibernate.Hql.Ast.ANTLR.Tree.FromReferenceNode.Resolve(Boolean generateJoin, Boolean implicitJoin) 位置 p:\nhibernate-core\src\NHibernate\Hql\Ast\ANTLR\Tree\FromReferenceNode.cs:行号 62
+   在 NHibernate.Hql.Ast.ANTLR.HqlSqlWalker.Resolve(IASTNode node) 位置 p:\nhibernate-core\src\NHibernate\Hql\Ast\ANTLR\HqlSqlWalker.cs:行号 441
+   在 NHibernate.Hql.Ast.ANTLR.HqlSqlWalker.expr() 位置 p:\nhibernate-core\src\NHibernate\Hql\Ast\ANTLR\Generated\HqlSqlWalker.cs:行号 6960
+   在 NHibernate.Hql.Ast.ANTLR.HqlSqlWalker.exprOrSubquery() 位置 p:\nhibernate-core\src\NHibernate\Hql\Ast\ANTLR\Generated\HqlSqlWalker.cs:行号 6609
+   在 NHibernate.Hql.Ast.ANTLR.HqlSqlWalker.comparisonExpr() 位置 p:\nhibernate-core\src\NHibernate\Hql\Ast\ANTLR\Generated\HqlSqlWalker.cs:行号 5686
+   在 NHibernate.Hql.Ast.ANTLR.HqlSqlWalker.logicalExpr() 位置 p:\nhibernate-core\src\NHibernate\Hql\Ast\ANTLR\Generated\HqlSqlWalker.cs:行号 5311
+   在 NHibernate.Hql.Ast.ANTLR.HqlSqlWalker.logicalExpr() 位置 p:\nhibernate-core\src\NHibernate\Hql\Ast\ANTLR\Generated\HqlSqlWalker.cs:行号 5219
+   在 NHibernate.Hql.Ast.ANTLR.HqlSqlWalker.whereClause() 位置 p:\nhibernate-core\src\NHibernate\Hql\Ast\ANTLR\Generated\HqlSqlWalker.cs:行号 5035
+   在 NHibernate.Hql.Ast.ANTLR.HqlSqlWalker.unionedQuery() 位置 p:\nhibernate-core\src\NHibernate\Hql\Ast\ANTLR\Generated\HqlSqlWalker.cs:行号 1706
+   在 NHibernate.Hql.Ast.ANTLR.HqlSqlWalker.query() 位置 p:\nhibernate-core\src\NHibernate\Hql\Ast\ANTLR\Generated\HqlSqlWalker.cs:行号 1514
+   在 NHibernate.Hql.Ast.ANTLR.HqlSqlWalker.collectionFunctionOrSubselect() 位置 p:\nhibernate-core\src\NHibernate\Hql\Ast\ANTLR\Generated\HqlSqlWalker.cs:行号 6812
+   在 NHibernate.Hql.Ast.ANTLR.HqlSqlWalker.comparisonExpr() 位置 p:\nhibernate-core\src\NHibernate\Hql\Ast\ANTLR\Generated\HqlSqlWalker.cs:行号 6296
+   在 NHibernate.Hql.Ast.ANTLR.HqlSqlWalker.logicalExpr() 位置 p:\nhibernate-core\src\NHibernate\Hql\Ast\ANTLR\Generated\HqlSqlWalker.cs:行号 5311
+   在 NHibernate.Hql.Ast.ANTLR.HqlSqlWalker.logicalExpr() 位置 p:\nhibernate-core\src\NHibernate\Hql\Ast\ANTLR\Generated\HqlSqlWalker.cs:行号 5262
+   在 NHibernate.Hql.Ast.ANTLR.HqlSqlWalker.logicalExpr() 位置 p:\nhibernate-core\src\NHibernate\Hql\Ast\ANTLR\Generated\HqlSqlWalker.cs:行号 5225
+   在 NHibernate.Hql.Ast.ANTLR.HqlSqlWalker.logicalExpr() 位置 p:\nhibernate-core\src\NHibernate\Hql\Ast\ANTLR\Generated\HqlSqlWalker.cs:行号 5219
+   在 NHibernate.Hql.Ast.ANTLR.HqlSqlWalker.logicalExpr() 位置 p:\nhibernate-core\src\NHibernate\Hql\Ast\ANTLR\Generated\HqlSqlWalker.cs:行号 5219
+   在 NHibernate.Hql.Ast.ANTLR.HqlSqlWalker.whereClause() 位置 p:\nhibernate-core\src\NHibernate\Hql\Ast\ANTLR\Generated\HqlSqlWalker.cs:行号 5035
+   在 NHibernate.Hql.Ast.ANTLR.HqlSqlWalker.unionedQuery() 位置 p:\nhibernate-core\src\NHibernate\Hql\Ast\ANTLR\Generated\HqlSqlWalker.cs:行号 1706
+   在 NHibernate.Hql.Ast.ANTLR.HqlSqlWalker.query() 位置 p:\nhibernate-core\src\NHibernate\Hql\Ast\ANTLR\Generated\HqlSqlWalker.cs:行号 1514
+   在 NHibernate.Hql.Ast.ANTLR.HqlSqlWalker.selectStatement() 位置 p:\nhibernate-core\src\NHibernate\Hql\Ast\ANTLR\Generated\HqlSqlWalker.cs:行号 540
+   在 NHibernate.Hql.Ast.ANTLR.HqlSqlWalker.statement() 位置 p:\nhibernate-core\src\NHibernate\Hql\Ast\ANTLR\Generated\HqlSqlWalker.cs:行号 439
+   在 NHibernate.Hql.Ast.ANTLR.HqlSqlTranslator.Translate() 位置 p:\nhibernate-core\src\NHibernate\Hql\Ast\ANTLR\QueryTranslatorImpl.cs:行号 566
+   在 NHibernate.Hql.Ast.ANTLR.QueryTranslatorImpl.Analyze(String collectionRole) 位置 p:\nhibernate-core\src\NHibernate\Hql\Ast\ANTLR\QueryTranslatorImpl.cs:行号 425
+   在 NHibernate.Hql.Ast.ANTLR.QueryTranslatorImpl.DoCompile(IDictionary`2 replacements, Boolean shallow, String collectionRole) 位置 p:\nhibernate-core\src\NHibernate\Hql\Ast\ANTLR\QueryTranslatorImpl.cs:行号 363
+   在 NHibernate.Hql.Ast.ANTLR.QueryTranslatorImpl.Compile(IDictionary`2 replacements, Boolean shallow) 位置 p:\nhibernate-core\src\NHibernate\Hql\Ast\ANTLR\QueryTranslatorImpl.cs:行号 72
+   在 NHibernate.Hql.Ast.ANTLR.ASTQueryTranslatorFactory.CreateQueryTranslators(IASTNode ast, String queryIdentifier, String collectionRole, Boolean shallow, IDictionary`2 filters, ISessionFactoryImplementor factory) 位置 p:\nhibernate-core\src\NHibernate\Hql\Ast\ANTLR\ASTQueryTranslatorFactory.cs:行号 43
+   在 NHibernate.Hql.Ast.ANTLR.ASTQueryTranslatorFactory.CreateQueryTranslators(String queryString, String collectionRole, Boolean shallow, IDictionary`2 filters, ISessionFactoryImplementor factory) 位置 p:\nhibernate-core\src\NHibernate\Hql\Ast\ANTLR\ASTQueryTranslatorFactory.cs:行号 21
+   在 NHibernate.Engine.Query.HQLStringQueryPlan.CreateTranslators(String hql, String collectionRole, Boolean shallow, IDictionary`2 enabledFilters, ISessionFactoryImplementor factory) 位置 p:\nhibernate-core\src\NHibernate\Engine\Query\HQLStringQueryPlan.cs:行号 24
+   在 NHibernate.Engine.Query.HQLStringQueryPlan..ctor(String hql, String collectionRole, Boolean shallow, IDictionary`2 enabledFilters, ISessionFactoryImplementor factory) 位置 p:\nhibernate-core\src\NHibernate\Engine\Query\HQLStringQueryPlan.cs:行号 16
+   在 NHibernate.Engine.Query.HQLStringQueryPlan..ctor(String hql, Boolean shallow, IDictionary`2 enabledFilters, ISessionFactoryImplementor factory) 位置 p:\nhibernate-core\src\NHibernate\Engine\Query\HQLStringQueryPlan.cs:行号 10
+   在 NHibernate.Engine.Query.QueryPlanCache.GetHQLQueryPlan(String queryString, Boolean shallow, IDictionary`2 enabledFilters) 位置 p:\nhibernate-core\src\NHibernate\Engine\Query\QueryPlanCache.cs:行号 62
+   在 NHibernate.Impl.AbstractSessionImpl.GetHQLQueryPlan(String query, Boolean shallow) 位置 p:\nhibernate-core\src\NHibernate\Impl\AbstractSessionImpl.cs:行号 310
+   在 NHibernate.Impl.AbstractSessionImpl.CreateQuery(String queryString) 位置 p:\nhibernate-core\src\NHibernate\Impl\AbstractSessionImpl.cs:行号 289
+   在 ServiceCenter.Common.DataAccess.NHibernate.ISessionExtensions.GetList[T](ISession session, PagingConfig cfg) 位置 e:\Projects\11JNMMES\trunk\src\ServiceCenter.Common\DataAccess\NHibernate\ISessionExtensions.cs:行号 37
+   在 ServiceCenter.Common.DataAccess.NHibernate.DatabaseDataEngine`2.Get(PagingConfig cfg) 位置 e:\Projects\11JNMMES\trunk\src\ServiceCenter.Common\DataAccess\NHibernate\DatabaseDataEngine.cs:行号 194
+   在 ServiceCenter.MES.Service.WIP.WipEngineerService.DeductMaterial(EnumDataCollectionAction workModel, TrackOutParameter p, Equipment equipment, List`1 lstLot, ISession session, String transactionKey) 位置 e:\Workspace\Jinergy\JNMMES\trunk\src\ServiceCenter.Modules\WIP\ServiceCenter.MES.Service.WIP\WipEngineerServiceForTrack.cs:行号 2652
+2016-07-06 13:10:10,865 - ERROR - START>Application
+2016-07-06 13:19:53,490 - ERROR - START>Application
+2016-07-06 13:23:03,414 - ERROR - START>Application
+2016-07-06 13:39:44,123 - ERROR - START>Application
+2016-07-06 13:51:00,774 - ERROR - START>Application
+2016-07-06 15:06:34,948 - ERROR - START>Application
+2016-07-06 15:09:13,581 - ERROR - ExecuteTrackOutBaseFounction>
+System.ObjectDisposedException: Session is closed!
+对象名:“ISession”。
+   在 NHibernate.Impl.AbstractSessionImpl.ErrorIfClosed() 位置 p:\nhibernate-core\src\NHibernate\Impl\AbstractSessionImpl.cs:行号 213
+   在 NHibernate.Impl.AbstractSessionImpl.CheckAndUpdateSessionStatus() 位置 p:\nhibernate-core\src\NHibernate\Impl\AbstractSessionImpl.cs:行号 205
+   在 NHibernate.Impl.AbstractSessionImpl.CreateQuery(String queryString) 位置 p:\nhibernate-core\src\NHibernate\Impl\AbstractSessionImpl.cs:行号 288
+   在 ServiceCenter.MES.DataAccess.FMM.EquipmentChangeStateDataEngine.Get(String from, String to, ISession session) 位置 e:\Workspace\Jinergy\JNMMES\trunk\src\ServiceCenter.Modules\FMM\ServiceCenter.MES.DataAccess.FMM\EquipmentChangeStateDataEngine.cs:行号 42
+   在 ServiceCenter.MES.Service.WIP.WipEngineerService.ExecuteTrackOutBaseFounction(String workModel, TrackOutParameter p, Equipment equipment, List`1 lstLot, ISession session, String transactionKey) 位置 e:\Workspace\Jinergy\JNMMES\trunk\src\ServiceCenter.Modules\WIP\ServiceCenter.MES.Service.WIP\WipEngineerServiceForTrack.cs:行号 1431
+2016-07-06 15:32:21,937 - ERROR - START>Application
+2016-07-06 15:33:59,857 - ERROR - ExecuteTrackOutBaseFounction>
+System.ObjectDisposedException: Session is closed!
+对象名:“ISession”。
+   在 NHibernate.Impl.AbstractSessionImpl.ErrorIfClosed() 位置 p:\nhibernate-core\src\NHibernate\Impl\AbstractSessionImpl.cs:行号 213
+   在 NHibernate.Impl.AbstractSessionImpl.CheckAndUpdateSessionStatus() 位置 p:\nhibernate-core\src\NHibernate\Impl\AbstractSessionImpl.cs:行号 205
+   在 NHibernate.Impl.AbstractSessionImpl.CreateQuery(String queryString) 位置 p:\nhibernate-core\src\NHibernate\Impl\AbstractSessionImpl.cs:行号 288
+   在 ServiceCenter.MES.DataAccess.FMM.EquipmentChangeStateDataEngine.Get(String from, String to, ISession session) 位置 e:\Workspace\Jinergy\JNMMES\trunk\src\ServiceCenter.Modules\FMM\ServiceCenter.MES.DataAccess.FMM\EquipmentChangeStateDataEngine.cs:行号 42
+   在 ServiceCenter.MES.Service.WIP.WipEngineerService.ExecuteTrackOutBaseFounction(String workModel, TrackOutParameter p, Equipment equipment, List`1 lstLot, ISession session, String transactionKey) 位置 e:\Workspace\Jinergy\JNMMES\trunk\src\ServiceCenter.Modules\WIP\ServiceCenter.MES.Service.WIP\WipEngineerServiceForTrack.cs:行号 1460
+2016-07-06 15:34:28,358 - ERROR - TrackInLot>
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 ServiceCenter.MES.Service.WIP.WipEngineerService.EquipmentStateRollback(Equipment equipmentBack, ISession session) 位置 e:\Workspace\Jinergy\JNMMES\trunk\src\ServiceCenter.Modules\WIP\ServiceCenter.MES.Service.WIP\WipEngineerServiceForTrack.cs:行号 738
+   在 ServiceCenter.MES.Service.WIP.WipEngineerService.ExecuteTrackInLot(TrackInParameter p, Equipment equipment, List`1 lstLot, ISession session, Boolean executedWithTransaction) 位置 e:\Workspace\Jinergy\JNMMES\trunk\src\ServiceCenter.Modules\WIP\ServiceCenter.MES.Service.WIP\WipEngineerServiceForTrack.cs:行号 592
+   在 ServiceCenter.MES.Service.WIP.WipEngineerService.TrackInLot(TrackInParameter p, ISession session, Boolean executedWithTransaction) 位置 e:\Workspace\Jinergy\JNMMES\trunk\src\ServiceCenter.Modules\WIP\ServiceCenter.MES.Service.WIP\WipEngineerServiceForTrack.cs:行号 290
+2016-07-06 15:35:14,313 - ERROR - ExecuteTrackOutBaseFounction>
+System.ObjectDisposedException: Session is closed!
+对象名:“ISession”。
+   在 NHibernate.Impl.AbstractSessionImpl.ErrorIfClosed() 位置 p:\nhibernate-core\src\NHibernate\Impl\AbstractSessionImpl.cs:行号 213
+   在 NHibernate.Impl.AbstractSessionImpl.CheckAndUpdateSessionStatus() 位置 p:\nhibernate-core\src\NHibernate\Impl\AbstractSessionImpl.cs:行号 205
+   在 NHibernate.Impl.AbstractSessionImpl.CreateQuery(String queryString) 位置 p:\nhibernate-core\src\NHibernate\Impl\AbstractSessionImpl.cs:行号 288
+   在 ServiceCenter.MES.DataAccess.FMM.EquipmentChangeStateDataEngine.Get(String from, String to, ISession session) 位置 e:\Workspace\Jinergy\JNMMES\trunk\src\ServiceCenter.Modules\FMM\ServiceCenter.MES.DataAccess.FMM\EquipmentChangeStateDataEngine.cs:行号 42
+   在 ServiceCenter.MES.Service.WIP.WipEngineerService.ExecuteTrackOutBaseFounction(String workModel, TrackOutParameter p, Equipment equipment, List`1 lstLot, ISession session, String transactionKey) 位置 e:\Workspace\Jinergy\JNMMES\trunk\src\ServiceCenter.Modules\WIP\ServiceCenter.MES.Service.WIP\WipEngineerServiceForTrack.cs:行号 1460
+2016-07-06 15:38:05,437 - ERROR - TrackInLot>
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 ServiceCenter.MES.Service.WIP.WipEngineerService.EquipmentStateRollback(Equipment equipmentBack, ISession session) 位置 e:\Workspace\Jinergy\JNMMES\trunk\src\ServiceCenter.Modules\WIP\ServiceCenter.MES.Service.WIP\WipEngineerServiceForTrack.cs:行号 738
+   在 ServiceCenter.MES.Service.WIP.WipEngineerService.ExecuteTrackInLot(TrackInParameter p, Equipment equipment, List`1 lstLot, ISession session, Boolean executedWithTransaction) 位置 e:\Workspace\Jinergy\JNMMES\trunk\src\ServiceCenter.Modules\WIP\ServiceCenter.MES.Service.WIP\WipEngineerServiceForTrack.cs:行号 592
+   在 ServiceCenter.MES.Service.WIP.WipEngineerService.TrackInLot(TrackInParameter p, ISession session, Boolean executedWithTransaction) 位置 e:\Workspace\Jinergy\JNMMES\trunk\src\ServiceCenter.Modules\WIP\ServiceCenter.MES.Service.WIP\WipEngineerServiceForTrack.cs:行号 290
+2016-07-06 15:51:29,223 - ERROR - START>Application
+2016-07-06 15:53:11,528 - ERROR - ExecuteTrackOutBaseFounction>
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 ServiceCenter.MES.Service.WIP.WipEngineerService.DeductMaterial(EnumDataCollectionAction workModel, TrackOutParameter p, Equipment equipment, List`1 lstLot, ISession session, String transactionKey) 位置 e:\Workspace\Jinergy\JNMMES\trunk\src\ServiceCenter.Modules\WIP\ServiceCenter.MES.Service.WIP\WipEngineerServiceForTrack.cs:行号 2823
+2016-07-06 15:54:31,293 - ERROR - ExecuteTrackOutBaseFounction>
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 ServiceCenter.MES.Service.WIP.WipEngineerService.DeductMaterial(EnumDataCollectionAction workModel, TrackOutParameter p, Equipment equipment, List`1 lstLot, ISession session, String transactionKey) 位置 e:\Workspace\Jinergy\JNMMES\trunk\src\ServiceCenter.Modules\WIP\ServiceCenter.MES.Service.WIP\WipEngineerServiceForTrack.cs:行号 2823
+2016-07-06 15:59:27,562 - ERROR - ExecuteTrackOutBaseFounction>
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 ServiceCenter.MES.Service.WIP.WipEngineerService.DeductMaterial(EnumDataCollectionAction workModel, TrackOutParameter p, Equipment equipment, List`1 lstLot, ISession session, String transactionKey) 位置 e:\Workspace\Jinergy\JNMMES\trunk\src\ServiceCenter.Modules\WIP\ServiceCenter.MES.Service.WIP\WipEngineerServiceForTrack.cs:行号 2823
+2016-07-06 16:44:40,943 - ERROR - START>Application
+2016-07-06 16:46:02,739 - ERROR - AutoTrackOutLot>
+System.FormatException: 索引(从零开始)必须大于或等于零，且小于参数列表的大小。
+   在 System.Text.StringBuilder.AppendFormatHelper(IFormatProvider provider, String format, ParamsArray args)
+   在 System.String.FormatHelper(IFormatProvider provider, String format, ParamsArray args)
+   在 System.String.Format(String format, Object arg0, Object arg1)
+   在 ServiceCenter.MES.Service.WIP.WipEngineerService.GetRouteStepAttribute(String routeName, String routeStepName, String attributeName) 位置 e:\Workspace\Jinergy\JNMMES\trunk\src\ServiceCenter.Modules\WIP\ServiceCenter.MES.Service.WIP\WipEngineerServiceForTrack.cs:行号 3135
+   在 ServiceCenter.MES.Service.WIP.WipEngineerService.AutoTrackOutLot(TrackOutParameter p, Equipment equipment, List`1 lstLot, ISession session) 位置 e:\Workspace\Jinergy\JNMMES\trunk\src\ServiceCenter.Modules\WIP\ServiceCenter.MES.Service.WIP\WipEngineerServiceForTrack.cs:行号 893
+2016-07-06 16:46:36,748 - ERROR - AutoTrackOutLot>
+System.FormatException: 索引(从零开始)必须大于或等于零，且小于参数列表的大小。
+   在 System.Text.StringBuilder.AppendFormatHelper(IFormatProvider provider, String format, ParamsArray args)
+   在 System.String.FormatHelper(IFormatProvider provider, String format, ParamsArray args)
+   在 System.String.Format(String format, Object arg0, Object arg1)
+   在 ServiceCenter.MES.Service.WIP.WipEngineerService.GetRouteStepAttribute(String routeName, String routeStepName, String attributeName) 位置 e:\Workspace\Jinergy\JNMMES\trunk\src\ServiceCenter.Modules\WIP\ServiceCenter.MES.Service.WIP\WipEngineerServiceForTrack.cs:行号 3135
+   在 ServiceCenter.MES.Service.WIP.WipEngineerService.AutoTrackOutLot(TrackOutParameter p, Equipment equipment, List`1 lstLot, ISession session) 位置 e:\Workspace\Jinergy\JNMMES\trunk\src\ServiceCenter.Modules\WIP\ServiceCenter.MES.Service.WIP\WipEngineerServiceForTrack.cs:行号 893
+2016-07-06 16:47:16,263 - ERROR - START>Application
+2016-07-06 16:50:56,698 - ERROR - START>Application
+2016-07-06 16:58:05,671 - ERROR - START>Application
+2016-07-06 17:10:41,373 - ERROR - START>Application
+2016-07-06 17:27:32,250 - ERROR - START>Application
+2016-07-06 17:30:52,477 - ERROR - START>Application
+2016-07-06 17:33:43,127 - ERROR - START>Application
+2016-07-06 17:38:36,035 - ERROR - START>Application
+2016-07-06 18:00:29,116 - ERROR - START>Application
+2016-07-06 18:09:48,437 - ERROR - START>Application
+2016-07-06 19:17:44,204 - ERROR - START>Application
+2016-07-06 19:18:18,068 - ERROR - START>Application

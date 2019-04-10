@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   namespace="ServiceCenter.MES.Model.FMM" 
+                   assembly="ServiceCenter.MES.Model.FMM">
+  <class name="EquipmentLayoutDetail" table="FMM_EQUIPMENT_LAYOUT_DETAIL">
+    <composite-id  name="Key" class="EquipmentLayoutDetailKey">
+      <key-property name="LayoutName" column="LAYOUT_NAME"/>
+      <key-property name="EquipmentCode" column="EQUIPMENT_CODE"/>
+    </composite-id >
+    <property name="Left" column="PIC_LEFT"/>
+    <property name="Top" column="PIC_TOP"/>
+    <property name="Width" column="PIC_WIDTH"/>
+    <property name="Height" column="PIC_HEIGHT"/>
+    <property name="Description" column="DESCRIPTION"/>
+    <property name="Editor" column="EDITOR"/>
+    <property name="EditTime" column="EDIT_TIME"/>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,52 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.LSM.Models.MaterialScrapTypeViewModels
+@using ServiceCenter.Client.Mvc.Areas.LSM.Models;
+
+<div class="form-group">
+    @Html.LabelFor(m => m.BillCode, new { @class = "col-md-1 control-label" })
+    <div class="col-md-2">
+        @Html.TextBoxFor(m => m.BillCode, new { @class = "form-control", @id = "txtBillCode", @readonly = "readonly" })
+        @Html.ValidationMessageFor(m => m.BillCode)
+    </div>
+    @Html.LabelFor(m => m.ScrapDate, new { @class = "col-md-1 control-label" })
+    <div class="col-md-2">
+        @Html.TextBoxFor(m => m.ScrapDate, "{0:yyyy-MM-dd HH:mm:ss}", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.ScrapDate)
+    </div>
+    @Html.LabelFor(m => m.OrderNumber, new { @class = "col-md-1 control-label" })
+    <div class="col-md-2">
+        @Html.DropDownListFor(m => m.OrderNumber, new List<SelectListItem>(), new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.OrderNumber)
+    </div>
+    @Html.LabelFor(m => m.LineStoreName, new { @class = "col-md-1 control-label" })
+    <div class="col-md-2">
+        @Html.DropDownListFor(m => m.LineStoreName, @Model.GetLineStore(), new { @class = "form-control" })
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.MaterialCode, new { @class = "col-md-1 control-label" })
+    <div class="col-md-2">
+        @Html.DropDownListFor(m => m.MaterialCode, new List<SelectListItem>(), new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.MaterialCode)
+    </div>
+
+    @Html.LabelFor(m => m.MaterialLot, new { @class = "col-md-1 control-label" })
+    <div class="col-md-2">
+        @Html.TextBoxFor(m => m.MaterialLot, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.MaterialLot)
+    </div>
+    @Html.LabelFor(m => m.Qty, new { @class = "col-md-1 control-label" })
+    <div class="col-md-2">
+        @Html.TextBoxFor(m => m.Qty, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Qty)
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(m => m.Description, new { @class = "col-md-1 control-label" })
+    <div class="col-md-11">
+        @Html.TextAreaFor(m => m.Description, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Description)
+    </div>
+
+</div>
+

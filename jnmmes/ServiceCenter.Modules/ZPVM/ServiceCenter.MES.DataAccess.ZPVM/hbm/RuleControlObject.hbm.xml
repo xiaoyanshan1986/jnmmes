@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   namespace="ServiceCenter.MES.Model.ZPVM" 
+                   assembly="ServiceCenter.MES.Model.ZPVM">
+  <class name="RuleControlObject" table="ZFMM_RULE_CTLPARA">
+    <composite-id  name="Key" class="RuleControlObjectKey">
+      <key-property name="Code" column="RULE_CODE"/>
+      <key-property name="Object" column="CONTROL_OBJ"/>
+      <key-property name="Type" column="CONTROL_TYPE"/>
+    </composite-id >
+    <property name="Value" column="CONTROL_VALUE"/>
+    <property name="IsUsed" column="IS_USED"/>
+    <property name="Creator" column="CREATOR"/>
+    <property name="CreateTime" column="CREATE_TIME"/>
+    <property name="Editor" column="EDITOR"/>
+    <property name="EditTime" column="EDIT_TIME"/>
+  </class>
+</hibernate-mapping>

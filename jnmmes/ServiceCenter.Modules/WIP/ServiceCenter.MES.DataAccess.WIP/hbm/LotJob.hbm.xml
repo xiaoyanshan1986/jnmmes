@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   namespace="ServiceCenter.MES.Model.WIP" 
+                   assembly="ServiceCenter.MES.Model.WIP">
+  <class name="LotJob" table="WIP_LOT_JOB">
+    <id name="Key" column="JOB_ID">
+      <generator class="assigned" />
+    </id>
+    <property name="JobName" column="JOB_NAME"/>
+    <property name="LotNumber" column="LOT_NUMBER"/>
+    <property name="LineCode" column="LINE_CODE"/>
+    <property name="EquipmentCode" column="EQUIPMENT_CODE"/>
+    <property name="RouteEnterpriseName" column="ROUTE_ENTERPRISE_NAME"/>
+    <property name="RouteName" column="ROUTE_NAME"/>
+    <property name="RouteStepName" column="ROUTE_STEP_NAME"/>
+    <property name="Type" column="JOB_TYPE"/>
+    <property name="Status" column="JOB_STATUS"/>
+    <property name="CloseType" column="JOB_CLOSETYPE"/>
+    <property name="RunCount" column="JOB_RUNCOUNT"/>
+    <property name="NextRunTime" column="JOB_NEXTRUNTIME"/>
+    <property name="NotifyUser" column="NOTIFY_USER"/>
+    <property name="NotifyMessage" column="NOTIFY_MESSAGE"/>
+    <property name="CreateTime" column="CREATE_TIME"/>
+    <property name="Creator" column="CREATOR"/>
+    <property name="Editor" column="EDITOR"/>
+    <property name="EditTime" column="EDIT_TIME"/>
+  </class>
+</hibernate-mapping>

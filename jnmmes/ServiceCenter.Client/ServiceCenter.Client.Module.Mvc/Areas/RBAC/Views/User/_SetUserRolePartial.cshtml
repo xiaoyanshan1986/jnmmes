@@ -1,0 +1,24 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.RBAC.Models.SetUserRoleViewModel
+@using ServiceCenter.MES.Model.RBAC;
+
+@Html.ValidationSummary(true)
+<div class="row">
+    @{
+        IList<Role> lstRole = Model.GetRoles();
+        IList<UserInRole> lstUserInRole = Model.GetUserInRoles(@Model.LoginName);
+
+        foreach (Role r in lstRole)
+        {
+            var lnq = from item in lstUserInRole
+                      where item.Key.RoleName == r.Key
+                      select item;
+
+            <div class="input-group col-md-6">
+                <span class="input-group-addon">
+                    <input type="checkbox" value="@r.Key" checked="@(lnq.Count()>0)" name="Roles">
+                </span>
+                <p class="form-control">@r.Key</p>
+            </div>
+        }
+    }
+</div>

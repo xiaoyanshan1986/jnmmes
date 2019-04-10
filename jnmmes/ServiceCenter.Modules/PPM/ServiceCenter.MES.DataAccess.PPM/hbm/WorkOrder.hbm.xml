@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   namespace="ServiceCenter.MES.Model.PPM" 
+                   assembly="ServiceCenter.MES.Model.PPM">
+  <class name="WorkOrder" table="PPM_WORK_ORDER">
+    <id name="Key" column="ORDER_NUMBER">
+      <generator class="assigned" />
+    </id>
+    <property name="MaterialCode" column="MATERIAL_CODE"/>
+    <property name="OrderState" column="ORDER_STATE"/>
+    <property name="OrderType" column="ORDER_TYPE"/>
+    <property name="Priority" column="ORDER_PRIORITY"/>
+    <property name="OrderQuantity" column="QUANTITY_ORDERED"/>
+    <property name="WIPQuantity" column="QUANTITY_WIP"/>
+    <property name="ScrapQuantity" column="QUANTITY_SCRAPPED"/>
+    <property name="FinishQuantity" column="QUANTITY_FINISHED"/>
+    <property name="LeftQuantity" column="QUANTITY_LEFT"/>
+    <property name="ReworkQuantity" column="QUANTITY_REWORK"/>
+    <property name="RepairQuantity" column="QUANTITY_REPAIR"/>
+    <property name="PlanStartTime" column="PLAN_START_TIME"/>
+    <property name="PlanFinishTime" column="PLAN_FINISH_TIME"/>
+    <property name="StartTime" column="START_TIME"/>
+    <property name="FinishTime" column="FINISH_TIME"/>
+    <property name="CloseType" column="ORDER_CLOSE_TYPE"/>
+    <property name="RevenueType" column="REVENUE_TYPE"/>
+    <property name="LocationName" column="LOCATION_NAME"/>
+    <property name="Description" column="DESCRIPTION"/>
+    <property name="CreateType" column="CreateType"/>
+    <property name="ERPWorkOrderKey" column="ERPWorkOrderKey"/>
+    <property name="Creator" column="CREATOR"/>
+    <property name="CreateTime" column="CREATE_TIME"/>
+    <property name="Editor" column="EDITOR"/>
+    <property name="EditTime" column="EDIT_TIME"/>
+  </class>
+</hibernate-mapping>

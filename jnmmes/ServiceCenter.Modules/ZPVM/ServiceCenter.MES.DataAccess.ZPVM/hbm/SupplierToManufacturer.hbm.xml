@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   namespace="ServiceCenter.MES.Model.ZPVM" 
+                   assembly="ServiceCenter.MES.Model.ZPVM">
+  <class name="SupplierToManufacturer" table="FMM_SUPPLIER_TO_MANUFACTURER">
+    <composite-id  name="Key" class="SupplierToManufacturerKey">
+      <key-property name="MaterialCode" column="MATERIAL_CODE"/>
+      <key-property name="OrderNumber" column="ORDER_NUMBER"/>
+      <key-property name="SupplierCode" column="SUPPLIER_CODE"/>     
+    </composite-id >
+    <property name="ManufacturerCode" column="MANUFACTURER_CODE"/>
+    <property name="Editor" column="EDITOR"/>
+    <property name="EditTime" column="EDIT_TIME"/>
+    <property name="Creator" column="CREATOR"/>
+    <property name="CreateTime" column="CREATE_TIME"/>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,71 @@
+﻿@using ServiceCenter.Client.Mvc.Resources;
+@using System.Data;
+
+@model ServiceCenter.Client.Mvc.Areas.WIP.Models.LotAttributeViewModel
+@using ServiceCenter.Client.Mvc.Areas.WIP.Models;
+@using ServiceCenter.Client.Mvc.Resources;
+@using WIPResources = ServiceCenter.Client.Mvc.Resources.WIP;
+@using ServiceCenter.MES.Model.WIP;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@{
+    PagingConfig cfg = ViewBag.PagingConfig;
+    MethodReturnResult<DataSet> ds = new MethodReturnResult<DataSet>();
+    ds = ViewBag.HistoryList;
+}
+
+<div id="_list" style="overflow:auto">
+    <table class="table table-hover table-bordered table-condensed table-responsive table-striped">
+        <thead>
+            <tr class="active">
+                <<td nowrap>@StringResource.ItemNo</td>
+                <td nowrap>批次号</td>
+                <td nowrap>工单号</td>
+                <td nowrap>动作</td>
+                <td nowrap>工艺流程组</td>
+                <td nowrap>工艺流程</td>
+                <td nowrap>工步</td>
+                <td nowrap>操作客户端</td>
+                <td nowrap>描述</td>
+                <td nowrap>撤销?</td>
+                <td nowrap>创建人</td>
+                <td nowrap>创建时间</td>
+                <td nowrap>编辑人</td>
+                <td nowrap>编辑时间</td>
+            </tr>
+        </thead>
+        <tbody>
+            @if (ds != null && ds.Data != null && ds.Data.Tables.Count > 0 && ds.Data.Tables[0].Rows.Count > 0)
+            {
+                for (int i = 0; i < ds.Data.Tables[0].Rows.Count; i++)
+                {
+                    System.Data.DataRow obj = ds.Data.Tables[0].Rows[i];
+                    <tr>
+                        <td nowrap>@(i + 1) </td>
+                        <td nowrap>@obj["LOT_NUMBER"] </td>
+                        <td nowrap>@obj["ORDER_NUMBER"]</td>
+                        <td nowrap>@obj["ACTIVITY"]</td>
+                        <td nowrap>@obj["ROUTE_ENTERPRISE_NAME"]</td>
+                        <td nowrap>@obj["ROUTE_NAME"]</td>
+                        <td nowrap>@obj["ROUTE_STEP_NAME"]</td>
+                        <td nowrap>@obj["OPR_COMPUTER"]</td>
+                        <td nowrap>@obj["DESCRIPTION"]</td>
+                        <td nowrap>@obj["UNDO_FLAG"]</td>
+                        <td nowrap>@obj["CREATOR"]</td>
+                        <td nowrap>@obj["CREATE_TIME"]</td>
+                        <td nowrap>@obj["EDITOR"]</td>
+                        <td nowrap>@obj["EDIT_TIME"]</td>
+                    </tr>
+
+                }
+
+            }
+        </tbody>
+
+    </table>
+</div>
+
+
+
+
+

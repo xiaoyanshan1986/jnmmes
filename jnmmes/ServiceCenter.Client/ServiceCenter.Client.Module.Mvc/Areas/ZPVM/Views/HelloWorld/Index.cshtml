@@ -1,0 +1,14 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.ZPVM.Models.HelloWorldViewModel
+<p></p>
+<div>
+    @using(Ajax.BeginForm("Show", "HelloWorld", new AjaxOptions()
+                    {
+                        UpdateTargetId = "divShow",
+                        HttpMethod="Post",
+                    }))
+    {
+        <div>@Html.TextBoxFor(m=>m.Name)</div>
+        <input type="submit" value="提交"/>
+    }
+    <div id="divShow"></div>
+</div>

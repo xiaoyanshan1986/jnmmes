@@ -1,0 +1,103 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.BaseData.Models.BaseAttributeViewModel
+@using ServiceCenter.Client.Mvc.Areas.BaseData.Models;
+@using ServiceCenter.Client.Mvc.Resources;
+@using BaseData = ServiceCenter.Client.Mvc.Resources.BaseData;
+@using ServiceCenter.MES.Model.BaseData;
+@using ServiceCenter.Common;
+@using ServiceCenter.Model;
+@{
+    PagingConfig cfg = ViewBag.PagingConfig;
+}
+
+<div id="_list">
+    <table class="table table-hover table-bordered table-condensed">
+        <thead>
+            <tr class="active">
+                <td>@Html.DisplayNameFor(m => m.CategoryName)</td>
+                <td>@Html.DisplayNameFor(m => m.Order)</td>
+                <td>@Html.DisplayNameFor(m => m.AttributeName)</td>
+                <td>@Html.DisplayNameFor(m => m.DataType)</td>
+                <td>@Html.DisplayNameFor(m => m.IsPrimaryKey)</td>
+                <td>@Html.DisplayNameFor(m => m.Description)</td>
+                <td>@StringResource.Detail</td>
+                <td>@StringResource.Modify</td>
+                <td>@StringResource.Delete</td>
+            </tr>
+        </thead>
+        @if (ViewBag.List != null)
+        {
+            <tbody>
+                @for (int i = 0; i < ViewBag.List.Length; i++)
+                {
+                    BaseAttribute obj = ViewBag.List[i];
+                    <tr>
+                        <td>@obj.Key.CategoryName</td>
+                        <td>@obj.Order</td>
+                        <td>@obj.Key.AttributeName</td>
+                        <td>@obj.DataType.GetDisplayName()</td>
+                        <td>@(obj.IsPrimaryKey?"是":"否")</td>
+                        <td>@obj.Description</td>
+                        <td>
+                            @Ajax.ActionLink(StringResource.Detail, actionName: null
+                                            , routeValues: null
+                                            , ajaxOptions:new AjaxOptions() 
+                                            { 
+                                                HttpMethod = "Post", 
+                                                UpdateTargetId = "detailInfo",
+                                                OnSuccess = "showInfoModal",
+                                                Url = Url.Action("Detail", new { @CategoryName = obj.Key.CategoryName,@AttributeName=obj.Key.AttributeName })
+                                            })
+                        </td>
+                        <td>
+                            @Ajax.ActionLink(StringResource.Modify, actionName: null
+                                            ,routeValues:null
+                                            ,ajaxOptions:new AjaxOptions()
+                                            {
+                                                HttpMethod = "Post",
+                                                UpdateTargetId = "modifyFormContent",
+                                                OnSuccess = "showModifyModal",
+                                                Url = Url.Action("Modify", new { @CategoryName = obj.Key.CategoryName, @AttributeName = obj.Key.AttributeName })
+                                            })
+                        </td>
+                        <td>
+                            @Ajax.ActionLink(StringResource.Delete, actionName: null
+                                            , routeValues: null
+                                            , ajaxOptions:new AjaxOptions()
+                                            {
+                                                HttpMethod = "Post",
+                                                Confirm = string.Format(BaseData.StringResource.BaseAttribute_ConfirmDelete, obj.Key),
+                                                Url = Url.Action("Delete", new { @CategoryName = obj.Key.CategoryName, @AttributeName = obj.Key.AttributeName }),
+                                                OnSuccess = "completeDelete"
+                                            })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        }
+    </table>
+    <div style="margin-top:-18px">
+        @if (cfg != null)
+        {
+            using (Ajax.BeginForm("PagingQuery", "BaseAttribute"
+                            , new
+                            {
+                                @Where = cfg.Where,
+                                @OrderBy = cfg.OrderBy,
+                                @CurrentPageNo = cfg.PageNo,
+                                @CurrentPageSize = cfg.PageSize
+                            }
+                            , new AjaxOptions()
+                            {
+                                HttpMethod = "Post",
+                                UpdateTargetId = "_list"
+                            }
+                            , new { @class = "form-horizontal", resource = "form", id = "frmPagingQuery" }))
+            {
+                @Html.AntiForgeryToken()
+                <div>@Html.Partial("_PaginationPartial")</div>
+            }
+        }
+    </div>
+</div>
+
+

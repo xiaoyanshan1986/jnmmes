@@ -1,0 +1,22 @@
+﻿@model ServiceCenter.Client.Mvc.Areas.PPM.Models.WorkOrderProductViewModel
+<div class="form-group">
+    @Html.LabelFor(m => m.OrderNumber, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        <p class="form-control-static">@Model.OrderNumber</p>
+        @Html.HiddenFor(m => m.OrderNumber)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.ItemNo, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => Model.ItemNo, new { @class = "form-control",@readonly="readonly",@id="txtAddItemNo" })
+        @Html.ValidationMessageFor(m => m.ItemNo)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.MaterialCode, new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.MaterialCode, new { @class = "form-control", @id = "txtAddMaterialCode" })
+        @Html.ValidationMessageFor(m => m.MaterialCode)
+    </div>
+</div>

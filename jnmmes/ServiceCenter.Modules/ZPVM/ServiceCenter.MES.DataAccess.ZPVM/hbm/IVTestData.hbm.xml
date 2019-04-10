@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   namespace="ServiceCenter.MES.Model.ZPVM" 
+                   assembly="ServiceCenter.MES.Model.ZPVM">
+  <class name="IVTestData" table="ZWIP_IV_TEST">
+    <composite-id  name="Key" class="IVTestDataKey">
+      <key-property name="LotNumber" column="LOT_NUMBER"/>
+      <key-property name="TestTime" column="TEST_TIME"/>
+      <key-property name="EquipmentCode" column="EQUIPMENT_CODE"/>
+    </composite-id >
+    <property name="PM" column="PM"/>
+    <property name="ISC" column="ISC"/>
+    <property name="IPM" column="IPM"/>
+    <property name="VOC" column="VOC"/>
+    <property name="VPM" column="VPM"/>
+    <property name="FF" column="FF"/>
+    <property name="EFF" column="EFF"/>
+    <property name="RS" column="RS"/>
+    <property name="RSH" column="RSH"/>
+    <property name="AmbientTemperature" column="AMBIENTTEMP"/>
+    <property name="SensorTemperature" column="SENSORTEMP"/>
+    <property name="Intensity" column="INTENSITY"/>
+    <property name="CoefPM" column="COEF_PMAX"/>
+    <property name="CoefISC" column="COEF_ISC"/>
+    <property name="CoefIPM" column="COEF_IMAX"/>
+    <property name="CoefVOC" column="COEF_VOC"/>
+    <property name="CoefVPM" column="COEF_VMAX"/>
+    <property name="CoefFF" column="COEF_FF"/>
+    <property name="CTM" column="DEC_CTM"/>
+    <property name="StdIsc1" column="STDISC1"/>
+    <property name="StdIsc2" column="STDISC2"/>
+    <property name="Stdsun1" column="STDSUN1"/>
+    <property name="Stdsun2" column="STDSUN2"/>
+    <property name="PowersetCode" column="PS_CODE"/>
+    <property name="PowersetItemNo" column="PS_ITEM_NO"/>
+    <property name="PowersetSubCode" column="PS_SUBCODE"/>
+    <property name="IsDefault" column="IS_DEFAULT"/>
+    <property name="IsPrint" column="IS_PRINT"/>
+    <property name="PrintTime" column="PRINT_TIME"/>
+    <property name="PrintCount" column="PRINT_COUNT"/>
+    <property name="CalibrateTime" column="CALIBRATE_TIME"/>
+    <property name="CalibrationNo" column="CALIBRATION_NO"/>
+    <property name="Creator" column="CREATOR"/>
+    <property name="CreateTime" column="CREATE_TIME"/>
+    <property name="Editor" column="EDITOR"/>
+    <property name="EditTime" column="EDIT_TIME"/>
+  </class>
+</hibernate-mapping>

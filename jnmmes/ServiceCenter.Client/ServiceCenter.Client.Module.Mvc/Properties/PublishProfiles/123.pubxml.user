@@ -1,0 +1,3436 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+您 Web 项目的发布/打包进程将使用此文件。您可以通过编辑此 MSBuild 文件
+来自定义该进程的行为。若要了解与此相关的详细信息，请访问 http://go.microsoft.com/fwlink/?LinkID=208121。
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>F:\123\MVC</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="Areas/BaseData/Views/BaseAttribute/Index.cshtml">
+      <publishTime>01/25/2016 17:08:00</publishTime>
+    </File>
+    <File Include="Areas/BaseData/Views/BaseAttribute/_AddPartial.cshtml">
+      <publishTime>01/25/2016 17:08:00</publishTime>
+    </File>
+    <File Include="Areas/BaseData/Views/BaseAttribute/_InfoPartial.cshtml">
+      <publishTime>01/25/2016 17:08:00</publishTime>
+    </File>
+    <File Include="Areas/BaseData/Views/BaseAttribute/_ListPartial.cshtml">
+      <publishTime>07/04/2017 10:58:53</publishTime>
+    </File>
+    <File Include="Areas/BaseData/Views/BaseAttribute/_ModifyPartial.cshtml">
+      <publishTime>01/25/2016 17:08:00</publishTime>
+    </File>
+    <File Include="Areas/BaseData/Views/BaseAttributeCategory/Index.cshtml">
+      <publishTime>01/25/2016 17:08:00</publishTime>
+    </File>
+    <File Include="Areas/BaseData/Views/BaseAttributeCategory/_AddPartial.cshtml">
+      <publishTime>01/25/2016 17:08:00</publishTime>
+    </File>
+    <File Include="Areas/BaseData/Views/BaseAttributeCategory/_InfoPartial.cshtml">
+      <publishTime>01/25/2016 17:08:00</publishTime>
+    </File>
+    <File Include="Areas/BaseData/Views/BaseAttributeCategory/_ListPartial.cshtml">
+      <publishTime>01/25/2016 17:08:00</publishTime>
+    </File>
+    <File Include="Areas/BaseData/Views/BaseAttributeCategory/_ModifyPartial.cshtml">
+      <publishTime>01/25/2016 17:08:00</publishTime>
+    </File>
+    <File Include="Areas/BaseData/Views/BaseAttributeValue/Index.cshtml">
+      <publishTime>01/25/2016 17:08:00</publishTime>
+    </File>
+    <File Include="Areas/BaseData/Views/BaseAttributeValue/_AddPartial.cshtml">
+      <publishTime>01/25/2016 17:08:00</publishTime>
+    </File>
+    <File Include="Areas/BaseData/Views/BaseAttributeValue/_InfoPartial.cshtml">
+      <publishTime>01/25/2016 17:08:00</publishTime>
+    </File>
+    <File Include="Areas/BaseData/Views/BaseAttributeValue/_ListPartial.cshtml">
+      <publishTime>01/25/2016 17:08:00</publishTime>
+    </File>
+    <File Include="Areas/BaseData/Views/BaseAttributeValue/_ModifyPartial.cshtml">
+      <publishTime>01/25/2016 17:08:00</publishTime>
+    </File>
+    <File Include="Areas/BaseData/Views/web.config">
+      <publishTime>01/25/2016 17:08:00</publishTime>
+    </File>
+    <File Include="Areas/BaseData/Views/_ViewStart.cshtml">
+      <publishTime>01/25/2016 17:08:00</publishTime>
+    </File>
+    <File Include="Areas/EDC/Views/Category/Index.cshtml">
+      <publishTime>01/25/2016 17:08:05</publishTime>
+    </File>
+    <File Include="Areas/EDC/Views/Category/_AddPartial.cshtml">
+      <publishTime>01/25/2016 17:08:05</publishTime>
+    </File>
+    <File Include="Areas/EDC/Views/Category/_InfoPartial.cshtml">
+      <publishTime>01/25/2016 17:08:05</publishTime>
+    </File>
+    <File Include="Areas/EDC/Views/Category/_ListPartial.cshtml">
+      <publishTime>01/25/2016 17:08:05</publishTime>
+    </File>
+    <File Include="Areas/EDC/Views/Category/_ModifyPartial.cshtml">
+      <publishTime>01/25/2016 17:08:05</publishTime>
+    </File>
+    <File Include="Areas/EDC/Views/CategoryDetail/Index.cshtml">
+      <publishTime>01/25/2016 17:08:04</publishTime>
+    </File>
+    <File Include="Areas/EDC/Views/CategoryDetail/_AddPartial.cshtml">
+      <publishTime>01/25/2016 17:08:04</publishTime>
+    </File>
+    <File Include="Areas/EDC/Views/CategoryDetail/_InfoPartial.cshtml">
+      <publishTime>01/25/2016 17:08:04</publishTime>
+    </File>
+    <File Include="Areas/EDC/Views/CategoryDetail/_ListPartial.cshtml">
+      <publishTime>01/25/2016 17:08:04</publishTime>
+    </File>
+    <File Include="Areas/EDC/Views/CategoryDetail/_ModifyPartial.cshtml">
+      <publishTime>01/25/2016 17:08:04</publishTime>
+    </File>
+    <File Include="Areas/EDC/Views/DataAcquisitionData/Index.cshtml">
+      <publishTime>06/30/2017 18:11:31</publishTime>
+    </File>
+    <File Include="Areas/EDC/Views/DataAcquisitionData/_AddPartial.cshtml">
+      <publishTime>06/30/2017 18:03:28</publishTime>
+    </File>
+    <File Include="Areas/EDC/Views/DataAcquisitionData/_InfoPartial.cshtml">
+      <publishTime>06/30/2017 15:48:36</publishTime>
+    </File>
+    <File Include="Areas/EDC/Views/DataAcquisitionData/_ListPartial.cshtml">
+      <publishTime>07/04/2017 13:53:35</publishTime>
+    </File>
+    <File Include="Areas/EDC/Views/DataAcquisitionData/_ModifyPartial.cshtml">
+      <publishTime>07/03/2017 16:10:06</publishTime>
+    </File>
+    <File Include="Areas/EDC/Views/DataAcquisitionField/Index.cshtml">
+      <publishTime>06/22/2017 23:15:07</publishTime>
+    </File>
+    <File Include="Areas/EDC/Views/DataAcquisitionField/_AddPartial.cshtml">
+      <publishTime>07/06/2017 17:04:59</publishTime>
+    </File>
+    <File Include="Areas/EDC/Views/DataAcquisitionField/_InfoPartial.cshtml">
+      <publishTime>07/06/2017 17:08:02</publishTime>
+    </File>
+    <File Include="Areas/EDC/Views/DataAcquisitionField/_ListPartial.cshtml">
+      <publishTime>07/06/2017 17:03:44</publishTime>
+    </File>
+    <File Include="Areas/EDC/Views/DataAcquisitionField/_ModifyPartial.cshtml">
+      <publishTime>07/06/2017 17:07:18</publishTime>
+    </File>
+    <File Include="Areas/EDC/Views/DataAcquisitionItem/Index.cshtml">
+      <publishTime>06/23/2017 17:42:39</publishTime>
+    </File>
+    <File Include="Areas/EDC/Views/DataAcquisitionItem/IndexInput.cshtml">
+      <publishTime>07/02/2017 14:56:46</publishTime>
+    </File>
+    <File Include="Areas/EDC/Views/DataAcquisitionItem/_AddPartial.cshtml">
+      <publishTime>06/13/2017 16:15:38</publishTime>
+    </File>
+    <File Include="Areas/EDC/Views/DataAcquisitionItem/_InfoPartial.cshtml">
+      <publishTime>06/14/2017 17:30:39</publishTime>
+    </File>
+    <File Include="Areas/EDC/Views/DataAcquisitionItem/_InputListPartial.cshtml">
+      <publishTime>06/21/2017 10:54:01</publishTime>
+    </File>
+    <File Include="Areas/EDC/Views/DataAcquisitionItem/_ListPartial.cshtml">
+      <publishTime>06/16/2017 14:02:46</publishTime>
+    </File>
+    <File Include="Areas/EDC/Views/DataAcquisitionItem/_ModifyPartial.cshtml">
+      <publishTime>06/14/2017 17:29:13</publishTime>
+    </File>
+    <File Include="Areas/EDC/Views/DataAcquisitionTrans/Index.cshtml">
+      <publishTime>07/04/2017 10:15:23</publishTime>
+    </File>
+    <File Include="Areas/EDC/Views/DataAcquisitionTrans/_ListPartial.cshtml">
+      <publishTime>07/04/2017 13:55:40</publishTime>
+    </File>
+    <File Include="Areas/EDC/Views/Point/Index.cshtml">
+      <publishTime>01/25/2016 17:08:05</publishTime>
+    </File>
+    <File Include="Areas/EDC/Views/Point/_AddPartial.cshtml">
+      <publishTime>01/25/2016 17:08:05</publishTime>
+    </File>
+    <File Include="Areas/EDC/Views/Point/_InfoPartial.cshtml">
+      <publishTime>01/25/2016 17:08:05</publishTime>
+    </File>
+    <File Include="Areas/EDC/Views/Point/_ListPartial.cshtml">
+      <publishTime>01/25/2016 17:08:05</publishTime>
+    </File>
+    <File Include="Areas/EDC/Views/Point/_ModifyPartial.cshtml">
+      <publishTime>01/25/2016 17:08:05</publishTime>
+    </File>
+    <File Include="Areas/EDC/Views/PointDetail/Index.cshtml">
+      <publishTime>01/25/2016 17:08:05</publishTime>
+    </File>
+    <File Include="Areas/EDC/Views/PointDetail/_InfoPartial.cshtml">
+      <publishTime>01/25/2016 17:08:05</publishTime>
+    </File>
+    <File Include="Areas/EDC/Views/PointDetail/_ListPartial.cshtml">
+      <publishTime>01/25/2016 17:08:05</publishTime>
+    </File>
+    <File Include="Areas/EDC/Views/PointDetail/_ModifyPartial.cshtml">
+      <publishTime>01/25/2016 17:08:05</publishTime>
+    </File>
+    <File Include="Areas/EDC/Views/SamplingPlan/Index.cshtml">
+      <publishTime>01/25/2016 17:08:05</publishTime>
+    </File>
+    <File Include="Areas/EDC/Views/SamplingPlan/_AddPartial.cshtml">
+      <publishTime>01/25/2016 17:08:05</publishTime>
+    </File>
+    <File Include="Areas/EDC/Views/SamplingPlan/_InfoPartial.cshtml">
+      <publishTime>01/25/2016 17:08:05</publishTime>
+    </File>
+    <File Include="Areas/EDC/Views/SamplingPlan/_ListPartial.cshtml">
+      <publishTime>01/25/2016 17:08:05</publishTime>
+    </File>
+    <File Include="Areas/EDC/Views/SamplingPlan/_ModifyPartial.cshtml">
+      <publishTime>01/25/2016 17:08:05</publishTime>
+    </File>
+    <File Include="Areas/EDC/Views/web.config">
+      <publishTime>01/25/2016 17:08:05</publishTime>
+    </File>
+    <File Include="Areas/EDC/Views/_ViewStart.cshtml">
+      <publishTime>01/25/2016 17:08:05</publishTime>
+    </File>
+    <File Include="Areas/EMS/Views/EquipmentStateEvent/Index.cshtml">
+      <publishTime>08/09/2016 11:57:18</publishTime>
+    </File>
+    <File Include="Areas/EMS/Views/EquipmentStateEvent/_AddPartial.cshtml">
+      <publishTime>07/28/2016 15:52:16</publishTime>
+    </File>
+    <File Include="Areas/EMS/Views/EquipmentStateEvent/_ListPartial.cshtml">
+      <publishTime>07/28/2016 15:51:58</publishTime>
+    </File>
+    <File Include="Areas/EMS/Views/web.config">
+      <publishTime>01/25/2016 17:08:00</publishTime>
+    </File>
+    <File Include="Areas/EMS/Views/_ViewStart.cshtml">
+      <publishTime>01/25/2016 17:08:00</publishTime>
+    </File>
+    <File Include="Areas/ERP/Views/ERPBasicData/Index.cshtml">
+      <publishTime>01/25/2016 17:08:03</publishTime>
+    </File>
+    <File Include="Areas/ERP/Views/ERPMaterialReceipt/Detail.cshtml">
+      <publishTime>10/25/2016 16:49:50</publishTime>
+    </File>
+    <File Include="Areas/ERP/Views/ERPMaterialReceipt/Index.cshtml">
+      <publishTime>01/25/2016 17:08:03</publishTime>
+    </File>
+    <File Include="Areas/ERP/Views/ERPMaterialReceipt/_ListPartial.cshtml">
+      <publishTime>01/25/2016 17:08:03</publishTime>
+    </File>
+    <File Include="Areas/ERP/Views/ERPWIReport/Detail - 复制.cshtml">
+      <publishTime>01/07/2017 14:41:52</publishTime>
+    </File>
+    <File Include="Areas/ERP/Views/ERPWIReport/Detail.cshtml">
+      <publishTime>01/10/2017 23:09:41</publishTime>
+    </File>
+    <File Include="Areas/ERP/Views/ERPWIReport/Detail20170106.cshtml">
+      <publishTime>01/06/2017 20:12:11</publishTime>
+    </File>
+    <File Include="Areas/ERP/Views/ERPWIReport/Index.cshtml">
+      <publishTime>01/10/2017 22:35:57</publishTime>
+    </File>
+    <File Include="Areas/ERP/Views/ERPWIReport/sDetail.cshtml">
+      <publishTime>01/25/2016 17:08:03</publishTime>
+    </File>
+    <File Include="Areas/ERP/Views/ERPWIReport/sIndex.cshtml">
+      <publishTime>01/25/2016 17:08:03</publishTime>
+    </File>
+    <File Include="Areas/ERP/Views/ERPWIReport/wDetail.cshtml">
+      <publishTime>01/09/2017 20:21:34</publishTime>
+    </File>
+    <File Include="Areas/ERP/Views/ERPWIReport/wDetail20170109.cshtml">
+      <publishTime>01/09/2017 19:16:06</publishTime>
+    </File>
+    <File Include="Areas/ERP/Views/ERPWIReport/wIndex.cshtml">
+      <publishTime>01/10/2017 22:56:40</publishTime>
+    </File>
+    <File Include="Areas/ERP/Views/ERPWIReport/wIndex20170109.cshtml">
+      <publishTime>01/09/2017 19:04:36</publishTime>
+    </File>
+    <File Include="Areas/ERP/Views/ERPWIReport/_DetailListPartial.cshtml">
+      <publishTime>01/12/2017 19:07:29</publishTime>
+    </File>
+    <File Include="Areas/ERP/Views/ERPWIReport/_ListPartial.cshtml">
+      <publishTime>01/12/2017 18:53:43</publishTime>
+    </File>
+    <File Include="Areas/ERP/Views/ERPWIReport/_sDetailListPartial.cshtml">
+      <publishTime>01/25/2016 17:08:03</publishTime>
+    </File>
+    <File Include="Areas/ERP/Views/ERPWIReport/_sListPartial.cshtml">
+      <publishTime>01/25/2016 17:08:03</publishTime>
+    </File>
+    <File Include="Areas/ERP/Views/ERPWIReport/_wDetailListPartial.cshtml">
+      <publishTime>01/09/2017 19:17:31</publishTime>
+    </File>
+    <File Include="Areas/ERP/Views/ERPWIReport/_wDetailListPartial20170109.cshtml">
+      <publishTime>01/09/2017 19:16:57</publishTime>
+    </File>
+    <File Include="Areas/ERP/Views/ERPWIReport/_wListPartial.cshtml">
+      <publishTime>01/09/2017 20:24:25</publishTime>
+    </File>
+    <File Include="Areas/ERP/Views/ERPWIReport/_wListPartial20170109.cshtml">
+      <publishTime>01/09/2017 19:13:32</publishTime>
+    </File>
+    <File Include="Areas/ERP/Views/ERPWOReport/Index.cshtml">
+      <publishTime>01/10/2017 22:18:16</publishTime>
+    </File>
+    <File Include="Areas/ERP/Views/ERPWOReport/sIndex.cshtml">
+      <publishTime>01/25/2016 17:08:03</publishTime>
+    </File>
+    <File Include="Areas/ERP/Views/ERPWOReport/_AddPartial.cshtml">
+      <publishTime>01/10/2017 22:18:48</publishTime>
+    </File>
+    <File Include="Areas/ERP/Views/ERPWOReport/_ListPartial.cshtml">
+      <publishTime>01/12/2017 18:54:07</publishTime>
+    </File>
+    <File Include="Areas/ERP/Views/ERPWOReport/_ModifyPartial.cshtml">
+      <publishTime>01/10/2017 22:19:04</publishTime>
+    </File>
+    <File Include="Areas/ERP/Views/ERPWOReport/_sAddPartial.cshtml">
+      <publishTime>01/25/2016 17:08:03</publishTime>
+    </File>
+    <File Include="Areas/ERP/Views/ERPWOReport/_sListPartial.cshtml">
+      <publishTime>01/08/2017 17:11:58</publishTime>
+    </File>
+    <File Include="Areas/ERP/Views/ERPWOReport/_sModifyPartial.cshtml">
+      <publishTime>01/25/2016 17:08:03</publishTime>
+    </File>
+    <File Include="Areas/ERP/Views/ERPWOReportDetail/Index - 复制.cshtml">
+      <publishTime>01/06/2017 22:19:25</publishTime>
+    </File>
+    <File Include="Areas/ERP/Views/ERPWOReportDetail/Index.cshtml">
+      <publishTime>01/09/2017 17:32:38</publishTime>
+    </File>
+    <File Include="Areas/ERP/Views/ERPWOReportDetail/sIndex.cshtml">
+      <publishTime>01/25/2016 17:08:03</publishTime>
+    </File>
+    <File Include="Areas/ERP/Views/ERPWOReportDetail/_ListPartial.cshtml">
+      <publishTime>01/08/2017 10:49:32</publishTime>
+    </File>
+    <File Include="Areas/ERP/Views/ERPWOReportDetail/_sListPartial.cshtml">
+      <publishTime>12/01/2016 16:28:56</publishTime>
+    </File>
+    <File Include="Areas/ERP/Views/ERPWorkOrder/Detail.cshtml">
+      <publishTime>02/06/2017 18:10:52</publishTime>
+    </File>
+    <File Include="Areas/ERP/Views/ERPWorkOrder/Index.cshtml">
+      <publishTime>01/25/2016 17:08:03</publishTime>
+    </File>
+    <File Include="Areas/ERP/Views/ERPWorkOrder/_BOMListPartial.cshtml">
+      <publishTime>12/17/2016 19:13:47</publishTime>
+    </File>
+    <File Include="Areas/ERP/Views/web.config">
+      <publishTime>01/25/2016 17:08:03</publishTime>
+    </File>
+    <File Include="Areas/ERP/Views/_ViewStart.cshtml">
+      <publishTime>01/25/2016 17:08:03</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/BinRule/Index.cshtml">
+      <publishTime>01/25/2016 17:07:55</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/BinRule/_AddPartial.cshtml">
+      <publishTime>01/25/2016 17:07:55</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/BinRule/_ListPartial.cshtml">
+      <publishTime>01/25/2016 17:07:55</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/BinRule/_ModifyPartial.cshtml">
+      <publishTime>01/25/2016 17:07:55</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/CalibrationPlate/Index.cshtml">
+      <publishTime>01/25/2016 17:07:57</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/CalibrationPlate/_AddPartial.cshtml">
+      <publishTime>10/14/2016 15:25:31</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/CalibrationPlate/_ListPartial.cshtml">
+      <publishTime>10/14/2016 15:26:41</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/CalibrationPlate/_ModifyPartial.cshtml">
+      <publishTime>10/14/2016 15:27:14</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/CalibrationPlateLine/Index.cshtml">
+      <publishTime>01/25/2016 17:07:53</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/CalibrationPlateLine/_AddPartial.cshtml">
+      <publishTime>01/25/2016 17:07:53</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/CalibrationPlateLine/_ListPartial.cshtml">
+      <publishTime>01/25/2016 17:07:53</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/CalibrationPlateLine/_ModifyPartial.cshtml">
+      <publishTime>01/25/2016 17:07:53</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/ClientConfig/Index.cshtml">
+      <publishTime>01/25/2016 17:07:57</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/ClientConfig/_AddPartial.cshtml">
+      <publishTime>01/25/2016 17:07:57</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/ClientConfig/_InfoPartial.cshtml">
+      <publishTime>01/25/2016 17:07:57</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/ClientConfig/_ListPartial.cshtml">
+      <publishTime>01/25/2016 17:07:57</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/ClientConfig/_ModifyPartial.cshtml">
+      <publishTime>01/25/2016 17:07:57</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/ClientConfigAttribute/Index.cshtml">
+      <publishTime>07/09/2016 14:02:56</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/ClientConfigAttribute/_AddPartial.cshtml">
+      <publishTime>07/09/2016 14:02:56</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/ClientConfigAttribute/_InfoPartial.cshtml">
+      <publishTime>07/09/2016 14:02:56</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/ClientConfigAttribute/_ListPartial.cshtml">
+      <publishTime>07/09/2016 14:02:56</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/ClientConfigAttribute/_ModifyPartial.cshtml">
+      <publishTime>07/09/2016 14:02:56</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/Equipment/Index.cshtml">
+      <publishTime>01/25/2016 17:07:56</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/Equipment/_AddPartial.cshtml">
+      <publishTime>02/06/2017 15:29:04</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/Equipment/_InfoPartial.cshtml">
+      <publishTime>02/06/2017 15:33:21</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/Equipment/_ListPartial.cshtml">
+      <publishTime>02/06/2017 15:20:50</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/Equipment/_ModifyPartial.cshtml">
+      <publishTime>02/06/2017 15:30:15</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/EquipmentChangeState/Index.cshtml">
+      <publishTime>01/25/2016 17:07:57</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/EquipmentChangeState/_ListPartial.cshtml">
+      <publishTime>01/25/2016 17:07:57</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/EquipmentConsuming/Index.cshtml">
+      <publishTime>11/09/2016 17:21:03</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/EquipmentConsuming/_AddPartial.cshtml">
+      <publishTime>02/08/2017 16:36:17</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/EquipmentConsuming/_InfoPartial.cshtml">
+      <publishTime>10/25/2016 16:42:19</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/EquipmentConsuming/_ListPartial.cshtml">
+      <publishTime>10/26/2016 09:32:46</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/EquipmentConsuming/_ModifyPartial.cshtml">
+      <publishTime>11/09/2016 16:15:26</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/EquipmentControlObject/Index.cshtml">
+      <publishTime>11/10/2016 16:19:40</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/EquipmentControlObject/_AddPartial.cshtml">
+      <publishTime>11/10/2016 16:31:42</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/EquipmentControlObject/_InfoPartial.cshtml">
+      <publishTime>11/10/2016 16:03:07</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/EquipmentControlObject/_ListPartial.cshtml">
+      <publishTime>11/10/2016 16:27:45</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/EquipmentControlObject/_ModifyPartial.cshtml">
+      <publishTime>11/10/2016 16:04:02</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/EquipmentGroup/Index.cshtml">
+      <publishTime>01/25/2016 17:07:53</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/EquipmentGroup/_AddPartial.cshtml">
+      <publishTime>01/25/2016 17:07:53</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/EquipmentGroup/_InfoPartial.cshtml">
+      <publishTime>01/25/2016 17:07:53</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/EquipmentGroup/_ListPartial.cshtml">
+      <publishTime>01/25/2016 17:07:53</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/EquipmentGroup/_ModifyPartial.cshtml">
+      <publishTime>01/25/2016 17:07:53</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/EquipmentLayout/Index.cshtml">
+      <publishTime>01/25/2016 17:07:56</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/EquipmentLayout/_AddPartial.cshtml">
+      <publishTime>01/25/2016 17:07:56</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/EquipmentLayout/_InfoPartial.cshtml">
+      <publishTime>01/25/2016 17:07:56</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/EquipmentLayout/_ListPartial.cshtml">
+      <publishTime>01/25/2016 17:07:56</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/EquipmentLayout/_ModifyPartial.cshtml">
+      <publishTime>01/25/2016 17:07:56</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/EquipmentLayoutDetail/Index.cshtml">
+      <publishTime>01/25/2016 17:07:53</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/EquipmentLayoutDetail/_AddPartial.cshtml">
+      <publishTime>01/25/2016 17:07:53</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/EquipmentLayoutDetail/_ListPartial.cshtml">
+      <publishTime>01/25/2016 17:07:53</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/EquipmentRealtimeMonitor/Index.cshtml">
+      <publishTime>08/09/2016 12:07:33</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/EquipmentRealtimeMonitor/_AddPartial.cshtml">
+      <publishTime>08/04/2016 18:39:02</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/EquipmentRealtimeMonitor/_InfoPartial.cshtml">
+      <publishTime>08/03/2016 17:09:34</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/EquipmentRealtimeMonitor/_ListPartial.cshtml">
+      <publishTime>08/03/2016 15:02:54</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/EquipmentReasonCode/Index.cshtml">
+      <publishTime>07/27/2016 14:41:06</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/EquipmentReasonCode/_AddPartial.cshtml">
+      <publishTime>07/27/2016 14:41:06</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/EquipmentReasonCode/_InfoPartial.cshtml">
+      <publishTime>07/27/2016 14:41:06</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/EquipmentReasonCode/_ListPartial.cshtml">
+      <publishTime>07/27/2016 14:41:06</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/EquipmentReasonCode/_ModifyPartial.cshtml">
+      <publishTime>07/27/2016 14:41:06</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/EquipmentReasonCodeCategory/Index.cshtml">
+      <publishTime>07/27/2016 14:41:06</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/EquipmentReasonCodeCategory/_AddPartial.cshtml">
+      <publishTime>07/27/2016 14:41:06</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/EquipmentReasonCodeCategory/_InfoPartial.cshtml">
+      <publishTime>07/27/2016 14:41:06</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/EquipmentReasonCodeCategory/_ListPartial.cshtml">
+      <publishTime>07/27/2016 14:41:06</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/EquipmentReasonCodeCategory/_ModifyPartial.cshtml">
+      <publishTime>07/27/2016 14:41:06</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/EquipmentReasonCodeCategoryDetail/Index.cshtml">
+      <publishTime>07/27/2016 14:41:06</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/EquipmentReasonCodeCategoryDetail/_AddPartial.cshtml">
+      <publishTime>07/27/2016 14:41:06</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/EquipmentReasonCodeCategoryDetail/_InfoPartial.cshtml">
+      <publishTime>07/27/2016 14:41:06</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/EquipmentReasonCodeCategoryDetail/_ListPartial.cshtml">
+      <publishTime>07/27/2016 14:41:06</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/EquipmentReasonCodeCategoryDetail/_ModifyPartial.cshtml">
+      <publishTime>07/27/2016 14:41:06</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/EquipmentState/Index.cshtml">
+      <publishTime>08/02/2016 18:53:09</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/EquipmentState/_AddPartial.cshtml">
+      <publishTime>08/02/2016 18:53:54</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/EquipmentState/_InfoPartial.cshtml">
+      <publishTime>01/25/2016 17:07:56</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/EquipmentState/_ListPartial.cshtml">
+      <publishTime>07/27/2016 14:41:06</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/EquipmentState/_ModifyPartial.cshtml">
+      <publishTime>08/02/2016 18:54:04</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/LineStore/Index.cshtml">
+      <publishTime>02/06/2017 14:00:32</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/LineStore/_AddPartial.cshtml">
+      <publishTime>02/06/2017 14:01:55</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/LineStore/_InfoPartial.cshtml">
+      <publishTime>02/06/2017 14:02:11</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/LineStore/_ListPartial.cshtml">
+      <publishTime>02/06/2017 14:04:53</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/LineStore/_ModifyPartial.cshtml">
+      <publishTime>02/06/2017 14:02:31</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/Location/Index.cshtml">
+      <publishTime>12/17/2016 13:04:26</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/Location/_AddPartial.cshtml">
+      <publishTime>12/17/2016 12:03:48</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/Location/_InfoPartial.cshtml">
+      <publishTime>12/17/2016 12:05:05</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/Location/_ListPartial.cshtml">
+      <publishTime>12/21/2016 12:06:44</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/Location/_ModifyPartial.cshtml">
+      <publishTime>12/17/2016 12:04:36</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/Material/Index.cshtml">
+      <publishTime>01/10/2017 23:12:16</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/Material/_AddPartial.cshtml">
+      <publishTime>01/10/2017 23:48:51</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/Material/_InfoPartial.cshtml">
+      <publishTime>01/10/2017 23:48:46</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/Material/_ListPartial.cshtml">
+      <publishTime>08/03/2017 14:02:48</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/Material/_ModifyPartial.cshtml">
+      <publishTime>01/10/2017 23:48:32</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/MaterialAttribute/Index.cshtml">
+      <publishTime>08/01/2017 17:09:38</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/MaterialAttribute/_AddPartial.cshtml">
+      <publishTime>01/25/2016 17:07:53</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/MaterialAttribute/_InfoPartial.cshtml">
+      <publishTime>01/25/2016 17:07:53</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/MaterialAttribute/_ListPartial.cshtml">
+      <publishTime>08/01/2017 17:07:51</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/MaterialAttribute/_ModifyPartial.cshtml">
+      <publishTime>01/25/2016 17:07:53</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/MaterialBOM/Index.cshtml">
+      <publishTime>01/25/2016 17:07:55</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/MaterialBOM/_AddPartial.cshtml">
+      <publishTime>01/25/2016 17:07:55</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/MaterialBOM/_InfoPartial.cshtml">
+      <publishTime>01/25/2016 17:07:55</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/MaterialBOM/_ListPartial.cshtml">
+      <publishTime>01/25/2016 17:07:55</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/MaterialBOM/_ModifyPartial.cshtml">
+      <publishTime>01/25/2016 17:07:55</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/MaterialPrintSet/Index.cshtml">
+      <publishTime>07/19/2017 20:19:52</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/MaterialPrintSet/_AddPartial.cshtml">
+      <publishTime>07/19/2017 17:09:13</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/MaterialPrintSet/_InfoPartial.cshtml">
+      <publishTime>07/19/2017 16:40:35</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/MaterialPrintSet/_ListPartial.cshtml">
+      <publishTime>07/19/2017 17:58:36</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/MaterialPrintSet/_ModifyPartial.cshtml">
+      <publishTime>07/19/2017 16:39:43</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/MaterialRoute/Index.cshtml">
+      <publishTime>12/19/2016 10:10:46</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/MaterialRoute/_AddPartial.cshtml">
+      <publishTime>12/18/2016 17:22:32</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/MaterialRoute/_ListPartial.cshtml">
+      <publishTime>12/19/2016 10:05:31</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/MaterialType/Index.cshtml">
+      <publishTime>01/25/2016 17:07:55</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/MaterialType/_AddPartial.cshtml">
+      <publishTime>12/19/2016 10:14:31</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/MaterialType/_InfoPartial.cshtml">
+      <publishTime>12/19/2016 10:14:44</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/MaterialType/_ListPartial.cshtml">
+      <publishTime>12/20/2016 08:33:45</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/MaterialType/_ModifyPartial.cshtml">
+      <publishTime>12/19/2016 10:14:58</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/MaterialTypeRoute/Index.cshtml">
+      <publishTime>01/25/2016 17:07:56</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/MaterialTypeRoute/_AddPartial.cshtml">
+      <publishTime>01/25/2016 17:07:56</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/MaterialTypeRoute/_ListPartial.cshtml">
+      <publishTime>01/25/2016 17:07:56</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/Parameter/Index.cshtml">
+      <publishTime>01/25/2016 17:07:56</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/Parameter/_AddPartial.cshtml">
+      <publishTime>02/06/2017 14:22:47</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/Parameter/_InfoPartial.cshtml">
+      <publishTime>02/06/2017 14:24:04</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/Parameter/_ListPartial.cshtml">
+      <publishTime>02/06/2017 14:28:19</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/Parameter/_ModifyPartial.cshtml">
+      <publishTime>02/06/2017 14:28:59</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/ParameterDerivation/Index.cshtml">
+      <publishTime>01/25/2016 17:07:56</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/ParameterDerivation/_AddPartial.cshtml">
+      <publishTime>01/25/2016 17:07:56</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/ParameterDerivation/_ListPartial.cshtml">
+      <publishTime>01/25/2016 17:07:56</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/PrintLabel/Index.cshtml">
+      <publishTime>01/25/2016 17:07:55</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/PrintLabel/PrintTest.cshtml">
+      <publishTime>01/25/2016 17:07:55</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/PrintLabel/_AddPartial.cshtml">
+      <publishTime>01/25/2016 17:07:55</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/PrintLabel/_InfoPartial.cshtml">
+      <publishTime>01/25/2016 17:07:55</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/PrintLabel/_ListPartial.cshtml">
+      <publishTime>01/25/2016 17:07:55</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/PrintLabel/_ModifyPartial.cshtml">
+      <publishTime>01/25/2016 17:07:55</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/ProductionLine/Index.cshtml">
+      <publishTime>01/25/2016 17:07:55</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/ProductionLine/_AddPartial.cshtml">
+      <publishTime>01/25/2016 17:07:55</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/ProductionLine/_InfoPartial.cshtml">
+      <publishTime>01/25/2016 17:07:55</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/ProductionLine/_ListPartial.cshtml">
+      <publishTime>01/25/2016 17:07:55</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/ProductionLine/_ModifyPartial.cshtml">
+      <publishTime>01/25/2016 17:07:55</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/ReasonCode/Index.cshtml">
+      <publishTime>01/25/2016 17:07:53</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/ReasonCode/_AddPartial.cshtml">
+      <publishTime>01/25/2016 17:07:53</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/ReasonCode/_InfoPartial.cshtml">
+      <publishTime>01/25/2016 17:07:53</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/ReasonCode/_ListPartial.cshtml">
+      <publishTime>01/25/2016 17:07:53</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/ReasonCode/_ModifyPartial.cshtml">
+      <publishTime>01/25/2016 17:07:53</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/ReasonCodeCategory/Index.cshtml">
+      <publishTime>01/25/2016 17:07:53</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/ReasonCodeCategory/_AddPartial.cshtml">
+      <publishTime>01/25/2016 17:07:53</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/ReasonCodeCategory/_InfoPartial.cshtml">
+      <publishTime>01/25/2016 17:07:53</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/ReasonCodeCategory/_ListPartial.cshtml">
+      <publishTime>01/25/2016 17:07:53</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/ReasonCodeCategory/_ModifyPartial.cshtml">
+      <publishTime>01/25/2016 17:07:53</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/ReasonCodeCategoryDetail/Index.cshtml">
+      <publishTime>01/25/2016 17:07:57</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/ReasonCodeCategoryDetail/_AddPartial.cshtml">
+      <publishTime>01/25/2016 17:07:57</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/ReasonCodeCategoryDetail/_InfoPartial.cshtml">
+      <publishTime>01/25/2016 17:07:57</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/ReasonCodeCategoryDetail/_ListPartial.cshtml">
+      <publishTime>12/19/2016 15:32:43</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/ReasonCodeCategoryDetail/_ModifyPartial.cshtml">
+      <publishTime>01/25/2016 17:07:57</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/Route/Index.cshtml">
+      <publishTime>01/25/2016 17:07:56</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/Route/_AddPartial.cshtml">
+      <publishTime>12/19/2016 09:36:09</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/Route/_InfoPartial.cshtml">
+      <publishTime>12/19/2016 09:41:42</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/Route/_ListPartial.cshtml">
+      <publishTime>12/19/2016 09:32:12</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/Route/_ModifyPartial.cshtml">
+      <publishTime>12/19/2016 09:41:15</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/RouteEnterprise/Index.cshtml">
+      <publishTime>12/19/2016 15:03:13</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/RouteEnterprise/_AddPartial.cshtml">
+      <publishTime>01/25/2016 17:07:55</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/RouteEnterprise/_InfoPartial.cshtml">
+      <publishTime>01/25/2016 17:07:55</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/RouteEnterprise/_ListPartial.cshtml">
+      <publishTime>12/19/2016 15:00:12</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/RouteEnterprise/_ModifyPartial.cshtml">
+      <publishTime>01/25/2016 17:07:55</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/RouteEnterpriseDetail/Index.cshtml">
+      <publishTime>12/19/2016 15:34:55</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/RouteEnterpriseDetail/_AddPartial.cshtml">
+      <publishTime>01/25/2016 17:07:53</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/RouteEnterpriseDetail/_InfoPartial.cshtml">
+      <publishTime>01/25/2016 17:07:53</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/RouteEnterpriseDetail/_ListPartial.cshtml">
+      <publishTime>12/19/2016 17:31:02</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/RouteEnterpriseDetail/_ModifyPartial.cshtml">
+      <publishTime>01/25/2016 17:07:53</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/RouteOperation/Index.cshtml">
+      <publishTime>12/19/2016 12:16:12</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/RouteOperation/_AddPartial.cshtml">
+      <publishTime>01/25/2016 17:07:56</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/RouteOperation/_InfoPartial.cshtml">
+      <publishTime>01/25/2016 17:07:56</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/RouteOperation/_ListPartial.cshtml">
+      <publishTime>12/19/2016 13:59:24</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/RouteOperation/_ModifyPartial.cshtml">
+      <publishTime>01/25/2016 17:07:56</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/RouteOperationAttribute/Index.cshtml">
+      <publishTime>01/25/2016 17:07:55</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/RouteOperationAttribute/_AddPartial.cshtml">
+      <publishTime>01/25/2016 17:07:55</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/RouteOperationAttribute/_InfoPartial.cshtml">
+      <publishTime>01/25/2016 17:07:55</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/RouteOperationAttribute/_ListPartial.cshtml">
+      <publishTime>01/25/2016 17:07:55</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/RouteOperationAttribute/_ModifyPartial.cshtml">
+      <publishTime>01/25/2016 17:07:55</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/RouteOperationEquipment/Index.cshtml">
+      <publishTime>01/25/2016 17:07:57</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/RouteOperationEquipment/_AddPartial.cshtml">
+      <publishTime>01/25/2016 17:07:57</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/RouteOperationEquipment/_ListPartial.cshtml">
+      <publishTime>01/25/2016 17:07:57</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/RouteOperationParameter/Index.cshtml">
+      <publishTime>01/25/2016 17:07:53</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/RouteOperationParameter/_AddPartial.cshtml">
+      <publishTime>01/25/2016 17:07:53</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/RouteOperationParameter/_InfoPartial.cshtml">
+      <publishTime>01/25/2016 17:07:53</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/RouteOperationParameter/_ListPartial.cshtml">
+      <publishTime>01/25/2016 17:07:53</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/RouteOperationParameter/_ModifyPartial.cshtml">
+      <publishTime>01/25/2016 17:07:53</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/RouteStep/Index.cshtml">
+      <publishTime>01/25/2016 17:07:54</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/RouteStep/_AddPartial.cshtml">
+      <publishTime>01/25/2016 17:07:54</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/RouteStep/_InfoPartial.cshtml">
+      <publishTime>01/25/2016 17:07:54</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/RouteStep/_ListPartial.cshtml">
+      <publishTime>01/25/2016 17:07:54</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/RouteStep/_ModifyPartial.cshtml">
+      <publishTime>12/19/2016 10:01:33</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/RouteStepAttribute/Index.cshtml">
+      <publishTime>01/25/2016 17:07:56</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/RouteStepAttribute/_AddPartial.cshtml">
+      <publishTime>01/25/2016 17:07:56</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/RouteStepAttribute/_InfoPartial.cshtml">
+      <publishTime>01/25/2016 17:07:56</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/RouteStepAttribute/_ListPartial.cshtml">
+      <publishTime>07/10/2016 16:00:11</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/RouteStepAttribute/_ModifyPartial.cshtml">
+      <publishTime>01/25/2016 17:07:56</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/RouteStepParameter/Index.cshtml">
+      <publishTime>01/25/2016 17:07:54</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/RouteStepParameter/_AddPartial.cshtml">
+      <publishTime>03/01/2017 09:05:43</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/RouteStepParameter/_InfoPartial.cshtml">
+      <publishTime>03/01/2017 09:07:23</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/RouteStepParameter/_ListPartial.cshtml">
+      <publishTime>03/01/2017 09:06:52</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/RouteStepParameter/_ModifyPartial.cshtml">
+      <publishTime>03/01/2017 09:07:36</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/Schedule/Index.cshtml">
+      <publishTime>01/25/2016 17:07:55</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/Schedule/_AddPartial.cshtml">
+      <publishTime>01/25/2016 17:07:55</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/Schedule/_InfoPartial.cshtml">
+      <publishTime>01/25/2016 17:07:55</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/Schedule/_ListPartial.cshtml">
+      <publishTime>01/25/2016 17:07:55</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/Schedule/_ModifyPartial.cshtml">
+      <publishTime>01/25/2016 17:07:55</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/ScheduleDay/Index.cshtml">
+      <publishTime>01/25/2016 17:07:56</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/ScheduleDay/_ListPartial.cshtml">
+      <publishTime>01/25/2016 17:07:56</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/ScheduleDetail/Index.cshtml">
+      <publishTime>01/25/2016 17:07:53</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/ScheduleDetail/_AddPartial.cshtml">
+      <publishTime>01/25/2016 17:07:53</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/ScheduleDetail/_ListPartial.cshtml">
+      <publishTime>01/25/2016 17:07:53</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/ScheduleMonth/Index.cshtml">
+      <publishTime>01/25/2016 17:07:55</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/ScheduleMonth/_AddPartial.cshtml">
+      <publishTime>01/25/2016 17:07:55</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/ScheduleMonth/_ListPartial.cshtml">
+      <publishTime>01/25/2016 17:07:55</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/Shift/Index.cshtml">
+      <publishTime>01/25/2016 17:07:57</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/Shift/_AddPartial.cshtml">
+      <publishTime>01/25/2016 17:07:57</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/Shift/_InfoPartial.cshtml">
+      <publishTime>01/25/2016 17:07:57</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/Shift/_ListPartial.cshtml">
+      <publishTime>01/25/2016 17:07:57</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/Shift/_ModifyPartial.cshtml">
+      <publishTime>01/25/2016 17:07:57</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/Supplier/Index.cshtml">
+      <publishTime>01/25/2016 17:07:56</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/Supplier/_AddPartial.cshtml">
+      <publishTime>01/25/2016 17:07:56</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/Supplier/_InfoPartial.cshtml">
+      <publishTime>01/25/2016 17:07:56</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/Supplier/_ListPartial.cshtml">
+      <publishTime>01/25/2016 17:07:56</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/Supplier/_ModifyPartial.cshtml">
+      <publishTime>01/25/2016 17:07:56</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/web.config">
+      <publishTime>01/25/2016 17:07:53</publishTime>
+    </File>
+    <File Include="Areas/FMM/Views/_ViewStart.cshtml">
+      <publishTime>01/25/2016 17:07:56</publishTime>
+    </File>
+    <File Include="Areas/LSM/Views/LineStoreMaterial/Detail.cshtml">
+      <publishTime>01/25/2016 17:08:06</publishTime>
+    </File>
+    <File Include="Areas/LSM/Views/LineStoreMaterial/Index.cshtml">
+      <publishTime>01/25/2016 17:08:06</publishTime>
+    </File>
+    <File Include="Areas/LSM/Views/LineStoreMaterial/_DetailListPartial.cshtml">
+      <publishTime>01/25/2016 17:08:06</publishTime>
+    </File>
+    <File Include="Areas/LSM/Views/LineStoreMaterial/_ListPartial.cshtml">
+      <publishTime>01/25/2016 17:08:06</publishTime>
+    </File>
+    <File Include="Areas/LSM/Views/MaterialLoading/Detail.cshtml">
+      <publishTime>01/25/2016 17:08:06</publishTime>
+    </File>
+    <File Include="Areas/LSM/Views/MaterialLoading/Index.cshtml">
+      <publishTime>03/08/2017 15:04:00</publishTime>
+    </File>
+    <File Include="Areas/LSM/Views/MaterialLoading/_AddDetailPartial.cshtml">
+      <publishTime>03/08/2017 17:17:12</publishTime>
+    </File>
+    <File Include="Areas/LSM/Views/MaterialLoading/_AddPartial.cshtml">
+      <publishTime>03/08/2017 11:26:06</publishTime>
+    </File>
+    <File Include="Areas/LSM/Views/MaterialLoading/_DetailListPartial.cshtml">
+      <publishTime>01/25/2016 17:08:06</publishTime>
+    </File>
+    <File Include="Areas/LSM/Views/MaterialLoading/_ListPartial.cshtml">
+      <publishTime>01/25/2016 17:08:06</publishTime>
+    </File>
+    <File Include="Areas/LSM/Views/MaterialReceipt/Detail.cshtml">
+      <publishTime>01/25/2016 17:08:06</publishTime>
+    </File>
+    <File Include="Areas/LSM/Views/MaterialReceipt/Index.cshtml">
+      <publishTime>02/23/2017 12:04:22</publishTime>
+    </File>
+    <File Include="Areas/LSM/Views/MaterialReceipt/ParentQueryIndex.cshtml">
+      <publishTime>01/25/2016 17:08:06</publishTime>
+    </File>
+    <File Include="Areas/LSM/Views/MaterialReceipt/_AddDetailPartial.cshtml">
+      <publishTime>02/24/2017 17:51:16</publishTime>
+    </File>
+    <File Include="Areas/LSM/Views/MaterialReceipt/_AddPartial.cshtml">
+      <publishTime>05/09/2016 10:03:04</publishTime>
+    </File>
+    <File Include="Areas/LSM/Views/MaterialReceipt/_DetailListPartial.cshtml">
+      <publishTime>01/25/2016 17:08:06</publishTime>
+    </File>
+    <File Include="Areas/LSM/Views/MaterialReceipt/_ListPartial.cshtml">
+      <publishTime>01/25/2016 17:08:06</publishTime>
+    </File>
+    <File Include="Areas/LSM/Views/MaterialReceipt/_ParentListPartial.cshtml">
+      <publishTime>01/25/2016 17:08:06</publishTime>
+    </File>
+    <File Include="Areas/LSM/Views/MaterialReceiptEx/Detail.cshtml">
+      <publishTime>01/25/2016 17:08:06</publishTime>
+    </File>
+    <File Include="Areas/LSM/Views/MaterialReceiptEx/Index.cshtml">
+      <publishTime>01/25/2016 17:08:06</publishTime>
+    </File>
+    <File Include="Areas/LSM/Views/MaterialReceiptEx/_AddPartial.cshtml">
+      <publishTime>04/06/2016 11:14:52</publishTime>
+    </File>
+    <File Include="Areas/LSM/Views/MaterialReceiptEx/_ListPartial.cshtml">
+      <publishTime>01/25/2016 17:08:06</publishTime>
+    </File>
+    <File Include="Areas/LSM/Views/MaterialReceiptEx/_ModifyPartial.cshtml">
+      <publishTime>01/25/2016 17:08:06</publishTime>
+    </File>
+    <File Include="Areas/LSM/Views/MaterialReceiptExDetail/Index.cshtml">
+      <publishTime>01/25/2016 17:08:06</publishTime>
+    </File>
+    <File Include="Areas/LSM/Views/MaterialReceiptExDetail/_ListPartial.cshtml">
+      <publishTime>01/25/2016 17:08:06</publishTime>
+    </File>
+    <File Include="Areas/LSM/Views/MaterialReturn/Detail.cshtml">
+      <publishTime>01/25/2016 17:08:06</publishTime>
+    </File>
+    <File Include="Areas/LSM/Views/MaterialReturn/DetailForERP.cshtml">
+      <publishTime>08/04/2017 11:36:52</publishTime>
+    </File>
+    <File Include="Areas/LSM/Views/MaterialReturn/Index.cshtml">
+      <publishTime>01/25/2016 17:08:06</publishTime>
+    </File>
+    <File Include="Areas/LSM/Views/MaterialReturn/IndexForERP.cshtml">
+      <publishTime>04/22/2016 11:20:09</publishTime>
+    </File>
+    <File Include="Areas/LSM/Views/MaterialReturn/_AddDetailPartial.cshtml">
+      <publishTime>01/25/2016 17:08:06</publishTime>
+    </File>
+    <File Include="Areas/LSM/Views/MaterialReturn/_AddDetailPartialForERP.cshtml">
+      <publishTime>03/29/2016 14:06:56</publishTime>
+    </File>
+    <File Include="Areas/LSM/Views/MaterialReturn/_AddPartial.cshtml">
+      <publishTime>05/09/2016 10:03:25</publishTime>
+    </File>
+    <File Include="Areas/LSM/Views/MaterialReturn/_AddPartialForERP.cshtml">
+      <publishTime>03/29/2016 14:46:41</publishTime>
+    </File>
+    <File Include="Areas/LSM/Views/MaterialReturn/_DetailListPartial.cshtml">
+      <publishTime>01/25/2016 17:08:06</publishTime>
+    </File>
+    <File Include="Areas/LSM/Views/MaterialReturn/_DetailListPartialForERP.cshtml">
+      <publishTime>08/04/2017 11:03:19</publishTime>
+    </File>
+    <File Include="Areas/LSM/Views/MaterialReturn/_ListPartial.cshtml">
+      <publishTime>01/25/2016 17:08:06</publishTime>
+    </File>
+    <File Include="Areas/LSM/Views/MaterialReturn/_ListPartialForERP.cshtml">
+      <publishTime>04/22/2016 13:19:28</publishTime>
+    </File>
+    <File Include="Areas/LSM/Views/MaterialScrapType/Index.cshtml">
+      <publishTime>01/25/2016 17:08:06</publishTime>
+    </File>
+    <File Include="Areas/LSM/Views/MaterialScrapType/_AddPartial.cshtml">
+      <publishTime>01/25/2016 17:08:06</publishTime>
+    </File>
+    <File Include="Areas/LSM/Views/MaterialScrapType/_ListPartial.cshtml">
+      <publishTime>01/25/2016 17:08:06</publishTime>
+    </File>
+    <File Include="Areas/LSM/Views/MaterialScrapType/_ModifyPartial.cshtml">
+      <publishTime>01/25/2016 17:08:06</publishTime>
+    </File>
+    <File Include="Areas/LSM/Views/MaterialSplit/Index.cshtml">
+      <publishTime>01/25/2016 17:08:06</publishTime>
+    </File>
+    <File Include="Areas/LSM/Views/MaterialSplit/_MaterialSplit.cshtml">
+      <publishTime>01/25/2016 17:08:06</publishTime>
+    </File>
+    <File Include="Areas/LSM/Views/MaterialUnloading/Detail.cshtml">
+      <publishTime>01/25/2016 17:08:06</publishTime>
+    </File>
+    <File Include="Areas/LSM/Views/MaterialUnloading/Index - 复制.cshtml">
+      <publishTime>03/08/2017 16:58:13</publishTime>
+    </File>
+    <File Include="Areas/LSM/Views/MaterialUnloading/Index.cshtml">
+      <publishTime>03/09/2017 11:00:02</publishTime>
+    </File>
+    <File Include="Areas/LSM/Views/MaterialUnloading/_AddDetailPartial.cshtml">
+      <publishTime>03/09/2017 16:13:09</publishTime>
+    </File>
+    <File Include="Areas/LSM/Views/MaterialUnloading/_AddPartial.cshtml">
+      <publishTime>03/08/2017 13:31:49</publishTime>
+    </File>
+    <File Include="Areas/LSM/Views/MaterialUnloading/_DetailListPartial.cshtml">
+      <publishTime>01/25/2016 17:08:06</publishTime>
+    </File>
+    <File Include="Areas/LSM/Views/MaterialUnloading/_ListPartial.cshtml">
+      <publishTime>01/25/2016 17:08:06</publishTime>
+    </File>
+    <File Include="Areas/LSM/Views/web.config">
+      <publishTime>01/25/2016 17:08:06</publishTime>
+    </File>
+    <File Include="Areas/LSM/Views/_ViewStart.cshtml">
+      <publishTime>01/25/2016 17:08:06</publishTime>
+    </File>
+    <File Include="Areas/PPM/Views/Defect/Index.cshtml">
+      <publishTime>03/17/2016 13:41:07</publishTime>
+    </File>
+    <File Include="Areas/PPM/Views/Defect/_AddPartial.cshtml">
+      <publishTime>03/17/2016 13:33:07</publishTime>
+    </File>
+    <File Include="Areas/PPM/Views/Defect/_InfoPartial.cshtml">
+      <publishTime>03/17/2016 11:54:21</publishTime>
+    </File>
+    <File Include="Areas/PPM/Views/Defect/_ListPartial.cshtml">
+      <publishTime>03/17/2016 11:18:52</publishTime>
+    </File>
+    <File Include="Areas/PPM/Views/Defect/_ModifyPartial.cshtml">
+      <publishTime>03/17/2016 11:24:02</publishTime>
+    </File>
+    <File Include="Areas/PPM/Views/PlanAttendance/Index.cshtml">
+      <publishTime>03/03/2016 13:52:48</publishTime>
+    </File>
+    <File Include="Areas/PPM/Views/PlanAttendance/_AddPartial.cshtml">
+      <publishTime>09/17/2017 17:10:18</publishTime>
+    </File>
+    <File Include="Areas/PPM/Views/PlanAttendance/_InfoPartial.cshtml">
+      <publishTime>09/17/2017 17:10:38</publishTime>
+    </File>
+    <File Include="Areas/PPM/Views/PlanAttendance/_ListPartial.cshtml">
+      <publishTime>09/17/2017 17:11:13</publishTime>
+    </File>
+    <File Include="Areas/PPM/Views/PlanAttendance/_ModifyPartial.cshtml">
+      <publishTime>09/17/2017 17:12:00</publishTime>
+    </File>
+    <File Include="Areas/PPM/Views/PlanDay/Index.cshtml">
+      <publishTime>01/07/2017 10:33:01</publishTime>
+    </File>
+    <File Include="Areas/PPM/Views/PlanDay/_AddPartial.cshtml">
+      <publishTime>09/17/2017 17:14:20</publishTime>
+    </File>
+    <File Include="Areas/PPM/Views/PlanDay/_InfoPartial.cshtml">
+      <publishTime>09/17/2017 17:14:45</publishTime>
+    </File>
+    <File Include="Areas/PPM/Views/PlanDay/_ListPartial.cshtml">
+      <publishTime>09/17/2017 17:15:32</publishTime>
+    </File>
+    <File Include="Areas/PPM/Views/PlanDay/_ModifyPartial.cshtml">
+      <publishTime>09/17/2017 17:15:51</publishTime>
+    </File>
+    <File Include="Areas/PPM/Views/PlanMonth/Index.cshtml">
+      <publishTime>02/26/2016 14:26:51</publishTime>
+    </File>
+    <File Include="Areas/PPM/Views/PlanMonth/_AddPartial.cshtml">
+      <publishTime>03/02/2016 16:13:47</publishTime>
+    </File>
+    <File Include="Areas/PPM/Views/PlanMonth/_ListPartial.cshtml">
+      <publishTime>02/22/2016 15:54:53</publishTime>
+    </File>
+    <File Include="Areas/PPM/Views/TargetParameter/Index.cshtml">
+      <publishTime>09/10/2017 18:40:55</publishTime>
+    </File>
+    <File Include="Areas/PPM/Views/TargetParameter/_AddPartial.cshtml">
+      <publishTime>09/10/2017 21:37:34</publishTime>
+    </File>
+    <File Include="Areas/PPM/Views/TargetParameter/_InfoPartial.cshtml">
+      <publishTime>09/10/2017 21:37:46</publishTime>
+    </File>
+    <File Include="Areas/PPM/Views/TargetParameter/_ListPartial.cshtml">
+      <publishTime>09/10/2017 21:24:32</publishTime>
+    </File>
+    <File Include="Areas/PPM/Views/TargetParameter/_ModifyPartial.cshtml">
+      <publishTime>09/10/2017 21:37:53</publishTime>
+    </File>
+    <File Include="Areas/PPM/Views/web.config">
+      <publishTime>01/25/2016 17:08:07</publishTime>
+    </File>
+    <File Include="Areas/PPM/Views/WorkOrder/Index.cshtml">
+      <publishTime>12/19/2016 19:49:41</publishTime>
+    </File>
+    <File Include="Areas/PPM/Views/WorkOrder/_AddPartial.cshtml">
+      <publishTime>12/12/2016 16:09:57</publishTime>
+    </File>
+    <File Include="Areas/PPM/Views/WorkOrder/_InfoPartial.cshtml">
+      <publishTime>12/12/2016 20:49:00</publishTime>
+    </File>
+    <File Include="Areas/PPM/Views/WorkOrder/_ListPartial.cshtml">
+      <publishTime>01/21/2017 10:11:57</publishTime>
+    </File>
+    <File Include="Areas/PPM/Views/WorkOrder/_ModifyPartial.cshtml">
+      <publishTime>12/12/2016 20:42:28</publishTime>
+    </File>
+    <File Include="Areas/PPM/Views/WorkOrderAttribute/Index.cshtml">
+      <publishTime>01/25/2016 17:08:07</publishTime>
+    </File>
+    <File Include="Areas/PPM/Views/WorkOrderAttribute/_AddPartial.cshtml">
+      <publishTime>01/25/2016 17:08:07</publishTime>
+    </File>
+    <File Include="Areas/PPM/Views/WorkOrderAttribute/_InfoPartial.cshtml">
+      <publishTime>01/25/2016 17:08:07</publishTime>
+    </File>
+    <File Include="Areas/PPM/Views/WorkOrderAttribute/_ListPartial.cshtml">
+      <publishTime>01/25/2016 17:08:07</publishTime>
+    </File>
+    <File Include="Areas/PPM/Views/WorkOrderAttribute/_ModifyPartial.cshtml">
+      <publishTime>01/25/2016 17:08:07</publishTime>
+    </File>
+    <File Include="Areas/PPM/Views/WorkOrderBOM/Index.cshtml">
+      <publishTime>07/04/2016 16:15:23</publishTime>
+    </File>
+    <File Include="Areas/PPM/Views/WorkOrderBOM/_AddPartial.cshtml">
+      <publishTime>07/03/2016 22:48:21</publishTime>
+    </File>
+    <File Include="Areas/PPM/Views/WorkOrderBOM/_InfoPartial - 复制.cshtml">
+      <publishTime>07/03/2016 21:42:34</publishTime>
+    </File>
+    <File Include="Areas/PPM/Views/WorkOrderBOM/_InfoPartial.cshtml">
+      <publishTime>07/04/2016 10:11:21</publishTime>
+    </File>
+    <File Include="Areas/PPM/Views/WorkOrderBOM/_ListPartial - 复制.cshtml">
+      <publishTime>07/03/2016 21:41:12</publishTime>
+    </File>
+    <File Include="Areas/PPM/Views/WorkOrderBOM/_ListPartial.cshtml">
+      <publishTime>01/20/2017 14:50:16</publishTime>
+    </File>
+    <File Include="Areas/PPM/Views/WorkOrderBOM/_ModifyPartial - 复制.cshtml">
+      <publishTime>07/03/2016 21:43:26</publishTime>
+    </File>
+    <File Include="Areas/PPM/Views/WorkOrderBOM/_ModifyPartial.cshtml">
+      <publishTime>07/04/2016 10:01:11</publishTime>
+    </File>
+    <File Include="Areas/PPM/Views/WorkOrderProduct/Index.cshtml">
+      <publishTime>01/25/2016 17:08:07</publishTime>
+    </File>
+    <File Include="Areas/PPM/Views/WorkOrderProduct/_AddPartial.cshtml">
+      <publishTime>01/25/2016 17:08:07</publishTime>
+    </File>
+    <File Include="Areas/PPM/Views/WorkOrderProduct/_InfoPartial.cshtml">
+      <publishTime>01/25/2016 17:08:07</publishTime>
+    </File>
+    <File Include="Areas/PPM/Views/WorkOrderProduct/_ListPartial.cshtml">
+      <publishTime>01/25/2016 17:08:07</publishTime>
+    </File>
+    <File Include="Areas/PPM/Views/WorkOrderProduct/_ModifyPartial.cshtml">
+      <publishTime>01/25/2016 17:08:07</publishTime>
+    </File>
+    <File Include="Areas/PPM/Views/WorkOrderProductionLine/Index.cshtml">
+      <publishTime>01/25/2016 17:08:07</publishTime>
+    </File>
+    <File Include="Areas/PPM/Views/WorkOrderProductionLine/_AddPartial.cshtml">
+      <publishTime>01/25/2016 17:08:07</publishTime>
+    </File>
+    <File Include="Areas/PPM/Views/WorkOrderProductionLine/_ListPartial.cshtml">
+      <publishTime>07/19/2017 17:32:50</publishTime>
+    </File>
+    <File Include="Areas/PPM/Views/WorkOrderRoute/Index.cshtml">
+      <publishTime>01/25/2016 17:08:07</publishTime>
+    </File>
+    <File Include="Areas/PPM/Views/WorkOrderRoute/_AddPartial.cshtml">
+      <publishTime>12/19/2016 20:29:35</publishTime>
+    </File>
+    <File Include="Areas/PPM/Views/WorkOrderRoute/_ListPartial.cshtml">
+      <publishTime>12/19/2016 20:26:57</publishTime>
+    </File>
+    <File Include="Areas/PPM/Views/_ViewStart.cshtml">
+      <publishTime>01/25/2016 17:08:07</publishTime>
+    </File>
+    <File Include="Areas/QAM/Views/CheckCategory/Index.cshtml">
+      <publishTime>01/25/2016 17:08:13</publishTime>
+    </File>
+    <File Include="Areas/QAM/Views/CheckCategory/_AddPartial.cshtml">
+      <publishTime>01/25/2016 17:08:13</publishTime>
+    </File>
+    <File Include="Areas/QAM/Views/CheckCategory/_InfoPartial.cshtml">
+      <publishTime>01/25/2016 17:08:13</publishTime>
+    </File>
+    <File Include="Areas/QAM/Views/CheckCategory/_ListPartial.cshtml">
+      <publishTime>01/25/2016 17:08:13</publishTime>
+    </File>
+    <File Include="Areas/QAM/Views/CheckCategory/_ModifyPartial.cshtml">
+      <publishTime>01/25/2016 17:08:13</publishTime>
+    </File>
+    <File Include="Areas/QAM/Views/CheckCategoryDetail/Index.cshtml">
+      <publishTime>01/25/2016 17:08:13</publishTime>
+    </File>
+    <File Include="Areas/QAM/Views/CheckCategoryDetail/_AddPartial.cshtml">
+      <publishTime>01/25/2016 17:08:13</publishTime>
+    </File>
+    <File Include="Areas/QAM/Views/CheckCategoryDetail/_InfoPartial.cshtml">
+      <publishTime>01/25/2016 17:08:13</publishTime>
+    </File>
+    <File Include="Areas/QAM/Views/CheckCategoryDetail/_ListPartial.cshtml">
+      <publishTime>01/25/2016 17:08:13</publishTime>
+    </File>
+    <File Include="Areas/QAM/Views/CheckCategoryDetail/_ModifyPartial.cshtml">
+      <publishTime>01/25/2016 17:08:13</publishTime>
+    </File>
+    <File Include="Areas/QAM/Views/CheckPlan/Index.cshtml">
+      <publishTime>01/25/2016 17:08:12</publishTime>
+    </File>
+    <File Include="Areas/QAM/Views/CheckPlan/_AddPartial.cshtml">
+      <publishTime>01/25/2016 17:08:12</publishTime>
+    </File>
+    <File Include="Areas/QAM/Views/CheckPlan/_InfoPartial.cshtml">
+      <publishTime>01/25/2016 17:08:12</publishTime>
+    </File>
+    <File Include="Areas/QAM/Views/CheckPlan/_ListPartial.cshtml">
+      <publishTime>01/25/2016 17:08:12</publishTime>
+    </File>
+    <File Include="Areas/QAM/Views/CheckPlan/_ModifyPartial.cshtml">
+      <publishTime>01/25/2016 17:08:12</publishTime>
+    </File>
+    <File Include="Areas/QAM/Views/CheckSetting/Index.cshtml">
+      <publishTime>01/25/2016 17:08:13</publishTime>
+    </File>
+    <File Include="Areas/QAM/Views/CheckSetting/_AddPartial.cshtml">
+      <publishTime>01/25/2016 17:08:13</publishTime>
+    </File>
+    <File Include="Areas/QAM/Views/CheckSetting/_InfoPartial.cshtml">
+      <publishTime>01/25/2016 17:08:13</publishTime>
+    </File>
+    <File Include="Areas/QAM/Views/CheckSetting/_ListPartial.cshtml">
+      <publishTime>01/25/2016 17:08:13</publishTime>
+    </File>
+    <File Include="Areas/QAM/Views/CheckSetting/_ModifyPartial.cshtml">
+      <publishTime>01/25/2016 17:08:13</publishTime>
+    </File>
+    <File Include="Areas/QAM/Views/CheckSettingPoint/Index.cshtml">
+      <publishTime>01/25/2016 17:08:12</publishTime>
+    </File>
+    <File Include="Areas/QAM/Views/CheckSettingPoint/_AddPartial.cshtml">
+      <publishTime>01/25/2016 17:08:12</publishTime>
+    </File>
+    <File Include="Areas/QAM/Views/CheckSettingPoint/_InfoPartial.cshtml">
+      <publishTime>01/25/2016 17:08:12</publishTime>
+    </File>
+    <File Include="Areas/QAM/Views/CheckSettingPoint/_ListPartial.cshtml">
+      <publishTime>01/25/2016 17:08:12</publishTime>
+    </File>
+    <File Include="Areas/QAM/Views/CheckSettingPoint/_ModifyPartial.cshtml">
+      <publishTime>01/25/2016 17:08:12</publishTime>
+    </File>
+    <File Include="Areas/QAM/Views/CheckSettingPointDetail/Index.cshtml">
+      <publishTime>01/25/2016 17:08:12</publishTime>
+    </File>
+    <File Include="Areas/QAM/Views/CheckSettingPointDetail/_InfoPartial.cshtml">
+      <publishTime>01/25/2016 17:08:12</publishTime>
+    </File>
+    <File Include="Areas/QAM/Views/CheckSettingPointDetail/_ListPartial.cshtml">
+      <publishTime>01/25/2016 17:08:12</publishTime>
+    </File>
+    <File Include="Areas/QAM/Views/CheckSettingPointDetail/_ModifyPartial.cshtml">
+      <publishTime>01/25/2016 17:08:12</publishTime>
+    </File>
+    <File Include="Areas/QAM/Views/web.config">
+      <publishTime>01/25/2016 17:08:12</publishTime>
+    </File>
+    <File Include="Areas/QAM/Views/_ViewStart.cshtml">
+      <publishTime>01/25/2016 17:08:12</publishTime>
+    </File>
+    <File Include="Areas/RBAC/Views/Resource/Index.cshtml">
+      <publishTime>01/25/2016 17:08:04</publishTime>
+    </File>
+    <File Include="Areas/RBAC/Views/Resource/_AddResourcePartial.cshtml">
+      <publishTime>01/25/2016 17:08:04</publishTime>
+    </File>
+    <File Include="Areas/RBAC/Views/Resource/_ModifyResourcePartial.cshtml">
+      <publishTime>01/25/2016 17:08:04</publishTime>
+    </File>
+    <File Include="Areas/RBAC/Views/Resource/_ResourceInfoPartial.cshtml">
+      <publishTime>01/25/2016 17:08:04</publishTime>
+    </File>
+    <File Include="Areas/RBAC/Views/Resource/_ResourceListPartial.cshtml">
+      <publishTime>01/25/2016 17:08:04</publishTime>
+    </File>
+    <File Include="Areas/RBAC/Views/Role/Index.cshtml">
+      <publishTime>01/25/2016 17:08:04</publishTime>
+    </File>
+    <File Include="Areas/RBAC/Views/Role/_AddRolePartial.cshtml">
+      <publishTime>01/25/2016 17:08:04</publishTime>
+    </File>
+    <File Include="Areas/RBAC/Views/Role/_ModifyRolePartial.cshtml">
+      <publishTime>01/25/2016 17:08:04</publishTime>
+    </File>
+    <File Include="Areas/RBAC/Views/Role/_RoleInfoPartial.cshtml">
+      <publishTime>01/25/2016 17:08:04</publishTime>
+    </File>
+    <File Include="Areas/RBAC/Views/Role/_RoleListPartial.cshtml">
+      <publishTime>01/25/2016 17:08:04</publishTime>
+    </File>
+    <File Include="Areas/RBAC/Views/Role/_SetRoleResourcePartial.cshtml">
+      <publishTime>01/25/2016 17:08:04</publishTime>
+    </File>
+    <File Include="Areas/RBAC/Views/Role/_SetRoleUserPartial.cshtml">
+      <publishTime>01/25/2016 17:08:04</publishTime>
+    </File>
+    <File Include="Areas/RBAC/Views/User/Index.cshtml">
+      <publishTime>01/25/2016 17:08:04</publishTime>
+    </File>
+    <File Include="Areas/RBAC/Views/User/_AddUserPartial.cshtml">
+      <publishTime>01/25/2016 17:08:04</publishTime>
+    </File>
+    <File Include="Areas/RBAC/Views/User/_ModifyUserPartial.cshtml">
+      <publishTime>01/25/2016 17:08:04</publishTime>
+    </File>
+    <File Include="Areas/RBAC/Views/User/_SetUserResourcePartial.cshtml">
+      <publishTime>01/25/2016 17:08:04</publishTime>
+    </File>
+    <File Include="Areas/RBAC/Views/User/_SetUserRolePartial.cshtml">
+      <publishTime>01/25/2016 17:08:04</publishTime>
+    </File>
+    <File Include="Areas/RBAC/Views/User/_UserInfoPartial.cshtml">
+      <publishTime>01/25/2016 17:08:04</publishTime>
+    </File>
+    <File Include="Areas/RBAC/Views/User/_UserListPartial.cshtml">
+      <publishTime>01/25/2016 17:08:04</publishTime>
+    </File>
+    <File Include="Areas/RBAC/Views/web.config">
+      <publishTime>01/25/2016 17:08:04</publishTime>
+    </File>
+    <File Include="Areas/RBAC/Views/_ViewStart.cshtml">
+      <publishTime>01/25/2016 17:08:04</publishTime>
+    </File>
+    <File Include="Areas/RPT/Views/DailyMeetingRPT/12DetailIndex.cshtml">
+      <publishTime>06/10/2017 18:53:44</publishTime>
+    </File>
+    <File Include="Areas/RPT/Views/DailyMeetingRPT/DetailIndex.cshtml">
+      <publishTime>06/10/2017 18:53:44</publishTime>
+    </File>
+    <File Include="Areas/RPT/Views/DailyMeetingRPT/Index - 复制.cshtml">
+      <publishTime>09/15/2017 16:54:07</publishTime>
+    </File>
+    <File Include="Areas/RPT/Views/DailyMeetingRPT/Index.cshtml">
+      <publishTime>09/17/2017 13:27:04</publishTime>
+    </File>
+    <File Include="Areas/RPT/Views/DailyMeetingRPT/IndexMaterial.cshtml">
+      <publishTime>09/27/2017 11:03:27</publishTime>
+    </File>
+    <File Include="Areas/RPT/Views/DailyMeetingRPT/_12ListPartial.cshtml">
+      <publishTime>04/17/2017 19:36:31</publishTime>
+    </File>
+    <File Include="Areas/RPT/Views/DailyMeetingRPT/_DetailListPartial.cshtml">
+      <publishTime>04/20/2017 18:56:33</publishTime>
+    </File>
+    <File Include="Areas/RPT/Views/DailyMeetingRPT/_ListPartial.cshtml">
+      <publishTime>04/17/2017 19:36:31</publishTime>
+    </File>
+    <File Include="Areas/RPT/Views/DailyMeetingRPT/_ListPartialMaterial.cshtml">
+      <publishTime>09/27/2017 11:04:50</publishTime>
+    </File>
+    <File Include="Areas/RPT/Views/LotMaterialList/Index.cshtml">
+      <publishTime>09/06/2016 10:32:08</publishTime>
+    </File>
+    <File Include="Areas/RPT/Views/LotMaterialList/IndexColor.cshtml">
+      <publishTime>09/06/2016 10:32:08</publishTime>
+    </File>
+    <File Include="Areas/RPT/Views/LotMaterialList/IndexLotProcessingHistory.cshtml">
+      <publishTime>09/06/2016 10:32:08</publishTime>
+    </File>
+    <File Include="Areas/RPT/Views/LotMaterialList/IndexMaterial.cshtml">
+      <publishTime>09/27/2017 11:03:27</publishTime>
+    </File>
+    <File Include="Areas/RPT/Views/LotMaterialList/IndexMaterialConsume.cshtml">
+      <publishTime>09/22/2016 13:55:07</publishTime>
+    </File>
+    <File Include="Areas/RPT/Views/LotMaterialList/IndexWl.cshtml">
+      <publishTime>09/24/2016 14:42:00</publishTime>
+    </File>
+    <File Include="Areas/RPT/Views/LotMaterialList/_ColorListPartial.cshtml">
+      <publishTime>09/06/2016 10:32:08</publishTime>
+    </File>
+    <File Include="Areas/RPT/Views/LotMaterialList/_ListPartial.cshtml">
+      <publishTime>09/06/2016 10:32:08</publishTime>
+    </File>
+    <File Include="Areas/RPT/Views/LotMaterialList/_ListPartialMaterial.cshtml">
+      <publishTime>09/27/2017 11:04:50</publishTime>
+    </File>
+    <File Include="Areas/RPT/Views/LotMaterialList/_LotProcessingHistoryListPartial.cshtml">
+      <publishTime>09/09/2016 10:53:43</publishTime>
+    </File>
+    <File Include="Areas/RPT/Views/LotMaterialList/_MaterialConsumeListPartial.cshtml">
+      <publishTime>09/05/2016 17:13:00</publishTime>
+    </File>
+    <File Include="Areas/RPT/Views/LotMaterialList/_WlListPartial.cshtml">
+      <publishTime>09/24/2016 15:02:05</publishTime>
+    </File>
+    <File Include="Areas/RPT/Views/OEEDailyData/ActAndPercentRate.cshtml">
+      <publishTime>06/10/2017 18:54:16</publishTime>
+    </File>
+    <File Include="Areas/RPT/Views/OEEDailyData/ActRate.cshtml">
+      <publishTime>06/10/2017 18:54:34</publishTime>
+    </File>
+    <File Include="Areas/RPT/Views/OEEDailyData/Index.cshtml">
+      <publishTime>10/09/2016 15:22:15</publishTime>
+    </File>
+    <File Include="Areas/RPT/Views/OEEDailyData/ShutDownClassification.cshtml">
+      <publishTime>06/10/2017 18:54:49</publishTime>
+    </File>
+    <File Include="Areas/RPT/Views/OEEDailyData/_ActAndPercentRateListPartial.cshtml">
+      <publishTime>10/06/2016 16:53:56</publishTime>
+    </File>
+    <File Include="Areas/RPT/Views/OEEDailyData/_ActRateListPartial.cshtml">
+      <publishTime>10/06/2016 16:53:56</publishTime>
+    </File>
+    <File Include="Areas/RPT/Views/OEEDailyData/_ListPartial.cshtml">
+      <publishTime>10/06/2016 18:21:40</publishTime>
+    </File>
+    <File Include="Areas/RPT/Views/OEEDailyData/_ShutDownClassificationListPartial.cshtml">
+      <publishTime>10/06/2016 16:53:56</publishTime>
+    </File>
+    <File Include="Areas/RPT/Views/RPTDailyData/DailyReportSYSIndex.cshtml">
+      <publishTime>07/14/2016 18:13:25</publishTime>
+    </File>
+    <File Include="Areas/RPT/Views/RPTDailyData/DetailIndex - 复制.cshtml">
+      <publishTime>06/01/2016 12:41:47</publishTime>
+    </File>
+    <File Include="Areas/RPT/Views/RPTDailyData/DetailIndex.cshtml">
+      <publishTime>07/05/2017 18:08:08</publishTime>
+    </File>
+    <File Include="Areas/RPT/Views/RPTDailyData/HourDetailIndex.cshtml">
+      <publishTime>06/10/2017 18:47:22</publishTime>
+    </File>
+    <File Include="Areas/RPT/Views/RPTDailyData/Index - 复制.cshtml">
+      <publishTime>03/10/2016 22:59:07</publishTime>
+    </File>
+    <File Include="Areas/RPT/Views/RPTDailyData/Index.cshtml">
+      <publishTime>07/05/2017 15:37:40</publishTime>
+    </File>
+    <File Include="Areas/RPT/Views/RPTDailyData/ItemIndex.cshtml">
+      <publishTime>06/10/2017 18:48:21</publishTime>
+    </File>
+    <File Include="Areas/RPT/Views/RPTDailyData/ListDetailIndex.cshtml">
+      <publishTime>06/10/2017 18:48:41</publishTime>
+    </File>
+    <File Include="Areas/RPT/Views/RPTDailyData/OuputIndex - 复制.cshtml">
+      <publishTime>03/23/2016 17:57:07</publishTime>
+    </File>
+    <File Include="Areas/RPT/Views/RPTDailyData/OuputIndex.cshtml">
+      <publishTime>04/18/2016 15:50:59</publishTime>
+    </File>
+    <File Include="Areas/RPT/Views/RPTDailyData/QualityIndex.cshtml">
+      <publishTime>06/03/2016 15:16:18</publishTime>
+    </File>
+    <File Include="Areas/RPT/Views/RPTDailyData/SubDetailIndex.cshtml">
+      <publishTime>04/26/2016 16:18:38</publishTime>
+    </File>
+    <File Include="Areas/RPT/Views/RPTDailyData/test.cshtml">
+      <publishTime>03/10/2016 22:52:24</publishTime>
+    </File>
+    <File Include="Areas/RPT/Views/RPTDailyData/_DetailListPartial.cshtml">
+      <publishTime>07/05/2017 17:30:37</publishTime>
+    </File>
+    <File Include="Areas/RPT/Views/RPTDailyData/_HourDetailListPartial.cshtml">
+      <publishTime>06/06/2016 20:33:07</publishTime>
+    </File>
+    <File Include="Areas/RPT/Views/RPTDailyData/_ItemListPartial.cshtml">
+      <publishTime>06/06/2016 20:32:49</publishTime>
+    </File>
+    <File Include="Areas/RPT/Views/RPTDailyData/_ListDetailListPartial.cshtml">
+      <publishTime>06/03/2016 13:26:58</publishTime>
+    </File>
+    <File Include="Areas/RPT/Views/RPTDailyData/_ListPartial.cshtml">
+      <publishTime>07/05/2017 17:23:51</publishTime>
+    </File>
+    <File Include="Areas/RPT/Views/RPTDailyData/_OutPutListPartial.cshtml">
+      <publishTime>04/26/2016 13:53:56</publishTime>
+    </File>
+    <File Include="Areas/RPT/Views/RPTDailyData/_QualityListPartial.cshtml">
+      <publishTime>06/06/2016 20:32:05</publishTime>
+    </File>
+    <File Include="Areas/RPT/Views/RPTDailyData/_SubDetailListPartial.cshtml">
+      <publishTime>04/26/2016 13:53:56</publishTime>
+    </File>
+    <File Include="Areas/RPT/Views/RPTEquipment/Index.cshtml">
+      <publishTime>01/25/2016 17:08:02</publishTime>
+    </File>
+    <File Include="Areas/RPT/Views/RPTEquipment/_ListPartial.cshtml">
+      <publishTime>01/25/2016 17:08:02</publishTime>
+    </File>
+    <File Include="Areas/RPT/Views/SemiProductionData/Index.cshtml">
+      <publishTime>06/10/2017 18:49:51</publishTime>
+    </File>
+    <File Include="Areas/RPT/Views/SemiProductionData/IndexOfDefective.cshtml">
+      <publishTime>06/10/2017 18:50:29</publishTime>
+    </File>
+    <File Include="Areas/RPT/Views/SemiProductionData/IndexOfDefectPOS.cshtml">
+      <publishTime>06/10/2017 18:50:53</publishTime>
+    </File>
+    <File Include="Areas/RPT/Views/SemiProductionData/IndexOfDefectReason.cshtml">
+      <publishTime>06/10/2017 18:51:15</publishTime>
+    </File>
+    <File Include="Areas/RPT/Views/SemiProductionData/IndexOfLocation.cshtml">
+      <publishTime>06/10/2017 18:51:34</publishTime>
+    </File>
+    <File Include="Areas/RPT/Views/SemiProductionData/_ListPartial.cshtml">
+      <publishTime>01/25/2016 17:08:02</publishTime>
+    </File>
+    <File Include="Areas/RPT/Views/SemiProductionData/_ListPartialForDefectPOS.cshtml">
+      <publishTime>01/25/2016 17:08:02</publishTime>
+    </File>
+    <File Include="Areas/RPT/Views/SemiProductionData/_ListPartialForLocation.cshtml">
+      <publishTime>01/25/2016 17:08:02</publishTime>
+    </File>
+    <File Include="Areas/RPT/Views/web.config">
+      <publishTime>01/25/2016 17:08:01</publishTime>
+    </File>
+    <File Include="Areas/RPT/Views/WIPDisplay/Detail.cshtml">
+      <publishTime>01/25/2016 17:08:01</publishTime>
+    </File>
+    <File Include="Areas/RPT/Views/WIPDisplay/Index.cshtml">
+      <publishTime>01/25/2016 17:08:01</publishTime>
+    </File>
+    <File Include="Areas/RPT/Views/WIPDisplay/ShowChartImage.cshtml">
+      <publishTime>01/25/2016 17:08:01</publishTime>
+    </File>
+    <File Include="Areas/RPT/Views/WIPDisplay/_DetailListPartial.cshtml">
+      <publishTime>08/05/2016 09:22:06</publishTime>
+    </File>
+    <File Include="Areas/RPT/Views/WIPDisplay/_ListPartial.cshtml">
+      <publishTime>01/25/2016 17:08:01</publishTime>
+    </File>
+    <File Include="Areas/RPT/Views/WIPIVTestData/Index.cshtml">
+      <publishTime>06/10/2017 18:51:53</publishTime>
+    </File>
+    <File Include="Areas/RPT/Views/WIPIVTestData/IvTestForCTM.cshtml">
+      <publishTime>06/10/2017 18:52:18</publishTime>
+    </File>
+    <File Include="Areas/RPT/Views/WIPIVTestData/IvTestJZ.cshtml">
+      <publishTime>06/10/2017 18:52:38</publishTime>
+    </File>
+    <File Include="Areas/RPT/Views/WIPMove/Detail.cshtml">
+      <publishTime>01/25/2016 17:08:01</publishTime>
+    </File>
+    <File Include="Areas/RPT/Views/WIPMove/Index.cshtml">
+      <publishTime>01/25/2016 17:08:01</publishTime>
+    </File>
+    <File Include="Areas/RPT/Views/WIPMove/ShowChartImage.cshtml">
+      <publishTime>01/25/2016 17:08:01</publishTime>
+    </File>
+    <File Include="Areas/RPT/Views/WIPMove/_DetailListPartial.cshtml">
+      <publishTime>01/25/2016 17:08:01</publishTime>
+    </File>
+    <File Include="Areas/RPT/Views/WIPMove/_ListPartial.cshtml">
+      <publishTime>01/25/2016 17:08:01</publishTime>
+    </File>
+    <File Include="Areas/RPT/Views/WIPMoveForStep/Index.cshtml">
+      <publishTime>06/10/2017 18:52:58</publishTime>
+    </File>
+    <File Include="Areas/RPT/Views/WIPMoveForStep/IndexOfWIP.cshtml">
+      <publishTime>06/10/2017 18:53:13</publishTime>
+    </File>
+    <File Include="Areas/RPT/Views/_ViewStart.cshtml">
+      <publishTime>01/25/2016 17:08:01</publishTime>
+    </File>
+    <File Include="Areas/SPC/Views/Shared/_Layout.cshtml">
+      <publishTime>01/25/2016 17:08:02</publishTime>
+    </File>
+    <File Include="Areas/SPC/Views/SPCXBarR/SPC_XBarR.cshtml">
+      <publishTime>01/25/2016 17:08:02</publishTime>
+    </File>
+    <File Include="Areas/SPC/Views/web.config">
+      <publishTime>01/25/2016 17:08:02</publishTime>
+    </File>
+    <File Include="Areas/SPC/Views/_ViewStart.cshtml">
+      <publishTime>01/25/2016 17:08:02</publishTime>
+    </File>
+    <File Include="Areas/WIP/Views/LotBin/Index.cshtml">
+      <publishTime>05/28/2016 15:17:17</publishTime>
+    </File>
+    <File Include="Areas/WIP/Views/LotBin/Query.cshtml">
+      <publishTime>01/25/2016 17:07:59</publishTime>
+    </File>
+    <File Include="Areas/WIP/Views/LotBin/_ListPackageQuery.cshtml">
+      <publishTime>01/25/2016 17:07:59</publishTime>
+    </File>
+    <File Include="Areas/WIP/Views/LotBin/_ListPartial.cshtml">
+      <publishTime>07/26/2017 11:29:00</publishTime>
+    </File>
+    <File Include="Areas/WIP/Views/LotChange/Index.cshtml">
+      <publishTime>01/25/2016 17:07:59</publishTime>
+    </File>
+    <File Include="Areas/WIP/Views/LotCreate/Detail - 复制.cshtml">
+      <publishTime>07/20/2017 16:49:56</publishTime>
+    </File>
+    <File Include="Areas/WIP/Views/LotCreate/Detail.cshtml">
+      <publishTime>07/24/2017 11:35:48</publishTime>
+    </File>
+    <File Include="Areas/WIP/Views/LotCreate/Index - 复制.cshtml">
+      <publishTime>06/26/2016 13:42:06</publishTime>
+    </File>
+    <File Include="Areas/WIP/Views/LotCreate/Index.cshtml">
+      <publishTime>08/23/2017 22:47:17</publishTime>
+    </File>
+    <File Include="Areas/WIP/Views/LotCreate/_ListPartial.cshtml">
+      <publishTime>07/20/2017 14:53:26</publishTime>
+    </File>
+    <File Include="Areas/WIP/Views/LotDefect/Index.cshtml">
+      <publishTime>03/11/2016 12:54:26</publishTime>
+    </File>
+    <File Include="Areas/WIP/Views/LotDefect/Query.cshtml">
+      <publishTime>01/25/2016 17:07:59</publishTime>
+    </File>
+    <File Include="Areas/WIP/Views/LotDefect/_ListPartial.cshtml">
+      <publishTime>01/25/2016 17:07:59</publishTime>
+    </File>
+    <File Include="Areas/WIP/Views/LotHold/Index.cshtml">
+      <publishTime>01/25/2016 17:07:59</publishTime>
+    </File>
+    <File Include="Areas/WIP/Views/LotIVData/Index.cshtml">
+      <publishTime>01/25/2016 17:07:59</publishTime>
+    </File>
+    <File Include="Areas/WIP/Views/LotPackage/Index.cshtml">
+      <publishTime>01/25/2016 17:07:59</publishTime>
+    </File>
+    <File Include="Areas/WIP/Views/LotPackage/_ListPartial.cshtml">
+      <publishTime>01/25/2016 17:07:59</publishTime>
+    </File>
+    <File Include="Areas/WIP/Views/LotPatch/Index.cshtml">
+      <publishTime>01/25/2016 17:08:00</publishTime>
+    </File>
+    <File Include="Areas/WIP/Views/LotPatch/Query.cshtml">
+      <publishTime>01/25/2016 17:08:00</publishTime>
+    </File>
+    <File Include="Areas/WIP/Views/LotPatch/_ListPartial.cshtml">
+      <publishTime>01/25/2016 17:08:00</publishTime>
+    </File>
+    <File Include="Areas/WIP/Views/LotPrint/Index.cshtml">
+      <publishTime>01/25/2016 17:08:00</publishTime>
+    </File>
+    <File Include="Areas/WIP/Views/LotQuery/Detail.cshtml">
+      <publishTime>07/14/2016 15:57:52</publishTime>
+    </File>
+    <File Include="Areas/WIP/Views/LotQuery/ExDetail.cshtml">
+      <publishTime>04/21/2016 10:31:25</publishTime>
+    </File>
+    <File Include="Areas/WIP/Views/LotQuery/Index.cshtml">
+      <publishTime>03/23/2016 11:34:40</publishTime>
+    </File>
+    <File Include="Areas/WIP/Views/LotQuery/LotIndex.cshtml">
+      <publishTime>01/25/2016 17:07:59</publishTime>
+    </File>
+    <File Include="Areas/WIP/Views/LotQuery/_AttributeListPartial.cshtml">
+      <publishTime>01/25/2016 17:07:59</publishTime>
+    </File>
+    <File Include="Areas/WIP/Views/LotQuery/_DefectListPartial.cshtml">
+      <publishTime>01/25/2016 17:07:59</publishTime>
+    </File>
+    <File Include="Areas/WIP/Views/LotQuery/_EquipmentListPartial.cshtml">
+      <publishTime>01/25/2016 17:07:59</publishTime>
+    </File>
+    <File Include="Areas/WIP/Views/LotQuery/_ExAttributeListPartial.cshtml">
+      <publishTime>04/07/2016 13:46:25</publishTime>
+    </File>
+    <File Include="Areas/WIP/Views/LotQuery/_ExDefectListPartial.cshtml">
+      <publishTime>04/04/2016 11:20:14</publishTime>
+    </File>
+    <File Include="Areas/WIP/Views/LotQuery/_ExEquipmentListPartial.cshtml">
+      <publishTime>04/04/2016 13:22:14</publishTime>
+    </File>
+    <File Include="Areas/WIP/Views/LotQuery/_ExJobListPartial.cshtml">
+      <publishTime>04/04/2016 13:12:17</publishTime>
+    </File>
+    <File Include="Areas/WIP/Views/LotQuery/_ExListPartial.cshtml">
+      <publishTime>04/18/2016 15:55:32</publishTime>
+    </File>
+    <File Include="Areas/WIP/Views/LotQuery/_ExMaterialListPartial.cshtml">
+      <publishTime>03/13/2017 15:19:38</publishTime>
+    </File>
+    <File Include="Areas/WIP/Views/LotQuery/_ExParamListPartial.cshtml">
+      <publishTime>04/04/2016 11:13:38</publishTime>
+    </File>
+    <File Include="Areas/WIP/Views/LotQuery/_ExPatchListPartial.cshtml">
+      <publishTime>04/04/2016 12:58:55</publishTime>
+    </File>
+    <File Include="Areas/WIP/Views/LotQuery/_ExScrapListPartial.cshtml">
+      <publishTime>04/04/2016 12:51:25</publishTime>
+    </File>
+    <File Include="Areas/WIP/Views/LotQuery/_ExTransactionListPartial.cshtml">
+      <publishTime>04/18/2016 10:13:44</publishTime>
+    </File>
+    <File Include="Areas/WIP/Views/LotQuery/_JobListPartial.cshtml">
+      <publishTime>01/25/2016 17:07:59</publishTime>
+    </File>
+    <File Include="Areas/WIP/Views/LotQuery/_ListPartial.cshtml">
+      <publishTime>07/28/2016 09:13:33</publishTime>
+    </File>
+    <File Include="Areas/WIP/Views/LotQuery/_LotListPartial.cshtml">
+      <publishTime>01/25/2016 17:07:59</publishTime>
+    </File>
+    <File Include="Areas/WIP/Views/LotQuery/_MaterialListPartial.cshtml">
+      <publishTime>03/13/2017 15:42:07</publishTime>
+    </File>
+    <File Include="Areas/WIP/Views/LotQuery/_ParamListPartial.cshtml">
+      <publishTime>01/25/2016 17:07:59</publishTime>
+    </File>
+    <File Include="Areas/WIP/Views/LotQuery/_PatchListPartial.cshtml">
+      <publishTime>01/25/2016 17:07:59</publishTime>
+    </File>
+    <File Include="Areas/WIP/Views/LotQuery/_ScrapListPartial.cshtml">
+      <publishTime>01/25/2016 17:07:59</publishTime>
+    </File>
+    <File Include="Areas/WIP/Views/LotQuery/_TransactionListPartial.cshtml">
+      <publishTime>01/25/2016 17:07:59</publishTime>
+    </File>
+    <File Include="Areas/WIP/Views/LotRelease/Index.cshtml">
+      <publishTime>01/25/2016 17:07:59</publishTime>
+    </File>
+    <File Include="Areas/WIP/Views/LotRepair/Index.cshtml">
+      <publishTime>01/25/2016 17:07:59</publishTime>
+    </File>
+    <File Include="Areas/WIP/Views/LotRework/Index.cshtml">
+      <publishTime>01/25/2016 17:07:59</publishTime>
+    </File>
+    <File Include="Areas/WIP/Views/LotScrap/Index.cshtml">
+      <publishTime>01/25/2016 17:07:59</publishTime>
+    </File>
+    <File Include="Areas/WIP/Views/LotScrap/Query.cshtml">
+      <publishTime>01/25/2016 17:07:59</publishTime>
+    </File>
+    <File Include="Areas/WIP/Views/LotScrap/_ListPartial.cshtml">
+      <publishTime>01/25/2016 17:07:59</publishTime>
+    </File>
+    <File Include="Areas/WIP/Views/LotTerminal/Index.cshtml">
+      <publishTime>01/25/2016 17:07:59</publishTime>
+    </File>
+    <File Include="Areas/WIP/Views/LotTrack/Index.cshtml">
+      <publishTime>01/21/2017 13:37:54</publishTime>
+    </File>
+    <File Include="Areas/WIP/Views/LotTrack/_MaterialDetailPartial.cshtml">
+      <publishTime>08/02/2016 11:57:13</publishTime>
+    </File>
+    <File Include="Areas/WIP/Views/LotTrack/_ModalContentPartial - 20160730.cshtml">
+      <publishTime>07/30/2016 11:37:23</publishTime>
+    </File>
+    <File Include="Areas/WIP/Views/LotTrack/_ModalContentPartial - backup.cshtml">
+      <publishTime>07/01/2016 12:07:19</publishTime>
+    </File>
+    <File Include="Areas/WIP/Views/LotTrack/_ModalContentPartial - 复制.cshtml">
+      <publishTime>07/01/2016 12:07:19</publishTime>
+    </File>
+    <File Include="Areas/WIP/Views/LotTrack/_ModalContentPartial.cshtml">
+      <publishTime>07/31/2016 09:51:06</publishTime>
+    </File>
+    <File Include="Areas/WIP/Views/LotUndo/Index.cshtml">
+      <publishTime>01/25/2016 17:07:59</publishTime>
+    </File>
+    <File Include="Areas/WIP/Views/LotUndo/UndoIndex.cshtml">
+      <publishTime>01/25/2016 17:07:59</publishTime>
+    </File>
+    <File Include="Areas/WIP/Views/LotUndo/_ListPartial.cshtml">
+      <publishTime>01/25/2016 17:07:59</publishTime>
+    </File>
+    <File Include="Areas/WIP/Views/LotUndo/_UndoListPartial.cshtml">
+      <publishTime>01/25/2016 17:07:59</publishTime>
+    </File>
+    <File Include="Areas/WIP/Views/PackagePrint/Index.cshtml">
+      <publishTime>01/25/2016 17:07:59</publishTime>
+    </File>
+    <File Include="Areas/WIP/Views/PackageRework/Index - 复制.cshtml">
+      <publishTime>02/08/2017 15:38:48</publishTime>
+    </File>
+    <File Include="Areas/WIP/Views/PackageRework/Index.cshtml">
+      <publishTime>02/22/2017 18:15:36</publishTime>
+    </File>
+    <File Include="Areas/WIP/Views/web.config">
+      <publishTime>01/25/2016 17:07:58</publishTime>
+    </File>
+    <File Include="Areas/WIP/Views/_ViewStart.cshtml">
+      <publishTime>01/25/2016 17:07:58</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/CheckDataQuery/Index.cshtml">
+      <publishTime>01/25/2016 17:08:11</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/CheckDataQuery/_ListPartial.cshtml">
+      <publishTime>01/25/2016 17:08:11</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/CleanBin/Index.cshtml">
+      <publishTime>01/25/2016 17:08:11</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/ContrastColor/Index.cshtml">
+      <publishTime>01/25/2016 17:08:10</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/ContrastColor/_ListPartial.cshtml">
+      <publishTime>01/25/2016 17:08:10</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/Decay/Index.cshtml">
+      <publishTime>01/25/2016 17:08:11</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/Decay/_AddPartial.cshtml">
+      <publishTime>01/25/2016 17:08:11</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/Decay/_InfoPartial.cshtml">
+      <publishTime>01/25/2016 17:08:11</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/Decay/_ListPartial.cshtml">
+      <publishTime>01/25/2016 17:08:11</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/Decay/_ModifyPartial.cshtml">
+      <publishTime>01/25/2016 17:08:11</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/Efficiency/Index.cshtml">
+      <publishTime>01/25/2016 17:08:11</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/Efficiency/_AddPartial.cshtml">
+      <publishTime>01/25/2016 17:08:11</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/Efficiency/_InfoPartial.cshtml">
+      <publishTime>01/25/2016 17:08:11</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/Efficiency/_ListPartial.cshtml">
+      <publishTime>01/25/2016 17:08:11</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/Efficiency/_ModifyPartial.cshtml">
+      <publishTime>01/25/2016 17:08:11</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/IVTestDataQuery/Index.cshtml">
+      <publishTime>09/01/2017 10:49:25</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/IVTestDataQuery/JzIndex.cshtml">
+      <publishTime>09/28/2016 14:49:26</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/IVTestDataQuery/_JzListPartial.cshtml">
+      <publishTime>10/14/2016 15:20:30</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/IVTestDataQuery/_ListPartial - 复制.cshtml">
+      <publishTime>09/28/2016 11:47:35</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/IVTestDataQuery/_ListPartial.cshtml">
+      <publishTime>10/14/2016 15:19:09</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/IVTestDataQueryAll/Index.cshtml">
+      <publishTime>09/28/2016 11:43:31</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/IVTestDataQueryAll/JzIndex.cshtml">
+      <publishTime>01/25/2016 17:08:09</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/IVTestDataQueryAll/_ListPartial - 复制.cshtml">
+      <publishTime>09/28/2016 11:39:25</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/IVTestDataQueryAll/_ListPartial.cshtml">
+      <publishTime>10/14/2016 15:21:43</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/IVTestDataQueryForPackage/Index.cshtml">
+      <publishTime>03/24/2017 10:31:16</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/IVTestDataQueryForPackage/IndexPackage.cshtml">
+      <publishTime>01/25/2016 17:08:09</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/IVTestDataQueryForPackage/_ListPartial.cshtml">
+      <publishTime>08/28/2017 17:20:13</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/IVTestDataQueryForPackage/_ListPartialPackage.cshtml">
+      <publishTime>08/28/2017 17:19:21</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/LotOemPackageQuery/Index.cshtml">
+      <publishTime>01/25/2016 17:08:11</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/LotOemPackageQuery/_ListPartial.cshtml">
+      <publishTime>01/25/2016 17:08:11</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/LotPackage/Index.cshtml">
+      <publishTime>05/17/2017 15:04:13</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/LotPackage/_ListPartial.cshtml">
+      <publishTime>02/15/2017 13:23:06</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/LotPackageQuery/Index.cshtml">
+      <publishTime>01/25/2016 17:08:10</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/LotPackageQuery/_ListPartial.cshtml">
+      <publishTime>01/25/2016 17:08:10</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/NameplatePrint/Index.cshtml">
+      <publishTime>01/25/2016 17:08:09</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/PackageNoAddDes/Index.cshtml">
+      <publishTime>09/27/2017 10:50:16</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/PackageNoAddDes/_ListPartial.cshtml">
+      <publishTime>09/27/2017 10:50:39</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/PackageNoAddDes/_ModifyPartial.cshtml">
+      <publishTime>09/27/2017 10:51:17</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/PackageTransaction/DetailPartial.cshtml">
+      <publishTime>01/25/2016 17:08:10</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/PackageTransaction/Index.cshtml">
+      <publishTime>01/25/2016 17:08:10</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/PackageTransaction/_ListPartial.cshtml">
+      <publishTime>09/28/2016 11:22:59</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/PackingListPrint/Index.cshtml">
+      <publishTime>01/25/2016 17:08:11</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/PackingListPrint/PrintAutoPackList.cshtml">
+      <publishTime>01/25/2016 17:08:11</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/PackingListPrint/PrintDeliverPackList.cshtml">
+      <publishTime>06/16/2017 17:37:02</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/PackingListPrintAppoint/Index.cshtml">
+      <publishTime>03/29/2017 17:48:16</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/PackingListPrintAppoint/PrintAutoPackList.cshtml">
+      <publishTime>03/29/2017 16:34:34</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/Powerset/Index.cshtml">
+      <publishTime>01/25/2016 17:08:11</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/Powerset/_AddPartial.cshtml">
+      <publishTime>01/25/2016 17:08:11</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/Powerset/_InfoPartial.cshtml">
+      <publishTime>01/25/2016 17:08:11</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/Powerset/_ListPartial.cshtml">
+      <publishTime>01/25/2016 17:08:11</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/Powerset/_ModifyPartial.cshtml">
+      <publishTime>01/25/2016 17:08:11</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/PowersetDetail/Index.cshtml">
+      <publishTime>01/25/2016 17:08:10</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/PowersetDetail/_AddPartial.cshtml">
+      <publishTime>01/25/2016 17:08:10</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/PowersetDetail/_InfoPartial.cshtml">
+      <publishTime>01/25/2016 17:08:10</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/PowersetDetail/_ListPartial.cshtml">
+      <publishTime>01/25/2016 17:08:10</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/PowersetDetail/_ModifyPartial.cshtml">
+      <publishTime>01/25/2016 17:08:10</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/ProductControlObject/Index.cshtml">
+      <publishTime>08/01/2017 09:42:32</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/ProductControlObject/_AddPartial.cshtml">
+      <publishTime>07/28/2017 10:45:50</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/ProductControlObject/_InfoPartial.cshtml">
+      <publishTime>07/28/2017 10:19:58</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/ProductControlObject/_ListPartial.cshtml">
+      <publishTime>08/03/2017 14:06:31</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/ProductControlObject/_MaterialListPartial.cshtml">
+      <publishTime>01/25/2016 17:08:11</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/ProductControlObject/_ModifyPartial.cshtml">
+      <publishTime>07/28/2017 10:19:46</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/ProductControlObject/_Query.cshtml">
+      <publishTime>08/03/2017 14:05:30</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/Rule/Index.cshtml">
+      <publishTime>01/25/2016 17:08:11</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/Rule/_AddPartial.cshtml">
+      <publishTime>01/25/2016 17:08:11</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/Rule/_InfoPartial.cshtml">
+      <publishTime>01/25/2016 17:08:11</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/Rule/_ListPartial.cshtml">
+      <publishTime>01/25/2016 17:08:11</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/Rule/_ModifyPartial.cshtml">
+      <publishTime>01/25/2016 17:08:11</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/RuleControlObject/Index.cshtml">
+      <publishTime>01/25/2016 17:08:10</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/RuleControlObject/_AddPartial.cshtml">
+      <publishTime>01/25/2016 17:08:10</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/RuleControlObject/_InfoPartial.cshtml">
+      <publishTime>01/25/2016 17:08:10</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/RuleControlObject/_ListPartial.cshtml">
+      <publishTime>01/25/2016 17:08:10</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/RuleControlObject/_ModifyPartial.cshtml">
+      <publishTime>01/25/2016 17:08:10</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/RuleDecay/Index.cshtml">
+      <publishTime>01/25/2016 17:08:12</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/RuleDecay/_AddPartial.cshtml">
+      <publishTime>01/25/2016 17:08:12</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/RuleDecay/_InfoPartial.cshtml">
+      <publishTime>01/25/2016 17:08:12</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/RuleDecay/_ListPartial.cshtml">
+      <publishTime>01/25/2016 17:08:12</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/RuleDecay/_ModifyPartial.cshtml">
+      <publishTime>01/25/2016 17:08:12</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/RuleGrade/Index.cshtml">
+      <publishTime>01/25/2016 17:08:12</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/RuleGrade/_AddPartial.cshtml">
+      <publishTime>01/25/2016 17:08:12</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/RuleGrade/_InfoPartial.cshtml">
+      <publishTime>01/25/2016 17:08:12</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/RuleGrade/_ListPartial.cshtml">
+      <publishTime>01/25/2016 17:08:12</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/RuleGrade/_ModifyPartial.cshtml">
+      <publishTime>01/25/2016 17:08:12</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/RulePrintSet/Index.cshtml">
+      <publishTime>01/25/2016 17:08:10</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/RulePrintSet/_AddPartial.cshtml">
+      <publishTime>01/25/2016 17:08:10</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/RulePrintSet/_InfoPartial.cshtml">
+      <publishTime>01/25/2016 17:08:10</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/RulePrintSet/_ListPartial.cshtml">
+      <publishTime>01/25/2016 17:08:10</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/RulePrintSet/_ModifyPartial.cshtml">
+      <publishTime>01/25/2016 17:08:10</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/VIRTestDataQuery/Index.cshtml">
+      <publishTime>11/30/2016 11:01:55</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/VIRTestDataQuery/_ListPartial - 复制.cshtml">
+      <publishTime>11/30/2016 11:01:55</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/VIRTestDataQuery/_ListPartial.cshtml">
+      <publishTime>11/30/2016 11:01:55</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/web.config">
+      <publishTime>01/25/2016 17:08:09</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/WorkOrderControlObject/Index.cshtml">
+      <publishTime>01/25/2016 17:08:10</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/WorkOrderControlObject/_AddPartial.cshtml">
+      <publishTime>01/25/2016 17:08:10</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/WorkOrderControlObject/_InfoPartial.cshtml">
+      <publishTime>01/25/2016 17:08:10</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/WorkOrderControlObject/_ListPartial.cshtml">
+      <publishTime>01/25/2016 17:08:10</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/WorkOrderControlObject/_ModifyPartial.cshtml">
+      <publishTime>01/25/2016 17:08:10</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/WorkOrderDecay/Index.cshtml">
+      <publishTime>01/25/2016 17:08:09</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/WorkOrderDecay/_AddPartial.cshtml">
+      <publishTime>01/25/2016 17:08:09</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/WorkOrderDecay/_InfoPartial.cshtml">
+      <publishTime>01/25/2016 17:08:09</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/WorkOrderDecay/_ListPartial.cshtml">
+      <publishTime>01/25/2016 17:08:09</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/WorkOrderDecay/_ModifyPartial.cshtml">
+      <publishTime>01/25/2016 17:08:09</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/WorkOrderGrade/Index.cshtml">
+      <publishTime>01/25/2016 17:08:09</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/WorkOrderGrade/_AddPartial.cshtml">
+      <publishTime>01/25/2016 17:08:09</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/WorkOrderGrade/_InfoPartial.cshtml">
+      <publishTime>01/25/2016 17:08:09</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/WorkOrderGrade/_ListPartial.cshtml">
+      <publishTime>01/25/2016 17:08:09</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/WorkOrderGrade/_ModifyPartial.cshtml">
+      <publishTime>01/25/2016 17:08:09</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/WorkOrderPowerset/Index.cshtml">
+      <publishTime>07/31/2017 11:04:26</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/WorkOrderPowerset/_AddPartial.cshtml">
+      <publishTime>07/31/2017 13:34:15</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/WorkOrderPowerset/_InfoPartial.cshtml">
+      <publishTime>01/25/2016 17:08:11</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/WorkOrderPowerset/_ListPartial.cshtml">
+      <publishTime>07/31/2017 13:36:13</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/WorkOrderPowerset/_ModifyPartial - 20170731.cshtml">
+      <publishTime>07/31/2017 11:20:44</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/WorkOrderPowerset/_ModifyPartial.cshtml">
+      <publishTime>07/31/2017 13:35:04</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/WorkOrderPowersetDetail/Index.cshtml">
+      <publishTime>01/25/2016 17:08:10</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/WorkOrderPowersetDetail/_AddPartial.cshtml">
+      <publishTime>01/25/2016 17:08:10</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/WorkOrderPowersetDetail/_InfoPartial.cshtml">
+      <publishTime>01/25/2016 17:08:10</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/WorkOrderPowersetDetail/_ListPartial.cshtml">
+      <publishTime>07/31/2017 13:26:01</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/WorkOrderPowersetDetail/_ModifyPartial.cshtml">
+      <publishTime>01/25/2016 17:08:10</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/WorkOrderPrintSet/Index.cshtml">
+      <publishTime>01/25/2016 17:08:12</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/WorkOrderPrintSet/_AddPartial.cshtml">
+      <publishTime>01/25/2016 17:08:12</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/WorkOrderPrintSet/_InfoPartial.cshtml">
+      <publishTime>01/25/2016 17:08:12</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/WorkOrderPrintSet/_ListPartial.cshtml">
+      <publishTime>01/25/2016 17:08:12</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/WorkOrderPrintSet/_ModifyPartial.cshtml">
+      <publishTime>01/25/2016 17:08:12</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/WorkOrderRule/Index.cshtml">
+      <publishTime>01/25/2016 17:08:10</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/WorkOrderRule/_InfoPartial.cshtml">
+      <publishTime>01/25/2016 17:08:10</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/WorkOrderRule/_ListPartial.cshtml">
+      <publishTime>01/25/2016 17:08:10</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/WorkOrderRule/_ModifyPartial.cshtml">
+      <publishTime>07/10/2016 18:39:39</publishTime>
+    </File>
+    <File Include="Areas/ZPVM/Views/_ViewStart.cshtml">
+      <publishTime>01/25/2016 17:08:11</publishTime>
+    </File>
+    <File Include="bin/Antlr3.Runtime.dll">
+      <publishTime>01/25/2016 17:05:58</publishTime>
+    </File>
+    <File Include="bin/Antlr3.Runtime.pdb">
+      <publishTime>01/25/2016 17:05:58</publishTime>
+    </File>
+    <File Include="bin/en/ServiceCenter.Client.Mvc.resources.dll">
+      <publishTime>10/23/2017 16:38:52</publishTime>
+    </File>
+    <File Include="bin/ICSharpCode.SharpZipLib.dll">
+      <publishTime>01/30/2015 13:33:11</publishTime>
+    </File>
+    <File Include="bin/Iesi.Collections.dll">
+      <publishTime>01/25/2016 17:09:13</publishTime>
+    </File>
+    <File Include="bin/Iesi.Collections.pdb">
+      <publishTime>01/25/2016 17:09:13</publishTime>
+    </File>
+    <File Include="bin/Interop.LabelManager2.dll">
+      <publishTime>01/25/2016 17:09:13</publishTime>
+    </File>
+    <File Include="bin/Labels/Flash report 模板.xls">
+      <publishTime>03/30/2016 09:14:33</publishTime>
+    </File>
+    <File Include="bin/Labels/JNL-0001.Lab">
+      <publishTime>07/17/2017 16:52:14</publishTime>
+    </File>
+    <File Include="bin/Labels/JNP-0001.Lab">
+      <publishTime>01/25/2016 17:08:16</publishTime>
+    </File>
+    <File Include="bin/Labels/JNP-0002.Lab">
+      <publishTime>01/25/2016 17:08:16</publishTime>
+    </File>
+    <File Include="bin/log4net.config">
+      <publishTime>01/25/2016 17:08:18</publishTime>
+    </File>
+    <File Include="bin/log4net.dll">
+      <publishTime>01/25/2016 17:08:23</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Practices.EnterpriseLibrary.Common.dll">
+      <publishTime>01/25/2016 17:09:13</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Practices.EnterpriseLibrary.Data.dll">
+      <publishTime>01/25/2016 17:09:22</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Practices.ServiceLocation.dll">
+      <publishTime>01/25/2016 17:09:13</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Practices.Unity.Configuration.dll">
+      <publishTime>01/25/2016 17:09:23</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Practices.Unity.dll">
+      <publishTime>01/25/2016 17:09:19</publishTime>
+    </File>
+    <File Include="bin/Microsoft.ReportViewer.Common.dll">
+      <publishTime>01/25/2016 17:09:19</publishTime>
+    </File>
+    <File Include="bin/Microsoft.ReportViewer.ProcessingObjectModel.DLL">
+      <publishTime>01/25/2016 17:09:13</publishTime>
+    </File>
+    <File Include="bin/Microsoft.ReportViewer.WebForms.dll">
+      <publishTime>02/16/2016 19:10:06</publishTime>
+    </File>
+    <File Include="bin/Microsoft.SqlServer.Types.dll">
+      <publishTime>01/25/2016 17:09:22</publishTime>
+    </File>
+    <File Include="bin/Microsoft.SqlServer.Types.Resources.dll">
+      <publishTime>01/25/2016 17:09:13</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.Infrastructure.dll">
+      <publishTime>01/25/2016 17:05:46</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>01/25/2016 17:05:43</publishTime>
+    </File>
+    <File Include="bin/NHibernate.dll">
+      <publishTime>01/25/2016 17:09:13</publishTime>
+    </File>
+    <File Include="bin/NHibernate.pdb">
+      <publishTime>01/25/2016 17:09:13</publishTime>
+    </File>
+    <File Include="bin/NPOI.dll">
+      <publishTime>02/22/2015 18:49:17</publishTime>
+    </File>
+    <File Include="bin/NPOI.OOXML.dll">
+      <publishTime>02/22/2015 18:49:23</publishTime>
+    </File>
+    <File Include="bin/NPOI.OpenXml4Net.dll">
+      <publishTime>02/22/2015 18:49:18</publishTime>
+    </File>
+    <File Include="bin/NPOI.OpenXmlFormats.dll">
+      <publishTime>02/22/2015 18:49:21</publishTime>
+    </File>
+    <File Include="bin/RDLC/PackageList.rdlc">
+      <publishTime>01/25/2016 17:07:49</publishTime>
+    </File>
+    <File Include="bin/RDLC/PackageList_DongfangEN.rdlc">
+      <publishTime>02/24/2017 21:20:59</publishTime>
+    </File>
+    <File Include="bin/RDLC/PackageList_DongfangRSMAEN.rdlc">
+      <publishTime>05/16/2017 10:32:57</publishTime>
+    </File>
+    <File Include="bin/RDLC/PackageList_DongfangRSMEN.rdlc">
+      <publishTime>05/08/2017 16:14:47</publishTime>
+    </File>
+    <File Include="bin/RDLC/PackageList_G.rdlc">
+      <publishTime>01/25/2016 17:07:49</publishTime>
+    </File>
+    <File Include="bin/RDLC/PackageList_P.rdlc">
+      <publishTime>01/25/2016 17:07:49</publishTime>
+    </File>
+    <File Include="bin/RDLC/PackageList_PackageNo.rdlc">
+      <publishTime>01/25/2016 17:07:49</publishTime>
+    </File>
+    <File Include="bin/RDLC/PackageList_RSM - 复制.rdlc">
+      <publishTime>05/18/2017 16:40:47</publishTime>
+    </File>
+    <File Include="bin/RDLC/PackageList_RSM.rdlc">
+      <publishTime>05/18/2017 17:12:25</publishTime>
+    </File>
+    <File Include="bin/RDLC/PackageList_SunEN.rdlc">
+      <publishTime>01/25/2016 17:07:49</publishTime>
+    </File>
+    <File Include="bin/RDLC/StInList.rdlc">
+      <publishTime>01/25/2016 17:07:49</publishTime>
+    </File>
+    <File Include="bin/RDLC/XXPackageList.rdlc">
+      <publishTime>08/24/2017 01:08:33</publishTime>
+    </File>
+    <File Include="bin/SanNiuSignal.dll">
+      <publishTime>09/07/2017 10:30:36</publishTime>
+    </File>
+    <File Include="bin/Scripts/bootstrap.js">
+      <publishTime>01/25/2016 17:07:51</publishTime>
+    </File>
+    <File Include="bin/Scripts/bootstrap.min.js">
+      <publishTime>01/25/2016 17:07:51</publishTime>
+    </File>
+    <File Include="bin/Scripts/evol.colorpicker.js">
+      <publishTime>01/25/2016 17:07:51</publishTime>
+    </File>
+    <File Include="bin/Scripts/evol.colorpicker.min.js">
+      <publishTime>01/25/2016 17:07:51</publishTime>
+    </File>
+    <File Include="bin/Scripts/i18n/grid.locale-ar.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="bin/Scripts/i18n/grid.locale-bg.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="bin/Scripts/i18n/grid.locale-bg1251.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="bin/Scripts/i18n/grid.locale-cat.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="bin/Scripts/i18n/grid.locale-cn.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="bin/Scripts/i18n/grid.locale-cs.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="bin/Scripts/i18n/grid.locale-da.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="bin/Scripts/i18n/grid.locale-de.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="bin/Scripts/i18n/grid.locale-dk.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="bin/Scripts/i18n/grid.locale-el.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="bin/Scripts/i18n/grid.locale-en.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="bin/Scripts/i18n/grid.locale-es.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="bin/Scripts/i18n/grid.locale-fa.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="bin/Scripts/i18n/grid.locale-fi.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="bin/Scripts/i18n/grid.locale-fr.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="bin/Scripts/i18n/grid.locale-gl.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="bin/Scripts/i18n/grid.locale-he.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="bin/Scripts/i18n/grid.locale-hr.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="bin/Scripts/i18n/grid.locale-hr1250.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="bin/Scripts/i18n/grid.locale-hu.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="bin/Scripts/i18n/grid.locale-id.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="bin/Scripts/i18n/grid.locale-is.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="bin/Scripts/i18n/grid.locale-it.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="bin/Scripts/i18n/grid.locale-ja.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="bin/Scripts/i18n/grid.locale-kr.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="bin/Scripts/i18n/grid.locale-lt.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="bin/Scripts/i18n/grid.locale-mne.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="bin/Scripts/i18n/grid.locale-nl.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="bin/Scripts/i18n/grid.locale-no.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="bin/Scripts/i18n/grid.locale-pl.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="bin/Scripts/i18n/grid.locale-pt-br.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="bin/Scripts/i18n/grid.locale-pt.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="bin/Scripts/i18n/grid.locale-ro.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="bin/Scripts/i18n/grid.locale-ru.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="bin/Scripts/i18n/grid.locale-sk.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="bin/Scripts/i18n/grid.locale-sr-latin.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="bin/Scripts/i18n/grid.locale-sr.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="bin/Scripts/i18n/grid.locale-sv.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="bin/Scripts/i18n/grid.locale-th.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="bin/Scripts/i18n/grid.locale-tr.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="bin/Scripts/i18n/grid.locale-tw.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="bin/Scripts/i18n/grid.locale-ua.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="bin/Scripts/i18n/grid.locale-vi.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="bin/Scripts/jquery-1.10.2.intellisense.js">
+      <publishTime>01/25/2016 17:07:51</publishTime>
+    </File>
+    <File Include="bin/Scripts/jquery-1.10.2.js">
+      <publishTime>01/25/2016 17:07:51</publishTime>
+    </File>
+    <File Include="bin/Scripts/jquery-1.10.2.min.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="bin/Scripts/jquery-1.10.2.min.map">
+      <publishTime>01/25/2016 17:07:51</publishTime>
+    </File>
+    <File Include="bin/Scripts/jquery-ui-addon-timepicker.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="bin/Scripts/jquery-ui.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="bin/Scripts/jquery-ui.min.js">
+      <publishTime>01/25/2016 17:07:51</publishTime>
+    </File>
+    <File Include="bin/Scripts/jquery.form.js">
+      <publishTime>01/25/2016 17:07:51</publishTime>
+    </File>
+    <File Include="bin/Scripts/jquery.form.min.js">
+      <publishTime>01/25/2016 17:07:51</publishTime>
+    </File>
+    <File Include="bin/Scripts/jquery.jqGrid.js">
+      <publishTime>01/25/2016 17:07:51</publishTime>
+    </File>
+    <File Include="bin/Scripts/jquery.jqGrid.min.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="bin/Scripts/jquery.unobtrusive-ajax.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="bin/Scripts/jquery.unobtrusive-ajax.min.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="bin/Scripts/jquery.validate-vsdoc.js">
+      <publishTime>01/25/2016 17:07:51</publishTime>
+    </File>
+    <File Include="bin/Scripts/jquery.validate.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="bin/Scripts/jquery.validate.min.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="bin/Scripts/jquery.validate.unobtrusive.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="bin/Scripts/jquery.validate.unobtrusive.min.js">
+      <publishTime>01/25/2016 17:07:51</publishTime>
+    </File>
+    <File Include="bin/Scripts/modernizr-2.6.2.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="bin/Scripts/respond.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="bin/Scripts/respond.min.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="bin/Scripts/_references.js">
+      <publishTime>09/27/2017 11:02:55</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.Client.Mvc.dll">
+      <publishTime>10/23/2017 16:38:52</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.Client.Mvc.pdb">
+      <publishTime>10/23/2017 16:38:52</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.Common.dll">
+      <publishTime>01/25/2016 17:08:22</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.Common.pdb">
+      <publishTime>01/25/2016 17:08:22</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Model.BaseData.dll">
+      <publishTime>10/23/2017 16:38:04</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Model.BaseData.pdb">
+      <publishTime>10/23/2017 16:38:04</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Model.EDC.dll">
+      <publishTime>10/23/2017 16:38:04</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Model.EDC.pdb">
+      <publishTime>10/23/2017 16:38:04</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Model.EMS.dll">
+      <publishTime>10/23/2017 16:38:05</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Model.EMS.pdb">
+      <publishTime>10/23/2017 16:38:05</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Model.ERP.dll">
+      <publishTime>10/23/2017 16:38:05</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Model.ERP.pdb">
+      <publishTime>10/23/2017 16:38:05</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Model.FMM.dll">
+      <publishTime>10/23/2017 16:38:46</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Model.FMM.pdb">
+      <publishTime>10/23/2017 16:38:46</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Model.LSM.dll">
+      <publishTime>10/23/2017 16:38:04</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Model.LSM.pdb">
+      <publishTime>10/23/2017 16:38:04</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Model.PPM.dll">
+      <publishTime>10/23/2017 16:38:01</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Model.PPM.pdb">
+      <publishTime>10/23/2017 16:38:01</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Model.QAM.dll">
+      <publishTime>10/23/2017 16:38:01</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Model.QAM.pdb">
+      <publishTime>10/23/2017 16:38:01</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Model.RBAC.dll">
+      <publishTime>10/23/2017 16:38:04</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Model.RBAC.pdb">
+      <publishTime>10/23/2017 16:38:04</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Model.RPT.dll">
+      <publishTime>10/23/2017 16:38:01</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Model.RPT.pdb">
+      <publishTime>10/23/2017 16:38:01</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Model.SPC.dll">
+      <publishTime>10/23/2017 16:38:05</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Model.SPC.pdb">
+      <publishTime>10/23/2017 16:38:05</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Model.WIP.dll">
+      <publishTime>10/23/2017 16:38:04</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Model.WIP.pdb">
+      <publishTime>10/23/2017 16:38:04</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Model.ZPVM.dll">
+      <publishTime>10/23/2017 16:38:04</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Model.ZPVM.pdb">
+      <publishTime>10/23/2017 16:38:04</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.Client.BaseData.dll">
+      <publishTime>10/23/2017 16:38:10</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.Client.BaseData.pdb">
+      <publishTime>10/23/2017 16:38:10</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.Client.COMMON.dll">
+      <publishTime>10/23/2017 16:38:11</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.Client.COMMON.pdb">
+      <publishTime>10/23/2017 16:38:11</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.Client.EDC.dll">
+      <publishTime>10/23/2017 16:38:13</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.Client.EDC.pdb">
+      <publishTime>10/23/2017 16:38:13</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.Client.EMS.dll">
+      <publishTime>10/23/2017 16:38:11</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.Client.EMS.pdb">
+      <publishTime>10/23/2017 16:38:11</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.Client.ERP.dll">
+      <publishTime>10/23/2017 16:38:10</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.Client.ERP.pdb">
+      <publishTime>10/23/2017 16:38:10</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.Client.FMM.dll">
+      <publishTime>10/23/2017 16:38:47</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.Client.FMM.pdb">
+      <publishTime>10/23/2017 16:38:47</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.Client.LSM.dll">
+      <publishTime>10/23/2017 16:38:12</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.Client.LSM.pdb">
+      <publishTime>10/23/2017 16:38:11</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.Client.PPM.dll">
+      <publishTime>10/23/2017 16:38:11</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.Client.PPM.pdb">
+      <publishTime>10/23/2017 16:38:11</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.Client.QAM.dll">
+      <publishTime>10/23/2017 16:38:09</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.Client.QAM.pdb">
+      <publishTime>10/23/2017 16:38:09</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.Client.RBAC.dll">
+      <publishTime>10/23/2017 16:38:10</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.Client.RBAC.pdb">
+      <publishTime>10/23/2017 16:38:10</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.Client.RPT.dll">
+      <publishTime>10/23/2017 16:38:09</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.Client.RPT.pdb">
+      <publishTime>10/23/2017 16:38:09</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.Client.SPC.dll">
+      <publishTime>10/23/2017 16:38:13</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.Client.SPC.pdb">
+      <publishTime>10/23/2017 16:38:13</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.Client.WIP.dll">
+      <publishTime>10/23/2017 16:38:09</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.Client.WIP.pdb">
+      <publishTime>10/23/2017 16:38:09</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.Client.ZPVM.dll">
+      <publishTime>10/23/2017 16:38:09</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.Client.ZPVM.pdb">
+      <publishTime>10/23/2017 16:38:09</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.Contract.BaseData.dll">
+      <publishTime>10/23/2017 16:38:07</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.Contract.BaseData.pdb">
+      <publishTime>10/23/2017 16:38:06</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.Contract.COMMON.dll">
+      <publishTime>10/23/2017 16:38:08</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.Contract.COMMON.pdb">
+      <publishTime>10/23/2017 16:38:08</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.Contract.EDC.dll">
+      <publishTime>10/23/2017 16:38:07</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.Contract.EDC.pdb">
+      <publishTime>10/23/2017 16:38:07</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.Contract.EMS.dll">
+      <publishTime>10/23/2017 16:38:08</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.Contract.EMS.pdb">
+      <publishTime>10/23/2017 16:38:08</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.Contract.ERP.dll">
+      <publishTime>10/23/2017 16:38:08</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.Contract.ERP.pdb">
+      <publishTime>10/23/2017 16:38:08</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.Contract.FMM.dll">
+      <publishTime>10/23/2017 16:38:47</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.Contract.FMM.pdb">
+      <publishTime>10/23/2017 16:38:47</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.Contract.LSM.dll">
+      <publishTime>10/23/2017 16:38:08</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.Contract.LSM.pdb">
+      <publishTime>10/23/2017 16:38:08</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.Contract.PPM.dll">
+      <publishTime>10/23/2017 16:38:07</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.Contract.PPM.pdb">
+      <publishTime>10/23/2017 16:38:07</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.Contract.QAM.dll">
+      <publishTime>10/23/2017 16:38:05</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.Contract.QAM.pdb">
+      <publishTime>10/23/2017 16:38:05</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.Contract.RBAC.dll">
+      <publishTime>10/23/2017 16:38:06</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.Contract.RBAC.pdb">
+      <publishTime>10/23/2017 16:38:06</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.Contract.RPT.dll">
+      <publishTime>10/23/2017 16:38:06</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.Contract.RPT.pdb">
+      <publishTime>10/23/2017 16:38:06</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.Contract.SPC.dll">
+      <publishTime>10/23/2017 16:38:05</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.Contract.SPC.pdb">
+      <publishTime>10/23/2017 16:38:05</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.Contract.WIP.dll">
+      <publishTime>10/23/2017 16:38:07</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.Contract.WIP.pdb">
+      <publishTime>10/23/2017 16:38:07</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.Contract.ZPVM.dll">
+      <publishTime>10/23/2017 16:38:07</publishTime>
+    </File>
+    <File Include="bin/ServiceCenter.MES.Service.Contract.ZPVM.pdb">
+      <publishTime>10/23/2017 16:38:06</publishTime>
+    </File>
+    <File Include="bin/System.Web.Helpers.dll">
+      <publishTime>01/25/2016 17:05:45</publishTime>
+    </File>
+    <File Include="bin/System.Web.Mvc.dll">
+      <publishTime>01/25/2016 17:05:59</publishTime>
+    </File>
+    <File Include="bin/System.Web.Optimization.dll">
+      <publishTime>01/25/2016 17:06:01</publishTime>
+    </File>
+    <File Include="bin/System.Web.Razor.dll">
+      <publishTime>01/25/2016 17:05:45</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Deployment.dll">
+      <publishTime>01/25/2016 17:05:45</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.dll">
+      <publishTime>01/25/2016 17:05:45</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Razor.dll">
+      <publishTime>01/25/2016 17:05:45</publishTime>
+    </File>
+    <File Include="bin/WebGrease.dll">
+      <publishTime>01/25/2016 17:05:56</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.Helpers.resources.dll">
+      <publishTime>01/25/2016 17:05:45</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.Mvc.resources.dll">
+      <publishTime>01/25/2016 17:05:59</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.Optimization.resources.dll">
+      <publishTime>01/25/2016 17:06:01</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.Razor.resources.dll">
+      <publishTime>01/25/2016 17:05:45</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.WebPages.Deployment.resources.dll">
+      <publishTime>01/25/2016 17:05:45</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.WebPages.Razor.resources.dll">
+      <publishTime>01/25/2016 17:05:45</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.WebPages.resources.dll">
+      <publishTime>01/25/2016 17:05:45</publishTime>
+    </File>
+    <File Include="Content/blueimp-gallery.min.css">
+      <publishTime>01/25/2016 17:08:17</publishTime>
+    </File>
+    <File Include="Content/bootstrap-image-gallery.css">
+      <publishTime>01/25/2016 17:08:17</publishTime>
+    </File>
+    <File Include="Content/bootstrap-image-gallery.min.css">
+      <publishTime>01/25/2016 17:08:17</publishTime>
+    </File>
+    <File Include="Content/bootstrap.css">
+      <publishTime>12/28/2016 19:48:57</publishTime>
+    </File>
+    <File Include="Content/bootstrap.min.css">
+      <publishTime>01/25/2016 17:08:17</publishTime>
+    </File>
+    <File Include="Content/evol.colorpicker.css">
+      <publishTime>01/25/2016 17:08:17</publishTime>
+    </File>
+    <File Include="Content/evol.colorpicker.min.css">
+      <publishTime>01/25/2016 17:08:17</publishTime>
+    </File>
+    <File Include="Content/images/10.png">
+      <publishTime>01/25/2016 17:08:17</publishTime>
+    </File>
+    <File Include="Content/images/20.png">
+      <publishTime>01/25/2016 17:08:17</publishTime>
+    </File>
+    <File Include="Content/images/30.png">
+      <publishTime>01/25/2016 17:08:17</publishTime>
+    </File>
+    <File Include="Content/images/loading.gif">
+      <publishTime>01/25/2016 17:08:17</publishTime>
+    </File>
+    <File Include="Content/images/ui-bg_diagonals-small_40_db4865_40x40.png">
+      <publishTime>01/25/2016 17:08:17</publishTime>
+    </File>
+    <File Include="Content/images/ui-bg_diagonals-small_50_93c3cd_40x40.png">
+      <publishTime>01/25/2016 17:08:17</publishTime>
+    </File>
+    <File Include="Content/images/ui-bg_diagonals-small_50_ff3853_40x40.png">
+      <publishTime>01/25/2016 17:08:17</publishTime>
+    </File>
+    <File Include="Content/images/ui-bg_diagonals-small_75_ccd232_40x40.png">
+      <publishTime>01/25/2016 17:08:17</publishTime>
+    </File>
+    <File Include="Content/images/ui-bg_dots-medium_80_ffff38_4x4.png">
+      <publishTime>01/25/2016 17:08:17</publishTime>
+    </File>
+    <File Include="Content/images/ui-bg_dots-small_35_35414f_2x2.png">
+      <publishTime>01/25/2016 17:08:17</publishTime>
+    </File>
+    <File Include="Content/images/ui-bg_flat_75_ba9217_40x100.png">
+      <publishTime>01/25/2016 17:08:17</publishTime>
+    </File>
+    <File Include="Content/images/ui-bg_flat_75_ffffff_40x100.png">
+      <publishTime>01/25/2016 17:08:17</publishTime>
+    </File>
+    <File Include="Content/images/ui-bg_white-lines_85_f7f7ba_40x100.png">
+      <publishTime>01/25/2016 17:08:17</publishTime>
+    </File>
+    <File Include="Content/images/ui-icons_454545_256x240.png">
+      <publishTime>01/25/2016 17:08:17</publishTime>
+    </File>
+    <File Include="Content/images/ui-icons_88a206_256x240.png">
+      <publishTime>01/25/2016 17:08:17</publishTime>
+    </File>
+    <File Include="Content/images/ui-icons_c02669_256x240.png">
+      <publishTime>01/25/2016 17:08:17</publishTime>
+    </File>
+    <File Include="Content/images/ui-icons_e1e463_256x240.png">
+      <publishTime>01/25/2016 17:08:17</publishTime>
+    </File>
+    <File Include="Content/images/ui-icons_ffeb33_256x240.png">
+      <publishTime>01/25/2016 17:08:17</publishTime>
+    </File>
+    <File Include="Content/images/ui-icons_ffffff_256x240.png">
+      <publishTime>01/25/2016 17:08:17</publishTime>
+    </File>
+    <File Include="Content/jquery-ui.css">
+      <publishTime>01/25/2016 17:08:17</publishTime>
+    </File>
+    <File Include="Content/jquery-ui.min.css">
+      <publishTime>01/25/2016 17:08:17</publishTime>
+    </File>
+    <File Include="Content/jquery.multiselect.css">
+      <publishTime>01/25/2016 17:08:17</publishTime>
+    </File>
+    <File Include="Content/Site.css">
+      <publishTime>01/25/2016 17:08:17</publishTime>
+    </File>
+    <File Include="Content/ui.jqgrid.css">
+      <publishTime>01/25/2016 17:08:17</publishTime>
+    </File>
+    <File Include="favicon.ico">
+      <publishTime>01/25/2016 17:08:14</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.eot">
+      <publishTime>01/25/2016 17:07:51</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.svg">
+      <publishTime>01/25/2016 17:07:51</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.ttf">
+      <publishTime>01/25/2016 17:07:51</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.woff">
+      <publishTime>01/25/2016 17:07:51</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>01/25/2016 17:07:51</publishTime>
+    </File>
+    <File Include="Labels/Flash report 模板.xls">
+      <publishTime>03/30/2016 09:14:33</publishTime>
+    </File>
+    <File Include="Labels/JCL-dongfang.Lab">
+      <publishTime>02/22/2017 19:42:20</publishTime>
+    </File>
+    <File Include="Labels/JCL-dongfangrisheng.Lab">
+      <publishTime>02/23/2017 14:54:49</publishTime>
+    </File>
+    <File Include="Labels/JNL-0001.bak">
+      <publishTime>06/17/2016 09:36:20</publishTime>
+    </File>
+    <File Include="Labels/JNL-0001.Lab">
+      <publishTime>07/17/2017 16:52:14</publishTime>
+    </File>
+    <File Include="Labels/JNL-0002.bak">
+      <publishTime>01/25/2016 17:08:16</publishTime>
+    </File>
+    <File Include="Labels/JNL-0002.Lab">
+      <publishTime>01/25/2016 17:08:16</publishTime>
+    </File>
+    <File Include="Labels/JNP-0001.bak">
+      <publishTime>01/25/2016 17:08:16</publishTime>
+    </File>
+    <File Include="Labels/JNP-0001.Lab">
+      <publishTime>01/25/2016 17:08:16</publishTime>
+    </File>
+    <File Include="Labels/JNP-0002.bak">
+      <publishTime>01/25/2016 17:08:16</publishTime>
+    </File>
+    <File Include="Labels/JNP-0002.Lab">
+      <publishTime>01/25/2016 17:08:16</publishTime>
+    </File>
+    <File Include="Labels/JNP-0004.bak">
+      <publishTime>01/25/2016 17:08:16</publishTime>
+    </File>
+    <File Include="Labels/JNP-0004.Lab">
+      <publishTime>01/25/2016 17:08:16</publishTime>
+    </File>
+    <File Include="log4net.config">
+      <publishTime>01/25/2016 17:08:18</publishTime>
+    </File>
+    <File Include="logo.png">
+      <publishTime>01/25/2016 17:07:48</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>01/25/2016 17:07:48</publishTime>
+    </File>
+    <File Include="RDLC/PackageList.rdlc">
+      <publishTime>01/25/2016 17:07:49</publishTime>
+    </File>
+    <File Include="RDLC/PackageListDataSet.xsc">
+      <publishTime>01/25/2016 17:07:49</publishTime>
+    </File>
+    <File Include="RDLC/PackageListDataSet.xss">
+      <publishTime>04/29/2016 08:46:31</publishTime>
+    </File>
+    <File Include="RDLC/PackageList_DongfangEN.rdlc">
+      <publishTime>02/24/2017 21:20:59</publishTime>
+    </File>
+    <File Include="RDLC/PackageList_DongfangRSMAEN.rdlc">
+      <publishTime>05/16/2017 10:32:57</publishTime>
+    </File>
+    <File Include="RDLC/PackageList_DongfangRSMEN.rdlc">
+      <publishTime>05/08/2017 16:14:47</publishTime>
+    </File>
+    <File Include="RDLC/PackageList_G.rdlc">
+      <publishTime>01/25/2016 17:07:49</publishTime>
+    </File>
+    <File Include="RDLC/PackageList_P.rdlc">
+      <publishTime>01/25/2016 17:07:49</publishTime>
+    </File>
+    <File Include="RDLC/PackageList_PackageNo.rdlc">
+      <publishTime>01/25/2016 17:07:49</publishTime>
+    </File>
+    <File Include="RDLC/PackageList_RSM - 复制.rdlc">
+      <publishTime>05/18/2017 16:40:47</publishTime>
+    </File>
+    <File Include="RDLC/PackageList_RSM.rdlc">
+      <publishTime>05/18/2017 17:12:25</publishTime>
+    </File>
+    <File Include="RDLC/PackageList_SunEN.rdlc">
+      <publishTime>01/25/2016 17:07:49</publishTime>
+    </File>
+    <File Include="RDLC/StInList.rdlc">
+      <publishTime>01/25/2016 17:07:49</publishTime>
+    </File>
+    <File Include="RDLC/XXPackageList.rdlc">
+      <publishTime>08/24/2017 01:08:33</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap-image-gallery.js">
+      <publishTime>01/25/2016 17:07:51</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap-image-gallery.min.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.js">
+      <publishTime>01/25/2016 17:07:51</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.min.js">
+      <publishTime>01/25/2016 17:07:51</publishTime>
+    </File>
+    <File Include="Scripts/evol.colorpicker.js">
+      <publishTime>01/25/2016 17:07:51</publishTime>
+    </File>
+    <File Include="Scripts/evol.colorpicker.min.js">
+      <publishTime>01/25/2016 17:07:51</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-4.0.3/highcharts.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-4.0.3/modules/exporting.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-5.0.12/code/modules/exporting.js">
+      <publishTime>05/24/2017 09:13:56</publishTime>
+    </File>
+    <File Include="Scripts/Highstock-2.1.5/highstock.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="Scripts/Highstock-2.1.5/modules/exporting.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="Scripts/Highstock-5.0.12/code/highstock.js">
+      <publishTime>05/24/2017 09:13:56</publishTime>
+    </File>
+    <File Include="Scripts/i18n/grid.locale-ar.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="Scripts/i18n/grid.locale-bg.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="Scripts/i18n/grid.locale-bg1251.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="Scripts/i18n/grid.locale-cat.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="Scripts/i18n/grid.locale-cn.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="Scripts/i18n/grid.locale-cs.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="Scripts/i18n/grid.locale-da.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="Scripts/i18n/grid.locale-de.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="Scripts/i18n/grid.locale-dk.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="Scripts/i18n/grid.locale-el.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="Scripts/i18n/grid.locale-en.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="Scripts/i18n/grid.locale-es.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="Scripts/i18n/grid.locale-fa.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="Scripts/i18n/grid.locale-fi.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="Scripts/i18n/grid.locale-fr.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="Scripts/i18n/grid.locale-gl.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="Scripts/i18n/grid.locale-he.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="Scripts/i18n/grid.locale-hr.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="Scripts/i18n/grid.locale-hr1250.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="Scripts/i18n/grid.locale-hu.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="Scripts/i18n/grid.locale-id.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="Scripts/i18n/grid.locale-is.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="Scripts/i18n/grid.locale-it.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="Scripts/i18n/grid.locale-ja.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="Scripts/i18n/grid.locale-kr.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="Scripts/i18n/grid.locale-lt.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="Scripts/i18n/grid.locale-mne.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="Scripts/i18n/grid.locale-nl.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="Scripts/i18n/grid.locale-no.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="Scripts/i18n/grid.locale-pl.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="Scripts/i18n/grid.locale-pt-br.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="Scripts/i18n/grid.locale-pt.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="Scripts/i18n/grid.locale-ro.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="Scripts/i18n/grid.locale-ru.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="Scripts/i18n/grid.locale-sk.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="Scripts/i18n/grid.locale-sr-latin.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="Scripts/i18n/grid.locale-sr.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="Scripts/i18n/grid.locale-sv.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="Scripts/i18n/grid.locale-th.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="Scripts/i18n/grid.locale-tr.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="Scripts/i18n/grid.locale-tw.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="Scripts/i18n/grid.locale-ua.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="Scripts/i18n/grid.locale-vi.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.10.2.js">
+      <publishTime>01/25/2016 17:07:51</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.10.2.min.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.10.2.min.map">
+      <publishTime>01/25/2016 17:07:51</publishTime>
+    </File>
+    <File Include="Scripts/jquery-ui-addon-timepicker.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="Scripts/jquery-ui.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="Scripts/jquery-ui.min.js">
+      <publishTime>01/25/2016 17:07:51</publishTime>
+    </File>
+    <File Include="Scripts/jquery.blueimp-gallery.min.js">
+      <publishTime>01/25/2016 17:07:51</publishTime>
+    </File>
+    <File Include="Scripts/jquery.form.js">
+      <publishTime>01/25/2016 17:07:51</publishTime>
+    </File>
+    <File Include="Scripts/jquery.form.min.js">
+      <publishTime>01/25/2016 17:07:51</publishTime>
+    </File>
+    <File Include="Scripts/jquery.jqGrid.js">
+      <publishTime>01/25/2016 17:07:51</publishTime>
+    </File>
+    <File Include="Scripts/jquery.jqGrid.min.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="Scripts/jquery.multiselect.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="Scripts/jquery.unobtrusive-ajax.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="Scripts/jquery.unobtrusive-ajax.min.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.min.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.unobtrusive.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.unobtrusive.min.js">
+      <publishTime>01/25/2016 17:07:51</publishTime>
+    </File>
+    <File Include="Scripts/modernizr-2.6.2.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="Scripts/respond.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="Scripts/respond.min.js">
+      <publishTime>01/25/2016 17:07:50</publishTime>
+    </File>
+    <File Include="Scripts/_references.js">
+      <publishTime>09/27/2017 11:02:55</publishTime>
+    </File>
+    <File Include="Views/Account/Login.cshtml">
+      <publishTime>01/25/2016 17:08:14</publishTime>
+    </File>
+    <File Include="Views/Account/ModifyInfo.cshtml">
+      <publishTime>01/25/2016 17:08:14</publishTime>
+    </File>
+    <File Include="Views/Account/ModifyPassword.cshtml">
+      <publishTime>01/25/2016 17:08:14</publishTime>
+    </File>
+    <File Include="Views/Account/Register.cshtml">
+      <publishTime>01/25/2016 17:08:14</publishTime>
+    </File>
+    <File Include="Views/Home/About.cshtml">
+      <publishTime>01/25/2016 17:08:14</publishTime>
+    </File>
+    <File Include="Views/Home/Contact.cshtml">
+      <publishTime>06/20/2016 11:39:42</publishTime>
+    </File>
+    <File Include="Views/Home/Index.cshtml">
+      <publishTime>08/03/2016 13:24:25</publishTime>
+    </File>
+    <File Include="Views/Shared/Error.cshtml">
+      <publishTime>01/25/2016 17:08:13</publishTime>
+    </File>
+    <File Include="Views/Shared/Unauthorized.cshtml">
+      <publishTime>01/25/2016 17:08:13</publishTime>
+    </File>
+    <File Include="Views/Shared/_Layout.cshtml">
+      <publishTime>01/25/2016 17:08:13</publishTime>
+    </File>
+    <File Include="Views/Shared/_LoginPartial.cshtml">
+      <publishTime>01/25/2016 17:08:13</publishTime>
+    </File>
+    <File Include="Views/Shared/_MenuPartial.cshtml">
+      <publishTime>01/25/2016 17:08:13</publishTime>
+    </File>
+    <File Include="Views/Shared/_PaginationPartial.cshtml">
+      <publishTime>01/25/2016 17:08:13</publishTime>
+    </File>
+    <File Include="Views/Web.config">
+      <publishTime>01/25/2016 17:08:13</publishTime>
+    </File>
+    <File Include="Views/_ViewStart.cshtml">
+      <publishTime>01/25/2016 17:08:13</publishTime>
+    </File>
+    <File Include="Web References/JC.JNMES.ProdLine/Reference.map">
+      <publishTime>10/28/2015 14:06:06</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>10/23/2017 16:38:54</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

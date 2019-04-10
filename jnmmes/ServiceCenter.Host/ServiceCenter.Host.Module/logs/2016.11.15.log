@@ -1,0 +1,74 @@
+2016-11-15 11:43:28,116 - ERROR - START>Application
+2016-11-15 11:44:38,132 - ERROR - Could not execute query: select count(*) as col_0_0_ from FMM_EQUIPMENT_PRG_RULE equipmentc0_ where equipmentc0_.EQUIPMENT_CODE='10.0.12.131'
+System.Data.SqlClient.SqlException (0x80131904): 对象名 'FMM_EQUIPMENT_PRG_RULE' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 223
+ClientConnectionId:967999aa-41be-475a-95f3-b71253748c26
+Error Number:208,State:1,Class:16
+2016-11-15 11:44:38,249 - ERROR - 对象名 'FMM_EQUIPMENT_PRG_RULE' 无效。
+2016-11-15 11:44:38,330 - ERROR - 对象名 'FMM_EQUIPMENT_PRG_RULE' 无效。
+2016-11-15 11:44:38,331 - ERROR - 对象名 'FMM_EQUIPMENT_PRG_RULE' 无效。
+2016-11-15 11:45:05,154 - ERROR - Could not execute query: select count(*) as col_0_0_ from FMM_EQUIPMENT_PRG_RULE equipmentc0_ where equipmentc0_.EQUIPMENT_CODE='MATST-IVT02'
+System.Data.SqlClient.SqlException (0x80131904): 对象名 'FMM_EQUIPMENT_PRG_RULE' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 223
+ClientConnectionId:967999aa-41be-475a-95f3-b71253748c26
+Error Number:208,State:1,Class:16
+2016-11-15 11:45:05,234 - ERROR - 对象名 'FMM_EQUIPMENT_PRG_RULE' 无效。
+2016-11-15 11:45:05,311 - ERROR - 对象名 'FMM_EQUIPMENT_PRG_RULE' 无效。
+2016-11-15 11:45:05,311 - ERROR - 对象名 'FMM_EQUIPMENT_PRG_RULE' 无效。
+2016-11-15 11:45:13,657 - ERROR - Could not execute query: select count(*) as col_0_0_ from FMM_EQUIPMENT_PRG_RULE equipmentc0_ where (equipmentc0_.EQUIPMENT_CODE = @p0 and equipmentc0_.CONTROL_OBJ = @p1 and equipmentc0_.CONTROL_TYPE = @p2)
+System.Data.SqlClient.SqlException (0x80131904): 对象名 'FMM_EQUIPMENT_PRG_RULE' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 223
+ClientConnectionId:967999aa-41be-475a-95f3-b71253748c26
+Error Number:208,State:1,Class:16
+2016-11-15 11:45:13,729 - ERROR - 对象名 'FMM_EQUIPMENT_PRG_RULE' 无效。
+2016-11-15 11:45:13,806 - ERROR - 对象名 'FMM_EQUIPMENT_PRG_RULE' 无效。
+2016-11-15 11:45:13,806 - ERROR - 对象名 'FMM_EQUIPMENT_PRG_RULE' 无效。
+2016-11-15 11:47:00,756 - ERROR - Could not execute query: select count(*) as col_0_0_ from FMM_EQUIPMENT_PRG_RULE equipmentc0_ where (equipmentc0_.EQUIPMENT_CODE = @p0 and equipmentc0_.CONTROL_OBJ = @p1 and equipmentc0_.CONTROL_TYPE = @p2)
+System.Data.SqlClient.SqlException (0x80131904): 对象名 'FMM_EQUIPMENT_PRG_RULE' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd) 位置 p:\nhibernate-core\src\NHibernate\AdoNet\AbstractBatcher.cs:行号 223
+ClientConnectionId:967999aa-41be-475a-95f3-b71253748c26
+Error Number:208,State:1,Class:16
+2016-11-15 11:47:00,836 - ERROR - 对象名 'FMM_EQUIPMENT_PRG_RULE' 无效。
+2016-11-15 11:47:00,906 - ERROR - 对象名 'FMM_EQUIPMENT_PRG_RULE' 无效。
+2016-11-15 11:47:00,906 - ERROR - 对象名 'FMM_EQUIPMENT_PRG_RULE' 无效。
+2016-11-15 11:50:51,804 - ERROR - START>Application
